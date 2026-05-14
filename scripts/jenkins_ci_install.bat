@@ -1,12 +1,17 @@
 @echo off
 setlocal EnableExtensions
+if "%~1"=="" (
+  echo ERROR: %~nx0 requires workspace root as first argument.
+  exit /b 1
+)
 cd /d "%~1"
 echo === SAFE DISK CLEANUP PRE ===
-call scripts\safe_disk_cleanup.bat PRE "%CD%"
+REM %~dp0 = directory of this .bat (...\repo\scripts\) — works even if PATH/CWD is wrong.
+call "%~dp0safe_disk_cleanup.bat" PRE "%CD%"
 
 REM Use the same Python 3.11–3.13 resolution as other Jenkins scripts. Bare "python" may hit
 REM a broken install (e.g. Python 3.14 preview with corrupted pip on PATH).
-call scripts\jenkins_resolve_python.bat
+call "%~dp0jenkins_resolve_python.bat"
 if errorlevel 1 (
   echo ERROR: jenkins_resolve_python.bat failed — install Python 3.12/3.13 or set PYTHON_EXE_OVERRIDE.
   echo 1> install_failed.flag
