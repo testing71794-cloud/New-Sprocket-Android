@@ -132,6 +132,22 @@ goto :adb_wait_device_loop
 :adb_wait_device_done
 
 echo.>> "%LOG_FILE%"
+echo [INFO] Verifying app package is installed on device %DEVICE_ID%: %APP_ID%>> "%LOG_FILE%"
+set "_PM_PATH_OUT="
+for /f "delims=" %%L in ('adb -s "%DEVICE_ID%" shell pm path "%APP_ID%" 2^>^&1') do if not defined _PM_PATH_OUT set "_PM_PATH_OUT=%%L"
+echo [INFO] adb shell pm path output: !_PM_PATH_OUT!>> "%LOG_FILE%"
+echo !_PM_PATH_OUT! | findstr /i "package:" >nul 2>&1
+if errorlevel 1 (
+    echo ERROR: App package not installed on device %DEVICE_ID%: %APP_ID%>> "%LOG_FILE%"
+    echo ERROR: adb shell pm path must return a line starting with package:/>> "%LOG_FILE%"
+    echo ERROR: Install the APK on this phone, then re-run. Jenkins does not install the app.>> "%LOG_FILE%"
+    set "RUN_EXIT=23"
+    set "STATUS_VALUE=FAIL"
+    set "REASON=APP_NOT_INSTALLED"
+    goto :write_result
+)
+
+echo.>> "%LOG_FILE%"
 echo [INFO] Device %DEVICE_ID% - checking autofill service>> "%LOG_FILE%"
 for /f "delims=" %%A in ('adb -s "%DEVICE_ID%" shell settings get secure autofill_service 2^>^&1') do (
     if not defined ORIG_AUTOFILL_SERVICE_RESULT set "ORIG_AUTOFILL_SERVICE_RESULT=%%A"
@@ -159,6 +175,9 @@ if /I "%CLEAR_STATE%"=="true" (
     adb -s "%DEVICE_ID%" shell pm clear "%APP_ID%" >> "%LOG_FILE%" 2>&1
     echo Clear-state exit code: !errorlevel!>> "%LOG_FILE%"
 )
+
+echo [INFO] Waking device display ^(KEYCODE_WAKEUP=224^) before Maestro...>> "%LOG_FILE%"
+adb -s "%DEVICE_ID%" shell input keyevent 224 >> "%LOG_FILE%" 2>&1
 
 set "SIGNUP_RETRY_USED=0"
 if /I not "%FLOW_NAME%"=="flow1b" goto :run_maestro_default

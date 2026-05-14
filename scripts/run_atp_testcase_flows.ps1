@@ -88,6 +88,35 @@ function Read-DetectedFileSerials([string]$R) {
     return $serialList.ToArray()
 }
 
+function Get-AtpFlowLogPath {
+    param(
+        [string]$RepoRoot,
+        [string]$SuiteId,
+        [string]$FlowFullPath,
+        [string]$DeviceId
+    )
+    $flowName = [System.IO.Path]::GetFileNameWithoutExtension($FlowFullPath) -replace ' ', '_'
+    $safeDev = $DeviceId -replace ' ', '_'
+    return (Join-Path $RepoRoot ("reports\" + $SuiteId + "\logs\" + $flowName + "_" + $safeDev + ".log"))
+}
+
+function Write-AtpLogTail {
+    param(
+        [string]$LogPath,
+        [int]$Lines = 40
+    )
+    if (-not (Test-Path -LiteralPath $LogPath)) {
+        Write-Host "  [log] (no file) $LogPath"
+        return
+    }
+    Write-Host "  [log] $LogPath (last $Lines lines):"
+    try {
+        Get-Content -LiteralPath $LogPath -Tail $Lines -ErrorAction Stop | ForEach-Object { Write-Host "    $_" }
+    } catch {
+        Write-Host "  [log] could not read tail: $($_.Exception.Message)"
+    }
+}
+
 function Merge-AndPickDevices {
     param([string]$RepoRoot)
     $authorized = [array](Get-AuthorizedSerialsFromAdb)
@@ -271,6 +300,8 @@ foreach ($flow in $flowFiles) {
         if ($ex -ne 0) {
             $overallFailed = $true
             Write-Host "  [FAIL] exit=$ex device=$dev flow=$flowBase"
+            $logPath = Get-AtpFlowLogPath -RepoRoot $RepoRoot -SuiteId $suiteId -FlowFullPath $flow.FullName -DeviceId $dev
+            Write-AtpLogTail -LogPath $logPath -Lines 45
             Write-Host "  [hint] If Maestro said 'Flow file does not exist', fix runFlow paths from ATP subfolders (use ../../flows/ or ../../elements/ to reach repo root)."
         } else {
             Write-Host "  [OK] exit=$ex device=$dev"
