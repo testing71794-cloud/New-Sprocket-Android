@@ -20,17 +20,27 @@ def normalizeOpenRouterCredsId = { Object raw ->
 // Bind Jenkins Secret text → OPENROUTER_API_KEY for Python / Maestro (optional).
 def withOpenRouterCredentials = { Object credsId, Closure action ->
     def id = normalizeOpenRouterCredsId(credsId)
-    if (id) {
-        try {
-            withCredentials([string(credentialsId: id, variable: 'OPENROUTER_API_KEY')]) {
-                action()
-            }
-        } catch (Exception ex) {
-            echo "[WARN] OpenRouter credential '${id}' missing/invalid. Continuing without AI key: ${ex.message}"
+    if (!id) {
+        action()
+        return
+    }
+    try {
+        withCredentials([string(credentialsId: id, variable: 'OPENROUTER_API_KEY')]) {
             action()
         }
-    } else {
-        action()
+    } catch (hudson.AbortException ex) {
+        // Do not confuse Maestro/ATP step failures with missing OpenRouter credentials.
+        throw ex
+    } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException ex) {
+        throw ex
+    } catch (Exception ex) {
+        def msg = ex.message ?: ex.getClass().name
+        if (msg.contains('Could not find credentials') || msg.toLowerCase().contains('credential') && msg.toLowerCase().contains('not found')) {
+            echo "[WARN] OpenRouter credential '${id}' not found in Jenkins. Continuing without AI key: ${msg}"
+            action()
+        } else {
+            throw ex
+        }
     }
 }
 
@@ -160,11 +170,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Camera "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -176,11 +184,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Collage "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -192,11 +198,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Connection "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -208,11 +212,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Editing "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -224,11 +226,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Onboarding "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -240,11 +240,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Precut "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -256,11 +254,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Printing "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -272,11 +268,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all Settings "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
@@ -288,11 +282,9 @@ pipeline {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
-                        withOpenRouterCredentials(params.OPENROUTER_CREDENTIALS_ID) {
-                            withEnv(maestroEnvList()) {
+                        withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all SignUp_Login "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
-                        }
                     }
                 }
             }
