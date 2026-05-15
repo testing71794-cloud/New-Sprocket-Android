@@ -70,6 +70,8 @@ Details: `execution\README.md`. (Email helper lives in `mailout\` so Python’s 
 
 Use the root `Jenkinsfile` (Pipeline from SCM). Parameters include `DEVICES_AGENT`, `APP_PACKAGE`, `MAESTRO_HOME`, `OPENROUTER_CREDENTIALS_ID`, and run toggles.
 
+**Hybrid GCP + Windows (opt-in):** `Jenkinsfile.hybrid.gcp-windows` — Maestro on Windows USB agent; report/zip/archive on GCP. See `docs/DISTRIBUTED_GCP_WINDOWS_ARCHITECTURE.md`.
+
 More detail: `README_PRODUCTION_SETUP.md`, `docs/PIPELINE_EXECUTION_AND_EMAIL.md`.
 
 ## Layout

@@ -5,6 +5,7 @@ if "%~1"=="" (
   exit /b 1
 )
 cd /d "%~1"
+if defined JENKINS_WORKLOAD_PROFILE echo [workload] profile=%JENKINS_WORKLOAD_PROFILE%
 echo === SAFE DISK CLEANUP PRE ===
 REM Run sibling .bats from the scripts directory (avoids broken quoting when repo path has spaces).
 pushd "%~dp0"
