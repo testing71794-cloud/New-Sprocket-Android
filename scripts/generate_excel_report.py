@@ -173,19 +173,44 @@ def _log_path(row: dict) -> str:
     return ""
 
 
+def _suite_keys_equivalent(stored: str, suite_key: str, suite_label: str = "") -> bool:
+    """Match status id (atp_precut), folder label (Precut), or short name (precut)."""
+    s = (stored or "").strip().lower()
+    sk = (suite_key or "").strip().lower()
+    sl = (suite_label or "").strip().lower()
+    if not s:
+        return True
+    if sk and s == sk:
+        return True
+    if sl and s == sl:
+        return True
+    if sk.startswith("atp_") and s == sk[4:]:
+        return True
+    if sl and sk == f"atp_{sl}":
+        return True
+    return False
+
+
 def load_results(status_dir: Path, suite_name: str) -> list[dict]:
     if not status_dir.exists():
         return []
-    results = []
-    for file_path in sorted(status_dir.glob("*.txt")):
+    # Keep newest status file per (suite, flow, device) — avoids duplicate Excel rows after re-runs.
+    by_key: dict[tuple[str, str, str], tuple[float, dict]] = {}
+    for file_path in status_dir.glob("*.txt"):
         row = parse_status_file(file_path)
         row_suite = (row.get("suite") or "").strip().lower()
         if suite_name and row_suite and row_suite != suite_name.lower():
             continue
         if row.get("status") == "RUNNING":
             continue
-        results.append(row)
-    return results
+        flow = (row.get("flow") or "").strip()
+        dev = _device_id(row)
+        key = (row_suite or suite_name.lower(), flow, dev)
+        mtime = file_path.stat().st_mtime
+        prev = by_key.get(key)
+        if prev is None or mtime >= prev[0]:
+            by_key[key] = (mtime, row)
+    return [pair[1] for pair in sorted(by_key.values(), key=lambda x: (x[1].get("flow", ""), x[1].get("device", "")))]
 
 
 def _rows_to_raw_dicts(
@@ -275,11 +300,15 @@ def _autosize(ws, mx: int = 55) -> None:
 
 
 def _merge_build_summary(
-    suite_key: str, new_rows: list[dict], build_summary: Path
+    suite_key: str,
+    new_rows: list[dict],
+    build_summary: Path,
+    suite_label: str = "",
 ) -> None:
     build_summary.mkdir(parents=True, exist_ok=True)
     final = build_summary / "final_execution_report.xlsx"
-    by_suites: dict[str, list[dict]] = {suite_key.lower(): new_rows}
+    sk = suite_key.strip().lower()
+    by_suites: dict[str, list[dict]] = {sk: new_rows}
     if final.is_file():
         try:
             wb_o = load_workbook(final)
@@ -290,11 +319,12 @@ def _merge_build_summary(
                     d: dict = {}
                     for ci, name in enumerate(h, start=1):
                         d[name] = ws.cell(r, ci).value
-                    su = str(d.get("Suite") or "").strip().lower()
-                    if not su or su == suite_key.lower():
+                    su = str(d.get("Suite") or "").strip()
+                    if _suite_keys_equivalent(su, sk, suite_label):
                         continue
-                    if su not in by_suites:
-                        by_suites[su] = []
+                    su_l = su.lower()
+                    if su_l not in by_suites:
+                        by_suites[su_l] = []
                     rowd: dict = {c: d.get(c, "") for c in COLS}
                     if (not str(rowd.get("AI Analyses", "")).strip()) and str(
                         rowd.get("AI Failure Summary", "")
@@ -504,7 +534,7 @@ def main() -> int:
     write_csv(output_dir / "failed_results.csv", results, only_status="FAIL")
     write_csv(output_dir / "passed_results.csv", results, only_status="PASS")
     (REPO / "build-summary").mkdir(parents=True, exist_ok=True)
-    _merge_build_summary(suite_name, raw, REPO / "build-summary")
+    _merge_build_summary(suite_name, raw, REPO / "build-summary", suite_label)
     print(f"Report: {output_dir / 'summary.xlsx'} | merged: build-summary/final_execution_report.xlsx | rows={len(raw)}")
     return 0
 

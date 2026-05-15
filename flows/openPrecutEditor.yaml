@@ -1,0 +1,42 @@
+appId: com.kodaksmile
+name: Open Pre-Cut editor (shared)
+---
+# Navigate to Pre-Cuts tab and dismiss intro popup when shown.
+- runFlow:
+    when:
+      visible: ${output.editor.precutsTab}
+    commands:
+      - tapOn: ${output.editor.precutsTab}
+      - waitForAnimationToEnd
+      - tapOn:
+          point: "20%,60%"
+      - waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Pre-Cuts"
+    commands:
+      - tapOn: "Pre-Cuts"
+      - waitForAnimationToEnd
+      - tapOn:
+          point: "20%,60%"
+      - waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: "Pre-Cut Stickers"
+    commands:
+      - runFlow:
+          when:
+            visible: "Kodak 2x3 Pre-Cut Sticker Paper"
+          commands:
+            - tapOn: "Kodak 2x3 Pre-Cut Sticker Paper"
+            - waitForAnimationToEnd
+            - back
+            - waitForAnimationToEnd
+      - tapOn: "OK"
+      - waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "CREATE PRE-CUT"
+    timeout: 20000
