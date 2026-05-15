@@ -51,12 +51,51 @@ if errorlevel 1 (
 
 "%PYTHON_EXE%" -m pip install --upgrade pip || (echo 1> install_failed.flag & exit /b 1)
 "%PYTHON_EXE%" -m pip install -r scripts/requirements-python.txt || (echo 1> install_failed.flag & exit /b 1)
-if exist package.json (
-  call npm ci || call npm install || (echo 1> install_failed.flag & exit /b 1)
-)
+
+REM npm is optional on the devices agent (Maestro ATP uses Python only). Fail only when
+REM JENKINS_REQUIRE_NPM=1 or npm is on PATH but install fails.
+if /I "%JENKINS_SKIP_NPM%"=="1" goto :skip_npm_root
+if /I "%SKIP_NPM_INSTALL%"=="1" goto :skip_npm_root
+call :maybe_npm_install "%~1" package.json
+if errorlevel 1 exit /b 1
+:skip_npm_root
+if /I "%JENKINS_SKIP_NPM%"=="1" goto :skip_npm_ai_doctor
+if /I "%SKIP_NPM_INSTALL%"=="1" goto :skip_npm_ai_doctor
 if exist ai-doctor\package.json (
-  cd ai-doctor
-  call npm ci || call npm install || (echo 1> ..\install_failed.flag & exit /b 1)
-  cd ..
+  pushd ai-doctor
+  call :maybe_npm_install "%~1" package.json
+  if errorlevel 1 (
+    popd
+    exit /b 1
+  )
+  popd
 )
+:skip_npm_ai_doctor
 if not exist build-summary mkdir build-summary
+endlocal
+exit /b 0
+
+:maybe_npm_install
+REM %1 = workspace root (for install_failed.flag), %2 = package.json path relative to cwd
+set "WS_ROOT=%~1"
+if not exist "%~2" exit /b 0
+where npm >nul 2>&1
+if errorlevel 1 (
+  if /I "%JENKINS_REQUIRE_NPM%"=="1" (
+    echo ERROR: npm required ^(JENKINS_REQUIRE_NPM=1^) but not on PATH. Install Node.js LTS on this agent.
+    echo 1> "%WS_ROOT%\install_failed.flag"
+    exit /b 1
+  )
+  echo [install] WARN: npm not on PATH — skipping Node install for %~2 ^(Maestro ATP does not need it^).
+  echo [install] WARN: Set JENKINS_REQUIRE_NPM=1 to fail when npm is missing.
+  exit /b 0
+)
+echo [install] npm install in %CD% ^(%~2^)...
+call npm ci
+if errorlevel 1 call npm install
+if errorlevel 1 (
+  echo ERROR: npm ci / npm install failed in %CD%
+  echo 1> "%WS_ROOT%\install_failed.flag"
+  exit /b 1
+)
+exit /b 0
