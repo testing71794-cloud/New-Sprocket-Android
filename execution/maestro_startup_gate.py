@@ -2,7 +2,7 @@
 """
 Serialize Maestro AndroidDriver session initialization across devices on one host.
 
-Holds a global lock only until the per-flow log shows a stable session (e.g. 'Running on <serial>').
+Holds a global lock only until the per-flow log shows a stable session (e.g. '> Flow').
 Full YAML execution continues in parallel after the lock is released.
 """
 from __future__ import annotations
@@ -16,6 +16,8 @@ from pathlib import Path
 from typing import Any
 
 _startup_lock = threading.Lock()
+_owned_child_pids: set[int] = set()
+_owned_pids_lock = threading.Lock()
 
 
 def startup_gate_enabled() -> bool:
@@ -51,13 +53,38 @@ def startup_max_retries() -> int:
         return 2
 
 
+def startup_retry_backoff_sec(attempt: int) -> float:
+    """Backoff before retry (attempt is 1-based retry index, >=2)."""
+    try:
+        base = float((os.environ.get("ATP_MAESTRO_STARTUP_RETRY_BACKOFF_SEC") or "3").strip())
+    except ValueError:
+        base = 3.0
+    return min(base * max(1, attempt - 1), 20.0)
+
+
 def planned_driver_port(launch_index: int) -> int:
-    """Deterministic host port plan (7001 + index). CLI flag used only if ATP_MAESTRO_DRIVER_PORTS=1."""
+    """Deterministic host port plan (7001 + index). Passed to Maestro global --driver-host-port."""
     try:
         base = int((os.environ.get("ATP_MAESTRO_DRIVER_PORT_BASE") or "7001").strip())
     except ValueError:
         base = 7001
     return base + max(0, launch_index)
+
+
+def register_owned_child_pid(pid: int) -> None:
+    if pid > 0:
+        with _owned_pids_lock:
+            _owned_child_pids.add(pid)
+
+
+def unregister_owned_child_pid(pid: int) -> None:
+    with _owned_pids_lock:
+        _owned_child_pids.discard(pid)
+
+
+def is_owned_child_pid(pid: int) -> bool:
+    with _owned_pids_lock:
+        return pid in _owned_child_pids
 
 
 def _adb_exe() -> str | None:
@@ -75,6 +102,133 @@ def _adb_exe() -> str | None:
             return str(exe)
     found = shutil.which("adb")
     return found
+
+
+def list_adb_forwards(*, device_id: str | None = None) -> str:
+    exe = _adb_exe()
+    if not exe:
+        return ""
+    cmd = [exe, "forward", "--list"]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
+        text = ((proc.stdout or "") + (proc.stderr or "")).strip()
+        if device_id:
+            lines = [ln for ln in text.splitlines() if device_id in ln]
+            return "\n".join(lines) if lines else "(none for device)"
+        return text or "(empty)"
+    except (OSError, subprocess.TimeoutExpired) as e:
+        return f"(error: {e})"
+
+
+def log_adb_forwards(device_id: str, phase: str) -> None:
+    listing = list_adb_forwards(device_id=device_id)
+    global_list = list_adb_forwards()
+    print(
+        f"[ATP] adb_forward_list phase={phase} device={device_id}\n"
+        f"  device_forwards={listing!r}\n"
+        f"  all_forwards={global_list[:2000]!r}",
+        flush=True,
+    )
+
+
+def clear_device_adb_forwards(device_id: str) -> tuple[bool, str]:
+    exe = _adb_exe()
+    if not exe:
+        return False, "adb_not_found"
+    try:
+        proc = subprocess.run(
+            [exe, "-s", device_id, "forward", "--remove-all"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+        detail = ((proc.stdout or "") + (proc.stderr or "")).strip()[:500]
+        ok = proc.returncode == 0
+        return ok, detail or f"rc={proc.returncode}"
+    except (OSError, subprocess.TimeoutExpired) as e:
+        return False, str(e)
+
+
+def wait_for_host_port_free(port: int, *, timeout_sec: float | None = None) -> bool:
+    """Wait until localhost:port is not LISTENING (Windows netstat)."""
+    if port <= 0:
+        return True
+    timeout = timeout_sec if timeout_sec is not None else float(
+        os.environ.get("ATP_MAESTRO_PORT_FREE_WAIT_SEC", "45")
+    )
+    deadline = time.monotonic() + timeout
+    port_token = f":{port}"
+    while time.monotonic() < deadline:
+        if os.name == "nt":
+            try:
+                proc = subprocess.run(
+                    ["netstat", "-ano"],
+                    capture_output=True,
+                    text=True,
+                    timeout=20,
+                    check=False,
+                )
+                busy = False
+                for line in (proc.stdout or "").splitlines():
+                    if port_token in line and "LISTENING" in line.upper():
+                        busy = True
+                        break
+                if not busy:
+                    return True
+            except (OSError, subprocess.TimeoutExpired):
+                return True
+        else:
+            return True
+        time.sleep(1.0)
+    return False
+
+
+def _find_maestro_java_pids_for_device(device_id: str) -> list[int]:
+    if os.name != "nt":
+        return []
+    dev = device_id.replace("'", "''")
+    ps = (
+        f"$d='{dev}'; "
+        "Get-CimInstance Win32_Process -Filter \"Name='java.exe'\" | "
+        "Where-Object { $_.CommandLine -and ($_.CommandLine -match 'maestro\\.cli\\.AppKt') "
+        "-and ($_.CommandLine -match [regex]::Escape($d)) } | "
+        "ForEach-Object { [int]$_.ProcessId }"
+    )
+    try:
+        proc = subprocess.run(
+            ["powershell", "-NoProfile", "-NonInteractive", "-Command", ps],
+            capture_output=True,
+            text=True,
+            timeout=25,
+            check=False,
+        )
+        pids: list[int] = []
+        for line in (proc.stdout or "").splitlines():
+            line = line.strip()
+            if line.isdigit():
+                pids.append(int(line))
+        return pids
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+
+
+def cleanup_orphan_maestro_java(
+    device_id: str,
+    *,
+    keep_pids: set[int] | None = None,
+) -> list[int]:
+    """Kill Maestro java.exe for this device serial only; never touches unrelated java/adb."""
+    keep = keep_pids or set()
+    killed: list[int] = []
+    for pid in _find_maestro_java_pids_for_device(device_id):
+        if pid in keep:
+            continue
+        terminate_process_tree(pid)
+        unregister_owned_child_pid(pid)
+        killed.append(pid)
+        print(f"[ATP] orphan_java_killed device={device_id} pid={pid}", flush=True)
+    return killed
 
 
 def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool:
@@ -124,26 +278,38 @@ def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool
         return False
 
 
-def _read_log_tail(log_path: Path, max_lines: int = 80) -> str:
+def _log_byte_offset(log_path: Path) -> int:
+    try:
+        return log_path.stat().st_size if log_path.is_file() else 0
+    except OSError:
+        return 0
+
+
+def _read_log_since(log_path: Path, start_offset: int, max_bytes: int = 65536) -> str:
     if not log_path.is_file():
         return ""
     try:
-        lines = log_path.read_text(encoding="utf-8", errors="replace").splitlines()
-        return "\n".join(lines[-max_lines:])
+        size = log_path.stat().st_size
+        if size <= start_offset:
+            return ""
+        with log_path.open("rb") as f:
+            f.seek(start_offset)
+            chunk = f.read(max_bytes)
+        return chunk.decode("utf-8", errors="replace")
     except OSError:
         return ""
 
 
-def _startup_failed_in_log(tail: str) -> str | None:
-    if not tail:
+def _startup_failed_in_log(text: str) -> str | None:
+    if not text:
         return None
-    if "TcpForwarder.waitFor" in tail or "allocateForwarder" in tail:
+    if "TcpForwarder.waitFor" in text or "allocateForwarder" in text:
         return "tcp_forwarder"
-    if "TimeoutException" in tail and "tcpForward" in tail:
+    if "TimeoutException" in text and "tcpForward" in text:
         return "tcp_forward_timeout"
-    if "Unknown options:" in tail and "driver-host-port" in tail:
+    if "Unknown options:" in text and "driver-host-port" in text:
         return "unsupported_driver_port_flag"
-    if "SHGetKnownFolderPath" in tail or "AppDirsException" in tail:
+    if "SHGetKnownFolderPath" in text or "AppDirsException" in text:
         return "app_dirs"
     return None
 
@@ -152,28 +318,29 @@ def wait_for_maestro_session_ready(
     *,
     log_path: Path,
     device_id: str,
+    log_start_offset: int = 0,
     timeout_sec: float | None = None,
+    driver_port: int | None = None,
 ) -> tuple[bool, str]:
     """
-    Poll per-flow Maestro log until session is ready or startup fails.
-    Returns (ready, reason).
+    Poll per-flow Maestro log (only bytes written after log_start_offset) until session ready.
+    Prefers '> Flow' over 'Running on' to ensure driver IPC is established.
     """
     timeout = timeout_sec if timeout_sec is not None else startup_ready_timeout_sec()
     deadline = time.monotonic() + timeout
     device_re = re.compile(rf"Running on\s+{re.escape(device_id)}\b", re.I)
+    flow_re = re.compile(r">\s*Flow\s+", re.I)
     while time.monotonic() < deadline:
-        tail = _read_log_tail(log_path, 100)
-        fail = _startup_failed_in_log(tail)
+        chunk = _read_log_since(log_path, log_start_offset)
+        fail = _startup_failed_in_log(chunk)
         if fail:
             return False, fail
-        if device_re.search(tail) or (
-            "> Flow " in tail and device_id in tail
-        ):
-            return True, "running_on"
-        if "Running on" in tail and device_id in tail:
-            return True, "running_on"
-        if "> Flow " in tail and "Launch app" in tail:
-            return True, "flow_started"
+        if flow_re.search(chunk):
+            return True, "flow_marker"
+        if device_re.search(chunk):
+            # Accept Running on only after half timeout if > Flow never appears (slow devices)
+            if time.monotonic() > deadline - (timeout * 0.5):
+                return True, "running_on"
         time.sleep(1.0)
     return False, "ready_timeout"
 
@@ -196,28 +363,56 @@ def terminate_process_tree(pid: int) -> None:
         pass
 
 
+def prepare_device_for_maestro_startup(
+    device_id: str,
+    *,
+    driver_port: int | None,
+    suite_id: str,
+    repo: Path,
+) -> None:
+    """ADB + port hygiene while holding startup lock (before Maestro subprocess)."""
+    log_adb_forwards(device_id, "pre_startup")
+    ok, detail = clear_device_adb_forwards(device_id)
+    print(
+        f"[ATP] adb_forward_cleanup device={device_id} ok={ok} detail={detail!r}",
+        flush=True,
+    )
+    if driver_port:
+        port_free = wait_for_host_port_free(driver_port)
+        print(
+            f"[ATP] host_port_check device={device_id} port={driver_port} free={port_free}",
+            flush=True,
+        )
+    cleanup_orphan_maestro_java(device_id, keep_pids=set())
+    log_adb_forwards(device_id, "post_cleanup")
+
+
 def cleanup_after_startup_failure(
     device_id: str,
     *,
     repo: Path,
     suite_id: str,
     child_pid: int | None = None,
+    driver_port: int | None = None,
 ) -> None:
-    """Best-effort cleanup after failed Maestro session startup (forwards + child tree)."""
-    exe = _adb_exe()
-    if exe:
-        try:
-            subprocess.run(
-                [exe, "-s", device_id, "forward", "--remove-all"],
-                capture_output=True,
-                text=True,
-                timeout=30,
-                check=False,
-            )
-        except (OSError, subprocess.TimeoutExpired):
-            pass
-    if child_pid:
+    """Best-effort cleanup after failed Maestro session startup (forwards + owned child tree)."""
+    if child_pid and is_owned_child_pid(child_pid):
         terminate_process_tree(child_pid)
+        unregister_owned_child_pid(child_pid)
+    elif child_pid:
+        print(
+            f"[ATP] startup_cleanup_skip_pid device={device_id} pid={child_pid} reason=not_owned",
+            flush=True,
+        )
+    log_adb_forwards(device_id, "startup_failure")
+    ok, detail = clear_device_adb_forwards(device_id)
+    print(
+        f"[ATP] adb_forward_cleanup device={device_id} phase=startup_failure ok={ok} detail={detail!r}",
+        flush=True,
+    )
+    if driver_port:
+        wait_for_host_port_free(driver_port, timeout_sec=15.0)
+    cleanup_orphan_maestro_java(device_id, keep_pids={child_pid} if child_pid else set())
     print(f"[ATP] startup_cleanup_done device={device_id} child_pid={child_pid or 0}", flush=True)
 
 
@@ -255,9 +450,21 @@ class MaestroStartupGate:
         )
         _startup_lock.acquire()
         self._acquired = True
+        prepare_device_for_maestro_startup(
+            self.device_id,
+            driver_port=self.driver_port,
+            suite_id=self.suite_id,
+            repo=self.repo,
+        )
         return self
 
-    def release_after_session_ready(self, *, log_path: Path, child_pid: int) -> tuple[bool, str]:
+    def release_after_session_ready(
+        self,
+        *,
+        log_path: Path,
+        child_pid: int,
+        log_start_offset: int = 0,
+    ) -> tuple[bool, str]:
         """
         Wait for log-ready while holding lock, apply stabilization delay, then release lock.
         Child process continues running (parallel YAML execution).
@@ -269,18 +476,23 @@ class MaestroStartupGate:
             ready, reason = wait_for_maestro_session_ready(
                 log_path=log_path,
                 device_id=self.device_id,
+                log_start_offset=log_start_offset,
+                driver_port=self.driver_port,
             )
             wait_sec = time.time() - t0
             if not ready:
                 print(
                     f"[ATP] startup_ready_fail device={self.device_id} flow={self.flow_name} "
-                    f"reason={reason} wait_sec={wait_sec:.1f} child_pid={child_pid}",
+                    f"reason={reason} wait_sec={wait_sec:.1f} child_pid={child_pid} "
+                    f"log_offset={log_start_offset}",
                     flush=True,
                 )
                 return False, reason
+            log_adb_forwards(self.device_id, "startup_ready")
             print(
                 f"[ATP] startup_ready_ok device={self.device_id} flow={self.flow_name} "
-                f"reason={reason} wait_sec={wait_sec:.1f} child_pid={child_pid}",
+                f"reason={reason} wait_sec={wait_sec:.1f} child_pid={child_pid} "
+                f"driver_port={self.driver_port}",
                 flush=True,
             )
             delay = parallel_startup_delay_sec()
@@ -291,7 +503,7 @@ class MaestroStartupGate:
                     flush=True,
                 )
                 time.sleep(delay)
-            held = (time.time() - (self._t_acquire or time.time()))
+            held = time.time() - (self._t_acquire or time.time())
             print(
                 f"[ATP] startup_lock_release device={self.device_id} flow={self.flow_name} "
                 f"held_sec={held:.1f}",

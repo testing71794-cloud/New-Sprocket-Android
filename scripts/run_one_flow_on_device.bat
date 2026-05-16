@@ -343,6 +343,9 @@ for /f %%t in ('python -c "import time; print(int(time.time()*1000))" 2^>nul') d
 if not defined FLOW_START_MS set "FLOW_START_MS=0"
 echo [TIMING] flow_start_ms=!FLOW_START_MS!>> "%LOG_FILE%"
 
+if defined ATP_MAESTRO_DRIVER_PORT (
+  echo [INFO] Maestro driver host port=!ATP_MAESTRO_DRIVER_PORT! ^(parallel isolation^)>> "%LOG_FILE%"
+)
 call :run_maestro_isolated
 set "RUN_EXIT=%ERRORLEVEL%"
 if "!RUN_EXIT!"=="0" goto :maestro_default_pass

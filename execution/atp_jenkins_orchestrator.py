@@ -38,8 +38,10 @@ from .maestro_runner import (
     WorkerState,
     _status_file_path,
     log_lifecycle,
+    maestro_driver_ports_active,
     post_run_validate,
     pre_maestro_cleanup,
+    probe_maestro_driver_port_cli,
     resolve_maestro_launcher,
     run_run_one_flow_device_bat,
 )
@@ -395,6 +397,7 @@ def _execute_flow_on_device(
             clear_state=clear_state,
             maestro_launcher=maestro_launch,
             launch_index=launch_index,
+            device_count=len(devices),
         )
     finally:
         lease.release()
@@ -745,9 +748,18 @@ def run_atp_folder_blocking(
             "status/<suite>__<flow>__<device>.txt maestro-debug/<flow>__<device>/",
             flush=True,
         )
+        ports_on = maestro_driver_ports_active(len(devices))
+        ports_cli = probe_maestro_driver_port_cli()
         print(
             "[ATP] maestro_startup_gate=1 (ATP_MAESTRO_STARTUP_GATE; serializes driver init only) "
             f"MAESTRO_PARALLEL_STARTUP_DELAY_SEC={os.environ.get('MAESTRO_PARALLEL_STARTUP_DELAY_SEC', '5')}",
+            flush=True,
+        )
+        print(
+            f"[ATP] maestro_driver_ports active={1 if ports_on else 0} "
+            f"(ATP_MAESTRO_DRIVER_PORTS=auto|1|0; cli_supported={1 if ports_cli else 0}; "
+            f"base={os.environ.get('ATP_MAESTRO_DRIVER_PORT_BASE', '7001')}; "
+            f"device0=7001 device1=7002 ...)",
             flush=True,
         )
 

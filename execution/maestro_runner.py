@@ -21,12 +21,19 @@ from typing import Any
 from .flow_timing import append_timing, read_status_fields
 from .maestro_startup_gate import (
     MaestroStartupGate,
+    _log_byte_offset,
     cleanup_after_startup_failure,
+    clear_device_adb_forwards,
     planned_driver_port,
+    register_owned_child_pid,
     startup_gate_enabled,
     startup_max_retries,
+    startup_retry_backoff_sec,
+    unregister_owned_child_pid,
     validate_device_health,
 )
+
+_driver_port_cli_supported: bool | None = None
 
 _lifecycle_log_lock = threading.Lock()
 
@@ -309,15 +316,47 @@ def flow_device_log_path(repo: Path, suite_id: str, flow_path: Path, device_id: 
     return repo / "reports" / suite_id / "logs" / f"{flow_name}_{safe_dev}.log"
 
 
-def _maestro_driver_host_port(launch_index: int) -> int | None:
+def probe_maestro_driver_port_cli() -> bool:
+    """Maestro global --driver-host-port (before subcommand) is required for parallel same-host runs."""
+    global _driver_port_cli_supported
+    if _driver_port_cli_supported is not None:
+        return _driver_port_cli_supported
+    try:
+        prefix = build_maestro_java_cmd_prefix()
+        proc = subprocess.run(
+            prefix + ["--driver-host-port", "7099", "--help"],
+            capture_output=True,
+            text=True,
+            timeout=45,
+            check=False,
+        )
+        combined = (proc.stdout or "") + (proc.stderr or "")
+        _driver_port_cli_supported = "Unknown option" not in combined and "Unknown options" not in combined
+    except (OSError, subprocess.TimeoutExpired):
+        _driver_port_cli_supported = False
+    return _driver_port_cli_supported
+
+
+def maestro_driver_ports_active(device_count: int = 1) -> bool:
     """
-    Distinct Android driver host ports per parallel launch (avoids default localhost:7001 clashes).
-    Set ATP_MAESTRO_DRIVER_PORTS=1 to pass --driver-host-port (requires Maestro CLI support).
-    Planned port is always 7001+index for logging either way.
+    auto (default): enable per-device ports when 2+ devices and CLI supports --driver-host-port.
+    1/on: force enable; 0/off: disable (localhost:7001 for all — not safe for parallel).
     """
+    raw = (os.environ.get("ATP_MAESTRO_DRIVER_PORTS") or "auto").strip().lower()
+    if raw in ("0", "false", "no", "off"):
+        return False
+    if raw in ("1", "true", "yes", "on"):
+        return probe_maestro_driver_port_cli()
+    if device_count <= 1:
+        return False
+    return probe_maestro_driver_port_cli()
+
+
+def _maestro_driver_host_port(launch_index: int, device_count: int = 1) -> int | None:
+    """Distinct Android driver host ports per device index (7001 + index)."""
     if not _parallel_maestro_isolation_enabled():
         return None
-    if os.environ.get("ATP_MAESTRO_DRIVER_PORTS", "0").strip().lower() in ("0", "false", "no", "off"):
+    if not maestro_driver_ports_active(device_count):
         return None
     explicit = (os.environ.get("ATP_MAESTRO_DRIVER_PORT") or "").strip()
     if explicit:
@@ -325,11 +364,7 @@ def _maestro_driver_host_port(launch_index: int) -> int | None:
             return int(explicit)
         except ValueError:
             return None
-    try:
-        base = int((os.environ.get("ATP_MAESTRO_DRIVER_PORT_BASE") or "7010").strip())
-    except ValueError:
-        base = 7010
-    return base + max(0, launch_index)
+    return planned_driver_port(launch_index)
 
 
 def _windows_popen_creationflags() -> int:
@@ -439,6 +474,7 @@ def _apply_parallel_maestro_env(
     flow_path: Path,
     device_id: str,
     launch_index: int,
+    device_count: int = 1,
 ) -> dict[str, str | int | None]:
     """Per-device subprocess env so parallel Maestro runs do not share driver port / temp / adb serial."""
     meta: dict[str, str | int | None] = {
@@ -484,12 +520,13 @@ def _apply_parallel_maestro_env(
 
     port_plan = planned_driver_port(launch_index)
     meta["driver_port_plan"] = port_plan
-    port = _maestro_driver_host_port(launch_index)
+    port = _maestro_driver_host_port(launch_index, device_count)
     if port is not None:
         env["ATP_MAESTRO_DRIVER_PORT"] = str(port)
         meta["driver_port"] = port
     else:
         meta["driver_port"] = None
+        env.pop("ATP_MAESTRO_DRIVER_PORT", None)
 
     debug_root = (repo / "reports" / suite_id / "maestro-debug").resolve()
     debug_dir = debug_root / f"{flow_path.stem}__{slug}"
@@ -510,6 +547,7 @@ def run_run_one_flow_device_bat(
     maestro_launcher: Path,
     include_tag: str = "__EMPTY__",
     launch_index: int = 0,
+    device_count: int = 1,
 ) -> int:
     """
     Blocking invocation of scripts/run_one_flow_on_device.bat (preserves reports/status/csv layout).
@@ -525,6 +563,7 @@ def run_run_one_flow_device_bat(
         flow_path=flow_path,
         device_id=device_id,
         launch_index=launch_index,
+        device_count=device_count,
     )
     # Ensure child cmd sees the same Maestro/Java discovery as Jenkins (set_maestro_java.bat still runs inside bat).
     timeout_sec = int(os.environ.get("ATP_FLOW_TIMEOUT_SEC", str(4 * 3600)))
@@ -575,17 +614,18 @@ def run_run_one_flow_device_bat(
 
     max_attempts = startup_max_retries() + 1 if startup_gate_enabled() else 1
     code = 1
+    driver_port_int = int(port_plan) if port_plan is not None else None
     for attempt in range(1, max_attempts + 1):
         if attempt > 1:
             print(
                 f"[ATP] startup_retry device={device_id} flow={flow_path.stem} "
-                f"attempt={attempt}/{max_attempts}",
+                f"attempt={attempt}/{max_attempts} backoff_sec={startup_retry_backoff_sec(attempt):.1f}",
                 flush=True,
             )
+            time.sleep(startup_retry_backoff_sec(attempt))
         if not validate_device_health(device_id, suite_id=suite_id, repo=repo):
             code = 22
             if attempt < max_attempts:
-                time.sleep(2.0)
                 continue
             break
 
@@ -595,16 +635,20 @@ def run_run_one_flow_device_bat(
             suite_id=suite_id,
             repo=repo,
             launch_index=launch_index,
-            driver_port=int(port_plan) if port_plan is not None else None,
+            driver_port=driver_port_int,
         )
         tree_thread: threading.Thread | None = None
         child: subprocess.Popen[Any] | None = None
+        startup_succeeded = False
+        startup_failure_cleaned = False
+        log_start_offset = _log_byte_offset(log_path)
         try:
             with gate:
                 child = subprocess.Popen(cmd, **popen_kw)
+                register_owned_child_pid(child.pid)
                 print(
                     f"[ATP] maestro_subprocess_child device={device_id} flow={flow_path.stem} "
-                    f"cmd_child_pid={child.pid} startup_attempt={attempt}",
+                    f"cmd_child_pid={child.pid} startup_attempt={attempt} log_offset={log_start_offset}",
                     flush=True,
                 )
                 if os.environ.get("ATP_MAESTRO_LOG_PROCESS_TREE", "1").strip().lower() not in (
@@ -625,22 +669,29 @@ def run_run_one_flow_device_bat(
                     ready, reason = gate.release_after_session_ready(
                         log_path=log_path,
                         child_pid=child.pid,
+                        log_start_offset=log_start_offset,
                     )
                     if not ready:
+                        print(
+                            f"[ATP] startup_retry_root_cause device={device_id} reason={reason}",
+                            flush=True,
+                        )
                         cleanup_after_startup_failure(
                             device_id,
                             repo=repo,
                             suite_id=suite_id,
                             child_pid=child.pid,
+                            driver_port=driver_port_int,
                         )
+                        unregister_owned_child_pid(child.pid)
+                        startup_failure_cleaned = True
                         code = 1
                         if attempt < max_attempts:
-                            time.sleep(2.0)
                             continue
                         break
+                    startup_succeeded = True
                 else:
-                    # Gate disabled: release context without holding lock semantics
-                    pass
+                    startup_succeeded = True
 
             # Parallel runtime: no startup lock during full flow execution
             assert child is not None
@@ -652,8 +703,17 @@ def run_run_one_flow_device_bat(
                 log_lifecycle(
                     repo, suite_id, WorkerState.FAILED, "flow timeout", device=device_id, flow=flow_path.name
                 )
+                unregister_owned_child_pid(child.pid)
                 return 124
             code = int(child.returncode or 0)
+            unregister_owned_child_pid(child.pid)
+            if os.environ.get("ATP_MAESTRO_POST_RUN_FORWARD_CLEANUP", "1").strip().lower() not in (
+                "0",
+                "false",
+                "no",
+                "off",
+            ):
+                clear_device_adb_forwards(device_id)
             break
         except OSError as e:
             log_lifecycle(
@@ -665,12 +725,24 @@ def run_run_one_flow_device_bat(
                 flow=flow_path.name,
                 error=str(e),
             )
+            if child is not None:
+                unregister_owned_child_pid(child.pid)
             return 1
         finally:
-            if child is not None and code != 0 and attempt < max_attempts:
+            if (
+                child is not None
+                and not startup_succeeded
+                and not startup_failure_cleaned
+                and attempt < max_attempts
+            ):
                 cleanup_after_startup_failure(
-                    device_id, repo=repo, suite_id=suite_id, child_pid=child.pid
+                    device_id,
+                    repo=repo,
+                    suite_id=suite_id,
+                    child_pid=child.pid,
+                    driver_port=driver_port_int,
                 )
+                unregister_owned_child_pid(child.pid)
     log_lifecycle(
         repo,
         suite_id,
