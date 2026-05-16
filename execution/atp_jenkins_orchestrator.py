@@ -35,6 +35,7 @@ from .atp_dynamic_scheduler import (
 )
 from .device_lease import DeviceLease
 from .maestro_capabilities import (
+    apply_native_parallel_env_defaults,
     assert_native_parallel_ready,
     detect_maestro_capabilities,
     driver_host_port_supported,
@@ -258,6 +259,14 @@ def _parallel_launch_stagger_sec(launch_index: int) -> float:
     """Stagger between device worker starts (0 = simultaneous for native parallel)."""
     if launch_index <= 0:
         return 0.0
+    try:
+        from .maestro_capabilities import is_native_parallel_env_active, native_parallel_active
+
+        dc = int(os.environ.get("ATP_ORCH_DEVICE_COUNT", "1") or "1")
+        if is_native_parallel_env_active() or native_parallel_active(dc):
+            return 0.0
+    except (ImportError, ValueError):
+        pass
     raw = (os.environ.get("ATP_PARALLEL_DEVICE_STAGGER_SEC") or "").strip()
     if not raw:
         try:
@@ -274,12 +283,19 @@ def _parallel_launch_stagger_sec(launch_index: int) -> float:
 def _handshake_gate_enabled(device_count: int, mode: str) -> bool:
     if mode != "parallel" or device_count <= 1:
         return False
+    try:
+        from .maestro_capabilities import is_native_parallel_env_active, native_parallel_active
+
+        if is_native_parallel_env_active() or native_parallel_active(device_count):
+            return False
+    except ImportError:
+        pass
     raw = (os.environ.get("ATP_MAESTRO_HANDSHAKE_GATE") or "").strip().lower()
     if raw in ("0", "false", "no", "off"):
         return False
     if raw in ("1", "true", "yes", "on"):
         return True
-    # Default on Windows when driver-host-port is unavailable (Maestro version unchanged).
+    # Legacy default: Windows serialized handshake only when not in native parallel mode.
     return os.name == "nt"
 
 
@@ -366,6 +382,13 @@ def _execute_flow_on_device(
     """One (flow, device) run: lease, isolated subprocess, per-device reports (no shared state)."""
     if worker_startup:
         stagger = _parallel_launch_stagger_sec(launch_index)
+        try:
+            from .maestro_capabilities import is_native_parallel_env_active, native_parallel_active
+
+            if is_native_parallel_env_active() or native_parallel_active(len(devices)):
+                stagger = 0.0
+        except ImportError:
+            pass
         if stagger > 0:
             print(
                 f"[ATP] parallel_stagger device={device_id} flow={flow_base} sleep_sec={stagger:.1f}",
@@ -726,14 +749,18 @@ def run_atp_folder_blocking(
 
     print(f"Devices: {', '.join(devices)}", flush=True)
     os.environ["ATP_ORCH_DEVICE_COUNT"] = str(len(devices))
+    os.environ["ATP_ORCH_DEVICES"] = ",".join(devices)
+    exec_mode = _device_execution_mode(len(devices))
+    sched_mode = _scheduler_mode()
+    # Resolve MAESTRO_HOME / capability before launcher (overrides stale Jenkins MAESTRO_HOME).
+    if len(devices) >= 1:
+        assert_native_parallel_ready(device_count=len(devices), devices=devices)
     try:
         maestro_launch = resolve_maestro_launcher(maestro_cmd)
     except Exception as e:
         print(f"ERROR: {e}", flush=True)
         return 1
     print(f"Maestro: {maestro_launch}", flush=True)
-    exec_mode = _device_execution_mode(len(devices))
-    sched_mode = _scheduler_mode()
     print(
         f"[ATP] device execution mode: {exec_mode} "
         f"(override: ATP_DEVICE_EXECUTION=sequential|parallel)",
@@ -745,13 +772,19 @@ def run_atp_folder_blocking(
         flush=True,
     )
     if exec_mode == "parallel" and len(devices) > 1:
-        assert_native_parallel_ready(device_count=len(devices))
-        caps = detect_maestro_capabilities(device_count=len(devices))
+        caps = detect_maestro_capabilities(device_count=len(devices), devices=devices)
+        if caps.native_parallel_enabled:
+            from .maestro_capabilities import log_native_parallel_runtime_config
+
+            apply_native_parallel_env_defaults(device_count=len(devices), caps=caps)
+            log_native_parallel_runtime_config(caps)
         stagger_env = (
             os.environ.get("ATP_PARALLEL_DEVICE_STAGGER_SEC") or _default_parallel_stagger_sec(len(devices))
         ).strip()
         gate_on = _handshake_gate_enabled(len(devices), exec_mode) and sched_mode == "wave"
-        startup_gate_env = os.environ.get("ATP_MAESTRO_STARTUP_GATE", "0" if caps.driver_host_port_supported else "1")
+        startup_gate_env = os.environ.get("ATP_MAESTRO_STARTUP_GATE", "0" if caps.native_parallel_enabled else "1")
+        mutex_env = os.environ.get("ATP_MAESTRO_LEGACY_RUNTIME_MUTEX", "0" if caps.native_parallel_enabled else "1")
+        print(f"[ATP] legacy_runtime_mutex={mutex_env}", flush=True)
         print(
             f"[ATP] parallel_device_stagger_sec={stagger_env} "
             f"(0 = simultaneous; native parallel default)",

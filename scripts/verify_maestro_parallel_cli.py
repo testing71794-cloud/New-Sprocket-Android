@@ -14,14 +14,15 @@ from execution.maestro_capabilities import detect_maestro_capabilities  # noqa: 
 
 def main() -> int:
     caps = detect_maestro_capabilities(device_count=2)
-    if caps.driver_host_port_supported:
-        print("OK: Maestro CLI supports --driver-host-port (native parallel ready).")
-        print(f"  version={caps.cli_version} mode={caps.maestro_mode}")
+    if caps.native_parallel_enabled:
+        print(f"OK: native parallel ready mode={caps.parallel_capability} maestro_mode={caps.maestro_mode}")
+        print(f"  version={caps.cli_version} driver_port={caps.driver_host_port_supported} isolated={caps.isolated_runtime_supported}")
         return 0
-    print("FAIL: Maestro CLI does not support --driver-host-port.", file=sys.stderr)
+    print("FAIL: native parallel not available on this host.", file=sys.stderr)
     print(f"  version={caps.cli_version}", file=sys.stderr)
-    print("  Upgrade MAESTRO_HOME: https://github.com/mobile-dev-inc/Maestro/releases", file=sys.stderr)
-    print("  Then: python scripts/verify_maestro_parallel_cli.py", file=sys.stderr)
+    print("  Install: python scripts/install_maestro_parallel.py --target C:\\Tools\\maestro-parallel", file=sys.stderr)
+    print("  Set: ATP_MAESTRO_PARALLEL_HOME=C:\\Tools\\maestro-parallel\\bin", file=sys.stderr)
+    print("  Or: https://github.com/mobile-dev-inc/Maestro/releases", file=sys.stderr)
     print("  Rollback: set ATP_ALLOW_LEGACY_SERIALIZED=1", file=sys.stderr)
     return 1
 

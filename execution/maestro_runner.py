@@ -21,10 +21,10 @@ from typing import Any
 
 from .flow_timing import append_timing, read_status_fields
 from .maestro_capabilities import (
-    assert_native_parallel_ready,
     detect_maestro_capabilities,
     driver_host_port_supported,
     invalidate_driver_port_support,
+    invalidate_isolated_runtime_support,
     legacy_runtime_mutex_active,
     legacy_serialized_allowed,
     maestro_driver_ports_active,
@@ -533,7 +533,6 @@ def run_run_one_flow_device_bat(
     """
     Blocking invocation of scripts/run_one_flow_on_device.bat (preserves reports/status/csv layout).
     """
-    assert_native_parallel_ready(device_count=device_count)
     detect_maestro_capabilities(device_count=device_count)
     native_parallel = native_parallel_active(device_count)
     legacy_mode = not native_parallel
@@ -546,9 +545,13 @@ def run_run_one_flow_device_bat(
             flush=True,
         )
     elif native_parallel:
+        port_note = (
+            f"driver_port_cli={planned_driver_port(launch_index)}"
+            if maestro_driver_ports_active(device_count)
+            else "isolated_runtime=1 driver_port_cli=None"
+        )
         print(
-            f"[ATP] native_parallel_launch device={device_id} flow={flow_path.stem} "
-            f"driver_port={planned_driver_port(launch_index)}",
+            f"[ATP] native_parallel_launch device={device_id} flow={flow_path.stem} {port_note}",
             flush=True,
         )
 
@@ -622,7 +625,7 @@ def run_run_one_flow_device_bat(
         runtime_mutex_held = True
     try:
         for attempt in range(1, max_attempts + 1):
-            legacy_mode = not driver_host_port_supported()
+            legacy_mode = not native_parallel_active(device_count)
             if legacy_mode:
                 env.pop("ATP_MAESTRO_DRIVER_PORT", None)
             elif maestro_driver_ports_active(device_count):
@@ -704,10 +707,13 @@ def run_run_one_flow_device_bat(
                                 f"[ATP] startup_retry_root_cause device={device_id} reason={reason}",
                                 flush=True,
                             )
-                            if reason == "unsupported_driver_port_flag":
-                                invalidate_driver_port_support(
-                                    reason="unsupported_driver_port_flag"
-                                )
+                            if reason in (
+                                "unsupported_driver_port_flag",
+                                "tcp_forwarder",
+                                "localhost_7001_collision",
+                            ):
+                                invalidate_driver_port_support(reason=reason)
+                                invalidate_isolated_runtime_support(reason=reason)
                                 if not legacy_serialized_allowed():
                                     code = 2
                                     break

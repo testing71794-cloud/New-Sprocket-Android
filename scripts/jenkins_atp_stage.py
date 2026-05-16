@@ -141,6 +141,12 @@ def cmd_all(folder: str, app: str, clear_state: str, maestro_cmd: str) -> int:
     """One Jenkins stage per folder: run → validate → excel (shrinks CPS bytecode vs 3 stages)."""
     sid = folder_to_suite_id(folder)
     print(f"[jenkins_atp_stage] === ATP folder={folder!r} suite={sid!r} ===")
+    print(
+        f"[jenkins_atp_stage] agent_env MAESTRO_HOME={os.environ.get('MAESTRO_HOME', '')} "
+        f"ATP_MAESTRO_PARALLEL_HOME={os.environ.get('ATP_MAESTRO_PARALLEL_HOME', '')} "
+        f"JAVA_HOME={os.environ.get('JAVA_HOME', '')}",
+        flush=True,
+    )
     rc_run = cmd_run(folder, app, clear_state, maestro_cmd)
     cmd_validate(sid)
     cmd_excel(folder)

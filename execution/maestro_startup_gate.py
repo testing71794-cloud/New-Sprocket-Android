@@ -32,9 +32,9 @@ def startup_gate_enabled(device_count: int = 1) -> bool:
         return True
     if device_count > 1:
         try:
-            from .maestro_capabilities import driver_host_port_supported, legacy_serialized_allowed
+            from .maestro_capabilities import legacy_serialized_allowed, native_parallel_active
 
-            if driver_host_port_supported():
+            if native_parallel_active(device_count):
                 return False
             return legacy_serialized_allowed()
         except ImportError:
@@ -47,15 +47,23 @@ def startup_gate_enabled(device_count: int = 1) -> bool:
     )
 
 
-def parallel_startup_delay_sec(*, legacy_mode: bool = False) -> float:
+def parallel_startup_delay_sec(*, legacy_mode: bool = False, device_count: int = 1) -> float:
+    if not legacy_mode:
+        try:
+            from .maestro_capabilities import is_native_parallel_env_active, native_parallel_active
+
+            if is_native_parallel_env_active() or native_parallel_active(device_count):
+                return 0.0
+        except ImportError:
+            pass
     if legacy_mode:
         raw = (os.environ.get("MAESTRO_PARALLEL_STARTUP_DELAY_SEC") or "8").strip()
     else:
-        raw = (os.environ.get("MAESTRO_PARALLEL_STARTUP_DELAY_SEC") or "5").strip()
+        raw = (os.environ.get("MAESTRO_PARALLEL_STARTUP_DELAY_SEC") or "0").strip()
     try:
         return max(0.0, float(raw))
     except ValueError:
-        return 8.0 if legacy_mode else 5.0
+        return 8.0 if legacy_mode else 0.0
 
 
 def startup_ready_timeout_sec() -> float:
@@ -391,6 +399,8 @@ def _startup_failed_in_log(text: str) -> str | None:
         return "tcp_forwarder"
     if "TimeoutException" in text and "tcpForward" in text:
         return "tcp_forward_timeout"
+    if "7001" in text and "Connection refused" in text:
+        return "localhost_7001_collision"
     if "Unknown options:" in text and ("driver-host-port" in text or "driver-port" in text):
         return "unsupported_driver_port_flag"
     if "SHGetKnownFolderPath" in text or "AppDirsException" in text:
@@ -527,6 +537,7 @@ class MaestroStartupGate:
         self.repo = repo
         self.launch_index = launch_index
         self.driver_port = driver_port
+        self.device_count = device_count
         self._enabled = startup_gate_enabled(device_count)
         self._legacy_mode = False
         self._acquired = False
@@ -585,9 +596,17 @@ class MaestroStartupGate:
                     flush=True,
                 )
                 if reason == "unsupported_driver_port_flag":
-                    from .maestro_capabilities import invalidate_driver_port_support
+                    from .maestro_capabilities import (
+                        invalidate_driver_port_support,
+                        invalidate_isolated_runtime_support,
+                    )
 
                     invalidate_driver_port_support(reason="unsupported_driver_port_flag")
+                    invalidate_isolated_runtime_support(reason="unsupported_driver_port_flag")
+                if reason in ("tcp_forwarder", "localhost_7001_collision"):
+                    from .maestro_capabilities import invalidate_isolated_runtime_support
+
+                    invalidate_isolated_runtime_support(reason=reason)
                 return False, reason
             log_adb_forwards(self.device_id, "startup_ready")
             print(
@@ -596,7 +615,10 @@ class MaestroStartupGate:
                 f"driver_port={self.driver_port}",
                 flush=True,
             )
-            delay = parallel_startup_delay_sec(legacy_mode=self._legacy_mode)
+            delay = parallel_startup_delay_sec(
+                legacy_mode=self._legacy_mode,
+                device_count=self.device_count,
+            )
             if delay > 0:
                 print(
                     f"[ATP] startup_stabilization_delay device={self.device_id} "
