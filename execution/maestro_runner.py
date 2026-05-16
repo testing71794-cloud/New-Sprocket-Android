@@ -19,6 +19,14 @@ from pathlib import Path
 from typing import Any
 
 from .flow_timing import append_timing, read_status_fields
+from .maestro_startup_gate import (
+    MaestroStartupGate,
+    cleanup_after_startup_failure,
+    planned_driver_port,
+    startup_gate_enabled,
+    startup_max_retries,
+    validate_device_health,
+)
 
 _lifecycle_log_lock = threading.Lock()
 
@@ -295,14 +303,20 @@ def _parallel_maestro_isolation_enabled() -> bool:
     )
 
 
+def flow_device_log_path(repo: Path, suite_id: str, flow_path: Path, device_id: str) -> Path:
+    flow_name = re.sub(r"\s+", "_", flow_path.stem)
+    safe_dev = re.sub(r"\s+", "_", device_id)
+    return repo / "reports" / suite_id / "logs" / f"{flow_name}_{safe_dev}.log"
+
+
 def _maestro_driver_host_port(launch_index: int) -> int | None:
     """
     Distinct Android driver host ports per parallel launch (avoids default localhost:7001 clashes).
-    Set ATP_MAESTRO_DRIVER_PORTS=0 to disable; override with ATP_MAESTRO_DRIVER_PORT.
+    Set ATP_MAESTRO_DRIVER_PORTS=1 to pass --driver-host-port (requires Maestro CLI support).
+    Planned port is always 7001+index for logging either way.
     """
     if not _parallel_maestro_isolation_enabled():
         return None
-    # Default off: installed Maestro builds often lack --driver-host-port (needs newer CLI).
     if os.environ.get("ATP_MAESTRO_DRIVER_PORTS", "0").strip().lower() in ("0", "false", "no", "off"):
         return None
     explicit = (os.environ.get("ATP_MAESTRO_DRIVER_PORT") or "").strip()
@@ -429,6 +443,7 @@ def _apply_parallel_maestro_env(
     """Per-device subprocess env so parallel Maestro runs do not share driver port / temp / adb serial."""
     meta: dict[str, str | int | None] = {
         "driver_port": None,
+        "driver_port_plan": None,
         "debug_output": None,
         "workspace": None,
         "maestro_user_home": None,
@@ -467,10 +482,14 @@ def _apply_parallel_maestro_env(
     env["ANDROID_SERIAL"] = device_id
     env.pop("ANDROID_DEBUG_SERIAL", None)
 
+    port_plan = planned_driver_port(launch_index)
+    meta["driver_port_plan"] = port_plan
     port = _maestro_driver_host_port(launch_index)
     if port is not None:
         env["ATP_MAESTRO_DRIVER_PORT"] = str(port)
         meta["driver_port"] = port
+    else:
+        meta["driver_port"] = None
 
     debug_root = (repo / "reports" / suite_id / "maestro-debug").resolve()
     debug_dir = debug_root / f"{flow_path.stem}__{slug}"
@@ -535,11 +554,14 @@ def run_run_one_flow_device_bat(
         driver_port=iso.get("driver_port"),
         maestro_debug=iso.get("debug_output"),
     )
+    log_path = flow_device_log_path(repo, suite_id, flow_path, device_id)
+    port_plan = iso.get("driver_port_plan", planned_driver_port(launch_index))
     print(
         f"[ATP] maestro_subprocess_launch device={device_id} flow={flow_path.stem} "
         f"ts={time.time():.3f} orchestrator_parent_pid={os.getpid()} launch_index={launch_index} "
-        f"driver_port={iso.get('driver_port')} workspace={iso.get('workspace')} "
-        f"maestro_user_home={iso.get('maestro_user_home')} java_direct=1",
+        f"driver_port_plan={port_plan} driver_port_cli={iso.get('driver_port')} "
+        f"startup_gate={1 if startup_gate_enabled() else 0} "
+        f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} java_direct=1",
         flush=True,
     )
     popen_kw: dict[str, Any] = {
@@ -550,48 +572,105 @@ def run_run_one_flow_device_bat(
     win_flags = _windows_popen_creationflags()
     if win_flags:
         popen_kw["creationflags"] = win_flags
-    tree_thread: threading.Thread | None = None
-    try:
-        child = subprocess.Popen(cmd, **popen_kw)
-        print(
-            f"[ATP] maestro_subprocess_child device={device_id} flow={flow_path.stem} "
-            f"cmd_child_pid={child.pid}",
-            flush=True,
-        )
-        if os.environ.get("ATP_MAESTRO_LOG_PROCESS_TREE", "1").strip().lower() not in (
-            "0",
-            "false",
-            "no",
-            "off",
-        ):
-            tree_thread = threading.Thread(
-                target=_log_maestro_process_tree,
-                args=(device_id, child.pid),
-                name=f"maestro-tree-{device_id}",
-                daemon=True,
+
+    max_attempts = startup_max_retries() + 1 if startup_gate_enabled() else 1
+    code = 1
+    for attempt in range(1, max_attempts + 1):
+        if attempt > 1:
+            print(
+                f"[ATP] startup_retry device={device_id} flow={flow_path.stem} "
+                f"attempt={attempt}/{max_attempts}",
+                flush=True,
             )
-            tree_thread.start()
+        if not validate_device_health(device_id, suite_id=suite_id, repo=repo):
+            code = 22
+            if attempt < max_attempts:
+                time.sleep(2.0)
+                continue
+            break
+
+        gate = MaestroStartupGate(
+            device_id=device_id,
+            flow_name=flow_path.stem,
+            suite_id=suite_id,
+            repo=repo,
+            launch_index=launch_index,
+            driver_port=int(port_plan) if port_plan is not None else None,
+        )
+        tree_thread: threading.Thread | None = None
+        child: subprocess.Popen[Any] | None = None
         try:
-            child.wait(timeout=timeout_sec)
-        except subprocess.TimeoutExpired:
-            child.kill()
-            child.wait(timeout=30)
+            with gate:
+                child = subprocess.Popen(cmd, **popen_kw)
+                print(
+                    f"[ATP] maestro_subprocess_child device={device_id} flow={flow_path.stem} "
+                    f"cmd_child_pid={child.pid} startup_attempt={attempt}",
+                    flush=True,
+                )
+                if os.environ.get("ATP_MAESTRO_LOG_PROCESS_TREE", "1").strip().lower() not in (
+                    "0",
+                    "false",
+                    "no",
+                    "off",
+                ):
+                    tree_thread = threading.Thread(
+                        target=_log_maestro_process_tree,
+                        args=(device_id, child.pid),
+                        name=f"maestro-tree-{device_id}",
+                        daemon=True,
+                    )
+                    tree_thread.start()
+
+                if startup_gate_enabled():
+                    ready, reason = gate.release_after_session_ready(
+                        log_path=log_path,
+                        child_pid=child.pid,
+                    )
+                    if not ready:
+                        cleanup_after_startup_failure(
+                            device_id,
+                            repo=repo,
+                            suite_id=suite_id,
+                            child_pid=child.pid,
+                        )
+                        code = 1
+                        if attempt < max_attempts:
+                            time.sleep(2.0)
+                            continue
+                        break
+                else:
+                    # Gate disabled: release context without holding lock semantics
+                    pass
+
+            # Parallel runtime: no startup lock during full flow execution
+            assert child is not None
+            try:
+                child.wait(timeout=timeout_sec)
+            except subprocess.TimeoutExpired:
+                child.kill()
+                child.wait(timeout=30)
+                log_lifecycle(
+                    repo, suite_id, WorkerState.FAILED, "flow timeout", device=device_id, flow=flow_path.name
+                )
+                return 124
+            code = int(child.returncode or 0)
+            break
+        except OSError as e:
             log_lifecycle(
-                repo, suite_id, WorkerState.FAILED, "flow timeout", device=device_id, flow=flow_path.name
+                repo,
+                suite_id,
+                WorkerState.FAILED,
+                "run_one_flow_on_device.bat launch failed",
+                device=device_id,
+                flow=flow_path.name,
+                error=str(e),
             )
-            return 124
-        code = int(child.returncode or 0)
-    except OSError as e:
-        log_lifecycle(
-            repo,
-            suite_id,
-            WorkerState.FAILED,
-            "run_one_flow_on_device.bat launch failed",
-            device=device_id,
-            flow=flow_path.name,
-            error=str(e),
-        )
-        return 1
+            return 1
+        finally:
+            if child is not None and code != 0 and attempt < max_attempts:
+                cleanup_after_startup_failure(
+                    device_id, repo=repo, suite_id=suite_id, child_pid=child.pid
+                )
     log_lifecycle(
         repo,
         suite_id,

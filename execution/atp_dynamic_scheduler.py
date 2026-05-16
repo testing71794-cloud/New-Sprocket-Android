@@ -125,7 +125,7 @@ class DynamicDeviceScheduler:
         print(
             f"[ATP] scheduler_queue device={device_id} event={label} "
             f"device_pending={pending} matrix_done={done}/{self._metrics.tasks_total} "
-            f"global_pending≈{total_pending}",
+            f"global_pending~{total_pending}",
             flush=True,
         )
 
@@ -279,7 +279,7 @@ class DynamicDeviceScheduler:
             if seq_estimate > 0:
                 speedup = seq_estimate / max(m.wall_sec, 0.1)
                 print(
-                    f"[ATP] scheduler_vs_sequential_estimate speedup≈{speedup:.2f}x "
+                    f"[ATP] scheduler_vs_sequential_estimate speedup~{speedup:.2f}x "
                     f"(wall {m.wall_sec:.0f}s vs ~{seq_estimate:.0f}s per-device-work/ndev)",
                     flush=True,
                 )

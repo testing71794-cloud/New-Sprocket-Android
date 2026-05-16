@@ -745,6 +745,11 @@ def run_atp_folder_blocking(
             "status/<suite>__<flow>__<device>.txt maestro-debug/<flow>__<device>/",
             flush=True,
         )
+        print(
+            "[ATP] maestro_startup_gate=1 (ATP_MAESTRO_STARTUP_GATE; serializes driver init only) "
+            f"MAESTRO_PARALLEL_STARTUP_DELAY_SEC={os.environ.get('MAESTRO_PARALLEL_STARTUP_DELAY_SEC', '5')}",
+            flush=True,
+        )
 
     (repo / "status").mkdir(parents=True, exist_ok=True)
 
