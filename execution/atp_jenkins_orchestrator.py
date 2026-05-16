@@ -6,6 +6,10 @@ Replaces the detached PowerShell Start-Process chain for ATP runs while
 preserving scripts/run_one_flow_on_device.bat outputs (reports/, status/, CSV).
 
 Does not modify Maestro YAML, Excel schema, AI logic, or report layouts.
+
+Flow-level synchronized multi-device execution (default when 2+ devices):
+  Flow 1 on all devices in parallel -> barrier -> Flow 2 on all devices in parallel -> ...
+  Override: ATP_DEVICE_EXECUTION=sequential for legacy one-device-at-a-time scheduling.
 """
 from __future__ import annotations
 
@@ -16,17 +20,21 @@ import shutil
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass
 from pathlib import Path
 
 from .device_lease import DeviceLease
 from .maestro_runner import (
     WorkerState,
+    _status_file_path,
     log_lifecycle,
     post_run_validate,
     pre_maestro_cleanup,
     resolve_maestro_launcher,
     run_run_one_flow_device_bat,
 )
+from .flow_timing import read_status_fields
 
 
 def add_adb_from_env_to_path() -> None:
@@ -112,7 +120,7 @@ def get_atp_folder_name(atp_root: Path, file_path: Path) -> str:
     rest = rest.lstrip("/\\")
     if not rest:
         return "_Root"
-    first = re.split(r"[\\/]", rest, 1)[0]
+    first = re.split(r"[\\/]", rest, maxsplit=1)[0]
     if re.match(r".*\.(yaml|yml)$", first, re.I):
         return "_Root"
     return first
@@ -188,6 +196,177 @@ def _read_log_tail_text(repo: Path, suite_id: str, flow: Path, device_id: str, n
         return ""
 
 
+@dataclass(frozen=True)
+class _DeviceFlowOutcome:
+    device_id: str
+    exit_code: int
+
+
+def _device_execution_mode(device_count: int) -> str:
+    """
+    parallel = flow-level fan-out to all devices (default when device_count > 1).
+    sequential = legacy one-device-at-a-time per flow (ATP_DEVICE_EXECUTION=sequential).
+    """
+    raw = (os.environ.get("ATP_DEVICE_EXECUTION") or "parallel").strip().lower()
+    if raw in ("sequential", "seq", "0", "false", "no", "off"):
+        return "sequential"
+    if device_count <= 1:
+        return "sequential"
+    return "parallel"
+
+
+def _execute_flow_on_device(
+    *,
+    repo: Path,
+    suite_id: str,
+    flow: Path,
+    flow_base: str,
+    device_id: str,
+    app_id: str,
+    clear_state: str,
+    maestro_launch: Path,
+    allow_maestro_kill: bool,
+) -> _DeviceFlowOutcome:
+    """One device in a flow wave: lease, bat, status/log per device (isolated paths)."""
+    rd = repo / "reports" / suite_id
+    (rd / "logs").mkdir(parents=True, exist_ok=True)
+    (rd / "results").mkdir(parents=True, exist_ok=True)
+
+    lease = DeviceLease.for_serial(repo, device_id)
+    log_lifecycle(
+        repo, suite_id, WorkerState.ALLOCATED, "lease acquire", device=device_id, flow=flow_base
+    )
+    lease.acquire()
+    exit_code = 1
+    try:
+        log_lifecycle(repo, suite_id, WorkerState.PREPARING, "preparing", device=device_id, flow=flow_base)
+        pre_maestro_cleanup(device_id, suite_id, repo, allow_maestro_kill=allow_maestro_kill)
+        log_lifecycle(
+            repo, suite_id, WorkerState.RUNNING, "invoke run_one_flow_on_device.bat", device=device_id
+        )
+        exit_code = run_run_one_flow_device_bat(
+            repo=repo,
+            suite_id=suite_id,
+            flow_path=flow,
+            device_id=device_id,
+            app_id=app_id,
+            clear_state=clear_state,
+            maestro_launcher=maestro_launch,
+        )
+    finally:
+        lease.release()
+        log_lifecycle(repo, suite_id, WorkerState.IDLE, "lease released", device=device_id)
+
+    return _DeviceFlowOutcome(device_id=device_id, exit_code=exit_code)
+
+
+def _run_flow_wave_on_devices(
+    *,
+    repo: Path,
+    suite_id: str,
+    flow: Path,
+    flow_base: str,
+    devices: list[str],
+    app_id: str,
+    clear_state: str,
+    maestro_launch: Path,
+) -> list[_DeviceFlowOutcome]:
+    """Synchronized barrier: all devices finish this flow before the caller starts the next flow."""
+    mode = _device_execution_mode(len(devices))
+    allow_maestro_kill = len(devices) <= 1
+    if mode == "parallel":
+        print(
+            f"  [ATP] flow wave parallel: {flow_base} on {len(devices)} device(s): {', '.join(devices)}",
+            flush=True,
+        )
+        outcomes: list[_DeviceFlowOutcome] = []
+        with ThreadPoolExecutor(max_workers=len(devices), thread_name_prefix="atp-flow") as pool:
+            futures = {
+                pool.submit(
+                    _execute_flow_on_device,
+                    repo=repo,
+                    suite_id=suite_id,
+                    flow=flow,
+                    flow_base=flow_base,
+                    device_id=dev,
+                    app_id=app_id,
+                    clear_state=clear_state,
+                    maestro_launch=maestro_launch,
+                    allow_maestro_kill=allow_maestro_kill,
+                ): dev
+                for dev in devices
+            }
+            for fut in as_completed(futures):
+                try:
+                    outcomes.append(fut.result())
+                except Exception as exc:
+                    dev = futures[fut]
+                    print(f"  [FAIL] device={dev} flow={flow_base} orchestrator error: {exc}", flush=True)
+                    outcomes.append(_DeviceFlowOutcome(device_id=dev, exit_code=1))
+        order = {d: i for i, d in enumerate(devices)}
+        outcomes.sort(key=lambda o: order.get(o.device_id, 999))
+        return outcomes
+
+    print(f"  [ATP] flow wave sequential: {flow_base}", flush=True)
+    seq_outcomes: list[_DeviceFlowOutcome] = []
+    for dev in devices:
+        print(f"  device {dev}", flush=True)
+        seq_outcomes.append(
+            _execute_flow_on_device(
+                repo=repo,
+                suite_id=suite_id,
+                flow=flow,
+                flow_base=flow_base,
+                device_id=dev,
+                app_id=app_id,
+                clear_state=clear_state,
+                maestro_launch=maestro_launch,
+                allow_maestro_kill=True,
+            )
+        )
+    return seq_outcomes
+
+
+def _report_device_outcome(
+    repo: Path,
+    suite_id: str,
+    flow: Path,
+    flow_base: str,
+    outcome: _DeviceFlowOutcome,
+) -> bool:
+    """Print console result for one device; return True if failed."""
+    dev = outcome.device_id
+    ex = outcome.exit_code
+    dur_hint = ""
+    try:
+        st = _status_file_path(repo, suite_id, flow, dev)
+        dm = read_status_fields(st).get("duration_ms", "")
+        if dm:
+            dur_hint = f" duration_ms={dm}"
+    except Exception:
+        pass
+    if ex != 0:
+        print(f"  [FAIL] exit={ex} device={dev} flow={flow_base}{dur_hint}", flush=True)
+        _print_log_tail(repo, suite_id, flow, dev)
+        print(
+            "  [hint] If Maestro said 'Flow file does not exist', fix runFlow paths from ATP subfolders "
+            "(use ../../flows/ or ../../elements/ to reach repo root).",
+            flush=True,
+        )
+        tail = _read_log_tail_text(repo, suite_id, flow, dev, 80)
+        if "7001" in tail and "Connection refused" in tail:
+            print(
+                "  [hint] localhost:7001 refused = Android driver IPC. "
+                "run_one_flow_on_device retries once with --reinstall-driver. "
+                "If it still fails: close Maestro Studio on the agent, stop other maestro.exe runs, then re-run.",
+                flush=True,
+            )
+        return True
+    print(f"  [OK] exit={ex} device={dev}{dur_hint}", flush=True)
+    log_lifecycle(repo, suite_id, WorkerState.COMPLETE, "flow ok", device=dev, flow=flow_base)
+    return False
+
+
 def _print_log_tail(repo: Path, suite_id: str, flow: Path, device_id: str) -> None:
     lp = _log_path(repo, suite_id, flow, device_id)
     print(f"  [log] {lp} (last 45 lines):", flush=True)
@@ -255,6 +434,12 @@ def run_atp_folder_blocking(
         print(f"ERROR: {e}", flush=True)
         return 1
     print(f"Maestro: {maestro_launch}", flush=True)
+    exec_mode = _device_execution_mode(len(devices))
+    print(
+        f"[ATP] device execution mode: {exec_mode} "
+        f"(override: ATP_DEVICE_EXECUTION=sequential|parallel)",
+        flush=True,
+    )
 
     (repo / "status").mkdir(parents=True, exist_ok=True)
 
@@ -269,53 +454,19 @@ def run_atp_folder_blocking(
         write_section(f"ATP [{folder_name}] :: {flow_base} (suite={suite_id})")
         log_lifecycle(repo, suite_id, WorkerState.IDLE, "flow wave begin", flow=flow_base)
 
-        for dev in devices:
-            print(f"  device {dev}", flush=True)
-            rd = repo / "reports" / suite_id
-            (rd / "logs").mkdir(parents=True, exist_ok=True)
-            (rd / "results").mkdir(parents=True, exist_ok=True)
-
-            lease = DeviceLease.for_serial(repo, dev)
-            log_lifecycle(repo, suite_id, WorkerState.ALLOCATED, "lease acquire", device=dev, flow=flow_base)
-            lease.acquire()
-            try:
-                log_lifecycle(repo, suite_id, WorkerState.PREPARING, "preparing", device=dev, flow=flow_base)
-                pre_maestro_cleanup(dev, suite_id, repo)
-                log_lifecycle(repo, suite_id, WorkerState.RUNNING, "invoke run_one_flow_on_device.bat", device=dev)
-                ex = run_run_one_flow_device_bat(
-                    repo=repo,
-                    suite_id=suite_id,
-                    flow_path=flow,
-                    device_id=dev,
-                    app_id=app_id,
-                    clear_state=clear_state,
-                    maestro_launcher=maestro_launch,
-                )
-            finally:
-                lease.release()
-                log_lifecycle(repo, suite_id, WorkerState.IDLE, "lease released", device=dev)
-
-            if ex != 0:
+        outcomes = _run_flow_wave_on_devices(
+            repo=repo,
+            suite_id=suite_id,
+            flow=flow,
+            flow_base=flow_base,
+            devices=devices,
+            app_id=app_id,
+            clear_state=clear_state,
+            maestro_launch=maestro_launch,
+        )
+        for outcome in outcomes:
+            if _report_device_outcome(repo, suite_id, flow, flow_base, outcome):
                 overall_failed = True
-                print(f"  [FAIL] exit={ex} device={dev} flow={flow_base}", flush=True)
-                _print_log_tail(repo, suite_id, flow, dev)
-                print(
-                    "  [hint] If Maestro said 'Flow file does not exist', fix runFlow paths from ATP subfolders "
-                    "(use ../../flows/ or ../../elements/ to reach repo root).",
-                    flush=True,
-                )
-                tail = _read_log_tail_text(repo, suite_id, flow, dev, 80)
-                if "7001" in tail and "Connection refused" in tail:
-                    print(
-                        "  [hint] localhost:7001 refused = Android driver IPC. "
-                        "run_one_flow_on_device retries once with --reinstall-driver. "
-                        "If it still fails: close Maestro Studio on the agent, stop other maestro.exe runs, then re-run.",
-                        flush=True,
-                    )
-            else:
-                print(f"  [OK] exit={ex} device={dev}", flush=True)
-                log_lifecycle(repo, suite_id, WorkerState.COMPLETE, "flow ok", device=dev, flow=flow_base)
-            post_run_validate(repo, suite_id, ex, flow, dev)
 
     bs = repo / "build-summary"
     bs.mkdir(parents=True, exist_ok=True)

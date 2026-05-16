@@ -13,9 +13,14 @@ import os
 import re
 import shutil
 import subprocess
+import threading
 import time
 from pathlib import Path
 from typing import Any
+
+from .flow_timing import append_timing, read_status_fields
+
+_lifecycle_log_lock = threading.Lock()
 
 
 class WorkerState:
@@ -52,8 +57,10 @@ def log_lifecycle(repo: Path, suite_id: str, state: str, message: str, **fields:
         **fields,
     }
     lp = lifecycle_path(repo, suite_id)
-    with lp.open("a", encoding="utf-8", errors="replace") as f:
-        f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    line = json.dumps(rec, ensure_ascii=False) + "\n"
+    with _lifecycle_log_lock:
+        with lp.open("a", encoding="utf-8", errors="replace") as f:
+            f.write(line)
 
 
 def _adb_exe() -> str | None:
@@ -97,12 +104,21 @@ def snapshot_adb_forwards(suite_id: str, repo: Path) -> None:
         log_lifecycle(repo, suite_id, WorkerState.CLEANUP, "adb forward list failed", error=str(e))
 
 
-def pre_maestro_cleanup(device_id: str, suite_id: str, repo: Path) -> None:
+def pre_maestro_cleanup(
+    device_id: str,
+    suite_id: str,
+    repo: Path,
+    *,
+    allow_maestro_kill: bool | None = None,
+) -> None:
     log_lifecycle(repo, suite_id, WorkerState.CLEANUP, "pre_maestro_cleanup begin", device=device_id)
     adb_start_server(suite_id, repo)
     if _truthy("ATP_ORCH_SNAPSHOT_ADB_FORWARDS"):
         snapshot_adb_forwards(suite_id, repo)
-    if _truthy("ATP_ORCH_KILL_MAESTRO_ORPHANS") and os.name == "nt":
+    # When None, preserve legacy behavior (kill allowed). Orchestrator passes False for multi-device waves.
+    if allow_maestro_kill is None:
+        allow_maestro_kill = True
+    if _truthy("ATP_ORCH_KILL_MAESTRO_ORPHANS") and allow_maestro_kill and os.name == "nt":
         try:
             proc = subprocess.run(
                 ["taskkill", "/IM", "maestro.exe", "/F", "/T"],
@@ -261,4 +277,49 @@ def run_run_one_flow_device_bat(
         exit_code=code,
     )
     post_run_validate(repo, suite_id, code, flow_path, device_id)
+    _record_flow_timing(repo, suite_id, flow_path, device_id, code)
     return code
+
+
+def _status_file_path(repo: Path, suite_id: str, flow_path: Path, device_id: str) -> Path:
+    safe_flow = flow_path.stem.replace(" ", "_")
+    safe_device = device_id.replace(" ", "_")
+    return repo / "status" / f"{suite_id}__{safe_flow}__{safe_device}.txt"
+
+
+def _record_flow_timing(
+    repo: Path, suite_id: str, flow_path: Path, device_id: str, exit_code: int
+) -> None:
+    if os.environ.get("ATP_FLOW_TIMING", "1").strip().lower() in ("0", "false", "no", "off"):
+        return
+    st_path = _status_file_path(repo, suite_id, flow_path, device_id)
+    fields = read_status_fields(st_path)
+    dur_s = fields.get("duration_ms", "").strip()
+    try:
+        duration_ms = int(dur_s) if dur_s else 0
+    except ValueError:
+        duration_ms = 0
+    append_timing(
+        repo,
+        suite_id,
+        flow=flow_path.stem,
+        device=device_id,
+        duration_ms=duration_ms,
+        status=fields.get("status", "UNKNOWN"),
+        exit_code=exit_code,
+        reason=fields.get("reason", ""),
+        extra={
+            "maestro_device_reconnect_retry": fields.get("maestro_device_reconnect_retry", ""),
+            "maestro_driver_7001_retry": fields.get("maestro_driver_7001_retry", ""),
+        },
+    )
+    if duration_ms > 0:
+        log_lifecycle(
+            repo,
+            suite_id,
+            WorkerState.REPORTING,
+            "flow timing recorded",
+            device=device_id,
+            flow=flow_path.name,
+            duration_ms=duration_ms,
+        )
