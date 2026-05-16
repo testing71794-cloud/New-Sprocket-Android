@@ -15,16 +15,20 @@ import shutil
 import subprocess
 import threading
 import time
+from contextlib import nullcontext
 from pathlib import Path
 from typing import Any
 
 from .flow_timing import append_timing, read_status_fields
 from .maestro_capabilities import (
+    assert_native_parallel_ready,
     detect_maestro_capabilities,
     driver_host_port_supported,
     invalidate_driver_port_support,
     legacy_runtime_mutex_active,
+    legacy_serialized_allowed,
     maestro_driver_ports_active,
+    native_parallel_active,
 )
 from .maestro_startup_gate import (
     MaestroStartupGate,
@@ -32,6 +36,7 @@ from .maestro_startup_gate import (
     cleanup_after_startup_failure,
     clear_device_adb_forwards,
     planned_driver_port,
+    prepare_device_for_maestro_startup,
     register_owned_child_pid,
     startup_gate_enabled,
     startup_max_retries,
@@ -528,13 +533,22 @@ def run_run_one_flow_device_bat(
     """
     Blocking invocation of scripts/run_one_flow_on_device.bat (preserves reports/status/csv layout).
     """
+    assert_native_parallel_ready(device_count=device_count)
     detect_maestro_capabilities(device_count=device_count)
-    legacy_mode = not driver_host_port_supported()
+    native_parallel = native_parallel_active(device_count)
+    legacy_mode = not native_parallel
+    use_startup_gate = startup_gate_enabled(device_count)
     runtime_mutex = legacy_runtime_mutex_active(device_count)
     if runtime_mutex:
         print(
             f"[ATP] legacy_runtime_mutex device={device_id} flow={flow_path.stem} "
-            f"(Maestro without per-device ports — one host session at a time)",
+            f"(Maestro without per-device ports - one host session at a time)",
+            flush=True,
+        )
+    elif native_parallel:
+        print(
+            f"[ATP] native_parallel_launch device={device_id} flow={flow_path.stem} "
+            f"driver_port={planned_driver_port(launch_index)}",
             flush=True,
         )
 
@@ -585,8 +599,8 @@ def run_run_one_flow_device_bat(
         f"[ATP] maestro_subprocess_launch device={device_id} flow={flow_path.stem} "
         f"ts={time.time():.3f} orchestrator_parent_pid={os.getpid()} launch_index={launch_index} "
         f"driver_port_plan={port_plan} driver_port_cli={iso.get('driver_port')} "
-        f"maestro_mode={'legacy_compatible' if legacy_mode else 'isolated_driver_ports'} "
-        f"startup_gate={1 if startup_gate_enabled() else 0} "
+        f"maestro_mode={'native_parallel' if native_parallel else 'legacy_compatible'} "
+        f"startup_gate={1 if use_startup_gate else 0} "
         f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} java_direct=1",
         flush=True,
     )
@@ -599,7 +613,7 @@ def run_run_one_flow_device_bat(
     if win_flags:
         popen_kw["creationflags"] = win_flags
 
-    max_attempts = startup_max_retries() + 1 if startup_gate_enabled() else 1
+    max_attempts = startup_max_retries() + 1 if use_startup_gate else 1
     code = 1
     driver_port_int = int(port_plan) if port_plan is not None and not legacy_mode else None
     runtime_mutex_held = False
@@ -628,22 +642,36 @@ def run_run_one_flow_device_bat(
                     continue
                 break
 
-            gate = MaestroStartupGate(
-                device_id=device_id,
-                flow_name=flow_path.stem,
-                suite_id=suite_id,
-                repo=repo,
-                launch_index=launch_index,
-                driver_port=driver_port_int,
-            )
-            gate.set_legacy_mode(legacy_mode)
             tree_thread: threading.Thread | None = None
             child: subprocess.Popen[Any] | None = None
             startup_succeeded = False
             startup_failure_cleaned = False
             log_start_offset = _log_byte_offset(log_path)
+            gate: MaestroStartupGate | None = None
             try:
-                with gate:
+                if use_startup_gate:
+                    gate = MaestroStartupGate(
+                        device_id=device_id,
+                        flow_name=flow_path.stem,
+                        suite_id=suite_id,
+                        repo=repo,
+                        launch_index=launch_index,
+                        driver_port=driver_port_int,
+                        device_count=device_count,
+                    )
+                    gate.set_legacy_mode(legacy_mode)
+                    gate_ctx = gate
+                else:
+                    prepare_device_for_maestro_startup(
+                        device_id,
+                        driver_port=driver_port_int,
+                        suite_id=suite_id,
+                        repo=repo,
+                        legacy_mode=False,
+                    )
+                    gate_ctx = nullcontext()
+
+                with gate_ctx:
                     child = subprocess.Popen(cmd, **popen_kw)
                     register_owned_child_pid(child.pid)
                     print(
@@ -665,7 +693,7 @@ def run_run_one_flow_device_bat(
                         )
                         tree_thread.start()
 
-                    if startup_gate_enabled():
+                    if use_startup_gate and gate is not None:
                         ready, reason = gate.release_after_session_ready(
                             log_path=log_path,
                             child_pid=child.pid,
@@ -680,6 +708,9 @@ def run_run_one_flow_device_bat(
                                 invalidate_driver_port_support(
                                     reason="unsupported_driver_port_flag"
                                 )
+                                if not legacy_serialized_allowed():
+                                    code = 2
+                                    break
                                 legacy_mode = True
                                 gate.set_legacy_mode(True)
                                 env.pop("ATP_MAESTRO_DRIVER_PORT", None)
@@ -697,9 +728,7 @@ def run_run_one_flow_device_bat(
                             if attempt < max_attempts:
                                 continue
                             break
-                        startup_succeeded = True
-                    else:
-                        startup_succeeded = True
+                    startup_succeeded = True
 
                 assert child is not None
                 try:

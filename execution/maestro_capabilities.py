@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-Runtime Maestro CLI capability detection (backward compatible across versions).
+Runtime Maestro CLI capability detection for true multi-device parallel execution.
 
-Maestro 1.27.x rejects --driver-host-port; newer builds accept it as a global flag
-before the test subcommand. Detection uses the same argv shape as run_one_flow_on_device.bat.
+Requires Maestro CLI with global --driver-host-port (before test subcommand).
+Maestro 1.27.x on Jenkins does NOT support this; upgrade MAESTRO_HOME to a current release.
 """
 from __future__ import annotations
 
 import os
 import re
 import subprocess
+import sys
 import threading
 from dataclasses import dataclass
-from pathlib import Path
 
 _capabilities: MaestroCapabilities | None = None
 _capabilities_lock = threading.Lock()
@@ -23,7 +23,7 @@ _driver_port_supported_override: bool | None = None
 class MaestroCapabilities:
     cli_version: str
     driver_host_port_supported: bool
-    maestro_mode: str  # isolated_driver_ports | legacy_compatible
+    maestro_mode: str  # native_parallel | legacy_compatible
     startup_strategy: str
 
     def log_summary(self) -> None:
@@ -75,35 +75,36 @@ def _argv_rejects_driver_port(combined: str) -> bool:
 
 def _probe_driver_host_port_supported(prefix: list[str]) -> bool:
     """
-    Probe using production argv order from run_one_flow_on_device.bat:
+    Probe production argv from run_one_flow_on_device.bat:
       AppKt --driver-host-port <port> --device <id> test ...
     """
-    probes = [
-        prefix + ["--driver-host-port", "7099", "--device", "127.0.0.1", "test", "--help"],
-        prefix + ["--driver-port", "7099", "--device", "127.0.0.1", "test", "--help"],
-    ]
-    for argv in probes:
-        try:
-            proc = subprocess.run(
-                argv,
-                capture_output=True,
-                text=True,
-                timeout=45,
-                check=False,
-            )
-            combined = (proc.stdout or "") + (proc.stderr or "")
-            if _argv_rejects_driver_port(combined):
-                continue
-            if proc.returncode == 0 or "Usage:" in combined:
-                flag = "--driver-host-port" if "--driver-host-port" in " ".join(argv) else "--driver-port"
-                return flag == "--driver-host-port"
-        except (OSError, subprocess.TimeoutExpired):
-            continue
-    return False
+    argv = prefix + ["--driver-host-port", "7099", "--device", "127.0.0.1", "test", "--help"]
+    try:
+        proc = subprocess.run(
+            argv,
+            capture_output=True,
+            text=True,
+            timeout=45,
+            check=False,
+        )
+        combined = (proc.stdout or "") + (proc.stderr or "")
+        if _argv_rejects_driver_port(combined):
+            return False
+        return proc.returncode == 0 or "Usage:" in combined
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+
+
+def legacy_serialized_allowed() -> bool:
+    return os.environ.get("ATP_ALLOW_LEGACY_SERIALIZED", "0").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
 
 
 def invalidate_driver_port_support(*, reason: str) -> None:
-    """Runtime fallback when a live run proves the flag is unsupported."""
     global _driver_port_supported_override, _capabilities
     with _capabilities_lock:
         _driver_port_supported_override = False
@@ -118,8 +119,6 @@ def invalidate_driver_port_support(*, reason: str) -> None:
         f"[ATP] maestro_capability driver_port_supported=false reason=runtime_{reason}",
         flush=True,
     )
-    print("[ATP] maestro_mode=legacy_compatible (runtime fallback)", flush=True)
-    print(f"[ATP] startup_strategy={_legacy_startup_strategy()}", flush=True)
 
 
 def driver_host_port_supported() -> bool:
@@ -131,37 +130,85 @@ def driver_host_port_supported() -> bool:
     return False
 
 
-def _legacy_startup_strategy() -> str:
-    mutex = legacy_runtime_mutex_default()
+def native_parallel_active(device_count: int = 1) -> bool:
+    """True when per-device driver ports are active (true parallel same-host execution)."""
+    if device_count <= 1:
+        return False
+    detect_maestro_capabilities(device_count=device_count)
+    return driver_host_port_supported()
+
+
+def _native_startup_strategy() -> str:
     return (
-        "serialized_startup_gate+adb_hygiene+host_maestro_cleanup+legacy_stagger"
-        + ("+host_runtime_mutex" if mutex else "")
+        "native_parallel:per_device_driver_ports+adb_hygiene+"
+        "no_startup_gate+no_runtime_mutex+worker_pool"
     )
 
 
-def _isolated_startup_strategy() -> str:
-    return "per_device_driver_ports+startup_gate+adb_hygiene+parallel_runtime"
-
-
-def legacy_runtime_mutex_default() -> bool:
-    raw = (os.environ.get("ATP_MAESTRO_LEGACY_RUNTIME_MUTEX") or "auto").strip().lower()
-    if raw in ("0", "false", "no", "off"):
-        return False
-    if raw in ("1", "true", "yes", "on"):
-        return True
-    return True  # auto: serialize Maestro runs on host when ports unavailable
+def _legacy_startup_strategy() -> str:
+    return "legacy_compatible:serialized_mutex+startup_gate (ATP_ALLOW_LEGACY_SERIALIZED=1)"
 
 
 def legacy_runtime_mutex_active(device_count: int) -> bool:
+    """Host-wide Maestro serialization — only when legacy explicitly allowed."""
     if device_count <= 1:
         return False
     if driver_host_port_supported():
         return False
-    return legacy_runtime_mutex_default()
+    if not legacy_serialized_allowed():
+        return False
+    raw = (os.environ.get("ATP_MAESTRO_LEGACY_RUNTIME_MUTEX") or "1").strip().lower()
+    return raw not in ("0", "false", "no", "off")
+
+
+def apply_native_parallel_env_defaults(*, device_count: int) -> None:
+    """Set orchestrator defaults for true parallel when driver ports are supported."""
+    if device_count <= 1 or not driver_host_port_supported():
+        return
+    os.environ.setdefault("ATP_MAESTRO_STARTUP_GATE", "0")
+    os.environ.setdefault("ATP_PARALLEL_DEVICE_STAGGER_SEC", "0")
+    os.environ.setdefault("ATP_MAESTRO_LEGACY_RUNTIME_MUTEX", "0")
+    os.environ.setdefault("MAESTRO_PARALLEL_STARTUP_DELAY_SEC", "0")
+    os.environ.setdefault("ATP_MAESTRO_DRIVER_PORTS", "1")
+
+
+def assert_native_parallel_ready(*, device_count: int) -> None:
+    """
+  Exit before scheduling when multi-device parallel requires upgraded Maestro.
+  Override: ATP_ALLOW_LEGACY_SERIALIZED=1 (restores serialized legacy path).
+    """
+    if device_count <= 1:
+        return
+    caps = detect_maestro_capabilities(device_count=device_count)
+    if caps.driver_host_port_supported:
+        apply_native_parallel_env_defaults(device_count=device_count)
+        print(
+            "[ATP] native_parallel=1 simultaneous multi-device Maestro "
+            "(per-device --driver-host-port, no startup gate, no host mutex)",
+            flush=True,
+        )
+        return
+    if legacy_serialized_allowed():
+        print(
+            "[ATP] native_parallel=0 ATP_ALLOW_LEGACY_SERIALIZED=1 — "
+            "using legacy_compatible serialized Maestro on this host",
+            flush=True,
+        )
+        return
+    print(
+        "\nERROR: True parallel multi-device execution requires Maestro CLI with "
+        "--driver-host-port.\n"
+        "  Installed CLI does not support it (detected on this agent).\n"
+        "  Fix: upgrade MAESTRO_HOME to a current Maestro release, then re-run:\n"
+        "    python scripts/verify_maestro_parallel_cli.py\n"
+        "  Temporary rollback (serialized, one Maestro at a time):\n"
+        "    set ATP_ALLOW_LEGACY_SERIALIZED=1\n",
+        flush=True,
+    )
+    sys.exit(2)
 
 
 def detect_maestro_capabilities(*, device_count: int = 1) -> MaestroCapabilities:
-    """Detect once per orchestrator run; cached thereafter."""
     global _capabilities, _driver_port_supported_override
     with _capabilities_lock:
         if _capabilities is not None:
@@ -173,18 +220,26 @@ def detect_maestro_capabilities(*, device_count: int = 1) -> MaestroCapabilities
 
         if raw_force in ("0", "false", "no", "off"):
             supported = False
-        elif raw_force in ("1", "true", "yes", "on"):
-            supported = _probe_driver_host_port_supported(prefix)
         elif device_count <= 1:
             supported = False
         else:
             supported = _probe_driver_host_port_supported(prefix)
+            if raw_force in ("1", "true", "yes", "on") and not supported:
+                print(
+                    "[ATP] WARN ATP_MAESTRO_DRIVER_PORTS=1 but CLI probe failed; "
+                    "parallel ports disabled",
+                    flush=True,
+                )
 
         if _driver_port_supported_override is False:
             supported = False
 
-        mode = "isolated_driver_ports" if supported else "legacy_compatible"
-        strategy = _isolated_startup_strategy() if supported else _legacy_startup_strategy()
+        if supported:
+            mode = "native_parallel"
+            strategy = _native_startup_strategy()
+        else:
+            mode = "legacy_compatible"
+            strategy = _legacy_startup_strategy()
 
         _capabilities = MaestroCapabilities(
             cli_version=version,

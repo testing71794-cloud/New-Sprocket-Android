@@ -20,7 +20,25 @@ _owned_child_pids: set[int] = set()
 _owned_pids_lock = threading.Lock()
 
 
-def startup_gate_enabled() -> bool:
+def startup_gate_enabled(device_count: int = 1) -> bool:
+    """
+    Default off for native parallel (driver ports). Default on only for legacy serialized mode.
+    Override: ATP_MAESTRO_STARTUP_GATE=0|1
+    """
+    raw = os.environ.get("ATP_MAESTRO_STARTUP_GATE", "").strip().lower()
+    if raw in ("0", "false", "no", "off"):
+        return False
+    if raw in ("1", "true", "yes", "on"):
+        return True
+    if device_count > 1:
+        try:
+            from .maestro_capabilities import driver_host_port_supported, legacy_serialized_allowed
+
+            if driver_host_port_supported():
+                return False
+            return legacy_serialized_allowed()
+        except ImportError:
+            pass
     return os.environ.get("ATP_MAESTRO_STARTUP_GATE", "1").strip().lower() not in (
         "0",
         "false",
@@ -501,6 +519,7 @@ class MaestroStartupGate:
         repo: Path,
         launch_index: int,
         driver_port: int | None,
+        device_count: int = 1,
     ) -> None:
         self.device_id = device_id
         self.flow_name = flow_name
@@ -508,7 +527,7 @@ class MaestroStartupGate:
         self.repo = repo
         self.launch_index = launch_index
         self.driver_port = driver_port
-        self._enabled = startup_gate_enabled()
+        self._enabled = startup_gate_enabled(device_count)
         self._legacy_mode = False
         self._acquired = False
         self._t_acquire: float | None = None

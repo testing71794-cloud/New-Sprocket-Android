@@ -34,7 +34,12 @@ from .atp_dynamic_scheduler import (
     build_rotated_device_queues,
 )
 from .device_lease import DeviceLease
-from .maestro_capabilities import detect_maestro_capabilities, driver_host_port_supported
+from .maestro_capabilities import (
+    assert_native_parallel_ready,
+    detect_maestro_capabilities,
+    driver_host_port_supported,
+    native_parallel_active,
+)
 from .maestro_runner import (
     WorkerState,
     _status_file_path,
@@ -238,18 +243,28 @@ class _DeviceFlowOutcome:
     exit_code: int
 
 
-def _default_parallel_stagger_sec() -> str:
-    """Enterprise default: 2s between device Maestro startups on Windows (1–2s range)."""
-    return "2" if os.name == "nt" else "0"
+def _default_parallel_stagger_sec(device_count: int = 1) -> str:
+    """0 = simultaneous startups for native parallel; legacy serialized may use 2s on Windows."""
+    from .maestro_capabilities import legacy_serialized_allowed
+
+    if device_count > 1 and native_parallel_active(device_count):
+        return "0"
+    if device_count > 1 and legacy_serialized_allowed():
+        return "2" if os.name == "nt" else "0"
+    return "0"
 
 
 def _parallel_launch_stagger_sec(launch_index: int) -> float:
-    """Stagger Maestro driver handshake on one host to reduce adb TcpForwarder races (Windows)."""
+    """Stagger between device worker starts (0 = simultaneous for native parallel)."""
     if launch_index <= 0:
         return 0.0
     raw = (os.environ.get("ATP_PARALLEL_DEVICE_STAGGER_SEC") or "").strip()
     if not raw:
-        raw = _default_parallel_stagger_sec()
+        try:
+            dc = int(os.environ.get("ATP_ORCH_DEVICE_COUNT", "1"))
+        except ValueError:
+            dc = 1
+        raw = _default_parallel_stagger_sec(dc)
     try:
         return max(0.0, float(raw)) * launch_index
     except ValueError:
@@ -710,6 +725,7 @@ def run_atp_folder_blocking(
         return 1
 
     print(f"Devices: {', '.join(devices)}", flush=True)
+    os.environ["ATP_ORCH_DEVICE_COUNT"] = str(len(devices))
     try:
         maestro_launch = resolve_maestro_launcher(maestro_cmd)
     except Exception as e:
@@ -729,11 +745,21 @@ def run_atp_folder_blocking(
         flush=True,
     )
     if exec_mode == "parallel" and len(devices) > 1:
-        stagger_env = (os.environ.get("ATP_PARALLEL_DEVICE_STAGGER_SEC") or _default_parallel_stagger_sec()).strip()
+        assert_native_parallel_ready(device_count=len(devices))
+        caps = detect_maestro_capabilities(device_count=len(devices))
+        stagger_env = (
+            os.environ.get("ATP_PARALLEL_DEVICE_STAGGER_SEC") or _default_parallel_stagger_sec(len(devices))
+        ).strip()
         gate_on = _handshake_gate_enabled(len(devices), exec_mode) and sched_mode == "wave"
+        startup_gate_env = os.environ.get("ATP_MAESTRO_STARTUP_GATE", "0" if caps.driver_host_port_supported else "1")
         print(
             f"[ATP] parallel_device_stagger_sec={stagger_env} "
-            f"(per worker startup; set 0 for simultaneous startup)",
+            f"(0 = simultaneous; native parallel default)",
+            flush=True,
+        )
+        print(
+            f"[ATP] maestro_startup_gate={startup_gate_env} "
+            f"(0 = no init serialization; required for native parallel)",
             flush=True,
         )
         if sched_mode == "wave":
@@ -747,19 +773,6 @@ def run_atp_folder_blocking(
             "status/<suite>__<flow>__<device>.txt maestro-debug/<flow>__<device>/",
             flush=True,
         )
-        caps = detect_maestro_capabilities(device_count=len(devices))
-        print(
-            "[ATP] maestro_startup_gate=1 (ATP_MAESTRO_STARTUP_GATE; serializes driver init only) "
-            f"MAESTRO_PARALLEL_STARTUP_DELAY_SEC={os.environ.get('MAESTRO_PARALLEL_STARTUP_DELAY_SEC', '5')}",
-            flush=True,
-        )
-        if not caps.driver_host_port_supported:
-            print(
-                "[ATP] maestro_legacy_note Maestro 1.27.x has no --driver-host-port; "
-                "using legacy_compatible mode (startup gate + adb hygiene + host runtime mutex). "
-                "Upgrade Maestro for true parallel same-host execution.",
-                flush=True,
-            )
 
     (repo / "status").mkdir(parents=True, exist_ok=True)
 
