@@ -22,7 +22,7 @@ if defined ATP_MAESTRO_DEBUG_OUTPUT (
 )
 exit /b 0
 
-REM Isolated Maestro: no "call" (separate process), optional per-device USERPROFILE for ~/.maestro.
+REM Isolated Maestro: direct java maestro.cli.AppKt (no maestro.bat/call), per-device USERPROFILE.
 :run_maestro_isolated
 call :apply_maestro_parallel_isolation
 set "_MAESTRO_SAVED_USERPROFILE="
@@ -31,9 +31,19 @@ if defined ATP_MAESTRO_USER_HOME (
   set "USERPROFILE=%ATP_MAESTRO_USER_HOME%"
   echo [INFO] Maestro isolated USERPROFILE=%USERPROFILE%>> "%LOG_FILE%"
 )
+if /I "%ATP_MAESTRO_JAVA_DIRECT%"=="1" (
+  if exist "%JAVA_EXE%" if exist "%MAESTRO_APP_HOME%\lib" (
+    echo Command: "%JAVA_EXE%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS!>> "%LOG_FILE%"
+    "%JAVA_EXE%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS! >> "%LOG_FILE%" 2>&1
+    set "RUN_EXIT=!ERRORLEVEL!"
+    goto :run_maestro_isolated_done
+  )
+  echo [WARN] ATP_MAESTRO_JAVA_DIRECT=1 but java/lib missing; falling back to MAESTRO_BIN>> "%LOG_FILE%"
+)
 echo Command: "%MAESTRO_BIN%" !MAESTRO_ARGS!>> "%LOG_FILE%"
 "%MAESTRO_BIN%" !MAESTRO_ARGS! >> "%LOG_FILE%" 2>&1
-set "RUN_EXIT=%ERRORLEVEL%"
+set "RUN_EXIT=!ERRORLEVEL!"
+:run_maestro_isolated_done
 if defined _MAESTRO_SAVED_USERPROFILE (
   set "USERPROFILE=%_MAESTRO_SAVED_USERPROFILE%"
   set "_MAESTRO_SAVED_USERPROFILE="
@@ -85,6 +95,12 @@ if exist "%MAESTRO_HOME%\maestro.bat" (
 ) else (
     set "MAESTRO_BIN=%MAESTRO_CMD%"
 )
+
+REM Maestro app root (parent of bin/) — used for direct java launch (no maestro.bat wrapper).
+set "MAESTRO_APP_HOME=%MAESTRO_HOME%\.."
+for %%I in ("%MAESTRO_APP_HOME%") do set "MAESTRO_APP_HOME=%%~fI"
+set "JAVA_EXE=%JAVA_HOME%\bin\java.exe"
+set "MAESTRO_CLASSPATH=%MAESTRO_APP_HOME%\lib\*"
 
 for %%I in ("%FLOW_PATH%") do set "FLOW_NAME=%%~nI"
 

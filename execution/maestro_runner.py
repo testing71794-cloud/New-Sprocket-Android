@@ -157,6 +157,46 @@ def resolve_maestro_launcher(maestro_cmd: str) -> Path:
     raise RuntimeError(f"maestro.bat / maestro.cmd not found under MAESTRO_HOME: {mh}")
 
 
+def resolve_maestro_app_home(maestro_launcher: Path | None = None) -> Path:
+    """Maestro install root (parent of bin/); matches maestro.bat APP_HOME."""
+    mh = os.environ.get("MAESTRO_HOME", "").strip().strip('"')
+    if not mh and maestro_launcher is not None:
+        mh = str(maestro_launcher.parent)
+    if not mh:
+        raise RuntimeError("MAESTRO_HOME is not set.")
+    bin_dir = Path(mh).resolve()
+    if bin_dir.name.lower() in ("bin", "scripts"):
+        return bin_dir.parent
+    return bin_dir
+
+
+def resolve_maestro_java_exe() -> Path:
+    for key in ("MAESTRO_JAVA_HOME", "JAVA_HOME"):
+        root = os.environ.get(key, "").strip().strip('"')
+        if not root:
+            continue
+        exe = Path(root) / "bin" / ("java.exe" if os.name == "nt" else "java")
+        if exe.is_file():
+            return exe.resolve()
+    found = shutil.which("java")
+    if found:
+        return Path(found).resolve()
+    raise RuntimeError("Java 17+ not found (set MAESTRO_JAVA_HOME or JAVA_HOME).")
+
+
+def build_maestro_java_cmd_prefix(
+    maestro_launcher: Path | None = None,
+) -> list[str]:
+    """
+    argv prefix to invoke Maestro CLI without maestro.bat (Gradle-style launcher).
+    Example: [java.exe, -classpath, <app>/lib/*, maestro.cli.AppKt]
+    """
+    app_home = resolve_maestro_app_home(maestro_launcher)
+    lib_glob = str((app_home / "lib" / "*").resolve())
+    java_exe = resolve_maestro_java_exe()
+    return [str(java_exe), "-classpath", lib_glob, "maestro.cli.AppKt"]
+
+
 def flow_log_tail(repo: Path, suite_id: str, flow_path: Path, device_id: str) -> str:
     """Same stem convention as scripts/run_one_flow_on_device.bat SAFE_FLOW."""
     flow_name = re.sub(r"\s+", "_", flow_path.stem)
@@ -287,8 +327,57 @@ def _windows_child_process_snapshot(root_pid: int) -> str:
         return f"snapshot_error={e}"
 
 
+def _find_maestro_java_pids(device_id: str) -> list[int]:
+    """Maestro CLI java processes for this device (--device serial in command line)."""
+    if os.name != "nt":
+        return []
+    dev = device_id.replace("'", "''")
+    ps = (
+        f"$d='{dev}'; "
+        "Get-CimInstance Win32_Process -Filter \"Name='java.exe'\" | "
+        "Where-Object { $_.CommandLine -and ($_.CommandLine -match 'maestro\\.cli\\.AppKt') "
+        "-and ($_.CommandLine -match [regex]::Escape($d)) } | "
+        "ForEach-Object { [int]$_.ProcessId }"
+    )
+    try:
+        proc = subprocess.run(
+            ["powershell", "-NoProfile", "-NonInteractive", "-Command", ps],
+            capture_output=True,
+            text=True,
+            timeout=25,
+            check=False,
+        )
+        pids: list[int] = []
+        for line in (proc.stdout or "").splitlines():
+            line = line.strip()
+            if line.isdigit():
+                pids.append(int(line))
+        return pids
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+
+
 def _log_maestro_process_tree(device_id: str, cmd_pid: int) -> None:
-    time.sleep(4.0)
+    """Poll until Maestro java PID is visible; log pid= for console checks (unique per device)."""
+    java_pid: int | None = None
+    for _ in range(20):
+        found = _find_maestro_java_pids(device_id)
+        if found:
+            java_pid = found[0]
+            break
+        time.sleep(1.0)
+    if java_pid is not None:
+        print(
+            f"[ATP] maestro_subprocess_launch device={device_id} pid={java_pid} "
+            f"maestro_java_pid={java_pid} cmd_child_pid={cmd_pid}",
+            flush=True,
+        )
+    else:
+        print(
+            f"[ATP] maestro_subprocess_launch device={device_id} pid={cmd_pid} "
+            f"(maestro_java_pid=pending) cmd_child_pid={cmd_pid}",
+            flush=True,
+        )
     snap = _windows_child_process_snapshot(cmd_pid)
     if snap:
         print(
@@ -331,6 +420,8 @@ def _apply_parallel_maestro_env(
     runtime_home.mkdir(parents=True, exist_ok=True)
     env["MAESTRO_CLI_DIR"] = str(runtime_home)
     env["ATP_MAESTRO_USER_HOME"] = str(runtime_home)
+    env["HOME"] = str(runtime_home)
+    env["ATP_MAESTRO_JAVA_DIRECT"] = "1"
     meta["maestro_user_home"] = str(runtime_home)
 
     env["ANDROID_SERIAL"] = device_id
@@ -406,9 +497,9 @@ def run_run_one_flow_device_bat(
     )
     print(
         f"[ATP] maestro_subprocess_launch device={device_id} flow={flow_path.stem} "
-        f"ts={time.time():.3f} parent_pid={os.getpid()} launch_index={launch_index} "
+        f"ts={time.time():.3f} orchestrator_parent_pid={os.getpid()} launch_index={launch_index} "
         f"driver_port={iso.get('driver_port')} workspace={iso.get('workspace')} "
-        f"maestro_user_home={iso.get('maestro_user_home')}",
+        f"maestro_user_home={iso.get('maestro_user_home')} java_direct=1",
         flush=True,
     )
     popen_kw: dict[str, Any] = {
