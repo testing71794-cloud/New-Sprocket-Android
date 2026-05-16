@@ -22,7 +22,7 @@ echo    https://github.com/mobile-dev-inc/Maestro/releases
 echo 2. Extract and point Jenkins MAESTRO_HOME to the new bin folder
 echo 3. Re-run: python scripts\verify_maestro_parallel_cli.py
 echo.
-echo Temporary serialized fallback ^(not true parallel^):
-echo    set ATP_ALLOW_LEGACY_SERIALIZED=1
+echo Serialized fallback is now automatic on old Maestro ^(no env var required^).
+echo Strict mode after upgrade: set ATP_REQUIRE_NATIVE_PARALLEL=1
 echo.
 exit /b %RC%

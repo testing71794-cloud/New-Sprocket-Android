@@ -95,13 +95,30 @@ def _probe_driver_host_port_supported(prefix: list[str]) -> bool:
         return False
 
 
-def legacy_serialized_allowed() -> bool:
-    return os.environ.get("ATP_ALLOW_LEGACY_SERIALIZED", "0").strip().lower() in (
+def require_native_parallel() -> bool:
+    """Strict: exit if --driver-host-port unavailable (set after Maestro upgrade verification)."""
+    return os.environ.get("ATP_REQUIRE_NATIVE_PARALLEL", "0").strip().lower() in (
         "1",
         "true",
         "yes",
         "on",
     )
+
+
+def legacy_serialized_allowed() -> bool:
+    """
+    auto (default): allow serialized legacy when CLI lacks driver ports (Jenkins keeps running).
+    0: disable legacy fallback (fails unless native parallel available).
+    1: force legacy even if native ports exist (rollback).
+    """
+    if require_native_parallel():
+        return False
+    raw = (os.environ.get("ATP_ALLOW_LEGACY_SERIALIZED") or "auto").strip().lower()
+    if raw in ("0", "false", "no", "off"):
+        return False
+    if raw in ("1", "true", "yes", "on"):
+        return True
+    return True  # auto-fallback for Maestro 1.27.x agents
 
 
 def invalidate_driver_port_support(*, reason: str) -> None:
@@ -146,7 +163,7 @@ def _native_startup_strategy() -> str:
 
 
 def _legacy_startup_strategy() -> str:
-    return "legacy_compatible:serialized_mutex+startup_gate (ATP_ALLOW_LEGACY_SERIALIZED=1)"
+    return "legacy_compatible:host_runtime_mutex+startup_gate+adb_hygiene"
 
 
 def legacy_runtime_mutex_active(device_count: int) -> bool:
@@ -159,6 +176,16 @@ def legacy_runtime_mutex_active(device_count: int) -> bool:
         return False
     raw = (os.environ.get("ATP_MAESTRO_LEGACY_RUNTIME_MUTEX") or "1").strip().lower()
     return raw not in ("0", "false", "no", "off")
+
+
+def apply_legacy_parallel_env_defaults() -> None:
+    """Stable defaults for Maestro without per-device driver ports."""
+    os.environ.setdefault("ATP_MAESTRO_STARTUP_GATE", "1")
+    os.environ.setdefault("ATP_MAESTRO_LEGACY_RUNTIME_MUTEX", "1")
+    os.environ.setdefault("ATP_MAESTRO_DRIVER_PORTS", "0")
+    if os.name == "nt":
+        os.environ.setdefault("ATP_PARALLEL_DEVICE_STAGGER_SEC", "2")
+    os.environ.setdefault("MAESTRO_PARALLEL_STARTUP_DELAY_SEC", "8")
 
 
 def apply_native_parallel_env_defaults(*, device_count: int) -> None:
@@ -174,8 +201,8 @@ def apply_native_parallel_env_defaults(*, device_count: int) -> None:
 
 def assert_native_parallel_ready(*, device_count: int) -> None:
     """
-  Exit before scheduling when multi-device parallel requires upgraded Maestro.
-  Override: ATP_ALLOW_LEGACY_SERIALIZED=1 (restores serialized legacy path).
+    Configure native parallel when supported; otherwise auto-fallback to legacy (default)
+    or exit 2 when ATP_REQUIRE_NATIVE_PARALLEL=1.
     """
     if device_count <= 1:
         return
@@ -189,9 +216,15 @@ def assert_native_parallel_ready(*, device_count: int) -> None:
         )
         return
     if legacy_serialized_allowed():
+        apply_legacy_parallel_env_defaults()
         print(
-            "[ATP] native_parallel=0 ATP_ALLOW_LEGACY_SERIALIZED=1 — "
-            "using legacy_compatible serialized Maestro on this host",
+            "[ATP] native_parallel=0 maestro_mode=legacy_compatible "
+            f"(CLI {caps.cli_version} lacks --driver-host-port; serialized host mutex active)",
+            flush=True,
+        )
+        print(
+            "[ATP] maestro_upgrade_hint Run scripts\\upgrade_maestro_for_parallel.bat "
+            "after upgrading MAESTRO_HOME for true parallel execution",
             flush=True,
         )
         return
@@ -199,10 +232,9 @@ def assert_native_parallel_ready(*, device_count: int) -> None:
         "\nERROR: True parallel multi-device execution requires Maestro CLI with "
         "--driver-host-port.\n"
         "  Installed CLI does not support it (detected on this agent).\n"
-        "  Fix: upgrade MAESTRO_HOME to a current Maestro release, then re-run:\n"
-        "    python scripts/verify_maestro_parallel_cli.py\n"
-        "  Temporary rollback (serialized, one Maestro at a time):\n"
-        "    set ATP_ALLOW_LEGACY_SERIALIZED=1\n",
+        "  Fix: upgrade MAESTRO_HOME, then: python scripts/verify_maestro_parallel_cli.py\n"
+        "  Or allow serialized fallback: set ATP_ALLOW_LEGACY_SERIALIZED=auto (default)\n"
+        "  Strict CI gate after upgrade: set ATP_REQUIRE_NATIVE_PARALLEL=1\n",
         flush=True,
     )
     sys.exit(2)
