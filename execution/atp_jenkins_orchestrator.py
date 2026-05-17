@@ -33,7 +33,7 @@ from .atp_dynamic_scheduler import (
     TaskOutcome,
     build_rotated_device_queues,
 )
-from .device_lease import DeviceLease
+from .device_lease import DeviceLease, cleanup_stale_device_leases, release_device_lease
 from .maestro_capabilities import (
     apply_native_parallel_env_defaults,
     assert_native_parallel_ready,
@@ -442,18 +442,18 @@ def _execute_flow_on_device(
     (rd / "results").mkdir(parents=True, exist_ok=True)
 
     lease = DeviceLease.for_serial(repo, device_id)
-    log_lifecycle(
-        repo, suite_id, WorkerState.ALLOCATED, "lease acquire", device=device_id, flow=flow_base
-    )
-    lease.acquire()
     exit_code = 1
     t0 = time.time()
-    print(
-        f"[ATP] device_run_start device={_dev_log(device_id)} flow={flow_base} "
-        f"thread={threading.current_thread().name} ts={t0:.3f}",
-        flush=True,
-    )
     try:
+        log_lifecycle(
+            repo, suite_id, WorkerState.ALLOCATED, "lease acquire", device=device_id, flow=flow_base
+        )
+        lease.acquire()
+        print(
+            f"[ATP] device_run_start device={_dev_log(device_id)} flow={flow_base} "
+            f"thread={threading.current_thread().name} ts={t0:.3f}",
+            flush=True,
+        )
         log_lifecycle(repo, suite_id, WorkerState.PREPARING, "preparing", device=device_id, flow=flow_base)
         pre_maestro_cleanup(device_id, suite_id, repo, allow_maestro_kill=allow_maestro_kill)
         log_lifecycle(
@@ -471,7 +471,7 @@ def _execute_flow_on_device(
             device_count=len(devices),
         )
     finally:
-        lease.release()
+        release_device_lease(lease)
         log_lifecycle(repo, suite_id, WorkerState.IDLE, "lease released", device=device_id)
         print(
             f"[ATP] device_run_end device={_dev_log(device_id)} flow={flow_base} exit={exit_code} "
@@ -850,6 +850,8 @@ def run_atp_folder_blocking(
         )
 
     (repo / "status").mkdir(parents=True, exist_ok=True)
+
+    cleanup_stale_device_leases(repo)
 
     labels: dict[str, str] = {}
     overall_failed = False
