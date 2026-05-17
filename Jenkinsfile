@@ -376,6 +376,8 @@ pipeline {
                                 'PYTHONIOENCODING=utf-8',
                                 'ORCH_EMAIL_STRICT=1',
                                 "FINAL_EXECUTION_REPORT_XLSX=${env.WORKSPACE}\\build-summary\\final_execution_report.xlsx",
+                                "BRANCH_NAME=${env.BRANCH_NAME}",
+                                "GIT_BRANCH=${env.BRANCH_NAME}",
                             ]) {
                                 bat """call scripts\\jenkins_ci_send_email.bat "${env.WORKSPACE}" """
                             }

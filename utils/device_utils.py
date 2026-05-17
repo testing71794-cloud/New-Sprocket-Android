@@ -19,6 +19,12 @@ _MODEL_DISPLAY_ALIASES: dict[str, str] = {
     "moto fusion 50": "Motorola Fusion 50",
 }
 
+# Lab-device serial fallbacks when adb is unavailable (email/report agents)
+_SERIAL_DISPLAY_ALIASES: dict[str, str] = {
+    "rzcwa2b05rb": "Samsung M34",
+    "za222rfq75": "Motorola Fusion 50",
+}
+
 
 def _load_cache() -> dict[str, str]:
     if not CACHE.is_file():
@@ -102,11 +108,14 @@ def get_device_display_name(device_id: str) -> str:
     model = _adb_prop(d, "ro.product.model")
     model = re.sub(r"[\r\n].*", "", model).strip()
     if not model:
-        out = d
+        out = _SERIAL_DISPLAY_ALIASES.get(d.lower()) or d
     else:
         out = _normalize_display_name(model)
-    m[d] = out
-    _save_cache(m)
+        if out == d:
+            out = _SERIAL_DISPLAY_ALIASES.get(d.lower()) or d
+    if out != d:
+        m[d] = out
+        _save_cache(m)
     return out
 
 

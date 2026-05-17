@@ -304,14 +304,14 @@ def _apply_display_to_email_rows(rows: list[dict[str, str]]) -> list[dict[str, s
     out: list[dict[str, str]] = []
     for r in rows:
         nr = dict(r)
-        nr["device"] = render_device_display(nr.get("device", ""))
+        nr["device"] = render_device_display(nr.get("device", ""), nr.get("device_id", ""))
         out.append(nr)
     return out
 
 
 def _git_branch_for_summary(sheet_kv: dict[str, str]) -> str:
     branch = (sheet_kv.get("Git Branch") or "").strip()
-    if branch:
+    if branch and branch.lower() != "unknown":
         return branch
     return detect_git_branch(_REPO)
 
@@ -391,6 +391,7 @@ def _parse_table_rows_for_sheet(
                 "suite": suite,
                 "flow": flow,
                 "device": device,
+                "device_id": did,
                 "status": st,
                 "exit_code": ex,
                 "ai_analyses": ai,

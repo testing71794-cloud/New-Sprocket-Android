@@ -57,7 +57,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from utils.device_utils import get_device_display_name  # noqa: E402
-from utils.git_branch import detect_git_branch  # noqa: E402
+from utils.git_branch import detect_git_branch, write_git_branch_file  # noqa: E402
 
 _GIT_BRANCH: str | None = None
 
@@ -67,6 +67,7 @@ def _atp_git_branch(repo: Path) -> str:
     if _GIT_BRANCH is None:
         _GIT_BRANCH = detect_git_branch(repo)
         os.environ["ATP_GIT_BRANCH"] = _GIT_BRANCH
+        write_git_branch_file(repo, _GIT_BRANCH)
     return _GIT_BRANCH
 
 
