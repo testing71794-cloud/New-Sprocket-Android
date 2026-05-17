@@ -13,13 +13,24 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import threading
 import time
 from contextlib import nullcontext
 from pathlib import Path
 from typing import Any
 
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from utils.device_utils import get_device_display_name  # noqa: E402
+
 from .flow_timing import append_timing, read_status_fields
+
+
+def _dev_log(device_id: str) -> str:
+    return get_device_display_name(device_id)
 from .maestro_capabilities import (
     detect_maestro_capabilities,
     driver_host_port_supported,
@@ -429,20 +440,20 @@ def _log_maestro_process_tree(device_id: str, cmd_pid: int) -> None:
         time.sleep(1.0)
     if java_pid is not None:
         print(
-            f"[ATP] maestro_subprocess_launch device={device_id} pid={java_pid} "
+            f"[ATP] maestro_subprocess_launch device={_dev_log(device_id)} pid={java_pid} "
             f"maestro_java_pid={java_pid} cmd_child_pid={cmd_pid}",
             flush=True,
         )
     else:
         print(
-            f"[ATP] maestro_subprocess_launch device={device_id} pid={cmd_pid} "
+            f"[ATP] maestro_subprocess_launch device={_dev_log(device_id)} pid={cmd_pid} "
             f"(maestro_java_pid=pending) cmd_child_pid={cmd_pid}",
             flush=True,
         )
     snap = _windows_child_process_snapshot(cmd_pid)
     if snap:
         print(
-            f"[ATP] maestro_subprocess_tree device={device_id} cmd_pid={cmd_pid}\n{snap}",
+            f"[ATP] maestro_subprocess_tree device={_dev_log(device_id)} cmd_pid={cmd_pid}\n{snap}",
             flush=True,
         )
 
@@ -540,7 +551,7 @@ def run_run_one_flow_device_bat(
     runtime_mutex = legacy_runtime_mutex_active(device_count)
     if runtime_mutex:
         print(
-            f"[ATP] legacy_runtime_mutex device={device_id} flow={flow_path.stem} "
+            f"[ATP] legacy_runtime_mutex device={_dev_log(device_id)} flow={flow_path.stem} "
             f"(Maestro without per-device ports - one host session at a time)",
             flush=True,
         )
@@ -551,7 +562,7 @@ def run_run_one_flow_device_bat(
             else "isolated_runtime=1 driver_port_cli=None"
         )
         print(
-            f"[ATP] native_parallel_launch device={device_id} flow={flow_path.stem} {port_note}",
+            f"[ATP] native_parallel_launch device={_dev_log(device_id)} flow={flow_path.stem} {port_note}",
             flush=True,
         )
 
@@ -599,7 +610,7 @@ def run_run_one_flow_device_bat(
     log_path = flow_device_log_path(repo, suite_id, flow_path, device_id)
     port_plan = iso.get("driver_port_plan", planned_driver_port(launch_index))
     print(
-        f"[ATP] maestro_subprocess_launch device={device_id} flow={flow_path.stem} "
+        f"[ATP] maestro_subprocess_launch device={_dev_log(device_id)} flow={flow_path.stem} "
         f"ts={time.time():.3f} orchestrator_parent_pid={os.getpid()} launch_index={launch_index} "
         f"driver_port_plan={port_plan} driver_port_cli={iso.get('driver_port')} "
         f"maestro_mode={'native_parallel' if native_parallel else 'legacy_compatible'} "
@@ -634,7 +645,7 @@ def run_run_one_flow_device_bat(
                 driver_port_int = port
             if attempt > 1:
                 print(
-                    f"[ATP] startup_retry device={device_id} flow={flow_path.stem} "
+                    f"[ATP] startup_retry device={_dev_log(device_id)} flow={flow_path.stem} "
                     f"attempt={attempt}/{max_attempts} backoff_sec={startup_retry_backoff_sec(attempt):.1f}",
                     flush=True,
                 )
@@ -678,7 +689,7 @@ def run_run_one_flow_device_bat(
                     child = subprocess.Popen(cmd, **popen_kw)
                     register_owned_child_pid(child.pid)
                     print(
-                        f"[ATP] maestro_subprocess_child device={device_id} flow={flow_path.stem} "
+                        f"[ATP] maestro_subprocess_child device={_dev_log(device_id)} flow={flow_path.stem} "
                         f"cmd_child_pid={child.pid} startup_attempt={attempt} log_offset={log_start_offset}",
                         flush=True,
                     )
@@ -704,7 +715,7 @@ def run_run_one_flow_device_bat(
                         )
                         if not ready:
                             print(
-                                f"[ATP] startup_retry_root_cause device={device_id} reason={reason}",
+                                f"[ATP] startup_retry_root_cause device={_dev_log(device_id)} reason={reason}",
                                 flush=True,
                             )
                             if reason in (

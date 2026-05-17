@@ -13,6 +13,12 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 CACHE = REPO / ".device_name_cache.json"
 
+# ro.product.model (and variants) -> console/report display label
+_MODEL_DISPLAY_ALIASES: dict[str, str] = {
+    "sm-m346b": "Samsung M34",
+    "moto fusion 50": "Motorola Fusion 50",
+}
+
 
 def _load_cache() -> dict[str, str]:
     if not CACHE.is_file():
@@ -31,43 +37,85 @@ def _save_cache(m: dict[str, str]) -> None:
 
 
 def _adb_prop(device_id: str, prop: str) -> str:
-    r = subprocess.run(
-        ["adb", "-s", device_id, "shell", "getprop", prop],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.DEVNULL,
-        text=True,
-        timeout=20,
-    )
+    try:
+        r = subprocess.run(
+            ["adb", "-s", device_id, "shell", "getprop", prop],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            timeout=20,
+        )
+    except (FileNotFoundError, OSError, subprocess.TimeoutExpired):
+        return ""
     return (r.stdout or "").strip()
 
 
-def get_device_name(device_id: str) -> str:
+def _normalize_display_name(model: str) -> str:
+    m = re.sub(r"[\r\n].*", "", (model or "").strip())
+    if not m:
+        return m
+    alias = _MODEL_DISPLAY_ALIASES.get(m.lower())
+    if alias:
+        return alias
+    return m
+
+
+def _is_likely_device_serial(value: str) -> bool:
+    """Heuristic: ADB serial/UDID (no spaces, typical length) vs friendly label."""
+    t = (value or "").strip()
+    if not t or " " in t:
+        return False
+    if len(t) < 8:
+        return False
+    return bool(re.match(r"^[A-Za-z0-9._-]+$", t))
+
+
+def render_device_display(display: str = "", device_id: str = "") -> str:
     """
-    Return a readable name: "Brand Model" (e.g. "Google Pixel 6") or the raw id on failure.
-    Caches serial -> name in .device_name_cache.json (gitignored).
+    Human-facing label for reports/email/HTML only. Resolves serial via
+    :func:`get_device_display_name`; leaves an already-friendly name unchanged.
+    """
+    disp = (display or "").strip()
+    did = (device_id or "").strip()
+    if did:
+        return get_device_display_name(did)
+    if disp and _is_likely_device_serial(disp):
+        return get_device_display_name(disp)
+    return disp
+
+
+def get_device_display_name(device_id: str) -> str:
+    """
+    Human-readable device label for logs and reports (serial unchanged internally).
+    Uses ``ro.product.model`` via adb, normalizes known models, caches per serial.
+    Falls back to the raw serial when adb lookup fails.
     """
     d = (device_id or "").strip()
     if not d or d in ("List", "unknown"):
         return d or "unknown"
     m = _load_cache()
     if d in m:
-        return m[d]
-    brand = _adb_prop(d, "ro.product.brand")
+        cached = m[d]
+        # Retry adb when cache only has a failed self-mapping (serial -> serial).
+        if cached and cached != d:
+            return cached
     model = _adb_prop(d, "ro.product.model")
-    brand = re.sub(r"[\r\n].*", "", brand).strip()
     model = re.sub(r"[\r\n].*", "", model).strip()
-    if not brand and not model:
+    if not model:
         out = d
     else:
-        b = (brand or "").strip()
-        o = (model or "").strip()
-        out = f"{b} {o}".strip() or d
+        out = _normalize_display_name(model)
     m[d] = out
     _save_cache(m)
     return out
 
 
+def get_device_name(device_id: str) -> str:
+    """Backward-compatible alias for :func:`get_device_display_name`."""
+    return get_device_display_name(device_id)
+
+
 if __name__ == "__main__":
     # Usage: python -m utils.device_utils <serial>
     sid = sys.argv[1] if len(sys.argv) > 1 else ""
-    print(get_device_name(sid))
+    print(get_device_display_name(sid))

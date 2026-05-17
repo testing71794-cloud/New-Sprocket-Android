@@ -9,12 +9,23 @@ Every flow runs exactly once per device (full matrix completion).
 from __future__ import annotations
 
 import os
+import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
+
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from utils.device_utils import get_device_display_name  # noqa: E402
+
+
+def _dev_log(device_id: str) -> str:
+    return get_device_display_name(device_id)
 
 
 @dataclass(frozen=True)
@@ -123,7 +134,7 @@ class DynamicDeviceScheduler:
         with self._lock:
             done = len(self._completed)
         print(
-            f"[ATP] scheduler_queue device={device_id} event={label} "
+            f"[ATP] scheduler_queue device={_dev_log(device_id)} event={label} "
             f"device_pending={pending} matrix_done={done}/{self._metrics.tasks_total} "
             f"global_pending~{total_pending}",
             flush=True,
@@ -150,14 +161,15 @@ class DynamicDeviceScheduler:
             stagger = 0.0
         if stagger > 0:
             print(
-                f"[ATP] worker_stagger device={device_id} worker_index={device_index} sleep_sec={stagger:.1f}",
+                f"[ATP] worker_stagger device={_dev_log(device_id)} worker_index={device_index} "
+                f"sleep_sec={stagger:.1f}",
                 flush=True,
             )
             time.sleep(stagger)
 
         worker_t0 = time.time()
         print(
-            f"[ATP] worker_start device={device_id} tasks={len(tasks)} ts={worker_t0:.3f}",
+            f"[ATP] worker_start device={_dev_log(device_id)} tasks={len(tasks)} ts={worker_t0:.3f}",
             flush=True,
         )
         self._log_queue_status(device_id, len(tasks), "worker_start")
@@ -166,7 +178,7 @@ class DynamicDeviceScheduler:
             pending_after = len(tasks) - task_idx - 1
             self._section_once(task)
             print(
-                f"[ATP] task_pull device={device_id} flow={task.flow_base} "
+                f"[ATP] task_pull device={_dev_log(device_id)} flow={task.flow_base} "
                 f"task={task_idx + 1}/{len(tasks)} pending_on_device={pending_after}",
                 flush=True,
             )
@@ -179,7 +191,7 @@ class DynamicDeviceScheduler:
                 )
             except Exception as exc:
                 print(
-                    f"[ATP] task_error device={device_id} flow={task.flow_base} error={exc}",
+                    f"[ATP] task_error device={_dev_log(device_id)} flow={task.flow_base} error={exc}",
                     flush=True,
                 )
                 outcome = TaskOutcome(device_id=device_id, exit_code=1)
@@ -200,7 +212,8 @@ class DynamicDeviceScheduler:
             self._metrics.per_device_sec[device_id] = worker_elapsed
             self._metrics.per_device_tasks[device_id] = len(tasks)
         print(
-            f"[ATP] worker_done device={device_id} tasks={len(tasks)} elapsed_sec={worker_elapsed:.1f}",
+            f"[ATP] worker_done device={_dev_log(device_id)} tasks={len(tasks)} "
+            f"elapsed_sec={worker_elapsed:.1f}",
             flush=True,
         )
         self._log_queue_status(device_id, 0, "worker_done")
@@ -223,7 +236,7 @@ class DynamicDeviceScheduler:
             preview = ", ".join(t.flow_base for t in q[:4])
             if len(q) > 4:
                 preview += ", ..."
-            print(f"[ATP] worker_queue device={dev} order=[{preview}]", flush=True)
+            print(f"[ATP] worker_queue device={_dev_log(dev)} order=[{preview}]", flush=True)
 
         all_outcomes: list[TaskOutcome] = []
         executor = ThreadPoolExecutor(max_workers=len(self._devices), thread_name_prefix="atp-dev")
@@ -237,7 +250,7 @@ class DynamicDeviceScheduler:
                 try:
                     all_outcomes.extend(fut.result())
                 except Exception as exc:
-                    print(f"[ATP] worker_crashed device={dev} error={exc}", flush=True)
+                    print(f"[ATP] worker_crashed device={_dev_log(dev)} error={exc}", flush=True)
         finally:
             executor.shutdown(wait=True, cancel_futures=False)
 
@@ -273,7 +286,7 @@ class DynamicDeviceScheduler:
         for dev in self._devices:
             sec = m.per_device_sec.get(dev, 0.0)
             cnt = m.per_device_tasks.get(dev, 0)
-            util_lines.append(f"{dev}:{cnt}tasks/{sec:.0f}s")
+            util_lines.append(f"{_dev_log(dev)}:{cnt}tasks/{sec:.0f}s")
         print(
             f"[ATP] scheduler_summary wall_sec={m.wall_sec:.1f} "
             f"tasks={m.tasks_total} ok={m.tasks_ok} fail={m.tasks_fail}",

@@ -23,7 +23,8 @@ if str(REPO / "scripts") not in sys.path:
     sys.path.insert(0, str(REPO / "scripts"))
 
 from failure_row_analysis import analyze_failure_for_row
-from utils.device_utils import get_device_name
+from utils.device_utils import get_device_display_name, render_device_display
+from utils.git_branch import detect_git_branch
 
 PASS_FILL = PatternFill(fill_type="solid", fgColor="C6EFCE")
 FAIL_FILL = PatternFill(fill_type="solid", fgColor="FFC7CE")
@@ -74,7 +75,7 @@ def _augment_merged_row(rowd: dict) -> None:
     """Refresh Device Name from ADB and AI Analysis for rows loaded from an older xlsx merge."""
     did = str(rowd.get("Device ID", "") or "").strip()
     if did:
-        rowd["Device Name"] = get_device_name(did)
+        rowd["Device Name"] = get_device_display_name(did)
     ai = (
         str(rowd.get("AI Analysis", "") or "").strip()
         or str(rowd.get("AI Analyses", "") or "").strip()
@@ -98,7 +99,7 @@ def _write_flow_report_sheet(wb: Workbook, all_rows: list[dict]) -> None:
         if not suite_s:
             continue
         did = str(r.get("Device ID", "") or "").strip()
-        dev = str(r.get("Device Name", "") or "").strip() or (get_device_name(did) if did else "")
+        dev = render_device_display(str(r.get("Device Name", "") or "").strip(), did)
         st = str(r.get("Status", "") or "").strip()
         ex = str(r.get("Exit Code", "") or "").strip() or "0"
         ai = (
@@ -157,11 +158,11 @@ def _device_id(row: dict) -> str:
 def _display_device_name_for_report(row: dict) -> str:
     """
     Device column: always prefer ADB "Brand Model" for a serial, so Excel shows Samsung Galaxy
-    S21, not RZCT... . Falls back to status device_name if no id; then get_device_name on id.
+    S21, not RZCT... . Falls back to status device_name if no id; then get_device_display_name on id.
     """
     did = _device_id(row)
     if did:
-        return get_device_name(did)
+        return get_device_display_name(did)
     return (row.get("device_name") or "").strip()
 
 
@@ -358,6 +359,7 @@ def _merge_build_summary(
     ws0["A4"], ws0["B4"] = "Failed (non-PASS, excl. flaky count below)", str(nf)
     ws0["A5"], ws0["B5"] = "Flaky", str(fl)
     ws0["A6"], ws0["B6"] = "Generated", datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    ws0["A7"], ws0["B7"] = "Git Branch", detect_git_branch(REPO)
     _write_flow_report_sheet(wb, all_rows)
     wdev = wb.create_sheet("Device Summary")
     wdev.append(["Device Name", "Device ID", "Total", "Passed", "Failed", "Flaky"])
@@ -424,6 +426,7 @@ def build_workbook(
     ws0["A5"], ws0["B5"] = "Flaky", str(fl)
     ws0["A6"] = "Generated"
     ws0["B6"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    ws0["A7"], ws0["B7"] = "Git Branch", detect_git_branch(REPO)
 
     _write_flow_report_sheet(wb, raw)
     wdev = wb.create_sheet("Device Summary")

@@ -52,6 +52,28 @@ from .maestro_runner import (
 )
 from .flow_timing import read_status_fields
 
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from utils.device_utils import get_device_display_name  # noqa: E402
+from utils.git_branch import detect_git_branch  # noqa: E402
+
+_GIT_BRANCH: str | None = None
+
+
+def _atp_git_branch(repo: Path) -> str:
+    global _GIT_BRANCH
+    if _GIT_BRANCH is None:
+        _GIT_BRANCH = detect_git_branch(repo)
+        os.environ["ATP_GIT_BRANCH"] = _GIT_BRANCH
+    return _GIT_BRANCH
+
+
+def _dev_log(device_id: str) -> str:
+    return get_device_display_name(device_id)
+
+
 # Bump when orchestration semantics change (visible in Jenkins console).
 def _read_orchestrator_rev() -> str:
     rev_file = Path(__file__).resolve().parent / "ORCHESTRATOR_REV.txt"
@@ -124,8 +146,9 @@ def merge_and_pick_devices(repo: Path) -> list[str]:
         raise RuntimeError("No Android devices in state 'device'.")
     file_serials = read_detected_file_serials(repo)
     print(
-        f"[ATP] devices adb={len(authorized)} [{', '.join(authorized)}] "
-        f"detected_file={len(file_serials)} [{', '.join(file_serials) if file_serials else '-'}]",
+        f"[ATP] devices adb={len(authorized)} [{', '.join(_dev_log(s) for s in authorized)}] "
+        f"detected_file={len(file_serials)} "
+        f"[{', '.join(_dev_log(s) for s in file_serials) if file_serials else '-'}]",
         flush=True,
     )
     if not file_serials:
@@ -133,14 +156,23 @@ def merge_and_pick_devices(repo: Path) -> list[str]:
     picked = [s for s in file_serials if s in authorized]
     if not picked:
         print(
-            f"[ATP] WARN: detected_devices.txt serial(s) not in current adb devices: {', '.join(file_serials)}",
+            f"[ATP] WARN: detected_devices.txt serial(s) not in current adb devices: "
+            f"{', '.join(_dev_log(s) for s in file_serials)}",
             flush=True,
         )
-        print(f"[ATP] WARN: falling back to all authorized device(s): {', '.join(authorized)}", flush=True)
+        print(
+            f"[ATP] WARN: falling back to all authorized device(s): "
+            f"{', '.join(_dev_log(s) for s in authorized)}",
+            flush=True,
+        )
         return list(authorized)
     if len(picked) < len(file_serials):
         missing = [s for s in file_serials if s not in picked]
-        print(f"[ATP] WARN: dropping stale serial(s) from detected_devices.txt: {', '.join(missing)}", flush=True)
+        print(
+            f"[ATP] WARN: dropping stale serial(s) from detected_devices.txt: "
+            f"{', '.join(_dev_log(s) for s in missing)}",
+            flush=True,
+        )
     # Hybrid: Detect stage may have run on another agent with a stale one-device file while this agent has N USB devices.
     if len(authorized) > len(picked):
         print(
@@ -319,22 +351,23 @@ def _wait_for_prior_device_handshake(
     wait_t0 = time.monotonic()
     markers = ("Running on", "Launch app", "Flow ", "COMPLETED", "FAILED")
     print(
-        f"[ATP] handshake_gate device={devices[launch_index]} waits_for={prior} flow={flow.stem}",
+        f"[ATP] handshake_gate device={_dev_log(devices[launch_index])} "
+        f"waits_for={_dev_log(prior)} flow={flow.stem}",
         flush=True,
     )
     while time.monotonic() < deadline:
         tail = _read_log_tail_text(repo, suite_id, flow, prior, 40)
         if tail and any(m in tail for m in markers):
             print(
-                f"[ATP] handshake_gate open device={devices[launch_index]} prior={prior} "
-                f"waited_sec={time.monotonic() - wait_t0:.1f}",
+                f"[ATP] handshake_gate open device={_dev_log(devices[launch_index])} "
+                f"prior={_dev_log(prior)} waited_sec={time.monotonic() - wait_t0:.1f}",
                 flush=True,
             )
             return
         time.sleep(1.5)
     print(
-        f"[ATP] handshake_gate timeout device={devices[launch_index]} prior={prior} "
-        f"after_sec={timeout:.0f} — launching Maestro anyway",
+        f"[ATP] handshake_gate timeout device={_dev_log(devices[launch_index])} "
+        f"prior={_dev_log(prior)} after_sec={timeout:.0f} — launching Maestro anyway",
         flush=True,
     )
 
@@ -391,7 +424,7 @@ def _execute_flow_on_device(
             pass
         if stagger > 0:
             print(
-                f"[ATP] parallel_stagger device={device_id} flow={flow_base} sleep_sec={stagger:.1f}",
+                f"[ATP] parallel_stagger device={_dev_log(device_id)} flow={flow_base} sleep_sec={stagger:.1f}",
                 flush=True,
             )
             time.sleep(stagger)
@@ -415,7 +448,7 @@ def _execute_flow_on_device(
     exit_code = 1
     t0 = time.time()
     print(
-        f"[ATP] device_run_start device={device_id} flow={flow_base} "
+        f"[ATP] device_run_start device={_dev_log(device_id)} flow={flow_base} "
         f"thread={threading.current_thread().name} ts={t0:.3f}",
         flush=True,
     )
@@ -440,7 +473,7 @@ def _execute_flow_on_device(
         lease.release()
         log_lifecycle(repo, suite_id, WorkerState.IDLE, "lease released", device=device_id)
         print(
-            f"[ATP] device_run_end device={device_id} flow={flow_base} exit={exit_code} "
+            f"[ATP] device_run_end device={_dev_log(device_id)} flow={flow_base} exit={exit_code} "
             f"elapsed_sec={time.time() - t0:.1f}",
             flush=True,
         )
@@ -469,14 +502,15 @@ def _run_flow_wave_on_devices(
     )
     if mode == "parallel":
         print(
-            f"  [ATP] flow wave parallel: {flow_base} on {len(devices)} device(s): {', '.join(devices)}",
+            f"  [ATP] flow wave parallel: {flow_base} on {len(devices)} device(s): "
+            f"{', '.join(_dev_log(d) for d in devices)}",
             flush=True,
         )
         outcomes: list[_DeviceFlowOutcome] = []
         with ThreadPoolExecutor(max_workers=len(devices), thread_name_prefix="atp-flow") as pool:
             for dev in devices:
                 print(
-                    f"  [ATP] threadpool_submit device={dev} flow={flow_base} ts={time.time():.3f}",
+                    f"  [ATP] threadpool_submit device={_dev_log(dev)} flow={flow_base} ts={time.time():.3f}",
                     flush=True,
                 )
             futures = {
@@ -502,7 +536,10 @@ def _run_flow_wave_on_devices(
                     outcomes.append(fut.result())
                 except Exception as exc:
                     dev = futures[fut]
-                    print(f"  [FAIL] device={dev} flow={flow_base} orchestrator error: {exc}", flush=True)
+                    print(
+                        f"  [FAIL] device={_dev_log(dev)} flow={flow_base} orchestrator error: {exc}",
+                        flush=True,
+                    )
                     outcomes.append(_DeviceFlowOutcome(device_id=dev, exit_code=1))
         order = {d: i for i, d in enumerate(devices)}
         outcomes.sort(key=lambda o: order.get(o.device_id, 999))
@@ -518,7 +555,7 @@ def _run_flow_wave_on_devices(
     print(f"  [ATP] flow wave sequential: {flow_base}", flush=True)
     seq_outcomes: list[_DeviceFlowOutcome] = []
     for dev in devices:
-        print(f"  device {dev}", flush=True)
+        print(f"  device {_dev_log(dev)}", flush=True)
         seq_outcomes.append(
             _execute_flow_on_device(
                 repo=repo,
@@ -641,7 +678,10 @@ def _print_wave_summary(flow_base: str, outcomes: list[_DeviceFlowOutcome], elap
     )
     for o in outcomes:
         mark = "OK" if o.exit_code == 0 else "FAIL"
-        print(f"[ATP] wave_device_result device={o.device_id} exit={o.exit_code} {mark}", flush=True)
+        print(
+            f"[ATP] wave_device_result device={_dev_log(o.device_id)} exit={o.exit_code} {mark}",
+            flush=True,
+        )
 
 
 def _report_device_outcome(
@@ -663,7 +703,7 @@ def _report_device_outcome(
     except Exception:
         pass
     if ex != 0:
-        print(f"  [FAIL] exit={ex} device={dev} flow={flow_base}{dur_hint}", flush=True)
+        print(f"  [FAIL] exit={ex} device={_dev_log(dev)} flow={flow_base}{dur_hint}", flush=True)
         _print_log_tail(repo, suite_id, flow, dev)
         print(
             "  [hint] If Maestro said 'Flow file does not exist', fix runFlow paths from ATP subfolders "
@@ -679,7 +719,7 @@ def _report_device_outcome(
                 flush=True,
             )
         return True
-    print(f"  [OK] exit={ex} device={dev}{dur_hint}", flush=True)
+    print(f"  [OK] exit={ex} device={_dev_log(dev)}{dur_hint}", flush=True)
     log_lifecycle(repo, suite_id, WorkerState.COMPLETE, "flow ok", device=dev, flow=flow_base)
     return False
 
@@ -720,6 +760,7 @@ def run_atp_folder_blocking(
     print(f"[ATP] orchestrator_rev={ORCHESTRATOR_REV}", flush=True)
     print(f"[ATP] orchestrator_file={Path(__file__).resolve()}", flush=True)
     print("[ATP] orchestrator=execution/atp_jenkins_orchestrator.py (blocking; no detached PS1)", flush=True)
+    print(f"[ATP] git_branch={_atp_git_branch(repo)}", flush=True)
 
     flows = discover_flows(repo, atp_subfolder)
     if not flows:
@@ -747,7 +788,7 @@ def run_atp_folder_blocking(
         print(f"ERROR: {e}", flush=True)
         return 1
 
-    print(f"Devices: {', '.join(devices)}", flush=True)
+    print(f"Devices: {', '.join(_dev_log(d) for d in devices)}", flush=True)
     os.environ["ATP_ORCH_DEVICE_COUNT"] = str(len(devices))
     os.environ["ATP_ORCH_DEVICES"] = ",".join(devices)
     exec_mode = _device_execution_mode(len(devices))

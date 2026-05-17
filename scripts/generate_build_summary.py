@@ -9,6 +9,13 @@ from pathlib import Path
 from openpyxl import Workbook
 from openpyxl.styles import Font
 
+REPO = Path(__file__).resolve().parents[1]
+if str(REPO) not in sys.path:
+    sys.path.insert(0, str(REPO))
+
+from utils.device_utils import render_device_display  # noqa: E402
+from utils.git_branch import detect_git_branch  # noqa: E402
+
 
 def parse_status_file(file_path: Path) -> dict:
     data = {
@@ -61,6 +68,8 @@ def main() -> int:
     ws["B4"] = sum(1 for r in results if r.get("status") == "PASS")
     ws["A5"] = "Failed"
     ws["B5"] = sum(1 for r in results if r.get("status") not in ("PASS",))
+    ws["A6"] = "Git Branch"
+    ws["B6"] = detect_git_branch(REPO)
 
     start = 8
     headers = ["Suite", "Flow", "Device", "Status", "Exit Code", "Log"]
@@ -71,7 +80,7 @@ def main() -> int:
     for row in results:
         ws.cell(row=row_idx, column=1, value=row.get("suite", ""))
         ws.cell(row=row_idx, column=2, value=row.get("flow", ""))
-        ws.cell(row=row_idx, column=3, value=row.get("device", ""))
+        ws.cell(row=row_idx, column=3, value=render_device_display(row.get("device", "")))
         ws.cell(row=row_idx, column=4, value=row.get("status", ""))
         ws.cell(row=row_idx, column=5, value=row.get("exit_code", ""))
         ws.cell(row=row_idx, column=6, value=row.get("log", ""))
@@ -99,12 +108,15 @@ def main() -> int:
         "<html><body>",
         "<h2>Kodak Smile Execution Summary</h2>",
         f"<p>Generated On: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>",
+        f"<p>Git Branch: {detect_git_branch(REPO)}</p>",
         "<table border='1' cellspacing='0' cellpadding='4'>",
         "<tr><th>Suite</th><th>Flow</th><th>Device</th><th>Status</th><th>Exit Code</th></tr>",
     ]
     for row in results:
         html.append(
-            f"<tr><td>{row.get('suite','')}</td><td>{row.get('flow','')}</td><td>{row.get('device','')}</td><td>{row.get('status','')}</td><td>{row.get('exit_code','')}</td></tr>"
+            f"<tr><td>{row.get('suite','')}</td><td>{row.get('flow','')}</td>"
+            f"<td>{render_device_display(row.get('device', ''))}</td>"
+            f"<td>{row.get('status','')}</td><td>{row.get('exit_code','')}</td></tr>"
         )
     html.append("</table></body></html>")
     (output_dir / "summary.html").write_text("\n".join(html), encoding="utf-8")

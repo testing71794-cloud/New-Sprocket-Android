@@ -29,7 +29,8 @@ from openpyxl import load_workbook
 _REPO = Path(__file__).resolve().parents[1]
 if str(_REPO) not in sys.path:
     sys.path.insert(0, str(_REPO))
-from utils.device_utils import get_device_name  # noqa: E402
+from utils.device_utils import render_device_display  # noqa: E402
+from utils.git_branch import detect_git_branch  # noqa: E402
 
 logger = logging.getLogger("orch.mail")
 
@@ -294,23 +295,25 @@ def _flow_cell_invalid(flow_raw: str) -> bool:
 
 
 def _simplified_resolve_device(disp: str, did: str) -> str:
-    """
-    Prefer Excel device column when it looks like a real name (e.g. contains a space and differs from ID);
-    else resolve the serial/UDID through ADB (get_device_name cache).
-    """
-    display = (disp or "").strip()
-    did = (did or "").strip()
-    if not did and not display:
-        return ""
-    if not did:
-        if display and " " in display:
-            return display
-        return get_device_name(display) if display else ""
-    if not display or display == did or display.upper() == did:
-        return get_device_name(did)
-    if " " in display and display != did:
-        return display
-    return get_device_name(did)
+    """Display-only: map stored serials to friendly names for email tables."""
+    return render_device_display(disp, did)
+
+
+def _apply_display_to_email_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Final render pass: ensure device column shows friendly names, not serials."""
+    out: list[dict[str, str]] = []
+    for r in rows:
+        nr = dict(r)
+        nr["device"] = render_device_display(nr.get("device", ""))
+        out.append(nr)
+    return out
+
+
+def _git_branch_for_summary(sheet_kv: dict[str, str]) -> str:
+    branch = (sheet_kv.get("Git Branch") or "").strip()
+    if branch:
+        return branch
+    return detect_git_branch(_REPO)
 
 
 def _parse_table_rows_for_sheet(
@@ -543,6 +546,8 @@ def build_summary_display_pairs(
         if "Flaky" in sheet_kv and sheet_kv["Flaky"] not in ("0", ""):
             rows_out.append(("Flaky", sheet_kv["Flaky"]))
 
+        rows_out.append(("Git Branch", _git_branch_for_summary(sheet_kv)))
+
         if "Generated" in sheet_kv and str(sheet_kv["Generated"]).strip():
             rows_out.append(("Generated on", sheet_kv["Generated"]))
         else:
@@ -557,6 +562,7 @@ def build_summary_display_pairs(
     ]
     if int(comp.get("Flaky", "0") or "0") > 0:
         rows_out.append(("Flaky", comp.get("Flaky", "0")))
+    rows_out.append(("Git Branch", _git_branch_for_summary(sheet_kv)))
     rows_out.append(("Generated on", generated_on))
     return rows_out
 
@@ -866,6 +872,7 @@ def send_execution_report_email(
         html_body = f"<html><body><pre>{html.escape(body)}</pre></body></html>"
     else:
         table_rows, table_err = read_execution_table_rows(excel_path)
+        table_rows = _apply_display_to_email_rows(table_rows)
         sheet_kv = read_summary_sheet_key_values(excel_path)
         summary_pairs = build_summary_display_pairs(sheet_kv, table_rows, gen_ts)
         text_body = build_email_plain(

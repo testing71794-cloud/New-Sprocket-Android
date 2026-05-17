@@ -10,10 +10,22 @@ from __future__ import annotations
 import os
 import re
 import subprocess
+import sys
 import threading
 import time
 from pathlib import Path
 from typing import Any
+
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from utils.device_utils import get_device_display_name  # noqa: E402
+
+
+def _dev_log(device_id: str) -> str:
+    return get_device_display_name(device_id)
+
 
 _startup_lock = threading.Lock()
 _owned_child_pids: set[int] = set()
@@ -153,7 +165,7 @@ def log_adb_forwards(device_id: str, phase: str) -> None:
     listing = list_adb_forwards(device_id=device_id)
     global_list = list_adb_forwards()
     print(
-        f"[ATP] adb_forward_list phase={phase} device={device_id}\n"
+        f"[ATP] adb_forward_list phase={phase} device={_dev_log(device_id)}\n"
         f"  device_forwards={listing!r}\n"
         f"  all_forwards={global_list[:2000]!r}",
         flush=True,
@@ -293,7 +305,7 @@ def wait_for_adb_forwards_stable(device_id: str, *, timeout_sec: float | None = 
             stable += 1
             if stable >= 2:
                 print(
-                    f"[ATP] adb_forward_stable device={device_id} ok=True",
+                    f"[ATP] adb_forward_stable device={_dev_log(device_id)} ok=True",
                     flush=True,
                 )
                 return True
@@ -301,7 +313,7 @@ def wait_for_adb_forwards_stable(device_id: str, *, timeout_sec: float | None = 
             stable = 0
         prev = cur
         time.sleep(1.0)
-    print(f"[ATP] adb_forward_stable device={device_id} ok=False", flush=True)
+    print(f"[ATP] adb_forward_stable device={_dev_log(device_id)} ok=False", flush=True)
     return False
 
 
@@ -319,7 +331,7 @@ def cleanup_orphan_maestro_java(
         terminate_process_tree(pid)
         unregister_owned_child_pid(pid)
         killed.append(pid)
-        print(f"[ATP] orphan_java_killed device={device_id} pid={pid}", flush=True)
+        print(f"[ATP] orphan_java_killed device={_dev_log(device_id)} pid={pid}", flush=True)
     return killed
 
 
@@ -329,7 +341,7 @@ def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool
         return True
     exe = _adb_exe()
     if not exe:
-        print(f"[ATP] device_health_skip device={device_id} reason=adb_not_found", flush=True)
+        print(f"[ATP] device_health_skip device={_dev_log(device_id)} reason=adb_not_found", flush=True)
         return True
     t0 = time.time()
     try:
@@ -342,7 +354,7 @@ def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool
         )
         if w.returncode != 0:
             print(
-                f"[ATP] device_health_fail device={device_id} step=wait-for-device rc={w.returncode}",
+                f"[ATP] device_health_fail device={_dev_log(device_id)} step=wait-for-device rc={w.returncode}",
                 flush=True,
             )
             return False
@@ -357,16 +369,16 @@ def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool
             val = (proc.stdout or "").strip()
             if val == "1":
                 print(
-                    f"[ATP] device_health_ok device={device_id} boot_completed=1 "
+                    f"[ATP] device_health_ok device={_dev_log(device_id)} boot_completed=1 "
                     f"elapsed_sec={time.time() - t0:.1f}",
                     flush=True,
                 )
                 return True
             time.sleep(1.0)
-        print(f"[ATP] device_health_fail device={device_id} step=boot_completed", flush=True)
+        print(f"[ATP] device_health_fail device={_dev_log(device_id)} step=boot_completed", flush=True)
         return False
     except (OSError, subprocess.TimeoutExpired) as e:
-        print(f"[ATP] device_health_fail device={device_id} error={e}", flush=True)
+        print(f"[ATP] device_health_fail device={_dev_log(device_id)} error={e}", flush=True)
         return False
 
 
@@ -471,13 +483,13 @@ def prepare_device_for_maestro_startup(
         cleanup_all_host_maestro_java(keep_pids=set())
     ok, detail = clear_device_adb_forwards(device_id)
     print(
-        f"[ATP] adb_forward_cleanup device={device_id} ok={ok} detail={detail!r}",
+        f"[ATP] adb_forward_cleanup device={_dev_log(device_id)} ok={ok} detail={detail!r}",
         flush=True,
     )
     if driver_port:
         port_free = wait_for_host_port_free(driver_port)
         print(
-            f"[ATP] host_port_check device={device_id} port={driver_port} free={port_free}",
+            f"[ATP] host_port_check device={_dev_log(device_id)} port={driver_port} free={port_free}",
             flush=True,
         )
     elif legacy_mode:
@@ -502,19 +514,19 @@ def cleanup_after_startup_failure(
         unregister_owned_child_pid(child_pid)
     elif child_pid:
         print(
-            f"[ATP] startup_cleanup_skip_pid device={device_id} pid={child_pid} reason=not_owned",
+            f"[ATP] startup_cleanup_skip_pid device={_dev_log(device_id)} pid={child_pid} reason=not_owned",
             flush=True,
         )
     log_adb_forwards(device_id, "startup_failure")
     ok, detail = clear_device_adb_forwards(device_id)
     print(
-        f"[ATP] adb_forward_cleanup device={device_id} phase=startup_failure ok={ok} detail={detail!r}",
+        f"[ATP] adb_forward_cleanup device={_dev_log(device_id)} phase=startup_failure ok={ok} detail={detail!r}",
         flush=True,
     )
     if driver_port:
         wait_for_host_port_free(driver_port, timeout_sec=15.0)
     cleanup_orphan_maestro_java(device_id, keep_pids={child_pid} if child_pid else set())
-    print(f"[ATP] startup_cleanup_done device={device_id} child_pid={child_pid or 0}", flush=True)
+    print(f"[ATP] startup_cleanup_done device={_dev_log(device_id)} child_pid={child_pid or 0}", flush=True)
 
 
 class MaestroStartupGate:
@@ -548,7 +560,7 @@ class MaestroStartupGate:
             return self
         self._t_acquire = time.time()
         print(
-            f"[ATP] startup_lock_acquire device={self.device_id} flow={self.flow_name} "
+            f"[ATP] startup_lock_acquire device={_dev_log(self.device_id)} flow={self.flow_name} "
             f"driver_port_plan={self.driver_port} thread={threading.current_thread().name}",
             flush=True,
         )
@@ -590,7 +602,7 @@ class MaestroStartupGate:
             wait_sec = time.time() - t0
             if not ready:
                 print(
-                    f"[ATP] startup_ready_fail device={self.device_id} flow={self.flow_name} "
+                    f"[ATP] startup_ready_fail device={_dev_log(self.device_id)} flow={self.flow_name} "
                     f"reason={reason} wait_sec={wait_sec:.1f} child_pid={child_pid} "
                     f"log_offset={log_start_offset}",
                     flush=True,
@@ -610,7 +622,7 @@ class MaestroStartupGate:
                 return False, reason
             log_adb_forwards(self.device_id, "startup_ready")
             print(
-                f"[ATP] startup_ready_ok device={self.device_id} flow={self.flow_name} "
+                f"[ATP] startup_ready_ok device={_dev_log(self.device_id)} flow={self.flow_name} "
                 f"reason={reason} wait_sec={wait_sec:.1f} child_pid={child_pid} "
                 f"driver_port={self.driver_port}",
                 flush=True,
@@ -621,14 +633,14 @@ class MaestroStartupGate:
             )
             if delay > 0:
                 print(
-                    f"[ATP] startup_stabilization_delay device={self.device_id} "
+                    f"[ATP] startup_stabilization_delay device={_dev_log(self.device_id)} "
                     f"sleep_sec={delay:.1f}",
                     flush=True,
                 )
                 time.sleep(delay)
             held = time.time() - (self._t_acquire or time.time())
             print(
-                f"[ATP] startup_lock_release device={self.device_id} flow={self.flow_name} "
+                f"[ATP] startup_lock_release device={_dev_log(self.device_id)} flow={self.flow_name} "
                 f"held_sec={held:.1f}",
                 flush=True,
             )
@@ -641,7 +653,7 @@ class MaestroStartupGate:
     def __exit__(self, exc_type: Any, exc: Any, tb: Any) -> None:
         if self._acquired:
             print(
-                f"[ATP] startup_lock_release_abort device={self.device_id} flow={self.flow_name}",
+                f"[ATP] startup_lock_release_abort device={_dev_log(self.device_id)} flow={self.flow_name}",
                 flush=True,
             )
             _startup_lock.release()
