@@ -12,7 +12,6 @@ import json
 import os
 import re
 import shutil
-import re
 import subprocess
 import sys
 import threading
@@ -42,6 +41,8 @@ from .maestro_capabilities import (
     maestro_driver_ports_active,
     native_parallel_active,
 )
+from .subprocess_launch import log_subprocess_launch, windows_cmd_bat_argv
+
 from .maestro_startup_gate import (
     MaestroStartupGate,
     _log_byte_offset,
@@ -590,9 +591,8 @@ def run_run_one_flow_device_bat(
     # Ensure child cmd sees the same Maestro/Java discovery as Jenkins (set_maestro_java.bat still runs inside bat).
     timeout_sec = int(os.environ.get("ATP_FLOW_TIMEOUT_SEC", str(4 * 3600)))
 
-    # cmd /s /c with list2cmdline — required when repo path contains spaces (Jenkins workspace).
-    bat_argv: list[str] = [
-        str(bat),
+    # argv-list launch only (shell=False). Each token after cmd /c is a separate CreateProcess arg.
+    bat_args = (
         suite_id,
         str(flow_path.resolve()),
         device_id,
@@ -600,11 +600,11 @@ def run_run_one_flow_device_bat(
         clear_state,
         str(maestro_launcher),
         include_tag,
-    ]
+    )
     if os.name == "nt":
-        cmd = ["cmd.exe", "/d", "/s", "/c", subprocess.list2cmdline(bat_argv)]
+        cmd = windows_cmd_bat_argv(bat, *bat_args)
     else:
-        cmd = bat_argv
+        cmd = [str(bat), *bat_args]
     log_lifecycle(
         repo,
         suite_id,
@@ -625,14 +625,22 @@ def run_run_one_flow_device_bat(
         f"maestro_mode={'native_parallel' if native_parallel else 'legacy_compatible'} "
         f"startup_gate={1 if use_startup_gate else 0} "
         f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} "
-        f"ATP_JAVA_USER_HOME={env.get('ATP_JAVA_USER_HOME', '')} java_direct=1 "
-        f"bat_cmdline={subprocess.list2cmdline(bat_argv) if os.name == 'nt' else bat_argv!r}",
+        f"ATP_JAVA_USER_HOME={env.get('ATP_JAVA_USER_HOME', '')} java_direct=1",
         flush=True,
     )
+    repo_cwd = str(repo.resolve())
+    log_subprocess_launch(
+        cmd,
+        cwd=repo_cwd,
+        shell=False,
+        label="maestro_bat",
+        extra={"maestro_launcher": str(maestro_launcher.resolve())},
+    )
     popen_kw: dict[str, Any] = {
-        "cwd": str(repo.resolve()),
+        "cwd": repo_cwd,
         "env": env,
         "stdin": subprocess.DEVNULL,
+        "shell": False,
     }
     win_flags = _windows_popen_creationflags()
     if win_flags:

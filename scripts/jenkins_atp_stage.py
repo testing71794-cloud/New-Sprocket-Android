@@ -54,10 +54,10 @@ def _refresh_devices_on_this_agent(repo: Path) -> None:
         return
     print("[jenkins_atp_stage] refreshing detected_devices.txt on this agent (list_devices.bat)", flush=True)
     if os.name == "nt":
-        cmdline = subprocess.list2cmdline(["call", str(bat), str(repo)])
-        subprocess.run(["cmd.exe", "/d", "/s", "/c", cmdline], cwd=str(repo), check=False)
+        argv = ["cmd.exe", "/d", "/c", "call", str(bat), str(repo)]
+        subprocess.run(argv, cwd=str(repo), check=False, shell=False)
     else:
-        subprocess.run([str(bat), str(repo)], cwd=str(repo), check=False)
+        subprocess.run([str(bat), str(repo)], cwd=str(repo), check=False, shell=False)
 
 
 def _log_orchestrator_fingerprint(repo: Path) -> None:

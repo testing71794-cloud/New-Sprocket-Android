@@ -775,11 +775,25 @@ def run_atp_folder_blocking(
     clear_state = (clear_state or "true").strip()
 
     add_adb_from_env_to_path()
-    try:
-        subprocess.run(["adb", "start-server"], capture_output=True, text=True, timeout=60, check=False)
-        subprocess.run(["adb", "devices"], capture_output=True, text=True, timeout=60, check=False)
-    except (FileNotFoundError, OSError, subprocess.TimeoutExpired):
-        pass
+    adb_exe = shutil.which("adb")
+    if adb_exe:
+        from .subprocess_launch import log_subprocess_launch
+
+        for adb_args in (["start-server"], ["devices"]):
+            argv = [adb_exe, *adb_args]
+            log_subprocess_launch(argv, cwd=repo, shell=False, label="adb")
+            try:
+                subprocess.run(
+                    argv,
+                    capture_output=True,
+                    text=True,
+                    timeout=60,
+                    check=False,
+                    shell=False,
+                    cwd=str(repo),
+                )
+            except (OSError, subprocess.TimeoutExpired):
+                pass
 
     time.sleep(1)
 

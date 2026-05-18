@@ -151,7 +151,7 @@ def list_adb_forwards(*, device_id: str | None = None) -> str:
         return ""
     cmd = [exe, "forward", "--list"]
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False, shell=False)
         text = ((proc.stdout or "") + (proc.stderr or "")).strip()
         if device_id:
             lines = [ln for ln in text.splitlines() if device_id in ln]
@@ -183,6 +183,7 @@ def clear_device_adb_forwards(device_id: str) -> tuple[bool, str]:
             text=True,
             timeout=30,
             check=False,
+            shell=False,
         )
         detail = ((proc.stdout or "") + (proc.stderr or "")).strip()[:500]
         ok = proc.returncode == 0
@@ -209,6 +210,7 @@ def wait_for_host_port_free(port: int, *, timeout_sec: float | None = None) -> b
                     text=True,
                     timeout=20,
                     check=False,
+                    shell=False,
                 )
                 busy = False
                 for line in (proc.stdout or "").splitlines():
@@ -243,6 +245,7 @@ def _find_maestro_java_pids_for_device(device_id: str) -> list[int]:
             text=True,
             timeout=25,
             check=False,
+            shell=False,
         )
         pids: list[int] = []
         for line in (proc.stdout or "").splitlines():
@@ -272,6 +275,7 @@ def cleanup_all_host_maestro_java(*, keep_pids: set[int] | None = None) -> list[
             text=True,
             timeout=30,
             check=False,
+            shell=False,
         )
         for line in (proc.stdout or "").splitlines():
             line = line.strip()
@@ -345,12 +349,17 @@ def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool
         return True
     t0 = time.time()
     try:
+        from .subprocess_launch import log_subprocess_launch
+
+        wait_argv = [exe, "-s", device_id, "wait-for-device"]
+        log_subprocess_launch(wait_argv, cwd=repo, shell=False, label="adb_health")
         w = subprocess.run(
-            [exe, "-s", device_id, "wait-for-device"],
+            wait_argv,
             capture_output=True,
             text=True,
             timeout=45,
             check=False,
+            shell=False,
         )
         if w.returncode != 0:
             print(
@@ -365,6 +374,7 @@ def validate_device_health(device_id: str, *, suite_id: str, repo: Path) -> bool
                 text=True,
                 timeout=20,
                 check=False,
+                shell=False,
             )
             val = (proc.stdout or "").strip()
             if val == "1":
@@ -462,6 +472,7 @@ def terminate_process_tree(pid: int) -> None:
                 text=True,
                 timeout=45,
                 check=False,
+                shell=False,
             )
         else:
             os.kill(pid, 15)

@@ -78,22 +78,29 @@ def detect_git_branch(repo: Path | None = None) -> str:
 
     git = _git_executable()
     if git:
-        try:
-            proc = subprocess.run(
-                [git, "-C", str(root), "rev-parse", "--abbrev-ref", "HEAD"],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.DEVNULL,
-                text=True,
-                timeout=15,
-                check=False,
-            )
-            if proc.returncode == 0:
-                branch = (proc.stdout or "").strip()
-                if branch and branch != "HEAD" and branch.lower() != "unknown":
-                    _CACHED_BRANCH = branch
-                    return _CACHED_BRANCH
-        except (OSError, subprocess.TimeoutExpired):
-            pass
+        git_argv_base = [git, "-C", str(root)]
+        for git_args in (
+            ["branch", "--show-current"],
+            ["rev-parse", "--abbrev-ref", "HEAD"],
+        ):
+            try:
+                proc = subprocess.run(
+                    [*git_argv_base, *git_args],
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.DEVNULL,
+                    text=True,
+                    timeout=15,
+                    check=False,
+                    shell=False,
+                    cwd=str(root),
+                )
+                if proc.returncode == 0:
+                    branch = (proc.stdout or "").strip()
+                    if branch and branch != "HEAD" and branch.lower() != "unknown":
+                        _CACHED_BRANCH = branch
+                        return _CACHED_BRANCH
+            except (OSError, subprocess.TimeoutExpired):
+                continue
 
     _CACHED_BRANCH = "unknown"
     return _CACHED_BRANCH
