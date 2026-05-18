@@ -16,6 +16,11 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
+if str(REPO) not in sys.path:
+    sys.path.insert(0, str(REPO))
+
+from utils.project_identity import normalize_app_package  # noqa: E402
+
 ORCHESTRATOR_MODULE = "execution.atp_jenkins_orchestrator"
 
 
@@ -48,11 +53,11 @@ def _refresh_devices_on_this_agent(repo: Path) -> None:
     if not bat.is_file():
         return
     print("[jenkins_atp_stage] refreshing detected_devices.txt on this agent (list_devices.bat)", flush=True)
-    subprocess.run(
-        ["cmd.exe", "/c", "call", str(bat), str(repo)],
-        cwd=str(repo),
-        check=False,
-    )
+    if os.name == "nt":
+        cmdline = subprocess.list2cmdline(["call", str(bat), str(repo)])
+        subprocess.run(["cmd.exe", "/d", "/s", "/c", cmdline], cwd=str(repo), check=False)
+    else:
+        subprocess.run([str(bat), str(repo)], cwd=str(repo), check=False)
 
 
 def _log_orchestrator_fingerprint(repo: Path) -> None:
@@ -68,8 +73,20 @@ def _log_orchestrator_fingerprint(repo: Path) -> None:
             print(f"[jenkins_atp_stage] orchestrator_rev={rev}", flush=True)
 
 
+def _resolve_app_package(app: str) -> str:
+    resolved = normalize_app_package(app)
+    if resolved != (app or "").strip():
+        print(
+            f"[jenkins_atp_stage] APP_PACKAGE {app!r} -> {resolved!r} "
+            f"(Kodak Step Print Android; legacy Smile id ignored)",
+            flush=True,
+        )
+    return resolved
+
+
 def cmd_run(folder: str, app: str, clear_state: str, maestro_cmd: str) -> int:
     sid = folder_to_suite_id(folder)
+    app = _resolve_app_package(app)
     _refresh_devices_on_this_agent(REPO)
     _log_orchestrator_fingerprint(REPO)
     # Stack A: blocking Python orchestrator (no detached PowerShell Start-Process chain).

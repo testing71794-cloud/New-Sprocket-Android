@@ -134,8 +134,13 @@ def _run_isolated_hierarchy(
     env.pop("ANDROID_DEBUG_SERIAL", None)
     env["ATP_JAVA_USER_HOME"] = str(runtime_home)
     opts = (env.get("MAESTRO_OPTS") or "").strip()
-    user_home_flag = f'-Duser.home="{runtime_home}"'
-    env["MAESTRO_OPTS"] = f"{opts} {user_home_flag}".strip() if opts else user_home_flag
+    import re
+
+    opts = re.sub(r'-Duser\.home=(?:"[^"]*"|[^\s]+)', "", opts).strip()
+    if opts:
+        env["MAESTRO_OPTS"] = opts
+    else:
+        env.pop("MAESTRO_OPTS", None)
     env["TMP"] = str(runtime_home / "tmp")
     env["TEMP"] = str(runtime_home / "tmp")
     Path(env["TMP"]).mkdir(parents=True, exist_ok=True)

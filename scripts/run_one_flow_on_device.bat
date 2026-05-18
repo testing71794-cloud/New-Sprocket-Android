@@ -24,6 +24,7 @@ exit /b 0
 
 REM Isolated Maestro: direct java maestro.cli.AppKt (no maestro.bat/call); env from orchestrator (LOCALAPPDATA, MAESTRO_OPTS).
 :run_maestro_isolated
+if defined ATP_JAVA_USER_HOME set "MAESTRO_OPTS="
 call :apply_maestro_parallel_isolation
 if defined ATP_MAESTRO_RUNTIME_ROOT (
   echo [INFO] Maestro runtime root=!ATP_MAESTRO_RUNTIME_ROOT! LOCALAPPDATA=!LOCALAPPDATA!>> "%LOG_FILE%"
@@ -31,8 +32,9 @@ if defined ATP_MAESTRO_RUNTIME_ROOT (
 if /I "%ATP_MAESTRO_JAVA_DIRECT%"=="1" (
   if exist "%JAVA_EXE%" if exist "%MAESTRO_APP_HOME%\lib" (
     if defined ATP_JAVA_USER_HOME (
-      echo Command: "%JAVA_EXE%" "-Duser.home=!ATP_JAVA_USER_HOME!" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS!>> "%LOG_FILE%"
-      "%JAVA_EXE%" "-Duser.home=!ATP_JAVA_USER_HOME!" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS! >> "%LOG_FILE%" 2>&1
+      set "JVM_USER_HOME_ARG=-Duser.home=!ATP_JAVA_USER_HOME!"
+      echo Command: "%JAVA_EXE%" "!JVM_USER_HOME_ARG!" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS!>> "%LOG_FILE%"
+      "%JAVA_EXE%" "!JVM_USER_HOME_ARG!" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS! >> "%LOG_FILE%" 2>&1
     ) else (
       echo Command: "%JAVA_EXE%" !MAESTRO_OPTS! -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS!>> "%LOG_FILE%"
       "%JAVA_EXE%" !MAESTRO_OPTS! -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt !MAESTRO_ARGS! >> "%LOG_FILE%" 2>&1
@@ -49,6 +51,7 @@ set "RUN_EXIT=!ERRORLEVEL!"
 exit /b
 
 :script_body
+echo [run_one_flow] script_rev=2026-05-jenkins-spaces-2 ATP_JAVA_USER_HOME=%ATP_JAVA_USER_HOME%
 REM Args:
 REM %1 = SUITE
 REM %2 = FLOW_PATH

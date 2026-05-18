@@ -12,6 +12,7 @@ import json
 import os
 import re
 import shutil
+import re
 import subprocess
 import sys
 import threading
@@ -504,9 +505,13 @@ def _apply_parallel_maestro_env(
     # Quote path: Jenkins workspaces often contain spaces; run_one_flow_on_device.bat expands
     # MAESTRO_OPTS via cmd.exe and unquoted -Duser.home=C:\...\Kodak Step Print Android\... splits at the space.
     env["ATP_JAVA_USER_HOME"] = str(runtime_home)
+    # Never put -Duser.home in MAESTRO_OPTS: maestro.bat expands %MAESTRO_OPTS% unquoted on Windows.
     opts = (env.get("MAESTRO_OPTS") or "").strip()
-    user_home_flag = f'-Duser.home="{runtime_home}"'
-    env["MAESTRO_OPTS"] = f"{opts} {user_home_flag}".strip() if opts else user_home_flag
+    opts = re.sub(r'-Duser\.home=(?:"[^"]*"|[^\s]+)', "", opts).strip()
+    if opts:
+        env["MAESTRO_OPTS"] = opts
+    else:
+        env.pop("MAESTRO_OPTS", None)
     env["ATP_MAESTRO_JAVA_DIRECT"] = "1"
     meta["maestro_user_home"] = str(runtime_home)
 
@@ -585,11 +590,8 @@ def run_run_one_flow_device_bat(
     # Ensure child cmd sees the same Maestro/Java discovery as Jenkins (set_maestro_java.bat still runs inside bat).
     timeout_sec = int(os.environ.get("ATP_FLOW_TIMEOUT_SEC", str(4 * 3600)))
 
-    # cmd /d /c <bat> (no "call") — one cmd.exe child per device; bat invokes Maestro without "call".
-    cmd: list[str] = [
-        "cmd.exe",
-        "/d",
-        "/c",
+    # cmd /s /c with list2cmdline — required when repo path contains spaces (Jenkins workspace).
+    bat_argv: list[str] = [
         str(bat),
         suite_id,
         str(flow_path.resolve()),
@@ -599,6 +601,10 @@ def run_run_one_flow_device_bat(
         str(maestro_launcher),
         include_tag,
     ]
+    if os.name == "nt":
+        cmd = ["cmd.exe", "/d", "/s", "/c", subprocess.list2cmdline(bat_argv)]
+    else:
+        cmd = bat_argv
     log_lifecycle(
         repo,
         suite_id,
@@ -618,7 +624,9 @@ def run_run_one_flow_device_bat(
         f"driver_port_plan={port_plan} driver_port_cli={iso.get('driver_port')} "
         f"maestro_mode={'native_parallel' if native_parallel else 'legacy_compatible'} "
         f"startup_gate={1 if use_startup_gate else 0} "
-        f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} java_direct=1",
+        f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} "
+        f"ATP_JAVA_USER_HOME={env.get('ATP_JAVA_USER_HOME', '')} java_direct=1 "
+        f"bat_cmdline={subprocess.list2cmdline(bat_argv) if os.name == 'nt' else bat_argv!r}",
         flush=True,
     )
     popen_kw: dict[str, Any] = {

@@ -919,7 +919,9 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
     repo = Path(argv[0]).resolve()
-    app = argv[1]
+    from utils.project_identity import normalize_app_package
+
+    app = normalize_app_package(argv[1])
     clear_s = argv[2]
     maestro_c = argv[3]
     sub = argv[4] if len(argv) > 4 else ""
