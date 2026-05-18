@@ -210,20 +210,21 @@ def pre_maestro_cleanup(
 
 
 def resolve_maestro_launcher(maestro_cmd: str) -> Path:
-    """Match run_atp_testcase_flows.ps1 Resolve-MaestroLauncherPath (MAESTRO_HOME)."""
+    """Resolve maestro.bat from MAESTRO_HOME (post capability probe) or an explicit file path."""
+    mh = os.environ.get("MAESTRO_HOME", "").strip().strip('"')
+    if mh:
+        base = Path(mh)
+        for name in ("maestro.bat", "maestro.cmd"):
+            cand = base / name
+            if cand.is_file():
+                return cand.resolve()
     raw = (maestro_cmd or "").strip().strip('"')
     if raw:
         p = Path(raw)
         if p.is_file():
             return p.resolve()
-    mh = os.environ.get("MAESTRO_HOME", "").strip().strip('"')
     if not mh:
         raise RuntimeError("MAESTRO_HOME is not set and maestro_cmd is not a valid file path.")
-    base = Path(mh)
-    for name in ("maestro.bat", "maestro.cmd"):
-        cand = base / name
-        if cand.is_file():
-            return cand.resolve()
     raise RuntimeError(f"maestro.bat / maestro.cmd not found under MAESTRO_HOME: {mh}")
 
 
@@ -554,6 +555,13 @@ def run_run_one_flow_device_bat(
     Blocking invocation of scripts/run_one_flow_on_device.bat (preserves reports/status/csv layout).
     """
     detect_maestro_capabilities(device_count=device_count)
+    try:
+        maestro_launcher = resolve_maestro_launcher(
+            os.environ.get("MAESTRO_HOME", "").strip() or str(maestro_launcher)
+        )
+    except RuntimeError:
+        pass
+    print(f"[ATP] maestro_launcher_resolved={maestro_launcher}", flush=True)
     native_parallel = native_parallel_active(device_count)
     legacy_mode = not native_parallel
     use_startup_gate = startup_gate_enabled(device_count)

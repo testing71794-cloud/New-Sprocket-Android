@@ -358,14 +358,18 @@ def assert_native_parallel_ready(
     repo: Path | None = None,
 ) -> None:
     global _legacy_fallback_logged
-    if device_count <= 1:
-        return
     print(
         "[ATP] maestro_capability_detection begin "
         "(install probe + optional isolated runtime validation; progress lines follow)",
         flush=True,
     )
-    caps = detect_maestro_capabilities(device_count=device_count, devices=devices, repo=repo)
+    caps = detect_maestro_capabilities(
+        device_count=max(device_count, 1),
+        devices=devices,
+        repo=repo,
+    )
+    if device_count <= 1:
+        return
     if caps.native_parallel_enabled:
         apply_native_parallel_env_defaults(device_count=device_count, caps=caps)
         log_native_parallel_runtime_config(caps)
