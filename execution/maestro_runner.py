@@ -501,8 +501,11 @@ def _apply_parallel_maestro_env(
     env["LOCALAPPDATA"] = str(local_app)
     env["APPDATA"] = str(roaming)
     # Do not override USERPROFILE (breaks Windows AppDirs / Maestro init). Redirect JVM user.home.
+    # Quote path: Jenkins workspaces often contain spaces; run_one_flow_on_device.bat expands
+    # MAESTRO_OPTS via cmd.exe and unquoted -Duser.home=C:\...\Kodak Step... splits at the space.
+    env["ATP_JAVA_USER_HOME"] = str(runtime_home)
     opts = (env.get("MAESTRO_OPTS") or "").strip()
-    user_home_flag = f'-Duser.home={runtime_home}'
+    user_home_flag = f'-Duser.home="{runtime_home}"'
     env["MAESTRO_OPTS"] = f"{opts} {user_home_flag}".strip() if opts else user_home_flag
     env["ATP_MAESTRO_JAVA_DIRECT"] = "1"
     meta["maestro_user_home"] = str(runtime_home)
