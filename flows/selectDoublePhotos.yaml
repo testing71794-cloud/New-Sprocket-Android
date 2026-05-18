@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 ---
 # Select two photos from All Photos (same pattern as selectThreePhotos; used by Precut ATP).
 - runFlow:

@@ -1,5 +1,5 @@
-appId: com.kodaksmile
-name: flow11 - EDITING SUITE - Kodak Smile
+﻿appId: com.kodak.steptouch
+name: flow11 - EDITING SUITE - Kodak Step Print
 ---
 - launchApp:
     clearState: true

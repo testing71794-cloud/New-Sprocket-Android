@@ -1,5 +1,5 @@
-# Handles Terms & Conditions popup if it appears
-appId: com.kodaksmile
+﻿# Handles Terms & Conditions popup if it appears
+appId: com.kodak.steptouch
 ---
 - runFlow:
     when:

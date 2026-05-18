@@ -1,14 +1,22 @@
 from __future__ import annotations
 
 import csv
+import os
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
+
+_REPO = Path(__file__).resolve().parents[1]
+if str(_REPO) not in sys.path:
+    sys.path.insert(0, str(_REPO))
+
+from utils.project_identity import EXECUTION_SUMMARY_TITLE  # noqa: E402
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-WORKSPACE = Path(r"C:\JenkinsAgent\workspace\Kodak-smile-automation")
+WORKSPACE = Path(os.environ.get("WORKSPACE", r"C:\Jenkins\workspace\Kodak Step Print Android"))
 REPORTS_DIR = WORKSPACE / "reports"
 BUILD_SUMMARY_DIR = WORKSPACE / "build-summary"
 
@@ -134,7 +142,7 @@ def build_summary_sheet(wb: Workbook, all_rows: list[dict[str, str]]) -> None:
     passed = sum(1 for r in all_rows if r["status"].upper() == "PASS")
     failed = total - passed
 
-    ws["A1"] = "Kodak Smile Execution Summary"
+    ws["A1"] = EXECUTION_SUMMARY_TITLE
     ws["A1"].font = TITLE_FONT
     ws["A3"] = "Total Results"
     ws["B3"] = total
@@ -242,7 +250,7 @@ def main() -> int:
 
     html_lines = [
         "<html><body>",
-        "<h2>Kodak Smile Execution Summary</h2>",
+        f"<h2>{EXECUTION_SUMMARY_TITLE}</h2>",
         f"<p><b>Total:</b> {len(all_rows)} &nbsp; <b>Passed:</b> {sum(1 for r in all_rows if r['status'].upper() == 'PASS')} &nbsp; <b>Failed:</b> {sum(1 for r in all_rows if r['status'].upper() != 'PASS')}</p>",
         "<h3>Failed Flows</h3>",
         "<pre>",

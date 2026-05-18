@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Flow1b Signup
 
 # Defaults apply in Maestro Studio/IDE; CLI/CI can override with -e (e.g. run_one_flow / run_flow1b_local).

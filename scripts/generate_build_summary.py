@@ -15,6 +15,7 @@ if str(REPO) not in sys.path:
 
 from utils.device_utils import render_device_display  # noqa: E402
 from utils.git_branch import detect_git_branch  # noqa: E402
+from utils.project_identity import EXECUTION_SUMMARY_TITLE  # noqa: E402
 
 
 def parse_status_file(file_path: Path) -> dict:
@@ -58,7 +59,7 @@ def main() -> int:
     ws = wb.active
     ws.title = "Summary"
 
-    ws["A1"] = "Kodak Smile Execution Summary"
+    ws["A1"] = EXECUTION_SUMMARY_TITLE
     ws["A1"].font = Font(bold=True, size=14)
     ws["A2"] = "Generated On"
     ws["B2"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -106,7 +107,7 @@ def main() -> int:
 
     html = [
         "<html><body>",
-        "<h2>Kodak Smile Execution Summary</h2>",
+        f"<h2>{EXECUTION_SUMMARY_TITLE}</h2>",
         f"<p>Generated On: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>",
         f"<p>Git Branch: {detect_git_branch(REPO)}</p>",
         "<table border='1' cellspacing='0' cellpadding='4'>",

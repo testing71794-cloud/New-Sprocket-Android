@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Flow4 - Wrong then Correct Login + MultiPrinting
 ---
 - launchApp:

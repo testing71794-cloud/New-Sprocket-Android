@@ -1,6 +1,6 @@
-# Kodak Smile — Maestro + Jenkins + Python (ready-to-test)
+# Kodak Step Print Android — Maestro + Jenkins + Python (ready-to-test)
 
-Automation for the **Kodak Smile** Android app: **Maestro** flows, **parallel multi-device** runs, **Python** reports and **OpenRouter**-backed analysis, **Jenkins** pipeline.
+Automation for the **Kodak Step Print Android** app (`com.kodak.steptouch`): **Maestro** flows, **parallel multi-device** runs, **Python** reports and **OpenRouter**-backed analysis, **Jenkins** pipeline.
 
 ## What you need installed
 
@@ -32,7 +32,7 @@ scripts\ready_to_test.bat -WithDeviceSmoke
 Optional (PowerShell):
 
 ```powershell
-powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke -AppPackage com.kodaksmile
+powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke -AppPackage com.kodak.steptouch
 ```
 
 ## OpenRouter (optional)
@@ -46,13 +46,13 @@ Copy `.env.example` to `.env` and set `OPENROUTER_API_KEY`, or set the variable 
 Non-printing:
 
 ```bat
-call scripts\run_suite_parallel_same_machine.bat nonprinting "Non printing flows" "" com.kodaksmile true maestro.bat
+call scripts\run_suite_parallel_same_machine.bat nonprinting "Non printing flows" "" com.kodak.steptouch true maestro.bat
 ```
 
 Printing:
 
 ```bat
-call scripts\run_suite_parallel_same_machine.bat printing "Printing Flow" "" com.kodaksmile true maestro.bat
+call scripts\run_suite_parallel_same_machine.bat printing "Printing Flow" "" com.kodak.steptouch true maestro.bat
 ```
 
 ## New: per-device parallel orchestration (AI + incremental Excel)

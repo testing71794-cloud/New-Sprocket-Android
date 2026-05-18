@@ -1,5 +1,5 @@
-# Handles No Internet popup if it appears
-appId: com.kodaksmile
+﻿# Handles No Internet popup if it appears
+appId: com.kodak.steptouch
 ---
 - runFlow:
     when:

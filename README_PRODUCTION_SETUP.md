@@ -45,7 +45,7 @@
 
 ## Parameters
 - `DEVICES_AGENT`: Windows node label, default `devices`
-- `APP_PACKAGE`: default `com.kodaksmile`
+- `APP_PACKAGE`: default `com.kodak.steptouch` (Kodak Step Print Android)
 - `MAESTRO_CMD`: optional override path to Maestro
 - `RUN_NON_PRINTING`: run Non printing flows
 - `RUN_PRINTING`: run Printing Flow

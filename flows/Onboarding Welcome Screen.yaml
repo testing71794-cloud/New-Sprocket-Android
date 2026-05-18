@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Onboarding Welcome Screen
 ---
 - waitForAnimationToEnd

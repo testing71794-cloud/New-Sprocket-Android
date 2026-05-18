@@ -1,4 +1,4 @@
-# Kodak Smile ATP Maestro Generated Flows
+# Kodak Step Print Android — ATP Maestro Generated Flows
 
 Generated from: Kodak_Smile_Plus_ATP_Transformed.xlsx
 Total ATP test cases generated: 104

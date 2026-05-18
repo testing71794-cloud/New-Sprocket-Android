@@ -81,7 +81,7 @@
   },
   "flow11": {
     "flowKey": "flow11",
-    "flowName": "flow11 - EDITING SUITE - Kodak Smile",
+    "flowName": "flow11 - EDITING SUITE - Kodak Step Print",
     "lastFailure": "Element not found: Text matching regex: Album",
     "lastRootCause": "ATP pattern match: selectors",
     "lastSuggestedFix": "Element not found – selector may be wrong or element not yet visible.\nFix steps:\n1) Add assertVisible for expected screen title BEFORE tapping.\n2) Wrap tap in runFlow/when visible and add retry loop.\n3) Prefer text or point: over id: when id is unknown (see ATP knowledge base).\n4) Use scrollUntilVisible if element is in a scrollable list.",

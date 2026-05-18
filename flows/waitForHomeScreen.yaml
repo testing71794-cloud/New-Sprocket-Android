@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Wait for home screen
 ---
 # Targeted home wait (replaces duplicate extendedWaitUntil + double assert in ATP files).

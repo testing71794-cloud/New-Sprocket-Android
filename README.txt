@@ -1,4 +1,4 @@
-Kodak Smile Parallel Continue Pipeline - Fixed Package
+Kodak Step Print Android — Maestro parallel automation
 
 This corrected package addresses:
 1. Jenkins still using old sequential path

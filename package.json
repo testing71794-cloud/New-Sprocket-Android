@@ -1,7 +1,7 @@
 {
-  "name": "kodak-maestro-suite",
+  "name": "kodak-step-print-android-maestro",
   "version": "1.0.0",
-  "description": "Maestro AI Doctor with Cursor AI (ATP-based)",
+  "description": "Kodak Step Print Android — Maestro automation, Jenkins CI, and AI Doctor",
   "type": "module",
   "main": "index.mjs",
   "scripts": {

@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 ---
 # Android runtime permission dialogs (best-effort)
 - runFlow:

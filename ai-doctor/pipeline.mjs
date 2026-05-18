@@ -379,7 +379,7 @@ ${memRecent || "(none)"}
 `;
 
   return `
-You are a senior mobile automation debugging AI for the Kodak Smile app.
+You are a senior mobile automation debugging AI for the Kodak Step Print Android app (com.kodak.steptouch).
 
 Return ONLY valid JSON. No extra text.
 

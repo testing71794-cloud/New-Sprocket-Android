@@ -31,6 +31,7 @@ if str(_REPO) not in sys.path:
     sys.path.insert(0, str(_REPO))
 from utils.device_utils import render_device_display  # noqa: E402
 from utils.git_branch import detect_git_branch  # noqa: E402
+from utils.project_identity import EXECUTION_SUMMARY_TITLE  # noqa: E402
 
 logger = logging.getLogger("orch.mail")
 
@@ -677,7 +678,7 @@ def build_email_html(
 </style>
 </head>
 <body>
-  <h1>Kodak Smile Execution Summary</h1>
+  <h1>{html.escape(EXECUTION_SUMMARY_TITLE)}</h1>
   {_summary_stats_html(summary_pairs if summary_pairs else [("Generated on", generated_on)])}
   {table_body}
   {_attachments_block_html(attachment_labels or [])}
@@ -702,7 +703,7 @@ def build_email_plain(
     summary_pairs: list[tuple[str, str]] | None = None,
 ) -> str:
     lines = [
-        "Kodak Smile Execution Summary",
+        EXECUTION_SUMMARY_TITLE,
         "",
     ]
     for label, value in summary_pairs or [("Generated on", generated_on)]:

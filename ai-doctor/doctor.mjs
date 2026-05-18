@@ -39,7 +39,7 @@ const resolvedFlowDir = resolveExistingDir([
 ]);
 
 const CONFIG = {
-  appId: process.env.APP_ID || "com.kodaksmile",
+  appId: process.env.APP_ID || "com.kodak.steptouch",
   testsDir: resolvedFlowDir,
   flowsDir: resolvedFlowDir,
   maestroBin: process.env.MAESTRO_BIN || null,

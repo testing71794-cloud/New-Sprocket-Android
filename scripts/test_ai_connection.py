@@ -19,6 +19,8 @@ REPO = Path(__file__).resolve().parents[1]
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
+from utils.project_identity import OPENROUTER_APP_TITLE_DEFAULT  # noqa: E402
+
 OUT = REPO / "build-summary" / "ai_status.txt"
 USER_PROMPT = "Reply with OK only."
 # Must be >10: some free models use budget fast and return empty + finish_reason=length at low caps.
@@ -170,9 +172,7 @@ def _http_headers(key: str) -> dict[str, str]:
     ref = (os.environ.get("OPENROUTER_HTTP_REFERER", "") or "http://localhost").strip()
     if not ref:
         ref = "http://localhost"
-    title = (
-        os.environ.get("OPENROUTER_APP_TITLE", "") or "Kodak Smile Automation"
-    ).strip() or "Kodak Smile Automation"
+    title = (os.environ.get("OPENROUTER_APP_TITLE", "") or OPENROUTER_APP_TITLE_DEFAULT).strip()
     return {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {key}",

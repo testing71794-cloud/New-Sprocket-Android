@@ -165,7 +165,7 @@ export function analyzeFailures(enrichedFailures) {
  */
 export function buildCursorReport(result) {
   const lines = [
-    "# Kodak Smile Maestro Failure Report",
+    "# Kodak Step Print Android Maestro Failure Report",
     "",
     "**Analyzed with ATP knowledge base (no external LLM).**",
     "",

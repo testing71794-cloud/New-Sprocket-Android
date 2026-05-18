@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Flow2 - Signup to Home - Go to Homepage
 ---
 - runFlow: ../elements/loadElements.yaml

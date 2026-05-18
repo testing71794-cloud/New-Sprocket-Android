@@ -6,6 +6,12 @@ import os
 import sys
 from pathlib import Path
 
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from utils.project_identity import OPENROUTER_APP_TITLE_DEFAULT  # noqa: E402
+
 
 def workspace_root() -> Path:
     return Path(os.environ.get("WORKSPACE", os.getcwd())).resolve()
@@ -46,7 +52,7 @@ def openrouter_api_key() -> str:
 OPENROUTER_BASE_URL: str = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1").rstrip("/")
 # OpenRouter expects a site URL for free-tier routing; empty referer can yield empty model output.
 OPENROUTER_HTTP_REFERER: str = (os.environ.get("OPENROUTER_HTTP_REFERER", "") or "http://localhost").strip()
-OPENROUTER_APP_TITLE: str = (os.environ.get("OPENROUTER_APP_TITLE", "") or "Kodak Smile Automation").strip()
+OPENROUTER_APP_TITLE: str = (os.environ.get("OPENROUTER_APP_TITLE", "") or OPENROUTER_APP_TITLE_DEFAULT).strip()
 
 # OpenRouter model IDs (override with OPENROUTER_MODEL_*; fallback_2 default is "rules" = not an API call)
 _DEFAULT_MODEL_PRIMARY: str = "openrouter/free"

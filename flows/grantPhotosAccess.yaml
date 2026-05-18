@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Grant photos access (best-effort)
 ---
 # Centralized photos permission dialogs (Collage / album ATP paths).

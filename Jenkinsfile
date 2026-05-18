@@ -69,7 +69,7 @@ pipeline {
             choices: ['devices', 'my-pc-devices'],
             description: 'Label of the Jenkins agent connected to real USB phones. Default: devices'
         )
-        string(name: 'APP_PACKAGE', defaultValue: 'com.kodaksmile', description: 'App package id for Maestro/app launch checks')
+        string(name: 'APP_PACKAGE', defaultValue: 'com.kodak.steptouch', description: 'App package id for Maestro/app launch checks (Kodak Step Print Android)')
         string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher (e.g. maestro.bat).')
         string(name: 'MAESTRO_HOME', defaultValue: 'C:\\Users\\HP\\maestro\\maestro\\bin', description: 'Folder containing maestro.bat.')
         string(name: 'ANDROID_HOME', defaultValue: 'C:\\Users\\HP\\AppData\\Local\\Android\\Sdk', description: 'Android SDK root.')

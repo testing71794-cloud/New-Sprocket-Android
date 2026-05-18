@@ -230,7 +230,7 @@ try {
 
   if (hasFailures) {
     if (isEmailConfigured()) {
-      const subject = `[Kodak Smile] Maestro Failed - ${finalResult.failuresCount || 0} failure(s)`;
+      const subject = `[Kodak Step Print Android] Maestro Failed - ${finalResult.failuresCount || 0} failure(s)`;
 
       const safe = (s) =>
         String(s || "")
@@ -239,7 +239,7 @@ try {
           .replace(/>/g, "&gt;");
 
       const text = [
-        "Kodak Smile Maestro run failed.",
+        "Kodak Step Print Android Maestro run failed.",
         "",
         `Suite: ${testsDir}`,
         `Report: ${reportPath}`,
@@ -323,7 +323,7 @@ try {
 
       const html = `
         <div style="font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:auto;">
-          <h2 style="margin:0 0 8px 0;">Kodak Smile Maestro run failed</h2>
+          <h2 style="margin:0 0 8px 0;">Kodak Step Print Android Maestro run failed</h2>
 
           <div style="color:#555;margin-bottom:14px;">
             <div><b>Suite:</b> ${safe(testsDir)}</div>

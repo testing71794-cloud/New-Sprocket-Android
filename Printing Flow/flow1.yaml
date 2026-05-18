@@ -1,4 +1,4 @@
-appId: com.kodaksmile
+﻿appId: com.kodak.steptouch
 name: Flow1 Find Printer and Connect
 ---
 - launchApp:
