@@ -645,6 +645,23 @@ def run_run_one_flow_device_bat(
         maestro_debug=iso.get("debug_output"),
     )
     log_path = flow_device_log_path(repo, suite_id, flow_path, device_id)
+    from .maestro_startup_diagnostics import StartupDiagnostics
+
+    startup_diag = StartupDiagnostics(
+        repo=repo,
+        suite_id=suite_id,
+        device_id=device_id,
+        flow_name=flow_path.stem,
+    )
+    startup_diag.log_environment(env)
+    startup_diag.log_command(cmd, cwd=repo.resolve())
+    startup_diag.trace(
+        "launch_config",
+        startup_gate=use_startup_gate,
+        legacy_mode=legacy_mode,
+        native_parallel=native_parallel,
+        device_count=device_count,
+    )
     port_plan = iso.get("driver_port_plan", planned_driver_port(launch_index))
     print(
         f"[ATP] maestro_subprocess_launch device={_dev_log(device_id)} flow={flow_path.stem} "
@@ -778,10 +795,17 @@ def run_run_one_flow_device_bat(
                                 break
 
                     if use_startup_gate and gate is not None:
+                        startup_diag.trace(
+                            "startup_gate_wait_begin",
+                            child_pid=child.pid,
+                            log_path=str(log_path),
+                            log_offset=log_start_offset,
+                        )
                         ready, reason = gate.release_after_session_ready(
                             log_path=log_path,
                             child_pid=child.pid,
                             log_start_offset=log_start_offset,
+                            diagnostics=startup_diag,
                         )
                         if not ready:
                             print(

@@ -96,7 +96,9 @@ call :write_maestro_wrapper "%MWRAP%"
 echo [DEBUG] maestro_wrapper=!MWRAP!>> "%LOG_FILE%"
 echo [DEBUG] launching maestro java wrapper>> "%LOG_FILE%"
 type "%MWRAP%" >> "%LOG_FILE%"
+echo [DEBUG] maestro_wrapper_exec_begin>> "%LOG_FILE%"
 call "%MWRAP%" >> "%LOG_FILE%" 2>&1
+echo [DEBUG] maestro_wrapper_exec_end exit=!ERRORLEVEL!>> "%LOG_FILE%"
 set "RUN_EXIT=!ERRORLEVEL!"
 del "%MWRAP%" 2>nul
 exit /b !RUN_EXIT!
