@@ -62,5 +62,17 @@ echo [DEBUG] "%MAESTRO_BIN%" --version
 "%MAESTRO_BIN%" --version
 if errorlevel 1 exit /b 1
 
+echo =====================================
+echo Validating Maestro YAML (ATP TestCase Flows)...
+set "REPO_ROOT=%CD%"
+for %%P in ("%REPO_ROOT%") do set "REPO_ROOT=%%~fP"
+python "%SCRIPT_DIR%validate_maestro_yaml.py" "%REPO_ROOT%\ATP TestCase Flows"
+if errorlevel 1 (
+  echo ERROR: Maestro YAML validation failed
+  exit /b 1
+)
+echo Maestro YAML validation OK
+echo =====================================
+
 echo Precheck complete
 exit /b 0

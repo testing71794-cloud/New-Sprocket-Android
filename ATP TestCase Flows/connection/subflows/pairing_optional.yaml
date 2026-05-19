@@ -31,5 +31,6 @@ appId: com.kodak.steptouch
       visible:
         text: ".*Pair with Kodak.*"
     commands:
-      - tapOn: "Pair"
-        optional: true
+      - tapOn:
+          text: "Pair"
+          optional: true

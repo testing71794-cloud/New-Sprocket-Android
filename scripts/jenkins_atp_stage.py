@@ -109,10 +109,37 @@ def _log_folder_discovery(folder_arg: str, resolved: str) -> None:
         print("[jenkins_atp_stage] preflight: 0 yaml test files (stage will fail)", flush=True)
 
 
+def _validate_maestro_yaml_preflight() -> int:
+    if os.environ.get("ATP_VALIDATE_MAESTRO_YAML", "1").strip().lower() in (
+        "0",
+        "false",
+        "no",
+        "off",
+    ):
+        return 0
+    validator = REPO / "scripts" / "validate_maestro_yaml.py"
+    atp_root = REPO / "ATP TestCase Flows"
+    if not validator.is_file():
+        print("[jenkins_atp_stage] validate_maestro_yaml: script missing — skip", flush=True)
+        return 0
+    if not atp_root.is_dir():
+        return 0
+    cmd = [sys.executable, str(validator), str(atp_root)]
+    log_subprocess_launch(cmd, cwd=REPO, shell=False, label="validate_maestro_yaml")
+    proc = subprocess.run(cmd, cwd=str(REPO), check=False)
+    if proc.returncode != 0:
+        print("[jenkins_atp_stage] ERROR: Maestro YAML validation failed", flush=True)
+    return proc.returncode
+
+
 def cmd_run(folder: str, app: str, clear_state: str, maestro_cmd: str) -> int:
     resolved = resolve_atp_subfolder(REPO, folder)
     sid = folder_to_suite_id(resolved or folder)
     _log_folder_discovery(folder, resolved)
+    yaml_rc = _validate_maestro_yaml_preflight()
+    if yaml_rc != 0:
+        touch_flag(f"{sid}_failed.flag")
+        return yaml_rc
     _refresh_devices_on_this_agent(REPO)
     _log_orchestrator_fingerprint(REPO)
     maestro_argv = [

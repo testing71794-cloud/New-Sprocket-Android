@@ -31,8 +31,9 @@ name: Onboarding Welcome Screen
           when:
             visible: "Find My Camera"
           commands:
-            - assertVisible: "Find My Camera"
-            optional: true
+            - assertVisible:
+                text: "Find My Camera"
+                optional: true
 
 - runFlow:
     when:

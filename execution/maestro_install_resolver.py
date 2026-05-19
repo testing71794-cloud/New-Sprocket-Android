@@ -95,7 +95,6 @@ def _probe_cli_version(prefix: list[str]) -> str:
                 text=True,
                 timeout=45,
                 check=False,
-                shell=False,
             )
             text = ((proc.stdout or "") + (proc.stderr or "")).strip()
             if text:
@@ -166,7 +165,6 @@ def probe_install(bin_dir: Path, *, label: str) -> MaestroInstallCandidate | Non
                 text=True,
                 timeout=probe_timeout,
                 check=False,
-                shell=False,
             )
             help_global = (p1.stdout or "") + (p1.stderr or "")
             p_test_help = subprocess.run(
@@ -175,7 +173,6 @@ def probe_install(bin_dir: Path, *, label: str) -> MaestroInstallCandidate | Non
                 text=True,
                 timeout=probe_timeout,
                 check=False,
-                shell=False,
             )
             help_test_cmd = (p_test_help.stdout or "") + (p_test_help.stderr or "")
 
@@ -197,7 +194,6 @@ def probe_install(bin_dir: Path, *, label: str) -> MaestroInstallCandidate | Non
                 text=True,
                 timeout=probe_timeout,
                 check=False,
-                shell=False,
             )
             combined = (proc.stdout or "") + (proc.stderr or "")
             token = argv[0].split("=")[0]
@@ -334,7 +330,12 @@ def discover_maestro_installs(*, maestro_cmd: str | None = None) -> list[Maestro
         cand = probe_install(bin_dir, label=label)
         if cand is not None:
             installs.append(cand)
-    _sort_installs(installs)
+    installs.sort(
+        key=lambda c: (
+            0 if c.driver_host_port_supported else 1,
+            -(c.lib_mtime or 0),
+        )
+    )
     print(f"[ATP] maestro_install_discovery end count={len(installs)}", flush=True)
     return installs
 
@@ -352,79 +353,6 @@ def log_install_audit(installs: list[MaestroInstallCandidate]) -> None:
 def _prefer_latest_install() -> bool:
     raw = (os.environ.get("ATP_MAESTRO_PREFER_LATEST") or "1").strip().lower()
     return raw not in ("0", "false", "no", "off")
-
-
-def _cli_semver_tuple(version_str: str) -> tuple[int, int, int]:
-    m = re.search(r"(\d+)\.(\d+)\.(\d+)", version_str or "")
-    if not m:
-        return (0, 0, 0)
-    return (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-
-
-def _sort_installs(installs: list[MaestroInstallCandidate]) -> None:
-    """Highest semantic version first; driver-port-capable builds rank above older CLIs."""
-    installs.sort(
-        key=lambda c: (
-            0 if c.driver_host_port_supported else 1,
-            -_cli_semver_tuple(c.cli_version)[0],
-            -_cli_semver_tuple(c.cli_version)[1],
-            -_cli_semver_tuple(c.cli_version)[2],
-            -(c.lib_mtime or 0),
-        )
-    )
-
-
-def _install_for_parallel_home(
-    installs: list[MaestroInstallCandidate],
-) -> MaestroInstallCandidate | None:
-    parallel_env = (os.environ.get("ATP_MAESTRO_PARALLEL_HOME") or "").strip().strip('"')
-    if not parallel_env:
-        return None
-    try:
-        target = Path(parallel_env).resolve()
-    except OSError:
-        return None
-    for inst in installs:
-        try:
-            if inst.bin_dir.resolve() == target:
-                return inst
-        except OSError:
-            continue
-    return None
-
-
-def _select_maestro_install(
-    installs: list[MaestroInstallCandidate],
-    *,
-    inherited: str,
-    device_count: int,
-    prefer_parallel: bool,
-) -> MaestroInstallCandidate:
-    """
-    Selection order:
-    1. ATP_MAESTRO_PARALLEL_HOME when discovered (e.g. C:\\Tools\\maestro-parallel\\bin)
-    2. Multi-device + driver-port-capable newest
-    3. Newest CLI when ATP_MAESTRO_PREFER_LATEST=1 (default)
-    4. Jenkins inherited MAESTRO_HOME when it matches a probe
-    5. Newest discovered install
-    """
-    parallel_home = _install_for_parallel_home(installs)
-    if parallel_home is not None:
-        return parallel_home
-
-    parallel_capable = [i for i in installs if i.driver_host_port_supported]
-    if device_count > 1 and prefer_parallel and parallel_capable:
-        return parallel_capable[0]
-
-    if _prefer_latest_install():
-        return installs[0]
-
-    if inherited:
-        inherited_lower = inherited.lower()
-        for inst in installs:
-            if str(inst.bin_dir).lower() == inherited_lower:
-                return inst
-    return installs[0]
 
 
 def _apply_maestro_home_selection(selected: MaestroInstallCandidate, *, inherited: str) -> None:
@@ -465,24 +393,36 @@ def resolve_maestro_for_parallel(
     if not installs:
         return None
 
-    selected = _select_maestro_install(
-        installs,
-        inherited=inherited,
-        device_count=device_count,
-        prefer_parallel=prefer_parallel,
-    )
-    _apply_maestro_home_selection(selected, inherited=inherited)
-    if device_count > 1 and selected.driver_host_port_supported:
+    selected = installs[0]
+    parallel_capable = [i for i in installs if i.driver_host_port_supported]
+
+    if device_count > 1 and prefer_parallel and parallel_capable:
+        selected = parallel_capable[0]
+        _apply_maestro_home_selection(selected, inherited=inherited)
         print(
             "[ATP] maestro_parallel_ready driver_port_supported=true native_parallel=1",
             flush=True,
         )
-    elif device_count > 1 and not selected.driver_host_port_supported:
+    elif device_count > 1 and _prefer_latest_install():
+        selected = installs[0]
+        _apply_maestro_home_selection(selected, inherited=inherited)
+        if not selected.driver_host_port_supported:
+            print(
+                "[ATP] maestro_parallel_blocker Installed Maestro lacks --driver-host-port. "
+                f"Using newest CLI {selected.cli_version} at {selected.bin_dir}. "
+                "Run: python scripts/install_maestro_parallel.py --target C:\\Tools\\maestro-parallel "
+                "or install a build with PR #2821.",
+                flush=True,
+            )
+    else:
+        if inherited:
+            for inst in installs:
+                if str(inst.bin_dir).lower() == inherited.lower():
+                    selected = inst
+                    break
+        os.environ.setdefault("MAESTRO_HOME", str(selected.bin_dir))
         print(
-            "[ATP] maestro_parallel_blocker Installed Maestro lacks --driver-host-port. "
-            f"Using CLI {selected.cli_version} at {selected.bin_dir}. "
-            "Run: python scripts/install_maestro_parallel.py --target C:\\Tools\\maestro-parallel "
-            "or install a build with PR #2821.",
+            f"[ATP] maestro_home_selected={selected.bin_dir} (label={selected.label} prefer_latest=0)",
             flush=True,
         )
     return selected

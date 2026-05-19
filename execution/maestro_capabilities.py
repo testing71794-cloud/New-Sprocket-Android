@@ -191,7 +191,7 @@ def apply_native_parallel_env_defaults(
         return
     # Force native runtime policy (override stale Jenkins env).
     os.environ["ATP_MAESTRO_STARTUP_GATE"] = "0"
-    os.environ["ATP_PARALLEL_DEVICE_STAGGER_SEC"] = "0"
+    os.environ.setdefault("ATP_PARALLEL_DEVICE_STAGGER_SEC", "2")
     os.environ["ATP_MAESTRO_LEGACY_RUNTIME_MUTEX"] = "0"
     os.environ["ATP_MAESTRO_HANDSHAKE_GATE"] = "0"
     os.environ["MAESTRO_PARALLEL_STARTUP_DELAY_SEC"] = "0"
@@ -223,7 +223,8 @@ def log_native_parallel_runtime_config(caps: MaestroCapabilities) -> None:
         flush=True,
     )
     print("[ATP] maestro_startup_gate=0", flush=True)
-    print("[ATP] parallel_device_stagger_sec=0", flush=True)
+    stagger = (os.environ.get("ATP_PARALLEL_DEVICE_STAGGER_SEC") or "2").strip()
+    print(f"[ATP] parallel_device_stagger_sec={stagger}", flush=True)
     print("[ATP] legacy_runtime_mutex=0", flush=True)
     print("[ATP] native_parallel_runtime_config end", flush=True)
 
@@ -358,18 +359,14 @@ def assert_native_parallel_ready(
     repo: Path | None = None,
 ) -> None:
     global _legacy_fallback_logged
+    if device_count <= 1:
+        return
     print(
         "[ATP] maestro_capability_detection begin "
         "(install probe + optional isolated runtime validation; progress lines follow)",
         flush=True,
     )
-    caps = detect_maestro_capabilities(
-        device_count=max(device_count, 1),
-        devices=devices,
-        repo=repo,
-    )
-    if device_count <= 1:
-        return
+    caps = detect_maestro_capabilities(device_count=device_count, devices=devices, repo=repo)
     if caps.native_parallel_enabled:
         apply_native_parallel_env_defaults(device_count=device_count, caps=caps)
         log_native_parallel_runtime_config(caps)

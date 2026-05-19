@@ -129,6 +129,22 @@ def is_owned_child_pid(pid: int) -> bool:
         return pid in _owned_child_pids
 
 
+def get_owned_child_pids() -> set[int]:
+    """Snapshot of Maestro child PIDs registered by this orchestrator process."""
+    with _owned_pids_lock:
+        return set(_owned_child_pids)
+
+
+def _kill_all_host_java_enabled() -> bool:
+    """Host-wide java kill is opt-in only (breaks concurrent device workers)."""
+    return os.environ.get("ATP_MAESTRO_KILL_ALL_JAVA", "0").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
+
+
 def _adb_exe() -> str | None:
     import shutil
 
@@ -643,8 +659,9 @@ def prepare_device_for_maestro_startup(
 ) -> None:
     """ADB + port hygiene while holding startup lock (before Maestro subprocess)."""
     log_adb_forwards(device_id, "pre_startup")
-    if legacy_mode:
-        cleanup_all_host_maestro_java(keep_pids=set())
+    keep = get_owned_child_pids()
+    if _kill_all_host_java_enabled():
+        cleanup_all_host_maestro_java(keep_pids=keep)
     ok, detail = clear_device_adb_forwards(device_id)
     print(
         f"[ATP] adb_forward_cleanup device={_dev_log(device_id)} ok={ok} detail={detail!r}",
@@ -658,7 +675,7 @@ def prepare_device_for_maestro_startup(
         )
     elif legacy_mode:
         wait_for_host_port_free(7001, timeout_sec=20.0)
-    cleanup_orphan_maestro_java(device_id, keep_pids=set())
+    cleanup_orphan_maestro_java(device_id, keep_pids=keep)
     if legacy_mode:
         wait_for_adb_forwards_stable(device_id)
     log_adb_forwards(device_id, "post_cleanup")

@@ -164,6 +164,30 @@ def read_detected_file_serials(repo: Path) -> list[str]:
     return serial_list
 
 
+def merge_and_pick_devices_with_app_preflight(repo: Path, app_id: str) -> list[str]:
+    """``merge_and_pick_devices`` then drop devices missing ``app_id`` (non-fatal)."""
+    devices = merge_and_pick_devices(repo)
+    if not (app_id or "").strip():
+        return devices
+    if os.environ.get("ATP_DEVICE_APP_PREFLIGHT", "1").strip().lower() in (
+        "0",
+        "false",
+        "no",
+        "off",
+    ):
+        return devices
+    from .device_app_preflight import filter_devices_with_app
+
+    ready, missing = filter_devices_with_app(devices, app_id, repo=repo)
+    if missing and ready:
+        print(
+            f"[ATP] device_app_preflight: continuing with {len(ready)} device(s); "
+            f"skipped {len(missing)} without app",
+            flush=True,
+        )
+    return ready
+
+
 def merge_and_pick_devices(repo: Path) -> list[str]:
     """Live ``adb devices`` is authoritative; detected_devices.txt may filter but never shrink below adb."""
     authorized = get_authorized_serials_from_adb()
@@ -560,7 +584,14 @@ def _run_flow_wave_on_devices(
             f"elapsed_sec={wave_elapsed:.1f}",
             flush=True,
         )
-        _print_wave_summary(flow_base, outcomes, wave_elapsed)
+        _print_wave_summary(
+            flow_base,
+            outcomes,
+            wave_elapsed,
+            repo=repo,
+            suite_id=suite_id,
+            flow=flow,
+        )
         return outcomes
 
     print(f"  [ATP] flow wave sequential: {flow_base}", flush=True)
@@ -678,21 +709,60 @@ def _run_dynamic_worker_pool(
     return failed
 
 
-def _print_wave_summary(flow_base: str, outcomes: list[_DeviceFlowOutcome], elapsed_sec: float) -> None:
+def _print_wave_summary(
+    flow_base: str,
+    outcomes: list[_DeviceFlowOutcome],
+    elapsed_sec: float,
+    *,
+    repo: Path | None = None,
+    suite_id: str = "",
+    flow: Path | None = None,
+) -> None:
     """Deterministic per-wave rollup (device order preserved)."""
     ok = sum(1 for o in outcomes if o.exit_code == 0)
-    fail = len(outcomes) - ok
+    skip = 0
+    if repo is not None and suite_id and flow is not None:
+        skip = sum(
+            1
+            for o in outcomes
+            if o.exit_code != 0 and _outcome_is_app_skip(o.exit_code, repo, suite_id, flow, o.device_id)
+        )
+    fail = len(outcomes) - ok - skip
     print(
-        f"[ATP] wave_summary flow={flow_base} devices={len(outcomes)} ok={ok} fail={fail} "
+        f"[ATP] wave_summary flow={flow_base} devices={len(outcomes)} ok={ok} skip={skip} fail={fail} "
         f"wall_sec={elapsed_sec:.1f}",
         flush=True,
     )
     for o in outcomes:
-        mark = "OK" if o.exit_code == 0 else "FAIL"
+        if o.exit_code == 0:
+            mark = "OK"
+        elif (
+            repo is not None
+            and suite_id
+            and flow is not None
+            and _outcome_is_app_skip(o.exit_code, repo, suite_id, flow, o.device_id)
+        ):
+            mark = "SKIP"
+        else:
+            mark = "FAIL"
         print(
             f"[ATP] wave_device_result device={_dev_log(o.device_id)} exit={o.exit_code} {mark}",
             flush=True,
         )
+
+
+def _outcome_is_app_skip(exit_code: int, repo: Path, suite_id: str, flow: Path, device_id: str) -> bool:
+    from .device_app_preflight import EXIT_APP_NOT_INSTALLED
+
+    if exit_code == EXIT_APP_NOT_INSTALLED:
+        return True
+    try:
+        reason = read_status_fields(_status_file_path(repo, suite_id, flow, device_id)).get(
+            "reason", ""
+        )
+        return reason.strip().upper() == "APP_NOT_INSTALLED"
+    except Exception:
+        return False
 
 
 def _report_device_outcome(
@@ -702,7 +772,7 @@ def _report_device_outcome(
     flow_base: str,
     outcome: _DeviceFlowOutcome,
 ) -> bool:
-    """Print console result for one device; return True if failed."""
+    """Print console result for one device; return True if failed (not skipped)."""
     dev = outcome.device_id
     ex = outcome.exit_code
     dur_hint = ""
@@ -713,6 +783,13 @@ def _report_device_outcome(
             dur_hint = f" duration_ms={dm}"
     except Exception:
         pass
+    if ex != 0 and _outcome_is_app_skip(ex, repo, suite_id, flow, dev):
+        print(
+            f"  [SKIP] exit={ex} device={_dev_log(dev)} flow={flow_base} "
+            f"reason=APP_NOT_INSTALLED{dur_hint}",
+            flush=True,
+        )
+        return False
     if ex != 0:
         print(f"  [FAIL] exit={ex} device={_dev_log(dev)} flow={flow_base}{dur_hint}", flush=True)
         _print_log_tail(repo, suite_id, flow, dev)
@@ -815,10 +892,18 @@ def run_atp_folder_blocking(
     time.sleep(1)
 
     try:
-        devices = merge_and_pick_devices(repo)
+        devices = merge_and_pick_devices_with_app_preflight(repo, app_id)
     except Exception as e:
         print(f"ERROR: {e}", flush=True)
         return 1
+
+    if not devices:
+        print(
+            "[ATP] SKIP: no devices available after app preflight "
+            "(install APK or connect authorized device(s))",
+            flush=True,
+        )
+        return 0
 
     print(f"Devices: {', '.join(_dev_log(d) for d in devices)}", flush=True)
     os.environ["ATP_ORCH_DEVICE_COUNT"] = str(len(devices))
