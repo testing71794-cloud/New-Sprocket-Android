@@ -27,6 +27,7 @@ if str(_REPO_ROOT) not in sys.path:
 from utils.device_utils import get_device_display_name  # noqa: E402
 
 from .flow_timing import append_timing, read_status_fields
+from .subprocess_launch import log_subprocess_launch
 
 
 def _dev_log(device_id: str) -> str:
@@ -41,8 +42,6 @@ from .maestro_capabilities import (
     maestro_driver_ports_active,
     native_parallel_active,
 )
-from .subprocess_launch import log_subprocess_launch, windows_cmd_bat_argv
-
 from .maestro_startup_gate import (
     MaestroStartupGate,
     _log_byte_offset,
@@ -182,7 +181,9 @@ def pre_maestro_cleanup(
 ) -> None:
     log_lifecycle(repo, suite_id, WorkerState.CLEANUP, "pre_maestro_cleanup begin", device=device_id)
     adb_start_server(suite_id, repo)
-    _adb_clear_device_forwards(device_id, suite_id, repo)
+    from .maestro_stabilization import aggressive_adb_device_cleanup
+
+    aggressive_adb_device_cleanup(device_id)
     if _truthy("ATP_ORCH_SNAPSHOT_ADB_FORWARDS"):
         snapshot_adb_forwards(suite_id, repo)
     # When None, preserve legacy behavior (kill allowed). Orchestrator passes False for multi-device waves.
@@ -210,21 +211,20 @@ def pre_maestro_cleanup(
 
 
 def resolve_maestro_launcher(maestro_cmd: str) -> Path:
-    """Resolve maestro.bat from MAESTRO_HOME (post capability probe) or an explicit file path."""
-    mh = os.environ.get("MAESTRO_HOME", "").strip().strip('"')
-    if mh:
-        base = Path(mh)
-        for name in ("maestro.bat", "maestro.cmd"):
-            cand = base / name
-            if cand.is_file():
-                return cand.resolve()
+    """Match run_atp_testcase_flows.ps1 Resolve-MaestroLauncherPath (MAESTRO_HOME)."""
     raw = (maestro_cmd or "").strip().strip('"')
     if raw:
         p = Path(raw)
         if p.is_file():
             return p.resolve()
+    mh = os.environ.get("MAESTRO_HOME", "").strip().strip('"')
     if not mh:
         raise RuntimeError("MAESTRO_HOME is not set and maestro_cmd is not a valid file path.")
+    base = Path(mh)
+    for name in ("maestro.bat", "maestro.cmd"):
+        cand = base / name
+        if cand.is_file():
+            return cand.resolve()
     raise RuntimeError(f"maestro.bat / maestro.cmd not found under MAESTRO_HOME: {mh}")
 
 
@@ -478,6 +478,7 @@ def _apply_parallel_maestro_env(
         "debug_output": None,
         "workspace": None,
         "maestro_user_home": None,
+        "localappdata": None,
     }
     if not _parallel_maestro_isolation_enabled():
         return meta
@@ -503,17 +504,12 @@ def _apply_parallel_maestro_env(
     env["ATP_MAESTRO_RUNTIME_ROOT"] = str(runtime_home)
     env["LOCALAPPDATA"] = str(local_app)
     env["APPDATA"] = str(roaming)
+    meta["localappdata"] = str(local_app)
     # Do not override USERPROFILE (breaks Windows AppDirs / Maestro init). Redirect JVM user.home.
-    # Quote path: Jenkins workspaces often contain spaces; run_one_flow_on_device.bat expands
-    # MAESTRO_OPTS via cmd.exe and unquoted -Duser.home=C:\...\Kodak Step Print Android\... splits at the space.
-    env["ATP_JAVA_USER_HOME"] = str(runtime_home)
-    # Never put -Duser.home in MAESTRO_OPTS: maestro.bat expands %MAESTRO_OPTS% unquoted on Windows.
     opts = (env.get("MAESTRO_OPTS") or "").strip()
-    opts = re.sub(r'-Duser\.home=(?:"[^"]*"|[^\s]+)', "", opts).strip()
-    if opts:
-        env["MAESTRO_OPTS"] = opts
-    else:
-        env.pop("MAESTRO_OPTS", None)
+    # Quote JVM property so cmd.exe does not split workspace paths that contain spaces.
+    user_home_flag = f'-Duser.home="{runtime_home}"'
+    env["MAESTRO_OPTS"] = f"{opts} {user_home_flag}".strip() if opts else user_home_flag
     env["ATP_MAESTRO_JAVA_DIRECT"] = "1"
     meta["maestro_user_home"] = str(runtime_home)
 
@@ -555,13 +551,6 @@ def run_run_one_flow_device_bat(
     Blocking invocation of scripts/run_one_flow_on_device.bat (preserves reports/status/csv layout).
     """
     detect_maestro_capabilities(device_count=device_count)
-    try:
-        maestro_launcher = resolve_maestro_launcher(
-            os.environ.get("MAESTRO_HOME", "").strip() or str(maestro_launcher)
-        )
-    except RuntimeError:
-        pass
-    print(f"[ATP] maestro_launcher_resolved={maestro_launcher}", flush=True)
     native_parallel = native_parallel_active(device_count)
     legacy_mode = not native_parallel
     use_startup_gate = startup_gate_enabled(device_count)
@@ -596,11 +585,29 @@ def run_run_one_flow_device_bat(
         launch_index=launch_index,
         device_count=device_count,
     )
+    env["ATP_REPO_ROOT"] = str(repo.resolve())
+    from .maestro_stabilization import (
+        disable_device_animations,
+        log_isolated_runtime_confirmed,
+        run_maestro_warmup,
+        startup_watchdog_enabled,
+    )
+
+    log_isolated_runtime_confirmed(device_id=device_id, meta=iso)
+    disable_device_animations(device_id)
+    run_maestro_warmup(maestro_launcher=maestro_launcher, device_id=device_id, env=env)
+    use_watchdog = startup_watchdog_enabled(
+        native_parallel=native_parallel, use_startup_gate=use_startup_gate
+    )
     # Ensure child cmd sees the same Maestro/Java discovery as Jenkins (set_maestro_java.bat still runs inside bat).
     timeout_sec = int(os.environ.get("ATP_FLOW_TIMEOUT_SEC", str(4 * 3600)))
 
-    # argv-list launch only (shell=False). Each token after cmd /c is a separate CreateProcess arg.
-    bat_args = (
+    # cmd /d /c <bat> (no "call") — one cmd.exe child per device; bat invokes Maestro without "call".
+    cmd: list[str] = [
+        "cmd.exe",
+        "/d",
+        "/c",
+        str(bat),
         suite_id,
         str(flow_path.resolve()),
         device_id,
@@ -608,11 +615,18 @@ def run_run_one_flow_device_bat(
         clear_state,
         str(maestro_launcher),
         include_tag,
+    ]
+    log_subprocess_launch(
+        cmd,
+        cwd=repo.resolve(),
+        shell=False,
+        label="run_one_flow_on_device",
+        extra={
+            "maestro_launcher": str(maestro_launcher),
+            "flow_path": str(flow_path.resolve()),
+            "bat": str(bat),
+        },
     )
-    if os.name == "nt":
-        cmd = windows_cmd_bat_argv(bat, *bat_args)
-    else:
-        cmd = [str(bat), *bat_args]
     log_lifecycle(
         repo,
         suite_id,
@@ -632,29 +646,19 @@ def run_run_one_flow_device_bat(
         f"driver_port_plan={port_plan} driver_port_cli={iso.get('driver_port')} "
         f"maestro_mode={'native_parallel' if native_parallel else 'legacy_compatible'} "
         f"startup_gate={1 if use_startup_gate else 0} "
-        f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} "
-        f"ATP_JAVA_USER_HOME={env.get('ATP_JAVA_USER_HOME', '')} java_direct=1",
+        f"workspace={iso.get('workspace')} maestro_user_home={iso.get('maestro_user_home')} java_direct=1",
         flush=True,
     )
-    repo_cwd = str(repo.resolve())
-    log_subprocess_launch(
-        cmd,
-        cwd=repo_cwd,
-        shell=False,
-        label="maestro_bat",
-        extra={"maestro_launcher": str(maestro_launcher.resolve())},
-    )
     popen_kw: dict[str, Any] = {
-        "cwd": repo_cwd,
+        "cwd": str(repo.resolve()),
         "env": env,
         "stdin": subprocess.DEVNULL,
-        "shell": False,
     }
     win_flags = _windows_popen_creationflags()
     if win_flags:
         popen_kw["creationflags"] = win_flags
 
-    max_attempts = startup_max_retries() + 1 if use_startup_gate else 1
+    max_attempts = startup_max_retries() + 1 if use_startup_gate else (2 if use_watchdog else 1)
     code = 1
     driver_port_int = int(port_plan) if port_plan is not None and not legacy_mode else None
     runtime_mutex_held = False
@@ -682,6 +686,14 @@ def run_run_one_flow_device_bat(
                 if attempt < max_attempts:
                     continue
                 break
+
+            from .maestro_stabilization import (
+                aggressive_adb_device_cleanup,
+                handle_startup_watchdog_failure,
+                wait_for_maestro_log_activity,
+            )
+
+            aggressive_adb_device_cleanup(device_id)
 
             tree_thread: threading.Thread | None = None
             child: subprocess.Popen[Any] | None = None
@@ -733,6 +745,31 @@ def run_run_one_flow_device_bat(
                             daemon=True,
                         )
                         tree_thread.start()
+
+                    if use_watchdog and not use_startup_gate:
+                        if not wait_for_maestro_log_activity(
+                            log_path=log_path,
+                            log_start_offset=log_start_offset,
+                        ):
+                            if child.poll() is None:
+                                print(
+                                    f"[ATP] maestro_restart_attempt device={_dev_log(device_id)} "
+                                    f"retry={attempt}",
+                                    flush=True,
+                                )
+                                handle_startup_watchdog_failure(
+                                    device_id=device_id,
+                                    child_pid=child.pid,
+                                    driver_port=driver_port_int,
+                                    repo=repo,
+                                    suite_id=suite_id,
+                                )
+                                unregister_owned_child_pid(child.pid)
+                                startup_failure_cleaned = True
+                                code = 1
+                                if attempt < max_attempts:
+                                    continue
+                                break
 
                     if use_startup_gate and gate is not None:
                         ready, reason = gate.release_after_session_ready(

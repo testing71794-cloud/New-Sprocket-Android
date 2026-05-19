@@ -22,6 +22,7 @@ if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
 from execution.atp_folder_paths import discover_atp_yaml_files, resolve_atp_subfolder  # noqa: E402
+from execution.subprocess_launch import windows_cmd_bat_argv  # noqa: E402
 
 
 def folder_to_suite_id(folder: str) -> str:
@@ -54,9 +55,10 @@ def _refresh_devices_on_this_agent(repo: Path) -> None:
         return
     print("[jenkins_atp_stage] refreshing detected_devices.txt on this agent (list_devices.bat)", flush=True)
     subprocess.run(
-        ["cmd.exe", "/c", "call", str(bat), str(repo)],
+        windows_cmd_bat_argv(bat, str(repo)),
         cwd=str(repo),
         check=False,
+        shell=False,
     )
 
 
