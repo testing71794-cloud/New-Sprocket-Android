@@ -89,6 +89,27 @@ def _read_orchestrator_rev() -> str:
 ORCHESTRATOR_REV = _read_orchestrator_rev()
 
 
+def _validate_execution_modules() -> bool:
+    """Fail fast when execution stack modules are missing from the Jenkins workspace checkout."""
+    execution_dir = Path(__file__).resolve().parent
+    print(f"[ATP] execution_package_dir={execution_dir}", flush=True)
+    try:
+        import execution
+        import execution.maestro_stabilization as ms
+    except ModuleNotFoundError as exc:
+        print(f"[ATP] ERROR: execution stack import failed: {exc}", flush=True)
+        stabilization_py = execution_dir / "maestro_stabilization.py"
+        print(
+            f"[ATP] maestro_stabilization_expected={stabilization_py} "
+            f"exists={stabilization_py.is_file()}",
+            flush=True,
+        )
+        return False
+    print(f"[ATP] execution_package={Path(execution.__file__).resolve().parent}", flush=True)
+    print(f"[ATP] maestro_stabilization={Path(ms.__file__).resolve()}", flush=True)
+    return True
+
+
 def add_adb_from_env_to_path() -> None:
     d = os.environ.get("ADB_HOME", "").strip().strip('"')
     if not d:
@@ -414,7 +435,7 @@ def _execute_flow_on_device(
         from utils.runflow_resolve import validate_runflow_paths
 
         validate_runflow_paths(flow, repo_root=repo)
-    except OSError as exc:
+    except (OSError, ImportError) as exc:
         print(f"[ATP] runflow_resolve_skip flow={flow_base} error={exc}", flush=True)
     if execution_mode != "dynamic" and _handshake_gate_enabled(len(devices), execution_mode):
         _wait_for_prior_device_handshake(
@@ -749,6 +770,8 @@ def run_atp_folder_blocking(
     print(f"[ATP] orchestrator_file={Path(__file__).resolve()}", flush=True)
     print("[ATP] orchestrator=execution/atp_jenkins_orchestrator.py (blocking; no detached PS1)", flush=True)
     print(f"[ATP] git_branch={_atp_git_branch(repo)}", flush=True)
+    if not _validate_execution_modules():
+        return 1
 
     flows = discover_flows(repo, atp_subfolder)
     if not flows:
