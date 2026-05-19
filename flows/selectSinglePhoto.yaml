@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 - tapOn:
     point: "20%,30%"

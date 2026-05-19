@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Connect printer from intro + print (complete)
 ---
 # ------------------------------
@@ -16,14 +16,20 @@ name: Connect printer from intro + print (complete)
           end: "15%,45%"
       - waitForAnimationToEnd
 
-# ------------------------------
-# 2) Choose Find My Printer (if shown)
-# ------------------------------
+# Legacy Smile: Find My Printer (optional)
 - runFlow:
     when:
       visible: "Find My Printer"
     commands:
       - tapOn: "Find My Printer"
+      - waitForAnimationToEnd
+
+# Step Print: skip carousel onboarding when shown
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
       - waitForAnimationToEnd
 
 # ------------------------------

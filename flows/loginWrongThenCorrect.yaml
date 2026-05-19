@@ -1,19 +1,46 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
-- tapOn: ${output.login.emailText}
+- tapOn:
+    text: "Email*"
+    optional: true
+- tapOn:
+    text: "Email"
+    optional: true
 - inputText: Atomation47@yopmail.com
 
-- tapOn: ${output.login.passwordText}
+- tapOn:
+    text: "Password*"
+    optional: true
+- tapOn:
+    text: "Password"
+    optional: true
 - inputText: Test123
-- tapOn: ${output.login.loginBtnText}
+
+- tapOn:
+    text: "Log In"
+    optional: true
+- tapOn:
+    text: "Login"
+    optional: true
 
 - runFlow:
     when:
-      visible: ${output.login.invalidErrorText}
+      visible: "You have entered an invalid email id or password"
     commands:
-      - tapOn: ${output.login.okBtnText}
+      - tapOn: "Ok"
 
-- tapOn: ${output.login.passwordText}
+- tapOn:
+    text: "Password*"
+    optional: true
+- tapOn:
+    text: "Password"
+    optional: true
 - eraseText
 - inputText: Test12345
-- tapOn: ${output.login.loginBtnText}
+
+- tapOn:
+    text: "Log In"
+    optional: true
+- tapOn:
+    text: "Login"
+    optional: true

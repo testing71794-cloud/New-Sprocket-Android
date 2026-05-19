@@ -1,17 +1,7 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Open Pre-Cut editor (shared)
 ---
 # Navigate to Pre-Cuts tab and dismiss intro popup when shown.
-- runFlow:
-    when:
-      visible: ${output.editor.precutsTab}
-    commands:
-      - tapOn: ${output.editor.precutsTab}
-      - waitForAnimationToEnd
-      - tapOn:
-          point: "20%,60%"
-      - waitForAnimationToEnd
-
 - runFlow:
     when:
       visible: "Pre-Cuts"

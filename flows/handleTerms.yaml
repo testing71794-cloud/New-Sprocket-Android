@@ -1,4 +1,4 @@
-﻿# Handles Terms & Conditions popup if it appears
+# Handles Terms & Conditions popup if it appears
 appId: com.kodak.steptouch
 ---
 - runFlow:

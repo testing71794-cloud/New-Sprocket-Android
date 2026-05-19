@@ -1,25 +1,23 @@
-﻿appId: com.kodak.steptouch
-name: Signup Flow
+appId: com.kodak.steptouch
+name: Agree terms if shown
 ---
 - waitForAnimationToEnd
 
-# ------------------------------
-# Terms & Conditions Screen
-# Assert elements + Tap Agree
-# ------------------------------
+- runFlow:
+    when:
+      visible: "Terms and Conditions"
+    commands:
+      - assertVisible: "Terms and Conditions"
+      - runFlow:
+          when:
+            visible: "TERMS OF USE"
+          commands:
+            - assertVisible: "TERMS OF USE"
+      - tapOn: "Agree Terms and Conditions"
+      - waitForAnimationToEnd
 
-- waitForAnimationToEnd
-
-# Title
-- assertVisible: "Terms and Conditions"
-
-# Section Header
-- assertVisible: "TERMS OF USE"
-
-# Agree Button
-- assertVisible: "Agree Terms and Conditions"
-
-# Tap Agree
-- tapOn: "Agree Terms and Conditions"
-
-- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "My gallery"
+    commands:
+      - assertVisible: "My gallery"

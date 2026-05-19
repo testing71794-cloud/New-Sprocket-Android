@@ -1,4 +1,4 @@
-﻿# Handles Low Battery popup during print flow
+# Handles Low Battery popup during print flow
 appId: com.kodak.steptouch
 ---
 - runFlow:

@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 # Handle Android Bluetooth pairing request dialog
 
@@ -10,12 +10,11 @@
       - tapOn: "Pair"
       - waitForAnimationToEnd
 
-# Some devices show partial text like "Pair with Kodak Smile+"
+# Some devices show partial text like "Pair with Kodak Step Touch"
 - runFlow:
     when:
-      visible: "Pair with Kodak"
+      visible:
+        text: ".*Pair with Kodak.*"
     commands:
       - tapOn: "Pair"
       - waitForAnimationToEnd
-
-

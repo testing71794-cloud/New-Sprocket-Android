@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 
 # Open Camera from Home (try by id first, fallback to point tap if element not found)

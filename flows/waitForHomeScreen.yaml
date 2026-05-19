@@ -1,9 +1,8 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Wait for home screen
 ---
-# Targeted home wait (replaces duplicate extendedWaitUntil + double assert in ATP files).
+# Step Print gallery home (replaces Kodak Smile "KODAK SMILE" title).
 - extendedWaitUntil:
-    visible: "KODAK SMILE"
+    visible: "My gallery"
     timeout: 25000
-- assertVisible: "KODAK SMILE"
-- assertVisible: ${output.home.titleText}
+- assertVisible: "My gallery"

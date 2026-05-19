@@ -1,56 +1,52 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
-# If already connected, do nothing
-- runFlow:
-    when:
-      visible: ${output.home.connectedText}
-    commands:
-      - assertVisible: ${output.home.connectedText}
-
-# Solve it / Disconnected -> enter connection
-- runFlow:
-    when:
-      visible: ${output.home.solveItText}
-    commands:
-      - tapOn: ${output.home.solveItText}
-      - waitForAnimationToEnd
+# Step Print: gallery Bluetooth entry + connection wizard (best-effort).
 
 - runFlow:
     when:
-      visible: ${output.home.disconnectedText}
+      visible: "Connected"
     commands:
-      - tapOn: ${output.home.disconnectedText}
+      - assertVisible: "Connected"
+
+- runFlow:
+    when:
+      notVisible: "Connected"
+    commands:
+      - tapOn:
+          point: "92%, 10%"
+          optional: true
+          label: Bluetooth entry – top-right
       - waitForAnimationToEnd
-# If "Connect" visible before search retries, tap once
+
 - runFlow:
     when:
       visible: "Connect"
     commands:
-      - assertVisible: "Connect"
       - tapOn: "Connect"
       - waitForAnimationToEnd
 
-# Retry search a few times
+- runFlow: handlePrinterConnection.yaml
+
 - repeat:
     times: 8
     commands:
       - runFlow:
           when:
-            visible: ${output.printer.searchAgainText}
+            visible: "Search Again"
           commands:
-            - tapOn: ${output.printer.searchAgainText}
+            - tapOn: "Search Again"
             - waitForAnimationToEnd
 
       - runFlow:
           when:
-            visible: ${output.home.connectText}
+            visible: "Connect"
           commands:
-            - tapOn: ${output.home.connectText}
+            - tapOn: "Connect"
             - waitForAnimationToEnd
 
       - runFlow:
           when:
             visible: "Bluetooth pairing request"
           commands:
-            - tapOn: ${output.printer.pairText}
+            - tapOn: "Pair"
             - waitForAnimationToEnd

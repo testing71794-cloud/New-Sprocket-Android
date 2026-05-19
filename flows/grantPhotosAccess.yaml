@@ -1,10 +1,11 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Grant photos access (best-effort)
 ---
 # Centralized photos permission dialogs (Collage / album ATP paths).
 - runFlow:
     when:
-      visible: "Allow KODAK SMILE to access photos"
+      visible:
+        text: ".*(?i)(step touch|steptouch|kodak).*access photos.*"
     commands:
       - tapOn: "Allow"
       - waitForAnimationToEnd

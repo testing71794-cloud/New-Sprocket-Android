@@ -1,14 +1,14 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 - runFlow:
     when:
-      visible: ${output.printer.printText}
+      visible: "Print"
     commands:
-      - tapOn: ${output.printer.printText}
+      - tapOn: "Print"
       - waitForAnimationToEnd
 
 # ------------------------------
-# 7) Fine-tune popup (optional)
+# Fine-tune popup (optional)
 # ------------------------------
 - runFlow:
     when:
@@ -25,5 +25,3 @@
           commands:
             - tapOn: "OK"
       - waitForAnimationToEnd
-
-

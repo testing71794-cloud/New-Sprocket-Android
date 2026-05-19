@@ -1,8 +1,8 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 - runFlow:
     when:
-      visible: ${output.common.rateAppText}
+      visible: "Rate App"
     commands:
-      - tapOn: ${output.common.noThanksText}
+      - tapOn: "No Thanks"
       - waitForAnimationToEnd

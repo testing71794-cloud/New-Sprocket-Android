@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 - runFlow:
     when:
@@ -11,19 +11,25 @@
           start: "75%,55%"
           end: "15%,45%"
       - waitForAnimationToEnd
-# If printer intro screen appears → assert + swipe
+# Legacy Smile printer intro (optional on Step Print)
 - runFlow:
     when:
       visible: "Find My Printer"
     commands:
       - assertVisible: "Find My Printer"
       - waitForAnimationToEnd
-
-      # Swipe right → left
       - swipe:
           start: "80%,55%"
           end: "20%,55%"
+      - waitForAnimationToEnd
 
+# Step Print onboarding carousel
+- runFlow:
+    when:
+      visible: "Gallery"
+    commands:
+      - swipe:
+          direction: LEFT
       - waitForAnimationToEnd
 # If "Device found" screen appears → assert + swipe right to left
 - runFlow:

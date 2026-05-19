@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: ED_E01 - Cancel Without Saving
 ---
 - runFlow: ED_01_enter_edit_mode.yaml

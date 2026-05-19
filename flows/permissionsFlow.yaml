@@ -1,11 +1,11 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 # Android runtime permission dialogs (best-effort)
 - runFlow:
     when:
       visible: "Photos Access Required"
     commands:
-      - tapOn: ${output.common.okText}
+      - tapOn: "Ok"
       - waitForAnimationToEnd
 
 - runFlow:
@@ -17,7 +17,8 @@
 
 - runFlow:
     when:
-      visible: "Allow KODAK SMILE to find"
+      visible:
+        text: ".*(?i)(step touch|steptouch|kodak).*find.*"
     commands:
-      - tapOn: ${output.common.allowText}
+      - tapOn: "Allow"
       - waitForAnimationToEnd

@@ -1,11 +1,11 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 - repeat:
     times: 3
     commands:
       - runFlow:
           when:
-            visible: ${output.common.skipText}
+            visible: "Skip"
           commands:
-            - tapOn: ${output.common.skipText}
+            - tapOn: "Skip"
             - waitForAnimationToEnd

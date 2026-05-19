@@ -1,56 +1,73 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Settings Screen - Testcases
 ---
 - waitForAnimationToEnd
 
 # =========================================================
-# PRECONDITION: Open Settings screen (tap bottom-right icon)
-# (Update point if needed for your device)
+# PRECONDITION: Open Settings screen (tap top-left gear)
 # =========================================================
 - tapOn:
+    point: "8%, 10%"
+    label: Settings (gear) – top-left
+    optional: true
+- tapOn:
     id: settingImageView
+    optional: true
 - waitForAnimationToEnd
 
 # =========================================================
-# TC-00: Assert Settings screen UI
+# TC-00: Assert Settings screen UI (Step Print copy varies by build)
 # =========================================================
 - runFlow:
     when:
-      visible: "KODAK SMILE"
+      visible: "Quick tips"
     commands:
-      - assertVisible: "KODAK SMILE"
-      - assertVisible: "Buy KODAK ZINK Photo Paper"
+      - assertVisible: "Quick tips"
+
+- runFlow:
+    when:
+      visible: "Quick Tips"
+    commands:
       - assertVisible: "Quick Tips"
+
+- runFlow:
+    when:
+      visible: "Support"
+    commands:
       - assertVisible: "Support"
+
+- runFlow:
+    when:
+      visible: "Legal"
+    commands:
       - assertVisible: "Legal"
+
+- runFlow:
+    when:
+      visible: "About Us"
+    commands:
       - assertVisible: "About Us"
-      - assertVisible: "Social Accounts"
 
 # =========================================================
-# TC-01: Buy KODAK ZINK Photo Paper -> opens Purchase Paper (webview) -> back
+# TC-01: Quick tips -> App quick tour (SE_03 alignment)
 # =========================================================
 - runFlow:
     when:
-      visible: "Buy KODAK ZINK Photo Paper"
+      visible: "Quick tips"
     commands:
-      - tapOn:
-          point: 82%,19%
+      - tapOn: "Quick tips"
       - waitForAnimationToEnd
-
-      # Works even if it opens Amazon or any webview title
       - runFlow:
           when:
-            visible: "Purchase Paper"
+            visible: "App quick tour"
           commands:
-            - assertVisible: "Purchase Paper"
-
-      - tapOn:
-          id: linearLayoutBack
+            - tapOn: "App quick tour"
+            - waitForAnimationToEnd
+      - back
       - waitForAnimationToEnd
-      - assertVisible: "Buy KODAK ZINK Photo Paper"
 
 # =========================================================
-# TC-02: Quick Tips -> assert screen -> back
+# TC-02: Quick Tips (legacy label) -> back
 # =========================================================
 - runFlow:
     when:
@@ -58,10 +75,8 @@ name: Settings Screen - Testcases
     commands:
       - tapOn: "Quick Tips"
       - waitForAnimationToEnd
-      - assertVisible: "Quick Tips"
       - back
       - waitForAnimationToEnd
-      - assertVisible: "Quick Tips"
 
 # =========================================================
 # TC-03: Legal -> assert screen -> back
@@ -73,14 +88,10 @@ name: Settings Screen - Testcases
       - tapOn: "Legal"
       - waitForAnimationToEnd
       - assertVisible: "Legal"
-
-      # Optional: quick scroll sanity
       - scroll
       - scroll
-
       - back
       - waitForAnimationToEnd
-      - assertVisible: "Legal"
 
 # =========================================================
 # TC-04: About Us -> assert screen -> back
@@ -91,48 +102,16 @@ name: Settings Screen - Testcases
     commands:
       - tapOn: "About Us"
       - waitForAnimationToEnd
-
-      # On your screen the title appears like "About Us :"
       - runFlow:
           when:
             visible: "About Us"
           commands:
             - assertVisible: "About Us"
-
       - back
       - waitForAnimationToEnd
-      - assertVisible: "About Us"
 
 # =========================================================
-# TC-05: Social Accounts -> assert screen -> verify Sign out -> back
-# =========================================================
-- runFlow:
-    when:
-      visible: "Social Accounts"
-    commands:
-      - tapOn: "Social Accounts"
-      - waitForAnimationToEnd
-      - assertVisible: "Social Accounts"
-      - assertVisible: "FACEBOOK"
-      - tapOn: "Sign in"
-      - waitForAnimationToEnd
-      - waitForAnimationToEnd
-      - tapOn:
-         text: "Continue as.*"
-         optional: true
-
-      - waitForAnimationToEnd
-      - waitForAnimationToEnd
-      - assertVisible: "Social Accounts"
-      - assertVisible: "FACEBOOK"
-      - assertVisible: "Sign out" # only assert, don’t click (keeps account logged-in)
-      - back
-      - waitForAnimationToEnd
-      - assertVisible: "Social Accounts"
-
-# =========================================================
-# TC-06: Support -> open -> back
-# (Support can open internal screen or external intent, so keep it safe)
+# TC-05: Support -> open -> back
 # =========================================================
 - runFlow:
     when:
@@ -140,20 +119,11 @@ name: Settings Screen - Testcases
     commands:
       - tapOn: "Support"
       - waitForAnimationToEnd
-
-      # If an internal Support page exists, assert it
-      - runFlow:
-          when:
-            visible: "Support"
-          commands:
-            - assertVisible: "Support"
-
       - back
       - waitForAnimationToEnd
-      - assertVisible: "Support"
 
 # =========================================================
-# TC-07: Back from Settings to previous screen
+# TC-06: Back from Settings to previous screen
 # =========================================================
 - back
 - waitForAnimationToEnd

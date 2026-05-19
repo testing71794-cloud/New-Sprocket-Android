@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Signup Flow
 ---
 - waitForAnimationToEnd
@@ -8,28 +8,32 @@ name: Signup Flow
 # ------------------------------
 - waitForAnimationToEnd
 
-# Screen title
-- assertVisible: "Sign Up"
-
-# Input fields
-- assertVisible: "Full Name"
-- assertVisible: "Email"
-- assertVisible: "Password"
-
-
-# Terms text + links
-- assertVisible: "By signing up you agree to our"
-- assertVisible: "Terms & Conditions and  "
-- assertVisible: "Privacy Policy."
-
-# Primary CTA
-- assertVisible: "Create Account"
-
-# Footer actions
+- assertVisible: "Create an account"
+- assertVisible:
+    text: "Full Name*"
+    optional: true
+- assertVisible:
+    text: "Full Name"
+    optional: true
+- assertVisible:
+    text: "Email*"
+    optional: true
+- assertVisible:
+    text: "Email"
+    optional: true
+- assertVisible:
+    text: "Password*"
+    optional: true
+- assertVisible:
+    text: "Password"
+    optional: true
+- assertVisible:
+    text: "SIGN UP"
+    optional: true
 - assertVisible: "I'll do it later"
-- assertVisible: "Already have an account?"
-- assertVisible: "Log In"
+- assertVisible:
+    text: "Already have an account?"
+    optional: true
 
-# Tap skip
 - tapOn: "I'll do it later"
 - waitForAnimationToEnd

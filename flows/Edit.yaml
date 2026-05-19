@@ -1,18 +1,17 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 - runFlow:
     when:
-      visible: ${output.editor.filterTab}
+      visible: "Filter"
     commands:
-      - tapOn: ${output.editor.filterTab}
+      - tapOn: "Filter"
       - waitForAnimationToEnd
-      # pick first filter option area
       - tapOn:
           point: "20%,85%"
 
 - runFlow:
     when:
-      visible: ${output.editor.editTab}
+      visible: "Edit"
     commands:
-      - tapOn: ${output.editor.editTab}
+      - tapOn: "Edit"
       - waitForAnimationToEnd

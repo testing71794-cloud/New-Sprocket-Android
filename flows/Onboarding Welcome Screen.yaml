@@ -1,27 +1,42 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 name: Onboarding Welcome Screen
 ---
 - waitForAnimationToEnd
-# ------------------------------
-# Welcome Screen – Assert elements + Tap Find My Printer
-# ------------------------------
 
-- waitForAnimationToEnd
+# Step Print: carousel onboarding (ON_* ATP). Legacy Smile "Find My Printer" kept optional.
+- runFlow:
+    when:
+      visible: "Gallery"
+    commands:
+      - assertVisible: "Gallery"
+      - runFlow:
+          when:
+            visible: "Next"
+          commands:
+            - tapOn: "Next"
+            - waitForAnimationToEnd
 
-# Title & Subtitle
-- assertVisible: "Welcome"
-- assertVisible: "Which device would you like to connect?"
+- runFlow:
+    when:
+      visible: "Welcome"
+    commands:
+      - assertVisible: "Welcome"
+      - runFlow:
+          when:
+            visible: "Find My Printer"
+          commands:
+            - tapOn: "Find My Printer"
+            - waitForAnimationToEnd
+      - runFlow:
+          when:
+            visible: "Find My Camera"
+          commands:
+            - assertVisible: "Find My Camera"
+            optional: true
 
-# Printer Option
-- assertVisible: "Find My Printer"
-
-# Camera Option
-- assertVisible: "Find My Camera"
-
-# Footer link
-- assertVisible: "Kodakphotoplus.com"
-
-# Tap Printer (change if you want Camera instead)
-- tapOn: "Find My Printer"
-
-- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+      - waitForAnimationToEnd

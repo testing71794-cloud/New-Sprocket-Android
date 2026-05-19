@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
 # Tap first photo in album grid (id: imageRelativelayout not found in app)
 - tapOn:

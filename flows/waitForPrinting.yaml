@@ -1,29 +1,26 @@
-﻿appId: com.kodak.steptouch
+appId: com.kodak.steptouch
 ---
-
-# ✅ MUST load outputs before using ${output.*}
-- runFlow: ../elements/loadElements.yaml
 
 # Cooldown
 - runFlow:
     when:
-      visible: ${output.printer.cooldownText}
+      visible: "Camera is cooling down"
     commands:
-      - tapOn: ${output.common.okText}
+      - tapOn: "Ok"
       - waitForAnimationToEnd
 
 # Out of paper
 - runFlow:
     when:
-      visible: ${output.printer.outOfPaperText}
+      visible: "You are out of paper"
     commands:
-      - tapOn: ${output.common.okText}
+      - tapOn: "Ok"
       - waitForAnimationToEnd
 
 # Print Successful
 - runFlow:
     when:
-      visible: ${output.printer.printSuccessfulText}
+      visible: "Print Successful"
     commands:
       - takeScreenshot: "print_success"
       - tapOn:
