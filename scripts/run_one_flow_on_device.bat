@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-05-jenkins-spaces-quoted-maestro-4
+REM script_rev=2026-05-jenkins-spaces-quoted-maestro-6
 goto :script_body
 
 REM Approximate sleep without timeout.exe (Jenkins + non-TTY stdin makes timeout print
@@ -15,57 +15,125 @@ exit /b 0
 
 REM Orchestrator may set ATP_MAESTRO_DRIVER_PORT / ATP_MAESTRO_DEBUG_OUTPUT per device (parallel isolation).
 :apply_maestro_parallel_isolation
-set "MAESTRO_DRIVER_PORT_ARG="
-set "MAESTRO_DEBUG_OUTPUT_ARG="
-if defined ATP_MAESTRO_DRIVER_PORT (
-  set "MAESTRO_DRIVER_PORT_ARG=--driver-host-port %ATP_MAESTRO_DRIVER_PORT%"
-)
-if defined ATP_MAESTRO_DEBUG_OUTPUT (
-  set "MAESTRO_DEBUG_OUTPUT_ARG=--debug-output "%ATP_MAESTRO_DEBUG_OUTPUT%""
-)
 exit /b 0
 
-REM Build optional Maestro CLI fragments (each token quoted; never use unquoted MAESTRO_ARGS blob).
-:maestro_build_optional_args
-set "INCLUDE_TAG_ARG="
-if not "%INCLUDE_TAG%"=="" set "INCLUDE_TAG_ARG=--include-tags "%INCLUDE_TAG%""
-set "MAESTRO_REINSTALL_ARG="
-if /I "!MAESTRO_USE_REINSTALL!"=="1" set "MAESTRO_REINSTALL_ARG=--reinstall-driver"
+REM Log resolved paths before Maestro (Jenkins workspace may contain spaces).
+:log_maestro_invoke_context
+echo [DEBUG] script_rev=2026-05-jenkins-spaces-quoted-maestro-6>> "%LOG_FILE%"
+echo [DEBUG] CD=!CD!>> "%LOG_FILE%"
+echo [DEBUG] REPO_ROOT=!REPO_ROOT!>> "%LOG_FILE%"
+echo [DEBUG] FLOW_PATH=!FLOW_PATH!>> "%LOG_FILE%"
+echo [DEBUG] MAESTRO_BIN=!MAESTRO_BIN!>> "%LOG_FILE%"
+echo [DEBUG] JAVA_EXE=!JAVA_EXE!>> "%LOG_FILE%"
+echo [DEBUG] MAESTRO_APP_HOME=!MAESTRO_APP_HOME!>> "%LOG_FILE%"
+echo [DEBUG] ATP_JAVA_USER_HOME=!ATP_JAVA_USER_HOME!>> "%LOG_FILE%"
+echo [DEBUG] LOCALAPPDATA=!LOCALAPPDATA!>> "%LOG_FILE%"
 exit /b 0
 
-REM Isolated Maestro: direct java maestro.cli.AppKt (no maestro.bat/call); env from orchestrator (LOCALAPPDATA, MAESTRO_OPTS).
+REM Write a one-shot wrapper .cmd with fully quoted paths (avoids cmd.exe splitting on spaces).
+:write_maestro_wrapper
+set "MWRAP=%~1"
+if /I "!MAESTRO_FLOW1B!"=="1" goto :write_maestro_wrapper_flow1b
+(
+echo @echo off
+echo cd /d "%REPO_ROOT%"
+if defined ATP_JAVA_USER_HOME (
+  if defined ATP_MAESTRO_DRIVER_PORT (
+    if /I "!MAESTRO_USE_REINSTALL!"=="1" (
+      if defined ATP_MAESTRO_DEBUG_OUTPUT (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" --driver-host-port %ATP_MAESTRO_DRIVER_PORT% test --reinstall-driver --debug-output "%ATP_MAESTRO_DEBUG_OUTPUT%" "%FLOW_PATH%"
+      ) else (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" --driver-host-port %ATP_MAESTRO_DRIVER_PORT% test --reinstall-driver "%FLOW_PATH%"
+      )
+    ) else (
+      if defined ATP_MAESTRO_DEBUG_OUTPUT (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" --driver-host-port %ATP_MAESTRO_DRIVER_PORT% test --debug-output "%ATP_MAESTRO_DEBUG_OUTPUT%" "%FLOW_PATH%"
+      ) else (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" --driver-host-port %ATP_MAESTRO_DRIVER_PORT% test "%FLOW_PATH%"
+      )
+    )
+  ) else (
+    if /I "!MAESTRO_USE_REINSTALL!"=="1" (
+      if defined ATP_MAESTRO_DEBUG_OUTPUT (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test --reinstall-driver --debug-output "%ATP_MAESTRO_DEBUG_OUTPUT%" "%FLOW_PATH%"
+      ) else (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test --reinstall-driver "%FLOW_PATH%"
+      )
+    ) else (
+      if defined ATP_MAESTRO_DEBUG_OUTPUT (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test --debug-output "%ATP_MAESTRO_DEBUG_OUTPUT%" "%FLOW_PATH%"
+      ) else (
+        echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test "%FLOW_PATH%"
+      )
+    )
+  )
+) else (
+  if defined ATP_MAESTRO_DRIVER_PORT (
+    echo "%JAVA_EXE%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" --driver-host-port %ATP_MAESTRO_DRIVER_PORT% test "%FLOW_PATH%"
+  ) else (
+    echo "%JAVA_EXE%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test "%FLOW_PATH%"
+  )
+)
+) > "%MWRAP%"
+exit /b 0
+
+:write_maestro_wrapper_flow1b
+(
+echo @echo off
+echo cd /d "%REPO_ROOT%"
+if defined ATP_JAVA_USER_HOME (
+  echo "%JAVA_EXE%" "-Duser.home=%ATP_JAVA_USER_HOME%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test -e FULL_NAME="!FULL_NAME!" -e EMAIL="!EMAIL!" -e PASSWORD="!PASSWORD!" "%FLOW_PATH%"
+) else (
+  echo "%JAVA_EXE%" -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" test -e FULL_NAME="!FULL_NAME!" -e EMAIL="!EMAIL!" -e PASSWORD="!PASSWORD!" "%FLOW_PATH%"
+)
+) > "%MWRAP%"
+exit /b 0
+
+REM Isolated Maestro via java maestro.cli.AppKt (wrapper .cmd has quoted paths baked in).
+:run_maestro_java
+set "MWRAP=%TEMP%\atp_maestro_%RANDOM%_%RANDOM%.cmd"
+call :write_maestro_wrapper "%MWRAP%"
+echo [DEBUG] maestro_wrapper=!MWRAP!>> "%LOG_FILE%"
+type "%MWRAP%" >> "%LOG_FILE%"
+call "%MWRAP%" >> "%LOG_FILE%" 2>&1
+set "RUN_EXIT=!ERRORLEVEL!"
+del "%MWRAP%" 2>nul
+exit /b !RUN_EXIT!
+
+REM Fallback: maestro.bat wrapper (quoted device + flow only).
+:run_maestro_bat
+set "MWRAP=%TEMP%\atp_maestro_bat_%RANDOM%_%RANDOM%.cmd"
+(
+echo @echo off
+echo cd /d "%REPO_ROOT%"
+if /I "!MAESTRO_USE_REINSTALL!"=="1" (
+  echo "%MAESTRO_BIN%" --device "%DEVICE_ID%" test --reinstall-driver "%FLOW_PATH%"
+) else (
+  echo "%MAESTRO_BIN%" --device "%DEVICE_ID%" test "%FLOW_PATH%"
+)
+) > "%MWRAP%"
+echo [DEBUG] maestro_bat_wrapper=!MWRAP!>> "%LOG_FILE%"
+type "%MWRAP%" >> "%LOG_FILE%"
+call "%MWRAP%" >> "%LOG_FILE%" 2>&1
+set "RUN_EXIT=!ERRORLEVEL!"
+del "%MWRAP%" 2>nul
+exit /b !RUN_EXIT!
+
 :run_maestro_isolated
 call :apply_maestro_parallel_isolation
-call :maestro_build_optional_args
+call :log_maestro_invoke_context
 if defined ATP_MAESTRO_RUNTIME_ROOT (
   echo [INFO] Maestro runtime root=!ATP_MAESTRO_RUNTIME_ROOT! LOCALAPPDATA=!LOCALAPPDATA!>> "%LOG_FILE%"
 )
-if /I "!MAESTRO_FLOW1B!"=="1" goto :run_maestro_isolated_flow1b
 if /I "%ATP_MAESTRO_JAVA_DIRECT%"=="1" (
   if exist "%JAVA_EXE%" if exist "%MAESTRO_APP_HOME%\lib" (
-    echo Command: "%JAVA_EXE%" !MAESTRO_OPTS! -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test !MAESTRO_REINSTALL_ARG! !MAESTRO_DEBUG_OUTPUT_ARG! !INCLUDE_TAG_ARG! "%FLOW_PATH%">> "%LOG_FILE%"
-    "%JAVA_EXE%" !MAESTRO_OPTS! -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test !MAESTRO_REINSTALL_ARG! !MAESTRO_DEBUG_OUTPUT_ARG! !INCLUDE_TAG_ARG! "%FLOW_PATH%" >> "%LOG_FILE%" 2>&1
+    call :run_maestro_java
     set "RUN_EXIT=!ERRORLEVEL!"
     goto :run_maestro_isolated_done
   )
   echo [WARN] ATP_MAESTRO_JAVA_DIRECT=1 but java/lib missing; falling back to MAESTRO_BIN>> "%LOG_FILE%"
 )
-echo Command: "%MAESTRO_BIN%" --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test !MAESTRO_REINSTALL_ARG! !MAESTRO_DEBUG_OUTPUT_ARG! !INCLUDE_TAG_ARG! "%FLOW_PATH%">> "%LOG_FILE%"
-"%MAESTRO_BIN%" --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test !MAESTRO_REINSTALL_ARG! !MAESTRO_DEBUG_OUTPUT_ARG! !INCLUDE_TAG_ARG! "%FLOW_PATH%" >> "%LOG_FILE%" 2>&1
-set "RUN_EXIT=!ERRORLEVEL!"
-goto :run_maestro_isolated_done
-
-:run_maestro_isolated_flow1b
-if /I "%ATP_MAESTRO_JAVA_DIRECT%"=="1" (
-  if exist "%JAVA_EXE%" if exist "%MAESTRO_APP_HOME%\lib" (
-    echo Command: "%JAVA_EXE%" !MAESTRO_OPTS! -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test -e FULL_NAME=!FULL_NAME! -e EMAIL=!EMAIL! -e PASSWORD=!PASSWORD! !MAESTRO_DEBUG_OUTPUT_ARG! "%FLOW_PATH%" !INCLUDE_TAG_ARG!>> "%LOG_FILE%"
-    "%JAVA_EXE%" !MAESTRO_OPTS! -classpath "%MAESTRO_CLASSPATH%" maestro.cli.AppKt --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test -e FULL_NAME=!FULL_NAME! -e EMAIL=!EMAIL! -e PASSWORD=!PASSWORD! !MAESTRO_DEBUG_OUTPUT_ARG! "%FLOW_PATH%" !INCLUDE_TAG_ARG! >> "%LOG_FILE%" 2>&1
-    set "RUN_EXIT=!ERRORLEVEL!"
-    goto :run_maestro_isolated_done
-  )
-)
-echo Command: "%MAESTRO_BIN%" --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test -e FULL_NAME=!FULL_NAME! -e EMAIL=!EMAIL! -e PASSWORD=!PASSWORD! !MAESTRO_DEBUG_OUTPUT_ARG! "%FLOW_PATH%" !INCLUDE_TAG_ARG!>> "%LOG_FILE%"
-"%MAESTRO_BIN%" --device "%DEVICE_ID%" !MAESTRO_DRIVER_PORT_ARG! test -e FULL_NAME=!FULL_NAME! -e EMAIL=!EMAIL! -e PASSWORD=!PASSWORD! !MAESTRO_DEBUG_OUTPUT_ARG! "%FLOW_PATH%" !INCLUDE_TAG_ARG! >> "%LOG_FILE%" 2>&1
+call :run_maestro_bat
 set "RUN_EXIT=!ERRORLEVEL!"
 :run_maestro_isolated_done
 exit /b
@@ -104,6 +172,7 @@ set "JDK_JAVA_OPTIONS="
 
 set "REPO_ROOT=%~dp0.."
 for %%I in ("%REPO_ROOT%") do set "REPO_ROOT=%%~fI"
+cd /d "%REPO_ROOT%"
 
 call "%REPO_ROOT%\scripts\set_maestro_java.bat" "%MAESTRO_CMD%"
 if errorlevel 1 exit /b 14
@@ -115,6 +184,7 @@ if exist "%MAESTRO_HOME%\maestro.bat" (
 ) else (
     set "MAESTRO_BIN=%MAESTRO_CMD%"
 )
+if not exist "%MAESTRO_BIN%" if exist "%MAESTRO_CMD%" set "MAESTRO_BIN=%MAESTRO_CMD%"
 
 REM Maestro app root (parent of bin/) — used for direct java launch (no maestro.bat wrapper).
 set "MAESTRO_APP_HOME=%MAESTRO_HOME%\.."
@@ -155,6 +225,19 @@ echo Include tag      : %INCLUDE_TAG%
 echo JAVA_HOME        : %JAVA_HOME%
 echo MAESTRO_HOME     : %MAESTRO_HOME%
 echo Maestro cmd      : %MAESTRO_BIN%
+echo =====================================
+echo BATCH ARGUMENTS / WORKSPACE
+echo =====================================
+echo script_rev        : 2026-05-jenkins-spaces-quoted-maestro-6
+echo arg1 SUITE        : %~1
+echo arg2 FLOW_PATH    : %~2
+echo arg3 DEVICE_ID    : %~3
+echo arg4 APP_ID       : %~4
+echo arg5 CLEAR_STATE  : %~5
+echo arg6 MAESTRO_CMD  : %~6
+echo arg7 INCLUDE_TAG  : %~7
+echo REPO_ROOT         : %REPO_ROOT%
+echo CD after cd /d    : %CD%
 echo =====================================
 ) > "%LOG_FILE%"
 

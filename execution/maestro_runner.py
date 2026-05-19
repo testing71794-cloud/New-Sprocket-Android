@@ -507,7 +507,8 @@ def _apply_parallel_maestro_env(
     meta["localappdata"] = str(local_app)
     # Do not override USERPROFILE (breaks Windows AppDirs / Maestro init). Redirect JVM user.home.
     opts = (env.get("MAESTRO_OPTS") or "").strip()
-    # Quote JVM property so cmd.exe does not split workspace paths that contain spaces.
+    # Bat passes -Duser.home via ATP_JAVA_USER_HOME (quoted per-arg); avoid MAESTRO_OPTS blob in cmd.exe.
+    env["ATP_JAVA_USER_HOME"] = str(runtime_home)
     user_home_flag = f'-Duser.home="{runtime_home}"'
     env["MAESTRO_OPTS"] = f"{opts} {user_home_flag}".strip() if opts else user_home_flag
     env["ATP_MAESTRO_JAVA_DIRECT"] = "1"
