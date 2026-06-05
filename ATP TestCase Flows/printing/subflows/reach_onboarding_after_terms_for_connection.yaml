@@ -6,4 +6,4 @@ appId: com.kodak.steptouch
 - tapOn:
     text: "Agree Terms and Conditions"
     optional: true
-- runFlow: advance_after_terms_for_connection.yaml
+- runFlow: ../../connection/subflows/advance_after_terms_for_connection.yaml
