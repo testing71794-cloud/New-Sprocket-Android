@@ -7,7 +7,8 @@ appId: com.kodak.steptouch
       visible: "Camera is cooling down"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # Out of paper
 - runFlow:
@@ -15,7 +16,8 @@ appId: com.kodak.steptouch
       visible: "You are out of paper"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # Print Successful
 - runFlow:
@@ -25,4 +27,5 @@ appId: com.kodak.steptouch
       - takeScreenshot: "print_success"
       - tapOn:
           point: 2%,5%
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

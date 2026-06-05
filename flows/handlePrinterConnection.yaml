@@ -10,8 +10,9 @@ appId: com.kodak.steptouch
     commands:
       - extendedWaitUntil:
           notVisible: "Searching for your device..."
-          timeout: 20000
-      - waitForAnimationToEnd
+          timeout: 2000
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # If couldn't find appears, tap Search Again
 - runFlow:
@@ -20,7 +21,8 @@ appId: com.kodak.steptouch
     commands:
       - assertVisible: "Search Again"
       - tapOn: "Search Again"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # When device list appears, tap Connect
 - runFlow:
@@ -29,7 +31,8 @@ appId: com.kodak.steptouch
     commands:
       - assertVisible: "Connect"
       - tapOn: "Connect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - runFlow: ../flows/handleBluetoothPairing.yaml
 
 - runFlow:
@@ -38,7 +41,8 @@ appId: com.kodak.steptouch
     commands:
       - assertVisible: "Connect"
       - tapOn: "Connect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - runFlow: ../flows/handleBluetoothPairing.yaml
 
 # Fallback: if Connect is visible anywhere, tap it + handle pairing
@@ -47,5 +51,6 @@ appId: com.kodak.steptouch
       visible: "Connect"
     commands:
       - tapOn: "Connect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - runFlow: ../flows/handleBluetoothPairing.yaml

@@ -8,7 +8,8 @@ appId: com.kodak.steptouch
     commands:
       - assertVisible: "Pair"
       - tapOn: "Pair"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # Some devices show partial text like "Pair with Kodak Step Touch"
 - runFlow:
@@ -17,4 +18,5 @@ appId: com.kodak.steptouch
         text: ".*Pair with Kodak.*"
     commands:
       - tapOn: "Pair"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

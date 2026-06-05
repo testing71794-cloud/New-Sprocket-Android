@@ -3,4 +3,4 @@ appId: com.kodak.steptouch
 # After clearState (parallel): signup screen boot — only wait >2s (device cold start).
 - extendedWaitUntil:
     visible: "Create an account"
-    timeout: 10000
+    timeout: 2000

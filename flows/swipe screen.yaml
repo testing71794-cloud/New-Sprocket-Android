@@ -6,22 +6,26 @@ appId: com.kodak.steptouch
     commands:
       - tapOn:
           point: "50%,50%"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - swipe:
           start: "75%,55%"
           end: "15%,45%"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 # Legacy Smile printer intro (optional on Step Print)
 - runFlow:
     when:
       visible: "Find My Printer"
     commands:
       - assertVisible: "Find My Printer"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - swipe:
           start: "80%,55%"
           end: "20%,55%"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # Step Print onboarding carousel
 - runFlow:
@@ -30,17 +34,20 @@ appId: com.kodak.steptouch
     commands:
       - swipe:
           direction: LEFT
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 # If "Device found" screen appears → assert + swipe right to left
 - runFlow:
     when:
       visible: "Device found"
     commands:
       - assertVisible: "Device found"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
       - swipe:
           start: "80%,55%"
           end: "20%,55%"
 
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

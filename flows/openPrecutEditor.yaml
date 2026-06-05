@@ -7,10 +7,12 @@ name: Open Pre-Cut editor (shared)
       visible: "Pre-Cuts"
     commands:
       - tapOn: "Pre-Cuts"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - tapOn:
           point: "20%,60%"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - runFlow:
     when:
@@ -21,12 +23,15 @@ name: Open Pre-Cut editor (shared)
             visible: "Kodak 2x3 Pre-Cut Sticker Paper"
           commands:
             - tapOn: "Kodak 2x3 Pre-Cut Sticker Paper"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
             - back
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
       - tapOn: "OK"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - extendedWaitUntil:
     visible: "CREATE PRE-CUT"
-    timeout: 20000
+    timeout: 2000

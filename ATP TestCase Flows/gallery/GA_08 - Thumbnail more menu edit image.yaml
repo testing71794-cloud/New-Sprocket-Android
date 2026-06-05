@@ -9,7 +9,8 @@ name: GA_08 - Thumbnail more menu edit image
       visible: "No Thanks"
     commands:
       - tapOn: "No Thanks"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - assertVisible: "MY GALLERY"
 - tapOn:
     id: "imageViewPhoto"
@@ -28,7 +29,8 @@ name: GA_08 - Thumbnail more menu edit image
 - tapOn:
     id: "filterEditingOptionsImageView"
     index: 4
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - assertVisible:
     id: "saveRecentEditImageView"
 

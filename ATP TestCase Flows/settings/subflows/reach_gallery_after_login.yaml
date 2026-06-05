@@ -19,4 +19,4 @@ appId: com.kodak.steptouch
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(my gallery|all photos).*"
-    timeout: 1000
+    timeout: 2000

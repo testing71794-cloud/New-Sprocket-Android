@@ -5,4 +5,5 @@ appId: com.kodak.steptouch
       visible: "Rate App"
     commands:
       - tapOn: "No Thanks"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

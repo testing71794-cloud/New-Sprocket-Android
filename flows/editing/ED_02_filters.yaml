@@ -4,18 +4,21 @@ name: ED_02 - Apply Filters
 - runFlow: ED_01_enter_edit_mode.yaml
 
 - tapOn: "Filter"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Tap any filter thumbnail (best-effort)
 - tapOn:
     point: "20%,85%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Optional: adjust intensity slider (best-effort)
 - swipe:
     start: "35%,92%"
     end: "75%,92%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Save/apply (some builds use Done/Save)
 - runFlow:
@@ -23,11 +26,13 @@ name: ED_02 - Apply Filters
       visible: "Done"
     commands:
       - tapOn: "Done"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - runFlow:
     when:
       visible: "Save"
     commands:
       - tapOn: "Save"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

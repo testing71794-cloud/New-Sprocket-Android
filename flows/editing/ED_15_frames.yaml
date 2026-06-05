@@ -3,11 +3,13 @@ name: ED_15 - Frames
 ---
 
 - tapOn: "Frames"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     id: ivFrameCategory
     index: 1
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - scrollUntilVisible:
     element:
       id: imageViewFilter
@@ -15,17 +17,21 @@ name: ED_15 - Frames
 # Tap any frame thumbnail (best-effort)
 - tapOn:
     point: 56%,75%
-- waitForAnimationToEnd
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
+- waitForAnimationToEnd:
+  timeout: 2000
 - doubleTapOn:
     id: imageViewFilter
     index: 3
     delay: 100
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 # Save/apply
 - runFlow:
     when:
       visible: "Done"
     commands:
       - tapOn: "Done"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

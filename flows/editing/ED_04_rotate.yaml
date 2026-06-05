@@ -5,7 +5,8 @@ name: ED_04 - Rotate
 
 # Open Rotate tool (from editor toolbar)
 - tapOn: "Rotate"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Rotate screen assertions
 - assertVisible: "Slide to rotate picture"
@@ -16,27 +17,32 @@ name: ED_04 - Rotate
 - swipe:
     start: "20%,74%"
     end: "80%,74%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Move slider back (drag left)
 - swipe:
     from:
       id: rotateSeekBar
     direction: left
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Tap 90° rotate RIGHT button (right side)
 - swipe:
     from:
       id: rotateSeekBar
     direction: right
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Tap 90° rotate LEFT button (left side)
 - tapOn:
     id: rotateLeftImageView
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Apply rotation
 - tapOn: "Done"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

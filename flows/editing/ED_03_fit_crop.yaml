@@ -6,26 +6,30 @@ name: ED_03 - Fit Crop
 # And ED_01 is in same folder: flows/editing/ED_01_enter_edit_mode.yaml
 - tapOn:
     id: imageViewEdit
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Optional: if your Fit tool shows crop handles, move the image slightly
 # (drag/swipe is supported)
 - swipe:
     start: "50%,55%"
     end: "70%,55%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 - swipe:
     start: "70%,55%"
     end: "50%,55%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 - runFlow:
     when:
       visible: "Save"
     commands:
       - tapOn: "Save"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # Some screens use Done instead of Save
 - runFlow:
@@ -33,4 +37,5 @@ name: ED_03 - Fit Crop
       visible: "Done"
     commands:
       - tapOn: "Done"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

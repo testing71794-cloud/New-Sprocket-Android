@@ -27,7 +27,8 @@ name: CO_03 - Print Preview Window
     label: Red print top-right
     optional: true
 # Step 5: pick available device.
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: 21%,13%
 # Step 6: confirm pairing.

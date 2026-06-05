@@ -6,14 +6,16 @@ appId: com.kodak.steptouch
       visible: "Photos Access Required"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - runFlow:
     when:
       visible: "Enable photos access"
     commands:
       - tapOn: "Enable photos access"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - runFlow:
     when:
@@ -21,4 +23,5 @@ appId: com.kodak.steptouch
         text: ".*(?i)(step touch|steptouch|kodak).*find.*"
     commands:
       - tapOn: "Allow"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

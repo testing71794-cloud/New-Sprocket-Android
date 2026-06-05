@@ -10,6 +10,6 @@ appId: com.kodak.steptouch
       - extendedWaitUntil:
           notVisible:
             id: "linearLayoutConnection"
-          timeout: 5000
+          timeout: 2000
 - assertNotVisible:
     id: "linearLayoutConnection"

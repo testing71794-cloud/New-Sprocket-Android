@@ -44,7 +44,7 @@ name: SE_11 - Join Step Print (create account / sign up)
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(my gallery|start a quick tour|skip|agree terms).*"
-    timeout: 5000
+    timeout: 2000
 # Reach gallery after sign-up (skip onboarding overlay if shown).
 - runFlow: subflows/advance_after_terms_for_settings.yaml
 - tapOn:
@@ -52,7 +52,7 @@ name: SE_11 - Join Step Print (create account / sign up)
     optional: true
 - extendedWaitUntil:
     visible: "My gallery"
-    timeout: 5000
+    timeout: 2000
 # Step 6: open settings again (stay on gallery; do not open a photo first).
 - runFlow: subflows/tap_settings_gear.yaml
 - extendedWaitUntil:
@@ -91,7 +91,7 @@ name: SE_11 - Join Step Print (create account / sign up)
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(account deleted|deleted successfully|account has been deleted).*"
-    timeout: 5000
+    timeout: 2000
 - assertVisible:
     text: ".*(?i)(account deleted|deleted successfully|account has been deleted).*"
 - assertVisible: "OK"
@@ -102,7 +102,7 @@ name: SE_11 - Join Step Print (create account / sign up)
 # Step 12: assert join / create-account screen (logged-out state).
 - extendedWaitUntil:
     visible: "Create an account"
-    timeout: 5000
+    timeout: 2000
 - assertVisible: "Create an account"
 - assertVisible: "Full Name*"
 - assertVisible: "Email*"

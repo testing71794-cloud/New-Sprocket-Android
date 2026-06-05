@@ -28,4 +28,5 @@ appId: com.kodak.steptouch
     id: "relativeLayoutItem"
     below: "Select Photos"
     index: 1
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

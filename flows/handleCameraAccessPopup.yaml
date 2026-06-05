@@ -7,7 +7,8 @@ appId: com.kodak.steptouch
       visible: "Enable camera access"
     commands:
       - tapOn: "Enable camera access"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
       # Android permission dialog variants
       - runFlow:
@@ -15,25 +16,29 @@ appId: com.kodak.steptouch
             visible: "While using the app"
           commands:
             - tapOn: "While using the app"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
 
       - runFlow:
           when:
             visible: "Allow only while using the app"
           commands:
             - tapOn: "Allow only while using the app"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
 
       - runFlow:
           when:
             visible: "Allow"
           commands:
             - tapOn: "Allow"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
 
       - runFlow:
           when:
             visible: "OK"
           commands:
             - tapOn: "OK"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000

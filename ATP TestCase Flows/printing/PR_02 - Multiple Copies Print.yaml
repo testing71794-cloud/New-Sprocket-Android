@@ -33,13 +33,16 @@ name: PR_02 - Multiple Copies Print
     timeout: 2000
 - tapOn:
     id: "imageViewConnection"
-- waitForAnimationToEnd    
-- waitForAnimationToEnd 
+- waitForAnimationToEnd:
+  timeout: 2000
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: 21%,13%
 
 - runFlow: subflows/pairing_optional.yaml
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: "50%, 45%"
     label: Gallery thumbnail
@@ -60,10 +63,12 @@ name: PR_02 - Multiple Copies Print
     text: "OK"
     optional: true
 
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: 75%,90%
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow:
     when:
       visible: "Number of Copies"
@@ -76,11 +81,15 @@ name: PR_02 - Multiple Copies Print
           id: "text_noOfcopies"
           text: "3"
       - tapOn: "Print"
-      - waitForAnimationToEnd
-- waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
+- waitForAnimationToEnd:
+  timeout: 2000
 
-- waitForAnimationToEnd
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
+- waitForAnimationToEnd:
+  timeout: 2000
 - repeat:
     times: 6
     commands:
@@ -89,7 +98,8 @@ name: PR_02 - Multiple Copies Print
             visible: "OK"
           commands:
             - tapOn: "OK"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
 - assertVisible:
     id: "ivItemGridImage"
     index: 6

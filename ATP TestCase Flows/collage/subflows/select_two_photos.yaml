@@ -5,4 +5,5 @@ appId: com.kodak.steptouch
 - tapOn:
     id: "ivItemGridImage"
     index: 1
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

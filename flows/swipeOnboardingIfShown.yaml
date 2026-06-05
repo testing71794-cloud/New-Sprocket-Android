@@ -7,8 +7,10 @@ name: Swipe onboarding intro if shown
     commands:
       - tapOn:
           point: "50%,50%"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - swipe:
           start: "75%,55%"
           end: "15%,45%"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

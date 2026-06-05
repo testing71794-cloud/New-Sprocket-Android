@@ -7,7 +7,8 @@ name: SU_01 - I'll do it later
     clearState: true
 
 # Wait for app to load
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Handle Camera permission
 - runFlow:

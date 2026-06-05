@@ -6,4 +6,5 @@ appId: com.kodak.steptouch
 - tapOn:
     point: "16%, 52%"
     label: Single-photo collage layout
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

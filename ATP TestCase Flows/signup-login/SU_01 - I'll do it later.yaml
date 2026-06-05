@@ -21,7 +21,8 @@ name: SU_01 - I'll do it later
       visible: "Start a quick tour"
     commands:
       - tapOn: "Start a quick tour"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 # ON_01 alignment: first carousel slide (copy may wrap across lines).
 - runFlow:
     when:
@@ -38,4 +39,5 @@ name: SU_01 - I'll do it later
       visible: "Skip"
     commands:
       - tapOn: "Skip"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

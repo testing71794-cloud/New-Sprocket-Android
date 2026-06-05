@@ -5,7 +5,8 @@ appId: com.kodak.steptouch
       visible: "Print"
     commands:
       - tapOn: "Print"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 # ------------------------------
 # Fine-tune popup (optional)
@@ -24,4 +25,5 @@ appId: com.kodak.steptouch
             visible: "OK"
           commands:
             - tapOn: "OK"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

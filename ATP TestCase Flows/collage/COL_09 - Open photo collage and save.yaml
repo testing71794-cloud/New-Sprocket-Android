@@ -14,7 +14,8 @@ name: COL_09 - Open photo collage and save
 - runFlow: subflows/reach_gallery_fast.yaml
 - runFlow: subflows/open_photo.yaml
 - pressKey: back
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "MY GALLERY"
     timeout: 2000

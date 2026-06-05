@@ -8,11 +8,13 @@ name: Grant photos access (best-effort)
         text: ".*(?i)(step touch|steptouch|kodak).*access photos.*"
     commands:
       - tapOn: "Allow"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - runFlow:
     when:
       visible: "Photos Access Required"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

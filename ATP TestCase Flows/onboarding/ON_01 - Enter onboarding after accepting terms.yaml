@@ -9,5 +9,5 @@ name: "ON_01 - Enter onboarding after accepting terms"
 - runFlow: subflows/reach_onboarding_after_terms.yaml
 - extendedWaitUntil:
     visible: "Skip"
-    timeout: 5000
+    timeout: 2000
 - assertVisible: "Next"

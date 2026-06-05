@@ -3,4 +3,4 @@ appId: com.kodak.steptouch
 # Cold start only: wait for signup (post-terms steps stay fast in advance_after_terms).
 - extendedWaitUntil:
     visible: "Create an account"
-    timeout: 10000
+    timeout: 2000

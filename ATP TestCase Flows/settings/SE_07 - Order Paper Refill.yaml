@@ -16,7 +16,7 @@ name: SE_07 - Order Paper Refill
 - extendedWaitUntil:
     visible:
       text: ".*(?i)Out of Printer Paper.*"
-    timeout: 200
+    timeout: 2000
 - assertVisible:
     text: ".*(?i)Purchase\n Paper.*"
 
@@ -26,7 +26,7 @@ name: SE_07 - Order Paper Refill
 - extendedWaitUntil:
     visible:
       text: ".*(?i)Kodak 2.*x3.*Premium Zink Photo Paper.*"
-    timeout: 200
+    timeout: 2000
 - assertVisible:
     text: ".*(?i)Paper[- ]?made Perfection.*"
 

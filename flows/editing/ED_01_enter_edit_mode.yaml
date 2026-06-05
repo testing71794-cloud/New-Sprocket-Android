@@ -2,15 +2,19 @@ appId: com.kodak.steptouch
 name: ED_01 - Enter edit photo mode
 ---
 - tapOn: All Photos
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: "15%,30%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow:
     when:
       visible: "Ok"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 - tapOn: "Edit"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

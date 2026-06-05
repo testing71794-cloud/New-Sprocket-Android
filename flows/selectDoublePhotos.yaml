@@ -8,18 +8,22 @@ appId: com.kodak.steptouch
       - assertVisible: "All Photos"
       - tapOn:
           id: textViewSelect
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - tapOn:
           id: imageViewPhoto
           index: 1
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - tapOn:
           id: imageViewPhoto
           index: 2
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - assertVisible: "Select Items"
       - assertVisible:
           id: textViewPrint
       - tapOn:
           id: textViewPrint
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

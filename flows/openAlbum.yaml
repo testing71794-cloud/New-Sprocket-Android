@@ -8,10 +8,12 @@ appId: com.kodak.steptouch
       visible: "Ok"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 - runFlow:
     when:
       visible: "Time to Fine-Tune"
     commands:
       - tapOn: "Ok"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

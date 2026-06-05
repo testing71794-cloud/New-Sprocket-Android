@@ -51,7 +51,7 @@ PHOTOS_BLOCK = re.compile(
 HOME_WAIT_BLOCK = re.compile(
     r"- extendedWaitUntil:\n"
     r'    visible: "KODAK SMILE"\n'
-    r"    timeout: 25000\n"
+    r"    timeout: 2000\n"
     r'- assertVisible: "KODAK SMILE"\n'
     r"- assertVisible: \$\{output\.home\.titleText\}\n",
     re.MULTILINE,

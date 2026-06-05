@@ -14,9 +14,11 @@ name: SU_03B - Create account - invalid email (no domain)
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "Please provide your valid email"
-    timeout: 15000
+    timeout: 2000

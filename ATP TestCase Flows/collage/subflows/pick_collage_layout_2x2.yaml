@@ -10,4 +10,5 @@ appId: com.kodak.steptouch
 - tapOn:
     point: "78%, 52%"
     label: 2x2 layout thumbnail in recycler row
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000

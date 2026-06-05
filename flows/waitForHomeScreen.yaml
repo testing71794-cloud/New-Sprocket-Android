@@ -4,5 +4,5 @@ name: Wait for home screen
 # Step Print gallery home (replaces Kodak Smile "KODAK SMILE" title).
 - extendedWaitUntil:
     visible: "My gallery"
-    timeout: 25000
+    timeout: 2000
 - assertVisible: "My gallery"

@@ -77,13 +77,15 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: "Ab1"
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(8 character|too short|password must).*"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_04B": """# ATP SU_04B – Password missing uppercase.
 - launchApp:
@@ -97,13 +99,15 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: testpass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(uppercase|upper case).*"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_04C": """# ATP SU_04C – Password missing lowercase.
 - launchApp:
@@ -117,13 +121,15 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: TESTPASS1A
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(lowercase|lower case).*"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_03B": """# ATP SU_03B – Invalid email (no domain).
 - launchApp:
@@ -137,12 +143,14 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible: "Please provide your valid email"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_03C": """# ATP SU_03C – Invalid email (spaces).
 - launchApp:
@@ -156,12 +164,14 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible: "Please provide your valid email"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_E01": """# ATP SU_E01 – Empty name validation.
 - launchApp:
@@ -173,13 +183,15 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(name|full name).*"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_E02": """# ATP SU_E02 – Empty email validation.
 - launchApp:
@@ -191,13 +203,15 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(email|valid email).*"
-    timeout: 15000
+    timeout: 2000
 """,
         "SU_E03": """# ATP SU_E03 – Terms unchecked (signup blocked or terms required).
 - launchApp:
@@ -212,24 +226,27 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow: handle_optional_permissions_loop.yaml
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(terms|agree).*"
-    timeout: 20000
+    timeout: 2000
 """,
         "SU_07B": """# ATP SU_07B – Login with non-existent email.
 - launchApp:
     clearState: true
 - runFlow: subflows/post_launch_through_signup.yaml
 - tapOn: "Log In"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible: "LOGIN"
-    timeout: 10000
+    timeout: 2000
 - tapOn:
     text: "Email"
     optional: true
@@ -239,13 +256,15 @@ def _signup_body(tc_id: str, title: str) -> str:
     optional: true
 - inputText: WrongPass999!
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - tapOn: "LOGIN"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(wrong credential|invalid email|invalid password).*"
-    timeout: 20000
+    timeout: 2000
 """,
     }
     if tc_id in templates:
@@ -263,13 +282,15 @@ def _connection_body(tc_id: str, title: str) -> str:
         "CO_E01": base + """- tapOn:
     point: "92%, 10%"
     label: Bluetooth – disconnect entry
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow:
     when:
       visible: "Disconnect"
     commands:
       - tapOn: "Disconnect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+    timeout: 2000
 - runFlow:
     when:
       visible: "Connected"
@@ -278,17 +299,19 @@ def _connection_body(tc_id: str, title: str) -> str:
 """,
         "CO_E02": base + """- tapOn:
     point: "92%, 10%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow:
     when:
       visible: "Connect"
     commands:
       - tapOn: "Connect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ${BT_DEVICE_NAME}
-    timeout: 60000
+    timeout: 2000
 - tapOn:
     text: ${BT_DEVICE_NAME}
 - runFlow: subflows/pairing_optional.yaml
@@ -302,17 +325,19 @@ def _connection_body(tc_id: str, title: str) -> str:
 - runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
 - tapOn:
     point: "92%, 10%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow:
     when:
       visible: "Connect"
     commands:
       - tapOn: "Connect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(search|couldn't find|not found|no device).*"
-    timeout: 90000
+    timeout: 2000
 """,
         "CO_E04": """# ATP CO_E04 – Printer powered off during session (hardware precondition).
 - launchApp:
@@ -322,7 +347,7 @@ def _connection_body(tc_id: str, title: str) -> str:
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(disconnected|not connected|connect).*"
-    timeout: 120000
+    timeout: 2000
 """,
     }
     return extras.get(tc_id, f"# ATP {tc_id} – {title}\n{base}")
@@ -371,7 +396,8 @@ def _printing_body(tc_id: str, title: str) -> str:
 - tapOn:
     point: "50%, 45%"
     label: Gallery photo
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 """
     if tc_id == "PR_01":
         return f"""# ATP PR_01 – Print single photo. Env: BT_DEVICE_NAME
@@ -379,17 +405,19 @@ def _printing_body(tc_id: str, title: str) -> str:
 - tapOn:
     text: "Print"
     optional: true
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow:
     when:
       visible: "Connect"
     commands:
       - tapOn: "Connect"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ${{BT_DEVICE_NAME}}
-    timeout: 60000
+    timeout: 2000
 - tapOn:
     text: ${{BT_DEVICE_NAME}}
 - runFlow: ../connection/subflows/pairing_optional.yaml
@@ -401,18 +429,20 @@ def _printing_body(tc_id: str, title: str) -> str:
 - tapOn:
     text: "Print"
     optional: true
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(paper|jam|overheat|cooldown|error).*"
-    timeout: 120000
+    timeout: 2000
 """
     return f"""# ATP {tc_id} – {title}
 {preamble}
 - tapOn:
     text: "Print"
     optional: true
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow: ../../flows/printFromPreview_withReconnect.yaml
 """
 
@@ -437,7 +467,7 @@ def _settings_body(tc_id: str, title: str) -> str:
 - runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
 - extendedWaitUntil:
     visible: "My gallery"
-    timeout: 90000
+    timeout: 2000
 - runFlow: ../../flows/Settings.yaml
 """
     if tc_id == "SE_03":
@@ -448,18 +478,19 @@ def _settings_body(tc_id: str, title: str) -> str:
 - runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
 - extendedWaitUntil:
     visible: "My gallery"
-    timeout: 90000
+    timeout: 2000
 - tapOn:
     point: "8%, 10%"
     optional: true
 - tapOn:
     id: settingImageView
     optional: true
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(quick tips|support|settings).*"
-    timeout: 30000
+    timeout: 2000
 """
 
 

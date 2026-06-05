@@ -33,8 +33,10 @@ name: PR_04 - Camera Capture Print
     timeout: 2000
 - tapOn:
     id: "imageViewConnection"
-- waitForAnimationToEnd    
-- waitForAnimationToEnd 
+- waitForAnimationToEnd:
+  timeout: 2000
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: 21%,13%
 
@@ -97,16 +99,21 @@ name: PR_04 - Camera Capture Print
     id: camera_image
 - assertVisible: "Print"
 - tapOn: "Print"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "Print"
 
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     point: 21%,13%
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: subflows/pairing_optional.yaml
-- waitForAnimationToEnd
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
+- waitForAnimationToEnd:
+  timeout: 2000
 - repeat:
     times: 6
     commands:
@@ -115,7 +122,8 @@ name: PR_04 - Camera Capture Print
             visible: "OK"
           commands:
             - tapOn: "OK"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
 - assertVisible:
     id: "ivItemGridImage"
     index: 6

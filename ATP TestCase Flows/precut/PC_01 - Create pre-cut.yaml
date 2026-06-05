@@ -9,7 +9,8 @@ name: PC_01 - Create pre-cut
       visible: "No Thanks"
     commands:
       - tapOn: "No Thanks"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - assertVisible: "MY GALLERY"
 - runFlow: subflows/reach_gallery_for_precut.yaml
 - runFlow: subflows/create_precut_one_photo.yaml

@@ -7,4 +7,4 @@ appId: com.kodak.steptouch
     optional: true
 - extendedWaitUntil:
     visible: "My gallery"
-    timeout: 5000
+    timeout: 2000

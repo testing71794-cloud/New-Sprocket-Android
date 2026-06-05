@@ -1,7 +1,8 @@
 appId: com.kodak.steptouch
 name: Onboarding Welcome Screen
 ---
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Step Print: carousel onboarding (ON_* ATP). Legacy Smile "Find My Printer" kept optional.
 - runFlow:
@@ -14,7 +15,8 @@ name: Onboarding Welcome Screen
             visible: "Next"
           commands:
             - tapOn: "Next"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
 
 - runFlow:
     when:
@@ -26,7 +28,8 @@ name: Onboarding Welcome Screen
             visible: "Find My Printer"
           commands:
             - tapOn: "Find My Printer"
-            - waitForAnimationToEnd
+            - waitForAnimationToEnd:
+              timeout: 2000
       - runFlow:
           when:
             visible: "Find My Camera"
@@ -40,4 +43,5 @@ name: Onboarding Welcome Screen
       visible: "Skip"
     commands:
       - tapOn: "Skip"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

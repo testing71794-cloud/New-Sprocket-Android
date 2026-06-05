@@ -18,6 +18,6 @@ appId: com.kodak.steptouch
       - extendedWaitUntil:
           visible:
             text: ${BT_DEVICE_NAME}
-          timeout: 15000
+          timeout: 2000
       - tapOn:
           text: ${BT_DEVICE_NAME}

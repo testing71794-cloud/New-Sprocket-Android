@@ -12,7 +12,8 @@ name: GA_03 - Gallery select album
 - tapOn:
     text: ".*(?i)all photos.*"
     optional: true
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - assertVisible:
     id: "ivItemGridImage"
     index: 4

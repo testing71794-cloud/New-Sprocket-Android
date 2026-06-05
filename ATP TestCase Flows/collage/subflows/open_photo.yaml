@@ -14,7 +14,8 @@ appId: com.kodak.steptouch
     point: "50%, 45%"
     label: Gallery photo fallback
     optional: true
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "Collage"
     timeout: 2000

@@ -8,5 +8,6 @@ name: CO_04 - Auto-connect
 - launchApp:
     clearState: false
 - assertVisible: "MY GALLERY"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: subflows/assert_printer_icon_connected.yaml

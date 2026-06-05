@@ -3,13 +3,15 @@ name: ED_13 - Doodle
 ---
 
 - tapOn: "Doodle"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Draw stroke (no draw/drag; use swipe across canvas)
 - swipe:
     start: "35%,45%"
     end: "75%,65%"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 # Save/apply
 - runFlow:
@@ -17,4 +19,5 @@ name: ED_13 - Doodle
       visible: "Done"
     commands:
       - tapOn: "Done"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

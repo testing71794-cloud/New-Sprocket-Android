@@ -42,7 +42,7 @@ name: "ON_02 - Advance onboarding via Next and horizontal swipe"
 - assertVisible: "Finish App Tour"
 - extendedWaitUntil:
     visible: "Start"
-    timeout: 200
+    timeout: 2000
 - tapOn: "Finish App Tour"
 - assertVisible: "Switch Between\nCamera and Gallery"
 - tapOn:

@@ -12,10 +12,12 @@ name: SU_E01 - Create account - empty name
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(name|full name).*"
-    timeout: 15000
+    timeout: 2000

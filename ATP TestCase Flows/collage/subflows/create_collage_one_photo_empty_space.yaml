@@ -12,7 +12,8 @@ appId: com.kodak.steptouch
     timeout: 2000
 - tapOn:
     id: "btn_next_photobooth"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: pick_collage_layout_2x2.yaml
 - extendedWaitUntil:
     visible:

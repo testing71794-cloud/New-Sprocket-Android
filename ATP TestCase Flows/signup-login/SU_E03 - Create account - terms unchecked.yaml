@@ -15,11 +15,13 @@ name: SU_E03 - Create account - terms unchecked
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: handle_optional_permissions_loop.yaml
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(terms|agree).*"
-    timeout: 20000
+    timeout: 2000

@@ -19,39 +19,46 @@ name: Filter
             visible: "OK"
           commands:
             - tapOn: "OK"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
   
 # Apply various filters by tapping on them in the carousel
 - tapOn:
     id: imageViewFilter
     index: 1
 - assertVisible: "Sepia"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 # Run only if Filter Intensity popup is visible
 - runFlow:
     when:
       visible: "Ok"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 2
 - assertVisible: "Desaturate"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 3
 - assertVisible: "Polaroid"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 4
 - assertVisible: "Brownie"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 5
 - assertVisible: "Vintage"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 

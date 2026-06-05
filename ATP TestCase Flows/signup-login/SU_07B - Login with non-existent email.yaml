@@ -7,10 +7,11 @@ name: SU_07B - Login with non-existent email
     clearState: true
 - runFlow: subflows/post_launch_through_signup.yaml
 - tapOn: "Log In"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "LOGIN"
-    timeout: 10000
+    timeout: 2000
 - tapOn:
     text: "Email"
     optional: true
@@ -20,10 +21,12 @@ name: SU_07B - Login with non-existent email
     optional: true
 - inputText: WrongPass999!
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "LOGIN"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(wrong credential|invalid email|invalid password).*"
-    timeout: 20000
+    timeout: 2000

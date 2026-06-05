@@ -12,7 +12,8 @@ name: PC_05 - Gallery pre-cut two-photo limit and Up Next preview
       visible: "No Thanks"
     commands:
       - tapOn: "No Thanks"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "MY GALLERY"
     timeout: 2000
@@ -20,7 +21,8 @@ name: PC_05 - Gallery pre-cut two-photo limit and Up Next preview
     visible: "Select"
     timeout: 2000
 - tapOn: "Select"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible:
       id: "ivItemGridImage"
@@ -33,7 +35,8 @@ name: PC_05 - Gallery pre-cut two-photo limit and Up Next preview
 - tapOn:
     id: "ivItemGridImage"
     index: 2
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "Pre-Cut \nStickers"
     timeout: 2000
@@ -42,11 +45,13 @@ name: PC_05 - Gallery pre-cut two-photo limit and Up Next preview
     visible: "You can select only 2 photos for Pre-Cut Stickers"
     timeout: 2000
 - tapOn: "OK"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn:
     id: "ivItemGridImage"
     index: 2
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "Pre-Cut \nStickers"
 - runFlow:
     when:
@@ -62,14 +67,16 @@ name: PC_05 - Gallery pre-cut two-photo limit and Up Next preview
     visible: "Next"
     timeout: 2000
 - tapOn: "Next"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible:
       id: "button_save"
     timeout: 2000
 - tapOn:
     id: "button_save"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: subflows/dismiss_print_overlay_if_visible.yaml
 - extendedWaitUntil:
     visible:
@@ -77,7 +84,8 @@ name: PC_05 - Gallery pre-cut two-photo limit and Up Next preview
     timeout: 2000
 - tapOn:
     id: "precutIV"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "Collage"
     timeout: 2000

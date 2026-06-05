@@ -1,7 +1,8 @@
 appId: com.kodak.steptouch
 name: Skip signup – I'll do it later
 ---
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 
 - runFlow:
     when:
@@ -9,7 +10,8 @@ name: Skip signup – I'll do it later
     commands:
       - assertVisible: "I'll do it later"
       - tapOn: "I'll do it later"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
 
 - runFlow:
     when:
@@ -17,4 +19,5 @@ name: Skip signup – I'll do it later
     commands:
       - assertVisible: "I'll do it later"
       - tapOn: "I'll do it later"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

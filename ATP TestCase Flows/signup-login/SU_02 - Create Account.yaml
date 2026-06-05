@@ -22,9 +22,11 @@ name: SU_02 - Create Account
 - tapOn: "Password*"
 - inputText: TestPass1a
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "SIGN UP"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: handle_optional_permissions_loop.yaml
 - runFlow: subflows/accept_terms_if_visible.yaml
 - assertVisible:

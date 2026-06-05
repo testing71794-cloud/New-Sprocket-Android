@@ -20,11 +20,12 @@ name: SU_06 - Create Account User Already Exists
 - tapOn: "Password*"
 - inputText: 252546Nm#
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "SIGN UP"
 - extendedWaitUntil:
     visible: "User already exists"
-    timeout: 20000
+    timeout: 2000
 - assertVisible:
     text: "OK"
     optional: true

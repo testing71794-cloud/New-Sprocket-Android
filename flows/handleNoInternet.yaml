@@ -6,4 +6,5 @@ appId: com.kodak.steptouch
       visible: "No Internet Connection"
     commands:
       - tapOn: "Ok"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

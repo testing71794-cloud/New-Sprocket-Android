@@ -33,7 +33,7 @@ appId: com.kodak.steptouch
     commands:
       - extendedWaitUntil:
           notVisible: "Searching for your device..."
-          timeout: 20000
+          timeout: 2000
       - waitForAnimationToEnd:
           timeout: 2000
 

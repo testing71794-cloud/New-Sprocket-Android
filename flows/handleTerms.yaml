@@ -6,4 +6,5 @@ appId: com.kodak.steptouch
       visible: "Terms and Conditions"
     commands:
       - tapOn: "Agree Terms and Conditions"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

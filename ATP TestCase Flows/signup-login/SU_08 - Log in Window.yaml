@@ -10,10 +10,11 @@ name: SU_08 - Log in Window
 - assertVisible: "Already have an account?"
 - assertVisible: "Log In"
 - tapOn: "Log In"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "LOGIN"
-    timeout: 10000
+    timeout: 2000
 - assertVisible:
     text: "Log In"
     optional: true
@@ -37,9 +38,11 @@ name: SU_08 - Log in Window
     optional: true
 - inputText: 252546Nm#
 - hideKeyboard
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - tapOn: "LOGIN"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - runFlow: handle_optional_permissions_loop.yaml
 - runFlow: subflows/accept_terms_if_visible.yaml
 - assertVisible:

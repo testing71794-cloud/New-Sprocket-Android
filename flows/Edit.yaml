@@ -5,7 +5,8 @@ appId: com.kodak.steptouch
       visible: "Filter"
     commands:
       - tapOn: "Filter"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000
       - tapOn:
           point: "20%,85%"
 
@@ -14,4 +15,5 @@ appId: com.kodak.steptouch
       visible: "Edit"
     commands:
       - tapOn: "Edit"
-      - waitForAnimationToEnd
+      - waitForAnimationToEnd:
+        timeout: 2000

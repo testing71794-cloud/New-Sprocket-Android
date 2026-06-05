@@ -8,7 +8,8 @@ appId: com.kodak.steptouch
     timeout: 2000
 - tapOn:
     id: "button_save"
-- waitForAnimationToEnd
+- waitForAnimationToEnd:
+  timeout: 2000
 - extendedWaitUntil:
     visible: "MY GALLERY"
     timeout: 2000
