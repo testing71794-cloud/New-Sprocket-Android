@@ -2,16 +2,16 @@ appId: com.kodak.steptouch
 name: Settings Screen - open settings menu
 ---
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 # Tap settings (gear) – top-left (ATP SE_01).
 - tapOn:
     id: "linearLayoutCross"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(quick tips|support|share settings|order paper refill|legal|about).*"
     timeout: 2000
 - back
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

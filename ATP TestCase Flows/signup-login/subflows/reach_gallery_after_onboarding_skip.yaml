@@ -9,7 +9,6 @@ appId: com.kodak.steptouch
       - tapOn: "Skip"
       - waitForAnimationToEnd:
           timeout: 2000
-- runFlow: ../handle_optional_permissions_loop.yaml
 - runFlow:
     when:
       visible: "OK"

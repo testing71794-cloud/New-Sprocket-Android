@@ -9,4 +9,4 @@ appId: com.kodak.steptouch
           commands:
             - tapOn: "Skip"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000

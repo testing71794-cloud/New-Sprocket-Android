@@ -12,6 +12,5 @@ name: BA_02 - Intro screen
 - runFlow: subflows/reach_gallery_for_barbie.yaml
 - tapOn:
     point: 15%,26%
-- runFlow: subflows/connect_barbie_printer.yaml
 - runFlow: subflows/assert_barbie_intro_banner.yaml
 

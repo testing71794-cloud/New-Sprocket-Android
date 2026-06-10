@@ -15,4 +15,4 @@ appId: com.kodak.steptouch
     id: "ivItemGridImage"
     index: 4
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

@@ -1,0 +1,18 @@
+# TC_ID: CA_E02 - Rapid photo capture
+# ATP Steps: 1. Open camera → 2–4. Capture three photos in succession → 5. Verify camera remains on capture screen
+# ATP Expected: User should be able to capture multiple photos rapidly without leaving the camera
+appId: com.kodak.steptouch
+name: CA_E02 - Rapid photo capture
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_for_camera.yaml
+- runFlow: subflows/open_camera_bottom_right.yaml
+- runFlow: subflows/capture_photo.yaml
+- runFlow: subflows/close_preview_if_visible.yaml
+- runFlow: subflows/capture_photo.yaml
+- runFlow: subflows/close_preview_if_visible.yaml
+- runFlow: subflows/capture_photo.yaml
+- runFlow: subflows/close_preview_if_visible.yaml
+- assertVisible:
+    id: capture_img

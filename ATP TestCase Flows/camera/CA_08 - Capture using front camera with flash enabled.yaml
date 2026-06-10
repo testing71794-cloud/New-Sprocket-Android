@@ -11,13 +11,10 @@ name: CA_08 - Capture using front camera with flash enabled
 # Step 2: tap on the camera icon located at the bottom-right of the screen.
 - runFlow: subflows/open_camera_bottom_right.yaml
 # Step 3: tap on the camera flip icon located at the bottom-right of the screen.
-- tapOn:
-    id: "imgFlipCamera"
+- runFlow: subflows/switch_to_selfie_camera.yaml
 # Step 4: tap on the flash icon until the icon is solid.
-- tapOn:
-    id: "img_flash"
-- tapOn:
-    id: "img_flash"
+- runFlow: subflows/set_flash_on.yaml
 # Step 5: capture image.
-- tapOn:
-    id: "capture_img"
+- runFlow: subflows/capture_photo.yaml
+- assertVisible:
+    id: capture_img

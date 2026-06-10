@@ -10,21 +10,11 @@ name: CA_10 - Open captured image
 - runFlow: subflows/reach_gallery_for_camera.yaml
 # Step 2: capture image.
 - runFlow: subflows/open_camera_bottom_right.yaml
-- tapOn:
-    id: "capture_img"
+- runFlow: subflows/capture_photo.yaml
+- runFlow: subflows/close_preview_if_visible.yaml
 # Step 3: tap on capture thumbnail located at the bottom-left of the screen.
-- tapOn:
-    id: "img_camera_menu"
-- tapOn:
-    id: "camera_image"
-- tapOn:
-    point: 75%,90%
+- runFlow: subflows/open_captured_thumbnail.yaml
 - assertVisible: "Print"
-- assertVisible:
-    id: "back_button"
-- assertVisible:
-    id: "relative_back_btn_layout"
+- assertVisible: "Number of Copies"
 - assertVisible: "1"
 - assertVisible: "+"
-- assertVisible: "Number of Copies"
-

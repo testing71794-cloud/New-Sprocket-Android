@@ -10,7 +10,7 @@ name: GA_06 - Pinch to zoom in
     commands:
       - tapOn: "No Thanks"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - assertVisible: "MY GALLERY"
 - tapOn:
     id: "ivItemGridImage"

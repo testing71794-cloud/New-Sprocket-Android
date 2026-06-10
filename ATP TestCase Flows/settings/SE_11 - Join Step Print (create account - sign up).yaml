@@ -33,7 +33,6 @@ name: SE_11 - Join Step Print (create account / sign up)
 - waitForAnimationToEnd:
     timeout: 2000
 # Step 5: agree to terms (join flow completion).
-- runFlow: ../signup-login/handle_optional_permissions_loop.yaml
 - runFlow:
     when:
       visible: "Agree Terms and Conditions"

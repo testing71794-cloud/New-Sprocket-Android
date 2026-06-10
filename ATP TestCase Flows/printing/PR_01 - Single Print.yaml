@@ -58,16 +58,16 @@ name: PR_01 - Single Print
 # Connect from print window when printer not paired (video / CO_03).
 - tapOn: "Print"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     point: 21%,13%
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - runFlow: subflows/pairing_optional.yaml
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - repeat:
     times: 6
     commands:
@@ -77,7 +77,7 @@ name: PR_01 - Single Print
           commands:
             - tapOn: "OK"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000
 - assertVisible:
     id: "ivItemGridImage"
     index: 6

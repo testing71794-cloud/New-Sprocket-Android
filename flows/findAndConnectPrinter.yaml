@@ -17,7 +17,7 @@ appId: com.kodak.steptouch
           optional: true
           label: Bluetooth entry – top-right
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 - runFlow:
     when:
@@ -25,7 +25,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Connect"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 - runFlow: handlePrinterConnection.yaml
 
@@ -38,7 +38,7 @@ appId: com.kodak.steptouch
           commands:
             - tapOn: "Search Again"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000
 
       - runFlow:
           when:
@@ -46,7 +46,7 @@ appId: com.kodak.steptouch
           commands:
             - tapOn: "Connect"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000
 
       - runFlow:
           when:
@@ -54,4 +54,4 @@ appId: com.kodak.steptouch
           commands:
             - tapOn: "Pair"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000

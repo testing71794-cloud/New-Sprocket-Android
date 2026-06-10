@@ -10,7 +10,7 @@ name: GA_07 - Refresh gallery (pull down)
     commands:
       - tapOn: "No Thanks"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - assertVisible: "MY GALLERY"
 - swipe:
     start: "50%, 20%"

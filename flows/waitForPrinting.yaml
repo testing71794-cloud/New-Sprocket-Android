@@ -8,7 +8,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Ok"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Out of paper
 - runFlow:
@@ -17,7 +17,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Ok"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Print Successful
 - runFlow:
@@ -28,4 +28,4 @@ appId: com.kodak.steptouch
       - tapOn:
           point: 2%,5%
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

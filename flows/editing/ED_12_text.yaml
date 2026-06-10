@@ -4,17 +4,17 @@ name: ED_12 - Add Text
 
 - tapOn: "Text"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Focus text field (best-effort)
 - tapOn:
     point: "50%,50%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 - inputText: "Hello World"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Close keyboard / confirm (varies by device)
 - runFlow:
@@ -23,14 +23,14 @@ name: ED_12 - Add Text
     commands:
       - tapOn: "Done"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Move text on canvas (drag not supported; use swipe)
 - swipe:
     start: "50%,55%"
     end: "70%,60%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Save/apply
 - runFlow:
@@ -39,7 +39,7 @@ name: ED_12 - Add Text
     commands:
       - tapOn: "Done"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 - runFlow:
     when:
@@ -47,4 +47,4 @@ name: ED_12 - Add Text
     commands:
       - tapOn: "Save"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

@@ -18,7 +18,7 @@ appId: com.kodak.steptouch
       - tapOn:
           id: camerIV
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 # Swipe left-to-right on gallery content (finger L→R = Maestro swipe RIGHT).
 - runFlow:
     when:
@@ -29,10 +29,7 @@ appId: com.kodak.steptouch
           start: "12%, 55%"
           end: "82%, 55%"
       - waitForAnimationToEnd:
-        timeout: 2000
-
-# Handle camera permission popup if it appears on first open
-- runFlow: ../flows/handleCameraAccessPopup.yaml
+          timeout: 2000
 
 # Coachmark in video: "Swipe left to apply live filters" with button "Ok"
 - runFlow:
@@ -45,14 +42,14 @@ appId: com.kodak.steptouch
           commands:
             - tapOn: "Ok"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000
       - runFlow:
           when:
             visible: "OK"
           commands:
             - tapOn: "OK"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000
 
 # Camera screen anchor (video shows "Close" text at top)
 - runFlow:
@@ -67,7 +64,7 @@ appId: com.kodak.steptouch
 - tapOn:
     id: imageViewPreview
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 # If the fine-tune coachmark popup is visible, dismiss it
 - runFlow:
     when:
@@ -75,7 +72,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Ok"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Tap the X close button from fine-tune screen
 - runFlow:
@@ -84,18 +81,18 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "X"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 # Ensure we are on camera screen
 - assertVisible: "Close"
 # Close preview if open, return to camera
 - tapOn: "Close"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 # Tap flash button (top right)
 - tapOn:
     id: imageViewFlash
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Tap capture button (big yellow circle)
 - runFlow:
@@ -106,7 +103,7 @@ appId: com.kodak.steptouch
       - tapOn:
           id: shutterButton
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 - runFlow:
     when:
       notVisible:
@@ -115,19 +112,19 @@ appId: com.kodak.steptouch
       - tapOn:
           point: "50%,90%"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 - tapOn:
     id: imageViewPreview
 # Wait for a few seconds to simulate user review time
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Now close the preview screen
 - tapOn: "Close"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # ===============================
 # Camera: Switch -> Flash -> Capture -> Preview
@@ -141,7 +138,7 @@ appId: com.kodak.steptouch
 - tapOn:
     id: imageViewFlipCamera
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # 2) Tap flash icon (top-right)
 # Prefer id if available; otherwise use point.
@@ -153,7 +150,7 @@ appId: com.kodak.steptouch
       - tapOn:
           id: imageViewFlash
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 - runFlow:
     when:
@@ -163,7 +160,7 @@ appId: com.kodak.steptouch
       - tapOn:
           point: "94%,7%"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # 3) Tap capture (yellow circle)
 # Prefer id if available; otherwise use point.
@@ -175,7 +172,7 @@ appId: com.kodak.steptouch
       - tapOn:
           id: shutterButton
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 - runFlow:
     when:
@@ -185,11 +182,11 @@ appId: com.kodak.steptouch
       - tapOn:
           point: "50%,90%"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 # Open Gallery preview icon (bottom-left small thumbnail)
 - assertVisible:
     id: imageViewPreview
 - tapOn:
     id: imageViewPreview
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

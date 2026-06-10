@@ -8,11 +8,9 @@ appId: com.kodak.steptouch
 - tapOn: "I'll do it later"
 - waitForAnimationToEnd:
     timeout: 2000
-- runFlow: ../handle_optional_permissions_loop.yaml
 - runFlow: accept_terms_if_visible.yaml
 - waitForAnimationToEnd:
     timeout: 2000
-- runFlow: ../handle_optional_permissions_loop.yaml
 - runFlow:
     when:
       visible: "Start a quick tour"

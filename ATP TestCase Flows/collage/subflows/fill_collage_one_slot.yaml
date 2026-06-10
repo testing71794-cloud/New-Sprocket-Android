@@ -10,4 +10,4 @@ appId: com.kodak.steptouch
     id: "image"
     index: 0
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

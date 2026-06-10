@@ -11,7 +11,7 @@ name: SU_08 - Log in Window
 - assertVisible: "Log In"
 - tapOn: "Log In"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible: "LOGIN"
     timeout: 2000
@@ -39,11 +39,10 @@ name: SU_08 - Log in Window
 - inputText: 252546Nm#
 - hideKeyboard
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn: "LOGIN"
 - waitForAnimationToEnd:
-  timeout: 2000
-- runFlow: handle_optional_permissions_loop.yaml
+    timeout: 2000
 - runFlow: subflows/accept_terms_if_visible.yaml
 - assertVisible:
     text: "Agree Terms and Conditions"

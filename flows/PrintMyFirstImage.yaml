@@ -9,7 +9,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Print My First Picture"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # ------------------------------
 # 7) Fine-tune popup (optional)
@@ -29,7 +29,7 @@ appId: com.kodak.steptouch
           commands:
             - tapOn: "OK"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # ------------------------------
 # 8) Print (only when button visible)
@@ -40,7 +40,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Print"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # ------------------------------
 # 9) "Your print is ready!" popup (optional) -> tap Print
@@ -51,4 +51,4 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "Print"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

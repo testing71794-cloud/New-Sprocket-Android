@@ -3,7 +3,7 @@
 Safe ATP YAML runtime optimizations (rollback: git checkout -- <paths>).
 
 1. Remove redundant waitForAnimationToEnd immediately before runFlow (subflow owns waits).
-2. Collage suite: replace inline swipe / photos-permission / home-wait blocks with shared flows.
+2. Collage suite: replace inline swipe / home-wait blocks with shared flows.
 
 Does not change assertions, test steps, launchApp, or Maestro version.
 """
@@ -28,22 +28,6 @@ SWIPE_INLINE = re.compile(
     r"      - swipe:\n"
     r'          start: "75%,55%"\n'
     r'          end: "15%,45%"\n'
-    r"      - waitForAnimationToEnd\n",
-    re.MULTILINE,
-)
-
-PHOTOS_BLOCK = re.compile(
-    r"- runFlow:\n"
-    r"    when:\n"
-    r'      visible: "Allow KODAK SMILE to access photos"\n'
-    r"    commands:\n"
-    r'      - tapOn: "Allow"\n'
-    r"      - waitForAnimationToEnd\n"
-    r"- runFlow:\n"
-    r"    when:\n"
-    r'      visible: "Photos Access Required"\n'
-    r"    commands:\n"
-    r'      - tapOn: "Ok"\n'
     r"      - waitForAnimationToEnd\n",
     re.MULTILINE,
 )
@@ -80,16 +64,11 @@ def strip_wait_before_runflow(text: str) -> tuple[str, int]:
 
 
 def optimize_collage_file(text: str) -> tuple[str, dict[str, int]]:
-    stats: dict[str, int] = {"swipe": 0, "photos": 0, "home": 0}
+    stats: dict[str, int] = {"swipe": 0, "home": 0}
     new_text, n = SWIPE_INLINE.subn(
         "- runFlow: ../../flows/swipeOnboardingIfShown.yaml\n", text
     )
     stats["swipe"] = n
-    text = new_text
-    new_text, n = PHOTOS_BLOCK.subn(
-        "- runFlow: ../../flows/grantPhotosAccess.yaml\n", text
-    )
-    stats["photos"] = n
     text = new_text
     new_text, n = HOME_WAIT_BLOCK.subn(
         "- runFlow: ../../flows/waitForHomeScreen.yaml\n", text
@@ -141,7 +120,7 @@ def main() -> int:
             print(
                 f"{'[dry-run] ' if args.dry_run else ''}{rel}: "
                 f"wait_removed={st.get('wait_before_runflow', 0)} "
-                f"swipe={st.get('swipe', 0)} photos={st.get('photos', 0)} home={st.get('home', 0)}"
+                f"swipe={st.get('swipe', 0)} home={st.get('home', 0)}"
             )
         for k, v in st.items():
             if k != "changed":

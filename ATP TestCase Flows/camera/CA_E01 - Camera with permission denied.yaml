@@ -1,0 +1,12 @@
+# TC_ID: CA_E01 - Camera with permission denied
+# ATP Steps: 1. Open app → 2. tap camera (bottom-right) → 3. verify camera (permissions auto-enabled on test devices)
+# ATP Expected: Camera opens when permissions are already granted on test devices
+appId: com.kodak.steptouch
+name: CA_E01 - Camera with permission denied
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_for_camera.yaml
+- runFlow: subflows/open_camera_bottom_right.yaml
+- assertVisible:
+    id: capture_img

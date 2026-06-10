@@ -1,10 +1,5 @@
 appId: com.kodak.steptouch
 ---
-# Steps 1–4: through terms → Skip → gallery.
-- runFlow: reach_onboarding_after_terms_for_camera.yaml
-- tapOn:
-    text: "Skip"
-    optional: true
-- extendedWaitUntil:
-    visible: "My gallery"
-    timeout: 2000
+# Delegates to shared signup-login gallery entry (includes OK/permission handling).
+- runFlow: ../../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
+- assertVisible: "My gallery"

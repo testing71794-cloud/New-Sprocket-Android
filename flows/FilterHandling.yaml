@@ -20,7 +20,7 @@ name: Filter
           commands:
             - tapOn: "OK"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
   
 # Apply various filters by tapping on them in the carousel
 - tapOn:
@@ -28,7 +28,7 @@ name: Filter
     index: 1
 - assertVisible: "Sepia"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 # Run only if Filter Intensity popup is visible
 - runFlow:
     when:
@@ -36,29 +36,29 @@ name: Filter
     commands:
       - tapOn: "Ok"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 2
 - assertVisible: "Desaturate"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 3
 - assertVisible: "Polaroid"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 4
 - assertVisible: "Brownie"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     id: imageViewFilter
     index: 5
 - assertVisible: "Vintage"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 

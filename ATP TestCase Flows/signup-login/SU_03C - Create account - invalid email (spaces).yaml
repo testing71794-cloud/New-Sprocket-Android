@@ -15,10 +15,10 @@ name: SU_03C - Create account - invalid email (spaces)
 - inputText: TestPass1a
 - hideKeyboard
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn: "SIGN UP"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible: "Please provide your valid email"
     timeout: 2000

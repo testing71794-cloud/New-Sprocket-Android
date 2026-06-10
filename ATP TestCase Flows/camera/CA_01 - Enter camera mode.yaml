@@ -4,7 +4,7 @@
 appId: com.kodak.steptouch
 name: CA_01 - Enter camera mode
 ---
-# Steps 1–4: cold start through gallery (reach_gallery_after_onboarding_skip).
+# Steps 1–4: cold start through gallery.
 - launchApp:
     clearState: true
 - runFlow: subflows/reach_gallery_for_camera.yaml

@@ -15,7 +15,7 @@ name: COL_08 - Open photo then collage
 - runFlow: subflows/open_photo.yaml
 - tapOn: "Collage"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible: "CREATE COLLAGE"
     timeout: 2000

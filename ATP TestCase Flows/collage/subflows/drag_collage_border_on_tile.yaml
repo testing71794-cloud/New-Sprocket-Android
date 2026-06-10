@@ -9,4 +9,4 @@ appId: com.kodak.steptouch
     end: "20%, 40%"
     label: Drag border bar across canvas
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

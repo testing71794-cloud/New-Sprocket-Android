@@ -11,8 +11,10 @@ name: CA_07 - Capture using front camera with no flash
 # Step 2: tap on the camera icon located at the bottom-right of the screen.
 - runFlow: subflows/open_camera_bottom_right.yaml
 # Step 3: tap on the camera flip icon located at the bottom-right of the screen.
-- tapOn:
-    id: "imgFlipCamera"
+- runFlow: subflows/switch_to_selfie_camera.yaml
+# Step 4: tap on the flash icon until the icon has a slash.
+- runFlow: subflows/set_flash_off.yaml
 # Step 5: capture image.
-- tapOn:
-    id: "capture_img"
+- runFlow: subflows/capture_photo.yaml
+- assertVisible:
+    id: capture_img

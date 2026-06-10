@@ -8,35 +8,7 @@ name: SU_01 - I'll do it later
 
 # Wait for app to load
 - waitForAnimationToEnd:
-  timeout: 2000
-
-# Handle Camera permission
-- runFlow:
-    when:
-      visible: "While using the app"
-    commands:
-      - tapOn: "While using the app"
-
-# Handle Allow popup
-- runFlow:
-    when:
-      visible: "Allow"
-    commands:
-      - tapOn: "Allow"
-
-# Handle Android 13 permission text
-- runFlow:
-    when:
-      visible: "Allow only while using the app"
-    commands:
-      - tapOn: "Allow only while using the app"
-
-# Optional media permission
-- runFlow:
-    when:
-      visible: "Select photos and videos"
-    commands:
-      - tapOn: "Allow"
+    timeout: 2000
 
 # Continue onboarding flow
 - runFlow:

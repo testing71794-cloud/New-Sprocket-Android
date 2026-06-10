@@ -16,3 +16,5 @@ appId: com.kodak.steptouch
       - tapOn:
           point: "50%, 90%"
           label: Capture button fallback
+- waitForAnimationToEnd:
+    timeout: 2000

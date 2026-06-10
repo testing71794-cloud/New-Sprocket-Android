@@ -231,7 +231,6 @@ def _signup_body(tc_id: str, title: str) -> str:
 - tapOn: "SIGN UP"
 - waitForAnimationToEnd:
     timeout: 2000
-- runFlow: handle_optional_permissions_loop.yaml
 - extendedWaitUntil:
     visible:
       text: ".*(?i)(terms|agree).*"

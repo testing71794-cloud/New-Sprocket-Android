@@ -5,20 +5,20 @@ name: ED_02 - Apply Filters
 
 - tapOn: "Filter"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Tap any filter thumbnail (best-effort)
 - tapOn:
     point: "20%,85%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Optional: adjust intensity slider (best-effort)
 - swipe:
     start: "35%,92%"
     end: "75%,92%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Save/apply (some builds use Done/Save)
 - runFlow:
@@ -27,7 +27,7 @@ name: ED_02 - Apply Filters
     commands:
       - tapOn: "Done"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 - runFlow:
     when:
@@ -35,4 +35,4 @@ name: ED_02 - Apply Filters
     commands:
       - tapOn: "Save"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

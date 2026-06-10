@@ -6,7 +6,7 @@ name: ED_14 - Erase Doodle
 # Re-open doodle tool to erase
 - tapOn: "Doodle"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 - runFlow:
     when:
@@ -14,14 +14,14 @@ name: ED_14 - Erase Doodle
     commands:
       - tapOn: "Erase"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Erase stroke (best-effort)
 - swipe:
     start: "45%,55%"
     end: "60%,55%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Save/apply
 - runFlow:
@@ -30,4 +30,4 @@ name: ED_14 - Erase Doodle
     commands:
       - tapOn: "Done"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

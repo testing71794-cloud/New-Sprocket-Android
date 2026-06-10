@@ -3,18 +3,18 @@ name: ED_01 - Enter edit photo mode
 ---
 - tapOn: All Photos
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     point: "15%,30%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - runFlow:
     when:
       visible: "Ok"
     commands:
       - tapOn: "Ok"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 - tapOn: "Edit"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

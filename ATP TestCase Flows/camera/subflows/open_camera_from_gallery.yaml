@@ -34,3 +34,7 @@ appId: com.kodak.steptouch
       - tapOn:
           text: "OK"
           optional: true
+- extendedWaitUntil:
+    visible:
+      id: capture_img
+    timeout: 2000

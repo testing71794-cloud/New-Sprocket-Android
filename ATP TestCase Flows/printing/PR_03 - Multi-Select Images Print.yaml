@@ -34,15 +34,15 @@ name: PR_03 - Multi-Select Images Print
 - tapOn:
     id: "imageViewConnection"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     point: 21%,13%
 
 - runFlow: subflows/pairing_optional.yaml
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible: "Select"
     timeout: 2000
@@ -64,16 +64,16 @@ name: PR_03 - Multi-Select Images Print
     optional: true
 - tapOn: "Print"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     point: 21%,13%
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - runFlow: subflows/pairing_optional.yaml
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - repeat:
     times: 6
     commands:
@@ -83,7 +83,7 @@ name: PR_03 - Multi-Select Images Print
           commands:
             - tapOn: "OK"
             - waitForAnimationToEnd:
-              timeout: 2000
+                timeout: 2000
 - assertVisible:
     id: "ivItemGridImage"
     index: 6

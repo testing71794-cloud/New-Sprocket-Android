@@ -2,13 +2,13 @@ appId: com.kodak.steptouch
 name: Signup Flow
 ---
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # ------------------------------
 # Signup Screen: Assert all elements + tap "I'll do it later"
 # ------------------------------
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 - assertVisible: "Create an account"
 - assertVisible:
@@ -39,4 +39,4 @@ name: Signup Flow
 
 - tapOn: "I'll do it later"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

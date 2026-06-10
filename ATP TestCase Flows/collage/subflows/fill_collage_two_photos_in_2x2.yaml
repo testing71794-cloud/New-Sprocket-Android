@@ -29,4 +29,4 @@ appId: com.kodak.steptouch
     below: "Select Photos"
     index: 1
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000

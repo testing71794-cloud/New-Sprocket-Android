@@ -21,7 +21,7 @@ appId: com.kodak.steptouch
     commands:
       - tapOn: "No Thanks"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible: "MY GALLERY"
     timeout: 2000

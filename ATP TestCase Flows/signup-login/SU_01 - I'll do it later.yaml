@@ -15,14 +15,13 @@ name: SU_01 - I'll do it later
 - assertVisible: "I'll do it later"
 - tapOn: "I'll do it later"
 - runFlow: subflows/accept_terms_if_visible.yaml
-- runFlow: handle_optional_permissions_loop.yaml
 - runFlow:
     when:
       visible: "Start a quick tour"
     commands:
       - tapOn: "Start a quick tour"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 # ON_01 alignment: first carousel slide (copy may wrap across lines).
 - runFlow:
     when:
@@ -40,4 +39,4 @@ name: SU_01 - I'll do it later
     commands:
       - tapOn: "Skip"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

@@ -4,7 +4,7 @@ name: EDITING SUITE - Kodak Step Print
 - launchApp:
     clearState: true
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 - runFlow: editing/ED_01_enter_edit_mode.yaml
 - runFlow: editing/ED_02_filters.yaml

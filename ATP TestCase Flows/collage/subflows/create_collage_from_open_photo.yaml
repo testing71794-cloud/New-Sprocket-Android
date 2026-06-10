@@ -12,7 +12,7 @@ appId: com.kodak.steptouch
 - tapOn:
     text: "Next"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - extendedWaitUntil:
     visible:
       text: ".*(Edit Collage|Done).*"

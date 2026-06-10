@@ -1,7 +1,7 @@
 appId: com.kodak.steptouch
 ---
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - runFlow:
     when:
       visible: "Edit Collage"

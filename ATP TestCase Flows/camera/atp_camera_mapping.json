@@ -20,60 +20,87 @@
   {
     "atpTestCaseId": "CA_03",
     "yamlFileName": "CA_03 - Capture with no flash.yaml",
-    "testName": "CA_03 - Capture and print photo",
+    "testName": "CA_03 - Capture with no flash",
     "flowType": "Camera",
-    "excelStepCount": 7,
-    "atpSteps": "Capture and print from camera (shifted from legacy CSV CA_02; confirm steps in Kodak Step Print ATP 2026.xlsx)",
-    "atpExpected": "User should be able to capture a photo from the camera and proceed to print"
+    "excelStepCount": 4,
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Tap flash until slash icon → 4. Capture image",
+    "atpExpected": "User should be able to capture images with flash disabled"
   },
   {
     "atpTestCaseId": "CA_04",
     "yamlFileName": "CA_04 - Capture with flash enabled.yaml",
-    "testName": "CA_04 - Capture selfie photo",
+    "testName": "CA_04 - Capture with flash enabled",
     "flowType": "Camera",
-    "excelStepCount": 5,
-    "atpSteps": "Open camera → switch to selfie → capture → verify preview",
-    "atpExpected": "User should be able to capture a selfie photo using the front camera"
+    "excelStepCount": 4,
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Tap flash until solid icon → 4. Capture image",
+    "atpExpected": "User should be able to capture images with flash enabled"
   },
   {
     "atpTestCaseId": "CA_05",
     "yamlFileName": "CA_05 - Capture with flash set to auto.yaml",
-    "testName": "CA_05 - Capture photo with flash",
+    "testName": "CA_05 - Capture with flash set to auto",
     "flowType": "Camera",
-    "excelStepCount": 10,
-    "atpSteps": "Open camera → enable flash → capture → verify preview → close preview → verify camera",
-    "atpExpected": "User should be able to capture a photo with the flash enabled"
+    "excelStepCount": 4,
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Tap flash until auto (A) icon → 4. Capture image",
+    "atpExpected": "User should be able to capture images with automatic flash"
   },
   {
     "atpTestCaseId": "CA_06",
     "yamlFileName": "CA_06 - Change to front facing camera.yaml",
-    "testName": "CA_06 - Capture photo with filter",
+    "testName": "CA_06 - Change to front facing camera",
     "flowType": "Camera",
-    "excelStepCount": 6,
-    "atpSteps": "Open camera → swipe live filter → capture → verify preview",
-    "atpExpected": "User should be able to capture a photo after applying a live filter"
+    "excelStepCount": 3,
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Tap camera flip icon",
+    "atpExpected": "User should be able to switch to the front facing camera of their mobile device"
   },
   {
     "atpTestCaseId": "CA_07",
     "yamlFileName": "CA_07 - Capture using front camera with no flash.yaml",
-    "testName": "CA_07 - AR scan from camera",
+    "testName": "CA_07 - Capture using front camera with no flash",
     "flowType": "Camera",
     "excelStepCount": 5,
-    "atpSteps": "1. Open camera → 2. Tap Scan → 3. Dismiss AR Scan tip → 4. Verify AR scan screen → 5. Return to camera",
-    "atpExpected": "User should be able to open AR scan from the camera screen"
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Flip to front camera → 4. Tap flash until slash icon → 5. Capture image",
+    "atpExpected": "User should be able to capture using the front facing camera. Flash should not engage"
+  },
+  {
+    "atpTestCaseId": "CA_08",
+    "yamlFileName": "CA_08 - Capture using front camera with flash enabled.yaml",
+    "testName": "CA_08 - Capture using front camera with flash enabled",
+    "flowType": "Camera",
+    "excelStepCount": 5,
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Flip to front camera → 4. Tap flash until solid icon → 5. Capture image",
+    "atpExpected": "User should be able to capture using the front facing camera with the front facing flash"
+  },
+  {
+    "atpTestCaseId": "CA_09",
+    "yamlFileName": "CA_09 - Capture using front camera with flash set to auto.yaml",
+    "testName": "CA_09 - Capture using front camera with flash set to auto",
+    "flowType": "Camera",
+    "excelStepCount": 5,
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Flip to front camera → 4. Tap flash until auto (A) icon → 5. Capture image",
+    "atpExpected": "User should be able to capture using the front facing camera with auto front facing flash"
+  },
+  {
+    "atpTestCaseId": "CA_10",
+    "yamlFileName": "CA_10 - Open captured image.yaml",
+    "testName": "CA_10 - Open captured image",
+    "flowType": "Camera",
+    "excelStepCount": 3,
+    "atpSteps": "1. Open app → 2. Capture image → 3. Tap capture thumbnail (bottom-left)",
+    "atpExpected": "User should be able to open the captured image"
   },
   {
     "atpTestCaseId": "CA_E01",
-    "yamlFileName": "CA_E01.yaml",
+    "yamlFileName": "CA_E01 - Camera with permission denied.yaml",
     "testName": "CA_E01 - Camera with permission denied",
     "flowType": "Camera",
     "excelStepCount": 3,
-    "atpSteps": "1. Attempt to open camera from gallery → 2. Deny camera permission → 3. Verify camera did not open",
-    "atpExpected": "When camera permission is denied, the user cannot use the camera"
+    "atpSteps": "1. Open app → 2. Tap camera (bottom-right) → 3. Verify camera opens (permissions auto-enabled on test devices)",
+    "atpExpected": "Camera opens when permissions are already granted on test devices"
   },
   {
     "atpTestCaseId": "CA_E02",
-    "yamlFileName": "CA_E02.yaml",
+    "yamlFileName": "CA_E02 - Rapid photo capture.yaml",
     "testName": "CA_E02 - Rapid photo capture",
     "flowType": "Camera",
     "excelStepCount": 5,
@@ -82,7 +109,7 @@
   },
   {
     "atpTestCaseId": "CA_E03",
-    "yamlFileName": "CA_E03.yaml",
+    "yamlFileName": "CA_E03 - Camera with low storage.yaml",
     "testName": "CA_E03 - Camera with low storage",
     "flowType": "Camera",
     "excelStepCount": 3,
@@ -92,7 +119,7 @@
   },
   {
     "atpTestCaseId": "CA_E04",
-    "yamlFileName": "CA_E04.yaml",
+    "yamlFileName": "CA_E04 - Rapid camera switching.yaml",
     "testName": "CA_E04 - Rapid camera switching",
     "flowType": "Camera",
     "excelStepCount": 5,

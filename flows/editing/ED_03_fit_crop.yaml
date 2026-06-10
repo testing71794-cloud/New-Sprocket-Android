@@ -7,7 +7,7 @@ name: ED_03 - Fit Crop
 - tapOn:
     id: imageViewEdit
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Optional: if your Fit tool shows crop handles, move the image slightly
 # (drag/swipe is supported)
@@ -15,13 +15,13 @@ name: ED_03 - Fit Crop
     start: "50%,55%"
     end: "70%,55%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 - swipe:
     start: "70%,55%"
     end: "50%,55%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 - runFlow:
     when:
@@ -29,7 +29,7 @@ name: ED_03 - Fit Crop
     commands:
       - tapOn: "Save"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Some screens use Done instead of Save
 - runFlow:
@@ -38,4 +38,4 @@ name: ED_03 - Fit Crop
     commands:
       - tapOn: "Done"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

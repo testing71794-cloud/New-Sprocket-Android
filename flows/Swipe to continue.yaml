@@ -11,12 +11,12 @@ name: Connect printer from intro + print (complete)
       - tapOn:
           point: "50%,50%"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
       - swipe:
           start: "75%,55%"
           end: "15%,45%"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Legacy Smile: Find My Printer (optional)
 - runFlow:
@@ -25,7 +25,7 @@ name: Connect printer from intro + print (complete)
     commands:
       - tapOn: "Find My Printer"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # Step Print: skip carousel onboarding when shown
 - runFlow:
@@ -34,7 +34,7 @@ name: Connect printer from intro + print (complete)
     commands:
       - tapOn: "Skip"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
 # ------------------------------
 # 8) Sometimes Connect shows again after pairing
@@ -44,11 +44,11 @@ name: Connect printer from intro + print (complete)
       visible: "Connect"
     commands:
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
       - assertVisible: "Connect"
       - tapOn: "Connect"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 # Handle Android Bluetooth pairing request dialog
 
 - runFlow:
@@ -58,4 +58,4 @@ name: Connect printer from intro + print (complete)
       - assertVisible: "Pair"
       - tapOn: "Pair"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

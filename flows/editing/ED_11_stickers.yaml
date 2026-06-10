@@ -3,30 +3,30 @@ name: ED_11 - Stickers
 ---
 - tapOn: "Stickers"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Tap any sticker thumbnail (best-effort)
 - tapOn:
     point: "20%,75%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 
 # Move sticker on canvas (drag not supported; use swipe)
 - swipe:
     start: "50%,55%"
     end: "70%,60%"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     id: imageViewStricker
     index: 9
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - tapOn:
     id: imageViewStricker
     index: 9
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 # Save/apply
 - runFlow:
     when:
@@ -34,4 +34,4 @@ name: ED_11 - Stickers
     commands:
       - tapOn: "Done"
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

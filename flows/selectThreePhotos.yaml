@@ -11,21 +11,21 @@ appId: com.kodak.steptouch
       - tapOn:
           id: textViewSelect
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
       # 3) Select thumbnail index 2
       - tapOn:
          id: imageViewPhoto
          index: 1
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
       # 4) Select thumbnail index 2
       - tapOn:
          id: imageViewPhoto
          index: 2
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
       # 5) Assert we are still on All Photos screen (screen attached)
       - assertVisible: "Select Items"
@@ -35,7 +35,7 @@ appId: com.kodak.steptouch
           id: imageViewPhoto
           index: 6
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000
 
       # 7) Assert Print button visible then tap Print
       - assertVisible:
@@ -43,4 +43,4 @@ appId: com.kodak.steptouch
       - tapOn:
           id: textViewPrint
       - waitForAnimationToEnd:
-        timeout: 2000
+          timeout: 2000

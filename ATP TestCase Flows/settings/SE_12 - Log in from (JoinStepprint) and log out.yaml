@@ -45,7 +45,6 @@ name: SE_12 - Log in from (JoinStepprint) and log out
     id: "fragment_login_do_login"
 - waitForAnimationToEnd:
     timeout: 2000
-- runFlow: ../signup-login/handle_optional_permissions_loop.yaml
 - runFlow: subflows/reach_gallery_after_login.yaml
 # Step 6–7: open settings and assert all menu items.
 - runFlow: subflows/tap_settings_gear.yaml

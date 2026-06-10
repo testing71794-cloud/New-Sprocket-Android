@@ -11,5 +11,10 @@ name: CA_06 - Change to front facing camera
 # Step 2: tap on the camera icon located at the bottom-right of the screen.
 - runFlow: subflows/open_camera_bottom_right.yaml
 # Step 3: tap on the camera flip icon located at the bottom-right of the screen.
-- tapOn:
-    id: "imgFlipCamera"
+- runFlow: subflows/switch_to_selfie_camera.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    id: capture_img
+- assertVisible:
+    id: imgFlipCamera

@@ -10,7 +10,7 @@ name: PC_02 - Edit pre-cut mirror
     commands:
       - tapOn: "No Thanks"
 - waitForAnimationToEnd:
-  timeout: 2000
+    timeout: 2000
 - assertVisible: "MY GALLERY"
 - runFlow: subflows/reach_gallery_for_precut.yaml
 - runFlow: subflows/create_precut_editor_ready.yaml

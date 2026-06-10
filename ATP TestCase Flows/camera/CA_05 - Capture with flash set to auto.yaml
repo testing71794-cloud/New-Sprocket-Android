@@ -11,15 +11,8 @@ name: CA_05 - Capture with flash set to auto
 # Step 2: tap on the camera icon located at the bottom-right of the screen.
 - runFlow: subflows/open_camera_bottom_right.yaml
 # Step 3: tap on the flash icon until the icon has an "A" to the right of it.
-- tapOn:
-    id: "img_flash"
-
-- tapOn:
-    id: "img_flash"
-
-- tapOn:
-    id: "img_flash"
-
+- runFlow: subflows/set_flash_auto.yaml
 # Step 4: capture image.
-- tapOn:
-    id: "capture_img"
+- runFlow: subflows/capture_photo.yaml
+- assertVisible:
+    id: capture_img
