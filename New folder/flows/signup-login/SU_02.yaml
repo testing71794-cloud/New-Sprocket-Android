@@ -1,0 +1,29 @@
+appId: com.kodak.steptouch
+name: SU_02_Create_Account
+---
+# ATP SU_02 – Valid sign-up; expect Terms & Conditions screen next.
+# Uses generated unique email (scripts/gen_unique_email.js).
+- launchApp:
+    clearState: true
+- runFlow: subflows/post_launch_through_signup.yaml
+- assertVisible: "Create an account"
+- assertVisible: "Full Name*"
+- assertVisible: "Email*"
+- assertVisible: "Password*"
+- assertVisible: "SIGN UP"
+- assertVisible: "Already have an account?"
+- assertVisible: "I'll do it later"
+- tapOn: "Full Name*"
+- inputText: Maestro ATP User
+- runScript: scripts/gen_unique_email.js
+- tapOn: "Email*"
+- inputText: ${output.signupEmail}
+- tapOn: "Password*"
+- inputText: TestPass1a
+- hideKeyboard
+- waitForAnimationToEnd:
+  timeout: 2000
+- tapOn: "SIGN UP"
+- waitForAnimationToEnd:
+  timeout: 2000
+- assertVisible: "Agree Terms and Conditions"

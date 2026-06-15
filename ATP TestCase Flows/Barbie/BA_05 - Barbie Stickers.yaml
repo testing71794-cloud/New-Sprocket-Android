@@ -8,9 +8,7 @@ appId: com.kodak.steptouch
 name: BA_05 - Barbie Stickers
 ---
 - launchApp:
-    clearState: true
-- runFlow: subflows/reach_gallery_for_barbie.yaml
-- runFlow: subflows/connect_barbie_printer.yaml
+    clearState: false
 - runFlow: subflows/dismiss_barbie_intro_if_visible.yaml
 - runFlow: subflows/select_photo_and_open_edit.yaml
 - runFlow: subflows/apply_barbie_sticker.yaml

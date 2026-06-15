@@ -1,0 +1,30 @@
+# TC_ID: ON_02
+# ATP Name: Onboarding screen > previous/ next
+# ATP Steps: … → 4. tap Next → 5. slide from left to right
+# ATP Expected: User should be able to change slides by tapping Next or by sliding side to side
+appId: com.kodak.steptouch
+name: "ON_02 - Advance onboarding via Next and horizontal swipe"
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_onboarding_after_terms.yaml
+- extendedWaitUntil:
+    visible: "Gallery"
+    timeout: 2000
+- tapOn: "Next"
+- waitForAnimationToEnd:
+  timeout: 2000
+# Next must change the active slide (overlay headline leaves the first screen)
+- assertNotVisible: "Switch Between\nCamera and Gallery"
+- assertVisible: "Tap to \nAdjust Your \nGallery View"
+# ATP step 5: finger moves left-to-right → Maestro swipe RIGHT (returns toward previous slide)
+- swipe:
+    direction: RIGHT
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible: "Gallery"
+    timeout: 2000
+- extendedWaitUntil:
+    visible: "Skip"
+    timeout: 2000

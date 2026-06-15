@@ -1,0 +1,26 @@
+[
+  {
+    "atpTestCaseId": "ON_01",
+    "yamlFileName": "ON_01 - Enter onboarding after accepting terms.yaml",
+    "testName": "ON_01 - Enter onboarding after accepting terms",
+    "flowType": "Onboarding"
+  },
+  {
+    "atpTestCaseId": "ON_02",
+    "yamlFileName": "ON_02 - Advance onboarding via Next and horizontal swipe.yaml",
+    "testName": "ON_02 - Advance onboarding via Next and horizontal swipe",
+    "flowType": "Onboarding"
+  },
+  {
+    "atpTestCaseId": "ON_03",
+    "yamlFileName": "ON_03 - Skip onboarding and land on gallery.yaml",
+    "testName": "ON_03 - Skip onboarding and land on gallery",
+    "flowType": "Skip"
+  },
+  {
+    "atpTestCaseId": "SE_03",
+    "yamlFileName": "SE_03 - Quick Tips - App quick tour.yaml",
+    "testName": "SE_03 - Open App quick tour from Settings and swipe slides",
+    "flowType": "Onboarding"
+  }
+]

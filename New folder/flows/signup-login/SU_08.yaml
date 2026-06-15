@@ -1,0 +1,39 @@
+appId: com.kodak.steptouch
+name: SU_08_Log_In_Window
+---
+# ATP SU_08 – Navigate to Log In, valid credentials, then Terms & Conditions.
+# Provide via CLI: maestro test -e SU_VALID_EMAIL=user@domain.com -e SU_VALID_PASSWORD=TestPass1a
+- launchApp:
+    clearState: true
+- runFlow: subflows/post_launch_through_signup.yaml
+- assertVisible: "Create an account"
+- assertVisible: "Full Name*"
+- assertVisible: "Email*"
+- assertVisible: "Password*"
+- assertVisible: "SIGN UP"
+- assertVisible: "Already have an account?"
+- assertVisible: "I'll do it later"
+- assertVisible: "Log In"
+- tapOn: "Log In"
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible: "LOGIN"
+    timeout: 2000
+- assertVisible: "Log In"
+- assertVisible: "Email"
+- assertVisible: "Password"
+- assertVisible: "Forgot password?"
+- assertVisible: "LOGIN"
+- assertVisible: "Don't have an account?"
+- tapOn: "Email*"
+- inputText: Niteshmehra56@gmail.com
+- tapOn: "Password*"
+- inputText: 252546Nm#
+- hideKeyboard
+- waitForAnimationToEnd:
+  timeout: 2000
+- tapOn: "LOGIN"
+- waitForAnimationToEnd:
+  timeout: 2000
+- assertVisible: "Agree Terms and Conditions"

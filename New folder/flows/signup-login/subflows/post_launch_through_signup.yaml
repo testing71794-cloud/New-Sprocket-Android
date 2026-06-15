@@ -1,0 +1,11 @@
+appId: com.kodak.steptouch
+---
+# Yellow Kodak splash after launch, then optional Android permission dialogs.
+- waitForAnimationToEnd:
+  timeout: 2000
+- assertVisible:
+    text: "KODAK"
+    optional: true
+    label: Splash branding when exposed as text (may be image-only on some builds)
+- waitForAnimationToEnd:
+  timeout: 2000

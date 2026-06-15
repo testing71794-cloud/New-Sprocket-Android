@@ -1,0 +1,43 @@
+appId: com.kodak.steptouch
+name: CO_03_Print_Preview_Window
+---
+# ATP CO_03 – Open image → print (preview) → device list → pair.
+# Env: BT_DEVICE_NAME
+- launchApp:
+    clearState: true
+- runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
+- assertVisible: "My gallery"
+# Open first photo in grid (prefer hierarchy ids in your build over this point).
+- tapOn:
+    point: "50%, 45%"
+    label: First gallery thumbnail
+- waitForAnimationToEnd:
+  timeout: 2000
+- tapOn:
+    text: "Print"
+    optional: true
+    label: Print FAB / bottom action
+- tapOn:
+    point: "88%, 92%"
+    label: Print control bottom-right fallback
+- waitForAnimationToEnd:
+  timeout: 2000
+# Red / primary print in preview toolbar (top-right area).
+- tapOn:
+    text: "Print"
+    optional: true
+    label: Preview header print
+- tapOn:
+    point: "90%, 10%"
+    label: Top-right print fallback
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible:
+      text: ${BT_DEVICE_NAME}
+    timeout: 2000
+- tapOn:
+    text: ${BT_DEVICE_NAME}
+- waitForAnimationToEnd:
+  timeout: 2000
+- runFlow: subflows/pairing_optional.yaml

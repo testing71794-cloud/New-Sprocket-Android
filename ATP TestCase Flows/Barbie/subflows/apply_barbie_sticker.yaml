@@ -8,8 +8,8 @@ appId: com.kodak.steptouch
 - waitForAnimationToEnd:
     timeout: 2000
 - tapOn:
-    point: "20%,75%"
-    label: Select any Barbie sticker
+    id: "imageViewStricker"
+    index: 1
 - waitForAnimationToEnd:
     timeout: 2000
 - tapOn:

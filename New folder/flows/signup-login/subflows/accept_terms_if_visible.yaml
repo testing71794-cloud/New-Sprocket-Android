@@ -1,0 +1,14 @@
+appId: com.kodak.steptouch
+---
+# ATP SU_01 / SU_08 – agree to terms when that screen is shown (wording may vary).
+- runFlow:
+    when:
+      visible: "Agree Terms and Conditions"
+    commands:
+      - tapOn: "Agree Terms and Conditions"
+
+- runFlow:
+    when:
+      visible: "Agree Terms and Conditions"
+    commands:
+      - tapOn: "Agree Terms and Conditions"

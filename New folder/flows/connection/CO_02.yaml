@@ -1,0 +1,46 @@
+appId: com.kodak.steptouch
+name: CO_02_Thumbnail_Quick_Print
+---
+# ATP CO_02 – Thumbnail overflow → printer → Connect → pick device → pair.
+# Env: BT_DEVICE_NAME
+- launchApp:
+    clearState: true
+- runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
+- assertVisible: "My gallery"
+# “More” on thumbnail – often ⋮ / overflow; adjust id/point after inspecting hierarchy.
+- tapOn:
+    id: ".*more.*"
+    optional: true
+- tapOn:
+    text: "More"
+    optional: true
+- tapOn:
+    point: "18%, 38%"
+    label: Thumbnail overflow menu – fallback
+- waitForAnimationToEnd:
+  timeout: 2000
+- tapOn:
+    text: "Print"
+    optional: true
+- tapOn:
+    id: ".*print.*"
+    optional: true
+- waitForAnimationToEnd:
+  timeout: 2000
+- tapOn:
+    text: "Connect"
+    optional: true
+- tapOn:
+    text: "connect"
+    optional: true
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible:
+      text: ${BT_DEVICE_NAME}
+    timeout: 2000
+- tapOn:
+    text: ${BT_DEVICE_NAME}
+- waitForAnimationToEnd:
+  timeout: 2000
+- runFlow: subflows/pairing_optional.yaml

@@ -1,0 +1,25 @@
+appId: com.kodak.steptouch
+name: CO_01_My_Gallery_Bluetooth_Icon
+---
+# ATP CO_01 – Connect from gallery via Bluetooth entry (top-right).
+# Requires a discoverable printer and env BT_DEVICE_NAME matching the list entry.
+# Example: maestro test ... -e BT_DEVICE_NAME="Kodak Step Touch"
+- launchApp:
+    clearState: true
+- runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
+- assertVisible: "My gallery"
+# Icon is often image-only; tune X%/Y% after inspecting your gallery toolbar.
+- tapOn:
+    point: "92%, 10%"
+    label: Bluetooth entry – top-right
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible:
+      text: ${BT_DEVICE_NAME}
+    timeout: 2000
+- tapOn:
+    text: ${BT_DEVICE_NAME}
+- waitForAnimationToEnd:
+  timeout: 2000
+- runFlow: subflows/pairing_optional.yaml

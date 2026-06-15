@@ -1,0 +1,50 @@
+appId: com.kodak.steptouch
+name: SU_10_Log_In_Forgot_Password
+---
+# ATP SU_10 – Forgot password from Log In; submit reset for valid email.
+# Provide via CLI: maestro test -e SU_VALID_EMAIL=user@domain.com
+- launchApp:
+    clearState: true
+- runFlow: subflows/post_launch_through_signup.yaml
+- assertVisible: "Create an account"
+- assertVisible: "Full Name*"
+- assertVisible: "Email*"
+- assertVisible: "Password*"
+- assertVisible: "SIGN UP"
+- assertVisible: "Already have an account?"
+- assertVisible: "I'll do it later"
+- tapOn: "Log In"
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible: "Forgot password?"
+    timeout: 2000
+- assertVisible: "Password"
+- tapOn: "Forgot password?"
+- waitForAnimationToEnd:
+  timeout: 2000
+- tapOn: "Email*"
+- inputText: Niteshmehra56@yopmail.com
+- hideKeyboard
+- waitForAnimationToEnd:
+  timeout: 2000
+- runFlow:
+    when:
+      visible: "Send"
+    commands:
+      - tapOn: "Send"
+- waitForAnimationToEnd:
+  timeout: 2000
+- runFlow:
+    when:
+      visible: "DONE"
+    commands:
+      - tapOn: "DONE"
+- waitForAnimationToEnd:
+  timeout: 2000
+# Adjust substring if your build uses different copy (e.g. "check your inbox").
+- assertVisible: "Password"
+- assertVisible: "Log In"
+- assertVisible: "LOGIN"
+
+

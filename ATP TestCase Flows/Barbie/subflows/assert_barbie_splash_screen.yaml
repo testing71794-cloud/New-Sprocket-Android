@@ -1,7 +1,7 @@
 appId: com.kodak.steptouch
 ---
 # Barbie splash screen on app open after Barbie printer has been connected.
-- extendedWaitUntil:
-    visible:
-      text: ".*Barbie.*"
-    timeout: 2000
+- waitForAnimationToEnd
+- assertVisible:
+    id: "linearLayoutBarbie"
+

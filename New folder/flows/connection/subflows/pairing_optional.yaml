@@ -1,0 +1,16 @@
+appId: com.kodak.steptouch
+---
+# System / OEM pairing sheets differ; keep taps optional where wording varies.
+- tapOn:
+    text: "Pair"
+    optional: true
+    label: Android pairing – Pair
+- tapOn:
+    text: "PAIR"
+    optional: true
+- tapOn:
+    text: "Pair & connect"
+    optional: true
+- tapOn:
+    text: "Connect"
+    optional: true

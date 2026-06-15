@@ -1,3 +1,4 @@
+
 # TC_ID: BA_03 - Splash screen
 # ATP Description: Barbie splash screen
 # ATP Steps: 1. Repeat BA_01 → 2. Close Step Prints app → 3. Re-open Step Prints app
@@ -7,11 +8,6 @@
 appId: com.kodak.steptouch
 name: BA_03 - Splash screen
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/reach_gallery_for_barbie.yaml
-- runFlow: subflows/connect_barbie_printer.yaml
-- stopApp
 - launchApp:
     clearState: false
 - runFlow: subflows/assert_barbie_splash_screen.yaml

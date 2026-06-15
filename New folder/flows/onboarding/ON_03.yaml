@@ -1,0 +1,11 @@
+# TC_ID: ON_03
+# ATP Name: Onboarding screen > skip
+# ATP Steps: … → 4. tap Skip
+# ATP Expected: After allowing permissions, user is redirected to the gallery page
+appId: com.kodak.steptouch
+name: "ON_03 - Skip onboarding and land on gallery"
+---
+- launchApp:
+    clearState: true
+- runFlow: ../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
+- assertVisible: "My gallery"

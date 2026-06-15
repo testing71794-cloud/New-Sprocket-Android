@@ -1,0 +1,23 @@
+# TC_ID: ON_01
+# ATP Name: Onboarding screen
+# ATP Steps: 1. Open app → 2. I'll do it later → 3. Agree to terms
+# ATP Expected: User should be able to access the onboarding screen after accepting the terms and conditions
+appId: com.kodak.steptouch
+name: "ON_01 - Enter onboarding after accepting terms"
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_onboarding_after_terms.yaml
+- extendedWaitUntil:
+    visible: "Skip"
+    timeout: 2000
+- extendedWaitUntil:
+    visible: "Next"
+    timeout: 2000
+# First carousel screen (screenshots); matches SU_01 when the label wraps across lines
+- assertVisible: "Gallery"
+- assertVisible: "You also can swipe to take a photo"
+
+
+
+

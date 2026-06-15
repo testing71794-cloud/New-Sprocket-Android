@@ -1,6 +1,11 @@
 appId: com.kodak.steptouch
 ---
 # Dismiss first-time Barbie intro after connection (not used in BA_02).
+- runFlow:
+    when:
+      visible: "No Thanks"
+    commands:
+      - tapOn: "No Thanks"
 - tapOn:
     text: "Continue"
     optional: true

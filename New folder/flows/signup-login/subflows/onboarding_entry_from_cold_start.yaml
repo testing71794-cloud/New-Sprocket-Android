@@ -1,0 +1,19 @@
+appId: com.kodak.steptouch
+---
+# ATP path: cold start → signup → I'll do it later → terms → onboarding (Skip visible).
+- runFlow: post_launch_through_signup.yaml
+- extendedWaitUntil:
+    visible: "Create an account"
+    timeout: 2000
+- tapOn: "I'll do it later"
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible: "Terms"
+    timeout: 2000
+- runFlow: accept_terms_if_visible.yaml
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible: "Skip"
+    timeout: 2000

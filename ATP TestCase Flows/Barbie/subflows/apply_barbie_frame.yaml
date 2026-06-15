@@ -8,8 +8,8 @@ appId: com.kodak.steptouch
 - waitForAnimationToEnd:
     timeout: 2000
 - tapOn:
-    point: "56%,75%"
-    label: Select any Barbie frame
+    id: "imageViewFilter"
+    index: 2
 - waitForAnimationToEnd:
     timeout: 2000
 - tapOn:

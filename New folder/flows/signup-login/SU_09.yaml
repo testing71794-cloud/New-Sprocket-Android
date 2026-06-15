@@ -1,0 +1,30 @@
+appId: com.kodak.steptouch
+name: SU_09_Log_In_Wrong_Credentials
+---
+# ATP SU_09 – Wrong email or password shows Wrong credentials alert.
+- launchApp:
+    clearState: true
+- runFlow: subflows/post_launch_through_signup.yaml
+- assertVisible: "Create an account"
+- assertVisible: "Full Name*"
+- assertVisible: "Email*"
+- assertVisible: "Password*"
+- assertVisible: "SIGN UP"
+- assertVisible: "Already have an account?"
+- assertVisible: "I'll do it later"
+- tapOn: "Log In"
+- waitForAnimationToEnd:
+  timeout: 2000
+- extendedWaitUntil:
+    visible: "LOGIN"
+    timeout: 2000
+- assertVisible: "Email"
+- assertVisible: "Password"
+- tapOn: "Email"
+- inputText: definitely.not.a.real.user@example.com
+- tapOn: "Password"
+- inputText: WrongPass999!
+- hideKeyboard
+- assertVisible:
+    text: "You have entered an invalid email id or password"
+    optional: true
