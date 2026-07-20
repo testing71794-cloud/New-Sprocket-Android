@@ -66,7 +66,7 @@ foreach ($row in $rows) {
         }
 
         Write-Host "`n========== $permId | $pmFile ==========" -ForegroundColor Cyan
-        & $adb -s $Device shell pm clear com.kodak.steptouch | Out-Null
+        & $adb -s $Device shell pm clear com.hp.impulse.sprocket | Out-Null
         Start-Sleep -Seconds 1
         $outFile = Join-Path $logDir ("${permId}_${pmFile}.log")
         & $maestro --device $Device test $flowPath 2>&1 | Tee-Object -FilePath $outFile

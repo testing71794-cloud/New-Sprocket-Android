@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 name: SU_03_Create_Account_Invalid_Email
 ---
 # ATP SU_03 – Invalid email shows validation under email field.

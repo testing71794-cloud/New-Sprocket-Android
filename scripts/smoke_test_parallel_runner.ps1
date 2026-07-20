@@ -28,7 +28,7 @@ $parts = @(
     (Escape-CmdArg $flow),
     (Escape-CmdArg "flow1"),
     (Escape-CmdArg "SERIAL1"),
-    (Escape-CmdArg "com.kodak.steptouch"),
+    (Escape-CmdArg "com.hp.impulse.sprocket"),
     (Escape-CmdArg "true"),
     (Escape-CmdArg "__EMPTY__"),
     (Escape-CmdArg "__EMPTY__")

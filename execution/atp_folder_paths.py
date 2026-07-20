@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-# Legacy Kodak Smile Jenkins stage names → Kodak Step Print ATP folders.
+# Legacy Kodak Smile Jenkins stage names → Sprocket Android ATP folders.
 _CANONICAL_BY_KEY: dict[str, str] = {
     "connection": "connection",
     "onboarding": "onboarding",

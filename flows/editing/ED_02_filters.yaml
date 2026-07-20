@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 name: ED_02 - Apply Filters
 ---
 - runFlow: ED_01_enter_edit_mode.yaml

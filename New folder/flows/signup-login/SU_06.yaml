@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 name: SU_06_Create_Account_User_Already_Exists
 ---
 # ATP SU_06 – Existing email shows alert with OK and Forgot.

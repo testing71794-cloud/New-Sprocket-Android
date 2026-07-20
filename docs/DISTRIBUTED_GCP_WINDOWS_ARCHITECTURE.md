@@ -253,7 +253,7 @@ Orchestrator Python deps install into **`$HOME/jenkins-venvs/kodak-atp-orchestra
 
 ### Phase 2 — Opt-in hybrid pipeline
 
-1. Create multibranch job **“Kodak Step Print Android (Hybrid)”** with `Jenkinsfile.hybrid.gcp-windows`.
+1. Create multibranch job **“HP Sprocket Android (Hybrid)”** with `Jenkinsfile.hybrid.gcp-windows`.
 2. Verify one folder ATP run on Windows only (same commands).
 3. Enable GCP post-processing: stash `reports/**`, `status/**`, `build-summary/**` from Windows → unstash on GCP → run `scripts/gcp/jenkins_ci_post_reports.sh`.
 

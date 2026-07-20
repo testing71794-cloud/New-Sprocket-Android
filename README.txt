@@ -1,4 +1,4 @@
-Kodak Step Print Android — Maestro parallel automation
+HP Sprocket Android — Maestro parallel automation
 
 This corrected package addresses:
 1. Jenkins still using old sequential path

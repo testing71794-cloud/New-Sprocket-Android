@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Refresh ATP TestCase Flows/camera/atp_camera_mapping.json from Kodak Step Print ATP 2026.xlsx.
+Refresh ATP TestCase Flows/camera/atp_camera_mapping.json from Sprocket Android ATP 2026.xlsx.
 
 Looks for a sheet named Camera (or module column Camera). When the workbook is missing,
 prints the path to place the file and exits 0 without changing JSON.
 
 Usage:
   python scripts/sync_atp_camera_from_xlsx.py
-  python scripts/sync_atp_camera_from_xlsx.py --xlsx "Kodak Step Print ATP 2026.xlsx"
+  python scripts/sync_atp_camera_from_xlsx.py --xlsx "Sprocket Android ATP 2026.xlsx"
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 OUT_JSON = REPO / "ATP TestCase Flows" / "camera" / "atp_camera_mapping.json"
 OUT_CSV = REPO / "ATP TestCase Flows" / "camera" / "atp_camera_mapping.csv"
-DEFAULT_XLSX = REPO / "Kodak Step Print ATP 2026.xlsx"
+DEFAULT_XLSX = REPO / "Sprocket Android ATP 2026.xlsx"
 
 
 def _find_xlsx(explicit: Path | None) -> Path | None:
@@ -27,7 +27,7 @@ def _find_xlsx(explicit: Path | None) -> Path | None:
         return explicit
     for candidate in (
         DEFAULT_XLSX,
-        REPO / "docs" / "Kodak Step Print ATP 2026.xlsx",
+        REPO / "docs" / "Sprocket Android ATP 2026.xlsx",
     ):
         if candidate.is_file():
             return candidate

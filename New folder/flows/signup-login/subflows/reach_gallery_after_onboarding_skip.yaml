@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
 # ATP ON_03 / Connection prequel: skip onboarding, accept runtime permissions, land on gallery.
 # Adjust the final wait text if your build labels the header differently.

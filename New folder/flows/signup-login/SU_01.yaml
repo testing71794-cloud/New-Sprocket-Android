@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 name: SU_01_Ill_Do_It_Later
 ---
 # ATP SU_01 – Skip sign up, then agree to terms (expects onboarding afterward).

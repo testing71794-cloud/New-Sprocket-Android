@@ -1,7 +1,7 @@
 {
   "name": "kodak-step-print-android-maestro",
   "version": "1.0.0",
-  "description": "Kodak Step Print Android — Maestro automation, Jenkins CI, and AI Doctor",
+  "description": "HP Sprocket Android — Maestro automation, Jenkins CI, and AI Doctor",
   "type": "module",
   "main": "index.mjs",
   "scripts": {

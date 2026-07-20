@@ -1,6 +1,6 @@
 # ATP Maestro Runtime Bottleneck Report & Optimization (2026-05)
 
-Production-grade runtime optimization for the Kodak Step Print Android Maestro ATP framework. **Functional coverage, assertions, Jenkins stages, USB execution, and report paths are unchanged.**
+Production-grade runtime optimization for the HP Sprocket Android Maestro ATP framework. **Functional coverage, assertions, Jenkins stages, USB execution, and report paths are unchanged.**
 
 ---
 

@@ -1,4 +1,4 @@
-﻿appId: com.kodak.steptouch
+﻿appId: com.hp.impulse.sprocket
 ---
 - runScript: login.js
 - runScript: home.js

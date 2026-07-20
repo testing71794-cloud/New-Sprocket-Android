@@ -23,7 +23,7 @@ foreach ($flow in $flows) {
         continue
     }
     Write-Host "`n========== $($flow.Name) ==========" -ForegroundColor Cyan
-    & $adb -s $Device shell pm clear com.kodak.steptouch | Out-Null
+    & $adb -s $Device shell pm clear com.hp.impulse.sprocket | Out-Null
     Start-Sleep -Seconds 1
     $outFile = Join-Path $logDir ($flow.BaseName + ".log")
     & $maestro --device $Device test $flow.FullName 2>&1 | Tee-Object -FilePath $outFile

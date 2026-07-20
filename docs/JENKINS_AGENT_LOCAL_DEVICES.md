@@ -87,7 +87,7 @@ Simpler: run Jenkins and the pipeline entirely on your machine.
 
 1. Open http://localhost:8080
 2. New Item → Pipeline → name: `kodak-smile`
-3. Pipeline from SCM → Git URL: `https://github.com/testing71794-cloud/Kodak-Step-print-Android`
+3. Pipeline from SCM → Git URL: `https://github.com/testing71794-cloud/New-Sprocket-Android`
 4. Branch: `*/main`
 5. Script Path: `Jenkinsfile` (or the one your repo uses)
 6. Save → Build Now

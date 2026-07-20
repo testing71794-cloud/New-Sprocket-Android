@@ -17,7 +17,7 @@ COLUMNS = [
 ]
 
 ENTRY = (
-    "1. Launch app (adb pm clear com.kodak.steptouch; launchApp permissions all deny). "
+    "1. Launch app (adb pm clear com.hp.impulse.sprocket; launchApp permissions all deny). "
     "2. Tap I'll do it later. 3. Accept Terms & Conditions. 4. Skip onboarding screens. "
     "5. Permission sequence starts (Camera → Location → Nearby Devices → Notification → Photos & Videos)."
 )

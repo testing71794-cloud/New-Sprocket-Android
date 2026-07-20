@@ -1,5 +1,5 @@
 # Handles Low Battery popup during print flow
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
 - runFlow:
     when:

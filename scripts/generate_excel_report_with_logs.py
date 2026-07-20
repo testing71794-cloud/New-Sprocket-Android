@@ -16,7 +16,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-WORKSPACE = Path(os.environ.get("WORKSPACE", r"C:\Jenkins\workspace\Kodak Step Print Android"))
+WORKSPACE = Path(os.environ.get("WORKSPACE", r"C:\Jenkins\workspace\HP Sprocket Android"))
 REPORTS_DIR = WORKSPACE / "reports"
 BUILD_SUMMARY_DIR = WORKSPACE / "build-summary"
 

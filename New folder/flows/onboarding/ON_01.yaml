@@ -2,7 +2,7 @@
 # ATP Name: Onboarding screen
 # ATP Steps: 1. Open app → 2. I'll do it later → 3. Agree to terms
 # ATP Expected: User should be able to access the onboarding screen after accepting the terms and conditions
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 name: "ON_01 - Enter onboarding after accepting terms"
 ---
 - launchApp:

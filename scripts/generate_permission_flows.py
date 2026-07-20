@@ -606,7 +606,7 @@ def write_flows() -> None:
             f"# ATP Steps: {steps}\n"
             f"# ATP Expected: {expected}\n"
             f"# Precondition: launchApp clearState: true, permissions all: deny\n"
-            f"appId: com.kodak.steptouch\n"
+            f"appId: com.hp.impulse.sprocket\n"
             f"name: {tc_id} - {title}\n"
             f"---\n"
             f"{body}\n"

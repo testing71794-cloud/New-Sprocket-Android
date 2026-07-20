@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
 # Select two photos from All Photos (same pattern as selectThreePhotos; used by Precut ATP).
 - runFlow:

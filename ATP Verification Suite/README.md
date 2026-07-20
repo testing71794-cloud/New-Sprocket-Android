@@ -1,4 +1,4 @@
-# HP Sprocket — ATP Verification Suite
+# HP Sprocket Android — ATP Verification Suite
 
 Continue-on-failure verification framework driven by the ATP Excel sheet.
 One Maestro **stage flow** per module; every ATP row becomes sequential verifications that never abort the run.

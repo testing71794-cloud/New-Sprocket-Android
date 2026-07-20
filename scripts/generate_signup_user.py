@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate a unique Kodak-style signup user per device and run.
+Generate a unique Sprocket-style signup user per device and run.
 Writes reports/signup_users/<device>_signup_user.json (no global shared file).
 Optionally writes a .bat to set EMAIL, FULL_NAME, PASSWORD, SIGNUP_RUN_ID, SIGNUP_ATTEMPT.
 
@@ -37,7 +37,7 @@ def _rand_alnum(n: int) -> str:
 
 def _default_password() -> str:
     # No & < > " | in password — safe for .bat; meets typical app rules (upper, lower, digit, length)
-    return f"Kodak{_rand_alnum(1).upper()}{_rand_alnum(6).lower()}{secrets.randbelow(9)}a"
+    return f"Sprocket{_rand_alnum(1).upper()}{_rand_alnum(6).lower()}{secrets.randbelow(9)}a"
 
 
 def _env_signup_use_ai() -> bool:
@@ -57,7 +57,7 @@ def _sanitize_bat_value(s: str) -> str:
 
 def _fix_name_simple(s: str, *, key: str) -> str:
     t = re.sub(r'["\r\n\t]+', "", (s or "").strip())[:50]
-    t = re.sub(r"[^A-Za-z0-9 -]+", "", t)[:50].strip() or f"KodakT{key[:6]}{_rand_alnum(2)}"
+    t = re.sub(r"[^A-Za-z0-9 -]+", "", t)[:50].strip() or f"SprocketT{key[:6]}{_rand_alnum(2)}"
     return t
 
 
@@ -129,7 +129,7 @@ Return this JSON only:
             api_key=config.openrouter_api_key(),
             base_url=config.OPENROUTER_BASE_URL,
             http_referer=config.OPENROUTER_HTTP_REFERER,
-            app_title="Kodak Signup test user generator",
+            app_title="Sprocket Android Signup test user generator",
         )
         parsed = safe_json_parse(text)
     except Exception as e:
@@ -220,7 +220,7 @@ def main() -> int:
 
     em_local = f"kodak_test_{key[:24]}_{ts}_{secrets.randbelow(10**6):06d}@example.com"
     # No spaces in email: Windows .bat -e and shell-safe for Maestro CLI; fullName may have spaces
-    full = f"KodakT{key[:6]}{_rand_alnum(2)}"
+    full = f"SprocketT{key[:6]}{_rand_alnum(2)}"
     signup_source = "deterministic"
 
     if args.retry and prev.get("password"):

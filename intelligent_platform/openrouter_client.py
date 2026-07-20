@@ -42,7 +42,7 @@ def call_openrouter(
     api_key: str,
     base_url: str,
     http_referer: str = "",
-    app_title: str = "Kodak Intelligent Platform",
+    app_title: str = "Sprocket Android Intelligent Platform",
 ) -> str:
     """
     POST /chat/completions. Returns assistant message content (string).

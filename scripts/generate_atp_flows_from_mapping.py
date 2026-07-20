@@ -2,7 +2,7 @@
 """
 Generate ATP TestCase Flows YAML from ATP_TestCase_Maestro_Mapping.csv (or optional xlsx).
 
-Uses existing Kodak Step Print conventions:
+Uses existing Sprocket Android conventions:
   ATP TestCase Flows/<module>/<ID>.yaml
   subflows under each module; reuses ../../flows/ where applicable.
 
@@ -18,7 +18,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 ATP_ROOT = REPO / "ATP TestCase Flows"
 MAPPING_CSV = REPO / "ATP_TestCase_Maestro_Mapping.csv"
-APP_ID = "com.kodak.steptouch"
+APP_ID = "com.hp.impulse.sprocket"
 
 MODULE_FOLDER = {
     "SignUp_Login": "signup-login",
@@ -268,7 +268,7 @@ def _signup_body(tc_id: str, title: str) -> str:
     }
     if tc_id in templates:
         return templates[tc_id]
-    return f"# ATP {tc_id} – {title}\n# TODO: refine steps from Kodak Step Print ATP 2026.xlsx\n- launchApp:\n    clearState: true\n- runFlow: subflows/post_launch_through_signup.yaml\n"
+    return f"# ATP {tc_id} – {title}\n# TODO: refine steps from Sprocket Android ATP 2026.xlsx\n- launchApp:\n    clearState: true\n- runFlow: subflows/post_launch_through_signup.yaml\n"
 
 
 def _connection_body(tc_id: str, title: str) -> str:
@@ -495,7 +495,7 @@ def _settings_body(tc_id: str, title: str) -> str:
 
 def _onboarding_body(tc_id: str, title: str) -> str:
     return f"""# ATP {tc_id} – {title}
-# TODO: align steps with Kodak Step Print ATP 2026.xlsx (see ON_01–ON_03 in repo).
+# TODO: align steps with Sprocket Android ATP 2026.xlsx (see ON_01–ON_03 in repo).
 - launchApp:
     clearState: true
 - runFlow: subflows/reach_onboarding_after_terms.yaml
@@ -564,15 +564,15 @@ def load_rows(xlsx: Path | None) -> list[dict[str, str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--xlsx", type=Path, help="Kodak Step Print ATP 2026.xlsx path")
+    parser.add_argument("--xlsx", type=Path, help="Sprocket Android ATP 2026.xlsx path")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     xlsx = args.xlsx
     if xlsx is None:
         for candidate in (
-            REPO / "Kodak Step Print ATP 2026.xlsx",
-            REPO / "docs" / "Kodak Step Print ATP 2026.xlsx",
+            REPO / "Sprocket Android ATP 2026.xlsx",
+            REPO / "docs" / "Sprocket Android ATP 2026.xlsx",
         ):
             if candidate.is_file():
                 xlsx = candidate

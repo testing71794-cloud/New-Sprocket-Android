@@ -456,7 +456,7 @@ def _merge_build_summary(
                 fl += 1
             else:
                 nf += 1
-        ws0["A1"] = f"{PROJECT_DISPLAY_NAME} — merged execution report"
+        ws0["A1"] = f"{PROJECT_DISPLAY_NAME} - merged execution report"
         ws0["A1"].font = Font(bold=True, size=14)
         ws0["A2"], ws0["B2"] = "Total rows", str(t)
         ws0["A3"], ws0["B3"] = "Passed", str(p)

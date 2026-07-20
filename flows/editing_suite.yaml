@@ -1,5 +1,5 @@
-appId: com.kodak.steptouch
-name: EDITING SUITE - Kodak Step Print
+appId: com.hp.impulse.sprocket
+name: EDITING SUITE - Sprocket Android
 ---
 - launchApp:
     clearState: true

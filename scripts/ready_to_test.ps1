@@ -2,11 +2,11 @@
 # Usage (from repo root):
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\ready_to_test.ps1
 #   powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke
-#   powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke -AppPackage com.kodak.steptouch
+#   powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke -AppPackage com.hp.impulse.sprocket
 
 param(
     [switch] $WithDeviceSmoke,
-    [string] $AppPackage = "com.kodak.steptouch",
+    [string] $AppPackage = "com.hp.impulse.sprocket",
     [string] $MaestroCmd = "maestro.bat",
     [string] $SmokeFlow = "Non printing flows\flow1.yaml"
 )

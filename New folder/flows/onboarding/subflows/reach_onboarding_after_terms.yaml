@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
 # Same path as signup-login/subflows/onboarding_entry_from_cold_start.yaml, plus optional
 # "Start a quick tour" (screenshots) before waiting for Skip. Leave signup-login files unchanged.

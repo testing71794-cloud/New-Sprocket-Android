@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 name: SU_10_Log_In_Forgot_Password
 ---
 # ATP SU_10 – Forgot password from Log In; submit reset for valid email.

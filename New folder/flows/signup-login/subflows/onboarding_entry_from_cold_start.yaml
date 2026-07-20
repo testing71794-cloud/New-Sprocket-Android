@@ -1,4 +1,4 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
 # ATP path: cold start → signup → I'll do it later → terms → onboarding (Skip visible).
 - runFlow: post_launch_through_signup.yaml
