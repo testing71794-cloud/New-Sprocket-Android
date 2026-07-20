@@ -1,0 +1,16 @@
+# ATP Stage Flow: PreCut
+# Auto-generated checklist. Navigation reuses Collage setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - PreCut"
+tags:
+  - atp-verification
+  - precut
+---
+# Cases in this stage (6):
+#   - Precut_03: Verify duplicate selection error.
+#   - Precut_07: Verify "Got It" and "Don't Show Again" behavior.
+#   - Precut_08: Verify UI when gallery permission is denied.
+#   - Precut_09: Verify exit flow after editing selection.
+#   - Print Preview Screen 58: Verify PreCut Sticker restriction
+#   - Print Preview Screen 60: Verify AI button absence
+- runFlow: ../Collage/Collage.yaml

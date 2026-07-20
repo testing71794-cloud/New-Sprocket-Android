@@ -1,0 +1,168 @@
+# General — 166 ATP cases
+
+- [ ] FP TC_E2E_01 | E2E Navigation | Verify full journey: Launch, Onboarding, Sign Up, and Forgot Password flow
+- [ ] Collage_01 | Launch & Navigation | Verify app launch and Home screen
+- [ ] Collage_06 | Multiple Selection | Verify selection of up to four photos
+- [ ] Collage_09 | Next Button Validation | Verify Next button enable/disable
+- [ ] Precut_01 | E2E Navigation | Verify complete flow from launch to selection.
+- [ ] Precut_02 | Photo Selection | Verify selecting two unique images.
+- [ ] Precut_04 | Navigation & Init | Verify app launch, onboarding, and Pre-Cut entry.
+- [ ] Precut_05 | Selection Logic | Verify 2-photo selection, duplicate prevention, and next state.
+- [ ] Print Preview Screen 03 | Controls | Copies vs. Tiles
+- [ ] Print Preview Screen 05 | Navigation | Bottom Nav Bar
+- [ ] Print Preview Screen 14 | Functionality | Tiles Option Availability Restriction
+- [ ] Print Preview Screen 15 | UI Layout | AI Button Visibility Restriction
+- [ ] Print Preview Screen 16 | Controls | Copy Count Adjustment and Boundary Validation
+- [ ] Print Preview Screen 17 | Navigation | Edit, Print, and Back Button Functionality
+- [ ] Print Preview Screen 19 | Carousel | Photo Selection Order Verification
+- [ ] Print Preview Screen 20 | Carousel | Swipe Navigation Between Photos
+- [ ] Print Preview Screen 21 | Carousel | Peeking Photo Selection via Tap
+- [ ] Print Preview Screen 22 | Carousel | Edit Button Overlay Behavior on Peeking Photos
+- [ ] Print Preview Screen 23 | Functionality | AI Button Functionality Without Printer
+- [ ] Print Preview Screen 24 | Functionality | Edit Button Functionality Without Printer
+- [ ] Print Preview Screen  25 | Functionality | Photo Carousel Interaction Without Printer
+- [ ] Print Preview Screen 26 | UI Layout | UI State and Connection Trigger When Printer is Offline
+- [ ] Print Preview Screen 33 | Hardware | Sprocket 3×4 Constraint
+- [ ] Print Preview Screen 46 | Warning Toast | Trigger Warning for Low-Resolution Native Images
+- [ ] Print Preview Screen 47 | Warning Toast | Trigger Warning for Low-Resolution Social Media Images
+- [ ] Print Preview Screen 48 | Warning Toast | Dismissal via Close Icon Interaction
+- [ ] Print Preview Screen 49 | Warning Toast | Layout and Icon Asset Validation
+- [ ] Print Preview Screen 55 | UI/Layout | Verify responsive scaling ($375\times667$)
+- [ ] Print Preview Screen 59 | UI/Layout | Verify UI control presence
+- [ ] Print Preview Screen 84 | Automation | Verify automatic queue resumption
+- [ ] Print Preview Screen 85 | Pop-up Logic | Verify UI state after reconnection
+- [ ] Print Preview Screen 86 | Navigation | Verify Print Queue can be accessed from Print State and navigation controls function correctly.
+- [ ] Print Preview Screen 93 | Pop-up UI Validation | Verify the Resume Queue pop-up displays the correct content and action buttons.
+- [ ] Tiles modules 07 | Navigation | Verify landing on Tiles module
+- [ ] Tiles modules 08 | UI Layout | Verify bottom navigation bar presence
+- [ ] Tiles modules 09 | Interaction | Verify unselecting 1×1 tile
+- [ ] Photobooth 07 | Interaction | Verify session cancellation while photo is processing
+- [ ] Photobooth 10 | Interaction | Verify Stop button works during intermediate countdown
+- [ ] Photobooth 11 | UI Layout | Verify Photobooth Result screen layout
+- [ ] Photobooth 12 | Local Saving | Verify merged image auto-save
+- [ ] Photobooth 13 | Navigation | Verify Back button and Saving popup
+- [ ] Photobooth 14 | Print Logic | Verify print options and negative behavior
+- [ ] AI Tools 05 | Navigation | Verify Bottom Tab persistence
+- [ ] AI Tools 06 | Performance | Verify rapid tab switching
+- [ ] AI Tools 11 | UI Layout | Verify visual layout and typography elements of the loader screen
+- [ ] AI Tools 12 | UI Backdrop | Verify selected image is used as loader backdrop
+- [ ] AI Tools 13 | Animation | Verify loading icon animation playback
+- [ ] AI Tools 16 | Navigation Interruption | Verify behavior when app is minimized during loading
+- [ ] AI Tools 18 | Navigation | Verify path to Prompt Entry
+- [ ] AI Tools 19 | UI Layout | Verify "Prompt Error" popup
+- [ ] AI Tools 20 | Guard Rails | Verify error trigger logic
+- [ ] AI Tools 21 | Interaction | Verify dismiss behavior
+- [ ] AI Tools 22 | Cross-Module | Verify error consistency
+- [ ] AI Tools 23 | UI Block | Verify background occlusion
+- [ ] AI Tools 24 | UI Layout | Verify UI, text, and styling
+- [ ] AI Tools 26 | Interaction: Stay | Verify "Stay" functionality
+- [ ] AI Tools 27 | Interaction: Exit | Verify "Exit" functionality
+- [ ] AI Tools 29 | UI Block | Verify background modality
+- [ ] AI Tools 30 | Setup & Navigation | Verify app launch and Collage creation
+- [ ] AI Tools 31 | UI Layout | Verify visual state of disabled AI button
+- [ ] AI Tools 32 | Functionality | Verify disabled AI button behavior
+- [ ] AI Tools 33 | Toast Message | Verify specific toast text for Collage
+- [ ] AI Tools 35 | Toast Consistency | Verify toast text across modes
+- [ ] AI Tools  36 | UI Layout | Verify layout and content
+- [ ] AI Tools 37 | Functionality | Verify trigger on AI generation
+- [ ] AI Tools 39 | Interaction | Verify dismissal behavior
+- [ ] AI Tools 40 | UI Block | Verify background modality
+- [ ] AI Tools 41 | Navigation & Loader | Verify initial tool flow and loader
+- [ ] AI Tools 42 | Result View | Verify processed image presentation
+- [ ] AI Tools 47 | Navigation & Selection | Verify initial tool flow and prompt
+- [ ] AI Tools 50 | Selection & Preview | Verify background replacement
+- [ ] AI Tools 51 | Apply & Preview | Verify save and print navigation
+- [ ] AI Tools 52 | Cancellation | Verify discard functionality
+- [ ] AI Tools 66 | Selection | Verify selection via Tap
+- [ ] AI Tools 71 | Saving | Verify "Apply" functionality
+- [ ] AI Tools 83 | Navigation | Verify "Grab Object" entry
+- [ ] AI Tools 84 | Interaction | Verify selection & Brush Size
+- [ ] AI Tools 89 | Print Logic | Verify print settings
+- [ ] AI Tools 97 | Navigation | Verify workflow entry
+- [ ] AI Tools 98 | Generation | Verify processing & loader
+- [ ] AI Tools 99 | Result | Verify Result UI (CR_14B.1)
+- [ ] AI Tools 100 | Interaction | Verify "Show Original" toggle
+- [ ] AI Tools 101 | Interaction | Verify "Generate New"
+- [ ] AI Tools 102 | Saving | Verify Apply & Save
+- [ ] AI Tools 103 | Cancellation | Verify Back button
+- [ ] AI Tools 106 | Navigation | Verify workflow entry
+- [ ] AI Tools 107 | Generation | Verify loader & processing
+- [ ] AI Tools 108 | Result | Verify UI (CR_14C.1)
+- [ ] AI Tools 109 | Interaction | Verify "Show Original"
+- [ ] AI Tools 110 | Interaction | Verify "Generate New"
+- [ ] AI Tools 111 | Saving | Verify "Apply"
+- [ ] AI Tools 112 | Cancellation | Verify "Cancel"/Back
+- [ ] AI Tools 114 | Navigation | Workflow Entry & UI
+- [ ] AI Tools 115 | Interaction | "Show Original" Toggle
+- [ ] AI Tools 116 | Interaction | "Generate New"
+- [ ] AI Tools 117 | Saving | "Apply" & Final State
+- [ ] AI tools 119 | Cancellation | Back/Discard
+- [ ] Ai Tools 120 | Navigation | Verify workflow entry
+- [ ] Ai Tools 121 | Interaction | Verify image resize and reposition
+- [ ] Ai Tools 122 | Validation | Verify blank area warning
+- [ ] AI Tools 123 | Generation | Verify Generate button and loader
+- [ ] AI Tools 124 | Result | Verify result screen UI
+- [ ] AI Tools 125 | Interaction | Verify Show Original toggle
+- [ ] AI Tools 126 | Saving | Verify Apply functionality
+- [ ] AI Tools 129 | Cancellation | Verify Back button
+- [ ] AI Tools 131 | Navigation | Workflow Entry
+- [ ] AI Tools 132 | Interaction | Painting Area
+- [ ] AI Tools 134 | Generation | Processing
+- [ ] AI Tools 135 | Result | Thumbnail Selection
+- [ ] AI Tools 136 | Saving | Apply & Print Preview
+- [ ] AI tools 143 | Navigation | Verify Header Elements
+- [ ] AI tools 146 | Instructional | Verify Sticky Footer
+- [ ] AI tools 147 | Workflow | Verify Group 1 Redirection
+- [ ] AI tools 148 | Workflow | Verify Group 2 Redirection
+- [ ] AI tools 149 | Navigation | Verify Back Button Logic
+- [ ] AI tools 150 | Workflow | Verify Group 1 (Ready to Generate) Redirection
+- [ ] AI Tools 151 | Preview Ready | Verify dynamic header tool name display
+- [ ] AI Tools 152 | Preview Ready | Verify back navigation from preview
+- [ ] AI Tools 153 | Preview Ready | Verify Generate button triggers loader
+- [ ] AI Tools 154 | Preview Ready | Verify Remove Background routing
+- [ ] AI Tools 155 | Preview Ready | Verify Replace Background routing
+- [ ] AI Tools 156 | Preview Ready | Verify Restore Photo routing
+- [ ] AI Tools 157 | Preview Ready | Verify Enhance Photo routing
+- [ ] AI Tools 158 | Preview Ready | Verify Fix Lighting routing
+- [ ] AI Tools 159 | Preview Ready | Verify Upscale Photo routing
+- [ ] AI Tools 160 | Preview Ready | Verify full UI layout
+- [ ] AI Tools 161 | Preview Next Step | Verify header displays selected tool name
+- [ ] AI Tools 162 | Preview Next Step | Verify primary CTA button label
+- [ ] AI tools 163 | Preview Next Step | Verify Remove Object routing
+- [ ] AI Tools 164 | Preview Next Step | Verify Replace Object routing
+- [ ] AI tools 165 | Preview Next Step | Verify Grab Object routing
+- [ ] AI tools 166 | Preview Next Step | Verify Extend Image routing
+- [ ] AI  Tools 167 | Preview Next Step | Verify Generate Object routing
+- [ ] AI Tools 168 | Preview Next Step | Verify Back Arrow navigation
+- [ ] AI Tools 209 | Navigation | Verify user can access Image-to-Image screen
+- [ ] AI Tools 211 | Results | Verify generated image count matches quantity
+- [ ] AI Tools 211 | Initialization | Launch & Navigate
+- [ ] AI Tools 211 | Selection | Base Image Setup
+- [ ] Hamburger Menu 01 | Navigation | Access Hamburger Menu
+- [ ] Hamburger Menu  02 | UI/Layout | Verify Logged Out Hamburger Menu UI
+- [ ] Hamburger Menu  03 | Logic | Verify Logged Out State
+- [ ] Hamburger Menu  04 | Navigation | Verify Log In Redirection
+- [ ] Hamburger Menu  05 | UI/Layout | Verify Logged In Hamburger Menu UI
+- [ ] Hamburger Menu  06 | Navigation | Verify Close Menu Functionality
+- [ ] Hamburger Menu  07 | Navigation | Verify App Settings Access
+- [ ] Hamburger Menu  08 | Navigation | Verify Account Settings Access
+- [ ] Hamburger Menu  09 | Navigation | Verify Printer Help
+- [ ] Hamburger Menu  10 | Navigation | Verify Order Photo Paper
+- [ ] Hamburger Menu  11 | Navigation | Verify Visit Support Website
+- [ ] Hamburger Menu  12 | Navigation | Verify Legal & Privacy Access
+- [ ] Hamburger Menu  13 | UI/UX | Verify Scroll Behavior
+- [ ] Hamburger Menu  14 | UI/Layout | Verify Header and Logo
+- [ ] Hamburger Menu 15 | Initialization | Verify Log In & Navigate to Account Settings
+- [ ] Hamburger Menu 21 | Validation | Verify Incorrect Current Password Error
+- [ ] Hamburger Menu 22 | Validation | Verify New Password Requirement Error
+- [ ] Hamburger Menu 23 | Validation | Verify Password Mismatch Error
+- [ ] Hamburger Menu 24 | Validation | Verify Empty Fields Validation
+- [ ] Hamburger Menu 27 | Navigation | Verify Back Button
+- [ ] Hamburger Menu 36 | Initialization | Launch & Social Login
+- [ ] Hamburger Menu 37 | Navigation | Access Account Settings
+- [ ] Hamburger Menu 38 | UI Layout | API Auth UI Validation
+- [ ] Hamburger Menu  40 | Logic | Field Constraint Validation
+- [ ] Hamburger Menu 41 | Initialization | Navigation to App Settings
+- [ ] Hamburger Menu 48 | Navigation | Verify Back Navigation
+- [ ] Hamburger Menu 49 | Navigation | Access Legal & Privacy Screen
+- [ ] Hamburger Menu 56 | Navigation | Back Button Functionality

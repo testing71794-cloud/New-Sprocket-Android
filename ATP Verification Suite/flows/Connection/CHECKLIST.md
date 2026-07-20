@@ -1,0 +1,258 @@
+# Connection — 256 ATP cases
+
+- [ ] Collage_15 | Printer Validation | Verify printer connection status
+- [ ] Print Preview Screen 30 | Reconnection | Printer Reconnection Flow
+- [ ] Firmware Update 008 | Printer Switching | Verify printer switching restriction during firmware update
+- [ ] Firmware Update 009 | Printer Switching | Verify Please Wait popup display
+- [ ] Firmware Update 10 | Printer Switching | Verify Please Wait popup message
+- [ ] Firmware Update 11 | Printer Switching | Verify OK button functionality
+- [ ] Blockers Error Pop up Android   15 | Printer | Verify "Sprocket not Responding" popup
+- [ ] PCF-001 | Pre Connection Flow | Verify to navigate to 'Add a new Printer' screen
+- [ ] PCF-002 | Pre Connection Flow | Verify to navigate to 'Enable the full Sprocket experience' screen via 'Skip to Connection' flow
+- [ ] PCF-003 | Pre Connection Flow | Verify printer discovery screen via 'Skip to connection' flow
+- [ ] PCF-004 | Pre Connection Flow | Verify default HP200 printer selection at 'Select Your Device' screen
+- [ ] PCF-005 | Pre Connection Flow | Verify that the user can scroll through all available printer models from right to left
+- [ ] PCF-006 | Pre Connection Flow | Verify that the user can scroll through all available printer models from left to right
+- [ ] PCF-007 | Pre Connection Flow | Verify that the printer carousel is not an infinite loop and has defined start and end points.
+- [ ] PCF-008 | Pre Connection Flow | Verify selected 'Sprocket 200' printer image updates
+- [ ] PCF-009 | Pre Connection Flow | Verify selected 'Sprocket Studio Plus' printer image updates
+- [ ] PCF-010 | Pre Connection Flow | Verify selected 'Sprocket 3x4' printer image updates
+- [ ] PCF-011 | Pre Connection Flow | Verify selected 'HP Sprocket Select' printer image updates
+- [ ] PCF-012 | Pre Connection Flow | Verify selected 'HP Sprocket 2-in-1' printer image updates
+- [ ] PCF-013 | Pre Connection Flow | Verify selected 'HP Sprocket Plus' printer image updates
+- [ ] PCF-014 | Pre Connection Flow | Verify selected 'HP Sprocket Studio' printer image updates
+- [ ] PCF-015 | Pre Connection Flow | Verify selected 'HP Sprocket' printer image updates
+- [ ] PCF-016 | Pre Connection Flow | Verify selected 'HP Sprocket Panorama' printer image updates
+- [ ] PCF-017 | Pre Connection Flow | Verify that tapping the 'GET IT ON Google Play' button redirects the user to the HP Sprocket Panoram
+- [ ] PCF-018 | Pre Connection Flow | Verify that tapping the 'Download on the App Store' button redirects the user to the HP Sprocket Pan
+- [ ] PCF_HP200_001 | Pre Connection Flow for HP 200 | Verify 'Charge + Power On' Screen UI for the HP Sprocket 200
+- [ ] PCF_HP200_002 | Pre Connection Flow for HP 200 | Verify the Load Paper screen UI for the HP Sprocket 200 printer.
+- [ ] PCF_HP200_003 | Pre Connection Flow for HP 200 | Verify Previous Button on Load Paper Screen for the HP Sprocket 200 printer.
+- [ ] PCF_HP200_004 | Pre Connection Flow for HP 200 | Verify 'Load Paper' Info Popup for the HP Sprocket 200 printer.
+- [ ] PCF_HP200_005 | Pre Connection Flow for HP 200 | Verify 'Get Connected' Screen UI for the HP Sprocket 200 printer.
+- [ ] PCF_HP200_006 | Pre Connection Flow for HP 200 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 200 printer.
+- [ ] PCF_HP200_007 | Pre Connection Flow for HP 200 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] PCF_HP200_008 | Pre Connection Flow for HP 200 | Verify Close Button on Unable to Connect Popup
+- [ ] PCF_HP200_009 | Pre Connection Flow for HP 200 | Verify 'Finish Setup' Button for the HP Sprocket 200 printer.
+- [ ] PCF_HP200_010 | Pre Connection Flow for HP 200 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP200 printer
+- [ ] PCF_HP200_011 | Pre Connection Flow for HP 200 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP200 printer
+- [ ] PCF_HP200_012 | Pre Connection Flow for HP 200 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP 200
+- [ ] PCF_HP200_013 | Pre Connection Flow for HP 200 | Verify User Cancels Bluetooth Enable Request for HP 200 printer
+- [ ] PCF_HP200_014 | Pre Connection Flow for HP 200 | Verify Bluetooth Already Enabled Scenario for HP 200 printer
+- [ ] PCF_HP200_015 | Pre Connection Flow for HP 200 | Verify Navigation to 'No Printers Found' Screen for HP 200 printer
+- [ ] PCF_HP200_016 | Pre Connection Flow for HP 200 | Verify all UI elements displayed on the 'No Printers Found' screen for HP 200 printer
+- [ ] PCF_HP200_017 | Pre Connection Flow for HP 200 | Verify that tapping 'Try Again' restarts printer discovery for HP 200 printer
+- [ ] PCF_HP200_018 | Pre Connection Flow for HP 200 | Verify Printer Found After Retry for HP 200 printer
+- [ ] PCF_HP200_019 | Pre Connection Flow for HP 200 | Verify No Printer Found Again After Retry
+- [ ] PCF_HP3*4_001 | Pre Connection Flow for Sprocket 3x4 | Verify 'Charge + Power On' Screen UI for the HP Sprocket 3x4
+- [ ] PCF_HP3*4_002 | Pre Connection Flow for Sprocket 3x4 | Verify the Load Paper screen UI for the HP Sprocket 3x4 printer.
+- [ ] PCF_HP3*4_003 | Pre Connection Flow for Sprocket 3x4 | Verify Previous Button on Load Paper Screen for the HP Sprocket 3x4 printer.
+- [ ] PCF_HP3*4_004 | Pre Connection Flow for Sprocket 3x4 | Verify 'Load Paper' Info Popup for the HP Sprocket 3x4 printer.
+- [ ] PCF_HP3*4_005 | Pre Connection Flow for Sprocket 3x4 | Verify 'Get Connected' Screen UI for the HP Sprocket 3x4 printer.
+- [ ] PCF_HP3*4_006 | Pre Connection Flow for Sprocket 3x4 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 3x4 printer.
+- [ ] PCF_HP3*4_007 | Pre Connection Flow for Sprocket 3x4 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] PCF_HP3*4_008 | Pre Connection Flow for Sprocket 3x4 | Verify Close Button on Unable to Connect Popup
+- [ ] PCF_HP3*4_009 | Pre Connection Flow for Sprocket 3x4 | Verify 'Finish Setup' Button for the HP Sprocket 3x4 printer.
+- [ ] PCF_HP3*4_010 | Pre Connection Flow for Sprocket 3x4 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_011 | Pre Connection Flow for Sprocket 3x4 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket 3x4 pr
+- [ ] PCF_HP3*4_012 | Pre Connection Flow for Sprocket 3x4 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket 3x4
+- [ ] PCF_HP3*4_013 | Pre Connection Flow for Sprocket 3x4 | Verify User Cancels Bluetooth Enable Request for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_014 | Pre Connection Flow for Sprocket 3x4 | Verify Bluetooth Already Enabled Scenario for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_015 | Pre Connection Flow for Sprocket 3x4 | Verify Navigation to 'No Printers Found' Screen for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_016 | Pre Connection Flow for Sprocket 3x4 | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_017 | Pre Connection Flow for Sprocket 3x4 | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_018 | Pre Connection Flow for Sprocket 3x4 | Verify Printer Found After Retry for HP Sprocket 3x4 printer
+- [ ] PCF_HP3*4_019 | Pre Connection Flow for Sprocket 3x4 | Verify No Printer Found Again After Retry
+- [ ] PCF_HPSelect_001 | Pre Connection Flow for Sprocket Select | Verify 'Charge + Power On' Screen UI for the HP Sprocket Select
+- [ ] PCF_HPSelect_002 | Pre Connection Flow for Sprocket Select | Verify the Load Paper screen UI for the HP Sprocket Select printer.
+- [ ] PCF_HPSelect_003 | Pre Connection Flow for Sprocket Select | Verify Previous Button on Load Paper Screen for the HP Sprocket Select printer.
+- [ ] PCF_HPSelect_004 | Pre Connection Flow for Sprocket Select | Verify 'Load Paper' Info Popup for the HP Sprocket Select printer.
+- [ ] PCF_HPSelect_005 | Pre Connection Flow for Sprocket Select | Verify 'Get Connected' Screen UI for the HP Sprocket Select printer.
+- [ ] PCF_HPSelect_006 | Pre Connection Flow for Sprocket Select | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket Select printer.
+- [ ] PCF_HPSelect_007 | Pre Connection Flow for Sprocket Select | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] PCF_HPSelect_008 | Pre Connection Flow for Sprocket Select | Verify Close Button on Unable to Connect Popup
+- [ ] PCF_HPSelect_009 | Pre Connection Flow for Sprocket Select | Verify 'Finish Setup' Button for the HP Sprocket Select printer.
+- [ ] PCF_HPSelect_010 | Pre Connection Flow for Sprocket Select | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Select printer
+- [ ] PCF_HPSelect_011 | Pre Connection Flow for Sprocket Select | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Select
+- [ ] PCF_HPSelect_012 | Pre Connection Flow for Sprocket Select | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Select
+- [ ] PCF_HPSelect_013 | Pre Connection Flow for Sprocket Select | Verify User Cancels Bluetooth Enable Request for HP Sprocket Select printer
+- [ ] PCF_HPSelect_014 | Pre Connection Flow for Sprocket Select | Verify Bluetooth Already Enabled Scenario for HP Sprocket Select printer
+- [ ] PCF_HPSelect_015 | Pre Connection Flow for Sprocket Select | Verify Navigation to 'No Printers Found' Screen for HP Sprocket Select printer
+- [ ] PCF_HPSelect_016 | Pre Connection Flow for Sprocket Select | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket Select printer
+- [ ] PCF_HPSelect_017 | Pre Connection Flow for Sprocket Select | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket Select printer
+- [ ] PCF_HPSelect_018 | Pre Connection Flow for Sprocket Select | Verify Printer Found After Retry for HP Sprocket Select printer
+- [ ] PCF_HPSelect_019 | Pre Connection Flow for Sprocket Select | Verify No Printer Found Again After Retry
+- [ ] PCF_Studio_001 | Pre Connection Flow for Sprocket Studio | Verify Plug In + Power On Screen for the HP Sprocket Studio
+- [ ] PCF_Studio_002 | Pre Connection Flow for Sprocket Studio | Verify Learn More Popup
+- [ ] PCF_Studio_003 | Pre Connection Flow for Sprocket Studio | Verify Shop Here Button
+- [ ] PCF_Studio_004 | Pre Connection Flow for Sprocket Studio | Verify OK Button on Power Bank Popup
+- [ ] PCF_Studio_005 | Pre Connection Flow for Sprocket Studio | Verify Next Navigation from Plug In + Power On
+- [ ] PCF_Studio_006 | Pre Connection Flow for Sprocket Studio | Verify Load Paper Information Popup
+- [ ] PCF_Studio_007 | Pre Connection Flow for Sprocket Studio | Verify Next Navigation from Load Paper
+- [ ] PCF_Studio_008 | Pre Connection Flow for Sprocket Studio | Verify Install Ink Cartridge Screen
+- [ ] PCF_Studio_009 | Pre Connection Flow for Sprocket Studio | Verify Cartridge Information Popup
+- [ ] PCF_Studio_010 | Pre Connection Flow for Sprocket Studio | Verify Next Navigation from Install Ink Cartridge
+- [ ] PCF_Studio_011 | Pre Connection Flow for Sprocket Studio | Verify Check Behind the Printer Screen
+- [ ] PCF_Studio_012 | Pre Connection Flow for Sprocket Studio | Verify Next Navigation from Check Behind the Printer
+- [ ] PCF_Studio_013 | Pre Connection Flow for Sprocket Studio | Verify Get Connected Screen
+- [ ] PCF_Studio_014 | Pre Connection Flow for Sprocket Studio | Verify Unable to Connect Popup
+- [ ] PCF_Studio_015 | Pre Connection Flow for Sprocket Studio | Verify Finish Setup Button
+- [ ] PCF_Sprocket_001 | Pre Connection Flow for HP Sprocket | Verify 'Charge + Power On' Screen UI for the HP Sprocket
+- [ ] PCF_Sprocket_002 | Pre Connection Flow for HP Sprocket | Verify the Load Paper screen UI for the HP Sprocket  printer
+- [ ] PCF_Sprocket_003 | Pre Connection Flow for HP Sprocket | Verify Previous Button on Load Paper Screen for the HP Sprocket  printer.
+- [ ] PCF_Sprocket_004 | Pre Connection Flow for HP Sprocket | Verify 'Load Paper' Info Popup for the HP Sprocket  printer.
+- [ ] PCF_Sprocket_005 | Pre Connection Flow for HP Sprocket | Verify 'Get Connected' Screen UI for the HP Sprocket  printer.
+- [ ] PCF_Sprocket_006 | Pre Connection Flow for HP Sprocket | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket  printer.
+- [ ] PCF_Sprocket_007 | Pre Connection Flow for HP Sprocket | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] PCF_Sprocket_008 | Pre Connection Flow for HP Sprocket | Verify Close Button on Unable to Connect Popup
+- [ ] PCF_Sprocket_009 | Pre Connection Flow for HP Sprocket | Verify 'Finish Setup' Button for the HP Sprocket  printer.
+- [ ] PCF_Sprocket_010 | Pre Connection Flow for HP Sprocket | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket printer
+- [ ] PCF_Sprocket_011 | Pre Connection Flow for HP Sprocket | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket printe
+- [ ] PCF_Sprocket_012 | Pre Connection Flow for HP Sprocket | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket
+- [ ] PCF_Sprocket_013 | Pre Connection Flow for HP Sprocket | Verify User Cancels Bluetooth Enable Request for HP Sprocket printer
+- [ ] PCF_Sprocket_014 | Pre Connection Flow for HP Sprocket | Verify Bluetooth Already Enabled Scenario for HP Sprocket printer
+- [ ] PCF_Sprocket_015 | Pre Connection Flow for HP Sprocket | Verify Navigation to 'No Printers Found' Screen for HP Sprocket printer
+- [ ] PCF_Sprocket_016 | Pre Connection Flow for HP Sprocket | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket printer
+- [ ] PCF_Sprocket_017 | Pre Connection Flow for HP Sprocket | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket printer
+- [ ] PCF_Sprocket_018 | Pre Connection Flow for HP Sprocket For Android | Verify Printer Found After Retry for HP Sprocket printer for Android
+- [ ] PCF_Sprocket_019 | Pre Connection Flow for HP Sprocket For iOS | Verify Printer Found After Retry for HP Sprocket printer for iOS
+- [ ] PCF_Sprocket_020 | Pre Connection Flow for HP Sprocket | Verify No Printer Found Again After Retry
+- [ ] PCF_Sprocket Plus_001 | Pre Connection Flow for Sprocket Plus | Verify 'Charge + Power On' Screen UI for the HP Sprocket Plus
+- [ ] PCF_Sprocket Plus_002 | Pre Connection Flow for Sprocket Plus | Verify the Load Paper screen UI for the HP Sprocket Plus printer.
+- [ ] PCF_Sprocket Plus_003 | Pre Connection Flow for Sprocket Plus | Verify Previous Button on Load Paper Screen for the HP Sprocket Plus printer.
+- [ ] PCF_Sprocket Plus_004 | Pre Connection Flow for Sprocket Plus | Verify 'Load Paper' Info Popup for the HP Sprocket Plus printer.
+- [ ] PCF_Sprocket Plus_005 | Pre Connection Flow for Sprocket Plus | Verify 'Get Connected' Screen UI for the HP Sprocket Plus printer.
+- [ ] PCF_Sprocket Plus_006 | Pre Connection Flow for Sprocket Plus | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket Plus printer.
+- [ ] PCF_Sprocket Plus_007 | Pre Connection Flow for Sprocket Plus | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] PCF_Sprocket Plus_008 | Pre Connection Flow for Sprocket Plus | Verify Close Button on Unable to Connect Popup
+- [ ] PCF_Sprocket Plus_009 | Pre Connection Flow for Sprocket Plus | Verify 'Finish Setup' Button for the HP Sprocket Plus printer.
+- [ ] PCF_Sprocket Plus_010 | Pre Connection Flow for Sprocket Plus | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_011 | Pre Connection Flow for Sprocket Plus | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Plus p
+- [ ] PCF_Sprocket Plus_012 | Pre Connection Flow for Sprocket Plus | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Plus
+- [ ] PCF_Sprocket Plus_013 | Pre Connection Flow for Sprocket Plus | Verify User Cancels Bluetooth Enable Request for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_014 | Pre Connection Flow for Sprocket Plus | Verify Bluetooth Already Enabled Scenario for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_015 | Pre Connection Flow for Sprocket Plus | Verify Navigation to 'No Printers Found' Screen for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_016 | Pre Connection Flow for Sprocket Plus | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_017 | Pre Connection Flow for Sprocket Plus | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_018 | Pre Connection Flow for Sprocket Plus for Android | Verify Printer Found After Retry for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_019 | Pre Connection Flow for Sprocket Plus for iOS | Verify Printer Found After Retry for HP Sprocket Plus printer
+- [ ] PCF_Sprocket Plus_020 | Pre Connection Flow for Sprocket Plus | Verify No Printer Found Again After Retry
+- [ ] PCF_Studio Plus_001 | Pre Connection Flow for Sprocket Studio Plus | Verify HP Sprocket Studio Plus Intro Screen
+- [ ] PCF_Studio Plus_002 | Pre Connection Flow for Sprocket Studio Plus | Verify that tapping Next navigates to the next onboarding screen.
+- [ ] PCF_Studio Plus_003 | Pre Connection Flow for Sprocket Studio Plus | Verify Load Paper Screen
+- [ ] PCF_Studio Plus_004 | Pre Connection Flow for Sprocket Studio Plus | Verify Paper Type Information Popup
+- [ ] PCF_Studio Plus_005 | Pre Connection Flow for Sprocket Studio Plus | Verify Close Button on Paper Type Popup
+- [ ] PCF_Studio Plus_006 | Pre Connection Flow for Sprocket Studio Plus | Verify Next Button on Load Paper Screen
+- [ ] PCF_Studio Plus_007 | Pre Connection Flow for Sprocket Studio Plus | Verify Install Ink Cartridge Screen
+- [ ] PCF_Studio Plus_008 | Pre Connection Flow for Sprocket Studio Plus | Verify Next Button on Install Ink Cartridge Screen
+- [ ] PCF_Studio Plus_009 | Pre Connection Flow for Sprocket Studio Plus | Verify Power On Screen
+- [ ] PCF_Studio Plus_010 | Pre Connection Flow for Sprocket Studio Plus | Verify Next Button on Power On Screen
+- [ ] PCF_Studio Plus_011 | Pre Connection Flow for Sprocket Studio Plus | Verify Check Behind the Printer Screen
+- [ ] PCF_Studio Plus_012 | Pre Connection Flow for Sprocket Studio Plus | Verify Next Button on Check Behind the Printer Screen
+- [ ] PCF_Studio Plus_013 | Pre Connection Flow for Sprocket Studio Plus | Verify Ready for Wi-Fi Connection Screen
+- [ ] PCF_Studio Plus_014 | Pre Connection Flow for Sprocket Studio Plus | Verify that the Previous button navigates to the previous setup screen.
+- [ ] PCF_Studio Plus_015 | Pre Connection Flow for Sprocket Studio Plus | Verify Finish Setup Button
+- [ ] PCF_Studio Plus_016 | Pre Connection Flow for Sprocket Studio Plus | Verify that tapping the Close (X) button exits the setup flow.
+- [ ] PCF_Studio Plus_017 | Pre Connection Flow for Sprocket Studio Plus | Verify that tapping on 'Exit' button close the set up flow
+- [ ] PCF_Studio Plus_018 | Pre Connection Flow for Sprocket Studio Plus | Verify that tapping on 'Continue' button to remain on the set up flow
+- [ ] General_PCF-001 | Pre Connection Flow | Verify selected printer remains highlighted
+- [ ] General_PCF-002 | Pre Connection Flow | Verify Continue button functionality
+- [ ] General_PCF-003 | Pre Connection Flow | Verify loading state during Printers discovery
+- [ ] General_PCF-004 | Pre Connection Flow | Verify loading state spinner timing during Printers discovery
+- [ ] General_PCF-005 | Pre Connection Flow | Navigate to 'No Printers Found' screen
+- [ ] General_PCF-006 | Pre Connection Flow | Verify 'Try Again' button functionality at 'No Printers Found' screen
+- [ ] General_PCF-007 | Pre Connection Flow | Verify printer list population
+- [ ] General_PCF-008 | Pre Connection Flow | Verify loading spinner is displayed for selected printer
+- [ ] General_PCF-009 | Pre Connection Flow | Verify other printer buttons are disabled during connection
+- [ ] General_PCF-010 | Pre Connection Flow | Verify Close (X) button is disabled during connection attempt
+- [ ] General_PCF-011 | Pre Connection Flow | Verify successful connection
+- [ ] General_PCF-012 |  | Verify behavior when Bluetooth is turned OFF on Success screen
+- [ ] General_PCF-013 |  | Verify Finish Connection behavior after Bluetooth OFF
+- [ ] HP600 connection flow | Connection Flow | 
+- [ ] HP600_CONN_TC001 | Discovery | Verify Searching for Printers screen
+- [ ] HP600_CONN_TC002 | Discovery | Verify only HP600 printers listed
+- [ ] HP600_CONN_TC003 | Discovery | Verify + icon
+- [ ] HP600_CONN_TC004 | Discovery | Verify tap + starts connection
+- [ ] HP600_CONN_TC005 | Discovery | Verify No Printer Found
+- [ ] HP600_CONN_TC006 | Discovery | Verify 'Try Again' restarts printer discovery
+- [ ] HP600_CONN_TC007 | Discovery | Verify searching spinner is displayed during discovery
+- [ ] HP600_CONN_TC008 | Discovery | Verify HP600 printer details are displayed
+- [ ] HP600_CONN_TC009 | Discovery | Verify Close exits discovery
+- [ ] HP600_CONN_TC010 | Discovery | Verify '+' button is enabled
+- [ ] HP600_CONN_TC011 | Discovery | Verify connection process starts after selecting printer
+- [ ] HP600_CONN_TC012 | Bluetooth | Verify Bluetooth OFF flow on Android
+- [ ] HP600_CONN_TC013 | Bluetooth | Verify Bluetooth OFF flow on iOS
+- [ ] HP600_CONN_TC014 | Already Added | Verify Printer Already Added screen
+- [ ] HP600_CONN_TC015 | Already Added pop up | Verify Done button
+- [ ] HP600_CONN_TC016 | This Printer uses wi-fi pop up | Verify 'This Printer uses wi-fi screen' for Android
+- [ ] HP600_CONN_TC017 | This Printer uses wi-fi pop up | Verify the functionality of the Cancel button on the This printer uses Wi-Fi screen.
+- [ ] HP600_CONN_TC018 | This Printer uses wi-fi pop up | Verify the functionality of the Open Settings button on Android.
+- [ ] HP600_CONN_TC019 | This Printer uses wi-fi pop up | Verify 'This Printer uses wi-fi screen' for Android
+- [ ] HP600_CONN_TC020 | Wi-Fi Validation at 'This Printer uses wi-fi' pop up | Verify that the app remains on the Wi-Fi instruction screen when the phone is not connected to a Wi-
+- [ ] HP600_CONN_TC021 | Connection Flow | 
+- [ ] HP600_CONN_TC022 | Connection Flow | 
+- [ ] HP600_CONN_TC023 | Connection Flow | 
+- [ ] HP600_CONN_TC024 | Connection Flow | 
+- [ ] HP600_CONN_TC025 | Connection Flow | 
+- [ ] HP600_CONN_TC026 | Connection Flow | 
+- [ ] HP600_CONN_TC027 | Connection Flow | 
+- [ ] HP600_CONN_TC028 | Connection Flow | 
+- [ ] HP600_CONN_TC029 | Connection Flow | 
+- [ ] HP600_CONN_TC030 | Connection Flow | 
+- [ ] HP600_CONN_TC031 | Wi-Fi | Verify Connect Printer to Wi-Fi screen
+- [ ] HP600_CONN_TC032 | Wi-Fi | Verify current SSID
+- [ ] HP600_CONN_TC033 | Wi-Fi | Verify Change option
+- [ ] HP600_CONN_TC034 | Wi-Fi | Verify Wi-Fi list
+- [ ] HP600_CONN_TC035 | Wi-Fi | Verify selecting another network
+- [ ] HP600_CONN_TC036 | Wi-Fi | Verify password entry
+- [ ] HP600_CONN_TC037 | Wi-Fi | Verify show/hide password
+- [ ] HP600_CONN_TC038 | Wi-Fi | Verify Next enabled
+- [ ] HP600_CONN_TC039 | Wi-Fi | Verify loading
+- [ ] HP600_CONN_TC040 | Wi-Fi | Verify connection starts
+- [ ] HP600_CONN_TC041 | Connection | Verify loading indicator while connecting
+- [ ] HP600_CONN_TC042 | Connection | Verify loading screen remains until completion
+- [ ] HP600_CONN_TC043 | Connection | Verify Set Up Complete screen after successful connection
+- [ ] HP600_CONN_TC044 | Connection | Verify Set Up Complete screen contents
+- [ ] HP600_CONN_TC045 | Connection | Verify Finish Connection button
+- [ ] HP600_CONN_TC046 | Connection | Verify navigation to Your Printers
+- [ ] HP600_CONN_TC047 | Connection | Verify newly connected printer in list
+- [ ] HP600_CONN_TC048 | Connection | Verify connected printer status
+- [ ] HP600_CONN_TC049 | Connection | Verify printer can be selected
+- [ ] HP600_CONN_TC050 | Connection | Verify no duplicate printer entry
+- [ ] HP600_CONN_TC051 | Wi-Fi Connection Failure | Verify Couldn't Connect screen
+- [ ] HP600_CONN_TC052 | Wi-Fi Connection Failure | Verify Couldn't Connect UI
+- [ ] HP600_CONN_TC053 | Wi-Fi Connection Failure | Verify Try Again
+- [ ] HP600_CONN_TC054 | Wi-Fi Connection Failure | Verify Cancel
+- [ ] HP600_CONN_TC055 | Wi-Fi Connection Failure | Verify incorrect Wi-Fi password
+- [ ] HP600_CONN_TC056 | Wi-Fi Connection Failure | Verify printer powered off
+- [ ] HP600_CONN_TC057 | Wi-Fi Connection Failure | Verify printer out of Bluetooth range
+- [ ] HP600_CONN_TC058 | Wi-Fi Connection Failure | Verify phone disconnects from Wi-Fi
+- [ ] HP600_CONN_TC059 | Wi-Fi Connection Failure | Verify connection timeout
+- [ ] HP600_CONN_TC060 | Wi-Fi Connection Failure | Verify reconnect after Try Again
+- [ ] HP600_CONN_TC061 | Wi-Fi Direct | Verify No Wi-Fi Available screen
+- [ ] HP600_CONN_TC062 | Wi-Fi Direct | Verify Cancel on No Wi-Fi Available
+- [ ] HP600_CONN_TC063 | Wi-Fi Direct | Verify Open Settings (Android)
+- [ ] HP600_CONN_TC064 | Wi-Fi Direct | Verify iOS No Wi-Fi flow
+- [ ] HP600_CONN_TC065 | Wi-Fi Direct | Verify Connect to DIRECT-xxxx screen
+- [ ] HP600_CONN_TC066 | Wi-Fi Direct | Verify Android DIRECT connection
+- [ ] HP600_CONN_TC067 | Wi-Fi Direct | Verify iOS DIRECT connection
+- [ ] HP600_CONN_TC068 | Wi-Fi Direct | Verify loading after DIRECT connection
+- [ ] HP600_CONN_TC069 | Wi-Fi Direct | Verify successful Wi-Fi Direct setup
+- [ ] HP600_CONN_TC070 | Wi-Fi Direct | Verify failed Wi-Fi Direct setup
+- [ ] PS-001 | Printer Settings | Verify complete Printer Settings screen preview
+- [ ] PS-002 | Printer Settings | Verify Nickname update and persistence
+- [ ] PS-003 | Printer Settings | Verify Printer Status and Battery field visibility
+- [ ] PS-004 | Printer Settings | Verify LED Color update and persistence
+- [ ] PS-005 | Printer Settings | Verify Sleep Timer update and persistence
+- [ ] PS-006 | Printer Settings | Verify Auto Off update and persistence
+- [ ] PS-007 | Printer Settings | Verify System section and MAC Address field visibility
+- [ ] PS-008 | Printer Settings | Verify Firmware Version field visibility
+- [ ] PS-009 | Printer Settings | 
+- [ ] PS-010 | Printer Settings | 
+- [ ] PS-011 | Printer Settings | 
+- [ ] PS-012 | Printer Settings | 
+- [ ] PS-019 | Printer 200 | Verify Printer Detail screen UI elements after successful printer connection
+- [ ] PS-020 | Manage Printers | Verify Manage Printers screen and printer list
+- [ ] PS-021 | Printers detail pages | Verify navigation to Printer Detail screen from printer list
+- [ ] PS-022 | Printers detail pages | 
+- [ ] PS-023 | Printers detail pages | 

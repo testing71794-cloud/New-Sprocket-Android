@@ -1,0 +1,49 @@
+# Alerts — 47 ATP cases
+
+- [ ] Print Preview Screen 56 | Paper Type | Verify $2\times3"$ and $4\times6"$ layout
+- [ ] Print Preview Screen 57 | Paper Type | Verify $2.3\times3.4"$ and $3.5\times4.25"$ layout
+- [ ] AITools 34 | UI Coverage | Verify full screen layout elements
+- [ ] Blockers Error Pop up Android   01 | Memory Error | Verify "Memory Error" popup during printing
+- [ ] Blockers Error Pop up Android  02 | Transmit Error | Verify "Transmit Error" popup during printing
+- [ ] Blockers Error Pop up Android   03 | Low Voltage | Verify "Low Voltage" popup during printing
+- [ ] Blockers Error Pop up Android   04 | Print Error | Verify "Print Error" popup during printing
+- [ ] Blockers Error Pop up Android   05 | High Temperature | Verify "High Temperature" popup during printing
+- [ ] Blockers Error Pop up Android    06 | Paper | Verify "Paper Jam" error popup
+- [ ] Blockers Error Pop up Android    07 | Paper | Verify "Out of Paper" error popup
+- [ ] Blockers Error Pop up Android   08 | Cover | Verify "Top Cover Open" error popup
+- [ ] Blockers Error Pop up Android    09 | System | Verify "System Error Occurred" error popup
+- [ ] Blockers Error Pop up Android   10 | Battery | Verify "Very Low Battery" popup
+- [ ] Blockers Error Pop up Android   11 | Battery | Verify "Battery Error" popup
+- [ ] Blockers Error Pop up Android   12 | Temperature | Verify "Sprocket is Warm" popup
+- [ ] Blockers Error Pop up Android   13 | Temperature | Verify "Sprocket is Cold" popup
+- [ ] Blockers Error Pop up Android   14 | Paper | Verify "Paper Feed Error" popup
+- [ ] Blockers Error Pop up Android  16 | Paper | Verify "Incorrect Paper Type" popup
+- [ ] Stoppers Error Pop up Android 18 | AD_08A_Memory Error | Verify the Memory Error popup is displayed when the printer encounters a memory-related issue during
+- [ ] Stoppers Error Pop up Android 19 | AD_04A_Transmit Error | Verify the Transmit Error popup is displayed when data transmission is interrupted during printing.
+- [ ] Stoppers Error Pop up Android 20 | AD_07A_Low Voltage | Verify the Low Voltage popup is displayed when the printer battery voltage is too low.
+- [ ] Stoppers Error Pop up Android 21 | AD_05A_Print Error | Verify the Print Error popup is displayed when the printer encounters a printing failure.
+- [ ] Blockers Error Pop up Ios 001 | iOS_08_Memory Error | Verify Memory Error popup during printing
+- [ ] Blockers Error Pop up Ios 002 | iOS_12_Transmit Error | Verify Transmit Error popup during printing
+- [ ] Blockers Error Pop up Ios 003 | iOS_14_Low Voltage | Verify Low Voltage popup when battery is low
+- [ ] Blockers Error Pop up Ios 004 | iOS_15_Print Error | Verify Print Error popup during printing
+- [ ] Blockers Error Pop up Ios 005 | iOS_16_High Temperature | Verify High Temperature popup when printer overheats
+- [ ] Blockers Error Pop up Ios 006 | iOS_17_High Battery Temperature | Verify High Battery Temperature popup when battery overheats
+- [ ] Blockers Error Pop up Ios 07 | iOS_19_Paper Not Match | Verify Paper Error popup when incorrect paper size is inserted
+- [ ] Blockers Error Pop up Ios 08 | iOS_22_Paper Jam | Verify Paper Jam popup when paper gets stuck during printing
+- [ ] Blockers Error Pop up Ios 09 | iOS_23_Out of Paper | Verify Out of Paper popup when printer has no paper
+- [ ] Blockers Error Pop up Ios 10 | iOS_26_Top Cover Open | Verify Top Cover Open popup when top cover is opened during printing
+- [ ] Blockers Error Pop up Ios 11 | Print Error | Verify System Error popup
+- [ ] Blockers Error Pop up Ios 12 | Print Error | Verify Low Battery popup
+- [ ] Blockers Error Pop up Ios 13 | Print Error | Verify Battery Error popup
+- [ ] Blockers Error Pop up Ios 14 | Temperature | Verify "Sprocket is Warm" popup
+- [ ] Blockers Error Pop up Ios 15 | Temperature | Verify "Sprocket is Cold" popup
+- [ ] Blockers Error Pop up Ios 16 | Paper | Verify "Paper Feed Error" popup
+- [ ] Stoppers Error Pop up Ios  21 | Temperature | Verify "High Temperature" popup
+- [ ] Stoppers Error Pop up Ios  22 | Battery | Verify "High Battery Temperature" popup
+- [ ] Stoppers Error Pop up Ios 23 | Paper | Verify "Paper Jam" error
+- [ ] Stoppers Error Pop up Ios  24 | Paper | Verify "Out of Paper" error
+- [ ] Stoppers Error Pop up Ios  25 | Cover | Verify "Top Cover Open" error
+- [ ] Stoppers Error Pop up Ios  26 | System | Verify "System Error"
+- [ ] Stoppers Error Pop up Ios 27 | Battery | Verify "Battery Error" popup
+- [ ] Stoppers Error Pop up Ios  28 | Temperature | Verify "Sprocket is Warm" popup
+- [ ] Stoppers Error Pop up Ios  29 | Temperature | Verify "Sprocket is Cold" popup

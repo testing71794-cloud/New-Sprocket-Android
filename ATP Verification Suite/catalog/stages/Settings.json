@@ -1,0 +1,956 @@
+{
+  "stage": "Settings",
+  "count": 25,
+  "cases": [
+    {
+      "test_id": "Print Preview Screen 27",
+      "module": "Data & Flow",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Printer Reconnection Flow and State Persistence",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Ensure printer is offline and open Print Preview screen.",
+        "5. Apply edits such as crop, rotation, zoom, or video frame selection.",
+        "6. Tap Reconnect Printer and navigate through Connection Options, Discovery, and Connection Success screens.",
+        "7. Tap Finish Connection."
+      ],
+      "type": "Positive",
+      "expected": "All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 776,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 27",
+          "module": "Data & Flow",
+          "stage": "Settings",
+          "description": "Printer Reconnection Flow and State Persistence",
+          "expected": "All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 105",
+      "module": "Settings",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Copies/Tiles adjustment",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started !→ Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Enhance Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate/Enhance button.",
+        "7. Wait for result screen.",
+        "8. Tap Apply.",
+        "9. Adjust Copies/Tiles settings."
+      ],
+      "type": "Positive",
+      "expected": "Values reflected in the print job settings.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2265,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "AI Tools 105",
+          "module": "Settings",
+          "stage": "Settings",
+          "description": "Verify Copies/Tiles adjustment",
+          "expected": "Values reflected in the print job settings.",
+          "verification": "Verify visible: Copies",
+          "kind": "visible",
+          "selector": "Copies"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 16",
+      "module": "Personal",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Name Field Display",
+      "steps": [
+        "1. Complete login and navigate to Account Settings.",
+        "2. Check Personal section.",
+        "3. Verify Name field is displayed.",
+        "4. Try to edit/change the name field.",
+        "1. Login to the application.",
+        "2. Navigate to More > Account Settings.",
+        "3. In Personal section, tap Change Password.",
+        "4. Verify Change Password screen opens.",
+        "5. Enter valid current password, new password and confirm password.",
+        "6. Tap Save/Update button."
+      ],
+      "type": "Positive / Negative",
+      "expected": "Name field is displayed correctly. If editing is restricted, user cannot modify the name. If editable, changes should be saved successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3652,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 16",
+          "module": "Personal",
+          "stage": "Settings",
+          "description": "Verify Name Field Display",
+          "expected": "Name field is displayed correctly. If editing is restricted, user cannot modify the name. If editable, changes should be saved successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 17",
+      "module": "Personal",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Change Password with Invalid Data",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Leave fields blank or enter incorrect current password.",
+        "3. Enter mismatched new and confirm passwords.",
+        "4. Tap Save/Update.",
+        "1. Login to the application.",
+        "2. Navigate to More > Account Settings.",
+        "3. Scroll to Account section.",
+        "4. Tap Log Out button.",
+        "5. Confirm logout if confirmation popup appears.",
+        "1. Login to the application.",
+        "3. Scroll to Account section.",
+        "4. Tap Delete Sprocket Account.",
+        "5. Verify confirmation popup appears.",
+        "6. Tap Delete/Confirm.",
+        "1. Navigate to Account Settings.",
+        "2. Tap Delete Sprocket Account.",
+        "3. When confirmation popup appears, tap Cancel.",
+        "1. Login to the application.",
+        "2. Navigate to More > Account Settings.",
+        "3. Tap the Back Arrow at top-left corner."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate validation/error message is displayed and password is not changed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3662,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 17",
+          "module": "Personal",
+          "stage": "Settings",
+          "description": "Verify Change Password with Invalid Data",
+          "expected": "Appropriate validation/error message is displayed and password is not changed.",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 19",
+      "module": "Change Password",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Change Password Screen UI",
+      "steps": [
+        "1. Launch app and wait for splash screen.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Continue with Email.",
+        "4. Enter valid Email & Password and tap Login.",
+        "5. Tap More from menu screen.",
+        "6. Verify Hamburger menu opens.",
+        "7. Tap Account Settings under Settings.",
+        "8. Verify Account Settings screen opens.",
+        "9. Tap Change Password.",
+        "10. Verify Change Password screen UI from top to bottom."
+      ],
+      "type": "Positive",
+      "expected": "Change Password screen displays:",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3683,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 19",
+          "module": "Change Password",
+          "stage": "Settings",
+          "description": "Verify Change Password Screen UI",
+          "expected": "Change Password screen displays:",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Humburger Menu 20",
+      "module": "Change Password",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Current Password Field",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Tap Current Password field.",
+        "3. Verify cursor appears.",
+        "4. Verify keyboard opens.",
+        "5. Enter valid password.",
+        "6. Tap eye icon if available."
+      ],
+      "type": "Positive",
+      "expected": "Cursor becomes active, keyboard is displayed, entered text is masked/unmasked properly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3693,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Humburger Menu 20",
+          "module": "Change Password",
+          "stage": "Settings",
+          "description": "Verify Current Password Field",
+          "expected": "Cursor becomes active, keyboard is displayed, entered text is masked/unmasked properly.",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 25",
+      "module": "Error",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Password Update Failure",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Enter valid Current Password.",
+        "3. Enter valid New Password.",
+        "4. Enter matching Confirm Password.",
+        "5. Simulate network/server failure.",
+        "6. Tap Save."
+      ],
+      "type": "Negative",
+      "expected": "Toast/Error message \"Password change failed. Please try again.\" is displayed above Save button. Password is not updated.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3718,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 25",
+          "module": "Error",
+          "stage": "Settings",
+          "description": "Verify Password Update Failure",
+          "expected": "Toast/Error message \"Password change failed. Please try again.\" is displayed above Save button. Password is not updated.",
+          "verification": "Verify toast: Password change failed. Please try again.",
+          "kind": "toast",
+          "selector": "Password change failed. Please try again."
+        },
+        {
+          "test_id": "Hamburger Menu 25",
+          "module": "Error",
+          "stage": "Settings",
+          "description": "Verify Password Update Failure",
+          "expected": "Toast/Error message \"Password change failed. Please try again.\" is displayed above Save button. Password is not updated.",
+          "verification": "Verify toast: password",
+          "kind": "toast",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 26",
+      "module": "Change Password",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Successful Password Change",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Enter valid Current Password.",
+        "3. Enter valid New Password meeting all requirements.",
+        "4. Enter matching Confirm Password.",
+        "5. Tap Save."
+      ],
+      "type": "Positive",
+      "expected": "Password is updated successfully. Success message is displayed and user remains on screen or is redirected as per design.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3724,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 26",
+          "module": "Change Password",
+          "stage": "Settings",
+          "description": "Verify Successful Password Change",
+          "expected": "Password is updated successfully. Success message is displayed and user remains on screen or is redirected as per design.",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 28",
+      "module": "Logout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Trigger Logout Pop-up",
+      "steps": [
+        "1. Launch App; 2. Complete Onboarding (ON_01B–ON_01E); 3. Log in with email; 4. Navigate to More > Account Settings; 5. Tap \"Logout\"."
+      ],
+      "type": "Pos",
+      "expected": "\"Log Out?\" pop-up appears displaying: \"Are you sure you want to log out?\", \"Cancel\" button, and \"Log Out\" button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3731,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 28",
+          "module": "Logout",
+          "stage": "Settings",
+          "description": "Trigger Logout Pop-up",
+          "expected": "\"Log Out?\" pop-up appears displaying: \"Are you sure you want to log out?\", \"Cancel\" button, and \"Log Out\" button.",
+          "verification": "Verify dialog: Log Out?",
+          "kind": "dialog",
+          "selector": "Log Out?"
+        },
+        {
+          "test_id": "Hamburger Menu 28",
+          "module": "Logout",
+          "stage": "Settings",
+          "description": "Trigger Logout Pop-up",
+          "expected": "\"Log Out?\" pop-up appears displaying: \"Are you sure you want to log out?\", \"Cancel\" button, and \"Log Out\" button.",
+          "verification": "Verify dialog: Are you sure you want to log out?",
+          "kind": "dialog",
+          "selector": "Are you sure you want to log out?"
+        },
+        {
+          "test_id": "Hamburger Menu 28",
+          "module": "Logout",
+          "stage": "Settings",
+          "description": "Trigger Logout Pop-up",
+          "expected": "\"Log Out?\" pop-up appears displaying: \"Are you sure you want to log out?\", \"Cancel\" button, and \"Log Out\" button.",
+          "verification": "Verify dialog: Cancel",
+          "kind": "dialog",
+          "selector": "Cancel"
+        },
+        {
+          "test_id": "Hamburger Menu 28",
+          "module": "Logout",
+          "stage": "Settings",
+          "description": "Trigger Logout Pop-up",
+          "expected": "\"Log Out?\" pop-up appears displaying: \"Are you sure you want to log out?\", \"Cancel\" button, and \"Log Out\" button.",
+          "verification": "Verify dialog: Log Out",
+          "kind": "dialog",
+          "selector": "Log Out"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 29",
+      "module": "Logout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Cancel Logout",
+      "steps": [
+        "1. Trigger the \"Log Out?\" pop-up; 2. Tap \"Cancel\" button."
+      ],
+      "type": "Pos",
+      "expected": "Pop-up closes; user remains on the HM_02A_Account Settings screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3732,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 29",
+          "module": "Logout",
+          "stage": "Settings",
+          "description": "Cancel Logout",
+          "expected": "Pop-up closes; user remains on the HM_02A_Account Settings screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 30",
+      "module": "Logout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Confirm Logout",
+      "steps": [
+        "1. Trigger the \"Log Out?\" pop-up; 2. Tap \"Log Out\" button."
+      ],
+      "type": "Pos",
+      "expected": "User is logged out and redirected to HM_01B_Hamburger Menu Logged Out.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3733,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 30",
+          "module": "Logout",
+          "stage": "Settings",
+          "description": "Confirm Logout",
+          "expected": "User is logged out and redirected to HM_01B_Hamburger Menu Logged Out.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 31",
+      "module": "Account",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Trigger Delete Account Pop-up",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Continue with Email.",
+        "4. Enter valid Email and Password.",
+        "5. Tap Login button.",
+        "6. Tap More from menu screen.",
+        "7. Verify Hamburger Menu opens.",
+        "8. Tap Account Settings under Settings.",
+        "9. Verify Account Settings page opens.",
+        "10. Scroll to Account section.",
+        "11. Tap Delete Sprocket Account.",
+        "12. Verify Delete Account popup appears.",
+        "13. Verify Warning icon at top.",
+        "14. Verify Delete Account title is displayed.",
+        "15. Verify description text is displayed as per Figma.",
+        "16. Verify checkbox with \"I understand...\" text is displayed.",
+        "17. Verify No, Cancel button is enabled.",
+        "18. Verify Yes, Delete Account button is disabled by default."
+      ],
+      "type": "Positive",
+      "expected": "The \"Delete Account\" popup appears with the bold title \"Delete Account\", the warning message, a checkbox with \"I understand that deleting my account is permanent and cannot be undone.\", and the \"No, Cancel\" and \"Yes, Delete Account\" options. All UI elements match the Figma design.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3734,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 31",
+          "module": "Account",
+          "stage": "Settings",
+          "description": "Trigger Delete Account Pop-up",
+          "expected": "The \"Delete Account\" popup appears with the bold title \"Delete Account\", the warning message, a checkbox with \"I understand that deleting my account is permanent and cannot be undone.\", and the \"No, Cancel\" and \"Yes, Delete Account\" options. All UI elements match the Figma design.",
+          "verification": "Verify dialog: Delete Account",
+          "kind": "dialog",
+          "selector": "Delete Account"
+        },
+        {
+          "test_id": "Hamburger Menu 31",
+          "module": "Account",
+          "stage": "Settings",
+          "description": "Trigger Delete Account Pop-up",
+          "expected": "The \"Delete Account\" popup appears with the bold title \"Delete Account\", the warning message, a checkbox with \"I understand that deleting my account is permanent and cannot be undone.\", and the \"No, Cancel\" and \"Yes, Delete Account\" options. All UI elements match the Figma design.",
+          "verification": "Verify dialog: I understand that deleting my account is permanent and cannot be undone.",
+          "kind": "dialog",
+          "selector": "I understand that deleting my account is permanent and cannot be undone."
+        },
+        {
+          "test_id": "Hamburger Menu 31",
+          "module": "Account",
+          "stage": "Settings",
+          "description": "Trigger Delete Account Pop-up",
+          "expected": "The \"Delete Account\" popup appears with the bold title \"Delete Account\", the warning message, a checkbox with \"I understand that deleting my account is permanent and cannot be undone.\", and the \"No, Cancel\" and \"Yes, Delete Account\" options. All UI elements match the Figma design.",
+          "verification": "Verify dialog: No, Cancel",
+          "kind": "dialog",
+          "selector": "No, Cancel"
+        },
+        {
+          "test_id": "Hamburger Menu 31",
+          "module": "Account",
+          "stage": "Settings",
+          "description": "Trigger Delete Account Pop-up",
+          "expected": "The \"Delete Account\" popup appears with the bold title \"Delete Account\", the warning message, a checkbox with \"I understand that deleting my account is permanent and cannot be undone.\", and the \"No, Cancel\" and \"Yes, Delete Account\" options. All UI elements match the Figma design.",
+          "verification": "Verify dialog: Yes, Delete Account",
+          "kind": "dialog",
+          "selector": "Yes, Delete Account"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 32",
+      "module": "Account",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Cancel Account Deletion",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Continue with Email.",
+        "4. Enter valid Email and Password.",
+        "5. Tap Login button.",
+        "6. Tap More from menu screen.",
+        "7. Tap Account Settings.",
+        "8. Scroll to Account section.",
+        "9. Tap Delete Sprocket Account.",
+        "10. Verify Delete Account popup appears.",
+        "11. Verify all texts and buttons are displayed.",
+        "12. Tap No, Cancel button.",
+        "13. Verify popup closes successfully.",
+        "14. Verify user remains on Account Settings screen.",
+        "15. Verify account is not deleted.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Continue with Email.",
+        "5. Tap Login button.",
+        "6. Tap More from menu screen.",
+        "7. Tap Account Settings.",
+        "8. Scroll to Account section.",
+        "9. Tap Delete Sprocket Account.",
+        "10. Verify Delete Account popup appears.",
+        "11. Verify checkbox is unchecked by default.",
+        "12. Observe Yes, Delete Account button without selecting checkbox.",
+        "13. Try to tap Yes, Delete Account button.",
+        "14. Verify button remains disabled and cannot be clicked.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Continue with Email.",
+        "4. Enter valid Email and Password.",
+        "5. Tap Login button.",
+        "6. Tap More from menu screen.",
+        "7. Tap Account Settings.",
+        "9. Tap Delete Sprocket Account.",
+        "10. Verify Delete Account popup appears.",
+        "11. Verify Yes, Delete Account button is disabled initially.",
+        "12. Tap the checkbox \"I understand...\".",
+        "13. Verify checkbox turns green with tick mark.",
+        "14. Verify Yes, Delete Account button becomes enabled.",
+        "15. Verify button color and style as per Figma.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Continue with Email.",
+        "4. Enter valid Email and Password.",
+        "5. Tap Login button.",
+        "6. Tap More from menu screen.",
+        "7. Tap Account Settings.",
+        "8. Scroll to Account section.",
+        "9. Tap Delete Sprocket Account.",
+        "10. Verify Delete Account popup appears.",
+        "12. Verify checkbox turns green.",
+        "13. Verify Yes, Delete Account button becomes active.",
+        "14. Tap Yes, Delete Account.",
+        "15. Verify account deletion process starts.",
+        "16. Verify success message or confirmation screen appears as per Figma.",
+        "17. Verify user is logged out automatically.",
+        "18. Verify user is redirected to Logged Out screen.",
+        "19. Verify deleted account cannot login again."
+      ],
+      "type": "Positive",
+      "expected": "Popup closes successfully and account is not deleted.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3752,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 32",
+          "module": "Account",
+          "stage": "Settings",
+          "description": "Cancel Account Deletion",
+          "expected": "Popup closes successfully and account is not deleted.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 42",
+      "module": "Permissions",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Permissions Option",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to More → App Settings.",
+        "3. Verify App Settings screen opens.",
+        "4. Locate Permissions option at top section.",
+        "5. Tap Permissions option.",
+        "6. Verify system permission screen opens.",
+        "7. Verify Camera permission option is visible.",
+        "8. Verify Location permission option is visible.",
+        "9. Verify Storage permission option is visible.",
+        "10. Verify Audio/Microphone permission option is visible."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to device permission settings with all required permissions listed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3868,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 42",
+          "module": "Permissions",
+          "stage": "Settings",
+          "description": "Verify Permissions Option",
+          "expected": "User is redirected to device permission settings with all required permissions listed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 43",
+      "module": "Display",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Default State of Display App Hints",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to More → App Settings.",
+        "3. Scroll to Display section.",
+        "4. Locate Display App Hints toggle.",
+        "5. Verify toggle state without interaction.",
+        "6. Observe toggle color (green/active).",
+        "7. Verify toggle is ON by default.",
+        "8. Verify hint feature is enabled in UI screens."
+      ],
+      "type": "Positive",
+      "expected": "Display App Hints toggle is enabled (ON/green) by default.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3878,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 43",
+          "module": "Display",
+          "stage": "Settings",
+          "description": "Verify Default State of Display App Hints",
+          "expected": "Display App Hints toggle is enabled (ON/green) by default.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 44",
+      "module": "Display",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Toggle App Hints ON/OFF",
+      "steps": [
+        "1. Navigate to App Settings → Display section.",
+        "2. Locate Display App Hints toggle.",
+        "3. Tap toggle to disable it.",
+        "4. Verify toggle changes to OFF state (grey).",
+        "5. Navigate across app screens.",
+        "6. Verify hints/messages are not displayed.",
+        "7. Return to App Settings.",
+        "8. Tap toggle again to enable it.",
+        "9. Verify toggle turns ON (green)."
+      ],
+      "type": "Positive",
+      "expected": "App hints are enabled/disabled correctly based on toggle state.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3886,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 44",
+          "module": "Display",
+          "stage": "Settings",
+          "description": "Toggle App Hints ON/OFF",
+          "expected": "App hints are enabled/disabled correctly based on toggle state.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 45",
+      "module": "Data",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Default Low Data Mode State",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to More → App Settings.",
+        "3. Scroll to Data section.",
+        "4. Locate Low Data Mode toggle.",
+        "5. Verify default state without interaction.",
+        "6. Observe toggle color.",
+        "7. Verify toggle is OFF by default.",
+        "8. Verify background data usage remains normal."
+      ],
+      "type": "Positive",
+      "expected": "Low Data Mode toggle is OFF (disabled) by default.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3895,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 45",
+          "module": "Data",
+          "stage": "Settings",
+          "description": "Verify Default Low Data Mode State",
+          "expected": "Low Data Mode toggle is OFF (disabled) by default.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 46",
+      "module": "Data",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Toggle Low Data Mode Functionality",
+      "steps": [
+        "1. Navigate to App Settings → Data section.",
+        "2. Locate Low Data Mode toggle.",
+        "3. Tap toggle to enable it.",
+        "4. Verify toggle turns ON (green).",
+        "5. Navigate to content-heavy screens.",
+        "6. Verify reduced data usage behavior (no auto refresh/high-res load).",
+        "7. Return to App Settings.",
+        "8. Disable toggle and verify normal loading resumes."
+      ],
+      "type": "Positive",
+      "expected": "Low Data Mode enables/disables reduced data usage correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3903,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 46",
+          "module": "Data",
+          "stage": "Settings",
+          "description": "Toggle Low Data Mode Functionality",
+          "expected": "Low Data Mode enables/disables reduced data usage correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 47",
+      "module": "Version",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify App Version Display",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to More → App Settings.",
+        "3. Scroll to bottom section.",
+        "4. Locate App Version field.",
+        "5. Verify version text is displayed (e.g., v1.0).",
+        "6. Verify field is non-editable.",
+        "7. Verify no click or interaction available.",
+        "8. Verify version matches build number."
+      ],
+      "type": "Positive",
+      "expected": "App version is displayed correctly as static text and is non-interactive.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3911,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 47",
+          "module": "Version",
+          "stage": "Settings",
+          "description": "Verify App Version Display",
+          "expected": "App version is displayed correctly as static text and is non-interactive.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 50",
+      "module": "Data",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Data Collection Settings Navigation",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to More → App Settings → Legal & Privacy.",
+        "3. Verify Legal & Privacy screen opens.",
+        "4. Locate Data Collection Settings option.",
+        "5. Tap Data Collection Settings.",
+        "6. Verify navigation to HM_04B_Data Collection Settings screen.",
+        "7. Verify all toggles/options are visible on screen."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to Data Collection Settings screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3939,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 50",
+          "module": "Data",
+          "stage": "Settings",
+          "description": "Data Collection Settings Navigation",
+          "expected": "User is redirected to Data Collection Settings screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 51",
+      "module": "Data",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Data Collection Exit Pop-up Validation",
+      "steps": [
+        "1. Navigate to Legal & Privacy → Data Collection Settings.",
+        "2. Verify Data Collection screen opens.",
+        "3. Observe available settings/toggles.",
+        "4. Make any change (toggle ON/OFF).",
+        "5. Attempt to exit/back without saving.",
+        "6. Verify pop-up appears.",
+        "7. Verify pop-up title/message displayed correctly.",
+        "8. Verify No, Go Back button is visible.",
+        "9. Verify Yes, I’m Sure button is visible.",
+        "10. Tap No, Go Back.",
+        "11. Verify user remains on same screen."
+      ],
+      "type": "Negative",
+      "expected": "Pop-up appears and prevents accidental exit without saving changes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3946,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 51",
+          "module": "Data",
+          "stage": "Settings",
+          "description": "Data Collection Exit Pop-up Validation",
+          "expected": "Pop-up appears and prevents accidental exit without saving changes.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 52",
+      "module": "Privacy",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Privacy Policy Open",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to More → App Settings → Legal & Privacy.",
+        "3. Verify Legal & Privacy screen loads.",
+        "4. Scroll to Privacy section.",
+        "5. Tap Privacy Policy.",
+        "6. Verify in-app browser opens.",
+        "7. Verify Privacy Policy page loads successfully.",
+        "8. Verify page header/title is visible.",
+        "9. Verify scroll functionality works on document page."
+      ],
+      "type": "Positive",
+      "expected": "Privacy Policy opens correctly in in-app browser.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3957,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 52",
+          "module": "Privacy",
+          "stage": "Settings",
+          "description": "Verify Privacy Policy Open",
+          "expected": "Privacy Policy opens correctly in in-app browser.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 53",
+      "module": "Legal",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify End User License Agreement",
+      "steps": [
+        "1. Navigate to Legal & Privacy screen.",
+        "2. Locate End User License Agreement (EULA) option.",
+        "3. Tap EULA.",
+        "4. Verify in-app browser opens.",
+        "5. Verify EULA content loads successfully.",
+        "6. Verify title/header matches document.",
+        "7. Verify user can scroll through full document.",
+        "8. Verify back navigation works from browser."
+      ],
+      "type": "Positive",
+      "expected": "EULA opens successfully in in-app browser.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3966,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 53",
+          "module": "Legal",
+          "stage": "Settings",
+          "description": "Verify End User License Agreement",
+          "expected": "EULA opens successfully in in-app browser.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 54",
+      "module": "Legal",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Terms of Service",
+      "steps": [
+        "1. Navigate to Legal & Privacy screen.",
+        "2. Scroll to Terms of Service option.",
+        "3. Tap Terms of Service.",
+        "4. Verify in-app browser opens.",
+        "5. Verify Terms page loads correctly.",
+        "6. Verify content is readable and scrollable.",
+        "7. Verify no UI distortion or missing content.",
+        "8. Verify back navigation works properly."
+      ],
+      "type": "Positive",
+      "expected": "Terms of Service opens successfully in in-app browser.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3974,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 54",
+          "module": "Legal",
+          "stage": "Settings",
+          "description": "Verify Terms of Service",
+          "expected": "Terms of Service opens successfully in in-app browser.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 55",
+      "module": "Legal",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Open Source Licenses Navigation",
+      "steps": [
+        "1. Navigate to Legal & Privacy screen.",
+        "2. Scroll to Open Source Licenses option.",
+        "3. Tap Open Source Licenses.",
+        "4. Verify navigation to HM_04G_Open Source Licenses screen.",
+        "5. Verify list of libraries/licenses is displayed.",
+        "6. Verify all entries are readable.",
+        "7. Verify no missing or blank items."
+      ],
+      "type": "Positive",
+      "expected": "Open Source Licenses screen displays all dependencies correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3982,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 55",
+          "module": "Legal",
+          "stage": "Settings",
+          "description": "Open Source Licenses Navigation",
+          "expected": "Open Source Licenses screen displays all dependencies correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

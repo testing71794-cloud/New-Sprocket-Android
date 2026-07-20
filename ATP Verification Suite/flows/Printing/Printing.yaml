@@ -1,0 +1,25 @@
+# ATP Stage Flow: Printing / Print Preview
+appId: com.hp.impulse.sprocket
+name: "Stage - Printing"
+tags:
+  - atp-verification
+  - printing
+---
+- runFlow: ../_common/reach_create_home.yaml
+- tapOn: ".*Quick Print.*"
+- runFlow: ../../../ATP TestCase Flows/permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 12000
+- tapOn:
+    point: "25%,35%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Print|Next|Continue).*"
+    commands:
+      - tapOn: ".*(?i)(Print|Next|Continue).*"
+- assertVisible:
+    text: ".*(?i)(Print|Copies|Preview|Cancel).*"
+    optional: true

@@ -1,0 +1,1721 @@
+{
+  "stage": "QuickPrint",
+  "count": 45,
+  "cases": [
+    {
+      "test_id": "QUICK PRINT _001",
+      "module": "Quick Print - Gallery Permission",
+      "section": "QUICK PRINT",
+      "description": "Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Tap the \"Get Started!\" button.",
+        "7. Verify that the Sign Up screen is displayed.",
+        "8. Tap the \"Sign Up Later\" button.",
+        "9. Wait until the Home screen is displayed.",
+        "10. If the notification permission popup is displayed, tap the \"Allow\" button or the \"Don't allow\" button.",
+        "11. Tap the \"Quick Print\" option.",
+        "12. Verify that the popup displays the message \"Allow Sprocket to access photos and videos on this device?\".",
+        "13. Verify that the \"Allow limited access\" option is displayed.",
+        "14. Verify that the \"Allow all\" option is displayed.",
+        "15. Verify that the \"Don't allow\" option is displayed."
+      ],
+      "type": "Positive",
+      "expected": "The Gallery permission popup is displayed with all three permission options.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 168,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT _001",
+          "module": "Quick Print - Gallery Permission",
+          "stage": "QuickPrint",
+          "description": "Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.",
+          "expected": "The Gallery permission popup is displayed with all three permission options.",
+          "verification": "Verify dialog: Quick Print",
+          "kind": "dialog",
+          "selector": "Quick Print"
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_002",
+      "module": "Gallery Permission",
+      "section": "QUICK PRINT",
+      "description": "Verify the Allow all option opens the Gallery screen.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. Close the notification permission popup if it is displayed.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. Verify that the Gallery permission popup is displayed.",
+        "11. Tap the \"Allow all\" option.",
+        "12. If the operating system permission dialog is displayed, tap the \"Allow\" button.",
+        "13. Verify that the Gallery screen is displayed.",
+        "14. Verify that all available Gallery images are displayed successfully."
+      ],
+      "type": "Positive",
+      "expected": "The Gallery screen opens and all images are displayed successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 183,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_002",
+          "module": "Gallery Permission",
+          "stage": "QuickPrint",
+          "description": "Verify the Allow all option opens the Gallery screen.",
+          "expected": "The Gallery screen opens and all images are displayed successfully.",
+          "verification": "Verify permission UI: Allow all",
+          "kind": "permission",
+          "selector": "Allow all"
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT _003",
+      "module": "Gallery Screen",
+      "section": "QUICK PRINT",
+      "description": "Verify the Gallery screen user interface.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. Close the notification permission popup if it is displayed.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. Tap the \"Allow all\" option.",
+        "11. Verify that the Gallery screen is displayed.",
+        "12. Verify that the Back button is displayed at the top left side of the screen.",
+        "13. Verify that the folder name dropdown is displayed at the top center of the screen.",
+        "14. Verify that the Gallery images are displayed.",
+        "15. Verify that the bottom navigation bar displays the \"More\", \"Create\", and \"Printer\" tabs. \"Create\"option by default highlighted",
+        "16. Verify that the \"Create\" tab is highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "The Gallery screen user interface is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 197,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT _003",
+          "module": "Gallery Screen",
+          "stage": "QuickPrint",
+          "description": "Verify the Gallery screen user interface.",
+          "expected": "The Gallery screen user interface is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_004",
+      "module": "Select Mode Tip",
+      "section": "QUICK PRINT",
+      "description": "Verify the Select Mode toast message on the Gallery screen.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. Close the notification permission popup if it is displayed.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. Tap the \"Allow all\" option.",
+        "11. Verify that the Gallery screen is displayed.",
+        "12. Verify that the toast message \"Tap and hold an image to enter select mode.\" is displayed at the bottom of the Gallery screen.",
+        "13. Verify that the toast message remains visible for approximately 5 seconds.",
+        "14. Verify that the toast message disappears automatically after approximately 5 seconds."
+      ],
+      "type": "Positive",
+      "expected": "The Select Mode toast message is displayed for approximately 5 seconds and then disappears automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 213,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_004",
+          "module": "Select Mode Tip",
+          "stage": "QuickPrint",
+          "description": "Verify the Select Mode toast message on the Gallery screen.",
+          "expected": "The Select Mode toast message is displayed for approximately 5 seconds and then disappears automatically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_005",
+      "module": "Gallery Permission",
+      "section": "QUICK PRINT",
+      "description": "Verify the Don't allow option on the Gallery permission popup.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. Close the notification permission popup if it is displayed.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. Verify that the Gallery permission popup is displayed.",
+        "11. Tap the \"Don't allow\" option.",
+        "12. Verify that Gallery access is not granted and the Gallery images are not displayed."
+      ],
+      "type": "Negative",
+      "expected": "Gallery access is denied and images are not displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 227,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_005",
+          "module": "Gallery Permission",
+          "stage": "QuickPrint",
+          "description": "Verify the Don't allow option on the Gallery permission popup.",
+          "expected": "Gallery access is denied and images are not displayed.",
+          "verification": "Verify permission UI: Don't allow",
+          "kind": "permission",
+          "selector": "Don't allow"
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_006",
+      "module": "Gallery Permission",
+      "section": "QUICK PRINT",
+      "description": "Verify the Allow limited access option.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. Close the notification permission popup if it is displayed.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. Verify that the Gallery permission popup is displayed.",
+        "11. Tap the \"Allow limited access\" option.",
+        "12. Select one or more photos from the operating system photo picker.",
+        "13. Verify that only the selected photos are displayed in the Gallery screen."
+      ],
+      "type": "Positive",
+      "expected": "Only the selected photos are available in the Gallery after granting limited access.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 239,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_006",
+          "module": "Gallery Permission",
+          "stage": "QuickPrint",
+          "description": "Verify the Allow limited access option.",
+          "expected": "Only the selected photos are available in the Gallery after granting limited access.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_007",
+      "module": "Gallery - Select Mode",
+      "section": "QUICK PRINT",
+      "description": "Verify the Gallery screen enters Select Mode after selecting one photo.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Wait for the Splash Screen to complete automatically.",
+        "4. Swipe from right to left to complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "11. Verify that the Gallery screen is displayed.",
+        "12. Verify that the toast message \"Tap and hold an image to enter select mode.\" is displayed for approximately 5 seconds and disappears automatically.",
+        "13. Verify that the bottom navigation bar displays \"More\", \"Create\", and \"Printer\", and the \"Create\" tab is highlighted by default.",
+        "14. Verify that the Back arrow is displayed at the top left side, the folder name \"Recent\" is displayed in the center, and the Sort icon is displayed at the top right side with \"Newest\" selected by default.",
+        "15. Tap and hold one photo.",
+        "16. Verify that the selected photo displays a parrot green selection circle with a black check mark.",
+        "17. Verify that \"1 Photo Selected\" is displayed at the bottom left side.",
+        "18. Verify that the \"Print Preview\" button is enabled at the bottom right side.",
+        "19. Verify that the \"Cancel\" text is displayed in red color at the top left side."
+      ],
+      "type": "Positive",
+      "expected": "Gallery enters Select Mode successfully and all selection controls are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 252,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_007",
+          "module": "Gallery - Select Mode",
+          "stage": "QuickPrint",
+          "description": "Verify the Gallery screen enters Select Mode after selecting one photo.",
+          "expected": "Gallery enters Select Mode successfully and all selection controls are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_008",
+      "module": "Gallery - Multiple Selection",
+      "section": "QUICK PRINT",
+      "description": "Verify selecting both photos and videos in Select Mode.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Tap the \"Allow\" button on the notification permission popup if displayed.",
+        "7. Tap the \"Quick Print\" option.",
+        "8. Tap the \"Allow all\" button on the Gallery permission popup.",
+        "9. Tap and hold one image to enter Select Mode.",
+        "10. Tap one video and one photo.",
+        "11. Verify that the bottom left side displays \"1 Photo & 1 Video Selected\".",
+        "12. Verify that the \"Print Preview\" button remains enabled.",
+        "13. Verify that the \"Cancel\" text remains displayed in red color at the top left side."
+      ],
+      "type": "Positive",
+      "expected": "The application correctly displays the selected photo and video count.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 271,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_008",
+          "module": "Gallery - Multiple Selection",
+          "stage": "QuickPrint",
+          "description": "Verify selecting both photos and videos in Select Mode.",
+          "expected": "The application correctly displays the selected photo and video count.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_009",
+      "module": "Gallery - Unselect Photos",
+      "section": "QUICK PRINT",
+      "description": "Verify unselecting all selected photos and videos.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Allow all required permissions.",
+        "7. Open the Gallery through the \"Quick Print\" option.",
+        "8. Enter Select Mode by selecting one or more photos.",
+        "9. Tap each selected photo or video again to remove the selection.",
+        "10. Verify that the bottom left side displays \"0 Photos Selected\".",
+        "11. Verify that the \"Print Preview\" button is disabled.",
+        "12. Verify that the Gallery exits Select Mode successfully after all items are unselected."
+      ],
+      "type": "Positive",
+      "expected": "All selected items are removed and the Print Preview button is disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 284,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_009",
+          "module": "Gallery - Unselect Photos",
+          "stage": "QuickPrint",
+          "description": "Verify unselecting all selected photos and videos.",
+          "expected": "All selected items are removed and the Print Preview button is disabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINGT_010",
+      "module": "Gallery - Maximum Selection Limit",
+      "section": "QUICK PRINT",
+      "description": "Verify the maximum selection limit of 10 photos.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Allow all required permissions.",
+        "7. Open the Gallery through the \"Quick Print\" option.",
+        "8. Tap and hold one image to enter Select Mode.",
+        "9. Select ten photos.",
+        "10. Verify that the bottom left side displays \"10 Photos Selected\".",
+        "11. Verify that the \"Print Preview\" button remains enabled.",
+        "12. Attempt to select the eleventh photo.",
+        "13. Verify that a toast message is displayed at the bottom with the text \"Maximum of 10 photos allowed.\"",
+        "14. Verify that the toast message displays a warning icon on the left side, a red border around the message, and a close icon on the right side.",
+        "15. Verify that the eleventh photo is not selected."
+      ],
+      "type": "Negative",
+      "expected": "The application prevents selecting more than ten photos and displays the warning toast message correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 296,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINGT_010",
+          "module": "Gallery - Maximum Selection Limit",
+          "stage": "QuickPrint",
+          "description": "Verify the maximum selection limit of 10 photos.",
+          "expected": "The application prevents selecting more than ten photos and displays the warning toast message correctly.",
+          "verification": "Verify toast: More",
+          "kind": "toast",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRIN_011",
+      "module": "Gallery - Select Mode User Interface",
+      "section": "QUICK PRINT",
+      "description": "Verify the Select Mode user interface.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Allow all required permissions.",
+        "7. Open the Gallery through the \"Quick Print\" option.",
+        "8. Tap and hold one image to enter Select Mode.",
+        "9. Verify that the \"Cancel\" text is displayed in red color at the top left side.",
+        "10. Verify that the folder name \"Recent\" is displayed in the center.",
+        "11. Verify that the Sort icon is displayed at the top right side.",
+        "12. Verify that the selected image displays a green selection indicator with a black check mark.",
+        "13. Verify that the bottom left side displays the selected item count.",
+        "14. Verify that the \"Print Preview\" button is displayed at the bottom right side."
+      ],
+      "type": "Positive",
+      "expected": "All Select Mode user interface elements are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 311,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRIN_011",
+          "module": "Gallery - Select Mode User Interface",
+          "stage": "QuickPrint",
+          "description": "Verify the Select Mode user interface.",
+          "expected": "All Select Mode user interface elements are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT_012",
+      "module": "Select Gallery - Facebook",
+      "section": "QUICK PRINT",
+      "description": "Verify that the user can open the Select Gallery screen and the Facebook option is displayed.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.",
+        "7. Tap the \"Get Started!\" button.",
+        "8. Verify that the Sign Up screen is displayed.",
+        "9. Tap the \"Sign Up Later\" button.",
+        "10. Wait until the Home screen is displayed successfully.",
+        "11. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "12. Tap the \"Quick Print\" option.",
+        "13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "14. Verify that the Gallery screen is displayed successfully.",
+        "15. Verify that the toast message \"Tap and hold an image to enter select mode.\" is displayed for approximately 5 seconds and disappears automatically.",
+        "16. Verify that the Back arrow is displayed at the top left side.",
+        "17. Verify that the folder name \"Recent\" is displayed at the top center.",
+        "18. Verify that the Sort icon is displayed at the top right side.",
+        "19. Tap the folder name \"Recent\".",
+        "20. Verify that the \"Select Gallery\" screen is displayed.",
+        "21. Verify that the Close (X) icon is displayed at the top left side.",
+        "22. Verify that the title \"Select Gallery\" is displayed at the top center.",
+        "23. Verify that all device folders are displayed.",
+        "24. Verify that the \"Facebook\" option is displayed at the bottom of the screen."
+      ],
+      "type": "Positive",
+      "expected": "The Select Gallery screen opens successfully and the Facebook option is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 325,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT_012",
+          "module": "Select Gallery - Facebook",
+          "stage": "QuickPrint",
+          "description": "Verify that the user can open the Select Gallery screen and the Facebook option is displayed.",
+          "expected": "The Select Gallery screen opens successfully and the Facebook option is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 13",
+      "module": "Facebook Gallery",
+      "section": "QUICK PRINT",
+      "description": "Verify that the Facebook Gallery opens successfully.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Wait until the Splash Screen is completed automatically.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. Tap the \"Allow\" button if the notification permission popup is displayed.",
+        "9. Tap the \"Quick Print\" option.",
+        "10. Tap the \"Allow all\" button if the Gallery permission popup is displayed.",
+        "11. Tap the folder name \"Recent\".",
+        "12. Tap the \"Facebook\" option.",
+        "13. Verify that the loading indicator is displayed for a few seconds.",
+        "14. Verify that the Facebook Gallery screen is displayed.",
+        "15. Verify that the Facebook account name is displayed below the Facebook title.",
+        "16. Verify that the Back arrow is displayed at the top left side.",
+        "17. Verify that the More Options (three-dot) icon is displayed at the top right side.",
+        "18. Verify that the Facebook folders are displayed successfully."
+      ],
+      "type": "Positive",
+      "expected": "Facebook Gallery opens successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 349,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 13",
+          "module": "Facebook Gallery",
+          "stage": "QuickPrint",
+          "description": "Verify that the Facebook Gallery opens successfully.",
+          "expected": "Facebook Gallery opens successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 14",
+      "module": "Facebook Overflow Menu",
+      "section": "QUICK PRINT",
+      "description": "Verify the Unlink option in the overflow menu.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Open the Gallery using the \"Quick Print\" option.",
+        "7. Open the \"Select Gallery\" screen.",
+        "8. Tap the \"Facebook\" option.",
+        "9. Wait until the Facebook Gallery screen is displayed.",
+        "10. Tap the More Options (three-dot) icon.",
+        "11. Verify that the \"Unlink\" option is displayed."
+      ],
+      "type": "Positive",
+      "expected": "The overflow menu displays the Unlink option.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 367,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 14",
+          "module": "Facebook Overflow Menu",
+          "stage": "QuickPrint",
+          "description": "Verify the Unlink option in the overflow menu.",
+          "expected": "The overflow menu displays the Unlink option.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 15",
+      "module": "Facebook Unlink Popup",
+      "section": "QUICK PRINT",
+      "description": "Verify the Unlink confirmation popup user interface.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Open the Gallery using the \"Quick Print\" option.",
+        "7. Open the Facebook Gallery.",
+        "8. Tap the More Options (three-dot) icon.",
+        "9. Tap the \"Unlink\" option.",
+        "10. Verify that the Unlink popup is displayed.",
+        "11. Verify that the title \"Unlink\" is displayed in bold.",
+        "12. Verify that the warning icon is displayed.",
+        "13. Verify that the Close (X) icon is displayed at the top right side.",
+        "14. Verify that the description displays \"Are you sure you want to sign out of Facebook? Your Facebook photos will no longer be available in the gallery.\"",
+        "15. Verify that the \"Cancel\" button is displayed.",
+        "16. Verify that the \"Sign Out\" button is displayed and highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "The Unlink confirmation popup is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 378,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 15",
+          "module": "Facebook Unlink Popup",
+          "stage": "QuickPrint",
+          "description": "Verify the Unlink confirmation popup user interface.",
+          "expected": "The Unlink confirmation popup is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 16",
+      "module": "Facebook Sign Out",
+      "section": "QUICK PRINT",
+      "description": "Verify that the user can sign out from Facebook successfully.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Open the Facebook Gallery.",
+        "7. Tap the More Options (three-dot) icon.",
+        "8. Tap the \"Unlink\" option.",
+        "9. Tap the \"Sign Out\" button.",
+        "10. Verify that the popup is closed.",
+        "11. Verify that the Facebook account is signed out successfully.",
+        "12. Verify that the application returns to the Select Gallery screen.",
+        "13. Verify that Facebook folders and Facebook photos are no longer displayed."
+      ],
+      "type": "Positive",
+      "expected": "Facebook account is successfully signed out and removed from Gallery.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 394,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 16",
+          "module": "Facebook Sign Out",
+          "stage": "QuickPrint",
+          "description": "Verify that the user can sign out from Facebook successfully.",
+          "expected": "Facebook account is successfully signed out and removed from Gallery.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 17",
+      "module": "Facebook Cancel Unlink",
+      "section": "QUICK PRINT",
+      "description": "Verify the Cancel button on the Unlink popup.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen and onboarding flow.",
+        "4. Tap the \"Get Started!\" button.",
+        "5. Tap the \"Sign Up Later\" button.",
+        "6. Open the Facebook Gallery.",
+        "7. Tap the More Options (three-dot) icon.",
+        "8. Tap the \"Unlink\" option.",
+        "9. Tap the \"Cancel\" button.",
+        "10. Verify that the popup is closed.",
+        "11. Verify that the Facebook Gallery screen remains displayed.",
+        "12. Verify that the Facebook account remains linked."
+      ],
+      "type": "Negative",
+      "expected": "The popup is closed without signing out from Facebook.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 407,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 17",
+          "module": "Facebook Cancel Unlink",
+          "stage": "QuickPrint",
+          "description": "Verify the Cancel button on the Unlink popup.",
+          "expected": "The popup is closed without signing out from Facebook.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 18",
+      "module": "Facebook Gallery - No Internet",
+      "section": "QUICK PRINT",
+      "description": "Verify the No Internet popup when opening Facebook Gallery without internet.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.",
+        "7. Tap the \"Get Started!\" button.",
+        "8. Verify that the Sign Up screen is displayed.",
+        "9. Tap the \"Sign Up Later\" button.",
+        "10. Wait until the Home screen is displayed successfully.",
+        "11. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "12. Tap the \"Quick Print\" option.",
+        "13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "14. Verify that the Gallery screen is displayed.",
+        "15. Verify that the Back arrow is displayed at the top left side, the folder name \"Recent\" is displayed at the top center, and the Sort icon is displayed at the top right side.",
+        "16. Turn off the internet connection.",
+        "17. Tap the folder name \"Recent\".",
+        "18. Tap the \"Facebook\" option.",
+        "19. Verify that the popup displays the description \"Unable to connect to the Internet. Please reconnect and try again.\"",
+        "20. Verify that the green \"Open Settings\" button is displayed."
+      ],
+      "type": "Negative",
+      "expected": "The No Internet popup is displayed with the correct message and Open Settings button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 419,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 18",
+          "module": "Facebook Gallery - No Internet",
+          "stage": "QuickPrint",
+          "description": "Verify the No Internet popup when opening Facebook Gallery without internet.",
+          "expected": "The No Internet popup is displayed with the correct message and Open Settings button.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 19",
+      "module": "Facebook Gallery - Open Settings",
+      "section": "QUICK PRINT",
+      "description": "Verify that the Open Settings button redirects to Wi-Fi Settings.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Open the Gallery through the \"Quick Print\" option.",
+        "8. Turn off the internet connection.",
+        "9. Open the Facebook Gallery.",
+        "10. Verify that the No Internet popup is displayed.",
+        "11. Tap the \"Open Settings\" button.",
+        "12. Verify that the device Wi-Fi Settings screen is opened.",
+        "13. Enable the internet connection.",
+        "14. Return to the application."
+      ],
+      "type": "Positive",
+      "expected": "The application redirects to Wi-Fi Settings and allows the user to reconnect.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 439,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 19",
+          "module": "Facebook Gallery - Open Settings",
+          "stage": "QuickPrint",
+          "description": "Verify that the Open Settings button redirects to Wi-Fi Settings.",
+          "expected": "The application redirects to Wi-Fi Settings and allows the user to reconnect.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 20",
+      "module": "Facebook Gallery - Wi-Fi Direct",
+      "section": "QUICK PRINT",
+      "description": "Verify the Wi-Fi Direct No Internet popup.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete onboarding and open Facebook Gallery.",
+        "4. Connect the device to the HP Sprocket Studio Plus Wi-Fi Direct network.",
+        "5. Tap the Facebook Gallery.",
+        "6. Verify that the \"No Internet\" popup is displayed.",
+        "7. Verify that the title \"No Internet\" is displayed in bold.",
+        "8. Verify that the information icon is displayed at the top of the popup.",
+        "9. Verify that the Close (X) icon is displayed at the top right side.",
+        "10. Verify that the description displays \"When connected to printer via Wi-Fi Direct, internet access requires mobile data. Since your mobile device does not have data available, your social media cannot be accessed.\"",
+        "11. Tap the \"OK\" button."
+      ],
+      "type": "Negative",
+      "expected": "The Wi-Fi Direct No Internet popup is displayed with the correct information.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 453,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 20",
+          "module": "Facebook Gallery - Wi-Fi Direct",
+          "stage": "QuickPrint",
+          "description": "Verify the Wi-Fi Direct No Internet popup.",
+          "expected": "The Wi-Fi Direct No Internet popup is displayed with the correct information.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 21",
+      "module": "Facebook Gallery Refresh",
+      "section": "QUICK PRINT",
+      "description": "Verify refreshing the Facebook Gallery after the internet connection is restored.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete onboarding and open Facebook Gallery.",
+        "4. Restore the internet connection.",
+        "5. Verify that the text \"No albums found\" is displayed initially if albums are unavailable.",
+        "6. Swipe down from the top of the Facebook Gallery screen.",
+        "7. Verify that the \"Refreshing...\" loader is displayed.",
+        "8. Wait until the refresh is completed.",
+        "9. Verify that the Facebook folders are displayed successfully."
+      ],
+      "type": "Positive",
+      "expected": "Facebook folders are refreshed and displayed successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 464,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 21",
+          "module": "Facebook Gallery Refresh",
+          "stage": "QuickPrint",
+          "description": "Verify refreshing the Facebook Gallery after the internet connection is restored.",
+          "expected": "Facebook folders are refreshed and displayed successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 22",
+      "module": "Facebook Folder",
+      "section": "QUICK PRINT",
+      "description": "Verify opening a Facebook folder and displaying images.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete onboarding.",
+        "4. Open Facebook Gallery.",
+        "5. Select any Facebook folder.",
+        "6. Verify that the selected folder is opened.",
+        "7. Verify that the Back arrow is displayed at the top left side.",
+        "8. Verify that the Facebook folder name is displayed at the top center.",
+        "9. Verify that the Sort icon is displayed at the top right side.",
+        "10. Verify that Facebook images are displayed successfully.",
+        "11. Verify that the Tag icon is displayed at the bottom right side.",
+        "12. Verify that the bottom navigation bar displays \"More\", \"Create\", and \"Printer\", and the \"Create\" tab is highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "The selected Facebook folder opens successfully with all images.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 473,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 22",
+          "module": "Facebook Folder",
+          "stage": "QuickPrint",
+          "description": "Verify opening a Facebook folder and displaying images.",
+          "expected": "The selected Facebook folder opens successfully with all images.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 23",
+      "module": "Facebook Tag Search",
+      "section": "QUICK PRINT",
+      "description": "Verify the Tag Search screen.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete onboarding and open any Facebook folder.",
+        "4. Tap the Tag icon once.",
+        "5. Verify that the floating message \"Tap to search for photos using tags.\" is displayed and disappears automatically.",
+        "6. Double tap the Tag icon.",
+        "7. Verify that the Tag Search screen is displayed.",
+        "8. Verify that the heading \"Enter a #tag to start filtering your Facebook gallery.\" is displayed in bold.",
+        "9. Verify that the description \"For photos to display here, you must have added the #tag to the photo in the original social media post. (Example: #HPSPROCKET)\" is displayed.",
+        "10. Verify that the tag input field is displayed with \"#\" by default.",
+        "11. Verify that the Close (X) icon is displayed inside the text field."
+      ],
+      "type": "Positive",
+      "expected": "The Tag Search screen is displayed correctly with all required controls.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 485,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 23",
+          "module": "Facebook Tag Search",
+          "stage": "QuickPrint",
+          "description": "Verify the Tag Search screen.",
+          "expected": "The Tag Search screen is displayed correctly with all required controls.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 24",
+      "module": "Facebook Tag Filter",
+      "section": "QUICK PRINT",
+      "description": "Verify filtering Facebook photos using a valid tag.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete onboarding and open the Tag Search screen.",
+        "4. Enter a valid tag, for example \"#HPSPROCKET\".",
+        "5. Tap the \"Done\" button on the keyboard.",
+        "6. Wait until the search is completed.",
+        "7. Verify that only photos matching the entered tag are displayed.",
+        "8. Verify that the entered tag remains displayed in the search field."
+      ],
+      "type": "Positive",
+      "expected": "Only photos matching the entered tag are displayed successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 496,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 24",
+          "module": "Facebook Tag Filter",
+          "stage": "QuickPrint",
+          "description": "Verify filtering Facebook photos using a valid tag.",
+          "expected": "Only photos matching the entered tag are displayed successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 25",
+      "module": "Facebook Gallery - Invalid Tag Search",
+      "section": "QUICK PRINT",
+      "description": "Verify the application displays the \"No Tagged Photos\" message when the user searches with an invalid Facebook tag.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.",
+        "7. Tap the \"Get Started!\" button.",
+        "8. Verify that the Sign Up screen is displayed.",
+        "9. Tap the \"Sign Up Later\" button.",
+        "10. Wait until the Home screen is displayed successfully.",
+        "11. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "12. Tap the \"Quick Print\" option.",
+        "13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "14. Verify that the Gallery screen is displayed successfully.",
+        "15. Verify that the Back arrow is displayed at the top left side, the folder name \"Recent\" is displayed at the top center, and the Sort icon is displayed at the top right side.",
+        "16. Tap the folder name \"Recent\".",
+        "17. Tap the \"Facebook\" option.",
+        "18. Wait until the Facebook Gallery is displayed successfully.",
+        "19. Tap the Tag icon.",
+        "20. Verify that the Tag Search screen is displayed.",
+        "21. Enter the invalid tag \"Abc\" in the tag search field.",
+        "22. Tap the \"Done\" button on the keyboard.",
+        "23. Verify that the application searches for the entered tag.",
+        "24. Verify that the center of the screen displays the title \"No Tagged Photos\".",
+        "25. Verify that the description \"Please try searching another tag.\" is displayed below the title."
+      ],
+      "type": "Negative",
+      "expected": "The application displays the \"No Tagged Photos\" message with the description \"Please try searching another tag.\" when no matching tag is found.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 504,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 25",
+          "module": "Facebook Gallery - Invalid Tag Search",
+          "stage": "QuickPrint",
+          "description": "Verify the application displays the \"No Tagged Photos\" message when the user searches with an invalid Facebook tag.",
+          "expected": "The application displays the \"No Tagged Photos\" message with the description \"Please try searching another tag.\" when no matching tag is found.",
+          "verification": "Verify visible: No Tagged Photos",
+          "kind": "visible",
+          "selector": "No Tagged Photos"
+        },
+        {
+          "test_id": "QUICK PRINT 25",
+          "module": "Facebook Gallery - Invalid Tag Search",
+          "stage": "QuickPrint",
+          "description": "Verify the application displays the \"No Tagged Photos\" message when the user searches with an invalid Facebook tag.",
+          "expected": "The application displays the \"No Tagged Photos\" message with the description \"Please try searching another tag.\" when no matching tag is found.",
+          "verification": "Verify visible: Please try searching another tag.",
+          "kind": "visible",
+          "selector": "Please try searching another tag."
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 26",
+      "module": "Facebook Gallery - Valid Tag Search",
+      "section": "QUICK PRINT",
+      "description": "Verify the application displays Facebook photos when the user searches with a valid Facebook tag.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.",
+        "7. Tap the \"Get Started!\" button.",
+        "8. Verify that the Sign Up screen is displayed.",
+        "9. Tap the \"Sign Up Later\" button.",
+        "10. Wait until the Home screen is displayed successfully.",
+        "11. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "12. Tap the \"Quick Print\" option.",
+        "13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "14. Verify that the Gallery screen is displayed successfully.",
+        "15. Verify that the Back arrow is displayed at the top left side, the folder name \"Recent\" is displayed at the top center, and the Sort icon is displayed at the top right side.",
+        "16. Tap the folder name \"Recent\".",
+        "17. Tap the \"Facebook\" option.",
+        "18. Wait until the Facebook Gallery is displayed successfully.",
+        "19. Tap the Tag icon.",
+        "20. Verify that the Tag Search screen is displayed.",
+        "21. Enter the valid tag \"#flood\" in the tag search field.",
+        "22. Tap the \"Done\" button on the keyboard.",
+        "23. Verify that the loading indicator is displayed while the application searches for the tag.",
+        "24. Wait until the search is completed.",
+        "25. Verify that only the Facebook photos containing the tag \"#flood\" are displayed successfully."
+      ],
+      "type": "Positive",
+      "expected": "The application searches successfully and displays only the Facebook photos matching the entered tag.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 529,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 26",
+          "module": "Facebook Gallery - Valid Tag Search",
+          "stage": "QuickPrint",
+          "description": "Verify the application displays Facebook photos when the user searches with a valid Facebook tag.",
+          "expected": "The application searches successfully and displays only the Facebook photos matching the entered tag.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 27",
+      "module": "Facebook Gallery - No Internet Tag Search",
+      "section": "QUICK PRINT",
+      "description": "Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags without an internet connection.",
+      "steps": [
+        "1. Install the application on the device.\n2. Launch the application.\n3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.\n4. Wait until the Splash Screen is completed automatically.\n5. Swipe from right to left to complete all four onboarding screens.\n6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.\n7. Tap the \"Get Started!\" button.\n8. Verify that the Sign Up screen is displayed.\n9. Tap the \"Sign Up Later\" button.\n10. Wait until the Home screen is displayed successfully.\n11. If the notification permission popup is displayed, tap the \"Allow\" button.\n12. Tap the \"Quick Print\" option.\n13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.\n14. Verify that the Gallery screen is displayed successfully.\n15. Verify that the Back arrow is displayed at the top left side, the folder name \"Recent\" is displayed at the top center, and the Sort icon is displayed at the top right side.\n16. Tap the folder name \"Recent\".\n17. Tap the \"Facebook\" option.\n18. Wait until the Facebook Gallery is displayed successfully.\n19. Turn off the internet connection on the device.\n20. Tap the Tag icon at the bottom right side of the Facebook Gallery screen.\n21. Verify that the center of the screen displays the bold text \"No Internet\".\n22. Verify that the description \"Please connect to the Internet and try again.\" is displayed below the title.\n23. Verify that the tag search text field is displayed in the disabled state.\n24. Verify that the previously entered tag, if any, is displayed but cannot be edited while there is no internet connection.\n25. Verify that the Back arrow is displayed at the top left side.\n26. Verify that the Facebook folder name is displayed at the top center.\n27. Verify that the Sort icon is displayed at the top right side.\n28. Verify that the bottom navigation bar displays \"More\", \"Create\", and \"Printer\", and that the \"Create\" tab is highlighted by default."
+      ],
+      "type": "Negative",
+      "expected": "The application displays the \"No Internet\" screen with the correct message, disables the tag search field, and prevents tag searching until the internet connection is restored.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 554,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 27",
+          "module": "Facebook Gallery - No Internet Tag Search",
+          "stage": "QuickPrint",
+          "description": "Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags without an internet connection.",
+          "expected": "The application displays the \"No Internet\" screen with the correct message, disables the tag search field, and prevents tag searching until the internet connection is restored.",
+          "verification": "Verify visible: No Internet",
+          "kind": "visible",
+          "selector": "No Internet"
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 28",
+      "module": "Gallery - Sort Menu",
+      "section": "QUICK PRINT",
+      "description": "Verify that the user can sort gallery photos using the Newest and Oldest options.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.",
+        "7. Tap the \"Get Started!\" button.",
+        "8. Verify that the Sign Up screen is displayed.",
+        "9. Tap the \"Sign Up Later\" button.",
+        "10. Wait until the Home screen is displayed successfully.",
+        "11. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "12. Tap the \"Quick Print\" option.",
+        "13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "14. Verify that the Gallery screen is displayed successfully.",
+        "15. Verify that the Back arrow is displayed at the top left side, the folder name \"Recent\" is displayed at the top center, and the Sort icon is displayed at the top right side.",
+        "16. Tap the folder name \"Recent\".",
+        "17. Verify that the folder list is displayed and select the \"Recent\" folder if it is not already selected.",
+        "18. Tap the Sort icon at the top right side of the screen.",
+        "19. Verify that the Sort menu is displayed with the options \"Newest\" and \"Oldest\".",
+        "20. Verify that the \"Newest\" option is selected by default and a green check mark is displayed beside it.",
+        "21. Verify that the newest photos are displayed at the top of the Gallery and older photos are displayed below according to the capture date.",
+        "22. Tap the \"Oldest\" option.",
+        "23. Verify that the green check mark moves to the \"Oldest\" option.",
+        "24. Verify that the Sort menu closes automatically.",
+        "25. Verify that the oldest photos are displayed at the top of the Gallery and the newest photos are displayed at the bottom.",
+        "26. Tap the Sort icon again.",
+        "27. Tap the \"Newest\" option.",
+        "28. Verify that the green check mark moves back to the \"Newest\" option.",
+        "29. Verify that the newest photos are displayed at the top of the Gallery and the oldest photos are displayed at the bottom.",
+        "30. Tap the Sort icon again.",
+        "31. Verify that the Sort menu displays only the \"Newest\" and \"Oldest\" options.",
+        "32. Tap anywhere outside the Sort menu.",
+        "33. Verify that the Sort menu is closed without changing the selected sorting option.",
+        "34. Verify that the Gallery screen continues to display the Back arrow, folder name, Sort icon, photo thumbnails, and the bottom navigation bar with \"More\", \"Create\" (highlighted), and \"Printer\"."
+      ],
+      "type": "Positive",
+      "expected": "The Sort menu displays Newest and Oldest options correctly. The selected option shows a green check mark, and the gallery photos are reordered correctly according to the selected sorting option.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 555,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 28",
+          "module": "Gallery - Sort Menu",
+          "stage": "QuickPrint",
+          "description": "Verify that the user can sort gallery photos using the Newest and Oldest options.",
+          "expected": "The Sort menu displays Newest and Oldest options correctly. The selected option shows a green check mark, and the gallery photos are reordered correctly according to the selected sorting option.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "QUICK PRINT 29",
+      "module": "Gallery - No Photos Found",
+      "section": "QUICK PRINT",
+      "description": "Verify the No Photos Found screen when the selected gallery folder does not contain any photos.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Swipe from right to left to complete all four onboarding screens.",
+        "6. Verify that the fourth onboarding screen displays the \"Get Started!\" button.",
+        "7. Tap the \"Get Started!\" button.",
+        "8. Verify that the Sign Up screen is displayed.",
+        "9. Tap the \"Sign Up Later\" button.",
+        "10. Wait until the Home screen is displayed successfully.",
+        "11. If the notification permission popup is displayed, tap the \"Allow\" button.",
+        "12. Tap the \"Quick Print\" option.",
+        "13. If the Gallery permission popup is displayed, tap the \"Allow all\" button.",
+        "14. Verify that the Gallery screen is displayed successfully.",
+        "15. Verify that the Back arrow is displayed at the top left side of the screen.",
+        "16. Verify that the folder name is displayed at the top center.",
+        "17. Verify that the Sort icon is displayed at the top right side of the screen.",
+        "18. Tap the folder name displayed at the top center.",
+        "19. Select a folder that does not contain any photos.",
+        "20. Verify that the Gallery screen is refreshed automatically.",
+        "21. Verify that the center of the screen displays the \"No Photos Found\" illustration.",
+        "22. Verify that the text \"No photos found.\" is displayed below the illustration.",
+        "23. Verify that no photo thumbnails are displayed on the screen.",
+        "24. Verify that the Back arrow remains visible at the top left side.",
+        "25. Verify that the selected folder name remains displayed at the top center.",
+        "26. Verify that the Sort icon remains displayed at the top right side.",
+        "27. Verify that the screen remains responsive and does not crash or freeze.",
+        "28. Select another folder that contains photos.",
+        "29. Verify that the \"No photos found.\" message disappears automatically.",
+        "30. Verify that the photo thumbnails are displayed successfully for the selected folder."
+      ],
+      "type": "Positive",
+      "expected": "When a folder contains no photos, the application displays the No Photos Found illustration and message. When the user selects another folder that contains photos, the message disappears and the photo thumbnails are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 589,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "QUICK PRINT 29",
+          "module": "Gallery - No Photos Found",
+          "stage": "QuickPrint",
+          "description": "Verify the No Photos Found screen when the selected gallery folder does not contain any photos.",
+          "expected": "When a folder contains no photos, the application displays the No Photos Found illustration and message. When the user selects another folder that contains photos, the message disappears and the photo thumbnails are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_06",
+      "module": "Gallery Interaction",
+      "section": "PRECUT",
+      "description": "Verify gallery expansion, collapse, and auto-snap.",
+      "steps": [
+        "1. Perform Precut_01 steps. 2. Drag gallery drawer upward. 3. Drag downward. 4. Release at different heights and verify auto-snap behavior."
+      ],
+      "type": "Positive/Negative",
+      "expected": "Gallery expands, collapses, and snaps correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 641,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Precut_06",
+          "module": "Gallery Interaction",
+          "stage": "QuickPrint",
+          "description": "Verify gallery expansion, collapse, and auto-snap.",
+          "expected": "Gallery expands, collapses, and snaps correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 02",
+      "module": "CR_05B_Select Mode with Videos",
+      "section": "VIDEO FRAMES",
+      "description": "Verify mixed media selection.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Enter Select Mode. 3. Select a combination of photos and videos. 4. Verify selection badges and counter update correctly."
+      ],
+      "type": "Positive",
+      "expected": "Selected items show sequence numbers and bottom counter displays the correct number of selected photos and videos.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 647,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Video frame 02",
+          "module": "CR_05B_Select Mode with Videos",
+          "stage": "QuickPrint",
+          "description": "Verify mixed media selection.",
+          "expected": "Selected items show sequence numbers and bottom counter displays the correct number of selected photos and videos.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen  106",
+      "module": "Saved to Gallery Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started!, connect the HP Sprocket Studio Plus printer, and select a Pre-Cut Sticker or Collage image from the Gallery.",
+        "3. Open the Print Preview screen and tap Print.",
+        "4. Wait for the CR_07L_Saved to Gallery Toast screen to appear.",
+        "5. Verify the Outstanding! title, Queue/Menu icon with badge count, printed image preview, timestamp, Sending to Print status, toast message and Done button.",
+        "6. Check the device Gallery after printing."
+      ],
+      "type": "Positive",
+      "expected": "The generated image is automatically saved to the device Gallery. The toast message \"Image saved to gallery.\" is displayed only once and disappears automatically after a few seconds. The Outstanding! title, Queue icon, image preview, timestamp, Sending to Print status and Done button are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1118,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen  106",
+          "module": "Saved to Gallery Toast",
+          "stage": "QuickPrint",
+          "description": "Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage",
+          "expected": "The generated image is automatically saved to the device Gallery. The toast message \"Image saved to gallery.\" is displayed only once and disappears automatically after a few seconds. The Outstanding! title, Queue icon, image preview, timestamp, Sending to Print status and Done button are displayed correctly.",
+          "verification": "Verify toast: Image saved to gallery.",
+          "kind": "toast",
+          "selector": "Image saved to gallery."
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 107",
+      "module": "Saved to Gallery Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify toast message and Gallery save failure handling",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started!, connect the HP Sprocket Studio Plus printer, and select a Pre-Cut Sticker or Collage image from the Gallery.",
+        "3. Open the Print Preview screen and tap Print.",
+        "4. Deny Gallery/Storage permission or simulate Gallery save failure.",
+        "5. Wait for the CR_07L_Saved to Gallery Toast screen to appear.",
+        "6. Verify toast/error message and tap Done."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate error message is displayed if the image cannot be saved to Gallery. The toast message is not duplicated. The Outstanding! title, Queue icon, image preview, timestamp, status text and Done button remain visible and functional. The application remains stable without crashes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1124,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 107",
+          "module": "Saved to Gallery Toast",
+          "stage": "QuickPrint",
+          "description": "Verify toast message and Gallery save failure handling",
+          "expected": "Appropriate error message is displayed if the image cannot be saved to Gallery. The toast message is not duplicated. The Outstanding! title, Queue icon, image preview, timestamp, status text and Done button remain visible and functional. The application remains stable without crashes.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 01",
+      "module": "Gallery (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify Gallery screen UI and Tile Print navigation",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and navigate to the Home screen.",
+        "3. Tap the Tile Print module.",
+        "4. Verify that the CR_08A_Gallery screen opens.",
+        "5. Verify the Back button, Folder Name dropdown, Sort icon, photo grid, date headers and bottom navigation (More, Create, Printer).",
+        "6. Tap any photo from the grid."
+      ],
+      "type": "Positive",
+      "expected": "Gallery screen opens successfully after tapping Tile Print. The Back button, Folder dropdown, Sort icon, photo grid and date headers are displayed correctly. Images are grouped by date and loaded from the Recents folder by default. Tapping a photo navigates the user to the Tile Print flow successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1131,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 01",
+          "module": "Gallery (Tile Print)",
+          "stage": "QuickPrint",
+          "description": "Verify Gallery screen UI and Tile Print navigation",
+          "expected": "Gallery screen opens successfully after tapping Tile Print. The Back button, Folder dropdown, Sort icon, photo grid and date headers are displayed correctly. Images are grouped by date and loaded from the Recents folder by default. Tapping a photo navigates the user to the Tile Print flow successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 02",
+      "module": "Gallery (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify folder selection and Tile Print restrictions",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and open the Tile Print module.",
+        "3. On the Gallery screen, tap the Folder Name dropdown and select another folder.",
+        "4. Exit the Gallery screen and open it again.",
+        "5. Try to enable Select Mode or select multiple photos.",
+        "6. Observe the screen behavior and error messages if any."
+      ],
+      "type": "Negative",
+      "expected": "Folder selector opens successfully. After reopening the Gallery, the default folder is reset to Recents. Select Mode is not available and multiple photo selection is not allowed in Tile Print mode. Appropriate message is displayed if the user attempts an unsupported action. The app remains stable without crashes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1137,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 02",
+          "module": "Gallery (Tile Print)",
+          "stage": "QuickPrint",
+          "description": "Verify folder selection and Tile Print restrictions",
+          "expected": "Folder selector opens successfully. After reopening the Gallery, the default folder is reset to Recents. Select Mode is not available and multiple photo selection is not allowed in Tile Print mode. Appropriate message is displayed if the user attempts an unsupported action. The app remains stable without crashes.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 03",
+      "module": "Select Mode Blocked Toast Message (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify blocked toast message, UI elements and bottom navigation",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and navigate to the Home screen.",
+        "3. Tap the Tile Print module and verify the Gallery screen opens.",
+        "4. Verify the Back button, Folder Name dropdown, Sort icon, photo grid, date headers and bottom navigation (More, Create, Printer).",
+        "5. Long press a photo or perform an action to enable Select Mode.",
+        "6. Verify the warning toast message at the bottom of the screen.",
+        "7. Verify the toast contains the red alert icon, text \"Multi-select is not available in Tile Print.\", and the X close icon.",
+        "8. Tap the X icon and verify the toast disappears.",
+        "9. Verify the bottom navigation (More, Create, Printer) remains visible and clickable."
+      ],
+      "type": "Positive",
+      "expected": "Gallery screen opens successfully from Tile Print. Top bar, Folder dropdown, Sort icon, date headers and photo grid are displayed correctly. Warning toast appears with the correct icon, text and close button. Toast disappears after tapping X. Bottom navigation remains visible and functional.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1143,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 03",
+          "module": "Select Mode Blocked Toast Message (Tile Print)",
+          "stage": "QuickPrint",
+          "description": "Verify blocked toast message, UI elements and bottom navigation",
+          "expected": "Gallery screen opens successfully from Tile Print. Top bar, Folder dropdown, Sort icon, date headers and photo grid are displayed correctly. Warning toast appears with the correct icon, text and close button. Toast disappears after tapping X. Bottom navigation remains visible and functional.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 04",
+      "module": "Select Mode Blocked Toast Message (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify multi-select restriction and error handling",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and open the Tile Print Gallery screen.",
+        "3. Trigger the blocked toast message by attempting to enter Select Mode.",
+        "4. Keep the toast visible and try selecting a second photo.",
+        "5. Observe the Gallery screen behavior and error message."
+      ],
+      "type": "Negative",
+      "expected": "The application does not allow multi-select in Tile Print mode. Only one photo can be selected at a time. The toast message \"Multi-select is not available in Tile Print.\" is displayed correctly. No UI overlap or crash occurs and the app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1152,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 04",
+          "module": "Select Mode Blocked Toast Message (Tile Print)",
+          "stage": "QuickPrint",
+          "description": "Verify multi-select restriction and error handling",
+          "expected": "The application does not allow multi-select in Tile Print mode. Only one photo can be selected at a time. The toast message \"Multi-select is not available in Tile Print.\" is displayed correctly. No UI overlap or crash occurs and the app remains stable.",
+          "verification": "Verify toast: Multi-select is not available in Tile Print.",
+          "kind": "toast",
+          "selector": "Multi-select is not available in Tile Print."
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 145",
+      "module": "Gallery",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Date-based Grouping",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Verify top left Back Arrow icon.",
+        "6. Verify tool categories are displayed: Text to Image, Image to Image, Background Tools, Object Tools, Photo Enhancements, Generates.",
+        "7. Scroll vertically through the tool list.",
+        "8. Open CR_16A.1 Select Image screen.",
+        "9. Scroll through the media feed."
+      ],
+      "type": "Positive",
+      "expected": "All images are grouped chronologically under date headers.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2573,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "AI tools 145",
+          "module": "Gallery",
+          "stage": "QuickPrint",
+          "description": "Verify Date-based Grouping",
+          "expected": "All images are grouped chronologically under date headers.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK 01",
+      "module": "Gallery - Edit Screen Navigation",
+      "section": "CUSTOM SDK",
+      "description": "Verify user is redirected to Custom SDK screen after tapping Edit icon.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Verify Share icon at top-right and Back arrow at top-left.",
+        "9. Verify Copies and Tiles options are displayed and Copies is selected by default.",
+        "10. Verify AI icon at bottom-left, Print button at center and Edit icon at bottom-right.",
+        "11. Verify bottom navigation bar displays More, Create, and Printer, and Create is highlighted by default.",
+        "12. Tap the Edit icon.",
+        "13. Verify navigation to Custom SDK editing screen."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to the Custom SDK editing screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4925,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK 01",
+          "module": "Gallery - Edit Screen Navigation",
+          "stage": "QuickPrint",
+          "description": "Verify user is redirected to Custom SDK screen after tapping Edit icon.",
+          "expected": "User is redirected to the Custom SDK editing screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  02",
+      "module": "Gallery - Image Display",
+      "section": "CUSTOM SDK",
+      "description": "Verify selected image is displayed in the Custom SDK editor.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Observe the image preview in Custom SDK editor."
+      ],
+      "type": "Positive",
+      "expected": "Selected image is displayed correctly without distortion.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4938,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  02",
+          "module": "Gallery - Image Display",
+          "stage": "QuickPrint",
+          "description": "Verify selected image is displayed in the Custom SDK editor.",
+          "expected": "Selected image is displayed correctly without distortion.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  03",
+      "module": "Gallery - Apply Edit",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can edit the selected image.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Apply any edit option.",
+        "10. Tap Done.",
+        "11. Verify user returns to Print Preview screen.",
+        "12. Apply any edit option and tap Apply.",
+        "13. Tap the Back Arrow icon.",
+        "14. Verify \"Save as new photo?\" popup appears.",
+        "15. Tap Save to Gallery."
+      ],
+      "type": "Positive",
+      "expected": "Image modifications are saved successfully and reflected on the Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4947,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  03",
+          "module": "Gallery - Apply Edit",
+          "stage": "QuickPrint",
+          "description": "Verify user can edit the selected image.",
+          "expected": "Image modifications are saved successfully and reflected on the Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   04",
+      "module": "Gallery - Print Edited Image",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can print an edited image successfully.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Apply any edit option and tap Done.",
+        "10. Verify changes are displayed on Preview screen.",
+        "11. Tap Print button."
+      ],
+      "type": "Positive",
+      "expected": "Edited image is sent to the printer and printing starts successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4962,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   04",
+          "module": "Gallery - Print Edited Image",
+          "stage": "QuickPrint",
+          "description": "Verify user can print an edited image successfully.",
+          "expected": "Edited image is sent to the printer and printing starts successfully.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  05",
+      "module": "Gallery - Back Navigation from Custom SDK",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can return from Custom SDK screen.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Tap Back Arrow icon.",
+        "10. Verify \"Save as new photo?\" popup appears.",
+        "11. Tap Save to Gallery."
+      ],
+      "type": "Positive",
+      "expected": "User is returned to the Print Preview screen and edited image is saved successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4973,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  05",
+          "module": "Gallery - Back Navigation from Custom SDK",
+          "stage": "QuickPrint",
+          "description": "Verify user can return from Custom SDK screen.",
+          "expected": "User is returned to the Print Preview screen and edited image is saved successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   06",
+      "module": "Gallery - No Printer Connected",
+      "section": "CUSTOM SDK",
+      "description": "Verify application behavior when no printer is selected.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Do not connect any printer.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon and apply any edit.",
+        "9. Tap Done.",
+        "10. Tap Print button."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate printer connection message is displayed and printing is not initiated.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4984,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   06",
+          "module": "Gallery - No Printer Connected",
+          "stage": "QuickPrint",
+          "description": "Verify application behavior when no printer is selected.",
+          "expected": "Appropriate printer connection message is displayed and printing is not initiated.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  08",
+      "module": "Gallery - Print Without Saving Edit",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can print image without saving any modifications.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Make changes but do not tap Save or Apply.",
+        "10. Return to Print Preview screen.",
+        "11. Tap Print button."
+      ],
+      "type": "Negative",
+      "expected": "System follows defined behavior (warning message is displayed or original image is printed as per requirement).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5002,
+      "stage": "QuickPrint",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  08",
+          "module": "Gallery - Print Without Saving Edit",
+          "stage": "QuickPrint",
+          "description": "Verify user can print image without saving any modifications.",
+          "expected": "System follows defined behavior (warning message is displayed or original image is printed as per requirement).",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

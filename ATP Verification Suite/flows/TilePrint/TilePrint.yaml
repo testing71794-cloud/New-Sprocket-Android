@@ -1,0 +1,18 @@
+# ATP Stage Flow: TilePrint
+# Auto-generated checklist. Navigation reuses Printing setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - TilePrint"
+tags:
+  - atp-verification
+  - tileprint
+---
+# Cases in this stage (8):
+#   - Tiles modules 05: Verify Tiles 2×2 screen UI and default layout
+#   - Tiles modules 06: Verify print restriction when no tile is selected
+#   - Tiles modules 11: Verify 3×3 grid UI, selection and print functionality
+#   - Tiles modules 12: Verify tile deselection restriction and error handling
+#   - Tiles modules 13: Verify tile selection and print
+#   - Tiles modules 14: Verify Print button when all tiles are unselected
+#   - Tiles modules 15: Verify Copies screen and printing
+#   - Tiles modules 16: Verify copy count retention and navigation
+- runFlow: ../Printing/Printing.yaml

@@ -1,0 +1,26 @@
+# Editor — 24 ATP cases
+
+- [ ] Print Preview Screen 37 | Gestures | Verify Fit/Fill Toast
+- [ ] Print Preview Screen 38 | Gestures | Verify Double Tap
+- [ ] Print Preview Screen 39 | Snapping | Verify Rotation Snap
+- [ ] Print Preview Screen 40 | Snapping | Verify Center Snap
+- [ ] Print Preview Screen 41 | Snapping | Verify Edge Snap
+- [ ] Print Preview Screen 42 | Gestures | Verify Boundary Lock
+- [ ] Print Preview Screen 43 | Gestures | Verify Fit/Fill Lock
+- [ ] Print Preview Screen 61 | Edit Tip | First-Time Session Tip Appearance
+- [ ] Print Preview Screen 62 | Edit Tip | Auto-Fade Duration Validation
+- [ ] Print Preview Screen 63 | Edit Tip | Session Repetition Restriction Check
+- [ ] Print Preview Screen 64 | Edit Tip | Priority Handling with System Toast Messages
+- [ ] Print Preview Screen 65 | Photo Fit | Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation
+- [ ] Tiles modules 10 | Gestures | Verify zoom and rotation persistence
+- [ ] AI Gtools 171 | Landscape Photo Fit | Verify automatic rotation of landscape image
+- [ ] AI tools 172 | Landscape Photo Fit | Verify proper fitting without cropping
+- [ ] AI tools 173 | Landscape Photo Fit | Verify dynamic tool name in header
+- [ ] AI tools 174 | Landscape Photo Fit | Verify Generate button execution
+- [ ] AI Toola 175 | Landscape Photo Fit | Verify back navigation to gallery
+- [ ] AI Tools 210 | Crop Photo | Verify Crop Photo functionality
+- [ ] Custom SDK  09 | Image Editor | Verify applying edit options
+- [ ] Custom SDK 10 | Image Editor | Verify cancelling edit
+- [ ] Custom SDK 11 | Save Photo | Verify "Save to Gallery"
+- [ ] Custom SDK   12 | Save Photo | Verify "Do not save"
+- [ ] Custom SDK   14 | Video Editing | Verify edit functionality and discard changes

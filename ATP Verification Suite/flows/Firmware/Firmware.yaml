@@ -1,0 +1,51 @@
+# ATP Stage Flow: Firmware
+# Auto-generated checklist. Navigation reuses Connection setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - Firmware"
+tags:
+  - atp-verification
+  - firmware
+---
+# Cases in this stage (51):
+#   - Print Preview Screen 34: Trigger & UI Validation
+#   - Print Preview Screen 35: Dismissal Interaction
+#   - Print Preview Screen 50: Intercept Print Action During Active Firmware Update
+#   - Print Preview Screen 51: Dismiss Popup via OK Button
+#   - Print Preview Screen 52: Dismiss Popup via Close Icon
+#   - Firmware Update 001: Verify Update Available button is displayed
+#   - Firmware Update 002: Verify Firmware Update Available popup
+#   - Firmware Update 003: Verify Update Now button functionality
+#   - Firmware Update 004: Verify Firmware Download In Progress screen
+#   - Firmware Update 005: Verify Firmware Installation In Progress screen
+#   - Firmware Update 006: Verify installation warning message
+#   - Firmware Update 007: Verify firmware installation completion
+#   - Firmware Update 12: Verify update restriction when battery is below 25%
+#   - Firmware Update 13: Verify update restriction when no paper is loaded
+#   - Firmware Update 14: Verify internet interruption during firmware download
+#   - Firmware Update 15: Verify navigation restriction during firmware installation
+#   - Firmware Update 16: Verify Update Available button is displayed
+#   - Firmware Update 17: Verify Firmware Update popup opens
+#   - Firmware Update 18: Verify popup UI content
+#   - Firmware Update 19: Verify Not Right Now functionality
+#   - Firmware Update 20: Verify Update Now starts firmware download
+#   - Firmware Update 21: Verify download progress screen
+#   - Firmqare Update 22: Verify UI remains visible during download
+#   - Firmware Update 23: Verify installation screen appears
+#   - Firmware Update 24: Verify installation warning message
+#   - Firmware Update 25: Verify update completion
+#   - Firmware Update 26: Verify status section
+#   - Firmware Update 27: Verify battery display
+#   - Firmware Update 28: Verify customization options
+#   - Firmware Update 29: Verify system section
+#   - Firmware Update 30: Verify update blocked when battery low
+#   - Firmware Update 31: Verify update blocked when no paper
+#   - Firmware Update 32: Verify internet failure during download
+#   - Firmware Update 33: Verify Wi-Fi disconnect during update
+#   - Firmware Update 34: Verify app closed during installation
+#   - Firmware Update 35: Verify printer power off during update
+#   - Firmware Update 36: Verify navigation blocked during install
+#   - Firmware Update 37: Verify multiple Update Now taps
+#   - Firmware Update 38: Verify popup reopens correctly
+#   - Firmware Update 39: Verify No Paper Tray Error during firmware update
+#   ... +11 more
+- runFlow: ../Connection/Connection.yaml

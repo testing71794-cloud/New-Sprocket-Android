@@ -1,0 +1,172 @@
+{
+  "stage": "PreCut",
+  "count": 6,
+  "cases": [
+    {
+      "test_id": "Precut_03",
+      "module": "Duplicate Restriction",
+      "section": "PRECUT",
+      "description": "Verify duplicate selection error.",
+      "steps": [
+        "1. Perform Precut_01 steps. 2. Select one image for Slot 1. 3. Try selecting the same image for Slot 2."
+      ],
+      "type": "Negative",
+      "expected": "Duplicate image is not assigned and warning message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 638,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_03",
+          "module": "Duplicate Restriction",
+          "stage": "PreCut",
+          "description": "Verify duplicate selection error.",
+          "expected": "Duplicate image is not assigned and warning message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_07",
+      "module": "Warning Pop-up",
+      "section": "PRECUT",
+      "description": "Verify \"Got It\" and \"Don't Show Again\" behavior.",
+      "steps": [
+        "1. Perform Precut_01 steps. 2. Verify warning popup appears. 3. Tap Got It. 4. Relaunch Pre-Cut. 5. Verify popup behavior according to Don't Show Again selection."
+      ],
+      "type": "Positive",
+      "expected": "Popup behaves correctly and user preference is maintained.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 642,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_07",
+          "module": "Warning Pop-up",
+          "stage": "PreCut",
+          "description": "Verify \"Got It\" and \"Don't Show Again\" behavior.",
+          "expected": "Popup behaves correctly and user preference is maintained.",
+          "verification": "Verify dialog: Got It",
+          "kind": "dialog",
+          "selector": "Got It"
+        },
+        {
+          "test_id": "Precut_07",
+          "module": "Warning Pop-up",
+          "stage": "PreCut",
+          "description": "Verify \"Got It\" and \"Don't Show Again\" behavior.",
+          "expected": "Popup behaves correctly and user preference is maintained.",
+          "verification": "Verify dialog: Don",
+          "kind": "dialog",
+          "selector": "Don"
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_08",
+      "module": "Permission Handling",
+      "section": "PRECUT",
+      "description": "Verify UI when gallery permission is denied.",
+      "steps": [
+        "1. Deny Photos & Videos permission from device settings. 2. Launch app. 3. Navigate to Pre-Cut Stickers."
+      ],
+      "type": "Negative",
+      "expected": "Permission error screen with Open Settings is displayed. App recovers after permission is granted.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 643,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_08",
+          "module": "Permission Handling",
+          "stage": "PreCut",
+          "description": "Verify UI when gallery permission is denied.",
+          "expected": "Permission error screen with Open Settings is displayed. App recovers after permission is granted.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_09",
+      "module": "Exit & Save Logic",
+      "section": "PRECUT",
+      "description": "Verify exit flow after editing selection.",
+      "steps": [
+        "1. Perform Precut_02 steps until Print Preview. 2. Tap Edit and make changes. 3. Tap Back. 4. Verify Save as New Photo popup. 5. Select Save to Gallery and Don't Save separately."
+      ],
+      "type": "Positive/Negative",
+      "expected": "Save popup appears and selected option works correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 644,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_09",
+          "module": "Exit & Save Logic",
+          "stage": "PreCut",
+          "description": "Verify exit flow after editing selection.",
+          "expected": "Save popup appears and selected option works correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 58",
+      "module": "PreCut",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify PreCut Sticker restriction",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nSelect PreCut sticker paper flow."
+      ],
+      "type": "Pos",
+      "expected": "\"Tiles\" function is hidden/unavailable; AI button is removed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 877,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 58",
+          "module": "PreCut",
+          "stage": "PreCut",
+          "description": "Verify PreCut Sticker restriction",
+          "expected": "\"Tiles\" function is hidden/unavailable; AI button is removed.",
+          "verification": "Verify not visible: Tiles",
+          "kind": "not_visible",
+          "selector": "Tiles"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 60",
+      "module": "PreCut",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify AI button absence",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nInspect UI in PreCut sticker mode."
+      ],
+      "type": "Neg",
+      "expected": "The AI button is not rendered on the screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 879,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 60",
+          "module": "PreCut",
+          "stage": "PreCut",
+          "description": "Verify AI button absence",
+          "expected": "The AI button is not rendered on the screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

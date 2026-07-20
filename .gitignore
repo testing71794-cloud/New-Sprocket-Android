@@ -2,6 +2,9 @@ node_modules/
 ai-doctor/node_modules/
 # CI artifacts at repo root only (demo_intelligence_workspace/ keeps its own status+logs)
 /reports/
+/screenshots/
+/logs/hierarchy/
+/logs/verification.log
 /status/
 collected-artifacts/
 /build-summary/

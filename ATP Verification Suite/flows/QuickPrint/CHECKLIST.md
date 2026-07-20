@@ -1,0 +1,47 @@
+# QuickPrint — 45 ATP cases
+
+- [ ] QUICK PRINT _001 | Quick Print - Gallery Permission | Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
+- [ ] QUICK PRINT_002 | Gallery Permission | Verify the Allow all option opens the Gallery screen.
+- [ ] QUICK PRINT _003 | Gallery Screen | Verify the Gallery screen user interface.
+- [ ] QUICK PRINT_004 | Select Mode Tip | Verify the Select Mode toast message on the Gallery screen.
+- [ ] QUICK PRINT_005 | Gallery Permission | Verify the Don't allow option on the Gallery permission popup.
+- [ ] QUICK PRINT_006 | Gallery Permission | Verify the Allow limited access option.
+- [ ] QUICK PRINT_007 | Gallery - Select Mode | Verify the Gallery screen enters Select Mode after selecting one photo.
+- [ ] QUICK PRINT_008 | Gallery - Multiple Selection | Verify selecting both photos and videos in Select Mode.
+- [ ] QUICK PRINT_009 | Gallery - Unselect Photos | Verify unselecting all selected photos and videos.
+- [ ] QUICK PRINGT_010 | Gallery - Maximum Selection Limit | Verify the maximum selection limit of 10 photos.
+- [ ] QUICK PRIN_011 | Gallery - Select Mode User Interface | Verify the Select Mode user interface.
+- [ ] QUICK PRINT_012 | Select Gallery - Facebook | Verify that the user can open the Select Gallery screen and the Facebook option is displayed.
+- [ ] QUICK PRINT 13 | Facebook Gallery | Verify that the Facebook Gallery opens successfully.
+- [ ] QUICK PRINT 14 | Facebook Overflow Menu | Verify the Unlink option in the overflow menu.
+- [ ] QUICK PRINT 15 | Facebook Unlink Popup | Verify the Unlink confirmation popup user interface.
+- [ ] QUICK PRINT 16 | Facebook Sign Out | Verify that the user can sign out from Facebook successfully.
+- [ ] QUICK PRINT 17 | Facebook Cancel Unlink | Verify the Cancel button on the Unlink popup.
+- [ ] QUICK PRINT 18 | Facebook Gallery - No Internet | Verify the No Internet popup when opening Facebook Gallery without internet.
+- [ ] QUICK PRINT 19 | Facebook Gallery - Open Settings | Verify that the Open Settings button redirects to Wi-Fi Settings.
+- [ ] QUICK PRINT 20 | Facebook Gallery - Wi-Fi Direct | Verify the Wi-Fi Direct No Internet popup.
+- [ ] QUICK PRINT 21 | Facebook Gallery Refresh | Verify refreshing the Facebook Gallery after the internet connection is restored.
+- [ ] QUICK PRINT 22 | Facebook Folder | Verify opening a Facebook folder and displaying images.
+- [ ] QUICK PRINT 23 | Facebook Tag Search | Verify the Tag Search screen.
+- [ ] QUICK PRINT 24 | Facebook Tag Filter | Verify filtering Facebook photos using a valid tag.
+- [ ] QUICK PRINT 25 | Facebook Gallery - Invalid Tag Search | Verify the application displays the "No Tagged Photos" message when the user searches with an invali
+- [ ] QUICK PRINT 26 | Facebook Gallery - Valid Tag Search | Verify the application displays Facebook photos when the user searches with a valid Facebook tag.
+- [ ] QUICK PRINT 27 | Facebook Gallery - No Internet Tag Search | Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags 
+- [ ] QUICK PRINT 28 | Gallery - Sort Menu | Verify that the user can sort gallery photos using the Newest and Oldest options.
+- [ ] QUICK PRINT 29 | Gallery - No Photos Found | Verify the No Photos Found screen when the selected gallery folder does not contain any photos.
+- [ ] Precut_06 | Gallery Interaction | Verify gallery expansion, collapse, and auto-snap.
+- [ ] Video frame 02 | CR_05B_Select Mode with Videos | Verify mixed media selection.
+- [ ] Print Preview Screen  106 | Saved to Gallery Toast | Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage
+- [ ] Print Preview Screen 107 | Saved to Gallery Toast | Verify toast message and Gallery save failure handling
+- [ ] Tiles modules 01 | Gallery (Tile Print) | Verify Gallery screen UI and Tile Print navigation
+- [ ] Tiles modules 02 | Gallery (Tile Print) | Verify folder selection and Tile Print restrictions
+- [ ] Tiles modules 03 | Select Mode Blocked Toast Message (Tile Print) | Verify blocked toast message, UI elements and bottom navigation
+- [ ] Tiles modules 04 | Select Mode Blocked Toast Message (Tile Print) | Verify multi-select restriction and error handling
+- [ ] AI tools 145 | Gallery | Verify Date-based Grouping
+- [ ] Custom SDK 01 | Gallery - Edit Screen Navigation | Verify user is redirected to Custom SDK screen after tapping Edit icon.
+- [ ] Custom SDK  02 | Gallery - Image Display | Verify selected image is displayed in the Custom SDK editor.
+- [ ] Custom SDK  03 | Gallery - Apply Edit | Verify user can edit the selected image.
+- [ ] Custom SDK   04 | Gallery - Print Edited Image | Verify user can print an edited image successfully.
+- [ ] Custom SDK  05 | Gallery - Back Navigation from Custom SDK | Verify user can return from Custom SDK screen.
+- [ ] Custom SDK   06 | Gallery - No Printer Connected | Verify application behavior when no printer is selected.
+- [ ] Custom SDK  08 | Gallery - Print Without Saving Edit | Verify user can print image without saving any modifications.

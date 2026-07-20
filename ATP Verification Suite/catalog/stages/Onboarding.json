@@ -1,0 +1,738 @@
+{
+  "stage": "Onboarding",
+  "count": 18,
+  "cases": [
+    {
+      "test_id": "ON_01",
+      "module": "Onboarding to Sign Up",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify the complete transition from Onboarding completion to the Sign Up Options screen",
+      "steps": [
+        "1.Launch the application.\n2 wait for splash screen complete.\n3 swipe to continue  complete onboarding steps (ON_01B>ON_01D).\n4 Reach on _01E-Onboarding step for screen.\n5 Locate and verify the start button.\n6 Tap on the \"Get Started! Button."
+      ],
+      "type": "Positive",
+      "expected": "User should be successfully navigated from ON_01E_Onboarding Step 4 to ON_02A_Sign Up Options (iOS) screen without any delay, crash, or incorrect navigation",
+      "sheet": "New Sprocket Final ATP",
+      "row": 7,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "ON_01",
+          "module": "Onboarding to Sign Up",
+          "stage": "Onboarding",
+          "description": "Verify the complete transition from Onboarding completion to the Sign Up Options screen",
+          "expected": "User should be successfully navigated from ON_01E_Onboarding Step 4 to ON_02A_Sign Up Options (iOS) screen without any delay, crash, or incorrect navigation",
+          "verification": "Verify navigation marker: Sign up",
+          "kind": "navigation",
+          "selector": "Sign up"
+        }
+      ]
+    },
+    {
+      "test_id": "SU (iOS) _01",
+      "module": "ON_02A_Sign Up Options (iOS)",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify Sign Up Options screen UI and navigation",
+      "steps": [
+        "1. Open the app.",
+        "2. Complete onboarding and tap Get Started.",
+        "3. Verify Sign up screen is displayed.",
+        "4. Check Sprocket logo and buttons: Google, Facebook, Apple, Email.",
+        "5. Tap I already have an account.",
+        "6. Return to Sign Up screen and tap Sign Up Later."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to ON_02A_Sign Up Options (iOS). All UI elements are visible. Tapping I already have an account opens ON_03A_Log In Options (iOS). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 8,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "SU (iOS) _01",
+          "module": "ON_02A_Sign Up Options (iOS)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options screen UI and navigation",
+          "expected": "User is redirected to ON_02A_Sign Up Options (iOS). All UI elements are visible. Tapping I already have an account opens ON_03A_Log In Options (iOS). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: Sign up",
+          "kind": "navigation",
+          "selector": "Sign up"
+        },
+        {
+          "test_id": "SU (iOS) _01",
+          "module": "ON_02A_Sign Up Options (iOS)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options screen UI and navigation",
+          "expected": "User is redirected to ON_02A_Sign Up Options (iOS). All UI elements are visible. Tapping I already have an account opens ON_03A_Log In Options (iOS). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: Sign Up Later",
+          "kind": "navigation",
+          "selector": "Sign Up Later"
+        },
+        {
+          "test_id": "SU (iOS) _01",
+          "module": "ON_02A_Sign Up Options (iOS)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options screen UI and navigation",
+          "expected": "User is redirected to ON_02A_Sign Up Options (iOS). All UI elements are visible. Tapping I already have an account opens ON_03A_Log In Options (iOS). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: I already have an account",
+          "kind": "navigation",
+          "selector": "I already have an account"
+        },
+        {
+          "test_id": "SU (iOS) _01",
+          "module": "ON_02A_Sign Up Options (iOS)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options screen UI and navigation",
+          "expected": "User is redirected to ON_02A_Sign Up Options (iOS). All UI elements are visible. Tapping I already have an account opens ON_03A_Log In Options (iOS). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: Log In",
+          "kind": "navigation",
+          "selector": "Log In"
+        }
+      ]
+    },
+    {
+      "test_id": "SU (Android) _01b",
+      "module": "ON_02B_Sign Up Options (Android)",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify Sign Up Options (Android) screen UI and navigation",
+      "steps": [
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options (Android) screen is displayed.\n4. Verify Sprocket logo, Sign up title and description text are visible.\n5. Verify Sign up with Google, Sign up with Facebook, and Sign up with Email buttons are visible and enabled.\n6. Verify Continue with Apple option is not displayed.\n7. Tap I already have an account.\n8. Verify navigation to ON_03B_Log In Options (Android).\n9. Navigate back and tap Sign Up Later."
+      ],
+      "type": "Positive",
+      "expected": "User is successfully redirected to ON_02B_Sign Up Options (Android). All UI elements are displayed correctly. Google, Facebook, and Email sign-up options are visible and clickable. Apple sign-up option is not displayed on Android. Tapping I already have an account opens ON_03B_Log In Options (Android). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 14,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "SU (Android) _01b",
+          "module": "ON_02B_Sign Up Options (Android)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options (Android) screen UI and navigation",
+          "expected": "User is successfully redirected to ON_02B_Sign Up Options (Android). All UI elements are displayed correctly. Google, Facebook, and Email sign-up options are visible and clickable. Apple sign-up option is not displayed on Android. Tapping I already have an account opens ON_03B_Log In Options (Android). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: Sign up",
+          "kind": "navigation",
+          "selector": "Sign up"
+        },
+        {
+          "test_id": "SU (Android) _01b",
+          "module": "ON_02B_Sign Up Options (Android)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options (Android) screen UI and navigation",
+          "expected": "User is successfully redirected to ON_02B_Sign Up Options (Android). All UI elements are displayed correctly. Google, Facebook, and Email sign-up options are visible and clickable. Apple sign-up option is not displayed on Android. Tapping I already have an account opens ON_03B_Log In Options (Android). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: Sign Up Later",
+          "kind": "navigation",
+          "selector": "Sign Up Later"
+        },
+        {
+          "test_id": "SU (Android) _01b",
+          "module": "ON_02B_Sign Up Options (Android)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options (Android) screen UI and navigation",
+          "expected": "User is successfully redirected to ON_02B_Sign Up Options (Android). All UI elements are displayed correctly. Google, Facebook, and Email sign-up options are visible and clickable. Apple sign-up option is not displayed on Android. Tapping I already have an account opens ON_03B_Log In Options (Android). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: I already have an account",
+          "kind": "navigation",
+          "selector": "I already have an account"
+        },
+        {
+          "test_id": "SU (Android) _01b",
+          "module": "ON_02B_Sign Up Options (Android)",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up Options (Android) screen UI and navigation",
+          "expected": "User is successfully redirected to ON_02B_Sign Up Options (Android). All UI elements are displayed correctly. Google, Facebook, and Email sign-up options are visible and clickable. Apple sign-up option is not displayed on Android. Tapping I already have an account opens ON_03B_Log In Options (Android). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.",
+          "verification": "Verify navigation marker: Log In",
+          "kind": "navigation",
+          "selector": "Log In"
+        }
+      ]
+    },
+    {
+      "test_id": "SU_02",
+      "module": "ON_02C_Sign Up with Email",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify Sign Up with Email screen UI, validations and navigation",
+      "steps": [
+        "1. Open the app.1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options (Android) screen is displayed.",
+        "2. Navigate to ON_02A_Sign Up Options (iOS) and tap Sign up with Email.",
+        "3. Verify ON_02C_Sign Up with Email screen is displayed.",
+        "4. Verify Back to Sign Up Options link is visible.",
+        "5. Verify Full Name, Email, and Password fields are visible.",
+        "6. Verify Terms & Conditions and Privacy Policy links are displayed.",
+        "7. Verify Sign Up button is disabled when fields are empty.",
+        "8. Enter valid Full Name, Email, and Password.",
+        "9. Verify Sign Up button becomes enabled.",
+        "10. Tap Sign Up.",
+        "11. Enter an invalid email and verify error message.",
+        "12. Enter an invalid password and verify error message.",
+        "13. Tap Privacy Policy.",
+        "14. Tap Back to Sign Up Options."
+      ],
+      "type": "Positive / Negative",
+      "expected": "User is redirected to ON_02C_Sign Up with Email. All UI elements are displayed correctly. Sign Up button remains disabled until all mandatory fields are entered. After entering valid data, the button becomes enabled and user can proceed. Invalid email shows ON_09A_Sign Up - Invalid Email. Invalid password shows ON_05C_Sign Up - Invalid Password. Tapping Privacy Policy opens ON_02G_Privacy Policy. Tapping Back to Sign Up Options returns to ON_02A_Sign Up Options (iOS) or ON_02B_Sign Up Options (Android).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 15,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "SU_02",
+          "module": "ON_02C_Sign Up with Email",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up with Email screen UI, validations and navigation",
+          "expected": "User is redirected to ON_02C_Sign Up with Email. All UI elements are displayed correctly. Sign Up button remains disabled until all mandatory fields are entered. After entering valid data, the button becomes enabled and user can proceed. Invalid email shows ON_09A_Sign Up - Invalid Email. Invalid password shows ON_05C_Sign Up - Invalid Password. Tapping Privacy Policy opens ON_02G_Privacy Policy. Tapping Back to Sign Up Options returns to ON_02A_Sign Up Options (iOS) or ON_02B_Sign Up Options (Android).",
+          "verification": "Verify disabled: Sign up",
+          "kind": "disabled",
+          "selector": "Sign up"
+        },
+        {
+          "test_id": "SU_02",
+          "module": "ON_02C_Sign Up with Email",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up with Email screen UI, validations and navigation",
+          "expected": "User is redirected to ON_02C_Sign Up with Email. All UI elements are displayed correctly. Sign Up button remains disabled until all mandatory fields are entered. After entering valid data, the button becomes enabled and user can proceed. Invalid email shows ON_09A_Sign Up - Invalid Email. Invalid password shows ON_05C_Sign Up - Invalid Password. Tapping Privacy Policy opens ON_02G_Privacy Policy. Tapping Back to Sign Up Options returns to ON_02A_Sign Up Options (iOS) or ON_02B_Sign Up Options (Android).",
+          "verification": "Verify disabled: Invalid Email",
+          "kind": "disabled",
+          "selector": "Invalid Email"
+        },
+        {
+          "test_id": "SU_02",
+          "module": "ON_02C_Sign Up with Email",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up with Email screen UI, validations and navigation",
+          "expected": "User is redirected to ON_02C_Sign Up with Email. All UI elements are displayed correctly. Sign Up button remains disabled until all mandatory fields are entered. After entering valid data, the button becomes enabled and user can proceed. Invalid email shows ON_09A_Sign Up - Invalid Email. Invalid password shows ON_05C_Sign Up - Invalid Password. Tapping Privacy Policy opens ON_02G_Privacy Policy. Tapping Back to Sign Up Options returns to ON_02A_Sign Up Options (iOS) or ON_02B_Sign Up Options (Android).",
+          "verification": "Verify disabled: Invalid email",
+          "kind": "disabled",
+          "selector": "Invalid email"
+        },
+        {
+          "test_id": "SU_02",
+          "module": "ON_02C_Sign Up with Email",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up with Email screen UI, validations and navigation",
+          "expected": "User is redirected to ON_02C_Sign Up with Email. All UI elements are displayed correctly. Sign Up button remains disabled until all mandatory fields are entered. After entering valid data, the button becomes enabled and user can proceed. Invalid email shows ON_09A_Sign Up - Invalid Email. Invalid password shows ON_05C_Sign Up - Invalid Password. Tapping Privacy Policy opens ON_02G_Privacy Policy. Tapping Back to Sign Up Options returns to ON_02A_Sign Up Options (iOS) or ON_02B_Sign Up Options (Android).",
+          "verification": "Verify disabled: password",
+          "kind": "disabled",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "ON_02D_SU - E F F TC_ON02DE_01",
+      "module": "ON_02D_Sign Up - Entering Form Field",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify form field input and successful Sign Up",
+      "steps": [
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options (Android) screen is displayed.1. Open ON_02C_Sign Up with Email.",
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options screen is displayed.2. Enter valid Full Name, Email, and Password.",
+        "4. Verify field is focused and entered text is displayed.",
+        "5. Verify Sign Up button is enabled.",
+        "6. Tap Sign Up."
+      ],
+      "type": "Positive",
+      "expected": "User can enter values in all fields. Sign Up button becomes enabled after valid input. User is redirected to ON_02H_Verify Email screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 29,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "ON_02D_SU - E F F TC_ON02DE_01",
+          "module": "ON_02D_Sign Up - Entering Form Field",
+          "stage": "Onboarding",
+          "description": "Verify form field input and successful Sign Up",
+          "expected": "User can enter values in all fields. Sign Up button becomes enabled after valid input. User is redirected to ON_02H_Verify Email screen.",
+          "verification": "Verify enabled: Sign up",
+          "kind": "enabled",
+          "selector": "Sign up"
+        }
+      ]
+    },
+    {
+      "test_id": "ON_02D_SU - E F F TC_ON02DE_02",
+      "module": "ON_02D_Sign Up - Entering Form Field / ON_02E_Sign Up - Form Fields Filled",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify Sign Up error messages",
+      "steps": [
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options (Android) screen is displayed.4. Open ON_02C_Sign Up with Email.",
+        "2. Enter an already registered email and tap Sign Up.\n3.  Verify ON_02B_Sign Up Options  screen is displayed.",
+        "3. Verify error message.",
+        "4. Enter invalid form details and tap Sign Up.",
+        "5. Verify error message."
+      ],
+      "type": "Negative",
+      "expected": "Registered email shows ON_05B_Sign Up - Email already in use. Invalid form details show ON_05D_Sign Up - Error Toast Message. User remains on the same screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 34,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "ON_02D_SU - E F F TC_ON02DE_02",
+          "module": "ON_02D_Sign Up - Entering Form Field / ON_02E_Sign Up - Form Fields Filled",
+          "stage": "Onboarding",
+          "description": "Verify Sign Up error messages",
+          "expected": "Registered email shows ON_05B_Sign Up - Email already in use. Invalid form details show ON_05D_Sign Up - Error Toast Message. User remains on the same screen.",
+          "verification": "Verify toast: Sign up",
+          "kind": "toast",
+          "selector": "Sign up"
+        }
+      ]
+    },
+    {
+      "test_id": "ON_02F_C / ON_02G_PP TC_ON02G_01",
+      "module": "ON_02G_Privacy Policy",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify Privacy Policy navigation and back action",
+      "steps": [
+        "Verify ON_02B_Sign Up Options screen is displayed. 1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options  screen is displayed.4. Open ON_02C_Sign Up with Email.",
+        "2. Enter Name, Email, and Password.",
+        "3. Tap Privacy Policy.",
+        "4. Verify ON_02G_Privacy Policy opens.",
+        "5. Tap Back."
+      ],
+      "type": "Positive",
+      "expected": "Privacy Policy page opens in the in-app web browser. Tapping Back returns to ON_02C_Sign Up with Email and previously entered data is retained.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 39,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "ON_02F_C / ON_02G_PP TC_ON02G_01",
+          "module": "ON_02G_Privacy Policy",
+          "stage": "Onboarding",
+          "description": "Verify Privacy Policy navigation and back action",
+          "expected": "Privacy Policy page opens in the in-app web browser. Tapping Back returns to ON_02C_Sign Up with Email and previously entered data is retained.",
+          "verification": "Verify navigation marker: Sign up",
+          "kind": "navigation",
+          "selector": "Sign up"
+        }
+      ]
+    },
+    {
+      "test_id": "ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02",
+      "module": "ON_02G_Privacy Policy",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify Privacy Policy behavior without internet connection",
+      "steps": [
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options screen is displayed.\n4. Turn OFF internet connection."
+      ],
+      "type": "Negative",
+      "expected": "Privacy Policy page does not load and an error message \"Web page not available\" is displayed. User remains on the web view or can navigate back to the Sign Up screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 44,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02",
+          "module": "ON_02G_Privacy Policy",
+          "stage": "Onboarding",
+          "description": "Verify Privacy Policy behavior without internet connection",
+          "expected": "Privacy Policy page does not load and an error message \"Web page not available\" is displayed. User remains on the web view or can navigate back to the Sign Up screen.",
+          "verification": "Verify navigation marker: Web page not available",
+          "kind": "navigation",
+          "selector": "Web page not available"
+        },
+        {
+          "test_id": "ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02",
+          "module": "ON_02G_Privacy Policy",
+          "stage": "Onboarding",
+          "description": "Verify Privacy Policy behavior without internet connection",
+          "expected": "Privacy Policy page does not load and an error message \"Web page not available\" is displayed. User remains on the web view or can navigate back to the Sign Up screen.",
+          "verification": "Verify navigation marker: Sign up",
+          "kind": "navigation",
+          "selector": "Sign up"
+        }
+      ]
+    },
+    {
+      "test_id": "TC_LI_IOS_13",
+      "module": "Log In Options (iOS)",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify successful login using Google, Facebook, Apple, and Email",
+      "steps": [
+        "1. Open Log In screen.",
+        "2. Tap any login option (Google/Facebook/Apple/Email).",
+        "3. Enter valid credentials and complete authentication."
+      ],
+      "type": "Positive",
+      "expected": "User logs in successfully and is redirected to the Home screen without errors.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 45,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "TC_LI_IOS_13",
+          "module": "Log In Options (iOS)",
+          "stage": "Onboarding",
+          "description": "Verify successful login using Google, Facebook, Apple, and Email",
+          "expected": "User logs in successfully and is redirected to the Home screen without errors.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "TC_LI_IOS_14",
+      "module": "Log In Options (iOS)",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify authentication cancellation",
+      "steps": [
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options  screen is displayed.\n3. Open Log In screen.",
+        "2. Tap Google/Facebook/Apple/Email.",
+        "3. On the authorization screen, tap Cancel or Close."
+      ],
+      "type": "Negative",
+      "expected": "Authentication is cancelled. User remains on the Log In screen and no crash or unexpected behavior occurs.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 48,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "TC_LI_IOS_14",
+          "module": "Log In Options (iOS)",
+          "stage": "Onboarding",
+          "description": "Verify authentication cancellation",
+          "expected": "Authentication is cancelled. User remains on the Log In screen and no crash or unexpected behavior occurs.",
+          "verification": "Verify visible: Log In",
+          "kind": "visible",
+          "selector": "Log In"
+        }
+      ]
+    },
+    {
+      "test_id": "TC_LI_AND_13",
+      "module": "Log In Options (Android)",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify successful login using Google, Facebook, and Email",
+      "steps": [
+        "1. Open the app.\n2. Complete onboarding and tap Get Started.\n3. Verify ON_02B_Sign Up Options  screen is displayed.\n54. Open Log In screen.",
+        "2. Tap any login option (Google/Facebook/Email).",
+        "3. Enter valid credentials and complete authentication."
+      ],
+      "type": "Positive",
+      "expected": "User logs in successfully and is redirected to the Home screen without errors.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 51,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "TC_LI_AND_13",
+          "module": "Log In Options (Android)",
+          "stage": "Onboarding",
+          "description": "Verify successful login using Google, Facebook, and Email",
+          "expected": "User logs in successfully and is redirected to the Home screen without errors.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "TC_LI_AND_14",
+      "module": "Log In Options (Android)",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify authentication cancellation",
+      "steps": [
+        "4. Open Log In screen.",
+        "5. Tap Google/Facebook/Email.",
+        "6. On the authorization screen, tap Cancel or Close."
+      ],
+      "type": "Negative",
+      "expected": "Authentication is cancelled. User remains on the Log In screen and no crash or unexpected behavior occurs.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 54,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "TC_LI_AND_14",
+          "module": "Log In Options (Android)",
+          "stage": "Onboarding",
+          "description": "Verify authentication cancellation",
+          "expected": "Authentication is cancelled. User remains on the Log In screen and no crash or unexpected behavior occurs.",
+          "verification": "Verify visible: Log In",
+          "kind": "visible",
+          "selector": "Log In"
+        }
+      ]
+    },
+    {
+      "test_id": "LI_W _E TC_E2E_001",
+      "module": "App Launch & Auth",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify full journey from launch to Login",
+      "steps": [
+        "1. Tap the app icon to launch.",
+        "2. Observe splash screen animation (ON_01A).",
+        "3. Complete onboarding steps (ON_01B - ON_01D).",
+        "4. Tap \"Get Started\" on ON_01E to reach \"Sign Up Options\" (ON_02A/B).",
+        "5. Select \"I already have an account\" to reach \"Log In\" (ON_03A)."
+      ],
+      "type": "Positive",
+      "expected": "App transitions smoothly through all screens ending at the Login interface.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 57,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "LI_W _E TC_E2E_001",
+          "module": "App Launch & Auth",
+          "stage": "Onboarding",
+          "description": "Verify full journey from launch to Login",
+          "expected": "App transitions smoothly through all screens ending at the Login interface.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "LI_W _E l TC_LWE_05",
+      "module": "Log In",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify \"Forgot Password?\" link",
+      "steps": [
+        "1. Tap \"Forgot password?\"."
+      ],
+      "type": "Positive",
+      "expected": "Screen navigates to ON_04A_Forgot Password.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 71,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "LI_W _E l TC_LWE_05",
+          "module": "Log In",
+          "stage": "Onboarding",
+          "description": "Verify \"Forgot Password?\" link",
+          "expected": "Screen navigates to ON_04A_Forgot Password.",
+          "verification": "Verify navigation marker: Forgot Password?",
+          "kind": "navigation",
+          "selector": "Forgot Password?"
+        },
+        {
+          "test_id": "LI_W _E l TC_LWE_05",
+          "module": "Log In",
+          "stage": "Onboarding",
+          "description": "Verify \"Forgot Password?\" link",
+          "expected": "Screen navigates to ON_04A_Forgot Password.",
+          "verification": "Verify navigation marker: password",
+          "kind": "navigation",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "FP TC_E2E_02",
+      "module": "Auth & Error",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify invalid credential/input handling across Login and Password Recovery",
+      "steps": [
+        "1. Navigate to ON_03C_Log In with Email. \n2. Attempt to log in with invalid credentials. \n3. Navigate to ON_04B_Forgot Password - Entering Password. \n4. Attempt recovery with an invalid/unregistered email format."
+      ],
+      "type": "Negative",
+      "expected": "System consistently displays correct error messages (ON_05F_Log In - Invalid Email/Password and \"Please enter a valid email address\").",
+      "sheet": "New Sprocket Final ATP",
+      "row": 73,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "FP TC_E2E_02",
+          "module": "Auth & Error",
+          "stage": "Onboarding",
+          "description": "Verify invalid credential/input handling across Login and Password Recovery",
+          "expected": "System consistently displays correct error messages (ON_05F_Log In - Invalid Email/Password and \"Please enter a valid email address\").",
+          "verification": "Verify visible: Please enter a valid email address",
+          "kind": "visible",
+          "selector": "Please enter a valid email address"
+        },
+        {
+          "test_id": "FP TC_E2E_02",
+          "module": "Auth & Error",
+          "stage": "Onboarding",
+          "description": "Verify invalid credential/input handling across Login and Password Recovery",
+          "expected": "System consistently displays correct error messages (ON_05F_Log In - Invalid Email/Password and \"Please enter a valid email address\").",
+          "verification": "Verify visible: Log In",
+          "kind": "visible",
+          "selector": "Log In"
+        },
+        {
+          "test_id": "FP TC_E2E_02",
+          "module": "Auth & Error",
+          "stage": "Onboarding",
+          "description": "Verify invalid credential/input handling across Login and Password Recovery",
+          "expected": "System consistently displays correct error messages (ON_05F_Log In - Invalid Email/Password and \"Please enter a valid email address\").",
+          "verification": "Verify visible: Invalid Email",
+          "kind": "visible",
+          "selector": "Invalid Email"
+        },
+        {
+          "test_id": "FP TC_E2E_02",
+          "module": "Auth & Error",
+          "stage": "Onboarding",
+          "description": "Verify invalid credential/input handling across Login and Password Recovery",
+          "expected": "System consistently displays correct error messages (ON_05F_Log In - Invalid Email/Password and \"Please enter a valid email address\").",
+          "verification": "Verify visible: Invalid email",
+          "kind": "visible",
+          "selector": "Invalid email"
+        },
+        {
+          "test_id": "FP TC_E2E_02",
+          "module": "Auth & Error",
+          "stage": "Onboarding",
+          "description": "Verify invalid credential/input handling across Login and Password Recovery",
+          "expected": "System consistently displays correct error messages (ON_05F_Log In - Invalid Email/Password and \"Please enter a valid email address\").",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "EH TC_ERR_ALL_01",
+      "module": "Sign Up & Log In Errors",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify all input validation and system error states for Sign Up and Log In",
+      "steps": [
+        "1. Navigate to \"Sign Up with Email\"; trigger ON_05A, ON_05B, and ON_05C by entering invalid data/existing email/weak password. 2. Attempt \"Sign Up\" with valid data but simulate server failure to trigger ON_05D. 3. Tap \"Resend Email\" and simulate failure for ON_05E. 4. Navigate to \"Log In\"; enter wrong credentials (ON_05F) and simulate system failure (ON_05G)."
+      ],
+      "type": "Negative",
+      "expected": "All corresponding error messages (Inline text, bullets, or toasts) display as per image_fb16c1.png; action buttons disable when required.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 74,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "EH TC_ERR_ALL_01",
+          "module": "Sign Up & Log In Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and system error states for Sign Up and Log In",
+          "expected": "All corresponding error messages (Inline text, bullets, or toasts) display as per image_fb16c1.png; action buttons disable when required.",
+          "verification": "Verify toast: Sign up",
+          "kind": "toast",
+          "selector": "Sign up"
+        },
+        {
+          "test_id": "EH TC_ERR_ALL_01",
+          "module": "Sign Up & Log In Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and system error states for Sign Up and Log In",
+          "expected": "All corresponding error messages (Inline text, bullets, or toasts) display as per image_fb16c1.png; action buttons disable when required.",
+          "verification": "Verify toast: Log In",
+          "kind": "toast",
+          "selector": "Log In"
+        }
+      ]
+    },
+    {
+      "test_id": "EH TC_ERR_ALL_02",
+      "module": "Forgot Password Errors",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify all input validation and error states for Forgot Password",
+      "steps": [
+        "1. Navigate to \"Forgot Password\". 2. Enter malformed email (missing @) to trigger ON_05I. 3. Enter a valid-format email that is not tied to any account to trigger ON_05H."
+      ],
+      "type": "Negative",
+      "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 75,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "EH TC_ERR_ALL_02",
+          "module": "Forgot Password Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and error states for Forgot Password",
+          "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+          "verification": "Verify image/logo: Invalid email address format",
+          "kind": "image",
+          "selector": "Invalid email address format"
+        },
+        {
+          "test_id": "EH TC_ERR_ALL_02",
+          "module": "Forgot Password Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and error states for Forgot Password",
+          "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+          "verification": "Verify image/logo: No account found with this email",
+          "kind": "image",
+          "selector": "No account found with this email"
+        },
+        {
+          "test_id": "EH TC_ERR_ALL_02",
+          "module": "Forgot Password Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and error states for Forgot Password",
+          "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+          "verification": "Verify image/logo: Send Recovery Email",
+          "kind": "image",
+          "selector": "Send Recovery Email"
+        },
+        {
+          "test_id": "EH TC_ERR_ALL_02",
+          "module": "Forgot Password Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and error states for Forgot Password",
+          "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+          "verification": "Verify image/logo: Invalid Email",
+          "kind": "image",
+          "selector": "Invalid Email"
+        },
+        {
+          "test_id": "EH TC_ERR_ALL_02",
+          "module": "Forgot Password Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and error states for Forgot Password",
+          "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+          "verification": "Verify image/logo: Invalid email",
+          "kind": "image",
+          "selector": "Invalid email"
+        },
+        {
+          "test_id": "EH TC_ERR_ALL_02",
+          "module": "Forgot Password Errors",
+          "stage": "Onboarding",
+          "description": "Verify all input validation and error states for Forgot Password",
+          "expected": "Inline red text \"Invalid email address format\" or \"No account found with this email\" displays accordingly; \"Send Recovery Email\" button disables/reacts correctly as per image_fb16c1.png.",
+          "verification": "Verify image/logo: password",
+          "kind": "image",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 01",
+      "module": "Onboarding",
+      "section": "PHOTO ID",
+      "description": "Verify camera permission popup and Photo ID onboarding popup",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!.",
+        "4. On Sign Up screen tap Sign Up Later.",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Open the feature for the first time.",
+        "8. Verify \"Sprocket would like to access the Camera\" popup appears.",
+        "9. Tap Allow.",
+        "10. Verify Photo ID Mode onboarding popup appears.",
+        "11. Verify popup title \"Photo ID Mode\" and description text are displayed.",
+        "12. Tap OK.",
+        "13. Verify popup closes and Photo ID camera screen appears."
+      ],
+      "type": "Positive",
+      "expected": "Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1314,
+      "stage": "Onboarding",
+      "verifications": [
+        {
+          "test_id": "Photo ID 01",
+          "module": "Onboarding",
+          "stage": "Onboarding",
+          "description": "Verify camera permission popup and Photo ID onboarding popup",
+          "expected": "Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

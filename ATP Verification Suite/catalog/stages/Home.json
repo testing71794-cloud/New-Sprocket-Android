@@ -1,0 +1,231 @@
+{
+  "stage": "Home",
+  "count": 5,
+  "cases": [
+    {
+      "test_id": "HOME SCREEN_001",
+      "module": "Application Launch and Home Screen",
+      "section": "MAIN HOME SCREEN (QUICK)",
+      "description": "Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Verify that the Splash Screen displays the HP logo with the \"sprocket\" text in the center of the screen.",
+        "4. Wait until the Splash Screen is completed automatically.",
+        "5. Verify that the first onboarding screen is displayed with the Sprocket logo, onboarding image, page indicator, title, description, and \"Swipe to continue.\" text.",
+        "6. Swipe from right to left to navigate to the second onboarding screen.",
+        "7. Verify that the second onboarding screen displays the Sprocket logo, AI image, page indicator, \"AI Editing & Generation\" title, description, and \"Swipe to continue.\" text.",
+        "8. Swipe from right to left to navigate to the third onboarding screen.",
+        "9. Verify that the third onboarding screen displays the Sprocket logo, image stack, page indicator, \"Inkless & Seamless\" title, description, compatibility note, and \"Swipe to continue.\" text.",
+        "10. Swipe from right to left to navigate to the fourth onboarding screen.",
+        "11. Verify that the fourth onboarding screen displays the Sprocket logo, onboarding image, page indicator, \"Unleash Your Creativity\" title, description, and the green \"Get Started!\" button.",
+        "12. Tap the \"Get Started!\" button.",
+        "13. Verify that the Sign Up screen is displayed.",
+        "14. Verify that the \"I already have an account\" button is displayed.",
+        "15. Verify that the \"Sign Up Later\" button is displayed.",
+        "16. Tap the \"Sign Up Later\" button.",
+        "17. Verify that the green loading indicator is displayed for a few seconds.",
+        "18. Verify that the Home screen is displayed successfully."
+      ],
+      "type": "Positive",
+      "expected": "The application successfully navigates from the Splash Screen to the Home Screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 77,
+      "stage": "Home",
+      "verifications": [
+        {
+          "test_id": "HOME SCREEN_001",
+          "module": "Application Launch and Home Screen",
+          "stage": "Home",
+          "description": "Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.",
+          "expected": "The application successfully navigates from the Splash Screen to the Home Screen.",
+          "verification": "Verify navigation marker: Sign up",
+          "kind": "navigation",
+          "selector": "Sign up"
+        },
+        {
+          "test_id": "HOME SCREEN_001",
+          "module": "Application Launch and Home Screen",
+          "stage": "Home",
+          "description": "Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.",
+          "expected": "The application successfully navigates from the Splash Screen to the Home Screen.",
+          "verification": "Verify navigation marker: Sign Up Later",
+          "kind": "navigation",
+          "selector": "Sign Up Later"
+        }
+      ]
+    },
+    {
+      "test_id": "HOME SCREEN_002",
+      "module": "Notification Permission Popup",
+      "section": "MAIN HOME SCREEN (QUICK)",
+      "description": "Verify the notification permission popup and the Allow button functionality.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens by swiping from right to left.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Verify that the green loading indicator is displayed.",
+        "8. Verify that the Home screen is displayed.",
+        "9. Verify that the notification permission popup is displayed at the bottom of the screen.",
+        "10. Verify that the popup title displays \"Allow Sprocket to send you notifications?\".",
+        "11. Verify that the \"Allow\" button is displayed.",
+        "12. Verify that the \"Don't allow\" button is displayed.",
+        "13. Tap the \"Allow\" button.",
+        "14. If the operating system notification permission dialog is displayed, tap the \"Allow\" button.",
+        "15. Verify that the notification permission popup is hidden.",
+        "16. Verify that the Home screen remains displayed without any issue."
+      ],
+      "type": "Positive",
+      "expected": "The popup is dismissed after tapping Allow, and the Home screen remains visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 95,
+      "stage": "Home",
+      "verifications": [
+        {
+          "test_id": "HOME SCREEN_002",
+          "module": "Notification Permission Popup",
+          "stage": "Home",
+          "description": "Verify the notification permission popup and the Allow button functionality.",
+          "expected": "The popup is dismissed after tapping Allow, and the Home screen remains visible.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "HOME SCREEN_003",
+      "module": "Notification Permission Popup",
+      "section": "MAIN HOME SCREEN (QUICK)",
+      "description": "Verify the notification permission popup and the Don't allow button functionality.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens by swiping from right to left.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Verify that the green loading indicator is displayed.",
+        "8. Verify that the Home screen is displayed.",
+        "9. Verify that the notification permission popup is displayed at the bottom of the screen.",
+        "10. Verify that the popup title displays \"Allow Sprocket to send you notifications?\".",
+        "11. Verify that the \"Allow\" button is displayed.",
+        "12. Verify that the \"Don't allow\" button is displayed.",
+        "13. Tap the \"Don't allow\" button.",
+        "14. Verify that the notification permission popup is hidden.",
+        "15. Verify that the Home screen remains displayed without any issue."
+      ],
+      "type": "Negative",
+      "expected": "The popup is dismissed after tapping Don't allow, and the Home screen remains visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 111,
+      "stage": "Home",
+      "verifications": [
+        {
+          "test_id": "HOME SCREEN_003",
+          "module": "Notification Permission Popup",
+          "stage": "Home",
+          "description": "Verify the notification permission popup and the Don't allow button functionality.",
+          "expected": "The popup is dismissed after tapping Don't allow, and the Home screen remains visible.",
+          "verification": "Verify dialog: Don't allow",
+          "kind": "dialog",
+          "selector": "Don't allow"
+        }
+      ]
+    },
+    {
+      "test_id": "HOME SCREEN_004",
+      "module": "Home Screen - Not Logged In",
+      "section": "MAIN HOME SCREEN (QUICK)",
+      "description": "Verify the Home screen user interface when the user is not logged in.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens by swiping from right to left.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"Sign Up Later\" button.",
+        "7. Wait until the green loading indicator disappears.",
+        "8. Verify that the Home screen is displayed.",
+        "9. Close the notification permission popup by tapping either \"Allow\" or \"Don't allow\".",
+        "10. Verify that the top left side of the Home screen displays the \"Log in\" text.",
+        "11. Verify that the \"Sprocket AI\" card is displayed.",
+        "12. Verify that the text \"Create with powerful AI tools\" is displayed below the \"Sprocket AI\" title.",
+        "13. Verify that the \"Quick Print\" option is displayed.",
+        "14. Verify that the \"Collage Maker\" option is displayed.",
+        "15. Verify that the \"Pre-Cut Stickers\" option is displayed.",
+        "16. Verify that the \"Tile Print\" option is displayed.",
+        "17. Verify that the \"Photobooth\" option is displayed.",
+        "18. Verify that the \"Photo ID\" option is displayed.",
+        "19. Verify that the bottom navigation bar displays the \"More\", \"Create\", and \"Printer\" tabs.",
+        "20. Verify that the \"Create\" tab is highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "All Home screen elements are displayed correctly for a user who is not logged in.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 126,
+      "stage": "Home",
+      "verifications": [
+        {
+          "test_id": "HOME SCREEN_004",
+          "module": "Home Screen - Not Logged In",
+          "stage": "Home",
+          "description": "Verify the Home screen user interface when the user is not logged in.",
+          "expected": "All Home screen elements are displayed correctly for a user who is not logged in.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "HOME SCREEN_005",
+      "module": "Home Screen - Logged In",
+      "section": "MAIN HOME SCREEN (QUICK)",
+      "description": "Verify the Home screen user interface when the user is logged in.",
+      "steps": [
+        "1. Install the application on the device.",
+        "2. Launch the application.",
+        "3. Complete the Splash Screen.",
+        "4. Complete all four onboarding screens by swiping from right to left.",
+        "5. Tap the \"Get Started!\" button.",
+        "6. Tap the \"I already have an account\" button.",
+        "7. Enter a valid email address and password.",
+        "8. Tap the \"Log in\" button.",
+        "9. Wait until the Home screen is displayed.",
+        "10. Verify that the top left side displays the text \"Welcome,\".",
+        "11. Verify that the logged-in user name is displayed below the \"Welcome,\" text.",
+        "12. Verify that the \"Sprocket AI\" card is displayed.",
+        "13. Verify that the text \"Create with powerful AI tools\" is displayed below the \"Sprocket AI\" title.",
+        "14. Verify that the \"Quick Print\" option is displayed.",
+        "15. Verify that the \"Collage Maker\" option is displayed.",
+        "16. Verify that the \"Pre-Cut Stickers\" option is displayed.",
+        "17. Verify that the \"Tile Print\" option is displayed.",
+        "18. Verify that the \"Photobooth\" option is displayed.",
+        "19. Verify that the \"Photo ID\" option is displayed.",
+        "20. Verify that the bottom navigation bar displays the \"More\", \"Create\", and \"Printer\" tabs.",
+        "21. Verify that the \"Create\" tab is highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "The logged-in user's name and all Home screen elements are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 146,
+      "stage": "Home",
+      "verifications": [
+        {
+          "test_id": "HOME SCREEN_005",
+          "module": "Home Screen - Logged In",
+          "stage": "Home",
+          "description": "Verify the Home screen user interface when the user is logged in.",
+          "expected": "The logged-in user's name and all Home screen elements are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

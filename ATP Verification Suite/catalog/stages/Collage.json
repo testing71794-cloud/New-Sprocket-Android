@@ -1,0 +1,299 @@
+{
+  "stage": "Collage",
+  "count": 11,
+  "cases": [
+    {
+      "test_id": "Collage_02",
+      "module": "Photo Permission",
+      "section": "COLLAGE",
+      "description": "Verify Photos & Videos permission popup",
+      "steps": [
+        "1. Launch the app and navigate to Home. \n2. Tap Collage Maker. \n3. Verify Allow Sprocket to access photos and videos on this device popup appears. \n4. Verify Allow limited access, Allow all, and Don't allow options are displayed. \n5. Tap Allow all."
+      ],
+      "type": "Positive",
+      "expected": "Gallery permission is granted and the Collage screen opens.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 621,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_02",
+          "module": "Photo Permission",
+          "stage": "Collage",
+          "description": "Verify Photos & Videos permission popup",
+          "expected": "Gallery permission is granted and the Collage screen opens.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_03",
+      "module": "Collage Selection Screen",
+      "section": "COLLAGE",
+      "description": "Verify default Collage Selection UI",
+      "steps": [
+        "1. Open Collage Maker. \n2. Allow gallery permission. \n3. Verify Back icon.\n 4. Verify Select 2 to 4 Photos title. \n5. Verify Next button is disabled. \n6. Verify four collage placeholders.\n 7. Verify first placeholder is highlighted in green. \n8. Verify Recent folder dropdown. \n9. Verify gallery images and right-side scrollbar."
+      ],
+      "type": "Positive",
+      "expected": "All default UI elements are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 622,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_03",
+          "module": "Collage Selection Screen",
+          "stage": "Collage",
+          "description": "Verify default Collage Selection UI",
+          "expected": "All default UI elements are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_04",
+      "module": "Folder Navigation",
+      "section": "COLLAGE",
+      "description": "Verify folder selection",
+      "steps": [
+        "1. Open Collage screen. 2. Tap Recent folder. 3. Scroll folder list. 4. Select another folder. 5. Verify gallery refreshes with selected folder images."
+      ],
+      "type": "Positive",
+      "expected": "Selected folder images are displayed successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 623,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_04",
+          "module": "Folder Navigation",
+          "stage": "Collage",
+          "description": "Verify folder selection",
+          "expected": "Selected folder images are displayed successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_05",
+      "module": "Image Selection",
+      "section": "COLLAGE",
+      "description": "Verify minimum photo selection",
+      "steps": [
+        "1. Open Collage screen. 2. Select the first image. 3. Verify green badge 1 appears. 4. Verify second collage slot is automatically selected. 5. Select the second image. 6. Verify Next button is enabled."
+      ],
+      "type": "Positive",
+      "expected": "Two images are selected and Next button becomes active.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 624,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_05",
+          "module": "Image Selection",
+          "stage": "Collage",
+          "description": "Verify minimum photo selection",
+          "expected": "Two images are selected and Next button becomes active.",
+          "verification": "Verify image/logo: Next",
+          "kind": "image",
+          "selector": "Next"
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_07",
+      "module": "Duplicate Selection",
+      "section": "COLLAGE",
+      "description": "Verify duplicate image selection",
+      "steps": [
+        "1. Open Collage screen. 2. Select the same gallery image for all four collage slots."
+      ],
+      "type": "Positive",
+      "expected": "Same image can be selected multiple times.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 626,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_07",
+          "module": "Duplicate Selection",
+          "stage": "Collage",
+          "description": "Verify duplicate image selection",
+          "expected": "Same image can be selected multiple times.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_08",
+      "module": "Remove Selection",
+      "section": "COLLAGE",
+      "description": "Verify image deselection",
+      "steps": [
+        "1. Select four images. \n2. Tap any selected image again. \n3. Verify image is deselected and placeholder becomes empty."
+      ],
+      "type": "Positive",
+      "expected": "Selected image is removed successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 627,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_08",
+          "module": "Remove Selection",
+          "stage": "Collage",
+          "description": "Verify image deselection",
+          "expected": "Selected image is removed successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_10",
+      "module": "Drag & Drop Screen",
+      "section": "COLLAGE",
+      "description": "Verify Drag & Drop screen UI",
+      "steps": [
+        "1. Select 2–4 images. \n2. Tap Next. \n3. Verify Back icon.\n 4. Verify Drag & Drop to Reorder title. \n5. Verify Next button.\n 6. Verify collage preview. 7. Verify Edit icon on each image\n 8. Verify layout options below the collage."
+      ],
+      "type": "Positive",
+      "expected": "Drag & Drop screen displays all UI elements correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 629,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_10",
+          "module": "Drag & Drop Screen",
+          "stage": "Collage",
+          "description": "Verify Drag & Drop screen UI",
+          "expected": "Drag & Drop screen displays all UI elements correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_11",
+      "module": "Layout Selection",
+      "section": "COLLAGE",
+      "description": "Verify collage layout options",
+      "steps": [
+        "1. Open Drag & Drop screen. 2. Verify first layout is selected by default. 3. Tap each available layout. 4. Verify collage layout changes accordingly."
+      ],
+      "type": "Positive",
+      "expected": "Selected layout is applied successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 630,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_11",
+          "module": "Layout Selection",
+          "stage": "Collage",
+          "description": "Verify collage layout options",
+          "expected": "Selected layout is applied successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_12",
+      "module": "Image Reordering",
+      "section": "COLLAGE",
+      "description": "Verify Drag & Drop functionality",
+      "steps": [
+        "1. Open Drag & Drop screen. 2. Press and hold any image. 3. Drag the image to another collage position. 4. Drop the image."
+      ],
+      "type": "Positive",
+      "expected": "Images are reordered successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 631,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_12",
+          "module": "Image Reordering",
+          "stage": "Collage",
+          "description": "Verify Drag & Drop functionality",
+          "expected": "Images are reordered successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_13",
+      "module": "Edit Image",
+      "section": "COLLAGE",
+      "description": "Verify Edit icon",
+      "steps": [
+        "1. Open Drag & Drop screen.\n 2. Tap the Edit icon on any image. \n3. Verify Edit screen opens. \n4. Tap Back to return."
+      ],
+      "type": "Positive",
+      "expected": "Selected image opens in Edit mode successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 632,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_13",
+          "module": "Edit Image",
+          "stage": "Collage",
+          "description": "Verify Edit icon",
+          "expected": "Selected image opens in Edit mode successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   07",
+      "module": "Gallery - Invalid Image Selection",
+      "section": "CUSTOM SDK",
+      "description": "Verify system behavior when image cannot be loaded.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an unsupported or corrupted image from Gallery.",
+        "7. Tap the image.",
+        "8. Attempt to open the Edit screen."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate error message is displayed and the image editor is not opened.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4994,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   07",
+          "module": "Gallery - Invalid Image Selection",
+          "stage": "Collage",
+          "description": "Verify system behavior when image cannot be loaded.",
+          "expected": "Appropriate error message is displayed and the image editor is not opened.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

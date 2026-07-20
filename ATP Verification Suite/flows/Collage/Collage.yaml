@@ -1,0 +1,22 @@
+# ATP Stage Flow: Collage
+appId: com.hp.impulse.sprocket
+name: "Stage - Collage"
+tags:
+  - atp-verification
+  - collage
+---
+- runFlow: ../_common/reach_create_home.yaml
+- tapOn: ".*Collage Maker.*"
+- runFlow: ../../../ATP TestCase Flows/permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Select 2 to 4 photos"
+    timeout: 12000
+- assertVisible:
+    text: "Select 2 to 4 photos"
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true
+- assertVisible:
+    text: "Recent"
+    optional: true

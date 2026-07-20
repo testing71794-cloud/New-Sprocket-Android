@@ -1,0 +1,24 @@
+# ATP Stage Flow: Editor
+appId: com.hp.impulse.sprocket
+name: "Stage - Editor"
+tags:
+  - atp-verification
+  - editor
+---
+- runFlow: ../_common/reach_create_home.yaml
+- tapOn: ".*Quick Print.*"
+- runFlow: ../../../ATP TestCase Flows/permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 12000
+- runFlow:
+    when:
+      visible: "Recent"
+    commands:
+      - tapOn:
+          point: "25%,35%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(Crop|Rotate|Filter|Sticker|Frame|Text|Undo|Redo|Edit).*"
+    optional: true

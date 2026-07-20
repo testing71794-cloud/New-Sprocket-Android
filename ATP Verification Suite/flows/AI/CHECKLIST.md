@@ -1,0 +1,83 @@
+# AI — 81 ATP cases
+
+- [ ] AI Tool 01 | Create Screen | Verify UI layout of "Create" screen
+- [ ] AI Tools 02 | Sprocket AI | Verify navigation to AI tools
+- [ ] AI Tools 03 | AI Tools | Verify UI layout of AI Tools screen
+- [ ] AI Tools 04 | AI Tools | Verify Tool accessibility
+- [ ] AI Tools 07 | AI Tools | Verify Background Tools navigation
+- [ ] AI Tool 08 | AI Tools | Verify Object Tools navigation
+- [ ] AI Tools 09 | AI Tools | Verify Photo Enhancements navigation
+- [ ] AI Tools  10 | AI Tools | Verify Generate Tools navigation
+- [ ] AI Tools 14 | Timeout / Threshold | Verify loader remains active during long processing
+- [ ] AI Tools 15 | State Transition | Verify transition after AI processing completes
+- [ ] AI Tools 17 | Network Interruption | Verify handling of network loss during loading
+- [ ] AI Tools 25 | Trigger Condition | Verify popup appears on cancel
+- [ ] AI Tools 28 | Scope Verification | Verify universal scope
+- [ ] AI Tools 38 | Priority | Verify popup priority
+- [ ] AI Tools 43 | Show Original | Verify toggle functionality
+- [ ] AI Tools 44 | Cancel Edits | Verify cancellation behavior
+- [ ] AI Tools 45 | Apply (Standard) | Verify apply with background removed
+- [ ] AI Tools 46 | Apply (Override) | Verify apply while Show Original is ON
+- [ ] AI Tools 48 | Processing | Verify generation loader
+- [ ] AI Tools 49 | Background Options | Verify UI layout of background options
+- [ ] AI Tools 53 | Generate Background | Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)
+- [ ] AI Tools 73 | Replace Object | Verify selection (Tap/Paint)
+- [ ] AI Tools 76 | Replace Object | Verify generation processing
+- [ ] AI Tools 77 | Replace Object | Verify result screen UI
+- [ ] AI Tools 78 | Replace Object | Verify thumbnail swapping
+- [ ] AI Tools 79 | Replace Object | Verify "Generate New" flow
+- [ ] AI Tools 80 | Replace Object | Verify "Apply" functionality
+- [ ] AI Tools 81 | Replace Object | Verify failure state UI
+- [ ] AI Tools 82 | Replace Object | Verify failure exit
+- [ ] AI Tools 85 | Processing | Verify generation
+- [ ] AI Tools 86 | Limit Warning | Verify sticker limit pop-up
+- [ ] AI Tools 87 | Save Limit | Verify "Save New Sticker"
+- [ ] AI Tools 88 | Cancel | Verify "Cancel" navigation
+- [ ] AI Tools 90 | Restore Photo | Verify Tool Entry
+- [ ] AI Tools 91 | Restore Photo | Verify Generation
+- [ ] AI Tools 92 | Restore Photo | Verify Result State
+- [ ] AI Tools 93 | Restore Photo | Verify "Show Original"
+- [ ] AI Tools 94 | Restore Photo | Verify "Apply" Action
+- [ ] AI Tools 95 | Restore Photo | Verify "Cancel" Action
+- [ ] AI Tools 96 | Restore Photo | Verify Printing
+- [ ] AI Tools 104 | Print | Verify Print functionality
+- [ ] AI Tools 118 | Printing | Copies/Tiles/Print
+- [ ] AI Tools 127 | UI | Verify top and bottom navigation
+- [ ] AI Tools 128 | Print | Verify Copies/Tiles and Print
+- [ ] AI Toolw 130 | Extend Image | Verify "No Blank Areas" warning pop-up
+- [ ] AI Tools 133 | Prompting | Text Entry & State
+- [ ] AI Tools 137 | AI Tool List | Verify scroll & UI layout
+- [ ] AI Tools 138 | AI Tool List | Verify Back Navigation
+- [ ] AI Tool 139 | AI Tool List | Verify Tool Navigation
+- [ ] AI Tool 140 | AI Tool List | Verify Image Selection Flow
+- [ ] AI Tool 141 | AI Tool List | Verify Temporary Updates
+- [ ] AI Tool 142 | AI Tool List | Verify Offline Behavior
+- [ ] AI tools 144 | Folder Nav | Verify Folder Dropdown
+- [ ] AI Toola 176 | Text-to-Image | Verify Text-to-Image screen UI and default values
+- [ ] AI tools 177 | Text-to-Image | Verify prompt text box placeholder
+- [ ] AI tools 178 | Text-to-Image | Verify prompt text box focus and keyboard
+- [ ] AI tools 179 | Text-to-Image | Verify random prompt button
+- [ ] AI Tools 180 | Text-to-Image | Verify random prompt when text box is focused
+- [ ] AI Tools 181 | Text-to-Image | Verify Orientation selection
+- [ ] AI Tools 182 | Text-to-Image | Verify Image Quantity selection
+- [ ] AI Tools 183 | Text-to-Image | Verify Generate Image(s) button disabled state
+- [ ] AI TOOls 184 | Text-to-Image | Verify Generate Image(s) button enabled state
+- [ ] AI Tools 185 | Text-to-Image | Verify image generation with Portrait mode
+- [ ] AI Tools 186 | Text-to-Image | Verify image generation with Landscape mode
+- [ ] AI Tools 187 | Text-to-Image | Verify generation with different image quantities
+- [ ] AI Tools 188 | Text-to-Image | Verify empty/space-only prompt
+- [ ] AI Tools 189 | Text-to-Image | Verify long prompt input
+- [ ] AI Tools 190 | Text-to-Image | Verify special characters in prompt
+- [ ] AI Tools 191 | Text-to-Image | Verify network error while generating images
+- [ ] AI Tools 192 | Text-to-Image | Verify Back button navigation
+- [ ] AI Tools 193 | AI Tools | Verify Text-to-Image generation flow
+- [ ] AI TOOls 194 | AI Tools | Verify Portrait image generation
+- [ ] AI TOOls 195 | AI Tools | Verify Landscape image generation
+- [ ] AI Tools 196 | AI Tools | Verify thumbnail selection
+- [ ] AI Tools 197 | AI Tools | Verify Cancel button and Unsaved popup
+- [ ] AI tools 198 | AI Tools | Verify Unsaved popup - Cancel option
+- [ ] AI Tools 199 | AI Tools | Verify Unsaved popup - Leave option
+- [ ] AI Tools 207 | AI Tools | Verify Generate Image(s) with empty prompt
+- [ ] AI Tools 208 | AI Tools | Verify image generation without internet
+- [ ] AI Tools 211 | Image Quantity | Verify default quantity selection
+- [ ] AI Tools 211 | Generate Button | Verify Generate button enabled after style selection

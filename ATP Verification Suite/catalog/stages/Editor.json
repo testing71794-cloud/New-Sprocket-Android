@@ -1,0 +1,765 @@
+{
+  "stage": "Editor",
+  "count": 24,
+  "cases": [
+    {
+      "test_id": "Print Preview Screen 37",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Fit/Fill Toast",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8. Observe top header.\n 9.Observe toast notification upon entry."
+      ],
+      "type": "Pos",
+      "expected": "Back arrow, Printer name/status and Share icon are visible and clickable.\nToast appears regarding double tap to reset Fit/Fill and fades after 5 seconds.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 798,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 37",
+          "module": "Gestures",
+          "stage": "Editor",
+          "description": "Verify Fit/Fill Toast",
+          "expected": "Back arrow, Printer name/status and Share icon are visible and clickable.\nToast appears regarding double tap to reset Fit/Fill and fades after 5 seconds.",
+          "verification": "Verify toast: Printer",
+          "kind": "toast",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 38",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Double Tap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8 Perform pre-conditions. Double tap the image on the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Image toggles between Fit and Fill modes correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 799,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 38",
+          "module": "Gestures",
+          "stage": "Editor",
+          "description": "Verify Double Tap",
+          "expected": "Image toggles between Fit and Fill modes correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 39",
+      "module": "Snapping",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Rotation Snap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Drag image near the center of the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Orange guideline appears and image snaps to assist rotation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 800,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 39",
+          "module": "Snapping",
+          "stage": "Editor",
+          "description": "Verify Rotation Snap",
+          "expected": "Orange guideline appears and image snaps to assist rotation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 40",
+      "module": "Snapping",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Center Snap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Drag image near the center of the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Pink guideline appears and image snaps horizontally/vertically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 801,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 40",
+          "module": "Snapping",
+          "stage": "Editor",
+          "description": "Verify Center Snap",
+          "expected": "Pink guideline appears and image snaps horizontally/vertically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 41",
+      "module": "Snapping",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Edge Snap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Drag image near the edges of the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Cyan guideline appears and image snaps to the canvas edges.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 802,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 41",
+          "module": "Snapping",
+          "stage": "Editor",
+          "description": "Verify Edge Snap",
+          "expected": "Cyan guideline appears and image snaps to the canvas edges.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 42",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Boundary Lock",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8. Perform pre-conditions. Attempt to drag the image completely off the canvas."
+      ],
+      "type": "Neg",
+      "expected": "Image is restricted and cannot be moved entirely off the canvas bounds.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 803,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 42",
+          "module": "Gestures",
+          "stage": "Editor",
+          "description": "Verify Boundary Lock",
+          "expected": "Image is restricted and cannot be moved entirely off the canvas bounds.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 43",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Fit/Fill Lock",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Attempt Fit/Fill in restricted modes (e.g., Photo ID)."
+      ],
+      "type": "Neg",
+      "expected": "Fit/Fill toast is not displayed and gesture is disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 804,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 43",
+          "module": "Gestures",
+          "stage": "Editor",
+          "description": "Verify Fit/Fill Lock",
+          "expected": "Fit/Fill toast is not displayed and gesture is disabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 61",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "First-Time Session Tip Appearance",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Navigate to Print Preview screen in a fresh session.",
+        "8. Observe the screen without any interaction."
+      ],
+      "type": "Positive",
+      "expected": "The edit tip banner with text \"Tap here to edit photo.\" appears automatically and points to the Edit button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 880,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 61",
+          "module": "Edit Tip",
+          "stage": "Editor",
+          "description": "First-Time Session Tip Appearance",
+          "expected": "The edit tip banner with text \"Tap here to edit photo.\" appears automatically and points to the Edit button.",
+          "verification": "Verify visible: Tap here to edit photo.",
+          "kind": "visible",
+          "selector": "Tap here to edit photo."
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 62",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Auto-Fade Duration Validation",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Navigate to Print Preview screen for the first time.",
+        "5. Allow the screen to remain idle."
+      ],
+      "type": "Positive",
+      "expected": "The edit tip remains visible for exactly 5 seconds and then fades out automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 888,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 62",
+          "module": "Edit Tip",
+          "stage": "Editor",
+          "description": "Auto-Fade Duration Validation",
+          "expected": "The edit tip remains visible for exactly 5 seconds and then fades out automatically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 63",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Session Repetition Restriction Check",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Open Print Preview screen and observe the edit tip once.",
+        "5. Exit Print Preview screen.",
+        "6. Re-enter Print Preview screen within the same session."
+      ],
+      "type": "Negative",
+      "expected": "The edit tip does not appear again within the same session after being shown once.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 893,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 63",
+          "module": "Edit Tip",
+          "stage": "Editor",
+          "description": "Session Repetition Restriction Check",
+          "expected": "The edit tip does not appear again within the same session after being shown once.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 64",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Priority Handling with System Toast Messages",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Navigate to Print Preview screen where both system toast and edit tip are triggered simultaneously.",
+        "5. Observe UI behavior when both messages are active."
+      ],
+      "type": "Positive",
+      "expected": "System toast message is displayed first with highest priority. The edit tip remains hidden until the toast disappears, then appears automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 899,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 64",
+          "module": "Edit Tip",
+          "stage": "Editor",
+          "description": "Priority Handling with System Toast Messages",
+          "expected": "System toast message is displayed first with highest priority. The edit tip remains hidden until the toast disappears, then appears automatically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 65",
+      "module": "Photo Fit",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation",
+      "steps": [
+        "1. Launch the application.",
+        "2. Select and load a landscape orientation photo into the Print Preview screen.",
+        "3. Observe the image placement on the canvas.",
+        "4. Open the image in AI tools or launch the Custom SDK editor."
+      ],
+      "type": "Positive",
+      "expected": "The landscape image automatically rotates 90 degrees clockwise to fit the vertical canvas layout. The rotated orientation is preserved when opened in AI tools or the Custom SDK workspace without any layout distortion or reset.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 904,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 65",
+          "module": "Photo Fit",
+          "stage": "Editor",
+          "description": "Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation",
+          "expected": "The landscape image automatically rotates 90 degrees clockwise to fit the vertical canvas layout. The rotated orientation is preserved when opened in AI tools or the Custom SDK workspace without any layout distortion or reset.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 10",
+      "module": "Gestures",
+      "section": "TILES MODULES",
+      "description": "Verify zoom and rotation persistence",
+      "steps": [
+        "1. Perform the above preconditions and open 1×1 Tiles view.",
+        "2. Zoom and rotate the image, then tap Print."
+      ],
+      "type": "Positive",
+      "expected": "The printed image matches the zoom level and rotation shown in the preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1167,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 10",
+          "module": "Gestures",
+          "stage": "Editor",
+          "description": "Verify zoom and rotation persistence",
+          "expected": "The printed image matches the zoom level and rotation shown in the preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Gtools 171",
+      "module": "Landscape Photo Fit",
+      "section": "AI TOOLS SDK",
+      "description": "Verify automatic rotation of landscape image",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select Ready-to-Generate tool (e.g., Remove Background).",
+        "6. Select landscape image from Gallery (CR_16A.1_Select Image from Gallery).",
+        "7. CR_16A.5_Landscape Photo Fit screen opens.",
+        "8. Verify top left Back Arrow icon.",
+        "9. Verify selected tool name is displayed in header.",
+        "10. Verify image is rotated automatically by 90° clockwise.",
+        "11. Verify image fits correctly in vertical canvas without cropping or distortion.",
+        "12. Verify Generate button is displayed at the bottom.",
+        "13. Tap Generate."
+      ],
+      "type": "Positive",
+      "expected": "Image rotates automatically by 90° clockwise and AI processing starts successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2802,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "AI Gtools 171",
+          "module": "Landscape Photo Fit",
+          "stage": "Editor",
+          "description": "Verify automatic rotation of landscape image",
+          "expected": "Image rotates automatically by 90° clockwise and AI processing starts successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 172",
+      "module": "Landscape Photo Fit",
+      "section": "AI TOOLS SDK",
+      "description": "Verify proper fitting without cropping",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select landscape image from Gallery.",
+        "6. CR_16A.5_Landscape Photo Fit screen opens.",
+        "7. Observe image on canvas.",
+        "8. Verify image fits within canvas properly.",
+        "9. Verify Generate button is displayed."
+      ],
+      "type": "Positive",
+      "expected": "Image fits correctly without cropping, stretching, or distortion.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2815,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "AI tools 172",
+          "module": "Landscape Photo Fit",
+          "stage": "Editor",
+          "description": "Verify proper fitting without cropping",
+          "expected": "Image fits correctly without cropping, stretching, or distortion.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 173",
+      "module": "Landscape Photo Fit",
+      "section": "AI TOOLS SDK",
+      "description": "Verify dynamic tool name in header",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select Remove Background tool.",
+        "6. Select landscape image from Gallery.",
+        "7. CR_16A.5_Landscape Photo Fit screen opens.",
+        "8. Verify top left Back Arrow icon.",
+        "9. Verify selected tool name is displayed in header.",
+        "10. Verify Generate button is displayed at bottom."
+      ],
+      "type": "Positive",
+      "expected": "Header displays correct selected tool name dynamically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2824,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "AI tools 173",
+          "module": "Landscape Photo Fit",
+          "stage": "Editor",
+          "description": "Verify dynamic tool name in header",
+          "expected": "Header displays correct selected tool name dynamically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 174",
+      "module": "Landscape Photo Fit",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generate button execution",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select landscape image from Gallery.",
+        "6. CR_16A.5_Landscape Photo Fit screen opens.",
+        "7. Verify Generate button is displayed.",
+        "8. Tap Generate."
+      ],
+      "type": "Positive",
+      "expected": "AI processing is triggered successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2834,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "AI tools 174",
+          "module": "Landscape Photo Fit",
+          "stage": "Editor",
+          "description": "Verify Generate button execution",
+          "expected": "AI processing is triggered successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Toola 175",
+      "module": "Landscape Photo Fit",
+      "section": "AI TOOLS SDK",
+      "description": "Verify back navigation to gallery",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select landscape image from Gallery.",
+        "6. CR_16A.5_Landscape Photo Fit screen opens.",
+        "7. Tap Back Arrow icon."
+      ],
+      "type": "Positive",
+      "expected": "User returns to Gallery screen",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2842,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "AI Toola 175",
+          "module": "Landscape Photo Fit",
+          "stage": "Editor",
+          "description": "Verify back navigation to gallery",
+          "expected": "User returns to Gallery screen",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 210",
+      "module": "Crop Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Crop Photo functionality",
+      "steps": [
+        "1. Complete navigation to Image-to-Image. \n2. Select image from gallery. \n3. Tap Crop Photo. \n4. Crop image and save changes.",
+        "1. Complete navigation and select image. \n2. Scroll to Image Style section.",
+        "1. Complete navigation and select image. \n2. Tap any Image Style thumbnail.",
+        "1. Complete navigation and select image. \n2. Select Style A.\n 3. Select Style B."
+      ],
+      "type": "Pos",
+      "expected": "Cropped image is displayed in Base Image section.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2973,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "AI Tools 210",
+          "module": "Crop Photo",
+          "stage": "Editor",
+          "description": "Verify Crop Photo functionality",
+          "expected": "Cropped image is displayed in Base Image section.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  09",
+      "module": "Image Editor",
+      "section": "CUSTOM SDK",
+      "description": "Verify applying edit options",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.",
+        "7. Tap the Edit icon.",
+        "8. Verify Edit screen opens with Back Arrow on left and Done button on right.",
+        "9. Verify edit options are displayed at the bottom. (Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "10. Apply any edit option.",
+        "11. Verify Cancel button on left, Restore Photo text at center and Apply button on right are displayed.",
+        "12. Tap Apply.",
+        "13. Verify edit is applied to the image.",
+        "14. Tap Done.",
+        "15. Verify user is redirected to Print Preview screen."
+      ],
+      "type": "Positive",
+      "expected": "Edit is applied successfully and user is redirected to Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5013,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  09",
+          "module": "Image Editor",
+          "stage": "Editor",
+          "description": "Verify applying edit options",
+          "expected": "Edit is applied successfully and user is redirected to Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK 10",
+      "module": "Image Editor",
+      "section": "CUSTOM SDK",
+      "description": "Verify cancelling edit",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.",
+        "7. Tap the Edit icon.",
+        "8. Verify Edit screen opens with Back Arrow on left and Done button on right.",
+        "9. Verify edit options are displayed at the bottom.",
+        "10. Apply any edit option.(Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "11. Verify Cancel, Restore Photo, and Apply options are displayed.",
+        "12. Tap Cancel.",
+        "13. Verify changes are discarded.",
+        "14. Tap Done.",
+        "15. Verify user is redirected to Print Preview screen without applying edits."
+      ],
+      "type": "Negative",
+      "expected": "Changes are discarded and original image is displayed on Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5028,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Custom SDK 10",
+          "module": "Image Editor",
+          "stage": "Editor",
+          "description": "Verify cancelling edit",
+          "expected": "Changes are discarded and original image is displayed on Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK 11",
+      "module": "Save Photo",
+      "section": "CUSTOM SDK",
+      "description": "Verify \"Save to Gallery\"",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.",
+        "7. Tap the Edit icon.",
+        "8. Apply any edit option and tap Apply.(Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "9. Tap Done and verify user returns to Print Preview screen.",
+        "10. Tap the Back Arrow icon on Print Preview screen.",
+        "11. Verify \"Save as new photo?\" popup appears with Save to Gallery, Do not save, and Close(X) icon.",
+        "12. Tap Save to Gallery.",
+        "13. Open Gallery and verify edited image is saved successfully."
+      ],
+      "type": "Positive",
+      "expected": "Image is saved successfully to the device Gallery and popup closes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5043,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Custom SDK 11",
+          "module": "Save Photo",
+          "stage": "Editor",
+          "description": "Verify \"Save to Gallery\"",
+          "expected": "Image is saved successfully to the device Gallery and popup closes.",
+          "verification": "Verify dialog: Save to Gallery",
+          "kind": "dialog",
+          "selector": "Save to Gallery"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   12",
+      "module": "Save Photo",
+      "section": "CUSTOM SDK",
+      "description": "Verify \"Do not save\"",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.(Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "7. Tap the Edit icon.",
+        "8. Apply any edit option and tap Apply.",
+        "9. Tap Done and verify user returns to Print Preview screen.",
+        "10. Tap the Back Arrow icon on Print Preview screen.",
+        "11. Verify \"Save as new photo?\" popup appears with Save to Gallery, Do not save, and Close(X) icon.",
+        "12. Tap Do not save.",
+        "13. Verify popup closes and edited image is not saved to Gallery."
+      ],
+      "type": "Negative",
+      "expected": "Image is not saved to Gallery and the popup closes successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5056,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   12",
+          "module": "Save Photo",
+          "stage": "Editor",
+          "description": "Verify \"Do not save\"",
+          "expected": "Image is not saved to Gallery and the popup closes successfully.",
+          "verification": "Verify dialog: Do not save",
+          "kind": "dialog",
+          "selector": "Do not save"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   14",
+      "module": "Video Editing",
+      "section": "CUSTOM SDK",
+      "description": "Verify edit functionality and discard changes",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select a video from Gallery.",
+        "6. Verify user is redirected to Video Print Preview screen.",
+        "7. Tap the Edit icon.",
+        "8. Verify Edit screen opens.",
+        "9. Verify editing options are displayed: Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform.",
+        "10. Apply any edit option and tap Apply.",
+        "11. Tap Done and verify user returns to Print Preview screen.",
+        "12. Tap the Back Arrow icon.",
+        "13. Verify \"Save as new photo?\" popup appears with Save to Gallery, Do not save, and Close (X) options.",
+        "14. Tap Do not save.",
+        "15. Verify popup closes and edited image is not saved to Gallery."
+      ],
+      "type": "Negative",
+      "expected": "Changes are discarded successfully. Popup closes and edited image is not saved to Gallery. Application remains stable without crash.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5085,
+      "stage": "Editor",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   14",
+          "module": "Video Editing",
+          "stage": "Editor",
+          "description": "Verify edit functionality and discard changes",
+          "expected": "Changes are discarded successfully. Popup closes and edited image is not saved to Gallery. Application remains stable without crash.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

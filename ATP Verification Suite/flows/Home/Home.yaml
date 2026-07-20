@@ -1,0 +1,14 @@
+# ATP Stage Flow: Home (Create / Collage Maker / Quick Print hub)
+appId: com.hp.impulse.sprocket
+name: "Stage - Home"
+tags:
+  - atp-verification
+  - home
+---
+- runFlow: ../_common/reach_create_home.yaml
+- assertVisible:
+    text: ".*(?i)(Collage Maker|Quick Print|Create).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)Printer.*"
+    optional: true

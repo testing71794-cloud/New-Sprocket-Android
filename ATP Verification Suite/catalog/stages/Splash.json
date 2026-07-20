@@ -1,0 +1,35 @@
+{
+  "stage": "Splash",
+  "count": 1,
+  "cases": [
+    {
+      "test_id": "Sp_01",
+      "module": "Splash Screen",
+      "section": "ONBOARDING SPLASH SCREEN",
+      "description": "Verify app launch, animation, and transition",
+      "steps": [
+        "1. Tap the application icon to launch the app.",
+        "2. Verify the splash screen is displayed immediately.",
+        "3. Observe the splash screen animation.",
+        "4. Wait for the splash screen process to complete."
+      ],
+      "type": "Positive",
+      "expected": "App launches immediately; splash screen animation plays; transitions automatically to ON_01B_Onboarding Step.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3,
+      "stage": "Splash",
+      "verifications": [
+        {
+          "test_id": "Sp_01",
+          "module": "Splash Screen",
+          "stage": "Splash",
+          "description": "Verify app launch, animation, and transition",
+          "expected": "App launches immediately; splash screen animation plays; transitions automatically to ON_01B_Onboarding Step.",
+          "verification": "Verify visible: Welcome to the new Sprocket!",
+          "kind": "visible",
+          "selector": "Welcome to the new Sprocket!"
+        }
+      ]
+    }
+  ]
+}

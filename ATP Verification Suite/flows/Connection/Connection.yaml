@@ -1,0 +1,14 @@
+# ATP Stage Flow: Connection
+appId: com.hp.impulse.sprocket
+name: "Stage - Connection"
+tags:
+  - atp-verification
+  - connection
+---
+- runFlow: ../_common/reach_create_home.yaml
+- tapOn: ".*Printer.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(No Printers Added|Add Printer|Add New Printer|Printer).*"
+    optional: true

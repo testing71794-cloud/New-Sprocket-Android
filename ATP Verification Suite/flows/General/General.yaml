@@ -1,0 +1,51 @@
+# ATP Stage Flow: General
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - General"
+tags:
+  - atp-verification
+  - general
+---
+# Cases in this stage (166):
+#   - FP TC_E2E_01: Verify full journey: Launch, Onboarding, Sign Up, and Forgot Password flow
+#   - Collage_01: Verify app launch and Home screen
+#   - Collage_06: Verify selection of up to four photos
+#   - Collage_09: Verify Next button enable/disable
+#   - Precut_01: Verify complete flow from launch to selection.
+#   - Precut_02: Verify selecting two unique images.
+#   - Precut_04: Verify app launch, onboarding, and Pre-Cut entry.
+#   - Precut_05: Verify 2-photo selection, duplicate prevention, and next state.
+#   - Print Preview Screen 03: Copies vs. Tiles
+#   - Print Preview Screen 05: Bottom Nav Bar
+#   - Print Preview Screen 14: Tiles Option Availability Restriction
+#   - Print Preview Screen 15: AI Button Visibility Restriction
+#   - Print Preview Screen 16: Copy Count Adjustment and Boundary Validation
+#   - Print Preview Screen 17: Edit, Print, and Back Button Functionality
+#   - Print Preview Screen 19: Photo Selection Order Verification
+#   - Print Preview Screen 20: Swipe Navigation Between Photos
+#   - Print Preview Screen 21: Peeking Photo Selection via Tap
+#   - Print Preview Screen 22: Edit Button Overlay Behavior on Peeking Photos
+#   - Print Preview Screen 23: AI Button Functionality Without Printer
+#   - Print Preview Screen 24: Edit Button Functionality Without Printer
+#   - Print Preview Screen  25: Photo Carousel Interaction Without Printer
+#   - Print Preview Screen 26: UI State and Connection Trigger When Printer is Offline
+#   - Print Preview Screen 33: Sprocket 3×4 Constraint
+#   - Print Preview Screen 46: Trigger Warning for Low-Resolution Native Images
+#   - Print Preview Screen 47: Trigger Warning for Low-Resolution Social Media Images
+#   - Print Preview Screen 48: Dismissal via Close Icon Interaction
+#   - Print Preview Screen 49: Layout and Icon Asset Validation
+#   - Print Preview Screen 55: Verify responsive scaling ($375\times667$)
+#   - Print Preview Screen 59: Verify UI control presence
+#   - Print Preview Screen 84: Verify automatic queue resumption
+#   - Print Preview Screen 85: Verify UI state after reconnection
+#   - Print Preview Screen 86: Verify Print Queue can be accessed from Print State and navigation controls func
+#   - Print Preview Screen 93: Verify the Resume Queue pop-up displays the correct content and action buttons.
+#   - Tiles modules 07: Verify landing on Tiles module
+#   - Tiles modules 08: Verify bottom navigation bar presence
+#   - Tiles modules 09: Verify unselecting 1×1 tile
+#   - Photobooth 07: Verify session cancellation while photo is processing
+#   - Photobooth 10: Verify Stop button works during intermediate countdown
+#   - Photobooth 11: Verify Photobooth Result screen layout
+#   - Photobooth 12: Verify merged image auto-save
+#   ... +126 more
+- runFlow: ../Home/Home.yaml

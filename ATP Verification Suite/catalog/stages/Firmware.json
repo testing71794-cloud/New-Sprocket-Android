@@ -1,0 +1,1655 @@
+{
+  "stage": "Firmware",
+  "count": 51,
+  "cases": [
+    {
+      "test_id": "Print Preview Screen 34",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Trigger & UI Validation",
+      "steps": [
+        "1. Launch the application. 2. Wait for the splash screen. 3. Swipe through onboarding (ON_01B-ON_01D). 4. Reach ON_01E and tap \"Get Started!\". 5. On the home screen, connect the printer and select an image to reach Print Preview. 6. Ensure printer is in firmware update mode. 7. Tap \"Print\"."
+      ],
+      "type": "Neg",
+      "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 795,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 34",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Trigger & UI Validation",
+          "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+          "verification": "Verify dialog: Please Wait...",
+          "kind": "dialog",
+          "selector": "Please Wait..."
+        },
+        {
+          "test_id": "Print Preview Screen 34",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Trigger & UI Validation",
+          "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+          "verification": "Verify dialog: Please wait for the firmware update to finish before starting a print job.",
+          "kind": "dialog",
+          "selector": "Please wait for the firmware update to finish before starting a print job."
+        },
+        {
+          "test_id": "Print Preview Screen 34",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Trigger & UI Validation",
+          "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 35",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismissal Interaction",
+      "steps": [
+        "1. Launch the application. 2. Wait for the splash screen. 3. Swipe through onboarding (ON_01B-ON_01D). 4. Reach ON_01E and tap \"Get Started!\". 5. On the home screen, connect the printer and select an image to reach Print Preview. 6. Trigger the firmware update pop-up. 7. Tap \"OK\" or the \"X\" button."
+      ],
+      "type": "Pos",
+      "expected": "The warning pop-up closes immediately and focus returns to the Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 796,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 35",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Dismissal Interaction",
+          "expected": "The warning pop-up closes immediately and focus returns to the Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 50",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Intercept Print Action During Active Firmware Update",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Ensure printer firmware update is actively in progress.",
+        "8. Navigate to the Print Preview screen.",
+        "9. Tap the Print button."
+      ],
+      "type": "Negative",
+      "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+      "sheet": "New Sprocket Final ATP",
+      "row": 843,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 50",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Intercept Print Action During Active Firmware Update",
+          "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+          "verification": "Verify dialog: Please Wait....",
+          "kind": "dialog",
+          "selector": "Please Wait...."
+        },
+        {
+          "test_id": "Print Preview Screen 50",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Intercept Print Action During Active Firmware Update",
+          "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+          "verification": "Verify dialog: Please wait for firmware installation to finish before sending a print job.",
+          "kind": "dialog",
+          "selector": "Please wait for firmware installation to finish before sending a print job."
+        },
+        {
+          "test_id": "Print Preview Screen 50",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Intercept Print Action During Active Firmware Update",
+          "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 51",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismiss Popup via OK Button",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Trigger the \"Please Wait....\" popup by attempting to print during an active firmware update.",
+        "5. Tap the OK button on the popup dialog."
+      ],
+      "type": "Positive",
+      "expected": "The popup closes immediately and the user is returned to the fully interactive Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 852,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 51",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Dismiss Popup via OK Button",
+          "expected": "The popup closes immediately and the user is returned to the fully interactive Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 52",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismiss Popup via Close Icon",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Trigger the \"Please Wait....\" popup by attempting to print during an active firmware update.",
+        "5. Tap the X (close) icon in the top-right corner of the popup."
+      ],
+      "type": "Positive",
+      "expected": "The popup is dismissed cleanly and focus is returned to the Print Preview screen without disrupting the user session.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 857,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 52",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Dismiss Popup via Close Icon",
+          "expected": "The popup is dismissed cleanly and focus is returned to the Print Preview screen without disrupting the user session.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 001",
+      "module": "Firmware Update",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Update Available button is displayed",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete. 2. Complete onboarding by swiping through all onboarding screens until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. Verify user lands on Home screen. 5. Tap the Printer icon. 6. Verify No Printer Added screen is displayed. 7. Tap Added a New Printer. 8. Tap Skip to Connection. 9. Wait for printer discovery. 10. Tap \"+\" next to HP Sprocket 200. 11. Select HP Sprocket 200 from the accessory pop-up. 12. Tap Finish Connection. 13. Open the connected printer. 14. Navigate to Printer Settings. 15. Verify Update Available button is displayed at the top of the screen."
+      ],
+      "type": "Positive",
+      "expected": "Update Available button is displayed when a firmware update is available.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3998,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 001",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Update Available button is displayed",
+          "expected": "Update Available button is displayed when a firmware update is available.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 002",
+      "module": "Firmware Update",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Firmware Update Available popup",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete. 2. Complete onboarding until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. Land on Home screen. 5. Tap Printer icon. 6. Verify No Printer Added screen. 7. Tap Added a New Printer. 8. Tap Skip to Connection. 9. Select HP Sprocket 200. 10. Tap Finish Connection. 11. Open connected printer. 12. Navigate to Printer Settings. 13. Tap Update Available."
+      ],
+      "type": "Positive",
+      "expected": "Firmware Update Available popup is displayed with Update Now and Not Right Now buttons.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3999,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 002",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Firmware Update Available popup",
+          "expected": "Firmware Update Available popup is displayed with Update Now and Not Right Now buttons.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 003",
+      "module": "Firmware Update",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Update Now button functionality",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Tap Get Started → Sign Up Later. 3. Tap Printer icon. 4. Tap Added a New Printer. 5. Tap Skip to Connection. 6. Connect HP Sprocket 200. 7. Tap Finish Connection. 8. Open Printer Settings. 9. Verify paper is loaded and battery level is above 25%. 10. Tap Update Available. 11. Tap Update Now."
+      ],
+      "type": "Positive",
+      "expected": "Firmware download process starts successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4000,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 003",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Update Now button functionality",
+          "expected": "Firmware download process starts successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 004",
+      "module": "Firmware Download",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Firmware Download In Progress screen",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect HP Sprocket 200 printer. 3. Open Printer Settings. 4. Tap Update Available. 5. Tap Update Now. 6. Observe download screen."
+      ],
+      "type": "Positive",
+      "expected": "Firmware Download In Progress message and loader are displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4001,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 004",
+          "module": "Firmware Download",
+          "stage": "Firmware",
+          "description": "Verify Firmware Download In Progress screen",
+          "expected": "Firmware Download In Progress message and loader are displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 005",
+      "module": "Firmware Installation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Firmware Installation In Progress screen",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect HP Sprocket 200 printer. 3. Start firmware update. 4. Wait for download completion."
+      ],
+      "type": "Positive",
+      "expected": "Firmware Installation In Progress message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4002,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 005",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify Firmware Installation In Progress screen",
+          "expected": "Firmware Installation In Progress message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 006",
+      "module": "Firmware Installation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify installation warning message",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware update. 4. Wait for installation screen."
+      ],
+      "type": "Positive",
+      "expected": "Warning message \"Do not turn off or reset the printer while the status LED flashes\" is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4003,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 006",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify installation warning message",
+          "expected": "Warning message \"Do not turn off or reset the printer while the status LED flashes\" is displayed.",
+          "verification": "Verify visible: Do not turn off or reset the printer while the status LED flashes",
+          "kind": "visible",
+          "selector": "Do not turn off or reset the printer while the status LED flashes"
+        },
+        {
+          "test_id": "Firmware Update 006",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify installation warning message",
+          "expected": "Warning message \"Do not turn off or reset the printer while the status LED flashes\" is displayed.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 007",
+      "module": "Firmware Installation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify firmware installation completion",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware update. 4. Wait for installation to complete."
+      ],
+      "type": "Positive",
+      "expected": "Firmware update completes successfully and printer reconnects automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4004,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 007",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify firmware installation completion",
+          "expected": "Firmware update completes successfully and printer reconnects automatically.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 12",
+      "module": "Firmware Validation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify update restriction when battery is below 25%",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect printer with battery below 25%. 3. Open Printer Settings. 4. Tap Update Available."
+      ],
+      "type": "Negative",
+      "expected": "Firmware update is blocked and warning message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4009,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 12",
+          "module": "Firmware Validation",
+          "stage": "Firmware",
+          "description": "Verify update restriction when battery is below 25%",
+          "expected": "Firmware update is blocked and warning message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 13",
+      "module": "Firmware Validation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify update restriction when no paper is loaded",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect printer without paper loaded. 3. Open Printer Settings. 4. Tap Update Available."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate warning message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4010,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 13",
+          "module": "Firmware Validation",
+          "stage": "Firmware",
+          "description": "Verify update restriction when no paper is loaded",
+          "expected": "Appropriate warning message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 14",
+      "module": "Firmware Validation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify internet interruption during firmware download",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware download. 4. Disable internet connection during download."
+      ],
+      "type": "Negative",
+      "expected": "Download fails gracefully and an error message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4011,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 14",
+          "module": "Firmware Validation",
+          "stage": "Firmware",
+          "description": "Verify internet interruption during firmware download",
+          "expected": "Download fails gracefully and an error message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 15",
+      "module": "Firmware Validation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify navigation restriction during firmware installation",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware installation. 4. Attempt navigation actions."
+      ],
+      "type": "Negative",
+      "expected": "Installation continues and critical update process is protected.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4012,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 15",
+          "module": "Firmware Validation",
+          "stage": "Firmware",
+          "description": "Verify navigation restriction during firmware installation",
+          "expected": "Installation continues and critical update process is protected.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 16",
+      "module": "Firmware Update",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Update Available button is displayed",
+      "steps": [
+        "1. Launch the application and wait for splash screen to complete. 2. Complete onboarding by swiping until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. User lands on Home screen. 5. Tap Printer icon. 6. User is redirected to No Printer Added screen. 7. Tap Added a New Printer. 8. Select HP Sprocket Studio Plus printer. 9. Wi-Fi setup screen is displayed. 10. Tap Next. 11. Select Wi-Fi network and enter password. 12. Tap Next to connect printer. 13. Printer connects successfully. 14. Tap Finish Connection. 15. User lands on Your Printer screen. 16. Tap connected printer. 17. Printer Settings screen is displayed. 18. Verify Update Available button is visible."
+      ],
+      "type": "Positive",
+      "expected": "Update Available button is displayed when firmware update exists.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4013,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 16",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Update Available button is displayed",
+          "expected": "Update Available button is displayed when firmware update exists.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 17",
+      "module": "Firmware Update Popup",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Firmware Update popup opens",
+      "steps": [
+        "1. Launch the application and wait for splash screen. 2. Complete onboarding until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. Navigate to Home screen. 5. Tap Printer icon. 6. Go to No Printer Added screen. 7. Tap Added a New Printer. 8. Select HP Sprocket Studio Plus printer. 9. Complete Wi-Fi setup. 10. Tap Finish Connection. 11. Open connected printer. 12. Navigate to Printer Settings screen. 13. Tap Update Available button."
+      ],
+      "type": "Positive",
+      "expected": "The \"Firmware Update Available\" popup is displayed with the bold title \"Firmware Update Available\", the message \"We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest version.\", the \"Update Now\" option selected by default, and the \"Not Right Now\" option displayed below it. All UI elements match the Figma design.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4014,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 17",
+          "module": "Firmware Update Popup",
+          "stage": "Firmware",
+          "description": "Verify Firmware Update popup opens",
+          "expected": "The \"Firmware Update Available\" popup is displayed with the bold title \"Firmware Update Available\", the message \"We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest version.\", the \"Update Now\" option selected by default, and the \"Not Right Now\" option displayed below it. All UI elements match the Figma design.",
+          "verification": "Verify dialog: Firmware Update Available",
+          "kind": "dialog",
+          "selector": "Firmware Update Available"
+        },
+        {
+          "test_id": "Firmware Update 17",
+          "module": "Firmware Update Popup",
+          "stage": "Firmware",
+          "description": "Verify Firmware Update popup opens",
+          "expected": "The \"Firmware Update Available\" popup is displayed with the bold title \"Firmware Update Available\", the message \"We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest version.\", the \"Update Now\" option selected by default, and the \"Not Right Now\" option displayed below it. All UI elements match the Figma design.",
+          "verification": "Verify dialog: We",
+          "kind": "dialog",
+          "selector": "We"
+        },
+        {
+          "test_id": "Firmware Update 17",
+          "module": "Firmware Update Popup",
+          "stage": "Firmware",
+          "description": "Verify Firmware Update popup opens",
+          "expected": "The \"Firmware Update Available\" popup is displayed with the bold title \"Firmware Update Available\", the message \"We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest version.\", the \"Update Now\" option selected by default, and the \"Not Right Now\" option displayed below it. All UI elements match the Figma design.",
+          "verification": "Verify dialog: , the",
+          "kind": "dialog",
+          "selector": ", the"
+        },
+        {
+          "test_id": "Firmware Update 17",
+          "module": "Firmware Update Popup",
+          "stage": "Firmware",
+          "description": "Verify Firmware Update popup opens",
+          "expected": "The \"Firmware Update Available\" popup is displayed with the bold title \"Firmware Update Available\", the message \"We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest version.\", the \"Update Now\" option selected by default, and the \"Not Right Now\" option displayed below it. All UI elements match the Figma design.",
+          "verification": "Verify dialog: option selected by default, and the",
+          "kind": "dialog",
+          "selector": "option selected by default, and the"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 18",
+      "module": "Firmware Update Popup",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify popup UI content",
+      "steps": [
+        "1. Launch application and wait for splash screen. \n2. Complete onboarding until Get Started appears.\n 3. Tap Get Started → Sign Up Later.\n 4. Navigate to Home screen. \n5. Tap Printer icon. \n6. Go to No Printer Added screen. \n7. Tap Added a New Printer. \n8. Select HP Sprocket Studio Plus printer.\n 9. Complete Wi-Fi setup. \n10. Tap Finish Connection. \n11. Open connected printer.\n 12. Navigate to Printer Settings screen. \n13. Tap Update Available button.\n 14. Observe popup UI elements."
+      ],
+      "type": "Positive",
+      "expected": "Popup displays correct title, description, and buttons.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4015,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 18",
+          "module": "Firmware Update Popup",
+          "stage": "Firmware",
+          "description": "Verify popup UI content",
+          "expected": "Popup displays correct title, description, and buttons.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 19",
+      "module": "Firmware Update Popup",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Not Right Now functionality",
+      "steps": [
+        "1. Launch application and wait for splash screen. 2. Complete onboarding until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. Navigate to Home screen. 5. Tap Printer icon. 6. Go to No Printer Added screen. 7. Tap Added a New Printer. 8. Select printer and complete Wi-Fi setup. 9. Tap Finish Connection. 10. Open Printer Settings screen. 11. Tap Update Available. 12. Tap Not Right Now."
+      ],
+      "type": "Positive",
+      "expected": "Popup closes and user remains on Printer Settings screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4016,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 19",
+          "module": "Firmware Update Popup",
+          "stage": "Firmware",
+          "description": "Verify Not Right Now functionality",
+          "expected": "Popup closes and user remains on Printer Settings screen.",
+          "verification": "Verify dialog: Printer",
+          "kind": "dialog",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 20",
+      "module": "Firmware Update",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Update Now starts firmware download",
+      "steps": [
+        "1. Launch application and wait for splash screen. 2. Complete onboarding until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. Navigate to Home screen. 5. Tap Printer icon. 6. Go to No Printer Added screen. 7. Tap Added a New Printer. 8. Select printer and complete Wi-Fi setup. 9. Tap Finish Connection. 10. Open Printer Settings screen. 11. Tap Update Available. 12. Tap Update Now."
+      ],
+      "type": "Positive",
+      "expected": "Firmware download starts successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4017,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 20",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Update Now starts firmware download",
+          "expected": "Firmware download starts successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 21",
+      "module": "Firmware Download",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify download progress screen",
+      "steps": [
+        "1. Launch application and wait for splash screen. 2. Complete onboarding until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. Navigate to Home screen. 5. Tap Printer icon. 6. Go to No Printer Added screen. 7. Tap Added a New Printer. 8. Select printer and complete Wi-Fi setup. 9. Tap Finish Connection. 10. Open Printer Settings screen. 11. Tap Update Available. 12. Tap Update Now. 13. Observe firmware download screen."
+      ],
+      "type": "Positive",
+      "expected": "\"Firmware download in progress\" with loader is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4018,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 21",
+          "module": "Firmware Download",
+          "stage": "Firmware",
+          "description": "Verify download progress screen",
+          "expected": "\"Firmware download in progress\" with loader is displayed.",
+          "verification": "Verify visible: Firmware download in progress",
+          "kind": "visible",
+          "selector": "Firmware download in progress"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmqare Update 22",
+      "module": "Firmware Download",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify UI remains visible during download",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Tap Update Available → Update Now. 4. Observe screen during download."
+      ],
+      "type": "Positive",
+      "expected": "Printer Settings UI remains visible during download.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4019,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmqare Update 22",
+          "module": "Firmware Download",
+          "stage": "Firmware",
+          "description": "Verify UI remains visible during download",
+          "expected": "Printer Settings UI remains visible during download.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 23",
+      "module": "Firmware Installation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify installation screen appears",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Start firmware update. 4. Wait for download completion."
+      ],
+      "type": "Positive",
+      "expected": "Firmware installation screen is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4020,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 23",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify installation screen appears",
+          "expected": "Firmware installation screen is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 24",
+      "module": "Firmware Installation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify installation warning message",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Start firmware installation. 4. Observe installation screen."
+      ],
+      "type": "Positive",
+      "expected": "Warning message \"Do not turn off or reset printer while LED flashes\" is shown.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4021,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 24",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify installation warning message",
+          "expected": "Warning message \"Do not turn off or reset printer while LED flashes\" is shown.",
+          "verification": "Verify visible: Do not turn off or reset printer while LED flashes",
+          "kind": "visible",
+          "selector": "Do not turn off or reset printer while LED flashes"
+        },
+        {
+          "test_id": "Firmware Update 24",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify installation warning message",
+          "expected": "Warning message \"Do not turn off or reset printer while LED flashes\" is shown.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 25",
+      "module": "Firmware Installation",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify update completion",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Complete firmware update process."
+      ],
+      "type": "Positive",
+      "expected": "Firmware update completes successfully and printer reconnects.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4022,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 25",
+          "module": "Firmware Installation",
+          "stage": "Firmware",
+          "description": "Verify update completion",
+          "expected": "Firmware update completes successfully and printer reconnects.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 26",
+      "module": "Firmware UI",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify status section",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Open Printer Settings screen."
+      ],
+      "type": "Positive",
+      "expected": "Printer Status and Paper Status are visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4023,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 26",
+          "module": "Firmware UI",
+          "stage": "Firmware",
+          "description": "Verify status section",
+          "expected": "Printer Status and Paper Status are visible.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 27",
+      "module": "Firmware UI",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify battery display",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Open Printer Settings screen."
+      ],
+      "type": "Positive",
+      "expected": "Battery percentage is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4024,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 27",
+          "module": "Firmware UI",
+          "stage": "Firmware",
+          "description": "Verify battery display",
+          "expected": "Battery percentage is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 28",
+      "module": "Firmware UI",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify customization options",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Open Printer Settings screen."
+      ],
+      "type": "Positive",
+      "expected": "Nickname, LED Color, Sleep Timer, Auto Off are visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4025,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 28",
+          "module": "Firmware UI",
+          "stage": "Firmware",
+          "description": "Verify customization options",
+          "expected": "Nickname, LED Color, Sleep Timer, Auto Off are visible.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 29",
+      "module": "Firmware UI",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify system section",
+      "steps": [
+        "1. Launch application and complete onboarding. 2. Setup printer fully. 3. Open Printer Settings screen."
+      ],
+      "type": "Positive",
+      "expected": "MAC Address is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4026,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 29",
+          "module": "Firmware UI",
+          "stage": "Firmware",
+          "description": "Verify system section",
+          "expected": "MAC Address is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 30",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify update blocked when battery low",
+      "steps": [
+        "1. Launch app. 2. Setup printer with battery below 25%. 3. Navigate to Printer Settings. 4. Tap Update Available → Update Now."
+      ],
+      "type": "Negative",
+      "expected": "Update is blocked with warning message.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4027,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 30",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify update blocked when battery low",
+          "expected": "Update is blocked with warning message.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 31",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify update blocked when no paper",
+      "steps": [
+        "1. Launch app. 2. Setup printer without paper. 3. Navigate to Printer Settings. 4. Start update."
+      ],
+      "type": "Negative",
+      "expected": "Error message for missing paper is shown.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4028,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 31",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify update blocked when no paper",
+          "expected": "Error message for missing paper is shown.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 32",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify internet failure during download",
+      "steps": [
+        "1. Launch app. 2. Setup printer. 3. Start firmware download. 4. Turn off internet."
+      ],
+      "type": "Negative",
+      "expected": "Download fails with error message.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4029,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 32",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify internet failure during download",
+          "expected": "Download fails with error message.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 33",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Wi-Fi disconnect during update",
+      "steps": [
+        "1. Launch app. 2. Start firmware update. 3. Disconnect Wi-Fi."
+      ],
+      "type": "Negative",
+      "expected": "Update fails safely with error.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4030,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 33",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify Wi-Fi disconnect during update",
+          "expected": "Update fails safely with error.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 34",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify app closed during installation",
+      "steps": [
+        "1. Launch app. 2. Start firmware installation. 3. Close app."
+      ],
+      "type": "Negative",
+      "expected": "Update state is preserved safely.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4031,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 34",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify app closed during installation",
+          "expected": "Update state is preserved safely.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 35",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify printer power off during update",
+      "steps": [
+        "1. Launch app. 2. Start installation. 3. Turn off printer."
+      ],
+      "type": "Negative",
+      "expected": "Warning/error displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4032,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 35",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify printer power off during update",
+          "expected": "Warning/error displayed.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 36",
+      "module": "Firmware Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify navigation blocked during install",
+      "steps": [
+        "1. Launch app. 2. Start installation. 3. Try navigating away."
+      ],
+      "type": "Negative",
+      "expected": "Navigation is blocked.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4033,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 36",
+          "module": "Firmware Negative",
+          "stage": "Firmware",
+          "description": "Verify navigation blocked during install",
+          "expected": "Navigation is blocked.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 37",
+      "module": "Firmware Popup Negative",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify multiple Update Now taps",
+      "steps": [
+        "1. Launch app. 2. Open popup. 3. Tap Update Now repeatedly."
+      ],
+      "type": "Negative",
+      "expected": "Only one update starts.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4034,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 37",
+          "module": "Firmware Popup Negative",
+          "stage": "Firmware",
+          "description": "Verify multiple Update Now taps",
+          "expected": "Only one update starts.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 38",
+      "module": "Firmware Popup",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify popup reopens correctly",
+      "steps": [
+        "1. Launch app. 2. Open popup. 3. Close it. 4. Reopen popup."
+      ],
+      "type": "Positive",
+      "expected": "Popup opens correctly every time.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4035,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 38",
+          "module": "Firmware Popup",
+          "stage": "Firmware",
+          "description": "Verify popup reopens correctly",
+          "expected": "Popup opens correctly every time.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 39",
+      "module": "Firmware Error Handling",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify No Paper Tray Error during firmware update",
+      "steps": [
+        "1. Launch the application and wait for splash screen to complete. 2. Complete onboarding by swiping until Get Started appears. 3. Tap Get Started → Sign Up Later. 4. User lands on Home screen. 5. Tap Printer icon. 6. User is redirected to No Printer Added screen. 7. Tap Added a New Printer. 8. Select HP Sprocket Studio Plus printer. 9. Proceed through Wi-Fi setup flow and complete printer connection. 10. Navigate to Printer Settings screen. 11. Remove paper tray from printer (simulate no tray condition). 12. Tap Update Available button. 13. System attempts firmware update validation. 14. Verify DE_08L error screen is displayed."
+      ],
+      "type": "Negative",
+      "expected": "Error message is displayed: A \"No Paper Tray\" error popup is displayed with the message \"Please attach the paper tray (loaded with paper) to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper tray is attached.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4036,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 39",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify No Paper Tray Error during firmware update",
+          "expected": "Error message is displayed: A \"No Paper Tray\" error popup is displayed with the message \"Please attach the paper tray (loaded with paper) to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper tray is attached.",
+          "verification": "Verify dialog: No Paper Tray",
+          "kind": "dialog",
+          "selector": "No Paper Tray"
+        },
+        {
+          "test_id": "Firmware Update 39",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify No Paper Tray Error during firmware update",
+          "expected": "Error message is displayed: A \"No Paper Tray\" error popup is displayed with the message \"Please attach the paper tray (loaded with paper) to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper tray is attached.",
+          "verification": "Verify dialog: The popup includes a",
+          "kind": "dialog",
+          "selector": "The popup includes a"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 40",
+      "module": "Firmware Error Handling",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Paper Empty Error during firmware update",
+      "steps": [
+        "1. Launch the application and complete onboarding flow. 2. Navigate to Printer Settings screen after connecting printer. 3. Ensure paper tray is inserted but contains no paper. 4. Tap Update Available button. 5. Start firmware update process. 6. System validates printer state. 7. Verify DE_08I error screen appears."
+      ],
+      "type": "Negative",
+      "expected": "Bottom side Try Again",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4037,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 40",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify Paper Empty Error during firmware update",
+          "expected": "Bottom side Try Again",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 41",
+      "module": "Firmware Error Handling",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Paper Jam Error during firmware update",
+      "steps": [
+        "1. Launch the application and complete onboarding flow. 2. Connect printer and navigate to Printer Settings screen. 3. Simulate paper jam condition in printer. 4. Tap Update Available button. 5. Start firmware update process. 6. System detects paper jam condition. 7. Verify DE_08K error screen is displayed."
+      ],
+      "type": "Negative",
+      "expected": "Error message is displayed: \"Paper Jam Error\" popup is displayed with the message \"Please clear the paper jam to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper jam is cleared.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4038,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 41",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify Paper Jam Error during firmware update",
+          "expected": "Error message is displayed: \"Paper Jam Error\" popup is displayed with the message \"Please clear the paper jam to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper jam is cleared.",
+          "verification": "Verify dialog: Paper Jam Error",
+          "kind": "dialog",
+          "selector": "Paper Jam Error"
+        },
+        {
+          "test_id": "Firmware Update 41",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify Paper Jam Error during firmware update",
+          "expected": "Error message is displayed: \"Paper Jam Error\" popup is displayed with the message \"Please clear the paper jam to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper jam is cleared.",
+          "verification": "Verify dialog: Please clear the paper jam to complete the firmware update.",
+          "kind": "dialog",
+          "selector": "Please clear the paper jam to complete the firmware update."
+        },
+        {
+          "test_id": "Firmware Update 41",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify Paper Jam Error during firmware update",
+          "expected": "Error message is displayed: \"Paper Jam Error\" popup is displayed with the message \"Please clear the paper jam to complete the firmware update.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner. The firmware update cannot continue until the paper jam is cleared.",
+          "verification": "Verify dialog: Try Again",
+          "kind": "dialog",
+          "selector": "Try Again"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 42",
+      "module": "Firmware Error Handling",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify No Carbon Ribbon Error during firmware update",
+      "steps": [
+        "1. Launch the application and complete onboarding flow. 2. Connect printer and open Printer Settings screen. 3. Remove carbon ribbon / ink cartridge from printer. 4. Tap Update Available button. 5. Start firmware update process. 6. System validates ribbon status. 7. Verify DE_08M error screen is displayed."
+      ],
+      "type": "Negative",
+      "expected": "Error message is displayed: \"No Carbon Ribbon\" with instruction \"If carbon ribbon is used up, please replace ink cartridge.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4039,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 42",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify No Carbon Ribbon Error during firmware update",
+          "expected": "Error message is displayed: \"No Carbon Ribbon\" with instruction \"If carbon ribbon is used up, please replace ink cartridge.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner.",
+          "verification": "Verify dialog: No Carbon Ribbon",
+          "kind": "dialog",
+          "selector": "No Carbon Ribbon"
+        },
+        {
+          "test_id": "Firmware Update 42",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify No Carbon Ribbon Error during firmware update",
+          "expected": "Error message is displayed: \"No Carbon Ribbon\" with instruction \"If carbon ribbon is used up, please replace ink cartridge.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner.",
+          "verification": "Verify dialog: If carbon ribbon is used up, please replace ink cartridge.",
+          "kind": "dialog",
+          "selector": "If carbon ribbon is used up, please replace ink cartridge."
+        },
+        {
+          "test_id": "Firmware Update 42",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify No Carbon Ribbon Error during firmware update",
+          "expected": "Error message is displayed: \"No Carbon Ribbon\" with instruction \"If carbon ribbon is used up, please replace ink cartridge.\" The popup includes a \"Try Again\" button at the bottom and a Close (X) icon in the top-right corner.",
+          "verification": "Verify dialog: Try Again",
+          "kind": "dialog",
+          "selector": "Try Again"
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 43",
+      "module": "Firmware Error Handling",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Try Again functionality after resolving hardware issue",
+      "steps": [
+        "1. Launch the application and complete onboarding flow. 2. Navigate to Printer Settings screen. 3. Trigger any firmware error condition (paper/jam/ribbon). 4. Verify corresponding error screen is displayed. 5. Fix the hardware issue (insert paper / clear jam / insert ribbon). 6. Tap Try Again button on error screen. 7. System re-validates printer status. 8. Verify firmware process resumes and navigates to HPS_FW_04 While Installing screen if issue is resolved."
+      ],
+      "type": "Positive",
+      "expected": "System retries firmware update successfully after issue is resolved and continues installation flow.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4040,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 43",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify Try Again functionality after resolving hardware issue",
+          "expected": "System retries firmware update successfully after issue is resolved and continues installation flow.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Firmware Update 44",
+      "module": "Firmware Error Handling",
+      "section": "Bluetooth / HP 600 Firmware Update",
+      "description": "Verify Cancel (X) button functionality on error popup",
+      "steps": [
+        "1. Launch the application and complete onboarding flow. 2. Navigate to Printer Settings screen. 3. Trigger any firmware update error condition. 4. Verify error popup is displayed. 5. Tap X (Close) button on error popup. 6. System cancels firmware update process. 7. User is redirected back to Printer Settings screen."
+      ],
+      "type": "Positive",
+      "expected": "Firmware update process is cancelled and user returns safely to Printer Settings screen without proceeding further.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4041,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "Firmware Update 44",
+          "module": "Firmware Error Handling",
+          "stage": "Firmware",
+          "description": "Verify Cancel (X) button functionality on error popup",
+          "expected": "Firmware update process is cancelled and user returns safely to Printer Settings screen without proceeding further.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "PS-013",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Firmware Update Available popup is displayed",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Verify update description text is displayed.",
+        "25. Verify Update Now button is displayed.",
+        "26. Verify Not Right Now button is displayed."
+      ],
+      "type": "",
+      "expected": "Firmware Update Available popup is displayed with update details, Update Now button, and Not Right Now button.",
+      "sheet": "Printers detail pages",
+      "row": 14,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "PS-013",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Firmware Update Available popup is displayed",
+          "expected": "Firmware Update Available popup is displayed with update details, Update Now button, and Not Right Now button.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-014",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Not Right Now button functionality",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Not Right Now' button.",
+        "25. Verify Firmware Update Available popup is dismissed.",
+        "26. Verify user remains on Printer Settings screen.",
+        "27. Verify Update Available banner is still displayed."
+      ],
+      "type": "",
+      "expected": "Popup is dismissed and user remains on Printer Settings screen with Update Available banner visible.",
+      "sheet": "Printers detail pages",
+      "row": 15,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "PS-014",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Not Right Now button functionality",
+          "expected": "Popup is dismissed and user remains on Printer Settings screen with Update Available banner visible.",
+          "verification": "Verify dialog: Printer",
+          "kind": "dialog",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "PS-015",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Verify firmware update process is initiated.",
+        "26. Verify Firmware Download in Progress screen/message is displayed.",
+        "27. Verify update progress indicator is displayed."
+      ],
+      "type": "",
+      "expected": "Firmware update starts successfully and Firmware Download in Progress status is displayed.",
+      "sheet": "Printers detail pages",
+      "row": 16,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "PS-015",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "",
+          "expected": "Firmware update starts successfully and Firmware Download in Progress status is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-016",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Firmware Download in Progress state",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Observe Firmware Download in Progress screen.",
+        "26. Verify download progress indicator is displayed.",
+        "27. Verify firmware download status message is displayed.",
+        "28. Verify printer remains connected during download process."
+      ],
+      "type": "",
+      "expected": "Firmware download progress and status message are displayed correctly during firmware download.",
+      "sheet": "Printers detail pages",
+      "row": 17,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "PS-016",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Firmware Download in Progress state",
+          "expected": "Firmware download progress and status message are displayed correctly during firmware download.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-017",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Firmware Installation in Progress state",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Observe Firmware Download in Progress screen.",
+        "26. Verify download progress indicator is displayed.",
+        "27. Verify firmware download status message is displayed.",
+        "28. Wait for firmware download to complete.",
+        "29.  Verify Firmware Installation in Progress screen/message is displayed.",
+        "30. Verify installation instruction message is displayed.",
+        "31. Verify user is instructed not to power off or reset the printer.",
+        "32. Verify update progress indicator is displayed."
+      ],
+      "type": "",
+      "expected": "Firmware Installation in Progress message and instructions are displayed correctly.",
+      "sheet": "Printers detail pages",
+      "row": 18,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "PS-017",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify Firmware Installation in Progress state",
+          "expected": "Firmware Installation in Progress message and instructions are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-018",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify successful firmware update completion",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Observe Firmware Download in Progress screen.",
+        "26. Verify download progress indicator is displayed.",
+        "27. Verify firmware download status message is displayed.",
+        "28. Wait for firmware installation process to complete.",
+        "29. Verify firmware update completes successfully.",
+        "30. Verify Update Available banner is no longer displayed.",
+        "31. Scroll to System section.",
+        "32. Verify Firmware Version field is displayed.",
+        "33. Verify Firmware Version value is updated to the latest version."
+      ],
+      "type": "",
+      "expected": "Firmware update completes successfully and Firmware Version reflects the updated version.",
+      "sheet": "Printers detail pages",
+      "row": 19,
+      "stage": "Firmware",
+      "verifications": [
+        {
+          "test_id": "PS-018",
+          "module": "Firmware Update",
+          "stage": "Firmware",
+          "description": "Verify successful firmware update completion",
+          "expected": "Firmware update completes successfully and Firmware Version reflects the updated version.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

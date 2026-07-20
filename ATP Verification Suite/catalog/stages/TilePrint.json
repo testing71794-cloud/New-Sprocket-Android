@@ -1,0 +1,314 @@
+{
+  "stage": "TilePrint",
+  "count": 8,
+  "cases": [
+    {
+      "test_id": "Tiles modules 05",
+      "module": "Tiles 2×2",
+      "section": "TILES MODULES",
+      "description": "Verify Tiles 2×2 screen UI and default layout",
+      "steps": [
+        "1. Launch the application, complete onboarding (ON_01B to ON_01E), tap Get Started!, tap the Tiles module and select an image from the Gallery.",
+        "2. Verify the Tiles 2×2 Print Preview screen, including Back button, Printer name/status, Share icon, preview image, Copies option, Tiles option, AI button, Edit button, Print button and bottom navigation (More, Create, Printer)."
+      ],
+      "type": "Positive",
+      "expected": "Tiles 2×2 screen opens successfully. Image is divided into 4 tiles by default with checkmarks. All top and bottom options are visible and clickable. No UI issue is observed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1157,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 05",
+          "module": "Tiles 2×2",
+          "stage": "TilePrint",
+          "description": "Verify Tiles 2×2 screen UI and default layout",
+          "expected": "Tiles 2×2 screen opens successfully. Image is divided into 4 tiles by default with checkmarks. All top and bottom options are visible and clickable. No UI issue is observed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 06",
+      "module": "Tiles 2×2",
+      "section": "TILES MODULES",
+      "description": "Verify print restriction when no tile is selected",
+      "steps": [
+        "1. Launch the application, complete onboarding (ON_01B to ON_01E), tap Get Started!, connect the printer, open the Tiles module and select an image from the Gallery.",
+        "2. Deselect all tiles and tap the Print button."
+      ],
+      "type": "Negative",
+      "expected": "User cannot print without selecting at least one tile. Appropriate warning/error message is displayed. Print job is not started and the app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1159,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 06",
+          "module": "Tiles 2×2",
+          "stage": "TilePrint",
+          "description": "Verify print restriction when no tile is selected",
+          "expected": "User cannot print without selecting at least one tile. Appropriate warning/error message is displayed. Print job is not started and the app remains stable.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 11",
+      "module": "Tiles 3×3",
+      "section": "TILES MODULES",
+      "description": "Verify 3×3 grid UI, selection and print functionality",
+      "steps": [
+        "1. Launch the application and complete onboarding (ON_01B to ON_01E).",
+        "2. Connect the printer.",
+        "3. From the Home screen, tap the Tiles module.",
+        "4. Select an image from the Gallery.",
+        "5. Verify the user is redirected to the Print Preview screen.",
+        "6. Verify 4-grid is selected by default.",
+        "7. Tap the 3×3 (9-grid) option.",
+        "8. Verify the screen from top to bottom including Back button, Printer Name/Status, Share icon, preview image, Copies option, Tiles option, AI button, Edit button, Print button and bottom navigation (More, Create, Printer).",
+        "9. Verify all 9 tiles are selected with green checkmarks.",
+        "10. Deselect any 3 tiles and tap Print."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to the 3×3 Tiles Print Preview screen successfully. Image is displayed in 9-grid format with green checkmarks. Top and bottom options are visible and clickable. Only the selected 6 tiles are printed successfully. No UI issue or error message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1169,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 11",
+          "module": "Tiles 3×3",
+          "stage": "TilePrint",
+          "description": "Verify 3×3 grid UI, selection and print functionality",
+          "expected": "User is redirected to the 3×3 Tiles Print Preview screen successfully. Image is displayed in 9-grid format with green checkmarks. Top and bottom options are visible and clickable. Only the selected 6 tiles are printed successfully. No UI issue or error message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 12",
+      "module": "Tiles 3×3",
+      "section": "TILES MODULES",
+      "description": "Verify tile deselection restriction and error handling",
+      "steps": [
+        "1. Launch the application and complete onboarding (ON_01B to ON_01E).",
+        "2. Connect the printer.",
+        "3. From the Home screen, tap the Tiles module.",
+        "4. Select an image from the Gallery.",
+        "5. Verify the user is redirected to the Print Preview screen.",
+        "6. Verify 4-grid is selected by default.",
+        "7. Tap the 3×3 (9-grid) option.",
+        "8. Deselect all 9 tiles.",
+        "9. Tap the Print button and observe the screen behavior.",
+        "10. Verify all screen elements from top to bottom."
+      ],
+      "type": "Negative",
+      "expected": "User cannot print when all tiles are deselected. Appropriate warning/error message is displayed. Print job is not started. Back button, Printer Name/Status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) remain visible and functional. Application remains stable without crashes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1179,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 12",
+          "module": "Tiles 3×3",
+          "stage": "TilePrint",
+          "description": "Verify tile deselection restriction and error handling",
+          "expected": "User cannot print when all tiles are deselected. Appropriate warning/error message is displayed. Print job is not started. Back button, Printer Name/Status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) remain visible and functional. Application remains stable without crashes.",
+          "verification": "Verify image/logo: Copies",
+          "kind": "image",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "Tiles modules 12",
+          "module": "Tiles 3×3",
+          "stage": "TilePrint",
+          "description": "Verify tile deselection restriction and error handling",
+          "expected": "User cannot print when all tiles are deselected. Appropriate warning/error message is displayed. Print job is not started. Back button, Printer Name/Status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) remain visible and functional. Application remains stable without crashes.",
+          "verification": "Verify image/logo: Create",
+          "kind": "image",
+          "selector": "Create"
+        },
+        {
+          "test_id": "Tiles modules 12",
+          "module": "Tiles 3×3",
+          "stage": "TilePrint",
+          "description": "Verify tile deselection restriction and error handling",
+          "expected": "User cannot print when all tiles are deselected. Appropriate warning/error message is displayed. Print job is not started. Back button, Printer Name/Status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) remain visible and functional. Application remains stable without crashes.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        },
+        {
+          "test_id": "Tiles modules 12",
+          "module": "Tiles 3×3",
+          "stage": "TilePrint",
+          "description": "Verify tile deselection restriction and error handling",
+          "expected": "User cannot print when all tiles are deselected. Appropriate warning/error message is displayed. Print job is not started. Back button, Printer Name/Status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) remain visible and functional. Application remains stable without crashes.",
+          "verification": "Verify image/logo: More",
+          "kind": "image",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 13",
+      "module": "Create > Tiles",
+      "section": "TILES MODULES",
+      "description": "Verify tile selection and print",
+      "steps": [
+        "1. Launch the application and complete onboarding (ON_01B to ON_01E).",
+        "2. Connect the printer and tap Tiles from Home screen.",
+        "3. Select an image from the Gallery and verify the Tiles Print Preview screen opens.",
+        "4. Verify all tiles are selected with green checkmarks.",
+        "5. Tap any tile to unselect and tap again to reselect.",
+        "6. Deselect one tile and tap Print."
+      ],
+      "type": "Positive",
+      "expected": "All tiles are selected by default. Unselected tile changes to an empty circle and reselected tile shows a green checkmark. Only selected tiles are printed. Back, Share, AI, Edit, Print and bottom navigation options are visible and working properly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1189,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 13",
+          "module": "Create > Tiles",
+          "stage": "TilePrint",
+          "description": "Verify tile selection and print",
+          "expected": "All tiles are selected by default. Unselected tile changes to an empty circle and reselected tile shows a green checkmark. Only selected tiles are printed. Back, Share, AI, Edit, Print and bottom navigation options are visible and working properly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 14",
+      "module": "Create > Tiles",
+      "section": "TILES MODULES",
+      "description": "Verify Print button when all tiles are unselected",
+      "steps": [
+        "1. Launch the application and complete onboarding (ON_01B to ON_01E).",
+        "2. Connect the printer and tap Tiles from Home screen.",
+        "3. Select an image from the Gallery and verify the Tiles Print Preview screen opens.",
+        "4. Unselect all tiles one by one.",
+        "5. Verify the Print button becomes disabled.",
+        "6. Tap the disabled Print button."
+      ],
+      "type": "Negative",
+      "expected": "All tiles become unselected successfully. The Print button is disabled (greyed out). Tapping the disabled Print button performs no action. All top and bottom options remain visible and the app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1195,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 14",
+          "module": "Create > Tiles",
+          "stage": "TilePrint",
+          "description": "Verify Print button when all tiles are unselected",
+          "expected": "All tiles become unselected successfully. The Print button is disabled (greyed out). Tapping the disabled Print button performs no action. All top and bottom options remain visible and the app remains stable.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 15",
+      "module": "Create > Copies",
+      "section": "TILES MODULES",
+      "description": "Verify Copies screen and printing",
+      "steps": [
+        "1. Launch the app and complete onboarding (ON_01B to ON_01E).",
+        "2. Connect the printer, tap Tiles and select an image from Gallery.",
+        "3. Verify Print Preview opens and 4-grid is selected by default.",
+        "4. Tap the Copies tab.",
+        "5. Verify image preview, copy count, + / - buttons and Print button.",
+        "6. Increase/decrease the copy count and tap Print."
+      ],
+      "type": "Positive",
+      "expected": "Copies screen opens successfully. Full image preview is displayed correctly. Default copy count is 1. Copy count increases/decreases correctly. Print starts with the selected number of copies. All top (Back, Printer Name, Share) and bottom (AI, Edit, Print, More, Create, Printer) options are visible and working properly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1201,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 15",
+          "module": "Create > Copies",
+          "stage": "TilePrint",
+          "description": "Verify Copies screen and printing",
+          "expected": "Copies screen opens successfully. Full image preview is displayed correctly. Default copy count is 1. Copy count increases/decreases correctly. Print starts with the selected number of copies. All top (Back, Printer Name, Share) and bottom (AI, Edit, Print, More, Create, Printer) options are visible and working properly.",
+          "verification": "Verify image/logo: Copies",
+          "kind": "image",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "Tiles modules 15",
+          "module": "Create > Copies",
+          "stage": "TilePrint",
+          "description": "Verify Copies screen and printing",
+          "expected": "Copies screen opens successfully. Full image preview is displayed correctly. Default copy count is 1. Copy count increases/decreases correctly. Print starts with the selected number of copies. All top (Back, Printer Name, Share) and bottom (AI, Edit, Print, More, Create, Printer) options are visible and working properly.",
+          "verification": "Verify image/logo: Create",
+          "kind": "image",
+          "selector": "Create"
+        },
+        {
+          "test_id": "Tiles modules 15",
+          "module": "Create > Copies",
+          "stage": "TilePrint",
+          "description": "Verify Copies screen and printing",
+          "expected": "Copies screen opens successfully. Full image preview is displayed correctly. Default copy count is 1. Copy count increases/decreases correctly. Print starts with the selected number of copies. All top (Back, Printer Name, Share) and bottom (AI, Edit, Print, More, Create, Printer) options are visible and working properly.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        },
+        {
+          "test_id": "Tiles modules 15",
+          "module": "Create > Copies",
+          "stage": "TilePrint",
+          "description": "Verify Copies screen and printing",
+          "expected": "Copies screen opens successfully. Full image preview is displayed correctly. Default copy count is 1. Copy count increases/decreases correctly. Print starts with the selected number of copies. All top (Back, Printer Name, Share) and bottom (AI, Edit, Print, More, Create, Printer) options are visible and working properly.",
+          "verification": "Verify image/logo: More",
+          "kind": "image",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 16",
+      "module": "Create > Copies",
+      "section": "TILES MODULES",
+      "description": "Verify copy count retention and navigation",
+      "steps": [
+        "1. Launch the app and complete onboarding (ON_01B to ON_01E).",
+        "2. Connect the printer, tap Tiles and select an image from Gallery.",
+        "3. Open Print Preview and tap the Copies tab.",
+        "4. Change the copy count.",
+        "5. Switch to Tiles tab and return to Copies tab.",
+        "6. Tap Back, Share, Edit, More and Printer icons."
+      ],
+      "type": "Negative",
+      "expected": "Previously selected copy count is retained. Tile layout remains unchanged. All navigation controls work correctly. No error message, UI issue or app crash is observed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1207,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 16",
+          "module": "Create > Copies",
+          "stage": "TilePrint",
+          "description": "Verify copy count retention and navigation",
+          "expected": "Previously selected copy count is retained. Tile layout remains unchanged. All navigation controls work correctly. No error message, UI issue or app crash is observed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

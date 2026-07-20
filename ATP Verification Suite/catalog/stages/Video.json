@@ -1,0 +1,234 @@
+{
+  "stage": "Video",
+  "count": 8,
+  "cases": [
+    {
+      "test_id": "Video frame 01",
+      "module": "CR_05A_Gallery with Videos",
+      "section": "VIDEO FRAMES",
+      "description": "Verify video thumbnails indicate video content.",
+      "steps": [
+        "1. Install and launch the app. 2. Verify Splash Screen with HP logo and \"sprocket\". 3. Wait for splash to complete. 4. Tap Get Started. 5. Tap Sign Up Later. 6. Wait for Home screen. 7. Allow notification permission (if displayed). 8. Tap Quick Print. 9. Verify Gallery permission popup and tap Allow. 10. Verify bottom toast message is displayed for 5 seconds. 11. Navigate to Gallery. 12. Observe video thumbnails in folders."
+      ],
+      "type": "Positive",
+      "expected": "Video thumbnails display a play icon at the bottom-right indicating video content.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 646,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 01",
+          "module": "CR_05A_Gallery with Videos",
+          "stage": "Video",
+          "description": "Verify video thumbnails indicate video content.",
+          "expected": "Video thumbnails display a play icon at the bottom-right indicating video content.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 03",
+      "module": "CR_05C_Print Preview of Photos & Videos",
+      "section": "VIDEO FRAMES",
+      "description": "Verify AI tool restrictions for video frames.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Select a video. 3. Open Print Preview. 4. Verify top bar shows Back, connected printer name or No Printer Added, and Share icon. 5. Verify video preview with Play icon in the center. 6. Verify first video frame is selected by default. 7. Verify Copies tab is selected by default and Tiles option is available. 8. Verify AI button is disabled. 9. Tap the purple AI button."
+      ],
+      "type": "Negative",
+      "expected": "AI button remains disabled and warning indicates AI editing is not available for video frames.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 648,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 03",
+          "module": "CR_05C_Print Preview of Photos & Videos",
+          "stage": "Video",
+          "description": "Verify AI tool restrictions for video frames.",
+          "expected": "AI button remains disabled and warning indicates AI editing is not available for video frames.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 04",
+      "module": "Video Frames & Selection Flow",
+      "section": "VIDEO FRAMES",
+      "description": "Verify full E2E flow: Multi-select (photos/videos), previewing, AI restrictions, playback, and editing.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Select photos and videos. 3. Verify selection counter. 4. Tap Print Preview. 5. Verify top bar (Back, Printer Name/No Printer Added, Share). 6. Verify video preview with Play icon. 7. Verify first video frame is selected by default. 8. Verify Copies is selected and Tiles option is available. 9. Verify AI button is disabled. 10. Play the video. 11. Scrub to another frame. 12. Apply edits and change frame."
+      ],
+      "type": "Positive/Negative",
+      "expected": "Multi-selection works correctly. AI is disabled for video frames. Playback and frame selection work as expected. Previous edits are discarded when frame changes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 649,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 04",
+          "module": "Video Frames & Selection Flow",
+          "stage": "Video",
+          "description": "Verify full E2E flow: Multi-select (photos/videos), previewing, AI restrictions, playback, and editing.",
+          "expected": "Multi-selection works correctly. AI is disabled for video frames. Playback and frame selection work as expected. Previous edits are discarded when frame changes.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 05",
+      "module": "CR_05D_Video Frames Print Preview",
+      "section": "VIDEO FRAMES",
+      "description": "Verify video playback and scrubbing.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Select a video and open Print Preview. 3. Verify video preview screen. 4. Tap Play. 5. Use playback bar to scrub between frames."
+      ],
+      "type": "Positive",
+      "expected": "Video plays smoothly and selected frame updates correctly while scrubbing.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 650,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 05",
+          "module": "CR_05D_Video Frames Print Preview",
+          "stage": "Video",
+          "description": "Verify video playback and scrubbing.",
+          "expected": "Video plays smoothly and selected frame updates correctly while scrubbing.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 06",
+      "module": "CR_05D_Video Frames Print Preview",
+      "section": "VIDEO FRAMES",
+      "description": "Verify frame editing and discard behavior.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Select a video and open Print Preview. 3. Pause at a specific frame. 4. Tap Edit and apply edits. 5. Return to Print Preview. 6. Change frame using playback bar."
+      ],
+      "type": "Negative",
+      "expected": "Changing the frame discards previously applied edits automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 651,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 06",
+          "module": "CR_05D_Video Frames Print Preview",
+          "stage": "Video",
+          "description": "Verify frame editing and discard behavior.",
+          "expected": "Changing the frame discards previously applied edits automatically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 07",
+      "module": "CR_05E_Video Frames Tile Print",
+      "section": "VIDEO FRAMES",
+      "description": "Verify UI restrictions during playback in Tiles mode.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Open Print Preview. 3. Verify Copies is selected by default and Tiles option is available. 4. Select Tiles mode. 5. Play the video. 6. Attempt to move, resize, or rotate the frame while playing."
+      ],
+      "type": "Negative",
+      "expected": "Layout modifications and copy count adjustments are restricted while video playback is active.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 652,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 07",
+          "module": "CR_05E_Video Frames Tile Print",
+          "stage": "Video",
+          "description": "Verify UI restrictions during playback in Tiles mode.",
+          "expected": "Layout modifications and copy count adjustments are restricted while video playback is active.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 169",
+      "module": "Select Video Frame",
+      "section": "AI TOOLS SDK",
+      "description": "Verify routing to Ready-to-Generate workflow",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select Ready-to-Generate tool (Remove Background / Replace Background / Restore Photo / Enhance Photo / Fix Lighting / Upscale Photo).",
+        "6. Select video from Gallery (CR_16A.1_Select Image from Gallery).",
+        "7. CR_16A.4_Select Video Frame screen opens.",
+        "8. Verify top left Back Arrow icon and \"Select Frame\" title.",
+        "9. Verify video preview, timeline thumbnails and Next button are displayed.",
+        "10. Select required video frame from timeline.",
+        "11. Tap Next."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to CR_16A.2_Preview Image - Ready to Generate screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2780,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "AI Tools 169",
+          "module": "Select Video Frame",
+          "stage": "Video",
+          "description": "Verify routing to Ready-to-Generate workflow",
+          "expected": "User navigates to CR_16A.2_Preview Image - Ready to Generate screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 170",
+      "module": "Select Video Frame",
+      "section": "AI TOOLS SDK",
+      "description": "Verify routing to Next Step workflow",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Select Next Step tool (Remove Object / Replace Object / Grab Object / Extend Image / Generate Object).",
+        "6. Select video from Gallery (CR_16A.1_Select Image from Gallery).",
+        "7. CR_16A.4_Select Video Frame screen opens.",
+        "8. Verify top left Back Arrow icon and \"Select Frame\" title.",
+        "9. Verify video preview, timeline thumbnails and Next button are displayed.",
+        "10. Select required video frame from timeline.",
+        "11. Tap Next."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to CR_16A.3_Preview Image - Next Step screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2791,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "AI Tools 170",
+          "module": "Select Video Frame",
+          "stage": "Video",
+          "description": "Verify routing to Next Step workflow",
+          "expected": "User navigates to CR_16A.3_Preview Image - Next Step screen.",
+          "verification": "Verify image/logo: Next",
+          "kind": "image",
+          "selector": "Next"
+        }
+      ]
+    }
+  ]
+}

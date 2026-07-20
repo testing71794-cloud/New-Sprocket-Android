@@ -1,0 +1,18 @@
+# ATP Stage Flow: Video
+# Auto-generated checklist. Navigation reuses QuickPrint setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - Video"
+tags:
+  - atp-verification
+  - video
+---
+# Cases in this stage (8):
+#   - Video frame 01: Verify video thumbnails indicate video content.
+#   - Video frame 03: Verify AI tool restrictions for video frames.
+#   - Video frame 04: Verify full E2E flow: Multi-select (photos/videos), previewing, AI restrictions,
+#   - Video frame 05: Verify video playback and scrubbing.
+#   - Video frame 06: Verify frame editing and discard behavior.
+#   - Video frame 07: Verify UI restrictions during playback in Tiles mode.
+#   - AI Tools 169: Verify routing to Ready-to-Generate workflow
+#   - AI Tools 170: Verify routing to Next Step workflow
+- runFlow: ../QuickPrint/QuickPrint.yaml

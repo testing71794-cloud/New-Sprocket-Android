@@ -1,0 +1,19 @@
+# ATP Stage Flow: QuickPrint
+appId: com.hp.impulse.sprocket
+name: "Stage - QuickPrint"
+tags:
+  - atp-verification
+  - quick-print
+---
+- runFlow: ../_common/reach_create_home.yaml
+- tapOn: ".*Quick Print.*"
+- runFlow: ../../../ATP TestCase Flows/permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 12000
+- assertVisible:
+    text: "Recent"
+    optional: true
+- assertVisible:
+    text: ".*Create.*"
+    optional: true

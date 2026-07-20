@@ -1,0 +1,18 @@
+# ATP Stage Flow: Settings
+appId: com.hp.impulse.sprocket
+name: "Stage - Settings"
+tags:
+  - atp-verification
+  - settings
+---
+- runFlow: ../_common/reach_create_home.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(More|Settings|Account).*"
+    commands:
+      - tapOn: ".*(?i)(More|Settings|Account).*"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: ".*(?i)(Settings|Account|Legal|Version|Privacy).*"
+    optional: true

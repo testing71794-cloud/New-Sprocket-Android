@@ -1,0 +1,2699 @@
+{
+  "stage": "AI",
+  "count": 81,
+  "cases": [
+    {
+      "test_id": "AI Tool 01",
+      "module": "Create Screen",
+      "section": "AI TOOLS SDK",
+      "description": "Verify UI layout of \"Create\" screen",
+      "steps": [
+        "1. Launch application.",
+        "2. Wait for splash screen.",
+        "3. Complete onboarding (ON_01B to ON_01E).",
+        "4. Tap Get Started.",
+        "5. Navigate to Create tab on bottom navigation.",
+        "6. Observe Create screen UI."
+      ],
+      "type": "Positive",
+      "expected": "Displays \"Sprocket AI\" banner, Quick Print, Collage Maker, Pre-Cut Stickers, Tile Print, and Photobooth.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1624,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tool 01",
+          "module": "Create Screen",
+          "stage": "AI",
+          "description": "Verify UI layout of \"Create\" screen",
+          "expected": "Displays \"Sprocket AI\" banner, Quick Print, Collage Maker, Pre-Cut Stickers, Tile Print, and Photobooth.",
+          "verification": "Verify visible: Sprocket AI",
+          "kind": "visible",
+          "selector": "Sprocket AI"
+        },
+        {
+          "test_id": "AI Tool 01",
+          "module": "Create Screen",
+          "stage": "AI",
+          "description": "Verify UI layout of \"Create\" screen",
+          "expected": "Displays \"Sprocket AI\" banner, Quick Print, Collage Maker, Pre-Cut Stickers, Tile Print, and Photobooth.",
+          "verification": "Verify visible: Create",
+          "kind": "visible",
+          "selector": "Create"
+        },
+        {
+          "test_id": "AI Tool 01",
+          "module": "Create Screen",
+          "stage": "AI",
+          "description": "Verify UI layout of \"Create\" screen",
+          "expected": "Displays \"Sprocket AI\" banner, Quick Print, Collage Maker, Pre-Cut Stickers, Tile Print, and Photobooth.",
+          "verification": "Verify visible: Collage Maker",
+          "kind": "visible",
+          "selector": "Collage Maker"
+        },
+        {
+          "test_id": "AI Tool 01",
+          "module": "Create Screen",
+          "stage": "AI",
+          "description": "Verify UI layout of \"Create\" screen",
+          "expected": "Displays \"Sprocket AI\" banner, Quick Print, Collage Maker, Pre-Cut Stickers, Tile Print, and Photobooth.",
+          "verification": "Verify visible: Quick Print",
+          "kind": "visible",
+          "selector": "Quick Print"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 02",
+      "module": "Sprocket AI",
+      "section": "AI TOOLS SDK",
+      "description": "Verify navigation to AI tools",
+      "steps": [
+        "1. Launch app and complete onboarding.",
+        "2. Go to Create tab.",
+        "3. Tap Sprocket AI banner."
+      ],
+      "type": "Positive",
+      "expected": "Redirects to \"Create with AI Tools\" screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1630,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 02",
+          "module": "Sprocket AI",
+          "stage": "AI",
+          "description": "Verify navigation to AI tools",
+          "expected": "Redirects to \"Create with AI Tools\" screen.",
+          "verification": "Verify visible: Create with AI Tools",
+          "kind": "visible",
+          "selector": "Create with AI Tools"
+        },
+        {
+          "test_id": "AI Tools 02",
+          "module": "Sprocket AI",
+          "stage": "AI",
+          "description": "Verify navigation to AI tools",
+          "expected": "Redirects to \"Create with AI Tools\" screen.",
+          "verification": "Verify visible: Create",
+          "kind": "visible",
+          "selector": "Create"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 03",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify UI layout of AI Tools screen",
+      "steps": [
+        "1. Launch app and complete onboarding.",
+        "2. Navigate to Create tab.",
+        "3. Tap Sprocket AI banner.",
+        "4. Observe AI Tools screen layout."
+      ],
+      "type": "Positive",
+      "expected": "Displays: Back button, title, Text-to-Image tool, Image-to-Image tool, and Background Tools (Remove/Replace).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1633,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 03",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify UI layout of AI Tools screen",
+          "expected": "Displays: Back button, title, Text-to-Image tool, Image-to-Image tool, and Background Tools (Remove/Replace).",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 04",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Tool accessibility",
+      "steps": [
+        "1. Launch app and complete onboarding.",
+        "2. Open Create tab.",
+        "3. Enter Sprocket AI Tools screen.",
+        "4. Observe available AI tools."
+      ],
+      "type": "Positive",
+      "expected": "Text-to-Image, Image-to-Image, Remove Background, and Replace Background are clearly visible and accessible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1637,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 04",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Tool accessibility",
+          "expected": "Text-to-Image, Image-to-Image, Remove Background, and Replace Background are clearly visible and accessible.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 07",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Background Tools navigation",
+      "steps": [
+        "1. Launch app.",
+        "2. Complete onboarding.",
+        "3. Go to Create tab → Sprocket AI Tools screen.",
+        "4. Tap Remove Background or Replace Background.",
+        "5. Observe navigation result."
+      ],
+      "type": "Positive",
+      "expected": "Redirects to CR_12B or CR_12C respective flows.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1649,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 07",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Background Tools navigation",
+          "expected": "Redirects to CR_12B or CR_12C respective flows.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tool 08",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Object Tools navigation",
+      "steps": [
+        "1. Launch app.",
+        "2. Complete onboarding.",
+        "3. Open Sprocket AI Tools screen.",
+        "4. Tap Remove Object / Replace Object / Grab Object.",
+        "5. Observe navigation."
+      ],
+      "type": "Positive",
+      "expected": "Redirects to CR_13A / CR_13B / CR_13C respectively.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1654,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tool 08",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Object Tools navigation",
+          "expected": "Redirects to CR_13A / CR_13B / CR_13C respectively.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 09",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Photo Enhancements navigation",
+      "steps": [
+        "1. Launch app.",
+        "2. Complete onboarding.",
+        "3. Open Sprocket AI Tools screen.",
+        "4. Tap Restore Photo / Enhance Photo / Fix Lighting / Upscale Photo.",
+        "5. Observe navigation."
+      ],
+      "type": "Positive",
+      "expected": "Redirects to CR_14A / CR_14B / CR_14C / CR_14D respectively.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1659,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 09",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Photo Enhancements navigation",
+          "expected": "Redirects to CR_14A / CR_14B / CR_14C / CR_14D respectively.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools  10",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generate Tools navigation",
+      "steps": [
+        "1. Launch app.",
+        "2. Complete onboarding.",
+        "3. Open Sprocket AI Tools screen.",
+        "4. Tap Extend Image or Generate Object.",
+        "5. Observe navigation."
+      ],
+      "type": "Positive",
+      "expected": "Redirects to CR_15A or CR_15B respectively.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1664,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools  10",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Generate Tools navigation",
+          "expected": "Redirects to CR_15A or CR_15B respectively.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 14",
+      "module": "Timeout / Threshold",
+      "section": "AI TOOLS SDK",
+      "description": "Verify loader remains active during long processing",
+      "steps": [
+        "1. Launch application.\n2. Complete onboarding and printer setup.\n3. Select image and start print process.\n4. Trigger AI processing multiple times or simulate slow response.\n5. Observe loader screen duration.\n6. Monitor time elapsed during loading state."
+      ],
+      "type": "Positive",
+      "expected": "Loader should remain active and animated for up to 1 minute or until processing completes",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1672,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 14",
+          "module": "Timeout / Threshold",
+          "stage": "AI",
+          "description": "Verify loader remains active during long processing",
+          "expected": "Loader should remain active and animated for up to 1 minute or until processing completes",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 15",
+      "module": "State Transition",
+      "section": "AI TOOLS SDK",
+      "description": "Verify transition after AI processing completes",
+      "steps": [
+        "1. Launch application.\n2. Complete onboarding and setup flow.\n3. Select image and initiate print/AI processing.\n4. Wait for processing to complete.\n5. Observe screen transition behavior."
+      ],
+      "type": "Positive",
+      "expected": "Loader should automatically dismiss and transition smoothly to results screen",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1673,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 15",
+          "module": "State Transition",
+          "stage": "AI",
+          "description": "Verify transition after AI processing completes",
+          "expected": "Loader should automatically dismiss and transition smoothly to results screen",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 17",
+      "module": "Network Interruption",
+      "section": "AI TOOLS SDK",
+      "description": "Verify handling of network loss during loading",
+      "steps": [
+        "1. Launch application.\n2. Complete onboarding and start AI processing.\n3. While loader is active, disconnect internet/network.\n4. Observe loader behavior.\n5. Check for error handling response."
+      ],
+      "type": "Negative",
+      "expected": "Loader should stop gracefully and display a proper network error message instead of infinite loading",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1675,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 17",
+          "module": "Network Interruption",
+          "stage": "AI",
+          "description": "Verify handling of network loss during loading",
+          "expected": "Loader should stop gracefully and display a proper network error message instead of infinite loading",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 25",
+      "module": "Trigger Condition",
+      "section": "AI TOOLS SDK",
+      "description": "Verify popup appears on cancel",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Navigate to Create tab → Sprocket AI → Text-to-Image.",
+        "4. Enter valid prompt.",
+        "5. Tap Generate Images and wait for image generation.",
+        "6. Click Cancel (top-left)."
+      ],
+      "type": "Negative",
+      "expected": "\"Unsaved Changes\" popup appears over screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1717,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 25",
+          "module": "Trigger Condition",
+          "stage": "AI",
+          "description": "Verify popup appears on cancel",
+          "expected": "\"Unsaved Changes\" popup appears over screen.",
+          "verification": "Verify dialog: Unsaved Changes",
+          "kind": "dialog",
+          "selector": "Unsaved Changes"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 28",
+      "module": "Scope Verification",
+      "section": "AI TOOLS SDK",
+      "description": "Verify universal scope",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Navigate across multiple AI tools (CR_12B.1, CR_13A.5, CR_16B.4).",
+        "4. Enter prompt and generate image in each tool.",
+        "5. Click Cancel in each tool after generation.",
+        "6. Observe popup behavior."
+      ],
+      "type": "Positive",
+      "expected": "Same \"Unsaved Changes\" popup appears consistently across all AI tools after image generation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1735,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 28",
+          "module": "Scope Verification",
+          "stage": "AI",
+          "description": "Verify universal scope",
+          "expected": "Same \"Unsaved Changes\" popup appears consistently across all AI tools after image generation.",
+          "verification": "Verify dialog: Unsaved Changes",
+          "kind": "dialog",
+          "selector": "Unsaved Changes"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 38",
+      "module": "Priority",
+      "section": "AI TOOLS SDK",
+      "description": "Verify popup priority",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Turn OFF internet before starting AI flow.",
+        "4. Navigate to any AI tool and trigger generation."
+      ],
+      "type": "Positive",
+      "expected": "\"No Internet\" popup takes priority over all other errors (e.g., AI connection failure).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1793,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 38",
+          "module": "Priority",
+          "stage": "AI",
+          "description": "Verify popup priority",
+          "expected": "\"No Internet\" popup takes priority over all other errors (e.g., AI connection failure).",
+          "verification": "Verify dialog: No Internet",
+          "kind": "dialog",
+          "selector": "No Internet"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 43",
+      "module": "Show Original",
+      "section": "AI TOOLS SDK",
+      "description": "Verify toggle functionality",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Navigate to Remove Background tool.",
+        "4. Select image and generate result.",
+        "5. On result screen, toggle Show Original ON.",
+        "6. Observe UI change."
+      ],
+      "type": "Positive",
+      "expected": "Screen switches to original image view (CR_12B.2), hiding transparent background.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1824,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 43",
+          "module": "Show Original",
+          "stage": "AI",
+          "description": "Verify toggle functionality",
+          "expected": "Screen switches to original image view (CR_12B.2), hiding transparent background.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 44",
+      "module": "Cancel Edits",
+      "section": "AI TOOLS SDK",
+      "description": "Verify cancellation behavior",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Open Remove Background tool.",
+        "4. Select image and generate result.",
+        "5. On result screen (CR_12B.1 / CR_12B.2), tap Cancel.",
+        "6. Observe navigation."
+      ],
+      "type": "Negative",
+      "expected": "All changes discarded and user redirected back to CR_12B Remove Background reference screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1830,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 44",
+          "module": "Cancel Edits",
+          "stage": "AI",
+          "description": "Verify cancellation behavior",
+          "expected": "All changes discarded and user redirected back to CR_12B Remove Background reference screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 45",
+      "module": "Apply (Standard)",
+      "section": "AI TOOLS SDK",
+      "description": "Verify apply with background removed",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Open Remove Background tool.",
+        "4. Generate image and ensure Show Original OFF.",
+        "5. Tap Apply.",
+        "6. Observe next screen."
+      ],
+      "type": "Positive",
+      "expected": "Edits applied and user redirected to CR_12B.3 Remove Background Changes Saved screen with SDK toolbar visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1836,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 45",
+          "module": "Apply (Standard)",
+          "stage": "AI",
+          "description": "Verify apply with background removed",
+          "expected": "Edits applied and user redirected to CR_12B.3 Remove Background Changes Saved screen with SDK toolbar visible.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 46",
+      "module": "Apply (Override)",
+      "section": "AI TOOLS SDK",
+      "description": "Verify apply while Show Original is ON",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Open Remove Background tool.",
+        "4. Generate image.",
+        "5. Turn Show Original ON.",
+        "6. Tap Apply.",
+        "7. Observe final output screen."
+      ],
+      "type": "Positive",
+      "expected": "Edits saved using background-removed version regardless of toggle state; user navigates to CR_12B.3 Changes Saved screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1842,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 46",
+          "module": "Apply (Override)",
+          "stage": "AI",
+          "description": "Verify apply while Show Original is ON",
+          "expected": "Edits saved using background-removed version regardless of toggle state; user navigates to CR_12B.3 Changes Saved screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 48",
+      "module": "Processing",
+      "section": "AI TOOLS SDK",
+      "description": "Verify generation loader",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding.",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Replace Background tool.",
+        "5. Select image from Gallery.",
+        "6. Tap selected image.",
+        "7. Tap Generate button.",
+        "8. Observe processing state."
+      ],
+      "type": "Positive",
+      "expected": "Green AI Generating Loader appears while processing.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1857,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 48",
+          "module": "Processing",
+          "stage": "AI",
+          "description": "Verify generation loader",
+          "expected": "Green AI Generating Loader appears while processing.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 49",
+      "module": "Background Options",
+      "section": "AI TOOLS SDK",
+      "description": "Verify UI layout of background options",
+      "steps": [
+        "1. Launch application.",
+        "2. Complete onboarding → Sign Up Later.",
+        "3. Open Replace Background tool.",
+        "4. Select image and trigger generation.",
+        "5. Wait for processing to complete.",
+        "6. Observe Background Options screen."
+      ],
+      "type": "Positive",
+      "expected": "Screen displays Background options: Basic, Colorful, and Gradient.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1865,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 49",
+          "module": "Background Options",
+          "stage": "AI",
+          "description": "Verify UI layout of background options",
+          "expected": "Screen displays Background options: Basic, Colorful, and Gradient.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 53",
+      "module": "Generate Background",
+      "section": "AI TOOLS SDK",
+      "description": "Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)",
+      "steps": [
+        "1. Launch application.",
+        "2. Wait for splash screen to complete.",
+        "3. Complete onboarding (ON_01B–ON_01E).",
+        "4. Tap Get Started.",
+        "5. On Sign screen, tap Sign Up Later.",
+        "6. Navigate to Create → Sprocket AI Tools → Replace Background.",
+        "8. Enter valid prompt and tap Generate.",
+        "9. Wait for AI loader to complete and navigate to CR_12C.5.",
+        "10. Observe UI layout.",
+        "1. Launch application.",
+        "2. Wait for splash screen to complete.",
+        "4. Tap Get Started.",
+        "5. On Sign screen, tap Sign Up Later.",
+        "6. Navigate to Create → Sprocket AI Tools → Replace Background.",
+        "7. Select image and enter valid prompt.",
+        "8. Tap Generate and wait for CR_12C.5 screen.",
+        "1. Launch application.",
+        "2. Wait for splash screen to complete.",
+        "3. Complete onboarding (ON_01B–ON_01E).",
+        "4. Tap Get Started.",
+        "5. On Sign screen, tap Sign Up Later.",
+        "7. Select image, enter prompt, and generate result.",
+        "8. On CR_12C.5, tap Back arrow (←) icon.",
+        "1. Launch application.",
+        "2. Wait for splash screen to complete.",
+        "3. Complete onboarding (ON_01B–ON_01E).",
+        "5. On Sign screen, tap Sign Up Later.",
+        "6. Navigate to Create → Sprocket AI Tools → Replace Background.",
+        "7. Select image, enter prompt, and generate result.",
+        "8. On CR_12C.5, tap Apply button.",
+        "1. Launch application.",
+        "3. Complete onboarding (ON_01B–ON_01E).",
+        "4. Tap Get Started.",
+        "5. On Sign screen, tap Sign Up Later.",
+        "6. Navigate to Create → Sprocket AI Tools → Replace Background.",
+        "7. Select image and enter prompt.",
+        "9. Tap Generate and verify failure screen.",
+        "1. Launch application.",
+        "2. Wait for splash screen to complete.",
+        "3. Complete onboarding (ON_01B–ON_01E).",
+        "4. Tap Get Started.",
+        "6. Trigger CR_12C.7 Generation Failed screen.",
+        "7. Tap \"Try Again\" button.",
+        "1. Launch application.",
+        "2. Wait for splash screen to complete.",
+        "3. Complete onboarding (ON_01B–ON_01E).",
+        "5. On Sign screen, tap Sign Up Later.",
+        "6. Trigger CR_12C.7 Generation Failed screen.",
+        "7. Tap \"Exit\" button.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "4. Navigate to Create → Sprocket AI Tools → Remove Object.",
+        "5. Select image from Gallery.",
+        "6. Verify Brush Size and disabled Generate button at bottom.",
+        "1. Launch application and complete onboarding (ON_01B–ON_01E).",
+        "2. Tap Get Started → Sign Up Later.",
+        "4. Select image from Gallery.",
+        "5. Observe header and bottom controls.",
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to Create → Sprocket AI Tools → Remove Object.",
+        "3. Select image from Gallery.",
+        "5. Observe Generate button.",
+        "1. Launch application and complete onboarding.",
+        "2. Navigate to Create → Sprocket AI Tools → Remove Object.",
+        "3. Select image from Gallery.",
+        "4. Tap Cancel in the top bar."
+      ],
+      "type": "Positive",
+      "expected": "Screen displays Back button, \"Replace Background\" title, \"Apply\" button, generated image, and \"+ Generate New\" action button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1889,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 53",
+          "module": "Generate Background",
+          "stage": "AI",
+          "description": "Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)",
+          "expected": "Screen displays Back button, \"Replace Background\" title, \"Apply\" button, generated image, and \"+ Generate New\" action button.",
+          "verification": "Verify image/logo: Replace Background",
+          "kind": "image",
+          "selector": "Replace Background"
+        },
+        {
+          "test_id": "AI Tools 53",
+          "module": "Generate Background",
+          "stage": "AI",
+          "description": "Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)",
+          "expected": "Screen displays Back button, \"Replace Background\" title, \"Apply\" button, generated image, and \"+ Generate New\" action button.",
+          "verification": "Verify image/logo: Apply",
+          "kind": "image",
+          "selector": "Apply"
+        },
+        {
+          "test_id": "AI Tools 53",
+          "module": "Generate Background",
+          "stage": "AI",
+          "description": "Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)",
+          "expected": "Screen displays Back button, \"Replace Background\" title, \"Apply\" button, generated image, and \"+ Generate New\" action button.",
+          "verification": "Verify image/logo: + Generate New",
+          "kind": "image",
+          "selector": "+ Generate New"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 73",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify selection (Tap/Paint)",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "7. Select object.",
+        "8. Tap text box.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Select object.",
+        "8. Enter text in prompt box."
+      ],
+      "type": "Positive",
+      "expected": "Object highlighted with #8054F6 color; prompt box and \"Generate\" button become active.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2009,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 73",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify selection (Tap/Paint)",
+          "expected": "Object highlighted with #8054F6 color; prompt box and \"Generate\" button become active.",
+          "verification": "Verify visible: Generate",
+          "kind": "visible",
+          "selector": "Generate"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 76",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify generation processing",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Select object and enter prompt.",
+        "8. Tap Generate."
+      ],
+      "type": "Positive",
+      "expected": "CR_12A.3_AI Generating Loader appears while results are processed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2032,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 76",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify generation processing",
+          "expected": "CR_12A.3_AI Generating Loader appears while results are processed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 77",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify result screen UI",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Select object → Enter prompt → Tap Generate.",
+        "8. Wait for generation."
+      ],
+      "type": "Positive",
+      "expected": "Redirects to CR_13B.6_Result with 2 generated thumbnails, \"Generate New\" button, and \"Apply\" button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2040,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 77",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify result screen UI",
+          "expected": "Redirects to CR_13B.6_Result with 2 generated thumbnails, \"Generate New\" button, and \"Apply\" button.",
+          "verification": "Verify visible: Generate New",
+          "kind": "visible",
+          "selector": "Generate New"
+        },
+        {
+          "test_id": "AI Tools 77",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify result screen UI",
+          "expected": "Redirects to CR_13B.6_Result with 2 generated thumbnails, \"Generate New\" button, and \"Apply\" button.",
+          "verification": "Verify visible: Apply",
+          "kind": "visible",
+          "selector": "Apply"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 78",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify thumbnail swapping",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Generate result and navigate to CR_13B.6.",
+        "8. Tap different thumbnails."
+      ],
+      "type": "Positive",
+      "expected": "Main preview area updates to reflect the tapped thumbnail variation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2048,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 78",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify thumbnail swapping",
+          "expected": "Main preview area updates to reflect the tapped thumbnail variation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 79",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Generate New\" flow",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Generate result and navigate to CR_13B.6.",
+        "8. Tap + Generate New."
+      ],
+      "type": "Positive",
+      "expected": "CR_12A.3_AI Generating Loader appears, then generates 2 new options.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2056,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 79",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify \"Generate New\" flow",
+          "expected": "CR_12A.3_AI Generating Loader appears, then generates 2 new options.",
+          "verification": "Verify visible: Generate New",
+          "kind": "visible",
+          "selector": "Generate New"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 80",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Apply\" functionality",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Generate result and navigate to CR_13B.6.",
+        "8. Tap Apply."
+      ],
+      "type": "Positive",
+      "expected": "Edits saved; user returned to Print Preview screen (CR_13B.7_Changes Saved).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2064,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 80",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify \"Apply\" functionality",
+          "expected": "Edits saved; user returned to Print Preview screen (CR_13B.7_Changes Saved).",
+          "verification": "Verify visible: Apply",
+          "kind": "visible",
+          "selector": "Apply"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 81",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify failure state UI",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Trigger failure condition and tap Generate.",
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Navigate to CR_13B.8.",
+        "8. Tap Try Again."
+      ],
+      "type": "Negative",
+      "expected": "CR_13B.8_Generation Failed displays error message and \"Try Again\" button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2072,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 81",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify failure state UI",
+          "expected": "CR_13B.8_Generation Failed displays error message and \"Try Again\" button.",
+          "verification": "Verify visible: Try Again",
+          "kind": "visible",
+          "selector": "Try Again"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 82",
+      "module": "Replace Object",
+      "section": "AI TOOLS SDK",
+      "description": "Verify failure exit",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Replace Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Navigate to CR_13B.8.",
+        "8. Tap Exit."
+      ],
+      "type": "Positive",
+      "expected": "User returned to CR_13B_Replace Object - Reference with no changes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2087,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 82",
+          "module": "Replace Object",
+          "stage": "AI",
+          "description": "Verify failure exit",
+          "expected": "User returned to CR_13B_Replace Object - Reference with no changes.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 85",
+      "module": "Processing",
+      "section": "AI TOOLS SDK",
+      "description": "Verify generation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Grab Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Tap or paint an object to create a sticker.",
+        "8. Tap Generate."
+      ],
+      "type": "Positive",
+      "expected": "CR_12A.3_AI Generating Loader appears; then displays CR_13C.2_Grab Object - Result.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2111,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 85",
+          "module": "Processing",
+          "stage": "AI",
+          "description": "Verify generation",
+          "expected": "CR_12A.3_AI Generating Loader appears; then displays CR_13C.2_Grab Object - Result.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 86",
+      "module": "Limit Warning",
+      "section": "AI TOOLS SDK",
+      "description": "Verify sticker limit pop-up",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Grab Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Create sticker and tap Generate.",
+        "8. Reach result screen (CR_13C.2) with max stickers.",
+        "9. Tap Apply."
+      ],
+      "type": "Positive",
+      "expected": "CR_13C.3_Grab Object - Custom Sticker Limit Warning appears.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2119,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 86",
+          "module": "Limit Warning",
+          "stage": "AI",
+          "description": "Verify sticker limit pop-up",
+          "expected": "CR_13C.3_Grab Object - Custom Sticker Limit Warning appears.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 87",
+      "module": "Save Limit",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Save New Sticker\"",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Grab Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Create sticker and tap Generate.",
+        "8. In limit pop-up (CR_13C.3), tap \"Save New Sticker\"."
+      ],
+      "type": "Positive",
+      "expected": "Overwrites the oldest sticker; applies the current sticker to the custom SDK menu.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2128,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 87",
+          "module": "Save Limit",
+          "stage": "AI",
+          "description": "Verify \"Save New Sticker\"",
+          "expected": "Overwrites the oldest sticker; applies the current sticker to the custom SDK menu.",
+          "verification": "Verify visible: Save New Sticker",
+          "kind": "visible",
+          "selector": "Save New Sticker"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 88",
+      "module": "Cancel",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Cancel\" navigation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Grab Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. From CR_13C.1 or CR_13C.2, tap Cancel."
+      ],
+      "type": "Negative",
+      "expected": "Discards all changes and returns user to CR_13C_Grab Object - Reference.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2136,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 88",
+          "module": "Cancel",
+          "stage": "AI",
+          "description": "Verify \"Cancel\" navigation",
+          "expected": "Discards all changes and returns user to CR_13C_Grab Object - Reference.",
+          "verification": "Verify visible: Cancel",
+          "kind": "visible",
+          "selector": "Cancel"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 90",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Tool Entry",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Verify Restore Photo reference screen is displayed."
+      ],
+      "type": "Positive",
+      "expected": "User reaches CR_14A_Restore Photo - Reference screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2152,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 90",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify Tool Entry",
+          "expected": "User reaches CR_14A_Restore Photo - Reference screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 91",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate.",
+        "7. Observe processing screen for a few seconds."
+      ],
+      "type": "Positive",
+      "expected": "CR_12A.3_AI Generating Loader appears for a few seconds.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2158,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 91",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify Generation",
+          "expected": "CR_12A.3_AI Generating Loader appears for a few seconds.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 92",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Result State",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate.",
+        "7. Wait for processing to complete.",
+        "8. Observe result image."
+      ],
+      "type": "Positive",
+      "expected": "Transitions to CR_14A.1_Restore Photo - Result; photo appears with restored clarity and defect removal.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2165,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 92",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify Result State",
+          "expected": "Transitions to CR_14A.1_Restore Photo - Result; photo appears with restored clarity and defect removal.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 93",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Show Original\"",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate and wait for result.",
+        "7. Verify \"Show Original\" toggle is OFF by default.",
+        "8. Tap Show Original toggle."
+      ],
+      "type": "Positive",
+      "expected": "Tapping toggle switches the display between restored image and original color image for comparison.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2173,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 93",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify \"Show Original\"",
+          "expected": "Tapping toggle switches the display between restored image and original color image for comparison.",
+          "verification": "Verify image/logo: Show Original",
+          "kind": "image",
+          "selector": "Show Original"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 94",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Apply\" Action",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate and wait for result.",
+        "7. Tap Apply button on the top right side."
+      ],
+      "type": "Positive",
+      "expected": "Changes saved; user redirected to CR_14A.4_Restore Photo - Changes Saved.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2181,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 94",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify \"Apply\" Action",
+          "expected": "Changes saved; user redirected to CR_14A.4_Restore Photo - Changes Saved.",
+          "verification": "Verify visible: Apply",
+          "kind": "visible",
+          "selector": "Apply"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 95",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"Cancel\" Action",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate and wait for result.",
+        "7. Tap Cancel button."
+      ],
+      "type": "Negative",
+      "expected": "Discards changes and returns user to CR_14A_Restore Photo - Reference.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2188,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 95",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify \"Cancel\" Action",
+          "expected": "Discards changes and returns user to CR_14A_Restore Photo - Reference.",
+          "verification": "Verify visible: Cancel",
+          "kind": "visible",
+          "selector": "Cancel"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 96",
+      "module": "Restore Photo",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Printing",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Restore Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate and wait for result.",
+        "7. Tap Apply.",
+        "8. Tap Print."
+      ],
+      "type": "Positive",
+      "expected": "Restored photo is sent to the connected printer (HP Sprocket Studio Plus 6x4 FE).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2195,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 96",
+          "module": "Restore Photo",
+          "stage": "AI",
+          "description": "Verify Printing",
+          "expected": "Restored photo is sent to the connected printer (HP Sprocket Studio Plus 6x4 FE).",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 104",
+      "module": "Print",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Print functionality",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Enhance Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate/Enhance button.",
+        "7. Wait for result screen.",
+        "8. Tap Apply.",
+        "9. Tap Print."
+      ],
+      "type": "Positive",
+      "expected": "Enhanced photo sent to connected printer “HP Sprocket Studio Plus 66FE”.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2256,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 104",
+          "module": "Print",
+          "stage": "AI",
+          "description": "Verify Print functionality",
+          "expected": "Enhanced photo sent to connected printer “HP Sprocket Studio Plus 66FE”.",
+          "verification": "Verify visible: HP Sprocket Studio Plus 66FE",
+          "kind": "visible",
+          "selector": "HP Sprocket Studio Plus 66FE"
+        },
+        {
+          "test_id": "AI Tools 104",
+          "module": "Print",
+          "stage": "AI",
+          "description": "Verify Print functionality",
+          "expected": "Enhanced photo sent to connected printer “HP Sprocket Studio Plus 66FE”.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 118",
+      "module": "Printing",
+      "section": "AI TOOLS SDK",
+      "description": "Copies/Tiles/Print",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → Sprocket AI Tools → Upscale Photo.",
+        "5. Select image from Gallery.",
+        "6. Tap Generate.",
+        "7. Wait for result screen.",
+        "8. Tap Apply.",
+        "9. Verify Copies/Tiles adjustment controls.",
+        "10. Tap Print."
+      ],
+      "type": "Positive",
+      "expected": "Correct print settings applied and image sent to printer.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2359,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 118",
+          "module": "Printing",
+          "stage": "AI",
+          "description": "Copies/Tiles/Print",
+          "expected": "Correct print settings applied and image sent to printer.",
+          "verification": "Verify image/logo: Copies",
+          "kind": "image",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "AI Tools 118",
+          "module": "Printing",
+          "stage": "AI",
+          "description": "Copies/Tiles/Print",
+          "expected": "Correct print settings applied and image sent to printer.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 127",
+      "module": "UI",
+      "section": "AI TOOLS SDK",
+      "description": "Verify top and bottom navigation",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Tap Get Started → Sign Up Later.",
+        "3. Navigate to Create → Sprocket AI Tools → Extend Image.",
+        "4. Select image from Gallery.",
+        "5. Tap Use This Image.",
+        "6. Tap Generate.",
+        "7. Wait for result screen.",
+        "8. Verify top bar and bottom navigation."
+      ],
+      "type": "Positive",
+      "expected": "Back button, Printer status, Share icon and More/Create/Printer tabs are visible and functional.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2430,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 127",
+          "module": "UI",
+          "stage": "AI",
+          "description": "Verify top and bottom navigation",
+          "expected": "Back button, Printer status, Share icon and More/Create/Printer tabs are visible and functional.",
+          "verification": "Verify image/logo: Create",
+          "kind": "image",
+          "selector": "Create"
+        },
+        {
+          "test_id": "AI Tools 127",
+          "module": "UI",
+          "stage": "AI",
+          "description": "Verify top and bottom navigation",
+          "expected": "Back button, Printer status, Share icon and More/Create/Printer tabs are visible and functional.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        },
+        {
+          "test_id": "AI Tools 127",
+          "module": "UI",
+          "stage": "AI",
+          "description": "Verify top and bottom navigation",
+          "expected": "Back button, Printer status, Share icon and More/Create/Printer tabs are visible and functional.",
+          "verification": "Verify image/logo: More",
+          "kind": "image",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 128",
+      "module": "Print",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Copies/Tiles and Print",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Tap Get Started → Sign Up Later.",
+        "3. Navigate to Create → Sprocket AI Tools → Extend Image.",
+        "4. Select image from Gallery.",
+        "5. Tap Use This Image.",
+        "6. Tap Generate.",
+        "7. Wait for result screen.",
+        "8. Tap Apply.",
+        "9. Verify Copies/Tiles controls.",
+        "10. Tap Print."
+      ],
+      "type": "Positive",
+      "expected": "Copies/Tiles values are updated correctly and image is sent to printer successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2438,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 128",
+          "module": "Print",
+          "stage": "AI",
+          "description": "Verify Copies/Tiles and Print",
+          "expected": "Copies/Tiles values are updated correctly and image is sent to printer successfully.",
+          "verification": "Verify image/logo: Copies",
+          "kind": "image",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "AI Tools 128",
+          "module": "Print",
+          "stage": "AI",
+          "description": "Verify Copies/Tiles and Print",
+          "expected": "Copies/Tiles values are updated correctly and image is sent to printer successfully.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Toolw 130",
+      "module": "Extend Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify \"No Blank Areas\" warning pop-up",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete. 2. Complete onboarding (ON_01B–ON_01E). 3. Tap Get Started → Sign Up Later. 4. Navigate to Create → Sprocket AI Tools → Extend Image. 5. Scenario A: Attempt to tap \"Generate\" without selecting an image from the Gallery. Scenario B: Select an image, tap \"Use This Image,\" and tap \"Generate\" without leaving a blank area on the canvas."
+      ],
+      "type": "Negative",
+      "expected": "Warning pop-up \"No Blank Areas\" is displayed; tapping \"OK\" successfully dismisses the pop-up.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2456,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Toolw 130",
+          "module": "Extend Image",
+          "stage": "AI",
+          "description": "Verify \"No Blank Areas\" warning pop-up",
+          "expected": "Warning pop-up \"No Blank Areas\" is displayed; tapping \"OK\" successfully dismisses the pop-up.",
+          "verification": "Verify dialog: No Blank Areas",
+          "kind": "dialog",
+          "selector": "No Blank Areas"
+        },
+        {
+          "test_id": "AI Toolw 130",
+          "module": "Extend Image",
+          "stage": "AI",
+          "description": "Verify \"No Blank Areas\" warning pop-up",
+          "expected": "Warning pop-up \"No Blank Areas\" is displayed; tapping \"OK\" successfully dismisses the pop-up.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 133",
+      "module": "Prompting",
+      "section": "AI TOOLS SDK",
+      "description": "Text Entry & State",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap AI Tools → Generate Object.",
+        "5. Select image from Gallery.",
+        "6. Tap Use This Image.",
+        "7. Paint an area on image.",
+        "8. Tap prompt box.",
+        "9. Enter text \"Ice Cream\".",
+        "10. Observe Generate button."
+      ],
+      "type": "Positive",
+      "expected": "Preview shrinks; keyboard displays; Generate button becomes active.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2475,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 133",
+          "module": "Prompting",
+          "stage": "AI",
+          "description": "Text Entry & State",
+          "expected": "Preview shrinks; keyboard displays; Generate button becomes active.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 137",
+      "module": "AI Tool List",
+      "section": "AI TOOLS SDK",
+      "description": "Verify scroll & UI layout",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Verify top left Back Arrow icon.",
+        "6. Verify tool categories are displayed: Text to Image, Image to Image, Background Tools, Object Tools, Photo Enhancements, Generates.",
+        "7. Scroll vertically through the tool list.",
+        "8. Verify bottom navigation: More, Create, Printer.",
+        "9. Verify Create tab is highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "Feed scrolls smoothly; Back Arrow and bottom navigation are visible; all tool categories are displayed and Create tab is highlighted.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2512,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 137",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify scroll & UI layout",
+          "expected": "Feed scrolls smoothly; Back Arrow and bottom navigation are visible; all tool categories are displayed and Create tab is highlighted.",
+          "verification": "Verify visible: Create",
+          "kind": "visible",
+          "selector": "Create"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 138",
+      "module": "AI Tool List",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Back Navigation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Verify top left Back Arrow icon is visible.",
+        "6. Tap Back Arrow icon."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to the previous screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2521,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 138",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify Back Navigation",
+          "expected": "User is redirected to the previous screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tool 139",
+      "module": "AI Tool List",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Tool Navigation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Verify categories: Text to Image, Image to Image, Background Tools, Object Tools, Photo Enhancements, Generates.",
+        "6. Tap Text to Image.",
+        "7. Return to AI Tools screen.",
+        "8. Tap Image to Image."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to the correct tool screens (CR_16B / CR_16C).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2527,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tool 139",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify Tool Navigation",
+          "expected": "User is redirected to the correct tool screens (CR_16B / CR_16C).",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tool 140",
+      "module": "AI Tool List",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Image Selection Flow",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Tap any canvas-based tool under Background Tools or Object Tools.",
+        "6. Observe navigation flow."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to Select Image screen (CR_16A.1).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2535,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tool 140",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify Image Selection Flow",
+          "expected": "User is redirected to Select Image screen (CR_16A.1).",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tool 141",
+      "module": "AI Tool List",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Temporary Updates",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Scroll through all tool categories.",
+        "6. Verify available tools list."
+      ],
+      "type": "Positive",
+      "expected": "\"Grab Object\" and \"Extend Image\" tools are hidden from the AI Tool List.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2541,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tool 141",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify Temporary Updates",
+          "expected": "\"Grab Object\" and \"Extend Image\" tools are hidden from the AI Tool List.",
+          "verification": "Verify image/logo: Grab Object",
+          "kind": "image",
+          "selector": "Grab Object"
+        },
+        {
+          "test_id": "AI Tool 141",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify Temporary Updates",
+          "expected": "\"Grab Object\" and \"Extend Image\" tools are hidden from the AI Tool List.",
+          "verification": "Verify image/logo: Extend Image",
+          "kind": "image",
+          "selector": "Extend Image"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tool 142",
+      "module": "AI Tool List",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Offline Behavior",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Disable Wi-Fi/Mobile Data.",
+        "5. Navigate to Create → AI Tools (CR_16A).",
+        "6. Verify top Back Arrow and bottom navigation (More, Create, Printer) are visible.",
+        "7. Tap Text to Image or Image to Image tool.",
+        "8. Observe error behavior."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate network error message is displayed and the application remains stable without crashing.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2547,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tool 142",
+          "module": "AI Tool List",
+          "stage": "AI",
+          "description": "Verify Offline Behavior",
+          "expected": "Appropriate network error message is displayed and the application remains stable without crashing.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 144",
+      "module": "Folder Nav",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Folder Dropdown",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools (CR_16A).",
+        "5. Verify top left Back Arrow icon.",
+        "6. Verify tool categories are displayed: Text to Image, Image to Image, Background Tools, Object Tools, Photo Enhancements, Generates.",
+        "7. Scroll vertically through the tool list.",
+        "8. Open CR_16A.1 Select Image screen.",
+        "9. Tap Folder Name dropdown."
+      ],
+      "type": "Positive",
+      "expected": "Dropdown menu expands smoothly to display available device folders.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2564,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI tools 144",
+          "module": "Folder Nav",
+          "stage": "AI",
+          "description": "Verify Folder Dropdown",
+          "expected": "Dropdown menu expands smoothly to display available device folders.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Toola 176",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Text-to-Image screen UI and default values",
+      "steps": [
+        "Pre-condition: Launch app and complete onboarding (ON_01B–ON_01E).\n1. Tap Get Started → Sign Up Later.\n2. Navigate to Create → AI Tools.\n3. Tap Text-to-Image.\n4. Observe all UI elements.\n5. Verify Back button, title, prompt field, random prompt icon, Orientation section, Image Quantity section and Generate Image(s) button.",
+        "2. Tap Get Started → Sign Up Later.",
+        "3. Navigate to Create → AI Tools → Text-to-Image."
+      ],
+      "type": "Positive",
+      "expected": "Text-to-Image screen opens successfully. Back button and title are visible. Portrait is selected by default and Image Quantity = 3 is selected. Generate Image(s) button is disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2849,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Toola 176",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify Text-to-Image screen UI and default values",
+          "expected": "Text-to-Image screen opens successfully. Back button and title are visible. Portrait is selected by default and Image Quantity = 3 is selected. Generate Image(s) button is disabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 177",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify prompt text box placeholder",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Observe prompt text box."
+      ],
+      "type": "Positive",
+      "expected": "Placeholder text \"Tap here to enter a prompt...\" is displayed inside the text box.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2852,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI tools 177",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify prompt text box placeholder",
+          "expected": "Placeholder text \"Tap here to enter a prompt...\" is displayed inside the text box.",
+          "verification": "Verify visible: Tap here to enter a prompt...",
+          "kind": "visible",
+          "selector": "Tap here to enter a prompt..."
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 178",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify prompt text box focus and keyboard",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Tap inside prompt text box."
+      ],
+      "type": "Positive",
+      "expected": "Cursor becomes active and native keyboard appears. User can type text.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2854,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI tools 178",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify prompt text box focus and keyboard",
+          "expected": "Cursor becomes active and native keyboard appears. User can type text.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 179",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify random prompt button",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Tap the random prompt icon beside text box.",
+        "3. Tap multiple times."
+      ],
+      "type": "Positive",
+      "expected": "A random prompt is inserted into the text box each time. Previous prompt is replaced with a new one.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2856,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI tools 179",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify random prompt button",
+          "expected": "A random prompt is inserted into the text box each time. Previous prompt is replaced with a new one.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 180",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify random prompt when text box is focused",
+      "steps": [
+        "1. Tap prompt text box.",
+        "2. Keyboard appears.",
+        "3. Tap random prompt icon."
+      ],
+      "type": "Positive",
+      "expected": "Random prompt is added while keyboard remains active and text box stays focused.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2859,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 180",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify random prompt when text box is focused",
+          "expected": "Random prompt is added while keyboard remains active and text box stays focused.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 181",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Orientation selection",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Select Portrait.",
+        "3. Select Landscape."
+      ],
+      "type": "Positive",
+      "expected": "User can switch between Portrait and Landscape. Selected option is highlighted.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2862,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 181",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify Orientation selection",
+          "expected": "User can switch between Portrait and Landscape. Selected option is highlighted.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 182",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Image Quantity selection",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Select image quantity 1, 2, 3, and 4 one by one."
+      ],
+      "type": "Positive",
+      "expected": "Selected quantity is highlighted and only one option remains selected at a time.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2865,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 182",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify Image Quantity selection",
+          "expected": "Selected quantity is highlighted and only one option remains selected at a time.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 183",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generate Image(s) button disabled state",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Keep prompt field empty."
+      ],
+      "type": "Negative",
+      "expected": "Generate Image(s) button remains disabled and cannot be tapped.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2867,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 183",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify Generate Image(s) button disabled state",
+          "expected": "Generate Image(s) button remains disabled and cannot be tapped.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI TOOls 184",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generate Image(s) button enabled state",
+      "steps": [
+        "1. Enter a valid prompt.",
+        "2. Select Portrait/Landscape.",
+        "3. Select image quantity."
+      ],
+      "type": "Positive",
+      "expected": "Generate Image(s) button becomes enabled with purple gradient color.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2869,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI TOOls 184",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify Generate Image(s) button enabled state",
+          "expected": "Generate Image(s) button becomes enabled with purple gradient color.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 185",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify image generation with Portrait mode",
+      "steps": [
+        "1. Enter valid prompt.",
+        "2. Keep Portrait selected.",
+        "3. Tap Generate Image(s)."
+      ],
+      "type": "Positive",
+      "expected": "Loading indicator appears and images are generated successfully in Portrait orientation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2872,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 185",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify image generation with Portrait mode",
+          "expected": "Loading indicator appears and images are generated successfully in Portrait orientation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 186",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify image generation with Landscape mode",
+      "steps": [
+        "1. Enter valid prompt.",
+        "2. Select Landscape.",
+        "3. Tap Generate Image(s)."
+      ],
+      "type": "Positive",
+      "expected": "Loading indicator appears and images are generated successfully in Landscape orientation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2875,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 186",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify image generation with Landscape mode",
+          "expected": "Loading indicator appears and images are generated successfully in Landscape orientation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 187",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify generation with different image quantities",
+      "steps": [
+        "1. Enter valid prompt.",
+        "2. Select quantity 1, 2, 3, and 4 separately.",
+        "3. Tap Generate Image(s)."
+      ],
+      "type": "Positive",
+      "expected": "Selected number of images is generated successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2878,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 187",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify generation with different image quantities",
+          "expected": "Selected number of images is generated successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 188",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify empty/space-only prompt",
+      "steps": [
+        "1. Enter only spaces in prompt box.",
+        "2. Tap outside."
+      ],
+      "type": "Negative",
+      "expected": "Generate Image(s) button remains disabled or validation message is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2881,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 188",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify empty/space-only prompt",
+          "expected": "Generate Image(s) button remains disabled or validation message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 189",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify long prompt input",
+      "steps": [
+        "1. Enter a very long prompt.",
+        "2. Tap Generate Image(s)."
+      ],
+      "type": "Positive",
+      "expected": "App handles long text properly without crash or UI overlap.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2883,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 189",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify long prompt input",
+          "expected": "App handles long text properly without crash or UI overlap.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 190",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify special characters in prompt",
+      "steps": [
+        "1. Enter prompt with symbols/emojis/special characters.",
+        "2. Tap Generate Image(s)."
+      ],
+      "type": "Positive",
+      "expected": "App accepts supported characters and generates images without errors.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2885,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 190",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify special characters in prompt",
+          "expected": "App accepts supported characters and generates images without errors.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 191",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify network error while generating images",
+      "steps": [
+        "1. Disable internet.",
+        "2. Enter valid prompt.",
+        "3. Tap Generate Image(s)."
+      ],
+      "type": "Negative",
+      "expected": "Proper error message is displayed (e.g., \"No Internet Connection\") and app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2887,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 191",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify network error while generating images",
+          "expected": "Proper error message is displayed (e.g., \"No Internet Connection\") and app remains stable.",
+          "verification": "Verify visible: No Internet Connection",
+          "kind": "visible",
+          "selector": "No Internet Connection"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 192",
+      "module": "Text-to-Image",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Back button navigation",
+      "steps": [
+        "1. Open Text-to-Image screen.",
+        "2. Tap Back icon."
+      ],
+      "type": "Positive",
+      "expected": "User is navigated back to the AI Tools/Create screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2890,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 192",
+          "module": "Text-to-Image",
+          "stage": "AI",
+          "description": "Verify Back button navigation",
+          "expected": "User is navigated back to the AI Tools/Create screen successfully.",
+          "verification": "Verify navigation marker: Create",
+          "kind": "navigation",
+          "selector": "Create"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 193",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Text-to-Image generation flow",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Navigate to Create → AI Tools.",
+        "5. Tap Text-to-Image.",
+        "6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Tap prompt field.",
+        "8. Verify keyboard opens.",
+        "9. Enter valid prompt.",
+        "10. Verify Generate Image(s) button becomes active.",
+        "11. Tap Generate Image(s).",
+        "12. Verify loader appears.",
+        "13. Wait for result screen."
+      ],
+      "type": "Positive",
+      "expected": "Loader screen appears and generated images are displayed on Result screen according to selected orientation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2892,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 193",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Text-to-Image generation flow",
+          "expected": "Loader screen appears and generated images are displayed on Result screen according to selected orientation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI TOOls 194",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Portrait image generation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Select Portrait.",
+        "8. Enter valid prompt.",
+        "9. Tap Generate Image(s).",
+        "10. Wait for result screen."
+      ],
+      "type": "Positive",
+      "expected": "Generated images are displayed in Portrait orientation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2905,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI TOOls 194",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Portrait image generation",
+          "expected": "Generated images are displayed in Portrait orientation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI TOOls 195",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Landscape image generation",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Select Landscape.",
+        "8. Enter valid prompt.",
+        "9. Tap Generate Image(s).",
+        "10. Wait for result screen."
+      ],
+      "type": "Positive",
+      "expected": "Generated images are displayed in Landscape orientation. Landscape thumbnails appear correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2910,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI TOOls 195",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Landscape image generation",
+          "expected": "Generated images are displayed in Landscape orientation. Landscape thumbnails appear correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 196",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify thumbnail selection",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Generate images.",
+        "8. Tap different thumbnails one by one."
+      ],
+      "type": "Positive",
+      "expected": "Main preview image updates according to selected thumbnail.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2915,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 196",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify thumbnail selection",
+          "expected": "Main preview image updates according to selected thumbnail.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 197",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Cancel button and Unsaved popup",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Generate images.",
+        "8. On Result screen tap Cancel button.",
+        "9. Observe popup."
+      ],
+      "type": "Positive",
+      "expected": "Unsaved Changes popup appears with Cancel/Leave options.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2918,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 197",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Cancel button and Unsaved popup",
+          "expected": "Unsaved Changes popup appears with Cancel/Leave options.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI tools 198",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Unsaved popup - Cancel option",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Generate images.",
+        "8. Tap Cancel button.",
+        "9. Unsaved popup appears.",
+        "10. Tap popup Cancel button."
+      ],
+      "type": "Positive",
+      "expected": "Popup closes and user remains on Result screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2922,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI tools 198",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Unsaved popup - Cancel option",
+          "expected": "Popup closes and user remains on Result screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 199",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Unsaved popup - Leave option",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Generate images.",
+        "8. Tap Cancel button.",
+        "9. Unsaved popup appears.",
+        "10. Tap Leave button."
+      ],
+      "type": "Positive",
+      "expected": "User exits Result screen and returns to Text-to-Image screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2927,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 199",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Unsaved popup - Leave option",
+          "expected": "User exits Result screen and returns to Text-to-Image screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 207",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generate Image(s) with empty prompt",
+      "steps": [
+        "1. Launch app.",
+        "2. Complete onboarding.",
+        "3. Open Text-to-Image screen.",
+        "4. Keep prompt empty.",
+        "5. Observe Generate Image(s) button."
+      ],
+      "type": "Negative",
+      "expected": "Generate Image(s) button remains disabled and user cannot proceed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2960,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 207",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify Generate Image(s) with empty prompt",
+          "expected": "Generate Image(s) button remains disabled and user cannot proceed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 208",
+      "module": "AI Tools",
+      "section": "AI TOOLS SDK",
+      "description": "Verify image generation without internet",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
+        "7. Disable internet.",
+        "8. Enter valid prompt.",
+        "9. Tap Generate Image(s)."
+      ],
+      "type": "Negative",
+      "expected": "Proper error message such as \"No Internet Connection\" is displayed and app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2965,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 208",
+          "module": "AI Tools",
+          "stage": "AI",
+          "description": "Verify image generation without internet",
+          "expected": "Proper error message such as \"No Internet Connection\" is displayed and app remains stable.",
+          "verification": "Verify visible: No Internet Connection",
+          "kind": "visible",
+          "selector": "No Internet Connection"
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 211",
+      "module": "Image Quantity",
+      "section": "AI TOOLS SDK",
+      "description": "Verify default quantity selection",
+      "steps": [
+        "1. Complete navigation and select image. \n2. Observe Image Quantity options.",
+        "1. Complete navigation and select image. \n2. Tap quantity \"1\".",
+        "1. Complete navigation and select image. \n2. Tap quantity \"5\".",
+        "1. Complete navigation and select image. \n2. Do not select any Image Style. \n3. Check Generate Image(s) button."
+      ],
+      "type": "Pos",
+      "expected": "Quantity \"3\" is selected by default.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2977,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 211",
+          "module": "Image Quantity",
+          "stage": "AI",
+          "description": "Verify default quantity selection",
+          "expected": "Quantity \"3\" is selected by default.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "AI Tools 211",
+      "module": "Generate Button",
+      "section": "AI TOOLS SDK",
+      "description": "Verify Generate button enabled after style selection",
+      "steps": [
+        "1. Complete navigation and select image.\n 2. Select any Image Style. \n3. Check Generate Image(s) button.",
+        "1. Complete navigation and select image. \n2. Select Image Style. 3. Tap Generate Image(s).",
+        "1. Complete image generation steps. \n2. Observe loader screen.",
+        "1. Generate images successfully. \n2. Wait for results screen."
+      ],
+      "type": "Pos",
+      "expected": "Generate Image(s) button becomes enabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 2981,
+      "stage": "AI",
+      "verifications": [
+        {
+          "test_id": "AI Tools 211",
+          "module": "Generate Button",
+          "stage": "AI",
+          "description": "Verify Generate button enabled after style selection",
+          "expected": "Generate Image(s) button becomes enabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

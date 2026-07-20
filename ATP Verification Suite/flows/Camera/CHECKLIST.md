@@ -1,0 +1,30 @@
+# Camera — 28 ATP cases
+
+- [ ] Photobooth 01 | Photobooth | Verify onboarding popup, camera access and photo capture
+- [ ] Photobooth 02 | Photobooth | Verify behavior when camera permission is denied
+- [ ] Photobooth 03 | Photobooth Countdown | Verify shutter to stop button transformation and countdown
+- [ ] Photobooth 04 | Photobooth Countdown | Verify cancel photo session during countdown
+- [ ] Photobooth  05 | Capture View | Verify countdown hides during photo capture
+- [ ] Photobooth 06 | Progress | Verify progress indicator updates after each photo
+- [ ] Photobooth  08 | Progress Bar | Verify progress bar increment logic
+- [ ] Photobooth 09 | Countdown | Verify countdown timer returns for next photos
+- [ ] Photobooth 15 | Flash Logic | Verify default flash status
+- [ ] Photobooth 16 | Flash Logic | Verify front flash simulation
+- [ ] Photobooth 17 | Flash Logic | Verify no flash when disabled
+- [ ] Photo ID 02 | Permission | Verify camera permission denial
+- [ ] Photo ID  03 | UI Verification | Verify Photo ID default UI layout
+- [ ] Photo ID  04 | UI Verification | Verify Photo ID UI after camera permission denied
+- [ ] Photo ID 05 | Aspect Ratio | Verify aspect ratio switching
+- [ ] Photo ID 06 | Aspect Ratio | Verify rapid aspect ratio switching
+- [ ] Photo ID  07 | Timer | Verify Timer submenu and selection
+- [ ] Photo ID 08 | Timer | Verify Timer Off state
+- [ ] Photo ID 09 | Camera Controls | Verify Flash and Flip Camera
+- [ ] Photo ID  10 | Capture | Verify photo capture and Print Preview
+- [ ] Photo ID 11 | Timer Submenu | Verify Timer submenu UI
+- [ ] Photo ID 12 | Timer On | Verify Timer ON state
+- [ ] Photo ID 13 | Timer Countdown | Verify countdown UI
+- [ ] Photo ID 14 | Timer Countdown | Verify Stop button
+- [ ] Photo ID 19 | Photo ID Pop-up | Verify Photo ID onboarding popup UI
+- [ ] Photo ID 20 | Photo ID Pop-up | Verify OK button functionality
+- [ ] Photo ID 21 | Photo ID Pop-up | Verify Don't Show Again
+- [ ] Photo ID 22 | Edit Button | Verify Edit button disabled

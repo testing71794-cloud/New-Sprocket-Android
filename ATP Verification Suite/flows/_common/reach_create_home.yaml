@@ -1,0 +1,31 @@
+appId: com.hp.impulse.sprocket
+---
+# Shared setup: cold launch → Sign Up Later → Create home
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Welcome to the new Sprocket!"
+    timeout: 15000
+- runFlow: ../../ATP TestCase Flows/common/subflows/complete_sprocket_carousel.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 15000
+- tapOn: "Sign Up Later"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: ../../ATP TestCase Flows/common/subflows/accept_terms_if_visible.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+- runFlow: ../../ATP TestCase Flows/permission/subflows/allow_all_runtime_permissions.yaml
+- runFlow: ../../ATP TestCase Flows/gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*Create.*"
+    commands:
+      - tapOn: ".*Create.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    timeout: 15000

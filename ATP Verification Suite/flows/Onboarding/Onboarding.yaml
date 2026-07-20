@@ -1,0 +1,26 @@
+# ATP Stage Flow: Onboarding
+# One module flow — setup to Sign up options. Detailed checks run via run_module.py --stage Onboarding
+appId: com.hp.impulse.sprocket
+name: "Stage - Onboarding"
+tags:
+  - atp-verification
+  - onboarding
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Welcome to the new Sprocket!"
+    timeout: 15000
+- runFlow: ../../../ATP TestCase Flows/common/subflows/complete_sprocket_carousel.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 15000
+- assertVisible:
+    text: "Sign up"
+    optional: true
+- assertVisible:
+    text: "Sign Up Later"
+    optional: true
+- assertVisible:
+    text: "I already have an account"
+    optional: true

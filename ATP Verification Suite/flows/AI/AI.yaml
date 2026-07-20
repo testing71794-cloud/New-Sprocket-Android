@@ -1,0 +1,51 @@
+# ATP Stage Flow: AI
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - AI"
+tags:
+  - atp-verification
+  - ai
+---
+# Cases in this stage (81):
+#   - AI Tool 01: Verify UI layout of "Create" screen
+#   - AI Tools 02: Verify navigation to AI tools
+#   - AI Tools 03: Verify UI layout of AI Tools screen
+#   - AI Tools 04: Verify Tool accessibility
+#   - AI Tools 07: Verify Background Tools navigation
+#   - AI Tool 08: Verify Object Tools navigation
+#   - AI Tools 09: Verify Photo Enhancements navigation
+#   - AI Tools  10: Verify Generate Tools navigation
+#   - AI Tools 14: Verify loader remains active during long processing
+#   - AI Tools 15: Verify transition after AI processing completes
+#   - AI Tools 17: Verify handling of network loss during loading
+#   - AI Tools 25: Verify popup appears on cancel
+#   - AI Tools 28: Verify universal scope
+#   - AI Tools 38: Verify popup priority
+#   - AI Tools 43: Verify toggle functionality
+#   - AI Tools 44: Verify cancellation behavior
+#   - AI Tools 45: Verify apply with background removed
+#   - AI Tools 46: Verify apply while Show Original is ON
+#   - AI Tools 48: Verify generation loader
+#   - AI Tools 49: Verify UI layout of background options
+#   - AI Tools 53: Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)
+#   - AI Tools 73: Verify selection (Tap/Paint)
+#   - AI Tools 76: Verify generation processing
+#   - AI Tools 77: Verify result screen UI
+#   - AI Tools 78: Verify thumbnail swapping
+#   - AI Tools 79: Verify "Generate New" flow
+#   - AI Tools 80: Verify "Apply" functionality
+#   - AI Tools 81: Verify failure state UI
+#   - AI Tools 82: Verify failure exit
+#   - AI Tools 85: Verify generation
+#   - AI Tools 86: Verify sticker limit pop-up
+#   - AI Tools 87: Verify "Save New Sticker"
+#   - AI Tools 88: Verify "Cancel" navigation
+#   - AI Tools 90: Verify Tool Entry
+#   - AI Tools 91: Verify Generation
+#   - AI Tools 92: Verify Result State
+#   - AI Tools 93: Verify "Show Original"
+#   - AI Tools 94: Verify "Apply" Action
+#   - AI Tools 95: Verify "Cancel" Action
+#   - AI Tools 96: Verify Printing
+#   ... +41 more
+- runFlow: ../Home/Home.yaml

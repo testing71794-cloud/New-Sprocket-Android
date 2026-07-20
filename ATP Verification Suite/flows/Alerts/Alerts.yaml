@@ -1,0 +1,51 @@
+# ATP Stage Flow: Alerts
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - Alerts"
+tags:
+  - atp-verification
+  - alerts
+---
+# Cases in this stage (47):
+#   - Print Preview Screen 56: Verify $2\times3"$ and $4\times6"$ layout
+#   - Print Preview Screen 57: Verify $2.3\times3.4"$ and $3.5\times4.25"$ layout
+#   - AITools 34: Verify full screen layout elements
+#   - Blockers Error Pop up Android   01: Verify "Memory Error" popup during printing
+#   - Blockers Error Pop up Android  02: Verify "Transmit Error" popup during printing
+#   - Blockers Error Pop up Android   03: Verify "Low Voltage" popup during printing
+#   - Blockers Error Pop up Android   04: Verify "Print Error" popup during printing
+#   - Blockers Error Pop up Android   05: Verify "High Temperature" popup during printing
+#   - Blockers Error Pop up Android    06: Verify "Paper Jam" error popup
+#   - Blockers Error Pop up Android    07: Verify "Out of Paper" error popup
+#   - Blockers Error Pop up Android   08: Verify "Top Cover Open" error popup
+#   - Blockers Error Pop up Android    09: Verify "System Error Occurred" error popup
+#   - Blockers Error Pop up Android   10: Verify "Very Low Battery" popup
+#   - Blockers Error Pop up Android   11: Verify "Battery Error" popup
+#   - Blockers Error Pop up Android   12: Verify "Sprocket is Warm" popup
+#   - Blockers Error Pop up Android   13: Verify "Sprocket is Cold" popup
+#   - Blockers Error Pop up Android   14: Verify "Paper Feed Error" popup
+#   - Blockers Error Pop up Android  16: Verify "Incorrect Paper Type" popup
+#   - Stoppers Error Pop up Android 18: Verify the Memory Error popup is displayed when the printer encounters a memory-
+#   - Stoppers Error Pop up Android 19: Verify the Transmit Error popup is displayed when data transmission is interrupt
+#   - Stoppers Error Pop up Android 20: Verify the Low Voltage popup is displayed when the printer battery voltage is to
+#   - Stoppers Error Pop up Android 21: Verify the Print Error popup is displayed when the printer encounters a printing
+#   - Blockers Error Pop up Ios 001: Verify Memory Error popup during printing
+#   - Blockers Error Pop up Ios 002: Verify Transmit Error popup during printing
+#   - Blockers Error Pop up Ios 003: Verify Low Voltage popup when battery is low
+#   - Blockers Error Pop up Ios 004: Verify Print Error popup during printing
+#   - Blockers Error Pop up Ios 005: Verify High Temperature popup when printer overheats
+#   - Blockers Error Pop up Ios 006: Verify High Battery Temperature popup when battery overheats
+#   - Blockers Error Pop up Ios 07: Verify Paper Error popup when incorrect paper size is inserted
+#   - Blockers Error Pop up Ios 08: Verify Paper Jam popup when paper gets stuck during printing
+#   - Blockers Error Pop up Ios 09: Verify Out of Paper popup when printer has no paper
+#   - Blockers Error Pop up Ios 10: Verify Top Cover Open popup when top cover is opened during printing
+#   - Blockers Error Pop up Ios 11: Verify System Error popup
+#   - Blockers Error Pop up Ios 12: Verify Low Battery popup
+#   - Blockers Error Pop up Ios 13: Verify Battery Error popup
+#   - Blockers Error Pop up Ios 14: Verify "Sprocket is Warm" popup
+#   - Blockers Error Pop up Ios 15: Verify "Sprocket is Cold" popup
+#   - Blockers Error Pop up Ios 16: Verify "Paper Feed Error" popup
+#   - Stoppers Error Pop up Ios  21: Verify "High Temperature" popup
+#   - Stoppers Error Pop up Ios  22: Verify "High Battery Temperature" popup
+#   ... +7 more
+- runFlow: ../Home/Home.yaml

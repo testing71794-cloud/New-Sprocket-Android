@@ -1,0 +1,38 @@
+# ATP Stage Flow: Camera
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - Camera"
+tags:
+  - atp-verification
+  - camera
+---
+# Cases in this stage (28):
+#   - Photobooth 01: Verify onboarding popup, camera access and photo capture
+#   - Photobooth 02: Verify behavior when camera permission is denied
+#   - Photobooth 03: Verify shutter to stop button transformation and countdown
+#   - Photobooth 04: Verify cancel photo session during countdown
+#   - Photobooth  05: Verify countdown hides during photo capture
+#   - Photobooth 06: Verify progress indicator updates after each photo
+#   - Photobooth  08: Verify progress bar increment logic
+#   - Photobooth 09: Verify countdown timer returns for next photos
+#   - Photobooth 15: Verify default flash status
+#   - Photobooth 16: Verify front flash simulation
+#   - Photobooth 17: Verify no flash when disabled
+#   - Photo ID 02: Verify camera permission denial
+#   - Photo ID  03: Verify Photo ID default UI layout
+#   - Photo ID  04: Verify Photo ID UI after camera permission denied
+#   - Photo ID 05: Verify aspect ratio switching
+#   - Photo ID 06: Verify rapid aspect ratio switching
+#   - Photo ID  07: Verify Timer submenu and selection
+#   - Photo ID 08: Verify Timer Off state
+#   - Photo ID 09: Verify Flash and Flip Camera
+#   - Photo ID  10: Verify photo capture and Print Preview
+#   - Photo ID 11: Verify Timer submenu UI
+#   - Photo ID 12: Verify Timer ON state
+#   - Photo ID 13: Verify countdown UI
+#   - Photo ID 14: Verify Stop button
+#   - Photo ID 19: Verify Photo ID onboarding popup UI
+#   - Photo ID 20: Verify OK button functionality
+#   - Photo ID 21: Verify Don't Show Again
+#   - Photo ID 22: Verify Edit button disabled
+- runFlow: ../Home/Home.yaml

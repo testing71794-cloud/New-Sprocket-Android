@@ -1,0 +1,27 @@
+# Settings — 25 ATP cases
+
+- [ ] Print Preview Screen 27 | Data & Flow | Printer Reconnection Flow and State Persistence
+- [ ] AI Tools 105 | Settings | Verify Copies/Tiles adjustment
+- [ ] Hamburger Menu 16 | Personal | Verify Name Field Display
+- [ ] Hamburger Menu 17 | Personal | Verify Change Password with Invalid Data
+- [ ] Hamburger Menu 19 | Change Password | Verify Change Password Screen UI
+- [ ] Humburger Menu 20 | Change Password | Verify Current Password Field
+- [ ] Hamburger Menu 25 | Error | Verify Password Update Failure
+- [ ] Hamburger Menu 26 | Change Password | Verify Successful Password Change
+- [ ] Hamburger Menu 28 | Logout | Trigger Logout Pop-up
+- [ ] Hamburger Menu 29 | Logout | Cancel Logout
+- [ ] Hamburger Menu 30 | Logout | Confirm Logout
+- [ ] Hamburger Menu 31 | Account | Trigger Delete Account Pop-up
+- [ ] Hamburger Menu 32 | Account | Cancel Account Deletion
+- [ ] Hamburger Menu 42 | Permissions | Verify Permissions Option
+- [ ] Hamburger Menu 43 | Display | Verify Default State of Display App Hints
+- [ ] Hamburger Menu 44 | Display | Toggle App Hints ON/OFF
+- [ ] Hamburger Menu 45 | Data | Verify Default Low Data Mode State
+- [ ] Hamburger Menu 46 | Data | Toggle Low Data Mode Functionality
+- [ ] Hamburger Menu 47 | Version | Verify App Version Display
+- [ ] Hamburger Menu 50 | Data | Data Collection Settings Navigation
+- [ ] Hamburger Menu 51 | Data | Data Collection Exit Pop-up Validation
+- [ ] Hamburger Menu 52 | Privacy | Verify Privacy Policy Open
+- [ ] Hamburger Menu 53 | Legal | Verify End User License Agreement
+- [ ] Hamburger Menu 54 | Legal | Verify Terms of Service
+- [ ] Hamburger Menu 55 | Legal | Open Source Licenses Navigation
