@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-- extendedWaitUntil:
-    visible:
-      id: "collageTextView"
-    timeout: 2000
-- tapOn:
-    id: "collageTextView"

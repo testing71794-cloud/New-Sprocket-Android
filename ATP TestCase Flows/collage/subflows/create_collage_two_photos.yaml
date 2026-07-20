@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: create_collage_editor_ready.yaml
-- runFlow: dismiss_print_overlay_if_visible.yaml
-- tapOn:
-    id: "button_save"
