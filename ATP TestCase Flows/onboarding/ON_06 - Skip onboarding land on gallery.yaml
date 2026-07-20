@@ -1,5 +1,5 @@
 # ATP Test Case ID: ON_06
-# Skip onboarding — land on Home / gallery after permissions
+# Sign Up Later path — land on Create home after permissions
 appId: com.hp.impulse.sprocket
 name: "ON_06 - Skip onboarding land on gallery"
 tags:
@@ -9,4 +9,5 @@ tags:
 - launchApp:
     clearState: true
 - runFlow: subflows/skip_onboarding_to_gallery.yaml
-- assertVisible: ".*(?i)(Collage Maker|Create|Quick Print|MY GALLERY).*"
+- assertVisible: ".*(?i)(Collage Maker|Quick Print).*"
+- assertVisible: ".*Create.*"

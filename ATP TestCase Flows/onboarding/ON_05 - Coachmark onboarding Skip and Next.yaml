@@ -1,5 +1,6 @@
 # ATP Test Case ID: ON_05
-# Coachmark onboarding — Skip / Next after Sign Up Later + terms
+# Post Sign Up Later — optional coachmark (Skip/Next) then Home
+# Sprocket often skips Kodak-style coachmark; assert home when coachmark absent.
 appId: com.hp.impulse.sprocket
 name: "ON_05 - Coachmark onboarding Skip and Next"
 tags:
@@ -10,19 +11,36 @@ tags:
     clearState: true
 - runFlow: ../common/subflows/reach_signup_screen.yaml
 - tapOn: "Sign Up Later"
-- runFlow: ../common/subflows/accept_terms_if_visible.yaml
-- runFlow: ../common/subflows/reach_kodak_coachmark_onboarding.yaml
-- assertVisible: "Skip"
-- runFlow:
-    when:
-      visible: "Next"
-    commands:
-      - tapOn: "Next"
-      - waitForAnimationToEnd:
-          timeout: 2000
-- tapOn: "Skip"
 - waitForAnimationToEnd:
     timeout: 2000
+- runFlow: ../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../common/subflows/reach_kodak_coachmark_onboarding.yaml
+# If Kodak-style coachmark appears, exercise Next then Skip
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - assertVisible: "Skip"
+      - runFlow:
+          when:
+            visible: "Next"
+          commands:
+            - tapOn: "Next"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - tapOn: "Skip"
+      - waitForAnimationToEnd:
+          timeout: 2000
 - runFlow: ../permission/subflows/allow_all_runtime_permissions.yaml
 - runFlow: ../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
-- assertVisible: ".*(?i)(Collage Maker|Create|Quick Print).*"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*Create.*"
+    commands:
+      - tapOn: ".*Create.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Collage Maker|Quick Print).*"

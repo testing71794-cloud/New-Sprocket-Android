@@ -1,10 +1,5 @@
 appId: com.hp.impulse.sprocket
 ---
-# Video ~00:02–00:04 — cold launch splash (image-only branding allowed).
-- assertVisible:
-    text: "Welcome to the new Sprocket!"
-    optional: true
-    label: HP Sprocket welcome splash
-- assertVisible:
-    text: "Sprocket"
-    optional: true
+# Brief settle after cold launch before first-screen asserts.
+- waitForAnimationToEnd:
+    timeout: 3000

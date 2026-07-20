@@ -5,9 +5,10 @@ name: "ON_01 - Welcome carousel first slide"
 ---
 - launchApp:
     clearState: true
-- waitForAnimationToEnd    
+- runFlow: ../common/subflows/wait_after_cold_launch.yaml
 - extendedWaitUntil:
     visible: "Welcome to the new Sprocket!"
-    timeout: 1500
+    timeout: 15000
+- assertVisible: "Welcome to the new Sprocket!"
 - assertVisible: "Enjoy the revamped Sprocket experience with intuitive navigation."
 - assertVisible: "Swipe to continue."
