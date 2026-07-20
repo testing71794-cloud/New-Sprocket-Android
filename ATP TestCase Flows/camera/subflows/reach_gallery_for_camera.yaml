@@ -1,5 +1,0 @@
-appId: com.kodak.steptouch
----
-# Steps 1–4: cold start through gallery (shared signup-login path).
-- runFlow: ../../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
-- assertVisible: "My gallery"

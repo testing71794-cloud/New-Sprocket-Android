@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-# Resume app from Settings without resetting runtime permission state.
-# Return from Settings: preserve app state (initial test launch uses clearState: true).
-- launchApp:
-    clearState: false
-    stopApp: false
-- waitForAnimationToEnd:
-    timeout: 3000

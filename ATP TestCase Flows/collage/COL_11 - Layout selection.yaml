@@ -1,0 +1,13 @@
+# ATP Test Case ID: COL_11
+# Collage_11 — Layout Selection: tap each available layout (4-photo collage)
+appId: com.hp.impulse.sprocket
+name: "COL_11 - Layout selection"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/create_collage_four_photos_sprocket.yaml
+- runFlow: subflows/tap_all_layout_options.yaml

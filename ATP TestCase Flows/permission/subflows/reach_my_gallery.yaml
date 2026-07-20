@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-- waitForAnimationToEnd:
-    timeout: 5000
-- extendedWaitUntil:
-    visible: ".*(?i)my gallery.*"
-    timeout: 60000
-- assertVisible: ".*(?i)my gallery.*"

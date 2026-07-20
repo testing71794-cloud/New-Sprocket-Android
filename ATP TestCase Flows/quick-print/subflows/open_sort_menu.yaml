@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Open sort menu (Newest / Oldest) via top-right sort icon.
+# Device UI: one content-desc node "Newest\nOldest" (not separate labels).
+- tapOn:
+    point: "92%,8%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: ".*Newest.*"
+- assertVisible: "Dismiss menu"

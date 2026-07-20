@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# 4/5 — Notifications: "Allow Kodak Step Prints to send you notifications?"
-- extendedWaitUntil:
-    visible: ".*(?i)send you notifications.*"
-    timeout: 45000

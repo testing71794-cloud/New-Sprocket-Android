@@ -1,0 +1,13 @@
+appId: com.hp.impulse.sprocket
+---
+# QP TCs — splash + 3 RTL swipes (carousel) + Get Started → Sign up options.
+- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+- assertVisible: "Welcome to the new Sprocket!"
+- assertVisible: "Swipe to continue."
+# 3 right-to-left swipes via shared carousel helper (validated on device).
+- runFlow: ../../common/subflows/complete_sprocket_carousel.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 15000
+- assertVisible: "I already have an account"
+- assertVisible: "Sign Up Later"

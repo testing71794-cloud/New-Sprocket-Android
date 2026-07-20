@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: tap_up_next.yaml
-- tapOn:
-    point: "15%, 19%"
-    label: Pre-cut from Up Next

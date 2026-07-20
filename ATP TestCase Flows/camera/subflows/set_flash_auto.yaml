@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# Cycle flash until auto ("A" icon).
-- runFlow: toggle_flash.yaml
-- runFlow: toggle_flash.yaml
-- runFlow: toggle_flash.yaml

@@ -1,4 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: complete_onboarding_for_permission.yaml
-- runFlow: advance_past_permissions_before_notification.yaml

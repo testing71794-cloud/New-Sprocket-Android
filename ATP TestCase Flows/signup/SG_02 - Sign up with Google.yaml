@@ -1,0 +1,21 @@
+# ATP Test Case ID: SG_02
+# HP Sprocket — tap Sign up with Google
+appId: com.hp.impulse.sprocket
+name: "SG_02 - Sign up with Google"
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/open_signup_screen.yaml
+- tapOn: "Sign up with Google"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: "Choose an account"
+    optional: true
+- tapOn:
+    point: 20%,49%
+- assertVisible:
+    text: ".*[Gg]oogle.*"
+    optional: true
+
+- assertNotVisible: "Log in"

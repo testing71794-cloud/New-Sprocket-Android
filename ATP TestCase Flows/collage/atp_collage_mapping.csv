@@ -1,10 +1,21 @@
-atp_id,flow_file,feature,description
-COL_01,COL_01 - Create collage matching photos and layout.yaml,Collage,Create collage matching photos and layout
-COL_02,COL_02 - Create collage empty space toast.yaml,Collage,Create collage empty space toast
-COL_03,COL_03 - Edit collage border.yaml,Collage,Edit collage border
-COL_04,COL_04 - Edit collage mirror.yaml,Collage,Edit collage mirror
-COL_05,COL_05 - Edit collage flip.yaml,Collage,Edit collage flip
-COL_06,COL_06 - Edit collage replace.yaml,Collage,Edit collage replace
-COL_07,COL_07 - Edit collage rotate.yaml,Collage,Edit collage rotate
-COL_08,COL_08 - Open photo then collage.yaml,Collage,Open photo collage
-COL_09,COL_09 - Open photo collage and save.yaml,Collage,Open photo collage save
+atp_id,flow_file,feature,description,app
+COL_01,COL_01 - Launch and navigation.yaml,Collage,Launch & Navigation — splash onboarding Sign Up Later to Home,com.hp.impulse.sprocket
+COL_02,COL_02 - Photo permission.yaml,Collage,Photo Permission — Photos & Videos popup Allow all,com.hp.impulse.sprocket
+COL_03,COL_03 - Collage selection screen.yaml,Collage,Collage Selection Screen — default UI,com.hp.impulse.sprocket
+COL_04,COL_04 - Folder navigation.yaml,Collage,Folder Navigation — Recent and other folders,com.hp.impulse.sprocket
+COL_05,COL_05 - Image selection minimum.yaml,Collage,Image Selection — minimum two photos enables Next,com.hp.impulse.sprocket
+COL_06,COL_06 - Multiple selection four photos.yaml,Collage,Multiple Selection — up to four photos,com.hp.impulse.sprocket
+COL_07,COL_07 - Duplicate selection.yaml,Collage,Duplicate Selection — same image in all slots,com.hp.impulse.sprocket
+COL_08,COL_08 - Remove selection.yaml,Collage,Remove Selection — deselect selected image,com.hp.impulse.sprocket
+COL_09,COL_09 - Next button validation.yaml,Collage,Next Button Validation — enable after two photos,com.hp.impulse.sprocket
+COL_10,COL_10 - Drag and drop screen.yaml,Collage,Drag & Drop Screen — reorder UI,com.hp.impulse.sprocket
+COL_11,COL_11 - Layout selection.yaml,Collage,Layout Selection — tap all layout options,com.hp.impulse.sprocket
+COL_12,COL_12 - Image reordering.yaml,Collage,Image Reordering — drag and drop tiles,com.hp.impulse.sprocket
+COL_13,COL_13 - Edit image.yaml,Collage,Edit Image — tile edit then Done,com.hp.impulse.sprocket
+COL_14,COL_14 - Print preview UI.yaml,Collage,Print Preview UI — copies printer nav,com.hp.impulse.sprocket
+COL_15,COL_15 - Printer validation.yaml,Collage,Printer Validation — No Printer Added then Add Printer,com.hp.impulse.sprocket
+COL_16,COL_16 - One image collage blocked.yaml,Collage,One-image collage blocked — Next stays on selection,com.hp.impulse.sprocket
+COL_17,COL_17 - Two image collage and layouts.yaml,Collage,Two-image collage — layouts then print preview,com.hp.impulse.sprocket
+COL_18,COL_18 - Three image collage and layouts.yaml,Collage,Three-image collage — layouts then print preview,com.hp.impulse.sprocket
+COL_19,COL_19 - Four image collage and layouts.yaml,Collage,Four-image collage — layouts then print preview,com.hp.impulse.sprocket
+COL_20,COL_20 - More than four photos limit.yaml,Collage,More than four photos — selection capped no 5th slot,com.hp.impulse.sprocket

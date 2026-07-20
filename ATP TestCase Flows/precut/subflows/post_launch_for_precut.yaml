@@ -1,5 +1,0 @@
-appId: com.kodak.steptouch
----
-- extendedWaitUntil:
-    visible: "Create an account"
-    timeout: 2000

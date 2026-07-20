@@ -1,0 +1,40 @@
+# ATP Test Case ID: QP_12
+# Quick print_12 — Social Media Unlink (overflow → Unlink → Sign Out)
+appId: com.hp.impulse.sprocket
+name: "QP_12 - Social media unlink"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../login/subflows/complete_facebook_sign_in.yaml
+- waitForAnimationToEnd:
+    timeout: 8000
+- runFlow:
+    when:
+      visible: "More options"
+    commands:
+      - tapOn: "More options"
+- runFlow:
+    when:
+      visible: "Unlink"
+    commands:
+      - tapOn: "Unlink"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: "Sign Out"
+    commands:
+      - tapOn: "Sign Out"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(Select Gallery|Facebook|Tap to Connect).*"
+    optional: true

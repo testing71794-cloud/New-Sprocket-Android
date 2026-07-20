@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+# Legacy name — opens email sign-up form via Sign up with Email.
+- runFlow: open_signup_email_form.yaml

@@ -1,0 +1,26 @@
+# ATP Test Case ID: COL_08
+# Collage_08 — Remove Selection: tap selected image again to deselect
+appId: com.hp.impulse.sprocket
+name: "COL_08 - Remove selection"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/select_four_photos_fast.yaml
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: "Select 2 to 4 photos"
+# Deselect by tapping the first selected thumbnail again
+- tapOn:
+    point: "18%,56%"
+- waitForAnimationToEnd:
+    timeout: 1500
+# Still on selection screen; placeholder cleared (not advanced to reorder)
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "Recent"
+- assertVisible: "Next"
+# With 3 photos remaining Next still works — confirm we did NOT auto-advance
+- assertNotVisible: "Drag & Drop to Reorder"

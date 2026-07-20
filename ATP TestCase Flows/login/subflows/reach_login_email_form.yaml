@@ -1,0 +1,11 @@
+appId: com.hp.impulse.sprocket
+---
+# Video 20 / LO_04 — onboarding → Sign up → Log In options → email login form.
+- runFlow: open_login_screen.yaml
+- tapOn: "Continue with Email"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Log In with Email"
+    timeout: 10000
+- runFlow: ../../common/subflows/assert_login_email_form.yaml

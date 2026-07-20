@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Assert Quick Print gallery grid (device UI dump).
+- assertVisible: "Recent"
+- assertVisible:
+    text: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*"
+    optional: true
+- assertVisible: ".*Create.*"

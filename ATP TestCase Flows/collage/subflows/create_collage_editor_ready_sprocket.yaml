@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Four photos → reorder editor ready.
+- runFlow: select_four_photos_fast.yaml
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 8000
+- assertVisible: "Drag & Drop to Reorder"
+- assertVisible: "Layout"

@@ -1,7 +1,0 @@
-ATP Test Case ID,YAML File Name,Test Name,Flow Type,ATP Steps,ATP Expected
-BA_01,BA_01 - Connect Barbie printer.yaml,BA_01 - Connect Barbie printer,Barbie,"1. Open app → 2. Tap Bluetooth (top-right) → 3. Tap Barbie printer → 4. Confirm pairing","User connects Barbie Step printer; Barbie theme enabled on all screens after connection"
-BA_02,BA_02 - Intro screen.yaml,BA_02 - Intro screen,Barbie,1. Repeat BA_01,Barbie x Kodak Step Slim printer intro banner after first connection
-BA_03,BA_03 - Splash screen.yaml,BA_03 - Splash screen,Barbie,"1. Repeat BA_01 → 2. Close app → 3. Re-open app",Barbie splash screen on app open after Barbie printer connected
-BA_04,BA_04 - Barbie Frames.yaml,BA_04 - Barbie Frames,Barbie,"1. Repeat BA_01 → 2–8. Select photo → edit → Frames → Barbie → apply frame",User can add a Barbie frame to the selected photo
-BA_05,BA_05 - Barbie Stickers.yaml,BA_05 - Barbie Stickers,Barbie,"1. Repeat BA_01 → 2–8. Select photo → edit → Stickers → Barbie → apply sticker",User can add Barbie stickers to the selected photo
-BA_06,BA_06 - connect to a non-barbie printer.yaml,BA_06 - connect to a non-barbie printer,Barbie,"1. Complete BA_01 → 2. Disconnect Barbie → 3–6. Connect non-Barbie printer",User reverts to standard UI with non-Barbie Kodak Step device

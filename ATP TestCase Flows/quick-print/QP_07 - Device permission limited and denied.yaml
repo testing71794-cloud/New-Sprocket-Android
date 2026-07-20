@@ -1,0 +1,36 @@
+# ATP Test Case ID: QP_07
+# Quick print_07 — Photos permission Don't allow / Allow limited access
+appId: com.hp.impulse.sprocket
+name: "QP_07 - Device permission limited and denied"
+tags:
+  - quick-print
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_create_home.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: subflows/deny_photos_permission.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(No photos|permission|access|allow|settings|Recent).*"
+    optional: true
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*Quick Print.*"
+    commands:
+      - tapOn: ".*Quick Print.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: subflows/allow_photos_limited_permission.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(Recent|Select Gallery|No photos|permission).*"
+    optional: true

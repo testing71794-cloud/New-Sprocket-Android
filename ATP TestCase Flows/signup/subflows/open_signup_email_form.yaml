@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+- runFlow: open_signup_screen.yaml
+- tapOn: "Sign up with Email"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "SIGN UP"
+    timeout: 10000

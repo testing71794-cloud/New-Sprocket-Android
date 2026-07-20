@@ -1,0 +1,19 @@
+appId: com.hp.impulse.sprocket
+---
+# Yellow coachmark overlay: "Switch Between Camera and Gallery" / "Swipe to take photo".
+- runFlow:
+    when:
+      visible: "Switch Between\nCamera and Gallery"
+    commands:
+      - swipe:
+          direction: LEFT
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "Swipe to take photo"
+    commands:
+      - swipe:
+          direction: LEFT
+      - waitForAnimationToEnd:
+          timeout: 2000

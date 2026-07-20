@@ -190,7 +190,16 @@ def merge_and_pick_devices_with_app_preflight(repo: Path, app_id: str) -> list[s
 
 def merge_and_pick_devices(repo: Path) -> list[str]:
     """Live ``adb devices`` is authoritative; detected_devices.txt may filter but never shrink below adb."""
+    pin = (os.environ.get("ATP_DEVICE_SERIAL") or "").strip()
     authorized = get_authorized_serials_from_adb()
+    if pin:
+        if pin in authorized:
+            print(f"[ATP] devices pinned via ATP_DEVICE_SERIAL={_dev_log(pin)}", flush=True)
+            return [pin]
+        raise RuntimeError(
+            f"ATP_DEVICE_SERIAL={pin} is not connected. "
+            f"Authorized adb devices: {', '.join(_dev_log(s) for s in authorized) or '(none)'}"
+        )
     if not authorized:
         raise RuntimeError("No Android devices in state 'device'.")
     file_serials = read_detected_file_serials(repo)

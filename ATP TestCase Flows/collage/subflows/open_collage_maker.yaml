@@ -1,0 +1,11 @@
+appId: com.hp.impulse.sprocket
+---
+# Open Collage Maker from Create home; grant Photos if prompted.
+- tapOn: ".*Collage Maker.*"
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Select 2 to 4 photos"
+    timeout: 12000
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "Next"
+- assertVisible: "Recent"

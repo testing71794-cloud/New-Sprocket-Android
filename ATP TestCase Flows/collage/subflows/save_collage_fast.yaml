@@ -1,0 +1,18 @@
+appId: com.hp.impulse.sprocket
+---
+# Save collage from editor/preview (minimal wait).
+- runFlow:
+    when:
+      visible: "Save"
+    commands:
+      - tapOn: "Save"
+- runFlow:
+    when:
+      visible: "Done"
+    commands:
+      - tapOn: "Done"
+- runFlow:
+    when:
+      visible: ".*(?i)save.*"
+    commands:
+      - tapOn: ".*(?i)save.*"

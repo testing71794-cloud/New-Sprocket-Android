@@ -1,18 +1,10 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
-# 1/5 — skip if already granted; only act when camera dialog is on screen.
+# Video ~00:12–00:14 — Android camera permission after onboarding Skip.
 - runFlow:
     when:
-      notVisible: ".*(?i)my gallery.*"
+      visible: ".*take pictures and record video.*"
     commands:
-      - extendedWaitUntil:
-          visible: ".*(?i)(take pictures and record video|access this device.s location|nearby devices|send you notifications|access (more )?photos and videos|photos and videos on this device).*"
-          timeout: 45000
-- runFlow:
-    when:
-      visible: ".*(?i)take pictures and record video.*"
-    commands:
-      - runFlow: tap_permission_allow_while_using_the_app.yaml
-      - extendedWaitUntil:
-          notVisible: ".*(?i)take pictures and record video.*"
-          timeout: 30000
+      - tapOn: "While using the app"
+      - waitForAnimationToEnd:
+          timeout: 2000

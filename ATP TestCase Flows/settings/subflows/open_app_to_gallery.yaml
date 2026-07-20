@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# ATP Step 1: Open app and reach gallery home (fast path, no permissions).
-- launchApp:
-    clearState: true
-- runFlow: reach_gallery_for_settings.yaml

@@ -1,0 +1,30 @@
+# Mapped from MicrosoftTeams-video (17).mp4 — HP Sprocket ATP modules
+TestCaseID,Module,VideoTimestamp,Screen,FlowFile
+SP_01,splash,00:02-00:03,Yellow/Kodak or Sprocket splash,splash/SP_01 - Cold launch splash screen.yaml
+SP_02,splash,00:03-00:04,Splash to first screen,splash/SP_02 - Splash to first interactive screen.yaml
+ON_01,onboarding,00:06,Welcome carousel slide,onboarding/ON_01 - Welcome carousel first slide.yaml
+ON_02,onboarding,00:09,Swipe to AI Editing slide,onboarding/ON_02 - AI Editing carousel slide.yaml
+ON_03,onboarding,00:09,Inkless Seamless slide,onboarding/ON_03 - Inkless Seamless carousel slide.yaml
+ON_04,onboarding,00:11,Get Started completes carousel,onboarding/ON_04 - Complete onboarding via Get Started.yaml
+ON_05,onboarding,00:06-00:11,Kodak coachmark Skip/Next,onboarding/ON_05 - Coachmark onboarding Skip and Next.yaml
+ON_06,onboarding,00:11,Skip to gallery + permissions,onboarding/ON_06 - Skip onboarding land on gallery.yaml
+SL_01,signup-later,post-onboarding,Sign Up Later skip,signup-later/SL_01 - Sign Up Later skip signup.yaml
+SG_01,signup,post-onboarding,Sign up screen all options,signup/SG_01 - Sign up screen displays all options.yaml
+SG_02,signup,post-onboarding,Sign up with Google,signup/SG_02 - Sign up with Google.yaml
+SG_03,signup,post-onboarding,Sign up with Facebook,signup/SG_03 - Sign up with Facebook.yaml
+SG_04,signup,post-onboarding,Sign up with Email form,signup/SG_04 - Sign up with Email opens form.yaml
+SG_05,signup,post-onboarding,I already have an account,signup/SG_05 - I already have an account opens login.yaml
+SG_06,signup,post-onboarding,Email valid signup,signup/SG_06 - Sign up with Email valid.yaml
+SG_07,signup,post-onboarding,Email invalid email,signup/SG_07 - Sign up with Email invalid email.yaml
+SG_08,signup,post-onboarding,Email invalid password,signup/SG_08 - Sign up with Email invalid password.yaml
+SG_09,signup,post-onboarding,Email user exists,signup/SG_09 - Sign up with Email user already exists.yaml
+SG_10,signup,post-onboarding,Email forgot from duplicate,signup/SG_10 - Sign up with Email forgot password from duplicate.yaml
+LO_01,login,post-onboarding,Login screen all options,login/LO_01 - Login screen displays all options.yaml
+LO_02,login,post-onboarding,Log in with Google,login/LO_02 - Log in with Google.yaml
+LO_03,login,post-onboarding,Log in with Facebook,login/LO_03 - Log in with Facebook.yaml
+LO_04,login,post-onboarding,Log in with Email form,login/LO_04 - Log in with Email opens form.yaml
+LO_05,login,post-onboarding,I don't have an account back to signup,login/LO_05 - I don't have an account opens signup.yaml
+LO_06,login,post-onboarding,Email valid login,login/LO_06 - Log in with Email valid credentials.yaml
+LO_07,login,post-onboarding,Email wrong credentials,login/LO_07 - Log in with Email wrong credentials.yaml
+LO_08,login,post-onboarding,Email forgot password,login/LO_08 - Log in with Email forgot password.yaml
+LO_09,login,post-onboarding,Continue without Logging In,login/LO_09 - Continue without Logging In.yaml

@@ -1,0 +1,41 @@
+# ATP Test Case ID: COL_02
+# Collage_02 — Photo Permission: Collage Maker → Photos & Videos popup → Allow all
+appId: com.hp.impulse.sprocket
+name: "COL_02 - Photo permission"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: ../quick-print/subflows/complete_onboarding_to_signup.yaml
+- runFlow: subflows/sign_up_later_to_create_without_photos.yaml
+# Deny photos if the system asks during Create home entry
+- runFlow:
+    when:
+      visible: ".*photos and videos.*"
+    commands:
+      - tapOn: "Don't allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- tapOn: ".*Collage Maker.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(photos and videos|Allow all|Allow limited access|Don't allow).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(photos and videos|photos & videos).*"
+- assertVisible: "Allow all"
+- assertVisible: "Allow limited access"
+- assertVisible: "Don't allow"
+- tapOn: "Allow all"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Select 2 to 4 photos"
+    timeout: 12000
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "Next"
+- assertVisible: "Recent"

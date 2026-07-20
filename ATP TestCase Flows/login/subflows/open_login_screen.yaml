@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../common/subflows/reach_signup_screen.yaml
+- tapOn: "I already have an account"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Log In"
+    timeout: 15000
+- runFlow: ../../common/subflows/assert_login_options_screen.yaml

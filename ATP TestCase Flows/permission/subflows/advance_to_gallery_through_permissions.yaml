@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-# Full first-run chain (screenshots): 1 camera → 2 location → 3 nearby → 4 notification → 5 photos → gallery.
-- runFlow: advance_past_permissions_before_photos.yaml
-- runFlow: allow_photos_all_permission.yaml
-- extendedWaitUntil:
-    visible: ".*(?i)my gallery.*"
-    timeout: 45000

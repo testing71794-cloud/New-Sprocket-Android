@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# 3/5 — Nearby devices: "Allow Kodak Step Prints to find, connect to and determine the relative position of nearby devices?"
-- extendedWaitUntil:
-    visible: ".*(?i)(nearby devices|relative position of nearby).*"
-    timeout: 45000

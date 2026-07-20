@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Advance from reorder to print preview.
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Add Printer|No Printers).*"
+    timeout: 10000
+- assertVisible: "Copies"

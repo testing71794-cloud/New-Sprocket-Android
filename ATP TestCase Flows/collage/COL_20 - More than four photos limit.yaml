@@ -1,0 +1,37 @@
+# ATP Test Case ID: COL_20
+# Collage_20 — More than 4 photos: selection capped / limit message
+appId: com.hp.impulse.sprocket
+name: "COL_20 - More than four photos limit"
+tags:
+  - collage
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/select_four_photos_fast.yaml
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "1"
+- assertVisible: "4"
+# Attempt 5th photo
+- tapOn:
+    point: "50%,70%"
+- waitForAnimationToEnd:
+    timeout: 1500
+# Cap: still on picker, no 5th slot, title/limit message visible
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "1"
+- assertVisible: "4"
+- assertNotVisible: "5"
+# Toast / inline limit message when present (may be brief)
+- assertVisible:
+    text: ".*(?i)(Select 2 to 4 photos|maximum|max(?:imum)? 4|only 4|up to 4|cannot select|can't select|limit).*"
+# Next still advances with exactly 4 (5th did not add a slot)
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 8000
+- assertVisible: "Drag & Drop to Reorder"
+- assertVisible: "Layout"

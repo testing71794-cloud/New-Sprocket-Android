@@ -1,0 +1,20 @@
+# ATP Test Case ID: QP_09
+# Quick print_09 — Select Gallery and open a folder
+appId: com.hp.impulse.sprocket
+name: "QP_09 - Gallery folder navigation"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Camera.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible: "Camera"
+- assertVisible:
+    text: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|No photos).*"
+    optional: true
+- assertVisible: ".*Create.*"

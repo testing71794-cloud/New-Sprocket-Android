@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow:
-    when:
-      visible: "Print Your Photos"
-    commands:
-      - tapOn:
-          id: "errow_barbie"

@@ -1,0 +1,37 @@
+# ATP Test Case ID: QP_02
+# Quick print 02 — Quick Print Gallery functionality
+appId: com.hp.impulse.sprocket
+name: "QP_02 - Quick Print Gallery functionality"
+tags:
+  - quick-print
+  - positive
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/assert_quick_print_gallery.yaml
+# Tap photo → Print Preview
+- tapOn:
+    point: "15%,28%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(Print Preview|Print|Preview).*"
+    optional: true
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Recent"
+# Folder selector + sort Newest/Oldest
+- runFlow: subflows/open_select_gallery.yaml
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Recent"
+- runFlow: subflows/open_sort_menu.yaml
+- runFlow: subflows/tap_sort_oldest.yaml
+- assertVisible: "Recent"
+- runFlow: subflows/open_sort_menu.yaml
+- runFlow: subflows/tap_sort_newest.yaml
+- assertVisible: "Recent"

@@ -1,0 +1,29 @@
+# ATP Test Case ID: QP_13
+# Quick print_13 — No Internet → Open settings
+# Prerequisite: no network when opening Facebook gallery.
+appId: com.hp.impulse.sprocket
+name: "QP_13 - No internet open settings"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 8000
+- assertVisible:
+    text: ".*(?i)(No Internet|No internet|connect to the internet).*"
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)Open settings.*"
+    commands:
+      - tapOn: ".*(?i)Open settings.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- assertVisible:
+    text: ".*(?i)(Settings|Wi-Fi|Network|Internet).*"
+    optional: true

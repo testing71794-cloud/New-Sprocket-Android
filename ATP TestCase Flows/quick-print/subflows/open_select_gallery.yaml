@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Open CR_02F Select Gallery from Quick Print (tap Recent folder chip).
+- assertVisible: "Recent"
+- tapOn: "Recent"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Select Gallery"
+    timeout: 10000
+- assertVisible: "Select Gallery"
+- assertVisible: ".*Recent.*"
+- assertVisible: ".*Facebook.*"
+- assertVisible: ".*Tap to Connect Account.*"

@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# First-launch permission chain observed in MicrosoftTeams-video (17).mp4 after onboarding Skip.
+- runFlow: allow_camera_permission.yaml
+- runFlow: allow_location_precise_permission.yaml
+- runFlow: allow_nearby_devices_permission.yaml
+- runFlow: allow_notification_permission.yaml
+- runFlow: allow_photos_all_permission.yaml

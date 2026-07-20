@@ -1,0 +1,21 @@
+appId: com.hp.impulse.sprocket
+---
+# Default Collage Selection UI (Collage_03).
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "Next"
+- assertVisible: "1"
+- assertVisible: "2"
+- assertVisible: "3"
+- assertVisible: "4"
+- assertVisible: "Recent"
+# Back is unlabeled ImageView (top-left); gallery grid is scrollable.
+- swipe:
+    direction: UP
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
+- swipe:
+    direction: DOWN
+    duration: 400
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "Recent"

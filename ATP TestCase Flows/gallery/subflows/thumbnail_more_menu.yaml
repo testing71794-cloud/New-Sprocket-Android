@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-- tapOn:
-    point: "3%,19%"
-    label: Thumbnail more (top-left)
-- tapOn:
-    point: "6%,21%"
-    optional: true

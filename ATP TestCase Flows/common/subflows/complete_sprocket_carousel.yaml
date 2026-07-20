@@ -1,0 +1,12 @@
+appId: com.hp.impulse.sprocket
+---
+# Full carousel: welcome → AI Editing → Inkless → final slide → Get Started!
+- runFlow: advance_sprocket_carousel.yaml
+- swipe:
+    direction: LEFT
+- extendedWaitUntil:
+    visible: "Get Started!"
+    timeout: 10000
+- tapOn: "Get Started!"
+- waitForAnimationToEnd:
+    timeout: 5000

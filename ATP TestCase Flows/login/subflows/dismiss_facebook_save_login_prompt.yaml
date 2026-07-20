@@ -1,0 +1,17 @@
+appId: com.hp.impulse.sprocket
+---
+# Facebook post-login — dismiss "Save your login info?" without saving.
+- runFlow:
+    when:
+      visible: "Save your login info"
+    commands:
+      - tapOn: "Not now"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Not now"
+    commands:
+      - tapOn: "Not now"
+      - waitForAnimationToEnd:
+          timeout: 5000

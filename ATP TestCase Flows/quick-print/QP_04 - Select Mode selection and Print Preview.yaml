@@ -1,0 +1,40 @@
+# ATP Test Case ID: QP_04
+# Quick print_04 — Select Mode selection, Cancel, Print Preview
+appId: com.hp.impulse.sprocket
+name: "QP_04 - Select Mode selection and Print Preview"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/enter_select_mode.yaml
+- assertVisible: "1 Photo Selected"
+- assertVisible: "1"
+# Select additional items
+- tapOn:
+    point: "50%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn:
+    point: "80%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: ".*Photos Selected|.*Videos Selected|.*Selected.*"
+- assertVisible: "Print Preview"
+# Cancel returns to browse
+- tapOn: "Cancel"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Recent"
+- assertVisible: ".*Create.*"
+# Select exactly 1 item → Print Preview
+- runFlow: subflows/enter_select_mode.yaml
+- assertVisible: "1 Photo Selected"
+- tapOn: "Print Preview"
+- waitForAnimationToEnd:
+    timeout: 4000
+- assertVisible:
+    text: ".*(?i)(Print Preview|Print|copies|Copies).*"
+    optional: true

@@ -1,0 +1,15 @@
+appId: com.hp.impulse.sprocket
+---
+# Select one photo only — Next should stay disabled / toast if forced.
+- runFlow: select_one_photo_fast.yaml
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "Next"
+# Attempt Next with only 1 photo
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1500
+# Still on picker if Next disabled
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible:
+    text: ".*(?i)(fill all|2 to 4|select).*"
+    optional: true

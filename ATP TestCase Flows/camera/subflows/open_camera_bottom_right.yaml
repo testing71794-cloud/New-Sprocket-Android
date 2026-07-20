@@ -1,4 +1,0 @@
-appId: com.kodak.steptouch
----
-# ATP: tap camera icon at bottom-right of gallery (shared entry).
-- runFlow: open_camera_from_gallery.yaml

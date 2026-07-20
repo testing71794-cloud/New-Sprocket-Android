@@ -1,0 +1,24 @@
+# ATP Test Case ID: CO_01
+appId: com.hp.impulse.sprocket
+name: CO_01_My_Gallery_Bluetooth_Icon
+---
+# Video ~00:20 — gallery toolbar printer/Bluetooth entry (top-right).
+# Requires discoverable printer: maestro test ... -e BT_DEVICE_NAME="Your Printer Name"
+- launchApp:
+    clearState: true
+- runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
+- assertVisible: "MY GALLERY"
+- tapOn:
+    point: "92%, 10%"
+    label: Printer/Bluetooth entry – top-right
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible:
+      text: ${BT_DEVICE_NAME}
+    timeout: 8000
+- tapOn:
+    text: ${BT_DEVICE_NAME}
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: subflows/pairing_optional.yaml

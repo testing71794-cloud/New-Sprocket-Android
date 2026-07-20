@@ -1,0 +1,14 @@
+# ATP Test Case ID: QP_01
+# Quick print 01 — Onboarding Flow → Create → Quick Print gallery
+appId: com.hp.impulse.sprocket
+name: "QP_01 - Onboarding to Quick Print gallery"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/complete_onboarding_to_signup.yaml
+- runFlow: subflows/continue_without_login_to_create.yaml
+- runFlow: subflows/open_quick_print.yaml
+- runFlow: subflows/assert_quick_print_gallery.yaml

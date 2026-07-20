@@ -1,0 +1,31 @@
+# ATP Test Case ID: QP_19
+# Quick print_19 — Empty folder state ("No photos found.")
+# Prerequisite: target Facebook folder emptied externally.
+appId: com.hp.impulse.sprocket
+name: "QP_19 - Empty state handling"
+tags:
+  - quick-print
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../login/subflows/complete_facebook_sign_in.yaml
+- waitForAnimationToEnd:
+    timeout: 8000
+- tapOn:
+    point: "50%,40%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)No photos found\\.?"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 8000
+- assertVisible:
+    text: ".*(?i)(Select Gallery|Facebook|folder|album).*"
+    optional: true

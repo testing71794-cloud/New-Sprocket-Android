@@ -1,0 +1,23 @@
+# ATP Test Case ID: COL_13
+# Collage_13 — Edit Image: Edit icon on tile → edit tools → back
+appId: com.hp.impulse.sprocket
+name: "COL_13 - Edit image"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: subflows/open_tile_edit.yaml
+- assertVisible: "Done"
+- assertVisible:
+    text: ".*(?i)(Auto|Adjust|Filters|Frames|Stickers).*"
+    optional: true
+- tapOn: "Done"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Drag & Drop to Reorder"
+- assertVisible: "Layout"
+- assertVisible: "Next"

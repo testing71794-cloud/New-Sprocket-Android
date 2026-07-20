@@ -1,0 +1,35 @@
+# ATP Test Case ID: GA_01
+# TC_ID: GA_01
+# Video ~00:20 — Gallery home after first-launch permissions
+appId: com.hp.impulse.sprocket
+name: "GA_01 - Gallery home screen"
+---
+- launchApp:
+    clearState: true
+- runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
+# Header
+- assertVisible: "Log in"
+
+# Main Menu Options
+- assertVisible: "Quick Print"
+- assertVisible: "Print photos from your gallery"
+
+- assertVisible: "Collage Maker"
+- assertVisible: "Combine multiple photos"
+
+- assertVisible: "Pre-Cut Stickers"
+- assertVisible: "Print stickers of 2 photos"
+
+- assertVisible: "Tile Print"
+- assertVisible: "Print a large photo by using multiple sheets of paper"
+
+- assertVisible: "Photobooth"
+- assertVisible: "Snap a 4-photo collage"
+
+- assertVisible: "Photo ID"
+- assertVisible: "Snap ID-ready photos"
+
+# Bottom Navigation
+- assertVisible: "More"
+- assertVisible: "Create"
+- assertVisible: "Printer"

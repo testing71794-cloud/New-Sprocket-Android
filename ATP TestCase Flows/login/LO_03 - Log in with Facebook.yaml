@@ -1,0 +1,21 @@
+# ATP Test Case ID: LO_03
+# HP Sprocket — Continue with Facebook → Facebook OAuth (Kodak SE_06 credentials)
+# No language selection — saved session OR enter cplusadev@gmail.com / CAglobal@127
+appId: com.hp.impulse.sprocket
+name: "LO_03 - Log in with Facebook"
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/open_login_screen.yaml
+- tapOn: "Continue with Facebook"
+- waitForAnimationToEnd:
+    timeout: 8000
+- runFlow: subflows/complete_facebook_sign_in.yaml
+- assertVisible:
+    text: "Agree Terms and Conditions"
+    optional: true
+- assertNotVisible:
+    text: "Continue with Facebook"
+    optional: true
+- assertNotVisible:
+    text: "Log in"

@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-# Gallery top-right printer icon — DISCONNECTED (grey/white + red Bluetooth badge).
-# Reference: assets/gallery_printer_icon_disconnected.png
-- assertVisible:
-    id: "imageViewConnection"
-- assertNotVisible:
-    id: "linearLayoutConnection"

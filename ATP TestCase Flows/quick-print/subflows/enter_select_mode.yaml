@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Enter Select Mode via long-press on first grid thumbnail.
+- longPressOn:
+    point: "15%,28%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Cancel"
+- assertVisible: "Print Preview"
+- assertVisible: ".*Selected.*"

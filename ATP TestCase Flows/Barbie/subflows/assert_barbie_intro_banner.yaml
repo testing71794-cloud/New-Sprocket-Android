@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-# First-time connection: Barbie x Kodak Step Slim printer intro banner.
-- extendedWaitUntil:
-    visible:
-      text: ".*Barbie.*"
-    timeout: 2000
-- assertVisible:
-    text: ".*(?i)kodak.*"

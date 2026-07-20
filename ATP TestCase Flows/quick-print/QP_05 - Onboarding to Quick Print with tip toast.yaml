@@ -1,0 +1,25 @@
+# ATP Test Case ID: QP_05
+# Quick print_05 — Full journey + tip toast window
+appId: com.hp.impulse.sprocket
+name: "QP_05 - Onboarding to Quick Print with tip toast"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/complete_onboarding_to_signup.yaml
+- runFlow: subflows/continue_without_login_to_create.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow: ../permission/subflows/allow_photos_all_permission.yaml
+- assertVisible:
+    text: ".*(?i)(long.?press|select|hold|tip).*"
+    optional: true
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 10000
+- runFlow: subflows/assert_quick_print_gallery.yaml
+- waitForAnimationToEnd:
+    timeout: 6000

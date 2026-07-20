@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# Android 11–16 photos dialog (A16: "access photos and videos on this device").
-- extendedWaitUntil:
-    visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more).*"
-    timeout: 45000

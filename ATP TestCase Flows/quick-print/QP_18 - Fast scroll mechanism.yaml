@@ -1,0 +1,23 @@
+# ATP Test Case ID: QP_18
+# Quick print_18 — Fast scroll handle
+appId: com.hp.impulse.sprocket
+name: "QP_18 - Fast scroll mechanism"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- assertVisible: "Recent"
+# Drag fast-scroll handle on the right edge
+- swipe:
+    start: "96%,40%"
+    end: "96%,70%"
+    duration: 1200
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible:
+    text: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*\\d{4}.*"
+    optional: true
+- assertVisible: "Recent"

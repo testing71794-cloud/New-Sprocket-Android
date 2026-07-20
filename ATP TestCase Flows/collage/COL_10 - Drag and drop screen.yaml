@@ -1,0 +1,18 @@
+# ATP Test Case ID: COL_10
+# Collage_10 — Drag & Drop Screen: UI after selecting photos + Next
+appId: com.hp.impulse.sprocket
+name: "COL_10 - Drag and drop screen"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: subflows/assert_drag_drop_ui.yaml
+# Back (unlabeled) — leave and confirm we can return via system back optional
+# Edit / layout controls present on reorder canvas
+- assertVisible: "Layout"
+- assertVisible: "Next"
+- assertVisible: "Drag & Drop to Reorder"

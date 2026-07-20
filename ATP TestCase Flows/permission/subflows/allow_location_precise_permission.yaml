@@ -1,10 +1,13 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
+# Video ~00:14–00:16 — Location permission (Precise + while using the app).
 - runFlow:
     when:
-      visible: ".*(?i)access this device.s location.*"
+      visible: ".*access this device.*location.*"
     commands:
-      - runFlow: tap_permission_precise_location.yaml
-      - extendedWaitUntil:
-          notVisible: ".*(?i)access this device.s location.*"
-          timeout: 30000
+      - tapOn:
+          text: "Precise"
+          optional: true
+      - tapOn: "While using the app"
+      - waitForAnimationToEnd:
+          timeout: 2000

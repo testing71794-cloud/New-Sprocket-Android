@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Gallery home from video ~00:20+ (UI dump: MY GALLERY / All Photos / Select).
+- extendedWaitUntil:
+    visible: "MY GALLERY"
+    timeout: 8000
+- assertVisible: "All Photos"
+- assertVisible: "Select"

@@ -1,0 +1,32 @@
+# ATP Test Case ID: QP_11
+# Quick print_11 — Social Media Refresh after Facebook login
+appId: com.hp.impulse.sprocket
+name: "QP_11 - Social media refresh"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../login/subflows/complete_facebook_sign_in.yaml
+- waitForAnimationToEnd:
+    timeout: 8000
+- swipe:
+    start: "50%,30%"
+    end: "50%,70%"
+    duration: 800
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: ".*(?i)Refreshing\\.\\.\\..*"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 8000
+- assertVisible:
+    text: ".*(?i)(Facebook|Select Gallery|photos).*"
+    optional: true

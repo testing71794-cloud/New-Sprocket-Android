@@ -1,0 +1,36 @@
+# ATP Test Case ID: COL_09
+# Collage_09 — Next Button Validation: disabled at 1 photo, enabled at 2+
+appId: com.hp.impulse.sprocket
+name: "COL_09 - Next button validation"
+tags:
+  - collage
+  - positive
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+# Zero photos — Next does not leave selection
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Select 2 to 4 photos"
+# One photo — Next still does not advance
+- tapOn:
+    point: "18%,56%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Select 2 to 4 photos"
+# Two photos — Next enabled / advances
+- tapOn:
+    point: "50%,56%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 8000
+- assertVisible: "Drag & Drop to Reorder"

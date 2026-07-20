@@ -1,0 +1,41 @@
+# ATP Test Case ID: QP_16
+# Quick print_16 — Tag Search no-internet error (CR_02H.7)
+# Prerequisite: disable internet after Facebook folder open / before tag submit.
+appId: com.hp.impulse.sprocket
+name: "QP_16 - Tag search no internet"
+tags:
+  - quick-print
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../login/subflows/complete_facebook_sign_in.yaml
+- waitForAnimationToEnd:
+    timeout: 8000
+- tapOn:
+    point: "50%,40%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn:
+    point: "88%,88%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- inputText: "#nature"
+- runFlow:
+    when:
+      visible: "Done"
+    commands:
+      - tapOn: "Done"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: ".*(?i)No Internet.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)Please connect to the internet and try again.*"
+    optional: true

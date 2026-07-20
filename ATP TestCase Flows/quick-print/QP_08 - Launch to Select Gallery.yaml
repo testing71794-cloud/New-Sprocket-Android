@@ -1,0 +1,19 @@
+# ATP Test Case ID: QP_08
+# Quick print_08 — Launch → Allow all → Select Gallery (CR_02F)
+appId: com.hp.impulse.sprocket
+name: "QP_08 - Launch to Select Gallery"
+tags:
+  - quick-print
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- assertVisible: "Select Gallery"
+- assertVisible: ".*Recent.*"
+- assertVisible: ".*Pictures.*"
+- assertVisible: ".*Camera.*"
+- assertVisible: "or"
+- assertVisible: ".*Facebook.*"
+- assertVisible: ".*Tap to Connect Account.*"

@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Video ~00:02–00:04 — cold launch splash (image-only branding allowed).
+- assertVisible:
+    text: "Welcome to the new Sprocket!"
+    optional: true
+    label: HP Sprocket welcome splash
+- assertVisible:
+    text: "Sprocket"
+    optional: true

@@ -1,5 +1,0 @@
-appId: com.kodak.steptouch
----
-- pressKey: back
-- waitForAnimationToEnd:
-    timeout: 3000

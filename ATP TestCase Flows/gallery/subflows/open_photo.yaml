@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-- tapOn:
-    id: "imageViewPhoto"
-    index: 1
-    optional: true
-- tapOn:
-    point: "50%, 45%"
-    label: Gallery photo fallback

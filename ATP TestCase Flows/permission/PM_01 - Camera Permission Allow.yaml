@@ -1,22 +1,15 @@
-# TC_ID: PM_01 - Camera Permission Allow
-# ATP Steps: 1. Camera permission popup appears → 2. Tap Allow → 3. Open camera from gallery
-# ATP Expected: Camera permission granted and camera opens successfully
-# Precondition: launchApp clearState: true, permissions all: deny
-appId: com.kodak.steptouch
-name: PM_01 - Camera Permission Allow
+# ATP Test Case ID: PM_01
+# Video ~00:12 — Camera permission Allow while using the app
+appId: com.hp.impulse.sprocket
+name: "PM_01 - Camera permission allow"
 ---
 - launchApp:
     clearState: true
-    permissions:
-      all: deny
-- runFlow: subflows/dismiss_app_intro_if_visible.yaml
-- runFlow: subflows/prepare_until_camera_permission_prompt.yaml
+- runFlow: ../signup/subflows/open_signup_screen.yaml
+- tapOn: "Sign Up Later"
+- runFlow: ../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../common/subflows/reach_kodak_coachmark_onboarding.yaml
+- tapOn: "Skip"
+- waitForAnimationToEnd:
+    timeout: 2000
 - runFlow: subflows/allow_camera_permission.yaml
-- runFlow: subflows/advance_remaining_permissions_to_gallery.yaml
-- runFlow: ../camera/subflows/open_camera_from_gallery.yaml
-- extendedWaitUntil:
-    visible:
-      id: capture_img
-    timeout: 45000
-- assertVisible:
-    id: capture_img

@@ -1,0 +1,6 @@
+appId: com.hp.impulse.sprocket
+---
+# Fast path: onboarding → Sign Up Later → Create home with Collage Maker.
+- runFlow: ../../quick-print/subflows/complete_onboarding_to_signup.yaml
+- runFlow: sign_up_later_to_create.yaml
+- assertVisible: ".*Collage Maker.*"

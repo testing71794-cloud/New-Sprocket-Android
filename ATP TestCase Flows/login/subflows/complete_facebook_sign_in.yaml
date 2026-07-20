@@ -1,0 +1,80 @@
+appId: com.hp.impulse.sprocket
+---
+# Facebook OAuth — Kodak SE_06 credentials; no language change.
+# Credentials: cplusadev@gmail.com / CAglobal@127
+# Do NOT use hideKeyboard or pressKey back — they dismiss the WebView.
+
+- runFlow:
+    when:
+      visible: "Minimize tab"
+    commands:
+      - tapOn:
+          point: "50%, 70%"
+      - waitForAnimationToEnd:
+          timeout: 1000
+
+- waitForAnimationToEnd:
+    timeout: 3000
+
+- runFlow: dismiss_facebook_language_picker.yaml
+
+# Saved session — Continue as Nitesh (skip credential entry).
+- runFlow:
+    when:
+      visible:
+        text: ".*(?i)(would you like to continue|previously logged in).*"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 8000
+
+- runFlow:
+    when:
+      visible: "Continue as"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 8000
+
+- runFlow:
+    when:
+      visible: "Continue"
+    commands:
+      - tapOn: "Continue"
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "Edit access"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+
+- runFlow:
+    when:
+      visible: "I already have a profile"
+    commands:
+      - tapOn: "I already have a profile"
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "cplusadev@gmail.com"
+    commands:
+      - tapOn: "cplusadev@gmail.com"
+      - waitForAnimationToEnd:
+          timeout: 5000
+
+# Credentials only when login form shown and no saved Continue-as session.
+- runFlow: enter_facebook_credentials.yaml
+
+# After successful login — skip "Save your login info?" prompt.
+- runFlow: dismiss_facebook_save_login_prompt.yaml

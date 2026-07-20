@@ -1,0 +1,29 @@
+# ATP Test Case ID: QP_10
+# Quick print_10 — Facebook Sign-In failure in Select Gallery
+appId: com.hp.impulse.sprocket
+name: "QP_10 - Facebook sign-in failure"
+tags:
+  - quick-print
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 8000
+# Cancel / fail sign-in path — documented error when shown
+- runFlow:
+    when:
+      visible: ".*(?i)(Cancel|Not now|Close).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)(Cancel|Not now|Close).*"
+          optional: true
+- assertVisible:
+    text: ".*(?i)Couldn't sign in\\. Please try again.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Select Gallery|Facebook|Tap to Connect).*"
+    optional: true

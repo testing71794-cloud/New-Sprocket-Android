@@ -1,0 +1,53 @@
+# ATP Test Case ID: QP_06
+# Quick print_06 — Selection limits (max 10) and unselection
+appId: com.hp.impulse.sprocket
+name: "QP_06 - Selection limits and unselection"
+tags:
+  - quick-print
+  - mixed
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/enter_select_mode.yaml
+# Select up to 10 across grid
+- tapOn:
+    point: "50%,28%"
+- tapOn:
+    point: "80%,28%"
+- tapOn:
+    point: "15%,42%"
+- tapOn:
+    point: "50%,42%"
+- tapOn:
+    point: "80%,42%"
+- tapOn:
+    point: "15%,56%"
+- tapOn:
+    point: "50%,56%"
+- tapOn:
+    point: "80%,56%"
+- tapOn:
+    point: "15%,70%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: ".*Selected.*"
+- assertVisible: "Print Preview"
+# 11th selection → Maximum 10 toast
+- tapOn:
+    point: "50%,70%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: ".*(?i)Maximum 10 photos? allowed.*"
+    optional: true
+# Unselect first item — count updates
+- tapOn:
+    point: "15%,28%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Print Preview"
+- tapOn: "Cancel"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Recent"

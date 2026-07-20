@@ -1,18 +1,10 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
-# 5/5 — skip if already granted; only act when photos dialog is on screen.
+# Video ~00:19 — Photos and videos permission (Allow all).
 - runFlow:
     when:
-      notVisible: ".*(?i)my gallery.*"
+      visible: ".*photos and videos.*"
     commands:
-      - extendedWaitUntil:
-          visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more|my gallery).*"
-          timeout: 45000
-- runFlow:
-    when:
-      visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more).*"
-    commands:
-      - runFlow: tap_permission_allow_all_photos.yaml
-      - extendedWaitUntil:
-          notVisible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more).*"
-          timeout: 30000
+      - tapOn: "Allow all"
+      - waitForAnimationToEnd:
+          timeout: 2000

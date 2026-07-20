@@ -1,0 +1,22 @@
+# ATP Test Case ID: COL_03
+# Collage_03 — Collage Selection Screen: default UI elements
+appId: com.hp.impulse.sprocket
+name: "COL_03 - Collage selection screen"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/assert_collage_selection_ui.yaml
+# Next should not advance with zero photos (disabled / no-op)
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Select 2 to 4 photos"
+# First placeholder is the active slot (content-desc "1")
+- assertVisible: "1"
+- assertVisible: "2"
+- assertVisible: "3"
+- assertVisible: "4"

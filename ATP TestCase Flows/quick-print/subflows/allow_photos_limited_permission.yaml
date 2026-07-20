@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Photos permission — Allow limited access (negative/partial access path).
+- runFlow:
+    when:
+      visible: ".*photos and videos.*"
+    commands:
+      - tapOn: "Allow limited access"
+      - waitForAnimationToEnd:
+          timeout: 3000

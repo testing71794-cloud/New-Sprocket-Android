@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-# Continue first-run chain after nearby devices is denied.
-- runFlow: allow_notification_permission.yaml
-- runFlow: allow_photos_all_permission.yaml
-- extendedWaitUntil:
-    visible: ".*(?i)my gallery.*"
-    timeout: 45000

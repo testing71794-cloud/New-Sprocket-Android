@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# Cycle flash until off (slash icon); three taps covers off/auto/on states.
-- runFlow: toggle_flash.yaml
-- runFlow: toggle_flash.yaml
-- runFlow: toggle_flash.yaml

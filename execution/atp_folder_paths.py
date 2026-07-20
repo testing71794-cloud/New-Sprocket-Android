@@ -8,7 +8,17 @@ from pathlib import Path
 _CANONICAL_BY_KEY: dict[str, str] = {
     "connection": "connection",
     "onboarding": "onboarding",
+    "splash": "splash",
+    "signup": "signup",
+    "login": "login",
+    "signuplater": "signup-later",
+    "signup-later": "signup-later",
     "signuplogin": "signup-login",
+    "gallery": "gallery",
+    "permission": "permission",
+    "quickprint": "quick-print",
+    "quick-print": "quick-print",
+    "collage": "collage",
 }
 
 

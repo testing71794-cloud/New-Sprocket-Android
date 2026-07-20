@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-# After camera step is handled: location → nearby → notification → photos → gallery.
-- runFlow: allow_location_permission.yaml
-- runFlow: allow_nearby_devices_permission.yaml
-- runFlow: allow_notification_permission.yaml
-- runFlow: allow_photos_all_permission.yaml
-- runFlow: reach_my_gallery.yaml

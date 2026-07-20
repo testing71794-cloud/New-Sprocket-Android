@@ -1,7 +1,0 @@
-appId: com.kodak.steptouch
----
-# Android 11–16 photos dialog variants (Pixel/Samsung/Motorola).
-# e.g. "access photos and videos on this device" (A16) vs "access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more" (A13–14).
-- extendedWaitUntil:
-    visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more|access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more|don.?t allow|access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more).*"
-    timeout: 45000

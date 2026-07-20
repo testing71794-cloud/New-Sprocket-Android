@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+# Print Preview UI after collage Next (Collage_14). Real labels from device dump.
+- assertVisible: "Copies"
+- assertVisible: "1"
+- assertVisible: ".*(?i)(Add Printer|No Printers Added|No Printer Added).*"
+- assertVisible: ".*Create.*"
+- assertVisible: ".*Printer.*"
+- assertVisible: ".*More.*"

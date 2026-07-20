@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# First-run permission order: camera → location → nearby → notification → photos.
-- extendedWaitUntil:
-    visible: ".*(?i)(take pictures and record video|access this device.s location|nearby devices|send you notifications|access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow|don.t select more).*"
-    timeout: 45000

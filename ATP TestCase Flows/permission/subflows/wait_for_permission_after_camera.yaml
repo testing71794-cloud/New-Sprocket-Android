@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# After camera is handled, assert the permission chain continues (resume-safe).
-- extendedWaitUntil:
-    visible: ".*(?i)(permission required|some permissions are needed|access this device.s location|nearby devices|relative position of nearby|send you notifications|access (more )?photos and videos|photos and videos on this device|my gallery).*"
-    timeout: 45000

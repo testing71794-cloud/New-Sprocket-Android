@@ -1,5 +1,0 @@
-appId: com.kodak.steptouch
----
-# Generic allow fallback (prefer specific tap_* subflows per permission step).
-- runFlow: tap_permission_allow_while_using_the_app.yaml
-- runFlow: tap_permission_allow_button.yaml

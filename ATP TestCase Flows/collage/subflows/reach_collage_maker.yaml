@@ -1,0 +1,5 @@
+appId: com.hp.impulse.sprocket
+---
+# Cold launch → Create → Collage Maker picker/gallery (photos already allowed).
+- runFlow: reach_create_home_for_collage.yaml
+- runFlow: open_collage_maker.yaml

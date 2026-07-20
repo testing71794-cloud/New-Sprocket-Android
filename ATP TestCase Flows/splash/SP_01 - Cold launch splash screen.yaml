@@ -1,0 +1,13 @@
+# ATP Test Case ID: SP_01
+# Video t02–t03 — cold launch splash / branding
+appId: com.hp.impulse.sprocket
+name: "SP_01 - Cold launch splash screen"
+---
+- launchApp:
+    clearState: true
+- runFlow: ../common/subflows/wait_after_cold_launch.yaml
+- assertVisible: "Welcome to the new Sprocket!"
+- assertVisible: "Swipe to continue."
+- assertVisible: "Enjoy the revamped Sprocket experience with intuitive navigation."
+- assertVisible: "Swipe to continue."
+

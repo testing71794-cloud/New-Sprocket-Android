@@ -1,0 +1,25 @@
+# ATP Test Case ID: COL_12
+# Collage_12 — Image Reordering: press-hold and drag between collage positions
+appId: com.hp.impulse.sprocket
+name: "COL_12 - Image reordering"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- assertVisible: "Drag & Drop to Reorder"
+# Maestro 2.2.0: long-press then swipe (drag command not available)
+- longPressOn:
+    point: "30%,40%"
+- swipe:
+    start: "30%,40%"
+    end: "70%,40%"
+    duration: 1200
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Drag & Drop to Reorder"
+- assertVisible: "Layout"
+- assertVisible: "Next"

@@ -1,9 +1,0 @@
-# TC_ID: SU_05B - Create account - DOB future date
-appId: com.kodak.steptouch
-name: SU_05B - Create account - DOB future date
----
-# ATP SU_05B – Create account - DOB future date
-# TODO: refine steps from Kodak Step Print ATP 2026.xlsx
-- launchApp:
-    clearState: true
-- runFlow: subflows/post_launch_through_signup.yaml

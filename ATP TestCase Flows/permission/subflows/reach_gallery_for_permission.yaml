@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: complete_onboarding_for_permission.yaml
-- runFlow: advance_to_gallery_through_permissions.yaml
-- assertVisible: ".*(?i)my gallery.*"
-- tapOn:
-    id: "ivItemGridImage"
-    optional: true

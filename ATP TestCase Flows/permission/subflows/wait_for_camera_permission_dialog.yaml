@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# 1/5 — Camera: "Allow Kodak Step Prints to take pictures and record video?"
-- extendedWaitUntil:
-    visible: ".*(?i)take pictures and record video.*"
-    timeout: 45000

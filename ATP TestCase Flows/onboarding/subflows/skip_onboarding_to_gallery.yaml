@@ -1,0 +1,13 @@
+appId: com.hp.impulse.sprocket
+---
+# Video ~00:11 — Sign Up Later → terms → coachmark → permissions → gallery.
+- runFlow: ../../common/subflows/reach_signup_screen.yaml
+- tapOn: "Sign Up Later"
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+- tapOn: "Skip"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow: ../../gallery/subflows/assert_gallery_home.yaml

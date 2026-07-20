@@ -1,4 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: allow_photos_all_permission.yaml
-- runFlow: reach_my_gallery.yaml

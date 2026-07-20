@@ -1,18 +1,10 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
-# 4/5 — skip if already granted; only act when notification dialog is on screen.
+# Video ~00:17–00:19 — Notification permission.
 - runFlow:
     when:
-      notVisible: ".*(?i)my gallery.*"
+      visible: ".*notifications.*"
     commands:
-      - extendedWaitUntil:
-          visible: ".*(?i)(send you notifications|access (more )?photos and videos|photos and videos on this device|allow limited access|allow all|don.t allow).*"
-          timeout: 45000
-- runFlow:
-    when:
-      visible: ".*(?i)send you notifications.*"
-    commands:
-      - runFlow: tap_permission_allow_button.yaml
-      - extendedWaitUntil:
-          notVisible: ".*(?i)send you notifications.*"
-          timeout: 30000
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 2000

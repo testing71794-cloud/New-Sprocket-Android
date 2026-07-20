@@ -1,0 +1,69 @@
+# ATP Test Case ID: SG_03
+# HP Sprocket — tap Sign up with Facebook
+appId: com.hp.impulse.sprocket
+name: "SG_03 - Sign up with Facebook"
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/open_signup_screen.yaml
+- tapOn: "Sign up with Facebook"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: ".*[Ff]acebook.*"
+    optional: true
+
+- runFlow:
+    when:
+      visible: "Continue"
+    commands:
+      - tapOn: "Continue"
+
+- runFlow:
+    when:
+      visible: "Edit access"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+- runFlow:
+    when:
+      visible: "Continue as.*"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+          optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: "I already have a profile"
+    commands:
+      - tapOn: "I already have a profile"
+- runFlow:
+    when:
+      visible:
+        text: ".*(?i)(email or phone|mobile number or email|log in to facebook).*"
+    commands:
+      - tapOn:
+          text: "Email"
+          optional: true
+      - tapOn:
+          text: "Mobile number or email"
+          optional: true
+      - tapOn:
+          text: "Email or phone"
+          optional: true
+      - inputText: "cplusadev@gmail.com"
+      - tapOn:
+          text: "Password"
+          optional: true
+      - inputText: "CAglobal@127"
+      - tapOn:
+          text: "Log in"
+          optional: true
+      - tapOn:
+          text: "Log In"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- assertNotVisible: "Log in"

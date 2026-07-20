@@ -1,5 +1,7 @@
 ATP Test Case ID,YAML File Name,Test Name,Flow Type
-ON_01,ON_01 - Enter onboarding after accepting terms.yaml,"ON_01 - Enter onboarding after accepting terms",Onboarding
-ON_02,ON_02 - Advance onboarding via Next and horizontal swipe.yaml,"ON_02 - Advance onboarding via Next and horizontal swipe",Onboarding
-ON_03,ON_03 - Skip onboarding and land on gallery.yaml,"ON_03 - Skip onboarding and land on gallery",Skip
-SE_03,SE_03 - Quick Tips - App quick tour.yaml,"SE_03 - Open App quick tour from Settings and swipe slides",Onboarding
+ON_01,ON_01 - Welcome carousel first slide.yaml,Welcome carousel first slide,Positive
+ON_02,ON_02 - AI Editing carousel slide.yaml,AI Editing carousel slide,Positive
+ON_03,ON_03 - Inkless Seamless carousel slide.yaml,Inkless Seamless carousel slide,Positive
+ON_04,ON_04 - Complete onboarding via Get Started.yaml,Complete onboarding via Get Started,Positive
+ON_05,ON_05 - Coachmark onboarding Skip and Next.yaml,Coachmark onboarding Skip and Next,Positive
+ON_06,ON_06 - Skip onboarding land on gallery.yaml,Skip onboarding land on gallery,Positive

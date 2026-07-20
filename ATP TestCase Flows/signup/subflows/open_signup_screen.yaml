@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../common/subflows/reach_signup_screen.yaml
+- runFlow: ../../common/subflows/assert_signup_options_screen.yaml

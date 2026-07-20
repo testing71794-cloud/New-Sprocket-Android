@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# Simulate revoke Camera from Android Settings when Compose UI is not tappable.
-- setPermissions:
-    permissions:
-      camera: deny

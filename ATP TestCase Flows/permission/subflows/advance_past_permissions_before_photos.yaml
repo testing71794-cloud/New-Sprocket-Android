@@ -1,4 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: advance_past_permissions_before_notification.yaml
-- runFlow: allow_notification_permission.yaml

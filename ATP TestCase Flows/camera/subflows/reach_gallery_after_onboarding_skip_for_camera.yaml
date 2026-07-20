@@ -1,5 +1,0 @@
-appId: com.kodak.steptouch
----
-# Delegates to shared signup-login gallery entry (includes OK/permission handling).
-- runFlow: ../../signup-login/subflows/reach_gallery_after_onboarding_skip.yaml
-- assertVisible: "My gallery"

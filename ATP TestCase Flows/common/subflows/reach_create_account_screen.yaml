@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+# Legacy name — routes to HP Sprocket Sign up screen (post-onboarding).
+- runFlow: reach_signup_screen.yaml

@@ -1,0 +1,11 @@
+appId: com.hp.impulse.sprocket
+---
+# Dismiss Facebook "Select your language" sheet — never pick a language.
+- runFlow:
+    when:
+      visible: "Select your language"
+    commands:
+      - tapOn:
+          point: "50%, 12%"
+      - waitForAnimationToEnd:
+          timeout: 2000

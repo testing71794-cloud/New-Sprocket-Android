@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "18%,56%"

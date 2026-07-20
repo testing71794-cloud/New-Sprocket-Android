@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+# HP Sprocket email Log In form — after Continue with Email.
+- assertVisible: "Log In with Email"
+- assertVisible: "Back to Log In Options"
+- assertVisible: "Email"
+- assertVisible: "Password"
+- assertVisible: "Forgot password?"
+- assertVisible: "Log In"

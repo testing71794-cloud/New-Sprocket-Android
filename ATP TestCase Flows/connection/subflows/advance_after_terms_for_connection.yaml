@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-# Fast path after terms (no permission dialogs).
-- tapOn:
-    text: "Start a quick tour"
-    optional: true
-- tapOn:
-    id: "screen2"
-    optional: true

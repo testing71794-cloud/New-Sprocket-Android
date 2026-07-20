@@ -1,0 +1,11 @@
+appId: com.hp.impulse.sprocket
+---
+# Fill all 4 collage slots (Sprocket UI: Select 2 to 4 photos).
+- tapOn:
+    point: "18%,56%"
+- tapOn:
+    point: "50%,56%"
+- tapOn:
+    point: "82%,56%"
+- tapOn:
+    point: "18%,70%"

@@ -1,0 +1,21 @@
+# ATP Test Case ID: ON_04
+# Video — complete carousel and tap Get Started
+appId: com.hp.impulse.sprocket
+name: "ON_04 - Complete onboarding via Get Started"
+---
+- launchApp:
+    clearState: true
+- runFlow: ../common/subflows/advance_sprocket_carousel.yaml
+- swipe:
+    direction: LEFT
+- extendedWaitUntil:
+    visible: "Get Started!"
+    timeout: 8000
+- assertVisible: "Unleash Your Creativity"
+- assertVisible: "Relive your memories by creating collages, stickers, and more!"
+- tapOn: "Get Started!"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertNotVisible:
+    text: "Welcome to the new Sprocket!"
+    optional: true

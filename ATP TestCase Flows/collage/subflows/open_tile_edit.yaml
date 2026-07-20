@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Open tile edit / replace picker from reorder screen (left edit pencil).
+- tapOn:
+    point: "45%,20%"
+- extendedWaitUntil:
+    visible: "Done"
+    timeout: 5000

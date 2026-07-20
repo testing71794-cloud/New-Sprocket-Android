@@ -1,0 +1,71 @@
+appId: com.hp.impulse.sprocket
+---
+# Google OAuth — account picker, email, optional CAPTCHA, password (ATP test account).
+- extendedWaitUntil:
+    visible:
+      text: "Choose an account|Sign in|Email or phone|Enter your password"
+    timeout: 15000
+# Account picker — prefer saved account when listed.
+- runFlow:
+    when:
+      visible: "cplusadev@gmail.com"
+    commands:
+      - tapOn: "cplusadev@gmail.com"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "C Plus A Dev"
+    commands:
+      - tapOn: "C Plus A Dev"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Add another account"
+    commands:
+      - tapOn: "Add another account"
+      - waitForAnimationToEnd:
+          timeout: 5000
+# Google Sign in — email step (Add another account path).
+- runFlow:
+    when:
+      visible: "Email or phone"
+    commands:
+      - tapOn: "Email or phone"
+      - inputText: cplusadev@gmail.com
+      - hideKeyboard
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - tapOn: "Next"
+      - waitForAnimationToEnd:
+          timeout: 5000
+# reCAPTCHA — optional, appears between email and password on some devices.
+- runFlow:
+    when:
+      visible: "I'm not a robot"
+    commands:
+      - tapOn: "I'm not a robot"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*not a robot.*"
+    commands:
+      - tapOn:
+          text: ".*not a robot.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+# Google Sign in — password step.
+- runFlow:
+    when:
+      visible: "Enter your password"
+    commands:
+      - tapOn: "Enter your password"
+      - inputText: CAglobal@127
+      - hideKeyboard
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - tapOn: "Next"
+      - waitForAnimationToEnd:
+          timeout: 8000

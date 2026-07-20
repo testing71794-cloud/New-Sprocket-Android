@@ -1,0 +1,13 @@
+# ATP Test Case ID: ON_03
+# Video carousel mid-slide
+appId: com.hp.impulse.sprocket
+name: "ON_03 - Inkless Seamless carousel slide"
+---
+- launchApp:
+    clearState: true
+- runFlow: ../common/subflows/advance_sprocket_carousel.yaml
+- assertVisible: "Inkless & Seamless"
+- assertVisible: "Print your photos with ease using the HP Sprocket ZINK (zero-ink) photo paper."
+- assertVisible: "*The HP Sprocket Studio and HP Sprocket Studio Plus models are not compatible with ZINK photo paper."
+- assertVisible: "Swipe to continue."
+

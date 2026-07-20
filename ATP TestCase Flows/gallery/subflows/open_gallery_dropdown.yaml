@@ -1,8 +1,0 @@
-appId: com.kodak.steptouch
----
-- tapOn:
-    text: ".*(?i)my gallery.*"
-    optional: true
-- tapOn: "MY GALLERY"
-
-

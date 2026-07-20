@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# HP Sprocket Log In screen — all options after I already have an account.
+- assertVisible: "Log In"
+- assertVisible: "Style your pictures with filters, text, frames and stickers"
+- assertVisible: "Continue with Google"
+- assertVisible: "Continue with Facebook"
+- assertVisible: "Continue with Email"
+- assertVisible: "I don't have an account"
+- assertVisible: "Continue without Logging In"

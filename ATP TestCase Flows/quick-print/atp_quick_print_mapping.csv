@@ -1,0 +1,21 @@
+# Mapped from Quick Print ATP test cases (QP_01–QP_19)
+TestCaseID,Module,Type,Screen,FlowFile
+QP_01,quick-print,positive,Onboarding to Quick Print gallery,quick-print/QP_01 - Onboarding to Quick Print gallery.yaml
+QP_02,quick-print,mixed,Quick Print Gallery functionality,quick-print/QP_02 - Quick Print Gallery functionality.yaml
+QP_03,quick-print,positive,Select Mode Tip toast,quick-print/QP_03 - Select Mode Tip toast.yaml
+QP_04,quick-print,positive,Select Mode selection and Print Preview,quick-print/QP_04 - Select Mode selection and Print Preview.yaml
+QP_05,quick-print,positive,Onboarding to Quick Print with tip toast,quick-print/QP_05 - Onboarding to Quick Print with tip toast.yaml
+QP_06,quick-print,mixed,Selection limits and unselection,quick-print/QP_06 - Selection limits and unselection.yaml
+QP_07,quick-print,negative,Device permission limited and denied,quick-print/QP_07 - Device permission limited and denied.yaml
+QP_08,quick-print,positive,Launch to Select Gallery,quick-print/QP_08 - Launch to Select Gallery.yaml
+QP_09,quick-print,positive,Gallery folder navigation,quick-print/QP_09 - Gallery folder navigation.yaml
+QP_10,quick-print,negative,Facebook sign-in failure,quick-print/QP_10 - Facebook sign-in failure.yaml
+QP_11,quick-print,positive,Social media refresh,quick-print/QP_11 - Social media refresh.yaml
+QP_12,quick-print,positive,Social media unlink,quick-print/QP_12 - Social media unlink.yaml
+QP_13,quick-print,positive,No internet open settings,quick-print/QP_13 - No internet open settings.yaml
+QP_14,quick-print,mixed,Wi-Fi Direct no data modal,quick-print/QP_14 - Wi-Fi Direct no data modal.yaml
+QP_15,quick-print,positive,Tag search success,quick-print/QP_15 - Tag search success.yaml
+QP_16,quick-print,negative,Tag search no internet,quick-print/QP_16 - Tag search no internet.yaml
+QP_17,quick-print,mixed,Sorting and interaction constraints,quick-print/QP_17 - Sorting and interaction constraints.yaml
+QP_18,quick-print,positive,Fast scroll mechanism,quick-print/QP_18 - Fast scroll mechanism.yaml
+QP_19,quick-print,negative,Empty state handling,quick-print/QP_19 - Empty state handling.yaml

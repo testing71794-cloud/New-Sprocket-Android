@@ -1,0 +1,25 @@
+# ATP Test Case ID: COL_16
+# Collage_16 — One-image collage blocked (min 2 required)
+appId: com.hp.impulse.sprocket
+name: "COL_16 - One image collage blocked"
+tags:
+  - collage
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/select_one_photo_fast.yaml
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "1"
+- assertVisible: "Next"
+# Next must not advance with a single image
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Select 2 to 4 photos"
+- assertNotVisible: "Drag & Drop to Reorder"
+# Guidance remains on screen (title acts as limit message)
+- assertVisible: ".*(?i)Select 2 to 4 photos.*"

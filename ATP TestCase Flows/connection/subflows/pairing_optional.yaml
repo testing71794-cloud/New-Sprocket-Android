@@ -1,17 +1,6 @@
-appId: com.kodak.steptouch
+appId: com.hp.impulse.sprocket
 ---
 # System / OEM pairing sheets differ; keep taps optional where wording varies.
-- runFlow:
-    when:
-      visible: "Bluetooth pairing request"
-    commands:
-      - tapOn:
-          text: "Pair"
-          optional: true
-      - tapOn:
-          text: "PAIR"
-          optional: true
-
 - tapOn:
     text: "Pair"
     optional: true
@@ -25,12 +14,3 @@ appId: com.kodak.steptouch
 - tapOn:
     text: "Connect"
     optional: true
-
-- runFlow:
-    when:
-      visible:
-        text: ".*Pair with Kodak.*"
-    commands:
-      - tapOn:
-          text: "Pair"
-          optional: true

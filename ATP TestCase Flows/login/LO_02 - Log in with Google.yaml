@@ -1,0 +1,32 @@
+# ATP Test Case ID: LO_02
+# HP Sprocket — Continue with Google → full Google OAuth sign-in
+appId: com.hp.impulse.sprocket
+name: "LO_02 - Log in with Google"
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/open_login_screen.yaml
+- tapOn: "Continue with Google"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: "Choose an account"
+    optional: true
+- runFlow: subflows/complete_google_sign_in.yaml
+- runFlow:
+    when:
+      visible: "I agree"
+    commands:
+      - tapOn: "I agree"
+- runFlow:
+    when:
+      visible:
+        text: "Google services: Back up your device"
+    commands:
+      - tapOn:
+          text: "Don't back up"
+- assertNotVisible:
+    text: "Continue with Google"
+    optional: true
+- assertNotVisible:
+    text: "Log in"

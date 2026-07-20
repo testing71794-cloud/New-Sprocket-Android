@@ -1,0 +1,27 @@
+appId: com.hp.impulse.sprocket
+---
+# Advance collage creation (Next / Create / Done — whichever is shown).
+- runFlow:
+    when:
+      visible: "Next"
+    commands:
+      - tapOn: "Next"
+- runFlow:
+    when:
+      visible: "CREATE"
+    commands:
+      - tapOn: "CREATE"
+- runFlow:
+    when:
+      visible: "Create"
+    commands:
+      - tapOn: "Create"
+- runFlow:
+    when:
+      visible: "Done"
+    commands:
+      - tapOn: "Done"
+- extendedWaitUntil:
+    visible: ".*(?i)(Save|Edit|Mirror|Flip|Rotate|Border|Replace|Done|Print).*"
+    timeout: 10000
+    optional: true

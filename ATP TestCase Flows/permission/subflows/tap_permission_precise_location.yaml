@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-- tapOn:
-    text: "Precise"
-    optional: true
-- tapOn:
-    text: "Precise location"
-    optional: true
-- runFlow: tap_permission_allow_location.yaml

@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-# Cold start → signup skip → terms → onboarding overlay (no permissions).
-- runFlow: post_launch_for_settings.yaml
-- tapOn: "I'll do it later"
-- tapOn:
-    text: "Agree Terms and Conditions"
-    optional: true
-- runFlow: advance_after_terms_for_settings.yaml

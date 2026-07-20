@@ -1,0 +1,76 @@
+TestCaseID,Module,FlowFile,App
+SP_01,splash,splash/SP_01 - Cold launch splash screen.yaml,com.hp.impulse.sprocket
+SP_02,splash,splash/SP_02 - Splash to first interactive screen.yaml,com.hp.impulse.sprocket
+ON_01,onboarding,onboarding/ON_01 - Welcome carousel first slide.yaml,com.hp.impulse.sprocket
+ON_02,onboarding,onboarding/ON_02 - AI Editing carousel slide.yaml,com.hp.impulse.sprocket
+ON_03,onboarding,onboarding/ON_03 - Inkless Seamless carousel slide.yaml,com.hp.impulse.sprocket
+ON_04,onboarding,onboarding/ON_04 - Complete onboarding via Get Started.yaml,com.hp.impulse.sprocket
+ON_05,onboarding,onboarding/ON_05 - Coachmark onboarding Skip and Next.yaml,com.hp.impulse.sprocket
+ON_06,onboarding,onboarding/ON_06 - Skip onboarding land on gallery.yaml,com.hp.impulse.sprocket
+SG_01,signup,signup/SG_01 - Sign up screen displays all options.yaml,com.hp.impulse.sprocket
+SG_02,signup,signup/SG_02 - Sign up with Google.yaml,com.hp.impulse.sprocket
+SG_03,signup,signup/SG_03 - Sign up with Facebook.yaml,com.hp.impulse.sprocket
+SG_04,signup,signup/SG_04 - Sign up with Email opens form.yaml,com.hp.impulse.sprocket
+SG_05,signup,signup/SG_05 - I already have an account opens login.yaml,com.hp.impulse.sprocket
+SG_06,signup,signup/SG_06 - Sign up with Email valid.yaml,com.hp.impulse.sprocket
+SG_07,signup,signup/SG_07 - Sign up with Email invalid email.yaml,com.hp.impulse.sprocket
+SG_08,signup,signup/SG_08 - Sign up with Email invalid password.yaml,com.hp.impulse.sprocket
+SG_09,signup,signup/SG_09 - Sign up with Email user already exists.yaml,com.hp.impulse.sprocket
+SG_10,signup,signup/SG_10 - Sign up with Email forgot password from duplicate.yaml,com.hp.impulse.sprocket
+LO_01,login,login/LO_01 - Login screen displays all options.yaml,com.hp.impulse.sprocket
+LO_02,login,login/LO_02 - Log in with Google.yaml,com.hp.impulse.sprocket
+LO_03,login,login/LO_03 - Log in with Facebook.yaml,com.hp.impulse.sprocket
+LO_04,login,login/LO_04 - Log in with Email opens form.yaml,com.hp.impulse.sprocket
+LO_05,login,login/LO_05 - I don't have an account opens signup.yaml,com.hp.impulse.sprocket
+LO_06,login,login/LO_06 - Log in with Email valid credentials.yaml,com.hp.impulse.sprocket
+LO_07,login,login/LO_07 - Log in with Email wrong credentials.yaml,com.hp.impulse.sprocket
+LO_08,login,login/LO_08 - Log in with Email forgot password.yaml,com.hp.impulse.sprocket
+LO_09,login,login/LO_09 - Continue without Logging In.yaml,com.hp.impulse.sprocket
+SL_01,signup-later,signup-later/SL_01 - Sign Up Later skip signup.yaml,com.hp.impulse.sprocket
+CO_01,connection,connection/CO_01.yaml,com.hp.impulse.sprocket
+CO_02,connection,connection/CO_02.yaml,com.hp.impulse.sprocket
+CO_03,connection,connection/CO_03.yaml,com.hp.impulse.sprocket
+CO_04,connection,connection/CO_04.yaml,com.hp.impulse.sprocket
+PM_01,permission,permission/PM_01 - Camera permission allow.yaml,com.hp.impulse.sprocket
+PM_20,permission,permission/PM_20 - Permission flow allow all permissions.yaml,com.hp.impulse.sprocket
+GA_01,gallery,gallery/GA_01 - Gallery home screen.yaml,com.hp.impulse.sprocket
+GA_02,gallery,gallery/GA_02 - Swipe from gallery coachmark.yaml,com.hp.impulse.sprocket
+QP_01,quick-print,quick-print/QP_01 - Onboarding to Quick Print gallery.yaml,com.hp.impulse.sprocket
+QP_02,quick-print,quick-print/QP_02 - Quick Print Gallery functionality.yaml,com.hp.impulse.sprocket
+QP_03,quick-print,quick-print/QP_03 - Select Mode Tip toast.yaml,com.hp.impulse.sprocket
+QP_04,quick-print,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,com.hp.impulse.sprocket
+QP_05,quick-print,quick-print/QP_05 - Onboarding to Quick Print with tip toast.yaml,com.hp.impulse.sprocket
+QP_06,quick-print,quick-print/QP_06 - Selection limits and unselection.yaml,com.hp.impulse.sprocket
+QP_07,quick-print,quick-print/QP_07 - Device permission limited and denied.yaml,com.hp.impulse.sprocket
+QP_08,quick-print,quick-print/QP_08 - Launch to Select Gallery.yaml,com.hp.impulse.sprocket
+QP_09,quick-print,quick-print/QP_09 - Gallery folder navigation.yaml,com.hp.impulse.sprocket
+QP_10,quick-print,quick-print/QP_10 - Facebook sign-in failure.yaml,com.hp.impulse.sprocket
+QP_11,quick-print,quick-print/QP_11 - Social media refresh.yaml,com.hp.impulse.sprocket
+QP_12,quick-print,quick-print/QP_12 - Social media unlink.yaml,com.hp.impulse.sprocket
+QP_13,quick-print,quick-print/QP_13 - No internet open settings.yaml,com.hp.impulse.sprocket
+QP_14,quick-print,quick-print/QP_14 - Wi-Fi Direct no data modal.yaml,com.hp.impulse.sprocket
+QP_15,quick-print,quick-print/QP_15 - Tag search success.yaml,com.hp.impulse.sprocket
+QP_16,quick-print,quick-print/QP_16 - Tag search no internet.yaml,com.hp.impulse.sprocket
+QP_17,quick-print,quick-print/QP_17 - Sorting and interaction constraints.yaml,com.hp.impulse.sprocket
+QP_18,quick-print,quick-print/QP_18 - Fast scroll mechanism.yaml,com.hp.impulse.sprocket
+QP_19,quick-print,quick-print/QP_19 - Empty state handling.yaml,com.hp.impulse.sprocket
+COL_01,collage,collage/COL_01 - Launch and navigation.yaml,com.hp.impulse.sprocket
+COL_02,collage,collage/COL_02 - Photo permission.yaml,com.hp.impulse.sprocket
+COL_03,collage,collage/COL_03 - Collage selection screen.yaml,com.hp.impulse.sprocket
+COL_04,collage,collage/COL_04 - Folder navigation.yaml,com.hp.impulse.sprocket
+COL_05,collage,collage/COL_05 - Image selection minimum.yaml,com.hp.impulse.sprocket
+COL_06,collage,collage/COL_06 - Multiple selection four photos.yaml,com.hp.impulse.sprocket
+COL_07,collage,collage/COL_07 - Duplicate selection.yaml,com.hp.impulse.sprocket
+COL_08,collage,collage/COL_08 - Remove selection.yaml,com.hp.impulse.sprocket
+COL_09,collage,collage/COL_09 - Next button validation.yaml,com.hp.impulse.sprocket
+COL_10,collage,collage/COL_10 - Drag and drop screen.yaml,com.hp.impulse.sprocket
+COL_11,collage,collage/COL_11 - Layout selection.yaml,com.hp.impulse.sprocket
+COL_12,collage,collage/COL_12 - Image reordering.yaml,com.hp.impulse.sprocket
+COL_13,collage,collage/COL_13 - Edit image.yaml,com.hp.impulse.sprocket
+COL_14,collage,collage/COL_14 - Print preview UI.yaml,com.hp.impulse.sprocket
+COL_15,collage,collage/COL_15 - Printer validation.yaml,com.hp.impulse.sprocket
+COL_16,collage,collage/COL_16 - One image collage blocked.yaml,com.hp.impulse.sprocket
+COL_17,collage,collage/COL_17 - Two image collage and layouts.yaml,com.hp.impulse.sprocket
+COL_18,collage,collage/COL_18 - Three image collage and layouts.yaml,com.hp.impulse.sprocket
+COL_19,collage,collage/COL_19 - Four image collage and layouts.yaml,com.hp.impulse.sprocket
+COL_20,collage,collage/COL_20 - More than four photos limit.yaml,com.hp.impulse.sprocket

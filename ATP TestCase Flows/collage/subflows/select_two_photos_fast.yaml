@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Select 2 photos from collage grid (row with real thumbnails).
+- tapOn:
+    point: "18%,56%"
+- tapOn:
+    point: "50%,56%"

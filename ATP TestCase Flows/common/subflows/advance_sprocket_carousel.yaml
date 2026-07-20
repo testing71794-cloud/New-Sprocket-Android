@@ -1,0 +1,18 @@
+appId: com.hp.impulse.sprocket
+---
+# Video onboarding carousel — HP Sprocket first-launch slides (also after Get Started path).
+- extendedWaitUntil:
+    visible: "Welcome to the new Sprocket!"
+    timeout: 15000
+- assertVisible: "Swipe to continue."
+- swipe:
+    direction: LEFT
+- extendedWaitUntil:
+    visible: "AI Editing & Generation"
+    timeout: 8000
+- swipe:
+    direction: LEFT
+- extendedWaitUntil:
+    visible: "Inkless & Seamless"
+    timeout: 8000
+

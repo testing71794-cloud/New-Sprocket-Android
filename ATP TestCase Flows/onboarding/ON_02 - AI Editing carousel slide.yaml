@@ -1,0 +1,17 @@
+# ATP Test Case ID: ON_02
+# Video ~00:09 — swipe to next onboarding slide
+appId: com.hp.impulse.sprocket
+name: "ON_02 - AI Editing carousel slide"
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Welcome to the new Sprocket!"
+    timeout: 10000
+- swipe:
+    direction: LEFT
+- extendedWaitUntil:
+    visible: "AI Editing & Generation"
+    timeout: 800
+- assertVisible: "With powerful AI tools, what you can create and print is only limited by your imagination."
+- assertVisible: "Swipe to continue."

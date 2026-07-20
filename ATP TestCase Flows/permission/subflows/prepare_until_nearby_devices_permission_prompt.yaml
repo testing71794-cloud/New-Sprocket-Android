@@ -1,5 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: complete_onboarding_for_permission.yaml
-- runFlow: allow_camera_permission.yaml
-- runFlow: allow_location_permission.yaml

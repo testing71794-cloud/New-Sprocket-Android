@@ -1,14 +1,9 @@
-# TC_ID: PM_20 - Permission Flow Allow All Permissions
-# ATP Steps: 1. Complete onboarding → 2. Allow all permissions in order
-# ATP Expected: User reaches MY GALLERY successfully
-# Precondition: launchApp clearState: true, permissions all: deny
-appId: com.kodak.steptouch
-name: PM_20 - Permission Flow Allow All Permissions
+# ATP Test Case ID: PM_20
+# Video ~00:12–00:19 — full allow-all permission chain after onboarding Skip
+appId: com.hp.impulse.sprocket
+name: "PM_20 - Permission flow allow all permissions"
 ---
 - launchApp:
     clearState: true
-    permissions:
-      all: deny
-- runFlow: subflows/dismiss_app_intro_if_visible.yaml
-- runFlow: subflows/complete_onboarding_for_permission.yaml
-- runFlow: subflows/allow_all_permissions_sequence.yaml
+- runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
+- assertVisible: "MY GALLERY"

@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_14
+# Collage_14 — Print Preview UI: four photos → Next → reorder → Next → preview controls
+appId: com.hp.impulse.sprocket
+name: "COL_14 - Print preview UI"
+tags:
+  - collage
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_collage_maker.yaml
+- runFlow: subflows/create_collage_editor_ready_sprocket.yaml
+- runFlow: subflows/advance_to_print_preview.yaml
+- runFlow: subflows/assert_print_preview_ui.yaml
+# Copies +/- and Add Printer / No Printers Added covered by assert subflow
+- assertVisible: "Copies"
+- assertVisible: ".*(?i)(Add Printer|No Printers Added|No Printer Added).*"

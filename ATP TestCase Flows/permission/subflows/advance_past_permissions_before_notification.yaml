@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# Camera → location → nearby devices (before notification step).
-- runFlow: allow_camera_permission.yaml
-- runFlow: allow_location_permission.yaml
-- runFlow: allow_nearby_devices_permission.yaml

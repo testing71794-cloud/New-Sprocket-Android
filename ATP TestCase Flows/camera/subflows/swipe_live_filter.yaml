@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# Live filters coachmark: swipe left on camera preview.
-- swipe:
-    direction: LEFT
-    duration: 400

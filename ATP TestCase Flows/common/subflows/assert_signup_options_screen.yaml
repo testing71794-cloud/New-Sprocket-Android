@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# HP Sprocket Sign up screen — all options after onboarding.
+- assertVisible: "Sign up"
+- assertVisible: "Style your pictures with filters, text, frames and stickers"
+- assertVisible: "Sign up with Google"
+- assertVisible: "Sign up with Facebook"
+- assertVisible: "Sign up with Email"
+- assertVisible: "I already have an account"
+- assertVisible: "Sign Up Later"

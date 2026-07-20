@@ -1,0 +1,38 @@
+appId: com.hp.impulse.sprocket
+---
+# QP TCs — Continue without Logging In → Create home (Quick Print tile).
+- tapOn: "I already have an account"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Continue without Logging In"
+    timeout: 15000
+- tapOn: "Continue without Logging In"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+# Bottom nav may expose Create as "Create\nTab 2 of 3"
+- runFlow:
+    when:
+      visible: ".*Create.*"
+    commands:
+      - tapOn: ".*Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- extendedWaitUntil:
+    visible: ".*Quick Print.*"
+    timeout: 15000
+- assertVisible: ".*Quick Print.*"
+- assertVisible: ".*Print photos from your gallery.*"

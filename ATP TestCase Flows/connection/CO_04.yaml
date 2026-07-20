@@ -1,0 +1,19 @@
+# ATP Test Case ID: CO_04
+appId: com.hp.impulse.sprocket
+name: CO_04_Auto_Connect
+---
+# ATP CO_04 – Printer already bonded & powered on; opening app should auto-connect.
+# Uses clearState: false so prior pairing/app data can remain (adjust if your harness resets BT).
+- launchApp:
+    clearState: false
+- waitForAnimationToEnd:
+  timeout: 2000
+- runFlow: ../common/subflows/wait_after_cold_launch.yaml
+# Land on main gallery (session may skip auth if still logged in).
+- extendedWaitUntil:
+    visible: "gallery"
+    timeout: 2000
+- assertVisible:
+    text: "Connected"
+    optional: true
+    label: Soft assertion – UI copy varies by build

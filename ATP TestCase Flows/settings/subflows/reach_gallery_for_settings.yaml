@@ -1,9 +1,0 @@
-appId: com.kodak.steptouch
----
-- runFlow: onboarding_entry_for_settings.yaml
-- tapOn:
-    text: "Skip"
-    optional: true
-- extendedWaitUntil:
-    visible: "My gallery"
-    timeout: 2000

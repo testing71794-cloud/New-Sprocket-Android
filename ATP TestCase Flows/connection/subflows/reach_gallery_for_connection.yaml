@@ -1,4 +1,0 @@
-appId: com.kodak.steptouch
----
-# Cold start through gallery (connection-local; no permission loops).
-- runFlow: reach_gallery_after_onboarding_skip_for_connection.yaml

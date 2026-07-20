@@ -1,0 +1,5 @@
+appId: com.hp.impulse.sprocket
+---
+# Full cold path: onboarding → Continue without Logging In → Create home.
+- runFlow: complete_onboarding_to_signup.yaml
+- runFlow: continue_without_login_to_create.yaml

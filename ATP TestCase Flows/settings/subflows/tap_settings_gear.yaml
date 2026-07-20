@@ -1,6 +1,0 @@
-appId: com.kodak.steptouch
----
-# ATP: tap settings (gear) icon – top-left corner of the screen.
-- tapOn:
-    id: "linearLayoutSetting"
-

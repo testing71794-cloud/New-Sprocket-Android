@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Tap Oldest inside combined Newest/Oldest sort menu.
+- tapOn:
+    text: ".*Newest.*"
+    point: "50%,75%"
+- waitForAnimationToEnd:
+    timeout: 2000
