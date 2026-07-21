@@ -66,6 +66,8 @@ if not defined RESOLVED_ANDROID call :try_android "%ANDROID_SDK_ROOT%"
 if not defined RESOLVED_ANDROID call :try_android "%LOCALAPPDATA%\Android\Sdk"
 if not defined RESOLVED_ANDROID call :try_android "%USERPROFILE%\AppData\Local\Android\Sdk"
 if not defined RESOLVED_ANDROID call :try_android "%USERPROFILE%\Android\Sdk"
+if not defined RESOLVED_ANDROID call :try_android "C:\Android\Sdk"
+REM WinGet Platform Tools last — can hang under Jenkins
 if not defined RESOLVED_ANDROID if defined LOCALAPPDATA (
   for /d %%D in ("%LOCALAPPDATA%\Microsoft\WinGet\Packages\Google.PlatformTools*") do (
     if not defined RESOLVED_ANDROID call :try_android "%%~fD"

@@ -59,7 +59,7 @@ if exist "%~dp0..\set_maestro_java.bat" (
   call "%~dp0..\set_maestro_java.bat" >> "%DEBUG_LOG%" 2>&1
 )
 
-if not defined ADB_DETECT_WAIT_ATTEMPTS set "ADB_DETECT_WAIT_ATTEMPTS=8"
+if not defined ADB_DETECT_WAIT_ATTEMPTS set "ADB_DETECT_WAIT_ATTEMPTS=4"
 if not defined ADB_DETECT_WAIT_SECS set "ADB_DETECT_WAIT_SECS=3"
 
 echo =========================>> "%DEBUG_LOG%"
@@ -99,7 +99,7 @@ if not exist "%ADB_TIMEOUT_PS%" (
 )
 
 echo Starting ADB server...>> "%DEBUG_LOG%"
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 20 >> "%DEBUG_LOG%" 2>&1
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 8 >> "%DEBUG_LOG%" 2>&1
 REM start-server timeout is non-fatal; devices check is authoritative
 
 REM Write adb devices to a temp file first — for /f ('"path with spaces" ...') breaks on users like "CA Global".
@@ -109,16 +109,14 @@ echo --- adb devices ^(full output, timeout 25s^) --->> "%DEBUG_LOG%"
 powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 25 -OutFile "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%" 2>&1
 set "ADB_EC=!ERRORLEVEL!"
 if not exist "%ADB_DEVICES_TMP%" (
-  echo ERROR: adb devices produced no output file ^(exit=!ADB_EC!^).>> "%DEBUG_LOG%"
-  type "%DEBUG_LOG%"
-  exit /b 1
+  echo. > "%ADB_DEVICES_TMP%"
+)
+if not "!ADB_EC!"=="0" if not "!ADB_EC!"=="1" (
+  echo [WARN] adb devices soft-fail exit=!ADB_EC! on attempt !_ATT!>> "%DEBUG_LOG%"
 )
 type "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%"
 type "%ADB_DEVICES_TMP%"
 echo --- end adb devices --->> "%DEBUG_LOG%"
-if not "!ADB_EC!"=="0" (
-  echo [WARN] adb devices exit=!ADB_EC! on attempt !_ATT!>> "%DEBUG_LOG%"
-)
 (
 for /f "usebackq skip=1 tokens=1,2" %%A in ("%ADB_DEVICES_TMP%") do (
   if /I "%%B"=="device" echo %%A

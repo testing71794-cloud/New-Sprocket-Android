@@ -54,18 +54,22 @@ echo [DEBUG] killing any hung adb.exe ^(best-effort^)
 taskkill /F /IM adb.exe /T >nul 2>&1
 ping 127.0.0.1 -n 2 >nul 2>&1
 
-echo [DEBUG] adb start-server ^(timeout 20s^)
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 20
+echo [DEBUG] adb start-server ^(timeout 8s, no pipe redirect^)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 8
 if errorlevel 1 (
-  echo WARN: adb start-server failed or timed out — continuing to devices check
+  echo WARN: adb start-server failed — continuing to devices check
 )
 
-echo [DEBUG] adb devices ^(timeout 20s^)
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 20
+echo [DEBUG] adb devices ^(timeout 25s^)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 25
 set "ADB_EC=!ERRORLEVEL!"
 if not "!ADB_EC!"=="0" (
   echo ERROR: adb devices failed or timed out ^(exit=!ADB_EC!^).
-  echo Check USB debugging, authorize the PC on the phone, and that only one adb.exe is on PATH.
+  echo Fix on the Windows agent:
+  echo   1^) Install Android SDK platform-tools ^(not only WinGet Google.PlatformTools^)
+  echo   2^) Plug phone, enable USB debugging, accept RSA prompt
+  echo   3^) In an agent-user cmd:  "%%ADB_EXE%%" kill-server ^& "%%ADB_EXE%%" devices
+  echo   4^) Ensure Jenkins agent user can see the device ^(same Windows login as USB session^)
   exit /b 1
 )
 echo =====================================
