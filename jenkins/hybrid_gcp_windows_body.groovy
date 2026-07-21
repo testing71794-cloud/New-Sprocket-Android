@@ -75,10 +75,11 @@ def flag(String name) {
     }
 }
 
-/** Folders selected via ATP_MODULES or legacy RUN_ATP_* checkboxes. */
+/** Folders from RUN_ATP_* checkboxes, or ATP_MODULES override if that text is non-empty. */
 def selectedAtpFolders() {
     def raw = p('ATP_MODULES', '')
     if (raw) {
+        echo "[atp] using ATP_MODULES override: ${raw}"
         return raw.toLowerCase().split(/[,;\s]+/).findAll { it }
     }
     def legacy = [
@@ -115,6 +116,7 @@ def selectedAtpFolders() {
             out << folder
         }
     }
+    echo "[atp] selected via RUN_ATP_* checkboxes: ${out}"
     return out
 }
 
