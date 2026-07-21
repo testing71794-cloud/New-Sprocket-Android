@@ -1,22 +1,34 @@
 // OPT-IN hybrid pipeline entrypoint (GCP orchestrator + Windows USB Maestro).
-// Script Path in Jenkins: Jenkinsfile.hybrid.gcp-windows
-// Keep this file TINY — full pipeline previously hit CPS MethodTooLargeException (64KB).
-// Body: jenkins/hybrid_gcp_windows_body.groovy (loaded as a separate Groovy class).
+// Script Path: Jenkinsfile.hybrid.gcp-windows
+// Keep TINY to avoid CPS MethodTooLarge. Body: jenkins/hybrid_gcp_windows_body.groovy
 // See docs/DISTRIBUTED_GCP_WINDOWS_ARCHITECTURE.md
 
-def orch = 'built-in'
-try {
-    if (params.GCP_ORCHESTRATOR_AGENT?.toString()?.trim()) {
-        orch = params.GCP_ORCHESTRATOR_AGENT.toString().trim()
-    }
-} catch (Throwable ignored) {
-    // First run / params not yet defined
-}
+// Define job params BEFORE any node() — avoids mid-run properties() hangs ("Waiting for run to start").
+properties([
+    disableConcurrentBuilds(),
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '3')),
+    parameters([
+        string(name: 'GCP_ORCHESTRATOR_AGENT', defaultValue: '', description: 'Optional controller label. Leave EMPTY to use any free executor (recommended). Only set if you need a specific Linux label.'),
+        string(name: 'DEVICES_AGENT', defaultValue: 'devices', description: 'Windows USB-phone agent label (devices, my-pc-devices, …). Agent must be Online.'),
+        string(name: 'APP_PACKAGE', defaultValue: 'com.hp.impulse.sprocket', description: 'App package id'),
+        string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher'),
+        string(name: 'MAESTRO_HOME', defaultValue: '', description: 'Optional; empty = auto-detect'),
+        string(name: 'ANDROID_HOME', defaultValue: '', description: 'Optional; empty = auto-detect'),
+        string(name: 'JAVA_HOME_OVERRIDE', defaultValue: '', description: 'Optional; empty = auto-detect'),
+        text(name: 'ATP_MODULES', defaultValue: 'splash,onboarding,signup,login,signup-later', description: 'Comma-separated ATP folders'),
+        booleanParam(name: 'RUN_AI_ANALYSIS', defaultValue: true, description: 'OpenRouter probe + analysis'),
+        booleanParam(name: 'SEND_FINAL_EMAIL', defaultValue: false, description: 'Send final email'),
+        booleanParam(name: 'CLEAR_STATE', defaultValue: true, description: 'Clear app state'),
+        string(name: 'OPENROUTER_CREDENTIALS_ID', defaultValue: 'OPENROUTER_API_KEY', description: 'Secret text credential ID'),
+    ]),
+])
 
+echo "[hybrid] bootstrap on any free executor (not waiting for a fixed label)"
 def body
-node(orch) {
+// Unlabeled node = first free executor (controller or agent). Avoids queue stall on missing 'built-in' label.
+node {
+    echo "[hybrid] bootstrap node=${env.NODE_NAME} labels=${env.NODE_LABELS}"
     checkout scm
     body = load 'jenkins/hybrid_gcp_windows_body.groovy'
 }
-// Must leave the node before body.run() — body acquires its own agents (avoid nested-node deadlock).
 body.run()

@@ -2,25 +2,8 @@
 // Hybrid: GCP orchestrator + Windows USB Maestro. See docs/DISTRIBUTED_GCP_WINDOWS_ARCHITECTURE.md
 
 def run() {
-    properties([
-        disableConcurrentBuilds(),
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '3')),
-        parameters([
-            string(name: 'GCP_ORCHESTRATOR_AGENT', defaultValue: 'built-in', description: 'Linux/controller label (checkout, reports).'),
-            string(name: 'DEVICES_AGENT', defaultValue: 'devices', description: 'Windows USB-phone agent label (devices, my-pc-devices, …).'),
-            string(name: 'APP_PACKAGE', defaultValue: 'com.hp.impulse.sprocket', description: 'App package id'),
-            string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher'),
-            string(name: 'MAESTRO_HOME', defaultValue: '', description: 'Optional; empty = auto-detect on this agent'),
-            string(name: 'ANDROID_HOME', defaultValue: '', description: 'Optional; empty = auto-detect on this agent'),
-            string(name: 'JAVA_HOME_OVERRIDE', defaultValue: '', description: 'Optional; empty = auto-detect on this agent'),
-            text(name: 'ATP_MODULES', defaultValue: 'splash,onboarding,signup,login,signup-later', description: 'Comma-separated ATP folders (splash,login,home,…). Empty uses legacy RUN_ATP_* checkboxes if present.'),
-            booleanParam(name: 'RUN_AI_ANALYSIS', defaultValue: true, description: 'OpenRouter probe + failure analysis'),
-            booleanParam(name: 'SEND_FINAL_EMAIL', defaultValue: false, description: 'Send final summary email'),
-            booleanParam(name: 'CLEAR_STATE', defaultValue: true, description: 'Clear app state in suite runners'),
-            string(name: 'OPENROUTER_CREDENTIALS_ID', defaultValue: 'OPENROUTER_API_KEY', description: 'Secret text credential ID only'),
-        ]),
-    ])
-
+    // Job parameters are set in Jenkinsfile.hybrid.gcp-windows (do not call properties() here —
+    // mid-run properties() can leave Blue Ocean stuck on "Waiting for run to start").
     timeout(time: 180, unit: 'MINUTES') {
         stageFetch()
         stageInstallGcp()
@@ -49,6 +32,37 @@ def p(String name, String fallback = '') {
         return s ?: fallback
     } catch (Throwable t) {
         return fallback
+    }
+}
+
+/**
+ * Run on GCP/controller. Empty / built-in / master / any → unlabeled node (first free executor).
+ * Avoids forever-queue when label "built-in" is missing or busy.
+ */
+def withOrch(Closure body) {
+    def label = p('GCP_ORCHESTRATOR_AGENT', '')
+    def useAny = !label || label.equalsIgnoreCase('built-in') || label.equalsIgnoreCase('master') || label.equalsIgnoreCase('any')
+    if (useAny) {
+        echo "[orch] using any free executor (GCP_ORCHESTRATOR_AGENT='${label}')"
+        node {
+            echo "[orch] NODE_NAME=${env.NODE_NAME}"
+            body()
+        }
+    } else {
+        echo "[orch] using label=${label}"
+        node(label) {
+            echo "[orch] NODE_NAME=${env.NODE_NAME}"
+            body()
+        }
+    }
+}
+
+def withDevices(Closure body) {
+    def label = p('DEVICES_AGENT', 'devices')
+    echo "[devices] waiting for agent label=${label}"
+    node(label) {
+        echo "[devices] NODE_NAME=${env.NODE_NAME}"
+        body()
     }
 }
 
@@ -195,7 +209,7 @@ def withOpenRouter(Closure action) {
 
 def stageFetch() {
     stage('Fetch Code from GitHub') {
-        node(p('GCP_ORCHESTRATOR_AGENT', 'built-in')) {
+        withOrch {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 deleteDir()
                 checkout scm
@@ -207,7 +221,7 @@ def stageFetch() {
 
 def stageInstallGcp() {
     stage('Install GCP orchestrator dependencies') {
-        node(p('GCP_ORCHESTRATOR_AGENT', 'built-in')) {
+        withOrch {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 unstash 'repo'
                 sh """
@@ -221,7 +235,7 @@ def stageInstallGcp() {
 
 def stageInstallWindows() {
     stage('Install Windows device dependencies (light)') {
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 bat 'taskkill /F /IM maestro.exe /T 2>nul & taskkill /F /IM adb.exe /T 2>nul & exit /b 0'
             }
@@ -246,7 +260,7 @@ def stageInstallWindows() {
 
 def stagePrecheck() {
     stage('Environment Precheck') {
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 withEnv(maestroEnvList()) {
                     bat "call scripts\\jenkins_ci_precheck.bat \"${env.WORKSPACE}\" \"${p('MAESTRO_CMD', 'maestro.bat')}\" \"${p('APP_PACKAGE', 'com.hp.impulse.sprocket')}\""
@@ -258,7 +272,7 @@ def stagePrecheck() {
 
 def stageDetectDevices() {
     stage('Detect Connected Devices') {
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 withEnv(maestroEnvList()) {
                     bat "call scripts\\jenkins_ci_devices.bat \"${env.WORKSPACE}\""
@@ -275,7 +289,7 @@ def stageAtpModules() {
             echo 'No ATP modules selected (ATP_MODULES empty and no legacy RUN_ATP_* flags).'
             return
         }
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             folders.each { folder ->
                 stage(folder) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
@@ -294,7 +308,7 @@ def stageAiProbe() {
         if (!flag('RUN_AI_ANALYSIS')) {
             return
         }
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 withOpenRouter {
                     bat "call scripts\\jenkins_ci_ai_probe.bat \"${env.WORKSPACE}\""
@@ -309,7 +323,7 @@ def stageAiAnalysis() {
         if (!flag('RUN_AI_ANALYSIS')) {
             return
         }
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 withOpenRouter {
                     bat "call scripts\\jenkins_ci_ai_analysis.bat \"${env.WORKSPACE}\""
@@ -321,7 +335,7 @@ def stageAiAnalysis() {
 
 def stageStashOutputs() {
     stage('Stash device run outputs for GCP post-processing') {
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 stash name: 'run-outputs', includes: 'reports/**,status/**,build-summary/**,.maestro/**,detected_devices.txt,*.flag', allowEmpty: true
             }
@@ -331,7 +345,7 @@ def stageStashOutputs() {
 
 def stageGcpPost() {
     stage('GCP post-processing (Excel, summary, zip)') {
-        node(p('GCP_ORCHESTRATOR_AGENT', 'built-in')) {
+        withOrch {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 deleteDir()
                 unstash 'repo'
@@ -350,7 +364,7 @@ def stageEmail() {
         if (!flag('SEND_FINAL_EMAIL')) {
             return
         }
-        node(p('GCP_ORCHESTRATOR_AGENT', 'built-in')) {
+        withOrch {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 withCredentials([usernamePassword(credentialsId: 'gmail-smtp-kodak', usernameVariable: 'B_SMTP_USER', passwordVariable: 'B_SMTP_PASS')]) {
                     withEnv([
@@ -381,7 +395,7 @@ def stageEmail() {
 
 def stageArchive() {
     stage('Archive Reports & Artifacts') {
-        node(p('GCP_ORCHESTRATOR_AGENT', 'built-in')) {
+        withOrch {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 archiveArtifacts artifacts: 'build-summary/final_execution_report.xlsx, build-summary/execution_logs.zip, .maestro/screenshots/**, detected_devices.txt', allowEmptyArchive: true
             }
@@ -391,7 +405,7 @@ def stageArchive() {
 
 def stageFinalize() {
     stage('Finalize Build Result') {
-        node(p('GCP_ORCHESTRATOR_AGENT', 'built-in')) {
+        withOrch {
             def unstable = false
             selectedAtpFolders().each { folder ->
                 def sid = suiteIdForFolder(folder)
@@ -420,7 +434,7 @@ def stageFinalize() {
 
 def stageCleanup() {
     stage('Post-build workspace cleanup (C: agent disk)') {
-        node(p('DEVICES_AGENT', 'devices')) {
+        withDevices {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 bat "call scripts\\jenkins_ci_cleanup_post.bat \"${env.WORKSPACE}\""
             }
