@@ -98,19 +98,79 @@ def atpSuiteIdsList = {
     return ids
 }
 
-/** Shared Maestro/Java/ADB env list — deduped to avoid Jenkins CPS MethodTooLargeException on large pipelines. */
-def maestroEnvList() {
-    def maestroJava = (params.JAVA_HOME_OVERRIDE?.trim()) ?: 'C:\\Users\\HP\\.jdks\\jbr-17.0.8'
-    def envList = []
-    envList << "MAESTRO_JAVA_HOME=${maestroJava}"
-    envList << "JAVA_HOME=${maestroJava}"
-    envList << "PATH+JAVA=${maestroJava}\\bin"
-    if (params.MAESTRO_HOME?.trim()) { envList << "MAESTRO_HOME=${params.MAESTRO_HOME}" }
-    if (params.ANDROID_HOME?.trim()) {
-        envList << "ANDROID_HOME=${params.ANDROID_HOME}"
-        envList << "ADB_HOME=${params.ANDROID_HOME}\\platform-tools"
-        envList << "PATH+ADB=${params.ANDROID_HOME}\\platform-tools"
+/**
+ * First existing directory/file path on the CURRENT agent.
+ * Skips stale job params from another machine (e.g. C:\Users\HP\... on a different PC).
+ */
+def firstExistingPath(List candidates) {
+    for (def raw in candidates) {
+        if (raw == null) {
+            continue
+        }
+        def p = raw.toString().trim()
+        if (!p) {
+            continue
+        }
+        if (fileExists(p)) {
+            return p
+        }
     }
+    return ''
+}
+
+/**
+ * Shared Maestro/Java/ADB env — portable across Windows agents.
+ * Prefer non-empty job params only when that path exists on this machine; else agent env / per-user defaults.
+ */
+def maestroEnvList() {
+    def up = env.USERPROFILE ?: ''
+    def la = env.LOCALAPPDATA ?: (up ? "${up}\\AppData\\Local" : '')
+    def envList = []
+
+    def javaHome = firstExistingPath([
+        params.JAVA_HOME_OVERRIDE,
+        env.MAESTRO_JAVA_HOME,
+        env.JAVA_HOME,
+        up ? "${up}\\.jdks\\jbr-17.0.8" : '',
+        up ? "${up}\\.jdks\\jbr-17.0.14" : '',
+        up ? "${up}\\.jdks\\jbr-21.0.2" : '',
+        'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.8-hotspot',
+        'C:\\Program Files\\Microsoft\\jdk-17.0.8.7-hotspot',
+        'C:\\Program Files\\Java\\jdk-17',
+    ])
+    if (javaHome) {
+        envList << "MAESTRO_JAVA_HOME=${javaHome}"
+        envList << "JAVA_HOME=${javaHome}"
+        envList << "PATH+JAVA=${javaHome}\\bin"
+    }
+
+    def maestroHome = firstExistingPath([
+        params.MAESTRO_HOME,
+        env.MAESTRO_HOME,
+        up ? "${up}\\maestro\\maestro\\bin" : '',
+        up ? "${up}\\maestro\\bin" : '',
+        'C:\\maestro\\maestro\\bin',
+    ])
+    if (maestroHome) {
+        envList << "MAESTRO_HOME=${maestroHome}"
+        envList << "PATH+MAESTRO=${maestroHome}"
+    }
+
+    def androidHome = firstExistingPath([
+        params.ANDROID_HOME,
+        env.ANDROID_HOME,
+        env.ANDROID_SDK_ROOT,
+        la ? "${la}\\Android\\Sdk" : '',
+        up ? "${up}\\AppData\\Local\\Android\\Sdk" : '',
+    ])
+    if (androidHome) {
+        envList << "ANDROID_HOME=${androidHome}"
+        envList << "ANDROID_SDK_ROOT=${androidHome}"
+        envList << "ADB_HOME=${androidHome}\\platform-tools"
+        envList << "PATH+ADB=${androidHome}\\platform-tools"
+    }
+
+    echo "[maestroEnvList] JAVA_HOME=${javaHome ?: '(agent default)'} MAESTRO_HOME=${maestroHome ?: '(agent default)'} ANDROID_HOME=${androidHome ?: '(agent default)'}"
     return envList
 }
 
@@ -118,16 +178,16 @@ pipeline {
     agent none
 
     parameters {
-        choice(
+        string(
             name: 'DEVICES_AGENT',
-            choices: ['devices', 'my-pc-devices'],
-            description: 'Label of the Jenkins agent connected to real USB phones. Default: devices'
+            defaultValue: 'devices',
+            description: 'Jenkins agent LABEL for the USB-phone machine (examples: devices, my-pc-devices). Set to the label of whichever PC is running this build.'
         )
         string(name: 'APP_PACKAGE', defaultValue: 'com.hp.impulse.sprocket', description: 'App package id for Maestro/app launch checks')
         string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher (e.g. maestro.bat).')
-        string(name: 'MAESTRO_HOME', defaultValue: 'C:\\Users\\HP\\maestro\\maestro\\bin', description: 'Folder containing maestro.bat.')
-        string(name: 'ANDROID_HOME', defaultValue: 'C:\\Users\\HP\\AppData\\Local\\Android\\Sdk', description: 'Android SDK root.')
-        string(name: 'JAVA_HOME_OVERRIDE', defaultValue: 'C:\\Users\\HP\\.jdks\\jbr-17.0.8', description: 'JDK for Maestro (MAESTRO_JAVA_HOME/JAVA_HOME). Default is jbr-17.0.8.')
+        string(name: 'MAESTRO_HOME', defaultValue: '', description: 'Optional. Folder with maestro.bat. Leave empty to auto-detect on the agent (%%USERPROFILE%%\\maestro\\... or PATH). Stale paths from another PC are ignored.')
+        string(name: 'ANDROID_HOME', defaultValue: '', description: 'Optional. Android SDK root. Leave empty to use agent ANDROID_HOME or %%LOCALAPPDATA%%\\Android\\Sdk.')
+        string(name: 'JAVA_HOME_OVERRIDE', defaultValue: '', description: 'Optional. JDK for Maestro. Leave empty to use agent JAVA_HOME or %%USERPROFILE%%\\.jdks\\jbr-*.')
         booleanParam(name: 'RUN_ATP_SPLASH', defaultValue: true, description: 'ATP TestCase Flows/splash')
         booleanParam(name: 'RUN_ATP_ONBOARDING', defaultValue: true, description: 'ATP TestCase Flows/onboarding')
         booleanParam(name: 'RUN_ATP_SIGNUP', defaultValue: true, description: 'ATP TestCase Flows/signup')
@@ -224,6 +284,9 @@ exit 0
                     deleteDir()
                 }
                 unstash 'repo'
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    bat """call scripts\\resolve_windows_tools.bat "${params.JAVA_HOME_OVERRIDE}" "${params.MAESTRO_HOME}" "${params.ANDROID_HOME}" "${env.WORKSPACE}" """
+                }
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat """call scripts\\jenkins_ci_install.bat "${env.WORKSPACE}" """
                 }

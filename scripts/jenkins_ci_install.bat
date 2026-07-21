@@ -7,6 +7,7 @@ if "%~1"=="" (
 )
 cd /d "%~1"
 set "WS_ROOT=%~1"
+call "%~dp0resolve_windows_tools.bat" "%JAVA_HOME%" "%MAESTRO_HOME%" "%ANDROID_HOME%" "%WS_ROOT%"
 if defined JENKINS_WORKLOAD_PROFILE echo [workload] profile=%JENKINS_WORKLOAD_PROFILE%
 echo === SAFE DISK CLEANUP PRE ===
 echo [DEBUG] cd /d "%WS_ROOT%"
