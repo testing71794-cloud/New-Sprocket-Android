@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-05-windows-agent-list-devices-2
+REM script_rev=2026-07-windows-agent-list-devices-spaces-1
 REM Writes detected_devices.txt under the Jenkins workspace (paths may contain spaces).
 goto :script_body
 
@@ -38,7 +38,7 @@ if not exist "%REPO_ROOT%\reports\_agent" mkdir "%REPO_ROOT%\reports\_agent"
 echo =====================================
 echo LIST DEVICES ^(windows_agent^)
 echo =====================================
-echo script_rev        : 2026-05-windows-agent-list-devices-2
+echo script_rev        : 2026-07-windows-agent-list-devices-spaces-1
 echo arg1 workspace    : %~1
 echo WORKSPACE env     : %WORKSPACE%
 echo REPO_ROOT         : %REPO_ROOT%
@@ -75,7 +75,7 @@ if not defined ADB_EXE (
   exit /b 1
 )
 echo ADB_EXE=%ADB_EXE%>> "%DEBUG_LOG%"
-echo %ADB_EXE%
+echo ADB_EXE="%ADB_EXE%"
 
 del /q "%OUT_FILE%" 2>nul
 
@@ -99,17 +99,21 @@ if errorlevel 1 (
   exit /b 1
 )
 
+REM Write adb devices to a temp file first — for /f ('"path with spaces" ...') breaks on users like "CA Global".
+set "ADB_DEVICES_TMP=%TEMP%\adb_devices_list_%RANDOM%.txt"
 echo.>> "%DEBUG_LOG%"
 echo --- adb devices ^(full output^) --->> "%DEBUG_LOG%"
-"%ADB_EXE%" devices>> "%DEBUG_LOG%"
-"%ADB_EXE%" devices
+"%ADB_EXE%" devices > "%ADB_DEVICES_TMP%" 2>&1
+type "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%"
+type "%ADB_DEVICES_TMP%"
 echo --- end adb devices --->> "%DEBUG_LOG%"
 
 (
-for /f "skip=1 tokens=1,2" %%A in ('"%ADB_EXE%" devices 2^>nul') do (
+for /f "usebackq skip=1 tokens=1,2" %%A in ("%ADB_DEVICES_TMP%") do (
   if /I "%%B"=="device" echo %%A
 )
 ) > "%OUT_FILE%"
+del /q "%ADB_DEVICES_TMP%" 2>nul
 
 set /a COUNT=0
 for /f "usebackq delims=" %%A in ("%OUT_FILE%") do set /a COUNT+=1

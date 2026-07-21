@@ -1,7 +1,8 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 REM Resolve ADB_HOME only (device discovery). Does not modify JAVA_HOME / Maestro PATH.
-REM script_rev=2026-05-windows-agent-adb-env-1
+REM Handles paths with spaces (e.g. C:\Users\CA Global\...) and WinGet Platform Tools.
+REM script_rev=2026-07-windows-agent-adb-env-spaces-1
 
 set "ADB_HOME="
 set "ADB_EXE="
@@ -10,6 +11,14 @@ if defined ANDROID_HOME if exist "%ANDROID_HOME%\platform-tools\adb.exe" set "AD
 if not defined ADB_HOME if defined ANDROID_SDK_ROOT if exist "%ANDROID_SDK_ROOT%\platform-tools\adb.exe" set "ADB_HOME=%ANDROID_SDK_ROOT%\platform-tools"
 if not defined ADB_HOME if exist "%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe" set "ADB_HOME=%LOCALAPPDATA%\Android\Sdk\platform-tools"
 if not defined ADB_HOME if exist "%USERPROFILE%\AppData\Local\Android\Sdk\platform-tools\adb.exe" set "ADB_HOME=%USERPROFILE%\AppData\Local\Android\Sdk\platform-tools"
+if not defined ADB_HOME if defined LOCALAPPDATA (
+  for /d %%D in ("%LOCALAPPDATA%\Microsoft\WinGet\Packages\Google.PlatformTools*") do (
+    if exist "%%~fD\platform-tools\adb.exe" (
+      set "ADB_HOME=%%~fD\platform-tools"
+      goto :adb_ok
+    )
+  )
+)
 if not defined ADB_HOME (
   for /f "delims=" %%W in ('where adb 2^>nul') do (
     for %%P in ("%%~dpW.") do set "ADB_HOME=%%~fP"

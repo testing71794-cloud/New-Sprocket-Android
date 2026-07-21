@@ -55,6 +55,20 @@ if not defined RESOLVED_ANDROID call :try_android "%ANDROID_SDK_ROOT%"
 if not defined RESOLVED_ANDROID call :try_android "%LOCALAPPDATA%\Android\Sdk"
 if not defined RESOLVED_ANDROID call :try_android "%USERPROFILE%\AppData\Local\Android\Sdk"
 if not defined RESOLVED_ANDROID call :try_android "%USERPROFILE%\Android\Sdk"
+if not defined RESOLVED_ANDROID if defined LOCALAPPDATA (
+  for /d %%D in ("%LOCALAPPDATA%\Microsoft\WinGet\Packages\Google.PlatformTools*") do (
+    if not defined RESOLVED_ANDROID call :try_android "%%~fD"
+  )
+)
+
+REM If only adb is on PATH (WinGet), derive ANDROID_HOME from adb.exe location.
+if not defined RESOLVED_ANDROID (
+  for /f "delims=" %%W in ('where adb 2^>nul') do (
+    for %%P in ("%%~dpW..") do call :try_android "%%~fP"
+    goto :after_where_adb
+  )
+)
+:after_where_adb
 
 echo [resolve_windows_tools] USERPROFILE=%USERPROFILE%
 echo [resolve_windows_tools] JAVA_HOME=!RESOLVED_JAVA!
