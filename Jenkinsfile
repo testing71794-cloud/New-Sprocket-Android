@@ -49,7 +49,13 @@ def anyAtpModuleEnabled = {
     return params.RUN_ATP_SPLASH || params.RUN_ATP_ONBOARDING ||
         params.RUN_ATP_SIGNUP || params.RUN_ATP_LOGIN || params.RUN_ATP_SIGNUP_LATER ||
         params.RUN_ATP_CONNECTION || params.RUN_ATP_PERMISSION || params.RUN_ATP_GALLERY ||
-        params.RUN_ATP_QUICK_PRINT || params.RUN_ATP_COLLAGE
+        params.RUN_ATP_QUICK_PRINT || params.RUN_ATP_COLLAGE ||
+        params.RUN_ATP_HOME || params.RUN_ATP_CAMERA || params.RUN_ATP_EDITOR ||
+        params.RUN_ATP_PRINTING || params.RUN_ATP_PRECUT || params.RUN_ATP_VIDEO ||
+        params.RUN_ATP_TILE_PRINT || params.RUN_ATP_SETTINGS || params.RUN_ATP_FIRMWARE ||
+        params.RUN_ATP_AI || params.RUN_ATP_ALERTS || params.RUN_ATP_GENERAL ||
+        params.RUN_ATP_PHOTO_ID || params.RUN_ATP_PHOTOBOOTH || params.RUN_ATP_CUSTOM_SDK ||
+        params.RUN_ATP_ONBOARDING_SPLASH
 }
 
 /** Suite ids for finalize flag checks (must match jenkins_atp_stage.py folder_to_suite_id). */
@@ -57,6 +63,9 @@ def atpSuiteIdsList = {
     return [
         'atp_splash', 'atp_onboarding', 'atp_signup', 'atp_login', 'atp_signup_later',
         'atp_connection', 'atp_permission', 'atp_gallery', 'atp_quick_print', 'atp_collage',
+        'atp_home', 'atp_camera', 'atp_editor', 'atp_printing', 'atp_precut', 'atp_video',
+        'atp_tile_print', 'atp_settings', 'atp_firmware', 'atp_ai', 'atp_alerts', 'atp_general',
+        'atp_photo_id', 'atp_photobooth', 'atp_custom_sdk', 'atp_onboarding_splash',
     ]
 }
 
@@ -100,6 +109,22 @@ pipeline {
         booleanParam(name: 'RUN_ATP_GALLERY', defaultValue: false, description: 'ATP TestCase Flows/gallery')
         booleanParam(name: 'RUN_ATP_QUICK_PRINT', defaultValue: false, description: 'ATP TestCase Flows/quick-print')
         booleanParam(name: 'RUN_ATP_COLLAGE', defaultValue: false, description: 'ATP TestCase Flows/collage')
+        booleanParam(name: 'RUN_ATP_HOME', defaultValue: false, description: 'ATP TestCase Flows/home')
+        booleanParam(name: 'RUN_ATP_CAMERA', defaultValue: false, description: 'ATP TestCase Flows/camera')
+        booleanParam(name: 'RUN_ATP_EDITOR', defaultValue: false, description: 'ATP TestCase Flows/editor')
+        booleanParam(name: 'RUN_ATP_PRINTING', defaultValue: false, description: 'ATP TestCase Flows/printing')
+        booleanParam(name: 'RUN_ATP_PRECUT', defaultValue: false, description: 'ATP TestCase Flows/precut')
+        booleanParam(name: 'RUN_ATP_VIDEO', defaultValue: false, description: 'ATP TestCase Flows/video')
+        booleanParam(name: 'RUN_ATP_TILE_PRINT', defaultValue: false, description: 'ATP TestCase Flows/tile-print')
+        booleanParam(name: 'RUN_ATP_SETTINGS', defaultValue: false, description: 'ATP TestCase Flows/settings')
+        booleanParam(name: 'RUN_ATP_FIRMWARE', defaultValue: false, description: 'ATP TestCase Flows/firmware')
+        booleanParam(name: 'RUN_ATP_AI', defaultValue: false, description: 'ATP TestCase Flows/ai')
+        booleanParam(name: 'RUN_ATP_ALERTS', defaultValue: false, description: 'ATP TestCase Flows/alerts')
+        booleanParam(name: 'RUN_ATP_GENERAL', defaultValue: false, description: 'ATP TestCase Flows/general')
+        booleanParam(name: 'RUN_ATP_PHOTO_ID', defaultValue: false, description: 'ATP TestCase Flows/photo-id')
+        booleanParam(name: 'RUN_ATP_PHOTOBOOTH', defaultValue: false, description: 'ATP TestCase Flows/photobooth')
+        booleanParam(name: 'RUN_ATP_CUSTOM_SDK', defaultValue: false, description: 'ATP TestCase Flows/custom-sdk')
+        booleanParam(name: 'RUN_ATP_ONBOARDING_SPLASH', defaultValue: false, description: 'ATP TestCase Flows/onboarding-splash (Excel ONBOARDING SPLASH SCREEN)')
         booleanParam(name: 'RUN_AI_ANALYSIS', defaultValue: true, description: 'Test OpenRouter + run intelligent_platform failure analysis')
         booleanParam(name: 'SEND_FINAL_EMAIL', defaultValue: false, description: 'Send final summary email')
         booleanParam(name: 'CLEAR_STATE', defaultValue: true, description: 'Clear app state in suite runners')
@@ -147,7 +172,32 @@ pipeline {
         stage('Install Dependencies') {
             agent { label params.DEVICES_AGENT }
             steps {
-                deleteDir()
+                // Windows file locks (Maestro/ADB/AV) make deleteDir() fail and abort the job.
+                // Wipe contents best-effort BEFORE unstash; never hard-fail the stage on wipe.
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    bat '''
+@echo off
+setlocal EnableExtensions
+set "WS=%WORKSPACE%"
+echo [wipe] workspace=%WS%
+if not exist "%WS%" exit /b 0
+taskkill /F /IM maestro.exe /T >nul 2>&1
+taskkill /F /IM adb.exe /T >nul 2>&1
+timeout /t 2 /nobreak >nul
+attrib -R -S -H "%WS%\\*.*" /S /D >nul 2>&1
+set "EMPTY=%TEMP%\\jenkins_empty_wipe_%RANDOM%"
+mkdir "%EMPTY%" >nul 2>&1
+robocopy "%EMPTY%" "%WS%" /MIR /R:2 /W:2 /NFL /NDL /NJH /NJS /NC /NS >nul 2>&1
+rmdir "%EMPTY%" >nul 2>&1
+for /d %%D in ("%WS%\\*") do rmdir /s /q "%%~fD" >nul 2>&1
+del /f /q "%WS%\\*" >nul 2>&1
+echo [wipe] done
+exit /b 0
+'''
+                }
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    deleteDir()
+                }
                 unstash 'repo'
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat """call scripts\\jenkins_ci_install.bat "${env.WORKSPACE}" """
@@ -316,6 +366,230 @@ pipeline {
                         withEnv(maestroEnvList()) {
                                 bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all collage "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                             }
+                    }
+                }
+            }
+        }
+
+        stage('Home') {
+            when { expression { return params.RUN_ATP_HOME } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all home "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Camera') {
+            when { expression { return params.RUN_ATP_CAMERA } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all camera "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Editor') {
+            when { expression { return params.RUN_ATP_EDITOR } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all editor "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Printing') {
+            when { expression { return params.RUN_ATP_PRINTING } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all printing "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('PreCut') {
+            when { expression { return params.RUN_ATP_PRECUT } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all precut "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Video') {
+            when { expression { return params.RUN_ATP_VIDEO } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all video "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Tile Print') {
+            when { expression { return params.RUN_ATP_TILE_PRINT } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all tile-print "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Settings') {
+            when { expression { return params.RUN_ATP_SETTINGS } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all settings "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Firmware') {
+            when { expression { return params.RUN_ATP_FIRMWARE } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all firmware "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('AI') {
+            when { expression { return params.RUN_ATP_AI } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all ai "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Alerts') {
+            when { expression { return params.RUN_ATP_ALERTS } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all alerts "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('General') {
+            when { expression { return params.RUN_ATP_GENERAL } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all general "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Photo ID') {
+            when { expression { return params.RUN_ATP_PHOTO_ID } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all photo-id "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Photobooth') {
+            when { expression { return params.RUN_ATP_PHOTOBOOTH } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all photobooth "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Custom SDK') {
+            when { expression { return params.RUN_ATP_CUSTOM_SDK } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all custom-sdk "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Onboarding Splash') {
+            when { expression { return params.RUN_ATP_ONBOARDING_SPLASH } }
+            agent { label params.DEVICES_AGENT }
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    script {
+                        withEnv(maestroEnvList()) {
+                            bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all onboarding-splash "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                        }
                     }
                 }
             }
