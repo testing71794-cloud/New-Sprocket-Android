@@ -1,7 +1,8 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~1"
-call "%~dp0resolve_windows_tools.bat" "%JAVA_HOME%" "%MAESTRO_HOME%" "%ANDROID_HOME%" "%~1"
+REM Do not pass %%JAVA_HOME%% as override — agent JAVA_HOME is often JDK 21; resolve prefers 17 for Maestro.
+call "%~dp0resolve_windows_tools.bat" "" "%MAESTRO_HOME%" "%ANDROID_HOME%" "%~1"
 where java
 java -version
 call "%~dp0precheck_environment.bat" "%~2" "%~3" || (

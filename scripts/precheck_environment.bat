@@ -44,7 +44,9 @@ if not defined ADB_EXE (
   exit /b 1
 )
 echo [DEBUG] "%ADB_EXE%" start-server
-"%ADB_EXE%" start-server >nul 2>&1
+REM Avoid hanging forever under Jenkins: start detached, wait briefly, continue.
+start "" /b "%ADB_EXE%" start-server >nul 2>&1
+ping 127.0.0.1 -n 4 >nul 2>&1
 echo [DEBUG] "%ADB_EXE%" devices
 "%ADB_EXE%" devices
 if errorlevel 1 exit /b 1

@@ -141,10 +141,13 @@ def maestroEnvList() {
     def la = env.LOCALAPPDATA ?: (up ? "${up}\\AppData\\Local" : '')
     def envList = []
     def javaHome = firstExisting([
-        p('JAVA_HOME_OVERRIDE'), env.MAESTRO_JAVA_HOME, env.JAVA_HOME,
-        up ? "${up}\\.jdks\\jbr-17.0.8" : '', up ? "${up}\\.jdks\\jbr-17.0.14" : '',
+        p('JAVA_HOME_OVERRIDE'), env.MAESTRO_JAVA_HOME,
+        'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot',
         'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.8-hotspot',
+        up ? "${up}\\.jdks\\jbr-17.0.8" : '', up ? "${up}\\.jdks\\jbr-17.0.14" : '',
+        'C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.11.10-hotspot',
         'C:\\Program Files\\Java\\jdk-17',
+        env.JAVA_HOME,
     ])
     if (javaHome) {
         envList << "MAESTRO_JAVA_HOME=${javaHome}"
@@ -155,6 +158,7 @@ def maestroEnvList() {
         p('MAESTRO_HOME'), env.MAESTRO_HOME,
         up ? "${up}\\maestro\\maestro\\bin" : '', up ? "${up}\\maestro\\bin" : '',
         'C:\\maestro\\maestro\\bin',
+        'C:\\Tools\\maestro-parallel\\bin',
     ])
     if (maestroHome) {
         envList << "MAESTRO_HOME=${maestroHome}"
@@ -236,20 +240,32 @@ def stageInstallGcp() {
 def stageInstallWindows() {
     stage('Install Windows device dependencies (light)') {
         withDevices {
+            // Do NOT call scripts\\jenkins_safe_wipe_workspace.bat here — leftover workspace
+            // still has the OLD script (with timeout.exe) until after unstash.
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                bat 'taskkill /F /IM maestro.exe /T 2>nul & taskkill /F /IM adb.exe /T 2>nul & exit /b 0'
-            }
-            catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                if (fileExists('scripts\\jenkins_safe_wipe_workspace.bat')) {
-                    bat "call scripts\\jenkins_safe_wipe_workspace.bat \"${env.WORKSPACE}\""
-                }
+                bat '''
+@echo off
+setlocal EnableExtensions
+set "WS=%WORKSPACE%"
+echo [wipe-inline] workspace=%WS%
+if not exist "%WS%" exit /b 0
+taskkill /F /IM maestro.exe /T >nul 2>&1
+taskkill /F /IM adb.exe /T >nul 2>&1
+REM Never use timeout.exe under Jenkins (non-TTY aborts the whole bat with exit 1).
+ping 127.0.0.1 -n 2 >nul 2>&1
+attrib -R -S -H "%WS%\\*.*" /S /D >nul 2>&1
+for /d %%D in ("%WS%\\*") do rmdir /s /q "%%~fD" >nul 2>&1
+del /f /q "%WS%\\*" >nul 2>&1
+echo [wipe-inline] done
+exit /b 0
+'''
             }
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                 deleteDir()
             }
             unstash 'repo'
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                bat "call scripts\\resolve_windows_tools.bat \"${p('JAVA_HOME_OVERRIDE')}\" \"${p('MAESTRO_HOME')}\" \"${p('ANDROID_HOME')}\" \"${env.WORKSPACE}\""
+                bat "call scripts\\resolve_windows_tools.bat \"${p('JAVA_HOME_OVERRIDE')}\" \"${p('MAESTRO_HOME')}\" \"${p('ANDROID_HOME')}\" \"${env.WORKSPACE}\" & exit /b 0"
             }
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 bat "call scripts\\jenkins_ci_install_windows_device.bat \"${env.WORKSPACE}\""
