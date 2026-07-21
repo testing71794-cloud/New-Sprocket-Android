@@ -14,20 +14,22 @@ set "OPT_ANDROID=%~3"
 if not defined USERPROFILE set "USERPROFILE=%HOMEDRIVE%%HOMEPATH%"
 if not defined LOCALAPPDATA set "LOCALAPPDATA=%USERPROFILE%\AppData\Local"
 
-REM ---- JAVA ----
+REM ---- JAVA (prefer 17 for Maestro) ----
 set "RESOLVED_JAVA="
 call :try_java "%OPT_JAVA%"
 if not defined RESOLVED_JAVA call :try_java "%MAESTRO_JAVA_HOME%"
+if not defined RESOLVED_JAVA (
+  for /d %%D in ("C:\Program Files\Eclipse Adoptium\jdk-17*") do call :try_java "%%~fD"
+)
 if not defined RESOLVED_JAVA call :try_java "%JAVA_HOME%"
 if not defined RESOLVED_JAVA call :try_java "%USERPROFILE%\.jdks\jbr-17.0.8"
 if not defined RESOLVED_JAVA call :try_java "%USERPROFILE%\.jdks\jbr-17.0.14"
-if not defined RESOLVED_JAVA call :try_java "%USERPROFILE%\.jdks\jbr-21.0.2"
 if not defined RESOLVED_JAVA (
-  for /d %%D in ("%USERPROFILE%\.jdks\jbr-*") do (
-    if not defined RESOLVED_JAVA call :try_java "%%~fD"
-  )
+  for /d %%D in ("%USERPROFILE%\.jdks\jbr-17*") do call :try_java "%%~fD"
 )
-if not defined RESOLVED_JAVA call :try_java "C:\Program Files\Eclipse Adoptium\jdk-17.0.8-hotspot"
+if not defined RESOLVED_JAVA (
+  for /d %%D in ("C:\Program Files\Eclipse Adoptium\jdk-21*") do call :try_java "%%~fD"
+)
 if not defined RESOLVED_JAVA call :try_java "C:\Program Files\Microsoft\jdk-17.0.8.7-hotspot"
 if not defined RESOLVED_JAVA call :try_java "C:\Program Files\Java\jdk-17"
 
@@ -37,7 +39,16 @@ call :try_maestro "%OPT_MAESTRO%"
 if not defined RESOLVED_MAESTRO call :try_maestro "%MAESTRO_HOME%"
 if not defined RESOLVED_MAESTRO call :try_maestro "%USERPROFILE%\maestro\maestro\bin"
 if not defined RESOLVED_MAESTRO call :try_maestro "%USERPROFILE%\maestro\bin"
+if not defined RESOLVED_MAESTRO call :try_maestro "%LOCALAPPDATA%\maestro\maestro\bin"
 if not defined RESOLVED_MAESTRO call :try_maestro "C:\maestro\maestro\bin"
+if not defined RESOLVED_MAESTRO call :try_maestro "C:\maestro\bin"
+if not defined RESOLVED_MAESTRO call :try_maestro "C:\Tools\maestro-parallel\bin"
+if not defined RESOLVED_MAESTRO (
+  for /d %%D in ("C:\Tools\maestro*") do (
+    if not defined RESOLVED_MAESTRO call :try_maestro "%%~fD\bin"
+    if not defined RESOLVED_MAESTRO call :try_maestro "%%~fD\maestro\bin"
+  )
+)
 if not defined RESOLVED_MAESTRO (
   where maestro.bat >nul 2>&1 && for /f "delims=" %%P in ('where maestro.bat 2^>nul') do (
     if not defined RESOLVED_MAESTRO (

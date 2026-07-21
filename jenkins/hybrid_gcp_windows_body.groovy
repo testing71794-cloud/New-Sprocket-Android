@@ -36,32 +36,32 @@ def p(String name, String fallback = '') {
 }
 
 /**
- * Run on GCP/controller. Empty / built-in / master / any → unlabeled node (first free executor).
- * Avoids forever-queue when label "built-in" is missing or busy.
+ * Run sh/Linux stages on the controller only — never on Windows USB agents.
+ * Unlabeled node{} can schedule on 'devices' and then fail with CreateProcess "sh".
  */
 def withOrch(Closure body) {
     def label = p('GCP_ORCHESTRATOR_AGENT', '')
-    def useAny = !label || label.equalsIgnoreCase('built-in') || label.equalsIgnoreCase('master') || label.equalsIgnoreCase('any')
-    if (useAny) {
-        echo "[orch] using any free executor (GCP_ORCHESTRATOR_AGENT='${label}')"
-        node {
-            echo "[orch] NODE_NAME=${env.NODE_NAME}"
-            body()
+    if (!label || label.equalsIgnoreCase('any') || label.equalsIgnoreCase('master')) {
+        label = 'built-in'
+    }
+    echo "[orch] waiting for Linux/controller label=${label}"
+    node(label) {
+        echo "[orch] NODE_NAME=${env.NODE_NAME} isUnix=${isUnix()}"
+        if (!isUnix()) {
+            error "[orch] Node ${env.NODE_NAME} is Windows; GCP stages need Linux (label built-in). Set GCP_ORCHESTRATOR_AGENT=built-in and ensure the controller has a free executor."
         }
-    } else {
-        echo "[orch] using label=${label}"
-        node(label) {
-            echo "[orch] NODE_NAME=${env.NODE_NAME}"
-            body()
-        }
+        body()
     }
 }
 
 def withDevices(Closure body) {
     def label = p('DEVICES_AGENT', 'devices')
-    echo "[devices] waiting for agent label=${label}"
+    echo "[devices] waiting for Windows agent label=${label}"
     node(label) {
         echo "[devices] NODE_NAME=${env.NODE_NAME}"
+        if (isUnix()) {
+            error "[devices] Node ${env.NODE_NAME} is Unix; device stages need the Windows USB agent label (${label})."
+        }
         body()
     }
 }

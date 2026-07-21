@@ -8,7 +8,7 @@ properties([
     disableConcurrentBuilds(),
     buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '3')),
     parameters([
-        string(name: 'GCP_ORCHESTRATOR_AGENT', defaultValue: '', description: 'Optional controller label. Leave EMPTY to use any free executor (recommended). Only set if you need a specific Linux label.'),
+        string(name: 'GCP_ORCHESTRATOR_AGENT', defaultValue: 'built-in', description: 'Linux controller label for sh/GCP stages. Use built-in (do NOT leave empty — empty used to schedule on Windows and break sh).'),
         string(name: 'DEVICES_AGENT', defaultValue: 'devices', description: 'Windows USB-phone agent label (devices, my-pc-devices, …). Agent must be Online.'),
         string(name: 'APP_PACKAGE', defaultValue: 'com.hp.impulse.sprocket', description: 'App package id'),
         string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher'),
