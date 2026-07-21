@@ -27,13 +27,14 @@ try {
         -RedirectStandardOutput $outPath `
         -RedirectStandardError $errPath
 } catch {
-    Write-Host "ERROR: failed to start adb: $($_.Exception.Message)"
+    Write-Host ("ERROR: failed to start adb: " + $_.Exception.Message)
     exit 1
 }
 
 $finished = $p.WaitForExit($TimeoutSec * 1000)
 if (-not $finished) {
-    Write-Host "ERROR: adb $($AdbArgs -join ' ') timed out after ${TimeoutSec}s — killing hung adb"
+    $argText = ($AdbArgs -join " ")
+    Write-Host ("ERROR: adb " + $argText + " timed out after " + $TimeoutSec + "s - killing hung adb")
     try { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue } catch {}
     Get-Process adb -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
     if (Test-Path -LiteralPath $outPath) { Get-Content -LiteralPath $outPath -ErrorAction SilentlyContinue | Write-Host }
