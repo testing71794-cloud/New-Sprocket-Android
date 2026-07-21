@@ -31,4 +31,4 @@ node {
     checkout scm
     body = load 'jenkins/hybrid_gcp_windows_body.groovy'
 }
-body.run()
+body.runHybrid()

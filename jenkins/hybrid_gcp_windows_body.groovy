@@ -1,7 +1,7 @@
 // Loaded by Jenkinsfile.hybrid.gcp-windows (separate Groovy class → avoids MethodTooLarge on WorkflowScript).
 // Hybrid: GCP orchestrator + Windows USB Maestro. See docs/DISTRIBUTED_GCP_WINDOWS_ARCHITECTURE.md
 
-def run() {
+def runHybrid() {
     // Job parameters are set in Jenkinsfile.hybrid.gcp-windows (do not call properties() here —
     // mid-run properties() can leave Blue Ocean stuck on "Waiting for run to start").
     timeout(time: 180, unit: 'MINUTES') {
