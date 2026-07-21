@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-07-windows-agent-list-devices-spaces-1
+REM script_rev=2026-07-windows-agent-list-devices-adb-timeout-1
 REM Writes detected_devices.txt under the Jenkins workspace (paths may contain spaces).
 goto :script_body
 
@@ -38,7 +38,7 @@ if not exist "%REPO_ROOT%\reports\_agent" mkdir "%REPO_ROOT%\reports\_agent"
 echo =====================================
 echo LIST DEVICES ^(windows_agent^)
 echo =====================================
-echo script_rev        : 2026-07-windows-agent-list-devices-spaces-1
+echo script_rev        : 2026-07-windows-agent-list-devices-adb-timeout-1
 echo arg1 workspace    : %~1
 echo WORKSPACE env     : %WORKSPACE%
 echo REPO_ROOT         : %REPO_ROOT%
@@ -59,7 +59,7 @@ if exist "%~dp0..\set_maestro_java.bat" (
   call "%~dp0..\set_maestro_java.bat" >> "%DEBUG_LOG%" 2>&1
 )
 
-if not defined ADB_DETECT_WAIT_ATTEMPTS set "ADB_DETECT_WAIT_ATTEMPTS=20"
+if not defined ADB_DETECT_WAIT_ATTEMPTS set "ADB_DETECT_WAIT_ATTEMPTS=8"
 if not defined ADB_DETECT_WAIT_SECS set "ADB_DETECT_WAIT_SECS=3"
 
 echo =========================>> "%DEBUG_LOG%"
@@ -87,27 +87,38 @@ echo [detect] attempt !_ATT!/%ADB_DETECT_WAIT_ATTEMPTS% ^(wait %ADB_DETECT_WAIT_
 
 if !_ATT! GTR 1 (
   echo [detect] restarting ADB server...>> "%DEBUG_LOG%"
-  "%ADB_EXE%" kill-server >> "%DEBUG_LOG%" 2>&1
+  taskkill /F /IM adb.exe /T >nul 2>&1
   call :sleep_seconds 2
 )
 
-echo Starting ADB server...>> "%DEBUG_LOG%"
-"%ADB_EXE%" start-server >> "%DEBUG_LOG%" 2>&1
-if errorlevel 1 (
-  echo ERROR: failed to start adb server.>> "%DEBUG_LOG%"
+set "ADB_TIMEOUT_PS=%~dp0adb_run_timeout.ps1"
+if not exist "%ADB_TIMEOUT_PS%" (
+  echo ERROR: missing "%ADB_TIMEOUT_PS%">> "%DEBUG_LOG%"
   type "%DEBUG_LOG%"
   exit /b 1
 )
 
+echo Starting ADB server...>> "%DEBUG_LOG%"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 20 >> "%DEBUG_LOG%" 2>&1
+REM start-server timeout is non-fatal; devices check is authoritative
+
 REM Write adb devices to a temp file first — for /f ('"path with spaces" ...') breaks on users like "CA Global".
 set "ADB_DEVICES_TMP=%TEMP%\adb_devices_list_%RANDOM%.txt"
 echo.>> "%DEBUG_LOG%"
-echo --- adb devices ^(full output^) --->> "%DEBUG_LOG%"
-"%ADB_EXE%" devices > "%ADB_DEVICES_TMP%" 2>&1
+echo --- adb devices ^(full output, timeout 25s^) --->> "%DEBUG_LOG%"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 25 -OutFile "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%" 2>&1
+set "ADB_EC=!ERRORLEVEL!"
+if not exist "%ADB_DEVICES_TMP%" (
+  echo ERROR: adb devices produced no output file ^(exit=!ADB_EC!^).>> "%DEBUG_LOG%"
+  type "%DEBUG_LOG%"
+  exit /b 1
+)
 type "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%"
 type "%ADB_DEVICES_TMP%"
 echo --- end adb devices --->> "%DEBUG_LOG%"
-
+if not "!ADB_EC!"=="0" (
+  echo [WARN] adb devices exit=!ADB_EC! on attempt !_ATT!>> "%DEBUG_LOG%"
+)
 (
 for /f "usebackq skip=1 tokens=1,2" %%A in ("%ADB_DEVICES_TMP%") do (
   if /I "%%B"=="device" echo %%A

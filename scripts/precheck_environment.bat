@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-05-windows-precheck-quoted-1
+REM script_rev=2026-07-windows-precheck-adb-timeout-1
 
 set "SCRIPT_DIR=%~dp0"
 call "%SCRIPT_DIR%set_maestro_java.bat" "%~1" || exit /b 1
@@ -25,6 +25,12 @@ if defined MAESTRO_HOME (
   if not defined MAESTRO_BIN if exist "%MAESTRO_HOME%\maestro.cmd" set "MAESTRO_BIN=%MAESTRO_HOME%\maestro.cmd"
 )
 
+set "ADB_TIMEOUT_PS=%SCRIPT_DIR%windows_agent\adb_run_timeout.ps1"
+if not exist "%ADB_TIMEOUT_PS%" (
+  echo ERROR: missing "%ADB_TIMEOUT_PS%"
+  exit /b 1
+)
+
 echo =====================================
 echo PRECHECK JAVA
 echo =====================================
@@ -43,13 +49,25 @@ if not defined ADB_EXE (
   echo ERROR: adb.exe not found
   exit /b 1
 )
-echo [DEBUG] "%ADB_EXE%" start-server
-REM Avoid hanging forever under Jenkins: start detached, wait briefly, continue.
-start "" /b "%ADB_EXE%" start-server >nul 2>&1
-ping 127.0.0.1 -n 4 >nul 2>&1
-echo [DEBUG] "%ADB_EXE%" devices
-"%ADB_EXE%" devices
-if errorlevel 1 exit /b 1
+
+echo [DEBUG] killing any hung adb.exe ^(best-effort^)
+taskkill /F /IM adb.exe /T >nul 2>&1
+ping 127.0.0.1 -n 2 >nul 2>&1
+
+echo [DEBUG] adb start-server ^(timeout 20s^)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 20
+if errorlevel 1 (
+  echo WARN: adb start-server failed or timed out — continuing to devices check
+)
+
+echo [DEBUG] adb devices ^(timeout 20s^)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 20
+set "ADB_EC=!ERRORLEVEL!"
+if not "!ADB_EC!"=="0" (
+  echo ERROR: adb devices failed or timed out ^(exit=!ADB_EC!^).
+  echo Check USB debugging, authorize the PC on the phone, and that only one adb.exe is on PATH.
+  exit /b 1
+)
 echo =====================================
 
 echo Checking Maestro...
@@ -57,11 +75,9 @@ if not defined MAESTRO_BIN (
   echo ERROR: maestro.bat not found under MAESTRO_HOME
   exit /b 1
 )
-echo [DEBUG] "%MAESTRO_BIN%" --help
-"%MAESTRO_BIN%" --help >nul 2>&1
-if errorlevel 1 exit /b 1
-echo [DEBUG] "%MAESTRO_BIN%" --version
-"%MAESTRO_BIN%" --version
+echo [DEBUG] "%MAESTRO_BIN%" --version ^(timeout via cmd /c^)
+REM maestro --help can be slow; prefer --version only
+call "%MAESTRO_BIN%" --version
 if errorlevel 1 exit /b 1
 
 echo =====================================
