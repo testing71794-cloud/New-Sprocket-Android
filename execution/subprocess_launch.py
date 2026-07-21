@@ -45,11 +45,23 @@ def resolve_adb_executable() -> str | None:
             exe = Path(root) / ("adb.exe" if os.name == "nt" else "adb")
             if exe.is_file():
                 return str(exe.resolve())
+            # ADB_HOME may already point at adb.exe
+            if Path(root).is_file() and Path(root).name.lower() in ("adb.exe", "adb"):
+                return str(Path(root).resolve())
     for root_env in ("ANDROID_HOME", "ANDROID_SDK_ROOT"):
         root = os.environ.get(root_env, "").strip().strip('"')
         if root:
             exe = Path(root) / "platform-tools" / ("adb.exe" if os.name == "nt" else "adb")
             if exe.is_file():
                 return str(exe.resolve())
+    if os.name == "nt":
+        for candidate in (
+            Path(r"C:\Tools\platform-tools\adb.exe"),
+            Path(r"C:\Android\platform-tools\adb.exe"),
+            Path(r"C:\Android\Sdk\platform-tools\adb.exe"),
+            Path(os.environ.get("LOCALAPPDATA", "")) / "Android" / "Sdk" / "platform-tools" / "adb.exe",
+        ):
+            if candidate.is_file():
+                return str(candidate.resolve())
     found = shutil.which("adb")
     return found

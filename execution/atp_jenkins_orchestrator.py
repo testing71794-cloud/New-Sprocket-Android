@@ -888,15 +888,19 @@ def run_atp_folder_blocking(
             adb_cmd = [adb_exe, *adb_args]
             log_subprocess_launch(adb_cmd, cwd=repo, shell=False, label="atp_orchestrator_adb")
             try:
-                subprocess.run(
+                proc = subprocess.run(
                     adb_cmd,
                     capture_output=True,
                     text=True,
                     timeout=60,
                     check=False,
                 )
-            except (FileNotFoundError, OSError, subprocess.TimeoutExpired):
-                pass
+                if adb_args == ["devices"]:
+                    out = (proc.stdout or "") + (("\n" + proc.stderr) if proc.stderr else "")
+                    print("[ATP] adb devices:", flush=True)
+                    print(out if out.strip() else "(empty)", flush=True)
+            except (FileNotFoundError, OSError, subprocess.TimeoutExpired) as exc:
+                print(f"[ATP] WARN: adb {' '.join(adb_args)} failed: {exc}", flush=True)
 
     time.sleep(1)
 
@@ -908,11 +912,11 @@ def run_atp_folder_blocking(
 
     if not devices:
         print(
-            "[ATP] SKIP: no devices available after app preflight "
+            "[ATP] ERROR: no devices available after app preflight "
             "(install APK or connect authorized device(s))",
             flush=True,
         )
-        return 0
+        return 1
 
     print(f"Devices: {', '.join(_dev_log(d) for d in devices)}", flush=True)
     os.environ["ATP_ORCH_DEVICE_COUNT"] = str(len(devices))

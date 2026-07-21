@@ -2,7 +2,7 @@
 setlocal EnableExtensions EnableDelayedExpansion
 REM Resolve ADB_HOME only (device discovery). Prefer Android SDK over WinGet Platform Tools.
 REM WinGet adb often hangs under Jenkins service sessions.
-REM script_rev=2026-07-windows-agent-adb-env-prefer-sdk-1
+REM script_rev=2026-07-windows-agent-adb-env-prefer-sdk-2
 
 set "ADB_HOME="
 set "ADB_EXE="
@@ -11,8 +11,11 @@ if defined ANDROID_HOME if exist "%ANDROID_HOME%\platform-tools\adb.exe" set "AD
 if not defined ADB_HOME if defined ANDROID_SDK_ROOT if exist "%ANDROID_SDK_ROOT%\platform-tools\adb.exe" set "ADB_HOME=%ANDROID_SDK_ROOT%\platform-tools"
 if not defined ADB_HOME if exist "%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe" set "ADB_HOME=%LOCALAPPDATA%\Android\Sdk\platform-tools"
 if not defined ADB_HOME if exist "%USERPROFILE%\AppData\Local\Android\Sdk\platform-tools\adb.exe" set "ADB_HOME=%USERPROFILE%\AppData\Local\Android\Sdk\platform-tools"
+if not defined ADB_HOME if exist "C:\Tools\platform-tools\adb.exe" set "ADB_HOME=C:\Tools\platform-tools"
+if not defined ADB_HOME if exist "C:\Tools\android-sdk\platform-tools\adb.exe" set "ADB_HOME=C:\Tools\android-sdk\platform-tools"
 if not defined ADB_HOME if exist "C:\Android\Sdk\platform-tools\adb.exe" set "ADB_HOME=C:\Android\Sdk\platform-tools"
 if not defined ADB_HOME if exist "C:\Android\android-sdk\platform-tools\adb.exe" set "ADB_HOME=C:\Android\android-sdk\platform-tools"
+if not defined ADB_HOME if exist "C:\Android\platform-tools\adb.exe" set "ADB_HOME=C:\Android\platform-tools"
 
 REM WinGet Platform Tools — last resort (known to hang on start-server/devices in some CI sessions)
 if not defined ADB_HOME if defined LOCALAPPDATA (

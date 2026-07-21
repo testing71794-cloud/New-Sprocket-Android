@@ -169,7 +169,17 @@ def maestroEnvList() {
     def androidHome = firstExisting([
         p('ANDROID_HOME'), env.ANDROID_HOME, env.ANDROID_SDK_ROOT,
         la ? "${la}\\Android\\Sdk" : '',
+        'C:\\Tools\\android-sdk',
+        'C:\\Android\\Sdk',
+        // platform-tools-only install (no full SDK): parent used as ANDROID_HOME if platform-tools/adb.exe exists via firstExisting below
     ])
+    // Accept a platform-tools-only tree at C:\Tools\platform-tools by setting ANDROID_HOME to its parent when needed
+    if (!androidHome && fileExists('C:\\Tools\\platform-tools\\adb.exe')) {
+        androidHome = 'C:\\Tools'
+    }
+    if (!androidHome && fileExists('C:\\Android\\platform-tools\\adb.exe')) {
+        androidHome = 'C:\\Android'
+    }
     if (androidHome) {
         envList << "ANDROID_HOME=${androidHome}"
         envList << "ANDROID_SDK_ROOT=${androidHome}"

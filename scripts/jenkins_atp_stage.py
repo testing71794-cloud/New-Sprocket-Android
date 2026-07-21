@@ -37,10 +37,67 @@ def touch_flag(name: str) -> None:
     (REPO / name).write_text("1\n", encoding="utf-8")
 
 
-def _refresh_devices_on_this_agent(repo: Path) -> None:
+def _adb_serials_via_python() -> tuple[str | None, list[str], str]:
+    """
+    Space-safe live adb devices (no cmd.exe). Returns (adb_exe, serials, raw_output).
+    Prefer ADB_HOME / ANDROID_HOME / C:\\Tools\\platform-tools over PATH WinGet adb.
+    """
+    from execution.subprocess_launch import resolve_adb_executable
+
+    adb = resolve_adb_executable()
+    if not adb:
+        for candidate in (
+            Path(r"C:\Tools\platform-tools\adb.exe"),
+            Path(r"C:\Android\platform-tools\adb.exe"),
+            Path(os.environ.get("LOCALAPPDATA", "")) / "Android" / "Sdk" / "platform-tools" / "adb.exe",
+        ):
+            if candidate.is_file():
+                adb = str(candidate.resolve())
+                break
+    if not adb:
+        return None, [], ""
+    try:
+        subprocess.run(
+            [adb, "start-server"],
+            capture_output=True,
+            text=True,
+            timeout=20,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        pass
+    try:
+        proc = subprocess.run(
+            [adb, "devices"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        return adb, [], f"ERROR: adb devices failed: {exc}"
+    raw = (proc.stdout or "") + (("\n" + proc.stderr) if proc.stderr else "")
+    serials: list[str] = []
+    for line in raw.splitlines():
+        line = line.strip()
+        m = re.match(r"^(\S+)\s+device\s*$", line)
+        if m:
+            serials.append(m.group(1))
+    return adb, serials, raw
+
+
+def _write_detected_devices(repo: Path, serials: list[str]) -> Path:
+    out = repo / "detected_devices.txt"
+    out.write_text("\n".join(serials) + ("\n" if serials else ""), encoding="utf-8")
+    return out
+
+
+def _refresh_devices_on_this_agent(repo: Path) -> int:
     """
     Re-run adb device discovery on the current Windows agent before Maestro.
     Hybrid: Detect Connected Devices may run on a different executor than ATP stages.
+
+    Returns 0 when at least one authorized device is written to detected_devices.txt.
     """
     if os.environ.get("ATP_REFRESH_DEVICES_BEFORE_RUN", "1").strip().lower() in (
         "0",
@@ -49,16 +106,10 @@ def _refresh_devices_on_this_agent(repo: Path) -> None:
         "off",
     ):
         print("[jenkins_atp_stage] ATP_REFRESH_DEVICES_BEFORE_RUN=0 — skip device refresh", flush=True)
-        return
+        return 0
     bat = repo / "scripts" / "windows_agent" / "list_devices.bat"
     if not bat.is_file():
         bat = repo / "scripts" / "list_devices.bat"
-    if not bat.is_file():
-        return
-    print(
-        f"[jenkins_atp_stage] refreshing detected_devices.txt on this agent ({bat.name})",
-        flush=True,
-    )
     env = os.environ.copy()
     # Avoid cmd.exe splitting workspace paths if a prior stage set MAESTRO_OPTS with -Duser.home=...
     for _k in (
@@ -69,15 +120,43 @@ def _refresh_devices_on_this_agent(repo: Path) -> None:
         "JDK_JAVA_OPTIONS",
     ):
         env.pop(_k, None)
-    cmd = windows_cmd_bat_argv(bat, str(repo.resolve()))
-    log_subprocess_launch(cmd, cwd=repo.resolve(), shell=False, label="list_devices")
-    subprocess.run(
-        cmd,
-        cwd=str(repo.resolve()),
-        env=env,
-        check=False,
-        shell=False,
+
+    if bat.is_file():
+        print(
+            f"[jenkins_atp_stage] refreshing detected_devices.txt on this agent ({bat.name})",
+            flush=True,
+        )
+        cmd = windows_cmd_bat_argv(bat, str(repo.resolve()))
+        log_subprocess_launch(cmd, cwd=repo.resolve(), shell=False, label="list_devices")
+        subprocess.run(
+            cmd,
+            cwd=str(repo.resolve()),
+            env=env,
+            check=False,
+            shell=False,
+        )
+
+    # Authoritative fallback: Python argv adb (space-safe; works when bat/OutFile path is broken).
+    adb, serials, raw = _adb_serials_via_python()
+    print(f"[jenkins_atp_stage] python adb fallback exe={adb!r}", flush=True)
+    print("[jenkins_atp_stage] python adb devices output:", flush=True)
+    print(raw if raw.strip() else "(empty)", flush=True)
+    if serials:
+        out = _write_detected_devices(repo, serials)
+        print(
+            f"[jenkins_atp_stage] wrote {len(serials)} device(s) to {out}: {', '.join(serials)}",
+            flush=True,
+        )
+        return 0
+
+    print(
+        "[jenkins_atp_stage] ERROR: no Android device in state 'device'. "
+        "On the agent user session run:  adb kill-server & adb devices  "
+        "(expect SERIAL\\tdevice). Prefer C:\\Tools\\platform-tools over WinGet adb.",
+        flush=True,
     )
+    _write_detected_devices(repo, [])
+    return 1
 
 
 def _log_orchestrator_fingerprint(repo: Path) -> None:
@@ -140,7 +219,10 @@ def cmd_run(folder: str, app: str, clear_state: str, maestro_cmd: str) -> int:
     if yaml_rc != 0:
         touch_flag(f"{sid}_failed.flag")
         return yaml_rc
-    _refresh_devices_on_this_agent(REPO)
+    refresh_rc = _refresh_devices_on_this_agent(REPO)
+    if refresh_rc != 0:
+        touch_flag(f"{sid}_failed.flag")
+        return refresh_rc
     _log_orchestrator_fingerprint(REPO)
     maestro_argv = [
         sys.executable,

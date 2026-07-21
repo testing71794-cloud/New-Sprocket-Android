@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-07-windows-agent-list-devices-adb-timeout-1
+REM script_rev=2026-07-windows-agent-list-devices-adb-timeout-2
 REM Writes detected_devices.txt under the Jenkins workspace (paths may contain spaces).
 goto :script_body
 
@@ -38,7 +38,7 @@ if not exist "%REPO_ROOT%\reports\_agent" mkdir "%REPO_ROOT%\reports\_agent"
 echo =====================================
 echo LIST DEVICES ^(windows_agent^)
 echo =====================================
-echo script_rev        : 2026-07-windows-agent-list-devices-adb-timeout-1
+echo script_rev        : 2026-07-windows-agent-list-devices-adb-timeout-2
 echo arg1 workspace    : %~1
 echo WORKSPACE env     : %WORKSPACE%
 echo REPO_ROOT         : %REPO_ROOT%
@@ -138,6 +138,9 @@ if !_ATT! LSS %ADB_DETECT_WAIT_ATTEMPTS% (
 echo.>> "%DEBUG_LOG%"
 echo Devices detected: 0>> "%DEBUG_LOG%"
 echo Device list saved to: "%OUT_FILE%">> "%DEBUG_LOG%"
+echo [HINT] If adb devices output was empty and USERPROFILE has spaces ^(e.g. CA Global^), ensure script_rev is adb-timeout-2+ ^(ProcessStartInfo, not cmd /c^).>> "%DEBUG_LOG%"
+echo [HINT] Prefer SDK platform-tools at %%LOCALAPPDATA%%\Android\Sdk\platform-tools or C:\Tools\platform-tools — WinGet adb hangs under Jenkins.>> "%DEBUG_LOG%"
+echo [HINT] As the Jenkins agent Windows user, run:  "%%ADB_EXE%%" kill-server ^& "%%ADB_EXE%%" devices>> "%DEBUG_LOG%"
 type "%DEBUG_LOG%"
 exit /b 1
 
