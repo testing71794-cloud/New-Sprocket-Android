@@ -888,21 +888,28 @@ def run_atp_folder_blocking(
             adb_cmd = [adb_exe, *adb_args]
             log_subprocess_launch(adb_cmd, cwd=repo, shell=False, label="atp_orchestrator_adb")
             try:
-                proc = subprocess.run(
-                    adb_cmd,
-                    capture_output=True,
-                    text=True,
-                    timeout=60,
-                    check=False,
-                )
-                if adb_args == ["devices"]:
+                if adb_args == ["start-server"]:
+                    proc = subprocess.run(
+                        adb_cmd,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        timeout=25,
+                        check=False,
+                    )
+                else:
+                    proc = subprocess.run(
+                        adb_cmd,
+                        capture_output=True,
+                        text=True,
+                        timeout=90,
+                        check=False,
+                    )
                     out = (proc.stdout or "") + (("\n" + proc.stderr) if proc.stderr else "")
                     print("[ATP] adb devices:", flush=True)
                     print(out if out.strip() else "(empty)", flush=True)
             except (FileNotFoundError, OSError, subprocess.TimeoutExpired) as exc:
                 print(f"[ATP] WARN: adb {' '.join(adb_args)} failed: {exc}", flush=True)
-
-    time.sleep(1)
+        time.sleep(3)
 
     try:
         devices = merge_and_pick_devices_with_app_preflight(repo, app_id)

@@ -3,11 +3,13 @@
 # - Never redirect stdout/stderr on "adb start-server" via pipes — that deadlocks on Windows.
 # - Never invoke adb via cmd.exe /c with a quoted path — usernames with spaces (e.g. "CA Global")
 #   break ArgumentList quoting and yield empty "adb devices" output.
+# - Do NOT kill all adb.exe on every timeout — that resets USB recovery Maestro may already be doing.
 param(
     [Parameter(Mandatory = $true)][string]$AdbExe,
     [Parameter(Mandatory = $true)][string[]]$AdbArgs,
     [int]$TimeoutSec = 20,
-    [string]$OutFile = ""
+    [string]$OutFile = "",
+    [switch]$KillAllAdbOnTimeout
 )
 
 $ErrorActionPreference = "Continue"
@@ -28,29 +30,29 @@ if ([string]::IsNullOrWhiteSpace($outPath)) {
     $tempOut = $true
 }
 
-function Stop-HungAdb {
-    param([System.Diagnostics.Process]$Proc)
+function Stop-HungClient {
+    param([System.Diagnostics.Process]$Proc, [bool]$KillAll)
     if ($null -ne $Proc) {
         try {
             if (-not $Proc.HasExited) { Stop-Process -Id $Proc.Id -Force -ErrorAction SilentlyContinue }
         } catch {}
     }
-    Get-Process adb -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+    if ($KillAll) {
+        Get-Process adb -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+    }
 }
 
 try {
     if ($isStartServer -or $isKillServer) {
         # No stdout/stderr redirect — avoids WinGet/platform-tools deadlock under Jenkins.
-        # FilePath + ArgumentList (array) is space-safe for "CA Global" paths.
         $p = Start-Process -FilePath $AdbExe -ArgumentList $AdbArgs `
             -WorkingDirectory $workDir `
             -WindowStyle Hidden -PassThru
-        $waitMs = [Math]::Min([Math]::Max($TimeoutSec, 1), 15) * 1000
+        $waitMs = [Math]::Min([Math]::Max($TimeoutSec, 1), 20) * 1000
         $finished = $p.WaitForExit($waitMs)
         if (-not $finished) {
-            # start-server parent sometimes lingers while daemon is already up.
-            Write-Host ("WARN: adb " + $argText + " still running after " + ($waitMs / 1000) + "s; continuing")
-            try { if (-not $p.HasExited) { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue } } catch {}
+            # Parent often lingers while daemon is up — do NOT kill it (that wedges USB/adb).
+            Write-Host ("WARN: adb " + $argText + " still running after " + ($waitMs / 1000) + "s; leaving process, continuing")
             exit 0
         }
         exit $p.ExitCode
@@ -73,10 +75,10 @@ try {
     $stderrTask = $p.StandardError.ReadToEndAsync()
     $finished = $p.WaitForExit($TimeoutSec * 1000)
     if (-not $finished) {
-        Write-Host ("ERROR: adb " + $argText + " timed out after " + $TimeoutSec + "s - killing hung adb")
-        Stop-HungAdb -Proc $p
-        if (Test-Path -LiteralPath $outPath) {
-            Get-Content -LiteralPath $outPath -ErrorAction SilentlyContinue | Write-Host
+        Write-Host ("ERROR: adb " + $argText + " timed out after " + $TimeoutSec + "s - killing hung client")
+        Stop-HungClient -Proc $p -KillAll:([bool]$KillAllAdbOnTimeout)
+        if ($KillAllAdbOnTimeout) {
+            Write-Host "WARN: also killed all adb.exe processes (KillAllAdbOnTimeout)"
         }
         exit 2
     }

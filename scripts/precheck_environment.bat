@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-07-windows-precheck-adb-timeout-1
+REM script_rev=2026-07-windows-precheck-adb-timeout-2
 
 set "SCRIPT_DIR=%~dp0"
 call "%SCRIPT_DIR%set_maestro_java.bat" "%~1" || exit /b 1
@@ -50,28 +50,39 @@ if not defined ADB_EXE (
   exit /b 1
 )
 
-echo [DEBUG] killing any hung adb.exe ^(best-effort^)
-taskkill /F /IM adb.exe /T >nul 2>&1
-ping 127.0.0.1 -n 2 >nul 2>&1
-
-echo [DEBUG] adb start-server ^(timeout 8s, no pipe redirect^)
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 8
+REM Soft settle first — hard taskkill often wedges USB under Jenkins and races Maestro recovery.
+echo [DEBUG] adb start-server ^(timeout 12s, leave lingering parent^)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 12
 if errorlevel 1 (
   echo WARN: adb start-server failed — continuing to devices check
 )
+echo [DEBUG] waiting 5s for adb daemon/USB settle...
+ping 127.0.0.1 -n 6 >nul 2>&1
 
-echo [DEBUG] adb devices ^(timeout 25s^)
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 25
+echo [DEBUG] adb devices ^(timeout 90s, do not kill all adb on timeout^)
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 90
+set "ADB_EC=!ERRORLEVEL!"
+if "!ADB_EC!"=="0" goto :adb_ok
+
+echo [WARN] adb devices failed ^(exit=!ADB_EC!^) — one hard recovery then retry
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs kill-server -TimeoutSec 10
+taskkill /F /IM adb.exe /T >nul 2>&1
+ping 127.0.0.1 -n 4 >nul 2>&1
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 12
+ping 127.0.0.1 -n 6 >nul 2>&1
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 90 -KillAllAdbOnTimeout
 set "ADB_EC=!ERRORLEVEL!"
 if not "!ADB_EC!"=="0" (
   echo ERROR: adb devices failed or timed out ^(exit=!ADB_EC!^).
   echo Fix on the Windows agent:
-  echo   1^) Install Android SDK platform-tools ^(not only WinGet Google.PlatformTools^)
-  echo   2^) Plug phone, enable USB debugging, accept RSA prompt
-  echo   3^) In an agent-user cmd:  "%%ADB_EXE%%" kill-server ^& "%%ADB_EXE%%" devices
-  echo   4^) Ensure Jenkins agent user can see the device ^(same Windows login as USB session^)
+  echo   1^) Unplug/replug phone; unlock; accept RSA debugging prompt
+  echo   2^) Close Maestro Studio / other maestro java processes
+  echo   3^) In an agent-user interactive cmd:  "%%ADB_EXE%%" kill-server ^& "%%ADB_EXE%%" devices
+  echo   4^) Prefer C:\Tools\platform-tools over WinGet Google.PlatformTools
+  echo   5^) Jenkins agent must run as the same Windows user that owns the USB session
   exit /b 1
 )
+:adb_ok
 echo =====================================
 
 echo Checking Maestro...

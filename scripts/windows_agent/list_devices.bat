@@ -1,14 +1,15 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM script_rev=2026-07-windows-agent-list-devices-adb-timeout-2
+REM script_rev=2026-07-windows-agent-list-devices-adb-timeout-3
 REM Writes detected_devices.txt under the Jenkins workspace (paths may contain spaces).
+REM Avoid aggressive taskkill loops — they interrupt USB/ADB recovery (Maestro waits up to 5 min).
 goto :script_body
 
 REM Sleep without timeout.exe (Jenkins non-TTY safe).
 :sleep_seconds
 set /a "_ss=%~1"
 if !_ss! LSS 1 set "_ss=1"
-if !_ss! GTR 120 set "_ss=120"
+if !_ss! GTR 180 set "_ss=180"
 set /a "_ss_ping=!_ss!+1"
 ping 127.0.0.1 -n !_ss_ping! >nul
 exit /b 0
@@ -38,7 +39,7 @@ if not exist "%REPO_ROOT%\reports\_agent" mkdir "%REPO_ROOT%\reports\_agent"
 echo =====================================
 echo LIST DEVICES ^(windows_agent^)
 echo =====================================
-echo script_rev        : 2026-07-windows-agent-list-devices-adb-timeout-2
+echo script_rev        : 2026-07-windows-agent-list-devices-adb-timeout-3
 echo arg1 workspace    : %~1
 echo WORKSPACE env     : %WORKSPACE%
 echo REPO_ROOT         : %REPO_ROOT%
@@ -59,8 +60,9 @@ if exist "%~dp0..\set_maestro_java.bat" (
   call "%~dp0..\set_maestro_java.bat" >> "%DEBUG_LOG%" 2>&1
 )
 
-if not defined ADB_DETECT_WAIT_ATTEMPTS set "ADB_DETECT_WAIT_ATTEMPTS=4"
-if not defined ADB_DETECT_WAIT_SECS set "ADB_DETECT_WAIT_SECS=3"
+if not defined ADB_DETECT_WAIT_ATTEMPTS set "ADB_DETECT_WAIT_ATTEMPTS=5"
+if not defined ADB_DETECT_WAIT_SECS set "ADB_DETECT_WAIT_SECS=8"
+if not defined ADB_DEVICES_TIMEOUT_SEC set "ADB_DEVICES_TIMEOUT_SEC=90"
 
 echo =========================>> "%DEBUG_LOG%"
 echo Connected Android devices>> "%DEBUG_LOG%"
@@ -79,18 +81,6 @@ echo ADB_EXE="%ADB_EXE%"
 
 del /q "%OUT_FILE%" 2>nul
 
-set /a "_ATT=0"
-:detect_loop
-set /a "_ATT+=1"
-echo.>> "%DEBUG_LOG%"
-echo [detect] attempt !_ATT!/%ADB_DETECT_WAIT_ATTEMPTS% ^(wait %ADB_DETECT_WAIT_SECS%s^)>> "%DEBUG_LOG%"
-
-if !_ATT! GTR 1 (
-  echo [detect] restarting ADB server...>> "%DEBUG_LOG%"
-  taskkill /F /IM adb.exe /T >nul 2>&1
-  call :sleep_seconds 2
-)
-
 set "ADB_TIMEOUT_PS=%~dp0adb_run_timeout.ps1"
 if not exist "%ADB_TIMEOUT_PS%" (
   echo ERROR: missing "%ADB_TIMEOUT_PS%">> "%DEBUG_LOG%"
@@ -98,15 +88,35 @@ if not exist "%ADB_TIMEOUT_PS%" (
   exit /b 1
 )
 
-echo Starting ADB server...>> "%DEBUG_LOG%"
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 8 >> "%DEBUG_LOG%" 2>&1
-REM start-server timeout is non-fatal; devices check is authoritative
+set /a "_ATT=0"
+:detect_loop
+set /a "_ATT+=1"
+echo.>> "%DEBUG_LOG%"
+echo [detect] attempt !_ATT!/%ADB_DETECT_WAIT_ATTEMPTS% ^(wait %ADB_DETECT_WAIT_SECS%s, devices_timeout=%ADB_DEVICES_TIMEOUT_SEC%s^)>> "%DEBUG_LOG%"
 
-REM Write adb devices to a temp file first — for /f ('"path with spaces" ...') breaks on users like "CA Global".
+REM Soft recovery only — hard taskkill only on later attempts (USB needs time to re-enumerate).
+if !_ATT! EQU 2 (
+  echo [detect] soft restart: adb kill-server>> "%DEBUG_LOG%"
+  powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs kill-server -TimeoutSec 10 >> "%DEBUG_LOG%" 2>&1
+  call :sleep_seconds 3
+)
+if !_ATT! GEQ 4 (
+  echo [detect] hard restart: taskkill adb.exe ^(last-resort^)>> "%DEBUG_LOG%"
+  taskkill /F /IM adb.exe /T >nul 2>&1
+  call :sleep_seconds 5
+)
+
+echo Starting ADB server...>> "%DEBUG_LOG%"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 12 >> "%DEBUG_LOG%" 2>&1
+REM Give daemon + USB a settle window before devices (do not race).
+echo [detect] waiting 5s for adb daemon/USB settle...>> "%DEBUG_LOG%"
+call :sleep_seconds 5
+
 set "ADB_DEVICES_TMP=%TEMP%\adb_devices_list_%RANDOM%.txt"
 echo.>> "%DEBUG_LOG%"
-echo --- adb devices ^(full output, timeout 25s^) --->> "%DEBUG_LOG%"
-powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec 25 -OutFile "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%" 2>&1
+echo --- adb devices ^(full output, timeout %ADB_DEVICES_TIMEOUT_SEC%s^) --->> "%DEBUG_LOG%"
+REM Do not KillAllAdbOnTimeout — leave daemon alive so USB can finish recovering.
+powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec %ADB_DEVICES_TIMEOUT_SEC% -OutFile "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%" 2>&1
 set "ADB_EC=!ERRORLEVEL!"
 if not exist "%ADB_DEVICES_TMP%" (
   echo. > "%ADB_DEVICES_TMP%"
@@ -138,9 +148,11 @@ if !_ATT! LSS %ADB_DETECT_WAIT_ATTEMPTS% (
 echo.>> "%DEBUG_LOG%"
 echo Devices detected: 0>> "%DEBUG_LOG%"
 echo Device list saved to: "%OUT_FILE%">> "%DEBUG_LOG%"
-echo [HINT] If adb devices output was empty and USERPROFILE has spaces ^(e.g. CA Global^), ensure script_rev is adb-timeout-2+ ^(ProcessStartInfo, not cmd /c^).>> "%DEBUG_LOG%"
-echo [HINT] Prefer SDK platform-tools at %%LOCALAPPDATA%%\Android\Sdk\platform-tools or C:\Tools\platform-tools — WinGet adb hangs under Jenkins.>> "%DEBUG_LOG%"
-echo [HINT] As the Jenkins agent Windows user, run:  "%%ADB_EXE%%" kill-server ^& "%%ADB_EXE%%" devices>> "%DEBUG_LOG%"
+echo [HINT] adb devices hang = USB/daemon wedged. As Jenkins agent user ^(interactive desktop^):>> "%DEBUG_LOG%"
+echo [HINT]   1^) Unplug/replug phone, unlock, accept RSA if prompted>> "%DEBUG_LOG%"
+echo [HINT]   2^) Close Maestro Studio / leftover maestro java>> "%DEBUG_LOG%"
+echo [HINT]   3^) "%%ADB_EXE%%" kill-server ^& "%%ADB_EXE%%" devices>> "%DEBUG_LOG%"
+echo [HINT]   4^) Ensure only C:\Tools\platform-tools\adb.exe is used ^(not WinGet^)>> "%DEBUG_LOG%"
 type "%DEBUG_LOG%"
 exit /b 1
 

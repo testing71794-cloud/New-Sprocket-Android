@@ -57,21 +57,26 @@ def _adb_serials_via_python() -> tuple[str | None, list[str], str]:
     if not adb:
         return None, [], ""
     try:
+        # Do not capture start-server pipes — can deadlock on Windows like WinGet adb.
         subprocess.run(
             [adb, "start-server"],
-            capture_output=True,
-            text=True,
-            timeout=20,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            timeout=25,
             check=False,
         )
     except (OSError, subprocess.TimeoutExpired):
         pass
+    # Settle window — racing devices right after start-server often hangs on flaky USB agents.
+    import time as _time
+
+    _time.sleep(5)
     try:
         proc = subprocess.run(
             [adb, "devices"],
             capture_output=True,
             text=True,
-            timeout=30,
+            timeout=90,
             check=False,
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
