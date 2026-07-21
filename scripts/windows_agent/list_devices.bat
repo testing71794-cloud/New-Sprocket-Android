@@ -78,6 +78,9 @@ if not defined ADB_EXE (
 )
 echo ADB_EXE=%ADB_EXE%>> "%DEBUG_LOG%"
 echo ADB_EXE="%ADB_EXE%"
+echo [list_devices] script_rev=2026-07-windows-agent-list-devices-adb-timeout-3
+echo [list_devices] ADB_DEVICES_TIMEOUT_SEC=%ADB_DEVICES_TIMEOUT_SEC% attempts=%ADB_DETECT_WAIT_ATTEMPTS%
+echo [list_devices] Progress is live below; a hung adb devices call can take up to %ADB_DEVICES_TIMEOUT_SEC%s per attempt.
 
 del /q "%OUT_FILE%" 2>nul
 
@@ -93,28 +96,34 @@ set /a "_ATT=0"
 set /a "_ATT+=1"
 echo.>> "%DEBUG_LOG%"
 echo [detect] attempt !_ATT!/%ADB_DETECT_WAIT_ATTEMPTS% ^(wait %ADB_DETECT_WAIT_SECS%s, devices_timeout=%ADB_DEVICES_TIMEOUT_SEC%s^)>> "%DEBUG_LOG%"
+echo [list_devices] attempt !_ATT!/%ADB_DETECT_WAIT_ATTEMPTS% ...
 
 REM Soft recovery only — hard taskkill only on later attempts (USB needs time to re-enumerate).
 if !_ATT! EQU 2 (
   echo [detect] soft restart: adb kill-server>> "%DEBUG_LOG%"
+  echo [list_devices] soft restart: adb kill-server
   powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs kill-server -TimeoutSec 10 >> "%DEBUG_LOG%" 2>&1
   call :sleep_seconds 3
 )
 if !_ATT! GEQ 4 (
   echo [detect] hard restart: taskkill adb.exe ^(last-resort^)>> "%DEBUG_LOG%"
+  echo [list_devices] hard restart: taskkill adb.exe
   taskkill /F /IM adb.exe /T >nul 2>&1
   call :sleep_seconds 5
 )
 
 echo Starting ADB server...>> "%DEBUG_LOG%"
+echo [list_devices] adb start-server ...
 powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs start-server -TimeoutSec 12 >> "%DEBUG_LOG%" 2>&1
 REM Give daemon + USB a settle window before devices (do not race).
 echo [detect] waiting 5s for adb daemon/USB settle...>> "%DEBUG_LOG%"
+echo [list_devices] waiting 5s for adb daemon/USB settle...
 call :sleep_seconds 5
 
 set "ADB_DEVICES_TMP=%TEMP%\adb_devices_list_%RANDOM%.txt"
 echo.>> "%DEBUG_LOG%"
 echo --- adb devices ^(full output, timeout %ADB_DEVICES_TIMEOUT_SEC%s^) --->> "%DEBUG_LOG%"
+echo [list_devices] adb devices ^(timeout %ADB_DEVICES_TIMEOUT_SEC%s^) ...
 REM Do not KillAllAdbOnTimeout — leave daemon alive so USB can finish recovering.
 powershell -NoProfile -ExecutionPolicy Bypass -File "%ADB_TIMEOUT_PS%" -AdbExe "%ADB_EXE%" -AdbArgs devices -TimeoutSec %ADB_DEVICES_TIMEOUT_SEC% -OutFile "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%" 2>&1
 set "ADB_EC=!ERRORLEVEL!"
@@ -123,6 +132,7 @@ if not exist "%ADB_DEVICES_TMP%" (
 )
 if not "!ADB_EC!"=="0" if not "!ADB_EC!"=="1" (
   echo [WARN] adb devices soft-fail exit=!ADB_EC! on attempt !_ATT!>> "%DEBUG_LOG%"
+  echo [list_devices] WARN: adb devices exit=!ADB_EC!
 )
 type "%ADB_DEVICES_TMP%" >> "%DEBUG_LOG%"
 type "%ADB_DEVICES_TMP%"
@@ -141,6 +151,7 @@ if !COUNT! GTR 0 goto :detect_done
 
 if !_ATT! LSS %ADB_DETECT_WAIT_ATTEMPTS% (
   echo [WARN] No device in state "device" yet; waiting %ADB_DETECT_WAIT_SECS%s...>> "%DEBUG_LOG%"
+  echo [list_devices] no device yet; waiting %ADB_DETECT_WAIT_SECS%s...
   call :sleep_seconds %ADB_DETECT_WAIT_SECS%
   goto :detect_loop
 )
