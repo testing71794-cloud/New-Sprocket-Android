@@ -815,6 +815,21 @@ def _report_device_outcome(
                 "If it still fails: close Maestro Studio on the agent, stop other maestro.exe runs, then re-run.",
                 flush=True,
             )
+        if "INSTALL_FAILED_USER_RESTRICTED" in tail or "Install canceled by user" in tail:
+            print(
+                "  [hint] INSTALL_FAILED_USER_RESTRICTED = phone blocked USB app installs. "
+                "On device Developer options enable: USB debugging, Install via USB, "
+                "USB debugging (Security settings); disable MIUI/OEM install monitoring if present. "
+                "Watch the phone during the next run and tap Allow if a prompt appears.",
+                flush=True,
+            )
+        if "INSTALL_FAILED_INSUFFICIENT_STORAGE" in tail:
+            print(
+                "  [hint] INSTALL_FAILED_INSUFFICIENT_STORAGE often means package-scan failure "
+                "(or full storage). Free phone/PC space, avoid --reinstall-driver every flow, "
+                "reboot the phone, then re-run.",
+                flush=True,
+            )
         return True
     print(f"  [OK] exit={ex} device={_dev_log(dev)}{dur_hint}", flush=True)
     log_lifecycle(repo, suite_id, WorkerState.COMPLETE, "flow ok", device=dev, flow=flow_base)
