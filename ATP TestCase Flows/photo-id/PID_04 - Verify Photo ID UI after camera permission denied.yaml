@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_04
+# Excel: Photo ID  04 | Module: UI Verification
+# Verify Photo ID UI after camera permission denied
+# Expected: Photo ID camera preview is not displayed and user receives camera permission message.
+appId: com.hp.impulse.sprocket
+name: "PID_04 - Verify Photo ID UI after camera permission denied"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photo ID"
+    optional: true

@@ -1,27 +1,53 @@
-# Settings — 25 ATP cases
+# Settings — 51 ATP cases
 
-- [ ] Print Preview Screen 27 | Data & Flow | Printer Reconnection Flow and State Persistence
-- [ ] AI Tools 105 | Settings | Verify Copies/Tiles adjustment
+- [ ] Hamburger Menu 01 | Navigation | Access Hamburger Menu
+- [ ] Hamburger Menu  02 | UI/Layout | Verify Logged Out Hamburger Menu UI
+- [ ] Hamburger Menu  03 | Logic | Verify Logged Out State
+- [ ] Hamburger Menu  04 | Navigation | Verify Log In Redirection
+- [ ] Hamburger Menu  05 | UI/Layout | Verify Logged In Hamburger Menu UI
+- [ ] Hamburger Menu  06 | Navigation | Verify Close Menu Functionality
+- [ ] Hamburger Menu  07 | Navigation | Verify App Settings Access
+- [ ] Hamburger Menu  08 | Navigation | Verify Account Settings Access
+- [ ] Hamburger Menu  09 | Navigation | Verify Printer Help
+- [ ] Hamburger Menu  10 | Navigation | Verify Order Photo Paper
+- [ ] Hamburger Menu  11 | Navigation | Verify Visit Support Website
+- [ ] Hamburger Menu  12 | Navigation | Verify Legal & Privacy Access
+- [ ] Hamburger Menu  13 | UI/UX | Verify Scroll Behavior
+- [ ] Hamburger Menu  14 | UI/Layout | Verify Header and Logo
+- [ ] Hamburger Menu 15 | Initialization | Verify Log In & Navigate to Account Settings
 - [ ] Hamburger Menu 16 | Personal | Verify Name Field Display
 - [ ] Hamburger Menu 17 | Personal | Verify Change Password with Invalid Data
 - [ ] Hamburger Menu 19 | Change Password | Verify Change Password Screen UI
 - [ ] Humburger Menu 20 | Change Password | Verify Current Password Field
+- [ ] Hamburger Menu 21 | Validation | Verify Incorrect Current Password Error
+- [ ] Hamburger Menu 22 | Validation | Verify New Password Requirement Error
+- [ ] Hamburger Menu 23 | Validation | Verify Password Mismatch Error
+- [ ] Hamburger Menu 24 | Validation | Verify Empty Fields Validation
 - [ ] Hamburger Menu 25 | Error | Verify Password Update Failure
 - [ ] Hamburger Menu 26 | Change Password | Verify Successful Password Change
+- [ ] Hamburger Menu 27 | Navigation | Verify Back Button
 - [ ] Hamburger Menu 28 | Logout | Trigger Logout Pop-up
 - [ ] Hamburger Menu 29 | Logout | Cancel Logout
 - [ ] Hamburger Menu 30 | Logout | Confirm Logout
 - [ ] Hamburger Menu 31 | Account | Trigger Delete Account Pop-up
 - [ ] Hamburger Menu 32 | Account | Cancel Account Deletion
+- [ ] Hamburger Menu 36 | Initialization | Launch & Social Login
+- [ ] Hamburger Menu 37 | Navigation | Access Account Settings
+- [ ] Hamburger Menu 38 | UI Layout | API Auth UI Validation
+- [ ] Hamburger Menu  40 | Logic | Field Constraint Validation
+- [ ] Hamburger Menu 41 | Initialization | Navigation to App Settings
 - [ ] Hamburger Menu 42 | Permissions | Verify Permissions Option
 - [ ] Hamburger Menu 43 | Display | Verify Default State of Display App Hints
 - [ ] Hamburger Menu 44 | Display | Toggle App Hints ON/OFF
 - [ ] Hamburger Menu 45 | Data | Verify Default Low Data Mode State
 - [ ] Hamburger Menu 46 | Data | Toggle Low Data Mode Functionality
 - [ ] Hamburger Menu 47 | Version | Verify App Version Display
+- [ ] Hamburger Menu 48 | Navigation | Verify Back Navigation
+- [ ] Hamburger Menu 49 | Navigation | Access Legal & Privacy Screen
 - [ ] Hamburger Menu 50 | Data | Data Collection Settings Navigation
 - [ ] Hamburger Menu 51 | Data | Data Collection Exit Pop-up Validation
 - [ ] Hamburger Menu 52 | Privacy | Verify Privacy Policy Open
 - [ ] Hamburger Menu 53 | Legal | Verify End User License Agreement
 - [ ] Hamburger Menu 54 | Legal | Verify Terms of Service
 - [ ] Hamburger Menu 55 | Legal | Open Source Licenses Navigation
+- [ ] Hamburger Menu 56 | Navigation | Back Button Functionality

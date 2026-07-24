@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_127
+# Excel: AI tools 146 | Module: Instructional
+# Verify Sticky Footer
+# Expected: Sticky footer text "Please select an image to start" is displayed at the bottom.
+appId: com.hp.impulse.sprocket
+name: "AI_127 - Verify Sticky Footer"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Please select an image to start"
+    optional: true

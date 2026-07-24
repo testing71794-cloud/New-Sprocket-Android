@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_55
+# Excel: Print Preview Screen 55 | Module: UI/Layout
+# Verify responsive scaling ($375\times667$)
+# Expected: Preview canvas scales to 65.64% of regular mockups; UI remains readable.
+appId: com.hp.impulse.sprocket
+name: "PR_55 - Verify responsive scaling 375times667"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

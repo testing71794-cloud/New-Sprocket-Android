@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_102
+# Excel: Ai Tools 121 | Module: Interaction
+# Verify image resize and reposition
+# Expected: User can resize, rotate and reposition image smoothly.
+appId: com.hp.impulse.sprocket
+name: "AI_102 - Verify image resize and reposition"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

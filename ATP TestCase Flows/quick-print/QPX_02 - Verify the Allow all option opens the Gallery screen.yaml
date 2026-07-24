@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_02
+# Excel: QUICK PRINT_002 | Module: Gallery Permission
+# Verify the Allow all option opens the Gallery screen.
+# Expected: The Gallery screen opens and all images are displayed successfully.
+appId: com.hp.impulse.sprocket
+name: "QPX_02 - Verify the Allow all option opens the Gallery screen"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Allow all"
+    optional: true

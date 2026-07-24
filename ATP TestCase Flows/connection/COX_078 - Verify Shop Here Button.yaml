@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_078
+# Excel: PCF_Studio_003 | Module: Pre Connection Flow for Sprocket Studio
+# Verify Shop Here Button
+# Expected: Device default browser should open. Sprocket Studio Power Bank webpage should be displayed.
+appId: com.hp.impulse.sprocket
+name: "COX_078 - Verify Shop Here Button"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

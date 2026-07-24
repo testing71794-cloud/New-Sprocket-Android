@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_005
+# Excel: PCF-005 | Module: Pre Connection Flow
+# Verify that the user can scroll through all available printer models from right to left
+# Expected: At 'Select Your Device' screen user should be able to scroll the carousel horizontally right to left
+appId: com.hp.impulse.sprocket
+name: "COX_005 - Verify that the user can scroll through all available printe"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Select Your Device"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

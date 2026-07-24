@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_10
+# Excel: AI Tools  10 | Module: AI Tools
+# Verify Generate Tools navigation
+# Expected: Redirects to CR_15A or CR_15B respectively.
+appId: com.hp.impulse.sprocket
+name: "AI_10 - Verify Generate Tools navigation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

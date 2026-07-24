@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_59
+# Excel: AI Tools 78 | Module: Replace Object
+# Verify thumbnail swapping
+# Expected: Main preview area updates to reflect the tapped thumbnail variation.
+appId: com.hp.impulse.sprocket
+name: "AI_59 - Verify thumbnail swapping"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

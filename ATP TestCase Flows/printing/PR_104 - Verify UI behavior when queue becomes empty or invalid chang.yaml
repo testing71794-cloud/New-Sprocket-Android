@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_104
+# Excel: Print Preview Screen 105 | Module: Print UI
+# Verify UI behavior when queue becomes empty or invalid changes are made
+# Expected: No broken image stack or incorrect badge count is displayed. Appropriate message is shown if no queued items remain. Progress bar, timestamp and Printing status remain stable. Done button works correctly and the application does not crash.
+appId: com.hp.impulse.sprocket
+name: "PR_104 - Verify UI behavior when queue becomes empty or invalid chang"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

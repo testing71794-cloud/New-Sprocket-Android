@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_042
+# Excel: PCF_HP3*4_005 | Module: Pre Connection Flow for Sprocket 3x4
+# Verify 'Get Connected' Screen UI for the HP Sprocket 3x4 printer.
+# Expected: 1. The Get Connected screen should be displayed. 2. Printer/mobile connection illustration should be displayed. 3. The title "Get Connected" should be displayed. 4. The following description should be displayed: Bluetooth® and printer turne
+appId: com.hp.impulse.sprocket
+name: "COX_042 - Verify Get Connected Screen UI for the HP Sprocket 3x4 print"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Get Connected"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

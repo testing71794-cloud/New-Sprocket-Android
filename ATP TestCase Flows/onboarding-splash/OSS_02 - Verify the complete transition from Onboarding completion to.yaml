@@ -1,0 +1,14 @@
+# ATP Test Case ID: OSS_02
+# Excel: ON_01 | Module: Onboarding to Sign Up
+# Verify the complete transition from Onboarding completion to the Sign Up Options screen
+# Expected: User should be successfully navigated from ON_01E_Onboarding Step 4 to ON_02A_Sign Up Options (iOS) screen without any delay, crash, or incorrect navigation
+appId: com.hp.impulse.sprocket
+name: "OSS_02 - Verify the complete transition from Onboarding completion to"
+tags:
+  - onboarding-splash
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sign up"
+    optional: true

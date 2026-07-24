@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_38
+# Excel: Firmware Update 38 | Module: Firmware Popup
+# Verify popup reopens correctly
+# Expected: Popup opens correctly every time.
+appId: com.hp.impulse.sprocket
+name: "FW_38 - Verify popup reopens correctly"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

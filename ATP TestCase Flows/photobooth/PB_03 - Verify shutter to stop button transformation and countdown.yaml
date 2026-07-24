@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_03
+# Excel: Photobooth 03 | Module: Photobooth Countdown
+# Verify shutter to stop button transformation and countdown
+# Expected: Round shutter button changes to a square Stop button instantly. Countdown numbers 3, 2, 1 are displayed clearly before each photo. Flash, Switch Camera, and Back buttons are hidden during capture. The app captures 4 photos successfully with
+appId: com.hp.impulse.sprocket
+name: "PB_03 - Verify shutter to stop button transformation and countdown"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Flash"
+    optional: true

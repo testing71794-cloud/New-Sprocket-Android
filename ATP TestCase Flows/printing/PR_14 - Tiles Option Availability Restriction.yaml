@@ -1,0 +1,17 @@
+# ATP Test Case ID: PR_14
+# Excel: Print Preview Screen 14 | Module: Functionality
+# Tiles Option Availability Restriction
+# Expected: The Tiles option is not displayed or accessible. Only the Copies control is visible.
+appId: com.hp.impulse.sprocket
+name: "PR_14 - Tiles Option Availability Restriction"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true

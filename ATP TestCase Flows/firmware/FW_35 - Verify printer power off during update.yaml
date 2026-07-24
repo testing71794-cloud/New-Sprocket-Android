@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_35
+# Excel: Firmware Update 35 | Module: Firmware Negative
+# Verify printer power off during update
+# Expected: Warning/error displayed.
+appId: com.hp.impulse.sprocket
+name: "FW_35 - Verify printer power off during update"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

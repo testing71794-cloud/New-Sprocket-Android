@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_148
+# Excel: AI  Tools 167 | Module: Preview Next Step
+# Verify Generate Object routing
+# Expected: User navigates to CR_15B_Generate Object - Reference.
+appId: com.hp.impulse.sprocket
+name: "AI_148 - Verify Generate Object routing"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

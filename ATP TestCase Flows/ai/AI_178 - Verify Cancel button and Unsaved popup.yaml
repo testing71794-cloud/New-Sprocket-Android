@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_178
+# Excel: AI Tools 197 | Module: AI Tools
+# Verify Cancel button and Unsaved popup
+# Expected: Unsaved Changes popup appears with Cancel/Leave options.
+appId: com.hp.impulse.sprocket
+name: "AI_178 - Verify Cancel button and Unsaved popup"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

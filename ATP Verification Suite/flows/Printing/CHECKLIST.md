@@ -1,9 +1,10 @@
-# Printing — 76 ATP cases
+# Printing — 106 ATP cases
 
-- [ ] Collage_14 | Print Preview UI | Verify Print Preview screen
 - [ ] Print Preview Screen 01 | Permission | Media Access Modal
 - [ ] Print Preview Screen 02 | Print Preview | Header Status
+- [ ] Print Preview Screen 03 | Controls | Copies vs. Tiles
 - [ ] Print Preview Screen 04 | Print Action | Print & Edit Buttons
+- [ ] Print Preview Screen 05 | Navigation | Bottom Nav Bar
 - [ ] Print Preview Screen 06 | Print Preview | Default UI State
 - [ ] Print Preview Screen 07 | Print Preview | Header Actions
 - [ ] Print Preview Screen 08 | Print Preview | Copy Control Limits
@@ -12,16 +13,58 @@
 - [ ] Print Preview Screen 11 | Print Preview | Back Navigation
 - [ ] Print Preview Screen 12 | Print Preview | Paper Layout
 - [ ] Print Preview Screen 13 | Print Preview | UI Layout Verification for Pre-Cut Sticker Flow
+- [ ] Print Preview Screen 14 | Functionality | Tiles Option Availability Restriction
+- [ ] Print Preview Screen 15 | UI Layout | AI Button Visibility Restriction
+- [ ] Print Preview Screen 16 | Controls | Copy Count Adjustment and Boundary Validation
+- [ ] Print Preview Screen 17 | Navigation | Edit, Print, and Back Button Functionality
 - [ ] Print Preview Screen 18 | Print Preview | Feature Availability Verification for Multiple Photos
+- [ ] Print Preview Screen 19 | Carousel | Photo Selection Order Verification
+- [ ] Print Preview Screen 20 | Carousel | Swipe Navigation Between Photos
+- [ ] Print Preview Screen 21 | Carousel | Peeking Photo Selection via Tap
+- [ ] Print Preview Screen 22 | Carousel | Edit Button Overlay Behavior on Peeking Photos
+- [ ] Print Preview Screen 23 | Functionality | AI Button Functionality Without Printer
+- [ ] Print Preview Screen 24 | Functionality | Edit Button Functionality Without Printer
+- [ ] Print Preview Screen  25 | Functionality | Photo Carousel Interaction Without Printer
+- [ ] Print Preview Screen 26 | UI Layout | UI State and Connection Trigger When Printer is Offline
+- [ ] Print Preview Screen 27 | Data & Flow | Printer Reconnection Flow and State Persistence
 - [ ] Print Preview Screen 28 | Flow Handling | Connection Cancellation and Early Exit Behavior
 - [ ] Print Preview Screen 29 | Print Flow | Edit & Validation Loader
+- [ ] Print Preview Screen 30 | Reconnection | Printer Reconnection Flow
 - [ ] Print Preview Screen 31 | Print Loader | Blocker Error Handling
 - [ ] Print Preview Screen 32 | Error Handling | Trigger & UI Verification
+- [ ] Print Preview Screen 33 | Hardware | Sprocket 3×4 Constraint
+- [ ] Print Preview Screen 34 | Firmware Update | Trigger & UI Validation
+- [ ] Print Preview Screen 35 | Firmware Update | Dismissal Interaction
 - [ ] Print Preview Screen 36 | Print Preview | Verify AI/Edit, Copy Limits, Print Button and Error Handling
+- [ ] Print Preview Screen 37 | Gestures | Verify Fit/Fill Toast
+- [ ] Print Preview Screen 38 | Gestures | Verify Double Tap
+- [ ] Print Preview Screen 39 | Snapping | Verify Rotation Snap
+- [ ] Print Preview Screen 40 | Snapping | Verify Center Snap
+- [ ] Print Preview Screen 41 | Snapping | Verify Edge Snap
+- [ ] Print Preview Screen 42 | Gestures | Verify Boundary Lock
+- [ ] Print Preview Screen 43 | Gestures | Verify Fit/Fill Lock
 - [ ] Print Preview Screen 44 | Save Pop-up | Verify Save to Gallery option
 - [ ] Print Preview Screen 45 | Save Pop-up | Verify Do Not Save and X options
+- [ ] Print Preview Screen 46 | Warning Toast | Trigger Warning for Low-Resolution Native Images
+- [ ] Print Preview Screen 47 | Warning Toast | Trigger Warning for Low-Resolution Social Media Images
+- [ ] Print Preview Screen 48 | Warning Toast | Dismissal via Close Icon Interaction
+- [ ] Print Preview Screen 49 | Warning Toast | Layout and Icon Asset Validation
+- [ ] Print Preview Screen 50 | Firmware Update | Intercept Print Action During Active Firmware Update
+- [ ] Print Preview Screen 51 | Firmware Update | Dismiss Popup via OK Button
+- [ ] Print Preview Screen 52 | Firmware Update | Dismiss Popup via Close Icon
 - [ ] Print Preview Screen 53 | Print Preview | Verify layout controls for Studio / Studio Plus printer
 - [ ] Print Preview Screen 54 | Print Preview | Verify Tiles option is unavailable for Studio / Studio Plus printer
+- [ ] Print Preview Screen 55 | UI/Layout | Verify responsive scaling ($375\times667$)
+- [ ] Print Preview Screen 56 | Paper Type | Verify $2\times3"$ and $4\times6"$ layout
+- [ ] Print Preview Screen 57 | Paper Type | Verify $2.3\times3.4"$ and $3.5\times4.25"$ layout
+- [ ] Print Preview Screen 58 | PreCut | Verify PreCut Sticker restriction
+- [ ] Print Preview Screen 59 | UI/Layout | Verify UI control presence
+- [ ] Print Preview Screen 60 | PreCut | Verify AI button absence
+- [ ] Print Preview Screen 61 | Edit Tip | First-Time Session Tip Appearance
+- [ ] Print Preview Screen 62 | Edit Tip | Auto-Fade Duration Validation
+- [ ] Print Preview Screen 63 | Edit Tip | Session Repetition Restriction Check
+- [ ] Print Preview Screen 64 | Edit Tip | Priority Handling with System Toast Messages
+- [ ] Print Preview Screen 65 | Photo Fit | Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation
 - [ ] Print Preview Screen 66 | Print State | Canvas Animation and Multi-Photo Queue Sequencing
 - [ ] Print Preview Screen 67 | Print State | Tile Grid Printing Queue Progression
 - [ ] Print Preview Screen 68 | Print State | Error Handling During Multi-Photo Print Transitions
@@ -40,12 +83,16 @@
 - [ ] Print Preview Screen 81 | Print Complete | Verify Post-Print Navigation Behavior from Different Sources
 - [ ] Print Preview Screen 82 | Print Queue | Verify access, interruption, and data retention
 - [ ] Print Preview Screen 83 | Print Interruption | Verify error handling and queue state
+- [ ] Print Preview Screen 84 | Automation | Verify automatic queue resumption
+- [ ] Print Preview Screen 85 | Pop-up Logic | Verify UI state after reconnection
+- [ ] Print Preview Screen 86 | Navigation | Verify Print Queue can be accessed from Print State and navigation controls function correctly.
 - [ ] Print Preview Screen 87 | Single Photo Print Job | Verify behavior when the only pending single-photo print job is deleted.
 - [ ] Print Preview Screen 88 | Multiple Photo / Multiple Copy Print Job | Verify retention on Print State screen when only part of the queue is deleted.
 - [ ] Print Preview Screen 89 | Single Photo Print Job | Verify deletion restriction for an active print job.
 - [ ] Print Preview Screen 90 | Multiple Photo Print Job | Verify Home redirection when all pending photos are deleted.
 - [ ] Print Preview Screen 91 | Multiple Copy Print Job | Verify Home redirection when all pending copies are deleted.
 - [ ] Print Preview Screen 92 | Pop-up Trigger | Verify "Resume Queue" pop-up is displayed when a new print job is initiated while the print queue is
+- [ ] Print Preview Screen 93 | Pop-up UI Validation | Verify the Resume Queue pop-up displays the correct content and action buttons.
 - [ ] Print Preview Screen 94 | Resume Queue Action | Verify selecting "Yes, Resume" resumes the paused queue and starts printing.
 - [ ] Print Preview Screen 95 | Active Printing Validation | Verify the Resume Queue pop-up is not displayed when the queue is active and a print job is already 
 - [ ] Print Preview Screen 96 | Blocker Priority Validation | Verify printer blocker/error conditions take precedence over the Resume Queue pop-up.
@@ -57,22 +104,5 @@
 - [ ] Print Preview Screen 103 | Deleting from Queue | Verify restrictions and hidden UI elements
 - [ ] Print Preview Screen 104 | Print UI | Verify updated Print State graphic after queue changes
 - [ ] Print Preview Screen 105 | Print UI | Verify UI behavior when queue becomes empty or invalid changes are made
-- [ ] Photo ID 15 | Print Preview 2×2 | Verify Print Preview UI
-- [ ] Photo ID 16 | Print Preview 1×1 | Verify Print Preview UI
-- [ ] Photo ID 17 | Print Preview 1.4×1.8 | Verify Print Preview UI
-- [ ] Photo ID 18 | Print Preview 1.3×1.9 | Verify Print Preview UI
-- [ ] Photo ID 23 | Photo ID Print Preview | Verify disabled Edit button and Print Preview UI
-- [ ] AI Tools 113 | Print Preview | Verify UI elements and functionality of the print preview screen.
-- [ ] AI Tools 200 | Print Preview | Verify Next button navigation
-- [ ] AI Tools 201 | Print Preview | Verify Print Preview UI
-- [ ] AI Tools 202 | Print Preview | Verify Back Arrow
-- [ ] AI Tools 203 | Print Preview | Verify Share button
-- [ ] AI Tools 204 | Print Preview | Verify Edit icon
-- [ ] AI Tools 205 | Print Preview | Verify Copies option
-- [ ] AI Tools 206 | Print Preview | Verify Tiles option
-- [ ] Blockers Error Pop up Android   17 | Transmission | Verify "Error Sending Image" popup
-- [ ] Stoppers Error Pop up Ios   17 | Memory | Verify "Memory Error" popup
-- [ ] Stoppers Error Pop up Ios    18 | Transmit | Verify "Transmit Error" popup
-- [ ] Stoppers Error Pop up Ios   19 | Voltage | Verify "Low Voltage" popup
-- [ ] Stoppers Error Pop up Ios   20 | Print | Verify "Print Error" popup
-- [ ] Custom SDK  13 | Video Print Preview | Verify Video Print Preview screen and all UI elements
+- [ ] Print Preview Screen  106 | Saved to Gallery Toast | Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage
+- [ ] Print Preview Screen 107 | Saved to Gallery Toast | Verify toast message and Gallery save failure handling

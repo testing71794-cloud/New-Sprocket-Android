@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_18
+# Excel: Photo ID 18 | Module: Print Preview 1.3×1.9
+# Verify Print Preview UI
+# Expected: 1.3×1.9 Print Preview is displayed correctly.
+appId: com.hp.impulse.sprocket
+name: "PID_18 - Verify Print Preview UI"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

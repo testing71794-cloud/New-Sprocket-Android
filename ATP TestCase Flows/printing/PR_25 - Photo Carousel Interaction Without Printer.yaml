@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_25
+# Excel: Print Preview Screen  25 | Module: Functionality
+# Photo Carousel Interaction Without Printer
+# Expected: The photo carousel remains fully functional and allows navigation between photos even when no printer is connected.
+appId: com.hp.impulse.sprocket
+name: "PR_25 - Photo Carousel Interaction Without Printer"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

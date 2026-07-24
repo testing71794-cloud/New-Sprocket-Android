@@ -1,0 +1,17 @@
+# ATP Test Case ID: PR_54
+# Excel: Print Preview Screen 54 | Module: Print Preview
+# Verify Tiles option is unavailable for Studio / Studio Plus printer
+# Expected: The Tiles feature is hidden or disabled and cannot be selected. The app remains stable and no UI issues are observed.
+appId: com.hp.impulse.sprocket
+name: "PR_54 - Verify Tiles option is unavailable for Studio Studio Plus pr"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

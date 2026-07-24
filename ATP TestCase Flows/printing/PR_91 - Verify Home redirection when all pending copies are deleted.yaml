@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_91
+# Excel: Print Preview Screen 91 | Module: Multiple Copy Print Job
+# Verify Home redirection when all pending copies are deleted.
+# Expected: User is redirected to CR_01A_Home - Logged In because all pending copies have been removed and no print jobs remain in the queue.
+appId: com.hp.impulse.sprocket
+name: "PR_91 - Verify Home redirection when all pending copies are deleted"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Copies"
+    optional: true

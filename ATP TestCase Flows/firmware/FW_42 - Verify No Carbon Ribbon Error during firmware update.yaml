@@ -1,0 +1,20 @@
+# ATP Test Case ID: FW_42
+# Excel: Firmware Update 42 | Module: Firmware Error Handling
+# Verify No Carbon Ribbon Error during firmware update
+# Expected: Error message is displayed: "No Carbon Ribbon" with instruction "If carbon ribbon is used up, please replace ink cartridge." The popup includes a "Try Again" button at the bottom and a Close (X) icon in the top-right corner.
+appId: com.hp.impulse.sprocket
+name: "FW_42 - Verify No Carbon Ribbon Error during firmware update"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Carbon Ribbon"
+    optional: true
+- assertVisible:
+    text: "If carbon ribbon is used up, please replace ink cartridge."
+    optional: true
+- assertVisible:
+    text: "Try Again"
+    optional: true

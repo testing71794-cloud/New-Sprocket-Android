@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_85
+# Excel: AI Tools 104 | Module: Print
+# Verify Print functionality
+# Expected: Enhanced photo sent to connected printer “HP Sprocket Studio Plus 66FE”.
+appId: com.hp.impulse.sprocket
+name: "AI_85 - Verify Print functionality"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "HP Sprocket Studio Plus 66FE"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

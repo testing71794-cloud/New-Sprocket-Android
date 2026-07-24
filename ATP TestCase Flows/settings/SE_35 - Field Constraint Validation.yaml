@@ -1,0 +1,14 @@
+# ATP Test Case ID: SE_35
+# Excel: Hamburger Menu  40 | Module: Logic
+# Field Constraint Validation
+# Expected: Username edit and password change options are unavailable for API authenticated users.
+appId: com.hp.impulse.sprocket
+name: "SE_35 - Field Constraint Validation"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "password"
+    optional: true

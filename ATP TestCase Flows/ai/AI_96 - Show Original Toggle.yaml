@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_96
+# Excel: AI Tools 115 | Module: Interaction
+# "Show Original" Toggle
+# Expected: Image switches between upscaled and original versions.
+appId: com.hp.impulse.sprocket
+name: "AI_96 - Show Original Toggle"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Show Original"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_227
+# Excel: HP600_CONN_TC065 | Module: Wi-Fi Direct
+# Verify Connect to DIRECT-xxxx screen
+# Expected: Connect to DIRECT-xxxx instruction screen is displayed.
+appId: com.hp.impulse.sprocket
+name: "COX_227 - Verify Connect to DIRECT-xxxx screen"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

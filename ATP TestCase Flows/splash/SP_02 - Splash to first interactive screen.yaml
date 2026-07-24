@@ -1,21 +1,17 @@
 # ATP Test Case ID: SP_02
-# Video t03–t04 — splash resolves to first interactive screen
+# Splash resolves to first interactive screen (Sign up; Welcome carousel optional).
 appId: com.hp.impulse.sprocket
 name: "SP_02 - Splash to first interactive screen"
 ---
 - launchApp:
     clearState: true
 - runFlow: ../common/subflows/wait_after_cold_launch.yaml
-- runFlow:
-    when:
-      visible: "Welcome to the new Sprocket!"
-    commands:
-      - assertVisible: "Enjoy the revamped Sprocket experience with intuitive navigation."
-      - assertVisible: "Swipe to continue."
-- runFlow:
-    when:
-      visible: "Sign up"
-    commands:
-      - assertVisible: "Sign up with Google"
-      - assertVisible: "Sign up with Email"
-      - assertVisible: "Sign Up Later"
+- runFlow: ../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 20000
+- assertVisible: "Sign up"
+- assertVisible: ".*(?i)(I.ll do it later|Sign Up Later).*"
+- assertVisible:
+    text: ".*(?i)(I already have (an )?account).*"
+    optional: true

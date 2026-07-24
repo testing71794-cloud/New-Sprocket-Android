@@ -1,0 +1,23 @@
+# ATP Test Case ID: COX_001
+# Excel: PCF-001 | Module: Pre Connection Flow
+# Verify to navigate to 'Add a new Printer' screen
+# Expected: A screen should be displayed with the text 'No Printers Added' along with an 'Add New Printer' button.
+appId: com.hp.impulse.sprocket
+name: "COX_001 - Verify to navigate to Add a new Printer screen"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "No Printers Added"
+    optional: true
+- assertVisible:
+    text: "Add New Printer"
+    optional: true
+- assertVisible:
+    text: "Add a new Printer"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

@@ -1,0 +1,10 @@
+# Shared Excel-generated setup for Onboarding ATP module
+appId: com.hp.impulse.sprocket
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 15000

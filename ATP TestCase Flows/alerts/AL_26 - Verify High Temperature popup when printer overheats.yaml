@@ -1,0 +1,14 @@
+# ATP Test Case ID: AL_26
+# Excel: Blockers Error Pop up Ios 005 | Module: iOS_16_High Temperature
+# Verify High Temperature popup when printer overheats
+# Expected: Title: High Temperature.
+appId: com.hp.impulse.sprocket
+name: "AL_26 - Verify High Temperature popup when printer overheats"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

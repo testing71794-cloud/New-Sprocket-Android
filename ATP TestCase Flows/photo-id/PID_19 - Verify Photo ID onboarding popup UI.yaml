@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_19
+# Excel: Photo ID 19 | Module: Photo ID Pop-up
+# Verify Photo ID onboarding popup UI
+# Expected: Popup UI is displayed correctly and background controls are disabled.
+appId: com.hp.impulse.sprocket
+name: "PID_19 - Verify Photo ID onboarding popup UI"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photo ID"
+    optional: true

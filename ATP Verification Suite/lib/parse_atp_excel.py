@@ -12,9 +12,33 @@ SUITE = Path(__file__).resolve().parents[1]
 CATALOG = SUITE / "catalog"
 DEFAULT_XLSX = CATALOG / "Hp_new_sprocket_ATP_Sheet.xlsx"
 
+# Excel sheet section headers → dedicated product modules (checked first).
+SECTION_STAGE: list[tuple[str, str]] = [
+    (r"onboarding\s*splash\s*screen", "OnboardingSplash"),
+    (r"^\s*photo\s*id\s*$", "PhotoID"),
+    (r"^\s*photobooth\s*$", "Photobooth"),
+    (r"^\s*tiles?\s*modules?\s*$", "TilePrint"),
+    (r"^\s*precut\s*$", "PreCut"),
+    (r"^\s*video\s*frames?\s*$", "Video"),
+    (r"^\s*custom\s*sdk\s*$", "CustomSDK"),
+    (r"^\s*ai\s*tools?\s*sdk\s*$", "AI"),
+    (r"^\s*collage\s*$", "Collage"),
+    (r"^\s*quick\s*print\s*$", "QuickPrint"),
+    (r"^\s*main\s*home\s*screen", "Home"),
+    (r"^\s*print\s*previews?\s*screen", "Printing"),
+    (r"humburger\s*menu|hamburger\s*menu|account\s*setting|app\s*settings|legal", "Settings"),
+    (r"blockers?\s*&?\s*stoppers?|error\s*pop\s*up", "Alerts"),
+    (r"^\s*connection\s*flow\s*$", "Connection"),
+    (r"printers?\s*detail", "Connection"),
+    (r"firmware\s*update|bluetooth\s*/\s*hp", "Firmware"),
+]
+
 # Fine-grained ATP "Module" cells → coarse stage used for one-flow-per-module runs.
 # Order matters: more specific product areas before generic keywords (e.g. collage before gallery).
 STAGE_RULES: list[tuple[str, str]] = [
+    (r"photo\s*id|photoid", "PhotoID"),
+    (r"photobooth|photo\s*booth", "Photobooth"),
+    (r"custom\s*sdk", "CustomSDK"),
     (r"splash screen|^splash\b", "Splash"),
     (r"onboarding|sign up|log[\s_-]?in|auth|forgot password|privacy policy|app launch & auth|create account", "Onboarding"),
     (r"home screen|application launch and home|notification permission", "Home"),
@@ -25,30 +49,34 @@ STAGE_RULES: list[tuple[str, str]] = [
     (r"print preview|print action|print flow|print loader|print complete|print tip|print queue|print interruption|print state|print ui|saved to gallery|multicopy|deleting from queue|single photo print|multiple photo|multiple copy|blocker|resume queue|active printing", "Printing"),
     (r"firmware", "Firmware"),
     (r"\btile\b|\btiles\b", "TilePrint"),
-    (r"photobooth|countdown|capture view|flash logic|\bcamera\b|\btimer\b|photo id|aspect ratio", "Camera"),
+    (r"countdown|capture view|flash logic|\bcamera\b|\btimer\b|aspect ratio", "Camera"),
     (r"sprocket ai|ai tool|text-to-image|replace object|restore photo|extend image|generate background|show original|prompting", "AI"),
     (r"pre connection|connection flow|discovery|bluetooth|wi-fi|already added|printer settings|manage printers|printers detail|printer 200|reconnection|\bprinter\b", "Connection"),
     (r"settings|account|logout|change password|personal|legal|privacy|version|permissions|display|\bdata\b", "Settings"),
     (r"memory error|transmit error|low voltage|print error|high temperature|paper|cover|battery|temperature|\bsystem\b|ad_\d|ios_\d|error handling", "Alerts"),
-    (r"image editor|edit screen|\bcrop\b|gesture|snapping|photo fit|edit tip|save photo|video editing|custom sdk|\bfilter|\bsticker|\bframe\b|\bundo\b|\bredo\b", "Editor"),
+    (r"image editor|edit screen|\bcrop\b|gesture|snapping|photo fit|edit tip|save photo|video editing|\bfilter|\bsticker|\bframe\b|\bundo\b|\bredo\b", "Editor"),
     (r"navigation|ui layout|carousel|functionality|controls|hardware|automation|interaction|ui/|ui coverage|ui block|ui backdrop|animation|performance|guard|cross-module|toast|instructional|workflow|preview|initialization|logic|validation|cancellation|saving|selection|result|generation|paper type", "General"),
 ]
 
 
 def _stage_for(module: str, section: str | None = None) -> str:
-    """Map ATP Module → stage. Prefer Module; only fall back to section for non-splash cues."""
+    """Map ATP Module/Section → stage. Product sections (PHOTO ID, etc.) win first."""
+    sec = (section or "").strip()
+    if sec:
+        for pattern, stage in SECTION_STAGE:
+            if re.search(pattern, sec, re.I):
+                return stage
     mod = (module or "").strip().lower()
     for pattern, stage in STAGE_RULES:
         if re.search(pattern, mod, re.I):
             return stage
-    # Section headers are noisy (e.g. "ONBOARDING SPLASH SCREEN") — use only as weak hint,
-    # and never assign Splash from section alone.
-    sec = (section or "").strip().lower()
+    # Weak section fallback for leftover headers
     if sec:
+        low = sec.lower()
         for pattern, stage in STAGE_RULES:
             if stage == "Splash":
                 continue
-            if re.search(pattern, sec, re.I):
+            if re.search(pattern, low, re.I):
                 return stage
     return "General"
 
@@ -144,6 +172,14 @@ def extract_visible_candidates(expected: str, description: str = "") -> list[str
             found.append(t)
     # Common Sprocket labels if mentioned without quotes
     known = [
+        "Photo ID",
+        "Don't Show Again",
+        "Timer",
+        "Flash",
+        "Flip Camera",
+        "Photobooth",
+        "Photo Booth",
+        "Tiles",
         "Welcome to the new Sprocket!",
         "Swipe to continue.",
         "Get Started!",

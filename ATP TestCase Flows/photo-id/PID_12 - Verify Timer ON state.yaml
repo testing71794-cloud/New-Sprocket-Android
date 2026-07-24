@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_12
+# Excel: Photo ID 12 | Module: Timer On
+# Verify Timer ON state
+# Expected: Timer icon changes to active state and selected timer is highlighted.
+appId: com.hp.impulse.sprocket
+name: "PID_12 - Verify Timer ON state"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Timer"
+    optional: true

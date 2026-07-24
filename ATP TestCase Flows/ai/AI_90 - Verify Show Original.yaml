@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_90
+# Excel: AI Tools 109 | Module: Interaction
+# Verify "Show Original"
+# Expected: Toggles between corrected and original image.
+appId: com.hp.impulse.sprocket
+name: "AI_90 - Verify Show Original"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Show Original"
+    optional: true

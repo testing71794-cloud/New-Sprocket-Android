@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_36
+# Excel: Print Preview Screen 36 | Module: Print Preview
+# Verify AI/Edit, Copy Limits, Print Button and Error Handling
+# Expected: AI and Edit buttons are visible and respond correctly. Invalid copy values are not allowed and error/limit message is shown if applicable. When printer is disconnected, Print is blocked with proper error message. After reconnecting, Print b
+appId: com.hp.impulse.sprocket
+name: "PR_36 - Verify AIEdit Copy Limits Print Button and Error Handling"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

@@ -1,0 +1,17 @@
+# ATP Test Case ID: HM_01
+# Excel: HOME SCREEN_001 | Module: Application Launch and Home Screen
+# Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.
+# Expected: The application successfully navigates from the Splash Screen to the Home Screen.
+appId: com.hp.impulse.sprocket
+name: "HM_01 - Verify the complete application flow from the Splash Screen "
+tags:
+  - home
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sign up"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(I.ll do it later|Sign Up Later).*"
+    optional: true

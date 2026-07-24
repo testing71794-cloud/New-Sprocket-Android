@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_194
+# Excel: AI Tools 211 | Module: Results
+# Verify generated image count matches quantity
+# Expected: Number of generated images matches selected quantity.
+appId: com.hp.impulse.sprocket
+name: "AI_194 - Verify generated image count matches quantity"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

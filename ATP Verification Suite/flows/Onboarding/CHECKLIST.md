@@ -1,4 +1,4 @@
-# Onboarding — 18 ATP cases
+# Onboarding — 17 ATP cases
 
 - [ ] ON_01 | Onboarding to Sign Up | Verify the complete transition from Onboarding completion to the Sign Up Options screen
 - [ ] SU (iOS) _01 | ON_02A_Sign Up Options (iOS) | Verify Sign Up Options screen UI and navigation
@@ -17,4 +17,3 @@
 - [ ] FP TC_E2E_02 | Auth & Error | Verify invalid credential/input handling across Login and Password Recovery
 - [ ] EH TC_ERR_ALL_01 | Sign Up & Log In Errors | Verify all input validation and system error states for Sign Up and Log In
 - [ ] EH TC_ERR_ALL_02 | Forgot Password Errors | Verify all input validation and error states for Forgot Password
-- [ ] Photo ID 01 | Onboarding | Verify camera permission popup and Photo ID onboarding popup

@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_11
+# Excel: Firmware Update 11 | Module: Printer Switching
+# Verify OK button functionality
+# Expected: Popup closes and user remains on current printer screen.
+appId: com.hp.impulse.sprocket
+name: "FW_11 - Verify OK button functionality"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

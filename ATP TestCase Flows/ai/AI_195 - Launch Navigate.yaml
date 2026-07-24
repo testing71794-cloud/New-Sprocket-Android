@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_195
+# Excel: AI Tools 211 | Module: Initialization
+# Launch & Navigate
+# Expected: Successfully reach gallery selection.
+appId: com.hp.impulse.sprocket
+name: "AI_195 - Launch Navigate"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

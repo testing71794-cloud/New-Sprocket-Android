@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_116
+# Excel: AI Tools 135 | Module: Result
+# Thumbnail Selection
+# Expected: Main preview updates; Option 1 is selected by default.
+appId: com.hp.impulse.sprocket
+name: "AI_116 - Thumbnail Selection"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

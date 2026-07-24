@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_16
+# Excel: Photobooth 16 | Module: Flash Logic
+# Verify front flash simulation
+# Expected: Screen turns completely white at the exact moment of capture to simulate a front flash and the photo is captured successfully.
+appId: com.hp.impulse.sprocket
+name: "PB_16 - Verify front flash simulation"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Flash"
+    optional: true

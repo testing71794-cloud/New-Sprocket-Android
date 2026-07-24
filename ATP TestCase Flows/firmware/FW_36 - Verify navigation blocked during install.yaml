@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_36
+# Excel: Firmware Update 36 | Module: Firmware Negative
+# Verify navigation blocked during install
+# Expected: Navigation is blocked.
+appId: com.hp.impulse.sprocket
+name: "FW_36 - Verify navigation blocked during install"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

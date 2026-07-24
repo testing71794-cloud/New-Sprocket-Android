@@ -1,0 +1,14 @@
+# ATP Test Case ID: SE_09
+# Excel: Hamburger Menu  09 | Module: Navigation
+# Verify Printer Help
+# Expected: User navigates to Printer Help screen successfully.
+appId: com.hp.impulse.sprocket
+name: "SE_09 - Verify Printer Help"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

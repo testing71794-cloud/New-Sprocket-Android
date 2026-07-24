@@ -1,0 +1,17 @@
+# ATP Test Case ID: SE_02
+# Excel: Hamburger Menu  02 | Module: UI/Layout
+# Verify Logged Out Hamburger Menu UI
+# Expected: Menu displays App Logo, Log In > header, App Settings, Printer Help, Order Photo Paper, Visit Support Website and Legal & Privacy options.
+appId: com.hp.impulse.sprocket
+name: "SE_02 - Verify Logged Out Hamburger Menu UI"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Log In"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

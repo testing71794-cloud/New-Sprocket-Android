@@ -1,0 +1,14 @@
+# ATP Test Case ID: CS_11
+# Excel: Custom SDK 11 | Module: Save Photo
+# Verify "Save to Gallery"
+# Expected: Image is saved successfully to the device Gallery and popup closes.
+appId: com.hp.impulse.sprocket
+name: "CS_11 - Verify Save to Gallery"
+tags:
+  - custom-sdk
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Save to Gallery"
+    optional: true

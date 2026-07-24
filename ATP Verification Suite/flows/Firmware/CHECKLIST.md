@@ -1,10 +1,5 @@
-# Firmware — 51 ATP cases
+# Firmware — 44 ATP cases
 
-- [ ] Print Preview Screen 34 | Firmware Update | Trigger & UI Validation
-- [ ] Print Preview Screen 35 | Firmware Update | Dismissal Interaction
-- [ ] Print Preview Screen 50 | Firmware Update | Intercept Print Action During Active Firmware Update
-- [ ] Print Preview Screen 51 | Firmware Update | Dismiss Popup via OK Button
-- [ ] Print Preview Screen 52 | Firmware Update | Dismiss Popup via Close Icon
 - [ ] Firmware Update 001 | Firmware Update | Verify Update Available button is displayed
 - [ ] Firmware Update 002 | Firmware Update | Verify Firmware Update Available popup
 - [ ] Firmware Update 003 | Firmware Update | Verify Update Now button functionality
@@ -12,6 +7,10 @@
 - [ ] Firmware Update 005 | Firmware Installation | Verify Firmware Installation In Progress screen
 - [ ] Firmware Update 006 | Firmware Installation | Verify installation warning message
 - [ ] Firmware Update 007 | Firmware Installation | Verify firmware installation completion
+- [ ] Firmware Update 008 | Printer Switching | Verify printer switching restriction during firmware update
+- [ ] Firmware Update 009 | Printer Switching | Verify Please Wait popup display
+- [ ] Firmware Update 10 | Printer Switching | Verify Please Wait popup message
+- [ ] Firmware Update 11 | Printer Switching | Verify OK button functionality
 - [ ] Firmware Update 12 | Firmware Validation | Verify update restriction when battery is below 25%
 - [ ] Firmware Update 13 | Firmware Validation | Verify update restriction when no paper is loaded
 - [ ] Firmware Update 14 | Firmware Validation | Verify internet interruption during firmware download
@@ -45,9 +44,3 @@
 - [ ] Firmware Update 42 | Firmware Error Handling | Verify No Carbon Ribbon Error during firmware update
 - [ ] Firmware Update 43 | Firmware Error Handling | Verify Try Again functionality after resolving hardware issue
 - [ ] Firmware Update 44 | Firmware Error Handling | Verify Cancel (X) button functionality on error popup
-- [ ] PS-013 | Firmware Update | Verify Firmware Update Available popup is displayed
-- [ ] PS-014 | Firmware Update | Verify Not Right Now button functionality
-- [ ] PS-015 | Firmware Update | 
-- [ ] PS-016 | Firmware Update | Verify Firmware Download in Progress state
-- [ ] PS-017 | Firmware Update | Verify Firmware Installation in Progress state
-- [ ] PS-018 | Firmware Update | Verify successful firmware update completion

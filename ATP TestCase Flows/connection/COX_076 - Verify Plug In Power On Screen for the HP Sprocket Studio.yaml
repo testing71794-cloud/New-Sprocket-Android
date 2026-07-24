@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_076
+# Excel: PCF_Studio_001 | Module: Pre Connection Flow for Sprocket Studio
+# Verify Plug In + Power On Screen for the HP Sprocket Studio
+# Expected: The Plug In + Power On screen should be displayed. The Sprocket Studio printer image should be displayed. The following text should be displayed:  Connect the power cord to the printer and plug it in. Press and hold the power button on the 
+appId: com.hp.impulse.sprocket
+name: "COX_076 - Verify Plug In Power On Screen for the HP Sprocket Studio"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "More"
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true

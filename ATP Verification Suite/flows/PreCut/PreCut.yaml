@@ -6,11 +6,14 @@ tags:
   - atp-verification
   - precut
 ---
-# Cases in this stage (6):
+# Cases in this stage (9):
+#   - Precut_01: Verify complete flow from launch to selection.
+#   - Precut_02: Verify selecting two unique images.
 #   - Precut_03: Verify duplicate selection error.
+#   - Precut_04: Verify app launch, onboarding, and Pre-Cut entry.
+#   - Precut_05: Verify 2-photo selection, duplicate prevention, and next state.
+#   - Precut_06: Verify gallery expansion, collapse, and auto-snap.
 #   - Precut_07: Verify "Got It" and "Don't Show Again" behavior.
 #   - Precut_08: Verify UI when gallery permission is denied.
 #   - Precut_09: Verify exit flow after editing selection.
-#   - Print Preview Screen 58: Verify PreCut Sticker restriction
-#   - Print Preview Screen 60: Verify AI button absence
 - runFlow: ../Collage/Collage.yaml

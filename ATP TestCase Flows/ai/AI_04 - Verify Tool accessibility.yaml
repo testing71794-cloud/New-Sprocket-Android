@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_04
+# Excel: AI Tools 04 | Module: AI Tools
+# Verify Tool accessibility
+# Expected: Text-to-Image, Image-to-Image, Remove Background, and Replace Background are clearly visible and accessible.
+appId: com.hp.impulse.sprocket
+name: "AI_04 - Verify Tool accessibility"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

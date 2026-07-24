@@ -1,0 +1,20 @@
+# ATP Test Case ID: FW_10
+# Excel: Firmware Update 10 | Module: Printer Switching
+# Verify Please Wait popup message
+# Expected: A warning popup is displayed with the message "Please wait for firmware update to complete before selecting another printer." The popup includes an "OK" button at the bottom and a Close (X) icon in the top-right corner. The user cannot sele
+appId: com.hp.impulse.sprocket
+name: "FW_10 - Verify Please Wait popup message"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Please wait for firmware update to complete before selecting another printer."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

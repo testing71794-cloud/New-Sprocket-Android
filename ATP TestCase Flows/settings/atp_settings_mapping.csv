@@ -1,0 +1,52 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+SE_01,Hamburger Menu 01,settings,Navigation,Access Hamburger Menu,settings/SE_01 - Access Hamburger Menu.yaml,com.hp.impulse.sprocket
+SE_02,Hamburger Menu  02,settings,UI/Layout,Verify Logged Out Hamburger Menu UI,settings/SE_02 - Verify Logged Out Hamburger Menu UI.yaml,com.hp.impulse.sprocket
+SE_03,Hamburger Menu  03,settings,Logic,Verify Logged Out State,settings/SE_03 - Verify Logged Out State.yaml,com.hp.impulse.sprocket
+SE_04,Hamburger Menu  04,settings,Navigation,Verify Log In Redirection,settings/SE_04 - Verify Log In Redirection.yaml,com.hp.impulse.sprocket
+SE_05,Hamburger Menu  05,settings,UI/Layout,Verify Logged In Hamburger Menu UI,settings/SE_05 - Verify Logged In Hamburger Menu UI.yaml,com.hp.impulse.sprocket
+SE_06,Hamburger Menu  06,settings,Navigation,Verify Close Menu Functionality,settings/SE_06 - Verify Close Menu Functionality.yaml,com.hp.impulse.sprocket
+SE_07,Hamburger Menu  07,settings,Navigation,Verify App Settings Access,settings/SE_07 - Verify App Settings Access.yaml,com.hp.impulse.sprocket
+SE_08,Hamburger Menu  08,settings,Navigation,Verify Account Settings Access,settings/SE_08 - Verify Account Settings Access.yaml,com.hp.impulse.sprocket
+SE_09,Hamburger Menu  09,settings,Navigation,Verify Printer Help,settings/SE_09 - Verify Printer Help.yaml,com.hp.impulse.sprocket
+SE_10,Hamburger Menu  10,settings,Navigation,Verify Order Photo Paper,settings/SE_10 - Verify Order Photo Paper.yaml,com.hp.impulse.sprocket
+SE_11,Hamburger Menu  11,settings,Navigation,Verify Visit Support Website,settings/SE_11 - Verify Visit Support Website.yaml,com.hp.impulse.sprocket
+SE_12,Hamburger Menu  12,settings,Navigation,Verify Legal & Privacy Access,settings/SE_12 - Verify Legal Privacy Access.yaml,com.hp.impulse.sprocket
+SE_13,Hamburger Menu  13,settings,UI/UX,Verify Scroll Behavior,settings/SE_13 - Verify Scroll Behavior.yaml,com.hp.impulse.sprocket
+SE_14,Hamburger Menu  14,settings,UI/Layout,Verify Header and Logo,settings/SE_14 - Verify Header and Logo.yaml,com.hp.impulse.sprocket
+SE_15,Hamburger Menu 15,settings,Initialization,Verify Log In & Navigate to Account Settings,settings/SE_15 - Verify Log In Navigate to Account Settings.yaml,com.hp.impulse.sprocket
+SE_16,Hamburger Menu 16,settings,Personal,Verify Name Field Display,settings/SE_16 - Verify Name Field Display.yaml,com.hp.impulse.sprocket
+SE_17,Hamburger Menu 17,settings,Personal,Verify Change Password with Invalid Data,settings/SE_17 - Verify Change Password with Invalid Data.yaml,com.hp.impulse.sprocket
+SE_18,Hamburger Menu 19,settings,Change Password,Verify Change Password Screen UI,settings/SE_18 - Verify Change Password Screen UI.yaml,com.hp.impulse.sprocket
+SE_19,Humburger Menu 20,settings,Change Password,Verify Current Password Field,settings/SE_19 - Verify Current Password Field.yaml,com.hp.impulse.sprocket
+SE_20,Hamburger Menu 21,settings,Validation,Verify Incorrect Current Password Error,settings/SE_20 - Verify Incorrect Current Password Error.yaml,com.hp.impulse.sprocket
+SE_21,Hamburger Menu 22,settings,Validation,Verify New Password Requirement Error,settings/SE_21 - Verify New Password Requirement Error.yaml,com.hp.impulse.sprocket
+SE_22,Hamburger Menu 23,settings,Validation,Verify Password Mismatch Error,settings/SE_22 - Verify Password Mismatch Error.yaml,com.hp.impulse.sprocket
+SE_23,Hamburger Menu 24,settings,Validation,Verify Empty Fields Validation,settings/SE_23 - Verify Empty Fields Validation.yaml,com.hp.impulse.sprocket
+SE_24,Hamburger Menu 25,settings,Error,Verify Password Update Failure,settings/SE_24 - Verify Password Update Failure.yaml,com.hp.impulse.sprocket
+SE_25,Hamburger Menu 26,settings,Change Password,Verify Successful Password Change,settings/SE_25 - Verify Successful Password Change.yaml,com.hp.impulse.sprocket
+SE_26,Hamburger Menu 27,settings,Navigation,Verify Back Button,settings/SE_26 - Verify Back Button.yaml,com.hp.impulse.sprocket
+SE_27,Hamburger Menu 28,settings,Logout,Trigger Logout Pop-up,settings/SE_27 - Trigger Logout Pop-up.yaml,com.hp.impulse.sprocket
+SE_28,Hamburger Menu 29,settings,Logout,Cancel Logout,settings/SE_28 - Cancel Logout.yaml,com.hp.impulse.sprocket
+SE_29,Hamburger Menu 30,settings,Logout,Confirm Logout,settings/SE_29 - Confirm Logout.yaml,com.hp.impulse.sprocket
+SE_30,Hamburger Menu 31,settings,Account,Trigger Delete Account Pop-up,settings/SE_30 - Trigger Delete Account Pop-up.yaml,com.hp.impulse.sprocket
+SE_31,Hamburger Menu 32,settings,Account,Cancel Account Deletion,settings/SE_31 - Cancel Account Deletion.yaml,com.hp.impulse.sprocket
+SE_32,Hamburger Menu 36,settings,Initialization,Launch & Social Login,settings/SE_32 - Launch Social Login.yaml,com.hp.impulse.sprocket
+SE_33,Hamburger Menu 37,settings,Navigation,Access Account Settings,settings/SE_33 - Access Account Settings.yaml,com.hp.impulse.sprocket
+SE_34,Hamburger Menu 38,settings,UI Layout,API Auth UI Validation,settings/SE_34 - API Auth UI Validation.yaml,com.hp.impulse.sprocket
+SE_35,Hamburger Menu  40,settings,Logic,Field Constraint Validation,settings/SE_35 - Field Constraint Validation.yaml,com.hp.impulse.sprocket
+SE_36,Hamburger Menu 41,settings,Initialization,Navigation to App Settings,settings/SE_36 - Navigation to App Settings.yaml,com.hp.impulse.sprocket
+SE_37,Hamburger Menu 42,settings,Permissions,Verify Permissions Option,settings/SE_37 - Verify Permissions Option.yaml,com.hp.impulse.sprocket
+SE_38,Hamburger Menu 43,settings,Display,Verify Default State of Display App Hints,settings/SE_38 - Verify Default State of Display App Hints.yaml,com.hp.impulse.sprocket
+SE_39,Hamburger Menu 44,settings,Display,Toggle App Hints ON/OFF,settings/SE_39 - Toggle App Hints ONOFF.yaml,com.hp.impulse.sprocket
+SE_40,Hamburger Menu 45,settings,Data,Verify Default Low Data Mode State,settings/SE_40 - Verify Default Low Data Mode State.yaml,com.hp.impulse.sprocket
+SE_41,Hamburger Menu 46,settings,Data,Toggle Low Data Mode Functionality,settings/SE_41 - Toggle Low Data Mode Functionality.yaml,com.hp.impulse.sprocket
+SE_42,Hamburger Menu 47,settings,Version,Verify App Version Display,settings/SE_42 - Verify App Version Display.yaml,com.hp.impulse.sprocket
+SE_43,Hamburger Menu 48,settings,Navigation,Verify Back Navigation,settings/SE_43 - Verify Back Navigation.yaml,com.hp.impulse.sprocket
+SE_44,Hamburger Menu 49,settings,Navigation,Access Legal & Privacy Screen,settings/SE_44 - Access Legal Privacy Screen.yaml,com.hp.impulse.sprocket
+SE_45,Hamburger Menu 50,settings,Data,Data Collection Settings Navigation,settings/SE_45 - Data Collection Settings Navigation.yaml,com.hp.impulse.sprocket
+SE_46,Hamburger Menu 51,settings,Data,Data Collection Exit Pop-up Validation,settings/SE_46 - Data Collection Exit Pop-up Validation.yaml,com.hp.impulse.sprocket
+SE_47,Hamburger Menu 52,settings,Privacy,Verify Privacy Policy Open,settings/SE_47 - Verify Privacy Policy Open.yaml,com.hp.impulse.sprocket
+SE_48,Hamburger Menu 53,settings,Legal,Verify End User License Agreement,settings/SE_48 - Verify End User License Agreement.yaml,com.hp.impulse.sprocket
+SE_49,Hamburger Menu 54,settings,Legal,Verify Terms of Service,settings/SE_49 - Verify Terms of Service.yaml,com.hp.impulse.sprocket
+SE_50,Hamburger Menu 55,settings,Legal,Open Source Licenses Navigation,settings/SE_50 - Open Source Licenses Navigation.yaml,com.hp.impulse.sprocket
+SE_51,Hamburger Menu 56,settings,Navigation,Back Button Functionality,settings/SE_51 - Back Button Functionality.yaml,com.hp.impulse.sprocket

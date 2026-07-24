@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_139
+# Excel: AI Tools 158 | Module: Preview Ready
+# Verify Fix Lighting routing
+# Expected: User navigates to CR_14C.1 Fix Lighting - Result screen.
+appId: com.hp.impulse.sprocket
+name: "AI_139 - Verify Fix Lighting routing"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

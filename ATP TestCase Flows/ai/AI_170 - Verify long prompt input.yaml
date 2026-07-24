@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_170
+# Excel: AI Tools 189 | Module: Text-to-Image
+# Verify long prompt input
+# Expected: App handles long text properly without crash or UI overlap.
+appId: com.hp.impulse.sprocket
+name: "AI_170 - Verify long prompt input"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

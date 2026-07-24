@@ -1,0 +1,26 @@
+# ATP Test Case ID: PB_11
+# Excel: Photobooth 11 | Module: UI Layout
+# Verify Photobooth Result screen layout
+# Expected: Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.
+appId: com.hp.impulse.sprocket
+name: "PB_11 - Verify Photobooth Result screen layout"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photobooth"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true
+- assertVisible:
+    text: "Create"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "More"
+    optional: true

@@ -1,0 +1,23 @@
+# ATP Test Case ID: PR_44
+# Excel: Print Preview Screen 44 | Module: Save Pop-up
+# Verify Save to Gallery option
+# Expected: A "Save as new photo?" pop-up appears over the dimmed screen. The title "Save as new photo?" is displayed in bold, followed by the message: "If you do not save, you will lose any new edits you have applied." The "Save to Gallery" option is 
+appId: com.hp.impulse.sprocket
+name: "PR_44 - Verify Save to Gallery option"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Save as new photo?"
+    optional: true
+- assertVisible:
+    text: "If you do not save, you will lose any new edits you have applied."
+    optional: true
+- assertVisible:
+    text: "Save to Gallery"
+    optional: true
+- assertVisible:
+    text: "Do Not Save"
+    optional: true

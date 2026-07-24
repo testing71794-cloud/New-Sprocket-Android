@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_01
+# Excel: QUICK PRINT _001 | Module: Quick Print - Gallery Permission
+# Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
+# Expected: The Gallery permission popup is displayed with all three permission options.
+appId: com.hp.impulse.sprocket
+name: "QPX_01 - Verify the Gallery permission popup is displayed when the us"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Quick Print"
+    optional: true

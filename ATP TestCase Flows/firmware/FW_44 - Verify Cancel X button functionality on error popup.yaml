@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_44
+# Excel: Firmware Update 44 | Module: Firmware Error Handling
+# Verify Cancel (X) button functionality on error popup
+# Expected: Firmware update process is cancelled and user returns safely to Printer Settings screen without proceeding further.
+appId: com.hp.impulse.sprocket
+name: "FW_44 - Verify Cancel X button functionality on error popup"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

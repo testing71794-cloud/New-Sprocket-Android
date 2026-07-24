@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_068
+# Excel: PCF_HPSelect_012 | Module: Pre Connection Flow for Sprocket Select
+# Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Select
+# Expected: 1. 'Searching for Printers…' screen should be displayed. 2. Search progress indicator should be displayed.
+appId: com.hp.impulse.sprocket
+name: "COX_068 - Verify that printer discovery starts automatically after Blu"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Searching for Printers…"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Searching for Printers"
+    optional: true

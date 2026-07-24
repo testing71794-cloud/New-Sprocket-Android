@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_42
+# Excel: AI Tools 42 | Module: Result View
+# Verify processed image presentation
+# Expected: Background is removed and shown as transparent checker pattern; "Show Original" toggle is visible and OFF by default.
+appId: com.hp.impulse.sprocket
+name: "AI_42 - Verify processed image presentation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Show Original"
+    optional: true

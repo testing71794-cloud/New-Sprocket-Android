@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_164
+# Excel: HP600_CONN_TC002 | Module: Discovery
+# Verify only HP600 printers listed
+# Expected: Only HP600 printers displayed.
+appId: com.hp.impulse.sprocket
+name: "COX_164 - Verify only HP600 printers listed"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

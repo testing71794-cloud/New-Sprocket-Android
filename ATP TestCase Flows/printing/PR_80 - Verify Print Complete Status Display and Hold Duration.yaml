@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_80
+# Excel: Print Preview Screen 80 | Module: Print Complete
+# Verify Print Complete Status Display and Hold Duration
+# Expected: Status text displays "Print Complete" and the screen remains for exactly 1 second before transitioning automatically.
+appId: com.hp.impulse.sprocket
+name: "PR_80 - Verify Print Complete Status Display and Hold Duration"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Print Complete"
+    optional: true

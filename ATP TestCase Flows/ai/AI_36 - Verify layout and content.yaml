@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_36
+# Excel: AI Tools  36 | Module: UI Layout
+# Verify layout and content
+# Expected: Matches design: Red dashed circular exclamation icon, Title "No Internet", Body "Please connect to the Internet and try again.", Button "OK".
+appId: com.hp.impulse.sprocket
+name: "AI_36 - Verify layout and content"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Internet"
+    optional: true
+- assertVisible:
+    text: "Please connect to the Internet and try again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

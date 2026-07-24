@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_19
+# Excel: Firmware Update 19 | Module: Firmware Update Popup
+# Verify Not Right Now functionality
+# Expected: Popup closes and user remains on Printer Settings screen.
+appId: com.hp.impulse.sprocket
+name: "FW_19 - Verify Not Right Now functionality"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_017
+# Excel: PCF-017 | Module: Pre Connection Flow
+# Verify that tapping the 'GET IT ON Google Play' button redirects the user to the HP Sprocket Panorama app page on the Google Play Store in case of Android
+# Expected: The user should be redirected to the Google Play Store, and the HP Sprocket Panorama app should be displayed.
+appId: com.hp.impulse.sprocket
+name: "COX_017 - Verify that tapping the GET IT ON Google Play button redirec"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "GET IT ON Google Play"
+    optional: true

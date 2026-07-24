@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_48
+# Excel: Stoppers Error Pop up Ios 27 | Module: Battery
+# Verify "Battery Error" popup
+# Expected: "Battery Error" popup is displayed . The popup displays the bold title "Battery Error", followed by the message "Restart your printer and try printing again." The popup includes an "OK" button at the bottom and a Close (X) icon in the top-r
+appId: com.hp.impulse.sprocket
+name: "AL_48 - Verify Battery Error popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Battery Error"
+    optional: true
+- assertVisible:
+    text: "Restart your printer and try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

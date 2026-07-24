@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_122
+# Excel: AI Tool 141 | Module: AI Tool List
+# Verify Temporary Updates
+# Expected: "Grab Object" and "Extend Image" tools are hidden from the AI Tool List.
+appId: com.hp.impulse.sprocket
+name: "AI_122 - Verify Temporary Updates"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Grab Object"
+    optional: true
+- assertVisible:
+    text: "Extend Image"
+    optional: true

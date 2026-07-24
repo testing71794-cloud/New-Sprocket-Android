@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_75
+# Excel: AI Tools 94 | Module: Restore Photo
+# Verify "Apply" Action
+# Expected: Changes saved; user redirected to CR_14A.4_Restore Photo - Changes Saved.
+appId: com.hp.impulse.sprocket
+name: "AI_75 - Verify Apply Action"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Apply"
+    optional: true

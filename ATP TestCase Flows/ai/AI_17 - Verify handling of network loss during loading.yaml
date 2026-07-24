@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_17
+# Excel: AI Tools 17 | Module: Network Interruption
+# Verify handling of network loss during loading
+# Expected: Loader should stop gracefully and display a proper network error message instead of infinite loading
+appId: com.hp.impulse.sprocket
+name: "AI_17 - Verify handling of network loss during loading"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

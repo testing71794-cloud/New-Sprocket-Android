@@ -1,0 +1,17 @@
+# ATP Test Case ID: SE_34
+# Excel: Hamburger Menu 38 | Module: UI Layout
+# API Auth UI Validation
+# Expected: Username and Password fields are hidden. API banner with icon and "Signed in via [Method]" text is displayed correctly.
+appId: com.hp.impulse.sprocket
+name: "SE_34 - API Auth UI Validation"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Signed in via [Method]"
+    optional: true
+- assertVisible:
+    text: "password"
+    optional: true

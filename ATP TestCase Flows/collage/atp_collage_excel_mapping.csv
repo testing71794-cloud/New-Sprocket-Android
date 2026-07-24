@@ -1,0 +1,16 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+COLX_01,Collage_01,collage,Launch & Navigation,Verify app launch and Home screen,collage/COLX_01 - Verify app launch and Home screen.yaml,com.hp.impulse.sprocket
+COLX_02,Collage_02,collage,Photo Permission,Verify Photos & Videos permission popup,collage/COLX_02 - Verify Photos Videos permission popup.yaml,com.hp.impulse.sprocket
+COLX_03,Collage_03,collage,Collage Selection Screen,Verify default Collage Selection UI,collage/COLX_03 - Verify default Collage Selection UI.yaml,com.hp.impulse.sprocket
+COLX_04,Collage_04,collage,Folder Navigation,Verify folder selection,collage/COLX_04 - Verify folder selection.yaml,com.hp.impulse.sprocket
+COLX_05,Collage_05,collage,Image Selection,Verify minimum photo selection,collage/COLX_05 - Verify minimum photo selection.yaml,com.hp.impulse.sprocket
+COLX_06,Collage_06,collage,Multiple Selection,Verify selection of up to four photos,collage/COLX_06 - Verify selection of up to four photos.yaml,com.hp.impulse.sprocket
+COLX_07,Collage_07,collage,Duplicate Selection,Verify duplicate image selection,collage/COLX_07 - Verify duplicate image selection.yaml,com.hp.impulse.sprocket
+COLX_08,Collage_08,collage,Remove Selection,Verify image deselection,collage/COLX_08 - Verify image deselection.yaml,com.hp.impulse.sprocket
+COLX_09,Collage_09,collage,Next Button Validation,Verify Next button enable/disable,collage/COLX_09 - Verify Next button enabledisable.yaml,com.hp.impulse.sprocket
+COLX_10,Collage_10,collage,Drag & Drop Screen,Verify Drag & Drop screen UI,collage/COLX_10 - Verify Drag Drop screen UI.yaml,com.hp.impulse.sprocket
+COLX_11,Collage_11,collage,Layout Selection,Verify collage layout options,collage/COLX_11 - Verify collage layout options.yaml,com.hp.impulse.sprocket
+COLX_12,Collage_12,collage,Image Reordering,Verify Drag & Drop functionality,collage/COLX_12 - Verify Drag Drop functionality.yaml,com.hp.impulse.sprocket
+COLX_13,Collage_13,collage,Edit Image,Verify Edit icon,collage/COLX_13 - Verify Edit icon.yaml,com.hp.impulse.sprocket
+COLX_14,Collage_14,collage,Print Preview UI,Verify Print Preview screen,collage/COLX_14 - Verify Print Preview screen.yaml,com.hp.impulse.sprocket
+COLX_15,Collage_15,collage,Printer Validation,Verify printer connection status,collage/COLX_15 - Verify printer connection status.yaml,com.hp.impulse.sprocket

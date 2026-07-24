@@ -6,12 +6,7 @@ tags:
   - atp-verification
   - firmware
 ---
-# Cases in this stage (51):
-#   - Print Preview Screen 34: Trigger & UI Validation
-#   - Print Preview Screen 35: Dismissal Interaction
-#   - Print Preview Screen 50: Intercept Print Action During Active Firmware Update
-#   - Print Preview Screen 51: Dismiss Popup via OK Button
-#   - Print Preview Screen 52: Dismiss Popup via Close Icon
+# Cases in this stage (44):
 #   - Firmware Update 001: Verify Update Available button is displayed
 #   - Firmware Update 002: Verify Firmware Update Available popup
 #   - Firmware Update 003: Verify Update Now button functionality
@@ -19,6 +14,10 @@ tags:
 #   - Firmware Update 005: Verify Firmware Installation In Progress screen
 #   - Firmware Update 006: Verify installation warning message
 #   - Firmware Update 007: Verify firmware installation completion
+#   - Firmware Update 008: Verify printer switching restriction during firmware update
+#   - Firmware Update 009: Verify Please Wait popup display
+#   - Firmware Update 10: Verify Please Wait popup message
+#   - Firmware Update 11: Verify OK button functionality
 #   - Firmware Update 12: Verify update restriction when battery is below 25%
 #   - Firmware Update 13: Verify update restriction when no paper is loaded
 #   - Firmware Update 14: Verify internet interruption during firmware download
@@ -47,5 +46,6 @@ tags:
 #   - Firmware Update 37: Verify multiple Update Now taps
 #   - Firmware Update 38: Verify popup reopens correctly
 #   - Firmware Update 39: Verify No Paper Tray Error during firmware update
-#   ... +11 more
+#   - Firmware Update 40: Verify Paper Empty Error during firmware update
+#   ... +4 more
 - runFlow: ../Connection/Connection.yaml

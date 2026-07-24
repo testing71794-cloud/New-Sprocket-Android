@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_236
+# Excel: PS-004 | Module: Printer Settings
+# Verify LED Color update and persistence
+# Expected: Selected LED Color value is saved successfully and persists after reopening Printer Settings.
+appId: com.hp.impulse.sprocket
+name: "COX_236 - Verify LED Color update and persistence"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

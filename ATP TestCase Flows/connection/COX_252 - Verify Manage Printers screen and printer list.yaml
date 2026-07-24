@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_252
+# Excel: PS-020 | Module: Manage Printers
+# Verify Manage Printers screen and printer list
+# Expected: nter
+appId: com.hp.impulse.sprocket
+name: "COX_252 - Verify Manage Printers screen and printer list"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

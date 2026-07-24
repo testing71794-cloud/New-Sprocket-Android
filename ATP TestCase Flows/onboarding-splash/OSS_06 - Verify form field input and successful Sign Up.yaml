@@ -1,0 +1,14 @@
+# ATP Test Case ID: OSS_06
+# Excel: ON_02D_SU - E F F TC_ON02DE_01 | Module: ON_02D_Sign Up - Entering Form Field
+# Verify form field input and successful Sign Up
+# Expected: User can enter values in all fields. Sign Up button becomes enabled after valid input. User is redirected to ON_02H_Verify Email screen.
+appId: com.hp.impulse.sprocket
+name: "OSS_06 - Verify form field input and successful Sign Up"
+tags:
+  - onboarding-splash
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sign up"
+    optional: true

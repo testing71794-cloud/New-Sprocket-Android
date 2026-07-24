@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_104
+# Excel: PCF_Sprocket_014 | Module: Pre Connection Flow for HP Sprocket
+# Verify Bluetooth Already Enabled Scenario for HP Sprocket printer
+# Expected: 1. 'Searching for Printers…' screen should be displayed. 2. Search progress indicator should be displayed.
+appId: com.hp.impulse.sprocket
+name: "COX_104 - Verify Bluetooth Already Enabled Scenario for HP Sprocket pr"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Searching for Printers…"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Searching for Printers"
+    optional: true

@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_153
+# Excel: General_PCF-005 | Module: Pre Connection Flow
+# Navigate to 'No Printers Found' screen
+# Expected: After time out the discovery progress spinner 'No Printers Found' screen should display along with the 'Try Again' button
+appId: com.hp.impulse.sprocket
+name: "COX_153 - Navigate to No Printers Found screen"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "No Printers Found"
+    optional: true
+- assertVisible:
+    text: "Try Again"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

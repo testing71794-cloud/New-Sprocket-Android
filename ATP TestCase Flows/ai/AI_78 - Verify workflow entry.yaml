@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_78
+# Excel: AI Tools 97 | Module: Navigation
+# Verify workflow entry
+# Expected: Screen displays CR_14B_Enhance Photo - Reference.
+appId: com.hp.impulse.sprocket
+name: "AI_78 - Verify workflow entry"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

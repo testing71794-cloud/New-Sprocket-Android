@@ -1,0 +1,31 @@
+# QuickPrint / quick-print — 29 Excel-generated flows
+
+- [ ] QPX_01 | QUICK PRINT _001 | Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
+- [ ] QPX_02 | QUICK PRINT_002 | Verify the Allow all option opens the Gallery screen.
+- [ ] QPX_03 | QUICK PRINT _003 | Verify the Gallery screen user interface.
+- [ ] QPX_04 | QUICK PRINT_004 | Verify the Select Mode toast message on the Gallery screen.
+- [ ] QPX_05 | QUICK PRINT_005 | Verify the Don't allow option on the Gallery permission popup.
+- [ ] QPX_06 | QUICK PRINT_006 | Verify the Allow limited access option.
+- [ ] QPX_07 | QUICK PRINT_007 | Verify the Gallery screen enters Select Mode after selecting one photo.
+- [ ] QPX_08 | QUICK PRINT_008 | Verify selecting both photos and videos in Select Mode.
+- [ ] QPX_09 | QUICK PRINT_009 | Verify unselecting all selected photos and videos.
+- [ ] QPX_10 | QUICK PRINGT_010 | Verify the maximum selection limit of 10 photos.
+- [ ] QPX_11 | QUICK PRIN_011 | Verify the Select Mode user interface.
+- [ ] QPX_12 | QUICK PRINT_012 | Verify that the user can open the Select Gallery screen and the Facebook option is displayed.
+- [ ] QPX_13 | QUICK PRINT 13 | Verify that the Facebook Gallery opens successfully.
+- [ ] QPX_14 | QUICK PRINT 14 | Verify the Unlink option in the overflow menu.
+- [ ] QPX_15 | QUICK PRINT 15 | Verify the Unlink confirmation popup user interface.
+- [ ] QPX_16 | QUICK PRINT 16 | Verify that the user can sign out from Facebook successfully.
+- [ ] QPX_17 | QUICK PRINT 17 | Verify the Cancel button on the Unlink popup.
+- [ ] QPX_18 | QUICK PRINT 18 | Verify the No Internet popup when opening Facebook Gallery without internet.
+- [ ] QPX_19 | QUICK PRINT 19 | Verify that the Open Settings button redirects to Wi-Fi Settings.
+- [ ] QPX_20 | QUICK PRINT 20 | Verify the Wi-Fi Direct No Internet popup.
+- [ ] QPX_21 | QUICK PRINT 21 | Verify refreshing the Facebook Gallery after the internet connection is restored.
+- [ ] QPX_22 | QUICK PRINT 22 | Verify opening a Facebook folder and displaying images.
+- [ ] QPX_23 | QUICK PRINT 23 | Verify the Tag Search screen.
+- [ ] QPX_24 | QUICK PRINT 24 | Verify filtering Facebook photos using a valid tag.
+- [ ] QPX_25 | QUICK PRINT 25 | Verify the application displays the "No Tagged Photos" message when the user searches with an invalid Facebook tag.
+- [ ] QPX_26 | QUICK PRINT 26 | Verify the application displays Facebook photos when the user searches with a valid Facebook tag.
+- [ ] QPX_27 | QUICK PRINT 27 | Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags without an internet 
+- [ ] QPX_28 | QUICK PRINT 28 | Verify that the user can sort gallery photos using the Newest and Oldest options.
+- [ ] QPX_29 | QUICK PRINT 29 | Verify the No Photos Found screen when the selected gallery folder does not contain any photos.

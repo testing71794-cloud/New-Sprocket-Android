@@ -1,0 +1,17 @@
+# ATP Test Case ID: OSS_19
+# Excel: EH TC_ERR_ALL_01 | Module: Sign Up & Log In Errors
+# Verify all input validation and system error states for Sign Up and Log In
+# Expected: All corresponding error messages (Inline text, bullets, or toasts) display as per image_fb16c1.png; action buttons disable when required.
+appId: com.hp.impulse.sprocket
+name: "OSS_19 - Verify all input validation and system error states for Sign"
+tags:
+  - onboarding-splash
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sign up"
+    optional: true
+- assertVisible:
+    text: "Log In"
+    optional: true

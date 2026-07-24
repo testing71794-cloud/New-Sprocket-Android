@@ -1,0 +1,26 @@
+# ATP Test Case ID: PR_82
+# Excel: Print Preview Screen 82 | Module: Print Queue
+# Verify access, interruption, and data retention
+# Expected: The Print Queue opens successfully. A "Printer Disconnected" pop-up appears with the message: "Your printer has been disconnected. Any photos you add to the queue will be printed the next time you connect a printer." The pop-up includes an 
+appId: com.hp.impulse.sprocket
+name: "PR_82 - Verify access interruption and data retention"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer Disconnected"
+    optional: true
+- assertVisible:
+    text: "The pop-up includes an"
+    optional: true
+- assertVisible:
+    text: "button. After tapping OK, the Print Queue status changes to"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true

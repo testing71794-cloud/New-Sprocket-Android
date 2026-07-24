@@ -1,12 +1,5 @@
-# Connection — 256 ATP cases
+# Connection — 255 ATP cases
 
-- [ ] Collage_15 | Printer Validation | Verify printer connection status
-- [ ] Print Preview Screen 30 | Reconnection | Printer Reconnection Flow
-- [ ] Firmware Update 008 | Printer Switching | Verify printer switching restriction during firmware update
-- [ ] Firmware Update 009 | Printer Switching | Verify Please Wait popup display
-- [ ] Firmware Update 10 | Printer Switching | Verify Please Wait popup message
-- [ ] Firmware Update 11 | Printer Switching | Verify OK button functionality
-- [ ] Blockers Error Pop up Android   15 | Printer | Verify "Sprocket not Responding" popup
 - [ ] PCF-001 | Pre Connection Flow | Verify to navigate to 'Add a new Printer' screen
 - [ ] PCF-002 | Pre Connection Flow | Verify to navigate to 'Enable the full Sprocket experience' screen via 'Skip to Connection' flow
 - [ ] PCF-003 | Pre Connection Flow | Verify printer discovery screen via 'Skip to connection' flow
@@ -251,6 +244,12 @@
 - [ ] PS-010 | Printer Settings | 
 - [ ] PS-011 | Printer Settings | 
 - [ ] PS-012 | Printer Settings | 
+- [ ] PS-013 | Firmware Update | Verify Firmware Update Available popup is displayed
+- [ ] PS-014 | Firmware Update | Verify Not Right Now button functionality
+- [ ] PS-015 | Firmware Update | 
+- [ ] PS-016 | Firmware Update | Verify Firmware Download in Progress state
+- [ ] PS-017 | Firmware Update | Verify Firmware Installation in Progress state
+- [ ] PS-018 | Firmware Update | Verify successful firmware update completion
 - [ ] PS-019 | Printer 200 | Verify Printer Detail screen UI elements after successful printer connection
 - [ ] PS-020 | Manage Printers | Verify Manage Printers screen and printer list
 - [ ] PS-021 | Printers detail pages | Verify navigation to Printer Detail screen from printer list

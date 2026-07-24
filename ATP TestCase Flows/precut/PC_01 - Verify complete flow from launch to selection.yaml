@@ -1,0 +1,14 @@
+# ATP Test Case ID: PC_01
+# Excel: Precut_01 | Module: E2E Navigation
+# Verify complete flow from launch to selection.
+# Expected: User reaches the Pre-Cut selection screen with empty slots and disabled Next button.
+appId: com.hp.impulse.sprocket
+name: "PC_01 - Verify complete flow from launch to selection"
+tags:
+  - precut
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

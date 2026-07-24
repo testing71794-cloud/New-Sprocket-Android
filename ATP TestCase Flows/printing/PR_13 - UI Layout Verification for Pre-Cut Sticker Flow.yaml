@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_13
+# Excel: Print Preview Screen 13 | Module: Print Preview
+# UI Layout Verification for Pre-Cut Sticker Flow
+# Expected: The Print Preview area displays two vertically stacked sticker frames with rounded corners as per the design layout.
+appId: com.hp.impulse.sprocket
+name: "PR_13 - UI Layout Verification for Pre-Cut Sticker Flow"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

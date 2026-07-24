@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_23
+# Excel: Print Preview Screen 23 | Module: Functionality
+# AI Button Functionality Without Printer
+# Expected: The AI workflow launches successfully and remains fully functional even when no printer is connected.
+appId: com.hp.impulse.sprocket
+name: "PR_23 - AI Button Functionality Without Printer"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

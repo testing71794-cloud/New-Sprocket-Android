@@ -1,0 +1,17 @@
+# ATP Test Case ID: AL_21
+# Excel: Stoppers Error Pop up Android 21 | Module: AD_05A_Print Error
+# Verify the Print Error popup is displayed when the printer encounters a printing failure.
+# Expected: The Print Error popup is displayed with the message "Restart your sprocket and your print will restart automatically." The OK button  in bottom and Close icon top right corner are displayed correctly.
+appId: com.hp.impulse.sprocket
+name: "AL_21 - Verify the Print Error popup is displayed when the printer e"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Restart your sprocket and your print will restart automatically."
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

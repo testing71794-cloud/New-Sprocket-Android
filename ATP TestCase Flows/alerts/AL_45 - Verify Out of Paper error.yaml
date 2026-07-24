@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_45
+# Excel: Stoppers Error Pop up Ios  24 | Module: Paper
+# Verify "Out of Paper" error
+# Expected: "Out of Paper" popup is displayed. The popup displays the bold title "Out of Paper", followed by the message "Please load paper and try printing again." A TIP is displayed: "Load the colored card with each new pack of paper for best print q
+appId: com.hp.impulse.sprocket
+name: "AL_45 - Verify Out of Paper error"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Out of Paper"
+    optional: true
+- assertVisible:
+    text: "Please load paper and try printing again."
+    optional: true
+- assertVisible:
+    text: "Load the colored card with each new pack of paper for best print quality."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

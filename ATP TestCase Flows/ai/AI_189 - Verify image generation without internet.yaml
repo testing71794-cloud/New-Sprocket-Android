@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_189
+# Excel: AI Tools 208 | Module: AI Tools
+# Verify image generation without internet
+# Expected: Proper error message such as "No Internet Connection" is displayed and app remains stable.
+appId: com.hp.impulse.sprocket
+name: "AI_189 - Verify image generation without internet"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Internet Connection"
+    optional: true

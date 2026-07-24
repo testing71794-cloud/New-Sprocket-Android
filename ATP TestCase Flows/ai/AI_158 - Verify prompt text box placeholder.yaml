@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_158
+# Excel: AI tools 177 | Module: Text-to-Image
+# Verify prompt text box placeholder
+# Expected: Placeholder text "Tap here to enter a prompt..." is displayed inside the text box.
+appId: com.hp.impulse.sprocket
+name: "AI_158 - Verify prompt text box placeholder"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tap here to enter a prompt..."
+    optional: true

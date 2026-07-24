@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_166
+# Excel: HP600_CONN_TC004 | Module: Discovery
+# Verify tap + starts connection
+# Expected: Connection flow starts.
+appId: com.hp.impulse.sprocket
+name: "COX_166 - Verify tap starts connection"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

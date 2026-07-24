@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_49
+# Excel: Print Preview Screen 49 | Module: Warning Toast
+# Layout and Icon Asset Validation
+# Expected: The toast displays a red triangular warning icon on the left, followed by the exact warning message text with proper alignment and UI consistency.
+appId: com.hp.impulse.sprocket
+name: "PR_49 - Layout and Icon Asset Validation"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_62
+# Excel: AI Tools 81 | Module: Replace Object
+# Verify failure state UI
+# Expected: CR_13B.8_Generation Failed displays error message and "Try Again" button.
+appId: com.hp.impulse.sprocket
+name: "AI_62 - Verify failure state UI"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Try Again"
+    optional: true

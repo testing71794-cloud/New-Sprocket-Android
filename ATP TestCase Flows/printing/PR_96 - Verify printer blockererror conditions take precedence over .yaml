@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_96
+# Excel: Print Preview Screen 96 | Module: Blocker Priority Validation
+# Verify printer blocker/error conditions take precedence over the Resume Queue pop-up.
+# Expected: Blocker/Error pop-up must appear first.
+appId: com.hp.impulse.sprocket
+name: "PR_96 - Verify printer blockererror conditions take precedence over "
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

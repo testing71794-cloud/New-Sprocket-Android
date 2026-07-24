@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_041
+# Excel: PCF_HP3*4_004 | Module: Pre Connection Flow for Sprocket 3x4
+# Verify 'Load Paper' Info Popup for the HP Sprocket 3x4 printer.
+# Expected: 1. Instruction popup should be displayed along with following content: 2. Blue card illustration should be displayed. 3. Instruction text "Use the blue card with each pack of photo paper. It improves print quality and will eject after it cl
+appId: com.hp.impulse.sprocket
+name: "COX_041 - Verify Load Paper Info Popup for the HP Sprocket 3x4 printer"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "(8.9 x 10.8 cm) Photo Paper!"
+    optional: true
+- assertVisible:
+    text: "Load Paper"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

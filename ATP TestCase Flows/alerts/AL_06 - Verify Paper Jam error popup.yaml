@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_06
+# Excel: Blockers Error Pop up Android    06 | Module: Paper
+# Verify "Paper Jam" error popup
+# Expected: "Paper Jam Error" popup is displayed on the Print Preview screen. The popup displays the bold title "Paper Jam Error", followed by the message "Paper jam. Clear the paper jam and restart the printer by pressing and holding the power button.
+appId: com.hp.impulse.sprocket
+name: "AL_06 - Verify Paper Jam error popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Paper Jam Error"
+    optional: true
+- assertVisible:
+    text: "The popup includes an"
+    optional: true
+- assertVisible:
+    text: "Paper Jam"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

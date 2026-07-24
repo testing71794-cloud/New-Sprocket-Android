@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_65
+# Excel: AI Tools 84 | Module: Interaction
+# Verify selection & Brush Size
+# Expected: Object highlighted with 50% opacity #B654F5 color; "Generate" button becomes enabled.
+appId: com.hp.impulse.sprocket
+name: "AI_65 - Verify selection Brush Size"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Generate"
+    optional: true

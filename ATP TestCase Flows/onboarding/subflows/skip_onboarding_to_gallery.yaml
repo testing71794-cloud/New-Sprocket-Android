@@ -2,10 +2,9 @@ appId: com.hp.impulse.sprocket
 ---
 # Sign Up Later → optional coachmark → permissions → Create home (Sprocket).
 # Kodak "Skip" coachmark is optional — many builds go straight to permissions/home.
+# Current builds often skip welcome carousel and show "I'll do it later".
 - runFlow: ../../common/subflows/reach_signup_screen.yaml
-- tapOn: "Sign Up Later"
-- waitForAnimationToEnd:
-    timeout: 2000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
 - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
 - runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
 - runFlow:

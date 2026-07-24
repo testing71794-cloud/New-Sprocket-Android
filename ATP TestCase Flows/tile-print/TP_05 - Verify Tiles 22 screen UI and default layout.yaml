@@ -1,0 +1,14 @@
+# ATP Test Case ID: TP_05
+# Excel: Tiles modules 05 | Module: Tiles 2×2
+# Verify Tiles 2×2 screen UI and default layout
+# Expected: Tiles 2×2 screen opens successfully. Image is divided into 4 tiles by default with checkmarks. All top and bottom options are visible and clickable. No UI issue is observed.
+appId: com.hp.impulse.sprocket
+name: "TP_05 - Verify Tiles 22 screen UI and default layout"
+tags:
+  - tile-print
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true

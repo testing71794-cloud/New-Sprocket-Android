@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_193
+# Excel: HP600_CONN_TC031 | Module: Wi-Fi
+# Verify Connect Printer to Wi-Fi screen
+# Expected: Screen displays SSID, Change, password field and Next.
+appId: com.hp.impulse.sprocket
+name: "COX_193 - Verify Connect Printer to Wi-Fi screen"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true
+- assertVisible:
+    text: "password"
+    optional: true

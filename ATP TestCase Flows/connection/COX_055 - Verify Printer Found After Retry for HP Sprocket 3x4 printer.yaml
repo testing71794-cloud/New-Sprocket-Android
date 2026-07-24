@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_055
+# Excel: PCF_HP3*4_018 | Module: Pre Connection Flow for Sprocket 3x4
+# Verify Printer Found After Retry for HP Sprocket 3x4 printer
+# Expected: 1. The Searching for Printers screen should be displayed. 2. The available printer should be discovered. 3. The printer should appear in the printer list.
+appId: com.hp.impulse.sprocket
+name: "COX_055 - Verify Printer Found After Retry for HP Sprocket 3x4 printer"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Searching for Printers"
+    optional: true

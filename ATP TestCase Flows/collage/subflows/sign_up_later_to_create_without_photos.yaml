@@ -1,9 +1,7 @@
 appId: com.hp.impulse.sprocket
 ---
 # Create home without Photos permission (for Collage_02 permission popup).
-- tapOn: "Sign Up Later"
-- waitForAnimationToEnd:
-    timeout: 2000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
 - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
 - runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
 - runFlow:

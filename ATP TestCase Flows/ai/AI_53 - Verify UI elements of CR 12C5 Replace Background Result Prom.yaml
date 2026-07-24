@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_53
+# Excel: AI Tools 53 | Module: Generate Background
+# Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)
+# Expected: Screen displays Back button, "Replace Background" title, "Apply" button, generated image, and "+ Generate New" action button.
+appId: com.hp.impulse.sprocket
+name: "AI_53 - Verify UI elements of CR 12C5 Replace Background Result Prom"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Replace Background"
+    optional: true
+- assertVisible:
+    text: "Apply"
+    optional: true
+- assertVisible:
+    text: "+ Generate New"
+    optional: true

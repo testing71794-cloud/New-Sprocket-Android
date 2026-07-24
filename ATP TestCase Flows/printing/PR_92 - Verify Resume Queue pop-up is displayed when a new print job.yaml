@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_92
+# Excel: Print Preview Screen 92 | Module: Pop-up Trigger
+# Verify "Resume Queue" pop-up is displayed when a new print job is initiated while the print queue is paused.
+# Expected: "Resume Queue" pop-up must appear on top of the Print Preview screen when a new print job is initiated while the queue is paused.
+appId: com.hp.impulse.sprocket
+name: "PR_92 - Verify Resume Queue pop-up is displayed when a new print job"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Resume Queue"
+    optional: true

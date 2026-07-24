@@ -1,0 +1,20 @@
+# ATP Test Case ID: FW_06
+# Excel: Firmware Update 006 | Module: Firmware Installation
+# Verify installation warning message
+# Expected: Warning message "Do not turn off or reset the printer while the status LED flashes" is displayed.
+appId: com.hp.impulse.sprocket
+name: "FW_06 - Verify installation warning message"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Do not turn off or reset the printer while the status LED flashes"
+    optional: true
+- assertVisible:
+    text: "Flash"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

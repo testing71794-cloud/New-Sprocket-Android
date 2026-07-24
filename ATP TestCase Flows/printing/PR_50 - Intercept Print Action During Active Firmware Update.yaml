@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_50
+# Excel: Print Preview Screen 50 | Module: Firmware Update
+# Intercept Print Action During Active Firmware Update
+# Expected: The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header "Please Wait....", and subtext "Please wait for firmware installation to finish before sending a print job." an "OK" button, and 
+appId: com.hp.impulse.sprocket
+name: "PR_50 - Intercept Print Action During Active Firmware Update"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Please Wait...."
+    optional: true
+- assertVisible:
+    text: "Please wait for firmware installation to finish before sending a print job."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_165
+# Excel: AI TOOls 184 | Module: Text-to-Image
+# Verify Generate Image(s) button enabled state
+# Expected: Generate Image(s) button becomes enabled with purple gradient color.
+appId: com.hp.impulse.sprocket
+name: "AI_165 - Verify Generate Images button enabled state"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

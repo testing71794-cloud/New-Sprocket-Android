@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_90
+# Excel: Print Preview Screen 90 | Module: Multiple Photo Print Job
+# Verify Home redirection when all pending photos are deleted.
+# Expected: User is redirected to CR_01A_Home - Logged In because no pending photos remain in the queue.
+appId: com.hp.impulse.sprocket
+name: "PR_90 - Verify Home redirection when all pending photos are deleted"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

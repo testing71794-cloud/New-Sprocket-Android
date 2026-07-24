@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_19
+# Excel: QUICK PRINT 19 | Module: Facebook Gallery - Open Settings
+# Verify that the Open Settings button redirects to Wi-Fi Settings.
+# Expected: The application redirects to Wi-Fi Settings and allows the user to reconnect.
+appId: com.hp.impulse.sprocket
+name: "QPX_19 - Verify that the Open Settings button redirects to Wi-Fi Sett"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

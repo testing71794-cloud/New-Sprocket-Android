@@ -1,0 +1,24 @@
+# ATP Stage Flow: CustomSDK
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - CustomSDK"
+tags:
+  - atp-verification
+  - customsdk
+---
+# Cases in this stage (14):
+#   - Custom SDK 01: Verify user is redirected to Custom SDK screen after tapping Edit icon.
+#   - Custom SDK  02: Verify selected image is displayed in the Custom SDK editor.
+#   - Custom SDK  03: Verify user can edit the selected image.
+#   - Custom SDK   04: Verify user can print an edited image successfully.
+#   - Custom SDK  05: Verify user can return from Custom SDK screen.
+#   - Custom SDK   06: Verify application behavior when no printer is selected.
+#   - Custom SDK   07: Verify system behavior when image cannot be loaded.
+#   - Custom SDK  08: Verify user can print image without saving any modifications.
+#   - Custom SDK  09: Verify applying edit options
+#   - Custom SDK 10: Verify cancelling edit
+#   - Custom SDK 11: Verify "Save to Gallery"
+#   - Custom SDK   12: Verify "Do not save"
+#   - Custom SDK  13: Verify Video Print Preview screen and all UI elements
+#   - Custom SDK   14: Verify edit functionality and discard changes
+- runFlow: ../Home/Home.yaml

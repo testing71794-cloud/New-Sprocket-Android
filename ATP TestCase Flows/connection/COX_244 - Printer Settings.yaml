@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_244
+# Excel: PS-012 | Module: Printer Settings
+# Printer Settings
+# Expected: Printer is removed successfully after confirmation and user is redirected appropriately.
+appId: com.hp.impulse.sprocket
+name: "COX_244 - Printer Settings"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

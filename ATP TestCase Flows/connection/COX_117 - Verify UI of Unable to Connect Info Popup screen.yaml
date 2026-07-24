@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_117
+# Excel: PCF_Sprocket Plus_007 | Module: Pre Connection Flow for Sprocket Plus
+# Verify UI of 'Unable to Connect ?' Info Popup screen
+# Expected: Unable to connect?' popup should be displayed with the following content on the screen: Make sure your HP Sprocket Plus isn’t already paired to another device.  Still have questions? See the HP Sprocket Plus User Guide.  Close (X) button sh
+appId: com.hp.impulse.sprocket
+name: "COX_117 - Verify UI of Unable to Connect Info Popup screen"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Unable to Connect ?"
+    optional: true

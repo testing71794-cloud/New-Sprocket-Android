@@ -1,253 +1,7 @@
 {
   "stage": "Alerts",
-  "count": 49,
+  "count": 50,
   "cases": [
-    {
-      "test_id": "LI_W _E TC_E2E_002",
-      "module": "Error Handling",
-      "section": "ONBOARDING SPLASH SCREEN",
-      "description": "Verify invalid credential flow",
-      "steps": [
-        "1. Navigate to Log In with Email (ON_03C).",
-        "2. Enter invalid credentials.",
-        "3. Tap \"Log In\" button."
-      ],
-      "type": "Negative",
-      "expected": "System displays \"ON_05F_Log In - Invalid Email and/or Password\" error message.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 66,
-      "stage": "Alerts",
-      "verifications": [
-        {
-          "test_id": "LI_W _E TC_E2E_002",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Verify invalid credential flow",
-          "expected": "System displays \"ON_05F_Log In - Invalid Email and/or Password\" error message.",
-          "verification": "Verify visible: Log In",
-          "kind": "visible",
-          "selector": "Log In"
-        },
-        {
-          "test_id": "LI_W _E TC_E2E_002",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Verify invalid credential flow",
-          "expected": "System displays \"ON_05F_Log In - Invalid Email and/or Password\" error message.",
-          "verification": "Verify visible: Invalid Email",
-          "kind": "visible",
-          "selector": "Invalid Email"
-        },
-        {
-          "test_id": "LI_W _E TC_E2E_002",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Verify invalid credential flow",
-          "expected": "System displays \"ON_05F_Log In - Invalid Email and/or Password\" error message.",
-          "verification": "Verify visible: Invalid email",
-          "kind": "visible",
-          "selector": "Invalid email"
-        },
-        {
-          "test_id": "LI_W _E TC_E2E_002",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Verify invalid credential flow",
-          "expected": "System displays \"ON_05F_Log In - Invalid Email and/or Password\" error message.",
-          "verification": "Verify visible: password",
-          "kind": "visible",
-          "selector": "password"
-        }
-      ]
-    },
-    {
-      "test_id": "Print Preview Screen 32",
-      "module": "Error Handling",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Trigger & UI Verification",
-      "steps": [
-        "1.Launch the application.\n\n2.Wait for the splash screen to complete.\n\n3.Swipe to continue and complete all onboarding steps (ON_01B through ON_01D).\n\n4.Reach the ON_01E onboarding screen.\n\n5.Locate and verify the \"Start\" button.\n\n6.Tap the \"Get Started!\" button.\n\n7.On the home screen, connect the printer, select an image from the gallery, and reach the Print Preview screen.\nPerform pre-conditions. \n8. Simulate \"Out of Paper\" error. \n9. Tap \"Print\"."
-      ],
-      "type": "Negative",
-      "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 793,
-      "stage": "Alerts",
-      "verifications": [
-        {
-          "test_id": "Print Preview Screen 32",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Trigger & UI Verification",
-          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
-          "verification": "Verify dialog: Out of Paper",
-          "kind": "dialog",
-          "selector": "Out of Paper"
-        },
-        {
-          "test_id": "Print Preview Screen 32",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Trigger & UI Verification",
-          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
-          "verification": "Verify dialog: Please load paper and try printing again.",
-          "kind": "dialog",
-          "selector": "Please load paper and try printing again."
-        },
-        {
-          "test_id": "Print Preview Screen 32",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Trigger & UI Verification",
-          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
-          "verification": "Verify dialog: TIP",
-          "kind": "dialog",
-          "selector": "TIP"
-        },
-        {
-          "test_id": "Print Preview Screen 32",
-          "module": "Error Handling",
-          "stage": "Alerts",
-          "description": "Trigger & UI Verification",
-          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        }
-      ]
-    },
-    {
-      "test_id": "Print Preview Screen 56",
-      "module": "Paper Type",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
-      "steps": [
-        "1-8: Perform common pre-condition steps.\nSelect standard photo paper media in settings."
-      ],
-      "type": "Pos",
-      "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 875,
-      "stage": "Alerts",
-      "verifications": [
-        {
-          "test_id": "Print Preview Screen 56",
-          "module": "Paper Type",
-          "stage": "Alerts",
-          "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
-          "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
-          "verification": "Verify enabled: Copies",
-          "kind": "enabled",
-          "selector": "Copies"
-        },
-        {
-          "test_id": "Print Preview Screen 56",
-          "module": "Paper Type",
-          "stage": "Alerts",
-          "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
-          "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
-          "verification": "Verify enabled: Tiles",
-          "kind": "enabled",
-          "selector": "Tiles"
-        },
-        {
-          "test_id": "Print Preview Screen 56",
-          "module": "Paper Type",
-          "stage": "Alerts",
-          "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
-          "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
-          "verification": "Verify enabled: $ and $4\\times6",
-          "kind": "enabled",
-          "selector": "$ and $4\\times6"
-        }
-      ]
-    },
-    {
-      "test_id": "Print Preview Screen 57",
-      "module": "Paper Type",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Verify $2.3\\times3.4\"$ and $3.5\\times4.25\"$ layout",
-      "steps": [
-        "1-8: Perform common pre-condition steps.\nSelect specific photo paper sizes."
-      ],
-      "type": "Pos",
-      "expected": "Preview canvas adjusts correctly to specific aspect ratio.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 876,
-      "stage": "Alerts",
-      "verifications": [
-        {
-          "test_id": "Print Preview Screen 57",
-          "module": "Paper Type",
-          "stage": "Alerts",
-          "description": "Verify $2.3\\times3.4\"$ and $3.5\\times4.25\"$ layout",
-          "expected": "Preview canvas adjusts correctly to specific aspect ratio.",
-          "verification": "Verify visible: $ and $3.5\\times4.25",
-          "kind": "visible",
-          "selector": "$ and $3.5\\times4.25"
-        }
-      ]
-    },
-    {
-      "test_id": "AITools 34",
-      "module": "UI Coverage",
-      "section": "AI TOOLS SDK",
-      "description": "Verify full screen layout elements",
-      "steps": [
-        "1. Launch application.",
-        "2. Complete onboarding → Sign Up Later.",
-        "3. Create collage in Collage Maker.",
-        "4. Navigate to Print Preview screen.",
-        "5. Observe full UI from top to bottom."
-      ],
-      "type": "Positive",
-      "expected": "Screen shows: Back button, Printer status, Export icon, collage preview, Copies counter, Print button, disabled AI button, Edit button, and bottom tabs (More, Create, Printer).",
-      "sheet": "New Sprocket Final ATP",
-      "row": 1769,
-      "stage": "Alerts",
-      "verifications": [
-        {
-          "test_id": "AITools 34",
-          "module": "UI Coverage",
-          "stage": "Alerts",
-          "description": "Verify full screen layout elements",
-          "expected": "Screen shows: Back button, Printer status, Export icon, collage preview, Copies counter, Print button, disabled AI button, Edit button, and bottom tabs (More, Create, Printer).",
-          "verification": "Verify disabled: Copies",
-          "kind": "disabled",
-          "selector": "Copies"
-        },
-        {
-          "test_id": "AITools 34",
-          "module": "UI Coverage",
-          "stage": "Alerts",
-          "description": "Verify full screen layout elements",
-          "expected": "Screen shows: Back button, Printer status, Export icon, collage preview, Copies counter, Print button, disabled AI button, Edit button, and bottom tabs (More, Create, Printer).",
-          "verification": "Verify disabled: Create",
-          "kind": "disabled",
-          "selector": "Create"
-        },
-        {
-          "test_id": "AITools 34",
-          "module": "UI Coverage",
-          "stage": "Alerts",
-          "description": "Verify full screen layout elements",
-          "expected": "Screen shows: Back button, Printer status, Export icon, collage preview, Copies counter, Print button, disabled AI button, Edit button, and bottom tabs (More, Create, Printer).",
-          "verification": "Verify disabled: Printer",
-          "kind": "disabled",
-          "selector": "Printer"
-        },
-        {
-          "test_id": "AITools 34",
-          "module": "UI Coverage",
-          "stage": "Alerts",
-          "description": "Verify full screen layout elements",
-          "expected": "Screen shows: Back button, Printer status, Export icon, collage preview, Copies counter, Print button, disabled AI button, Edit button, and bottom tabs (More, Create, Printer).",
-          "verification": "Verify disabled: More",
-          "kind": "disabled",
-          "selector": "More"
-        }
-      ]
-    },
     {
       "test_id": "Blockers Error Pop up Android   01",
       "module": "Memory Error",
@@ -1186,6 +940,65 @@
       ]
     },
     {
+      "test_id": "Blockers Error Pop up Android   15",
+      "module": "Printer",
+      "section": "BLOCKERS & STOPPERS ERROR POP UP (ANDROID)",
+      "description": "Verify \"Sprocket not Responding\" popup",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Start!.",
+        "4. Tap Sign up later.",
+        "5. Go to Dashboard Home screen.",
+        "6. Tap Printer icon.",
+        "7. Tap Skip to Connection.",
+        "8. (iOS Only) \"Select An Accessory\" popup appears.",
+        "9. Select printer HP200 and connect successfully.",
+        "10. Verify Finish Connection screen appears.",
+        "11. Select an image from Gallery.",
+        "12. Make the printer unresponsive (turn off printer / disconnect Bluetooth / freeze printer response).",
+        "13. Tap Print on Preview screen.",
+        "14. Observe popup on Print Preview screen."
+      ],
+      "type": "Negative",
+      "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4250,
+      "stage": "Alerts",
+      "verifications": [
+        {
+          "test_id": "Blockers Error Pop up Android   15",
+          "module": "Printer",
+          "stage": "Alerts",
+          "description": "Verify \"Sprocket not Responding\" popup",
+          "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
+          "verification": "Verify dialog: Sprocket not Responding",
+          "kind": "dialog",
+          "selector": "Sprocket not Responding"
+        },
+        {
+          "test_id": "Blockers Error Pop up Android   15",
+          "module": "Printer",
+          "stage": "Alerts",
+          "description": "Verify \"Sprocket not Responding\" popup",
+          "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
+          "verification": "Verify dialog: The popup includes an",
+          "kind": "dialog",
+          "selector": "The popup includes an"
+        },
+        {
+          "test_id": "Blockers Error Pop up Android   15",
+          "module": "Printer",
+          "stage": "Alerts",
+          "description": "Verify \"Sprocket not Responding\" popup",
+          "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
+          "verification": "Verify dialog: Printer",
+          "kind": "dialog",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
       "test_id": "Blockers Error Pop up Android  16",
       "module": "Paper",
       "section": "BLOCKERS & STOPPERS ERROR POP UP (ANDROID)",
@@ -1241,6 +1054,75 @@
           "verification": "Verify dialog: OK",
           "kind": "dialog",
           "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Blockers Error Pop up Android   17",
+      "module": "Transmission",
+      "section": "BLOCKERS & STOPPERS ERROR POP UP (ANDROID)",
+      "description": "Verify \"Error Sending Image\" popup",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Start!.",
+        "4. Tap Sign up later.",
+        "5. Go to Dashboard Home screen.",
+        "6. Tap Printer icon.",
+        "7. Tap Skip to Connection.",
+        "8. (iOS Only) \"Select An Accessory\" popup appears.",
+        "9. Select printer HP200 and connect successfully.",
+        "10. Verify Finish Connection screen appears.",
+        "11. Select an image from Gallery.",
+        "12. Disconnect Bluetooth/network or interrupt image transfer between app and printer.",
+        "13. Tap Print on Preview screen.",
+        "14. Observe popup on Print Preview screen."
+      ],
+      "type": "Negative",
+      "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4278,
+      "stage": "Alerts",
+      "verifications": [
+        {
+          "test_id": "Blockers Error Pop up Android   17",
+          "module": "Transmission",
+          "stage": "Alerts",
+          "description": "Verify \"Error Sending Image\" popup",
+          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
+          "verification": "Verify dialog: Error Sending Image",
+          "kind": "dialog",
+          "selector": "Error Sending Image"
+        },
+        {
+          "test_id": "Blockers Error Pop up Android   17",
+          "module": "Transmission",
+          "stage": "Alerts",
+          "description": "Verify \"Error Sending Image\" popup",
+          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
+          "verification": "Verify dialog: Something went wrong. Please try printing again.",
+          "kind": "dialog",
+          "selector": "Something went wrong. Please try printing again."
+        },
+        {
+          "test_id": "Blockers Error Pop up Android   17",
+          "module": "Transmission",
+          "stage": "Alerts",
+          "description": "Verify \"Error Sending Image\" popup",
+          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        },
+        {
+          "test_id": "Blockers Error Pop up Android   17",
+          "module": "Transmission",
+          "stage": "Alerts",
+          "description": "Verify \"Error Sending Image\" popup",
+          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
+          "verification": "Verify dialog: Printer",
+          "kind": "dialog",
+          "selector": "Printer"
         }
       ]
     },
@@ -2179,6 +2061,270 @@
           "verification": "Verify visible: Paper Feed Error",
           "kind": "visible",
           "selector": "Paper Feed Error"
+        }
+      ]
+    },
+    {
+      "test_id": "Stoppers Error Pop up Ios   17",
+      "module": "Memory",
+      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
+      "description": "Verify \"Memory Error\" popup",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Start!.",
+        "4. Tap Sign up later.",
+        "5. Go to Dashboard Home screen.",
+        "6. Tap Printer icon.",
+        "7. Tap Skip to Connection.",
+        "8. \"Select An Accessory\" popup appears.",
+        "9. Select printer HP200 and connect successfully.",
+        "10. Verify Finish Connection screen appears.",
+        "11. Select an image from Gallery.",
+        "12. Open the Print Preview screen.",
+        "13. Tap the Print button to give the print command.",
+        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
+        "15. Induce memory fault during printing.",
+        "16. Observe popup message."
+      ],
+      "type": "Negative",
+      "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4716,
+      "stage": "Alerts",
+      "verifications": [
+        {
+          "test_id": "Stoppers Error Pop up Ios   17",
+          "module": "Memory",
+          "stage": "Alerts",
+          "description": "Verify \"Memory Error\" popup",
+          "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
+          "verification": "Verify dialog: Memory Error",
+          "kind": "dialog",
+          "selector": "Memory Error"
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios   17",
+          "module": "Memory",
+          "stage": "Alerts",
+          "description": "Verify \"Memory Error\" popup",
+          "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
+          "verification": "Verify dialog: Restart your Sprocket and try printing again.",
+          "kind": "dialog",
+          "selector": "Restart your Sprocket and try printing again."
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios   17",
+          "module": "Memory",
+          "stage": "Alerts",
+          "description": "Verify \"Memory Error\" popup",
+          "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Stoppers Error Pop up Ios    18",
+      "module": "Transmit",
+      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
+      "description": "Verify \"Transmit Error\" popup",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Start!.",
+        "4. Tap Sign up later.",
+        "5. Go to Dashboard Home screen.",
+        "6. Tap Printer icon.",
+        "7. Tap Skip to Connection.",
+        "8. \"Select An Accessory\" popup appears.",
+        "9. Select printer HP200 and connect successfully.",
+        "10. Verify Finish Connection screen appears.",
+        "11. Select an image from Gallery.",
+        "12. Open the Print Preview screen.",
+        "13. Tap the Print button to give the print command.",
+        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
+        "15. Interrupt data transfer between app and printer.",
+        "16. Observe popup message."
+      ],
+      "type": "Negative",
+      "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4732,
+      "stage": "Alerts",
+      "verifications": [
+        {
+          "test_id": "Stoppers Error Pop up Ios    18",
+          "module": "Transmit",
+          "stage": "Alerts",
+          "description": "Verify \"Transmit Error\" popup",
+          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
+          "verification": "Verify dialog: Transmit Error",
+          "kind": "dialog",
+          "selector": "Transmit Error"
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios    18",
+          "module": "Transmit",
+          "stage": "Alerts",
+          "description": "Verify \"Transmit Error\" popup",
+          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
+          "verification": "Verify dialog: Data transmission error! Please try printing again.",
+          "kind": "dialog",
+          "selector": "Data transmission error! Please try printing again."
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios    18",
+          "module": "Transmit",
+          "stage": "Alerts",
+          "description": "Verify \"Transmit Error\" popup",
+          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
+          "verification": "Verify dialog: Make sure to keep the app open during printing.",
+          "kind": "dialog",
+          "selector": "Make sure to keep the app open during printing."
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios    18",
+          "module": "Transmit",
+          "stage": "Alerts",
+          "description": "Verify \"Transmit Error\" popup",
+          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios    18",
+          "module": "Transmit",
+          "stage": "Alerts",
+          "description": "Verify \"Transmit Error\" popup",
+          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
+          "verification": "Verify dialog: Printer",
+          "kind": "dialog",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Stoppers Error Pop up Ios   19",
+      "module": "Voltage",
+      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
+      "description": "Verify \"Low Voltage\" popup",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Start!.",
+        "4. Tap Sign up later.",
+        "5. Go to Dashboard Home screen.",
+        "6. Tap Printer icon.",
+        "7. Tap Skip to Connection.",
+        "8. \"Select An Accessory\" popup appears.",
+        "9. Select printer HP200 and connect successfully.",
+        "10. Verify Finish Connection screen appears.",
+        "11. Select an image from Gallery.",
+        "12. Open the Print Preview screen.",
+        "13. Tap the Print button to give the print command.",
+        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
+        "15. Reduce printer battery/voltage to a low level.",
+        "16. Observe popup message."
+      ],
+      "type": "Negative",
+      "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4748,
+      "stage": "Alerts",
+      "verifications": [
+        {
+          "test_id": "Stoppers Error Pop up Ios   19",
+          "module": "Voltage",
+          "stage": "Alerts",
+          "description": "Verify \"Low Voltage\" popup",
+          "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
+          "verification": "Verify dialog: Low Voltage",
+          "kind": "dialog",
+          "selector": "Low Voltage"
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios   19",
+          "module": "Voltage",
+          "stage": "Alerts",
+          "description": "Verify \"Low Voltage\" popup",
+          "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
+          "verification": "Verify dialog: Low Electric Quantity. Try printing again after resolving the issue.",
+          "kind": "dialog",
+          "selector": "Low Electric Quantity. Try printing again after resolving the issue."
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios   19",
+          "module": "Voltage",
+          "stage": "Alerts",
+          "description": "Verify \"Low Voltage\" popup",
+          "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Stoppers Error Pop up Ios   20",
+      "module": "Print",
+      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
+      "description": "Verify \"Print Error\" popup",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Start!.",
+        "4. Tap Sign up later.",
+        "5. Go to Dashboard Home screen.",
+        "6. Tap Printer icon.",
+        "7. Tap Skip to Connection.",
+        "8. \"Select An Accessory\" popup appears.",
+        "9. Select printer HP200 and connect successfully.",
+        "10. Verify Finish Connection screen appears.",
+        "11. Select an image from Gallery.",
+        "12. Open the Print Preview screen.",
+        "13. Tap the Print button to give the print command.",
+        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
+        "15. Induce a generic print fault.",
+        "16. Observe popup message."
+      ],
+      "type": "Negative",
+      "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4764,
+      "stage": "Alerts",
+      "verifications": [
+        {
+          "test_id": "Stoppers Error Pop up Ios   20",
+          "module": "Print",
+          "stage": "Alerts",
+          "description": "Verify \"Print Error\" popup",
+          "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
+          "verification": "Verify dialog: Print Error",
+          "kind": "dialog",
+          "selector": "Print Error"
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios   20",
+          "module": "Print",
+          "stage": "Alerts",
+          "description": "Verify \"Print Error\" popup",
+          "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
+          "verification": "Verify dialog: Restart your Sprocket and try printing again.",
+          "kind": "dialog",
+          "selector": "Restart your Sprocket and try printing again."
+        },
+        {
+          "test_id": "Stoppers Error Pop up Ios   20",
+          "module": "Print",
+          "stage": "Alerts",
+          "description": "Verify \"Print Error\" popup",
+          "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
         }
       ]
     },

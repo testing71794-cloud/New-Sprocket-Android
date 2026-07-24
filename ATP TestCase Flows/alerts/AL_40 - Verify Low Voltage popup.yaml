@@ -1,0 +1,20 @@
+# ATP Test Case ID: AL_40
+# Excel: Stoppers Error Pop up Ios   19 | Module: Voltage
+# Verify "Low Voltage" popup
+# Expected: "Low Voltage" popup is displayed . The popup displays the bold title "Low Voltage", followed by the message "Low Electric Quantity. Try printing again after resolving the issue." The popup includes an "OK" button at the bottom and a Close (
+appId: com.hp.impulse.sprocket
+name: "AL_40 - Verify Low Voltage popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Low Voltage"
+    optional: true
+- assertVisible:
+    text: "Low Electric Quantity. Try printing again after resolving the issue."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

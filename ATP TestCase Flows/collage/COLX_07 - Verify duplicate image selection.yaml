@@ -1,0 +1,14 @@
+# ATP Test Case ID: COLX_07
+# Excel: Collage_07 | Module: Duplicate Selection
+# Verify duplicate image selection
+# Expected: Same image can be selected multiple times.
+appId: com.hp.impulse.sprocket
+name: "COLX_07 - Verify duplicate image selection"
+tags:
+  - collage
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

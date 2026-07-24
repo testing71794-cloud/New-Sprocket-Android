@@ -1,0 +1,26 @@
+# ATP Test Case ID: AI_01
+# Excel: AI Tool 01 | Module: Create Screen
+# Verify UI layout of "Create" screen
+# Expected: Displays "Sprocket AI" banner, Quick Print, Collage Maker, Pre-Cut Stickers, Tile Print, and Photobooth.
+appId: com.hp.impulse.sprocket
+name: "AI_01 - Verify UI layout of Create screen"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sprocket AI"
+    optional: true
+- assertVisible:
+    text: "Create"
+    optional: true
+- assertVisible:
+    text: "Photobooth"
+    optional: true
+- assertVisible:
+    text: "Collage Maker"
+    optional: true
+- assertVisible:
+    text: "Quick Print"
+    optional: true

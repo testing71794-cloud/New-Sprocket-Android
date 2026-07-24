@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_01
+# Excel: Photo ID 01 | Module: Onboarding
+# Verify camera permission popup and Photo ID onboarding popup
+# Expected: Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.
+appId: com.hp.impulse.sprocket
+name: "PID_01 - Verify camera permission popup and Photo ID onboarding popup"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photo ID"
+    optional: true

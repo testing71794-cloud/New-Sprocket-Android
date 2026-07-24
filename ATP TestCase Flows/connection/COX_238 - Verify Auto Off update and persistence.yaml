@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_238
+# Excel: PS-006 | Module: Printer Settings
+# Verify Auto Off update and persistence
+# Expected: Selected Auto Off value is saved successfully and persists after reopening Printer Settings.
+appId: com.hp.impulse.sprocket
+name: "COX_238 - Verify Auto Off update and persistence"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

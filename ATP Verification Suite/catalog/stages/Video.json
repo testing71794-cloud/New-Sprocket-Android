@@ -1,6 +1,6 @@
 {
   "stage": "Video",
-  "count": 8,
+  "count": 7,
   "cases": [
     {
       "test_id": "Video frame 01",
@@ -22,6 +22,32 @@
           "stage": "Video",
           "description": "Verify video thumbnails indicate video content.",
           "expected": "Video thumbnails display a play icon at the bottom-right indicating video content.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Video frame 02",
+      "module": "CR_05B_Select Mode with Videos",
+      "section": "VIDEO FRAMES",
+      "description": "Verify mixed media selection.",
+      "steps": [
+        "1. Perform Video frame 01 steps. 2. Enter Select Mode. 3. Select a combination of photos and videos. 4. Verify selection badges and counter update correctly."
+      ],
+      "type": "Positive",
+      "expected": "Selected items show sequence numbers and bottom counter displays the correct number of selected photos and videos.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 647,
+      "stage": "Video",
+      "verifications": [
+        {
+          "test_id": "Video frame 02",
+          "module": "CR_05B_Select Mode with Videos",
+          "stage": "Video",
+          "description": "Verify mixed media selection.",
+          "expected": "Selected items show sequence numbers and bottom counter displays the correct number of selected photos and videos.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null
@@ -152,81 +178,9 @@
           "stage": "Video",
           "description": "Verify UI restrictions during playback in Tiles mode.",
           "expected": "Layout modifications and copy count adjustments are restricted while video playback is active.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 169",
-      "module": "Select Video Frame",
-      "section": "AI TOOLS SDK",
-      "description": "Verify routing to Ready-to-Generate workflow",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.",
-        "2. Complete onboarding (ON_01B–ON_01E).",
-        "3. Tap Get Started → Sign Up Later.",
-        "4. Navigate to Create → AI Tools (CR_16A).",
-        "5. Select Ready-to-Generate tool (Remove Background / Replace Background / Restore Photo / Enhance Photo / Fix Lighting / Upscale Photo).",
-        "6. Select video from Gallery (CR_16A.1_Select Image from Gallery).",
-        "7. CR_16A.4_Select Video Frame screen opens.",
-        "8. Verify top left Back Arrow icon and \"Select Frame\" title.",
-        "9. Verify video preview, timeline thumbnails and Next button are displayed.",
-        "10. Select required video frame from timeline.",
-        "11. Tap Next."
-      ],
-      "type": "Positive",
-      "expected": "User navigates to CR_16A.2_Preview Image - Ready to Generate screen.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2780,
-      "stage": "Video",
-      "verifications": [
-        {
-          "test_id": "AI Tools 169",
-          "module": "Select Video Frame",
-          "stage": "Video",
-          "description": "Verify routing to Ready-to-Generate workflow",
-          "expected": "User navigates to CR_16A.2_Preview Image - Ready to Generate screen.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 170",
-      "module": "Select Video Frame",
-      "section": "AI TOOLS SDK",
-      "description": "Verify routing to Next Step workflow",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.",
-        "2. Complete onboarding (ON_01B–ON_01E).",
-        "3. Tap Get Started → Sign Up Later.",
-        "4. Navigate to Create → AI Tools (CR_16A).",
-        "5. Select Next Step tool (Remove Object / Replace Object / Grab Object / Extend Image / Generate Object).",
-        "6. Select video from Gallery (CR_16A.1_Select Image from Gallery).",
-        "7. CR_16A.4_Select Video Frame screen opens.",
-        "8. Verify top left Back Arrow icon and \"Select Frame\" title.",
-        "9. Verify video preview, timeline thumbnails and Next button are displayed.",
-        "10. Select required video frame from timeline.",
-        "11. Tap Next."
-      ],
-      "type": "Positive",
-      "expected": "User navigates to CR_16A.3_Preview Image - Next Step screen.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2791,
-      "stage": "Video",
-      "verifications": [
-        {
-          "test_id": "AI Tools 170",
-          "module": "Select Video Frame",
-          "stage": "Video",
-          "description": "Verify routing to Next Step workflow",
-          "expected": "User navigates to CR_16A.3_Preview Image - Next Step screen.",
-          "verification": "Verify image/logo: Next",
-          "kind": "image",
-          "selector": "Next"
+          "verification": "Verify visible: Tiles",
+          "kind": "visible",
+          "selector": "Tiles"
         }
       ]
     }

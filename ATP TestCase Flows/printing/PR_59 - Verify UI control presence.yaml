@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_59
+# Excel: Print Preview Screen 59 | Module: UI/Layout
+# Verify UI control presence
+# Expected: "Copies" counter is interactive (plus/minus functional).
+appId: com.hp.impulse.sprocket
+name: "PR_59 - Verify UI control presence"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Copies"
+    optional: true

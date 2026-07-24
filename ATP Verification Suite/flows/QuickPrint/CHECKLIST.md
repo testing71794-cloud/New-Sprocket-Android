@@ -1,4 +1,4 @@
-# QuickPrint — 45 ATP cases
+# QuickPrint — 29 ATP cases
 
 - [ ] QUICK PRINT _001 | Quick Print - Gallery Permission | Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
 - [ ] QUICK PRINT_002 | Gallery Permission | Verify the Allow all option opens the Gallery screen.
@@ -29,19 +29,3 @@
 - [ ] QUICK PRINT 27 | Facebook Gallery - No Internet Tag Search | Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags 
 - [ ] QUICK PRINT 28 | Gallery - Sort Menu | Verify that the user can sort gallery photos using the Newest and Oldest options.
 - [ ] QUICK PRINT 29 | Gallery - No Photos Found | Verify the No Photos Found screen when the selected gallery folder does not contain any photos.
-- [ ] Precut_06 | Gallery Interaction | Verify gallery expansion, collapse, and auto-snap.
-- [ ] Video frame 02 | CR_05B_Select Mode with Videos | Verify mixed media selection.
-- [ ] Print Preview Screen  106 | Saved to Gallery Toast | Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage
-- [ ] Print Preview Screen 107 | Saved to Gallery Toast | Verify toast message and Gallery save failure handling
-- [ ] Tiles modules 01 | Gallery (Tile Print) | Verify Gallery screen UI and Tile Print navigation
-- [ ] Tiles modules 02 | Gallery (Tile Print) | Verify folder selection and Tile Print restrictions
-- [ ] Tiles modules 03 | Select Mode Blocked Toast Message (Tile Print) | Verify blocked toast message, UI elements and bottom navigation
-- [ ] Tiles modules 04 | Select Mode Blocked Toast Message (Tile Print) | Verify multi-select restriction and error handling
-- [ ] AI tools 145 | Gallery | Verify Date-based Grouping
-- [ ] Custom SDK 01 | Gallery - Edit Screen Navigation | Verify user is redirected to Custom SDK screen after tapping Edit icon.
-- [ ] Custom SDK  02 | Gallery - Image Display | Verify selected image is displayed in the Custom SDK editor.
-- [ ] Custom SDK  03 | Gallery - Apply Edit | Verify user can edit the selected image.
-- [ ] Custom SDK   04 | Gallery - Print Edited Image | Verify user can print an edited image successfully.
-- [ ] Custom SDK  05 | Gallery - Back Navigation from Custom SDK | Verify user can return from Custom SDK screen.
-- [ ] Custom SDK   06 | Gallery - No Printer Connected | Verify application behavior when no printer is selected.
-- [ ] Custom SDK  08 | Gallery - Print Without Saving Edit | Verify user can print image without saving any modifications.

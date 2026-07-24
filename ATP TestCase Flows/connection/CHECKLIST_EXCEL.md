@@ -1,0 +1,257 @@
+# Connection / connection — 255 Excel-generated flows
+
+- [ ] COX_001 | PCF-001 | Verify to navigate to 'Add a new Printer' screen
+- [ ] COX_002 | PCF-002 | Verify to navigate to 'Enable the full Sprocket experience' screen via 'Skip to Connection' flow
+- [ ] COX_003 | PCF-003 | Verify printer discovery screen via 'Skip to connection' flow
+- [ ] COX_004 | PCF-004 | Verify default HP200 printer selection at 'Select Your Device' screen
+- [ ] COX_005 | PCF-005 | Verify that the user can scroll through all available printer models from right to left
+- [ ] COX_006 | PCF-006 | Verify that the user can scroll through all available printer models from left to right
+- [ ] COX_007 | PCF-007 | Verify that the printer carousel is not an infinite loop and has defined start and end points.
+- [ ] COX_008 | PCF-008 | Verify selected 'Sprocket 200' printer image updates
+- [ ] COX_009 | PCF-009 | Verify selected 'Sprocket Studio Plus' printer image updates
+- [ ] COX_010 | PCF-010 | Verify selected 'Sprocket 3x4' printer image updates
+- [ ] COX_011 | PCF-011 | Verify selected 'HP Sprocket Select' printer image updates
+- [ ] COX_012 | PCF-012 | Verify selected 'HP Sprocket 2-in-1' printer image updates
+- [ ] COX_013 | PCF-013 | Verify selected 'HP Sprocket Plus' printer image updates
+- [ ] COX_014 | PCF-014 | Verify selected 'HP Sprocket Studio' printer image updates
+- [ ] COX_015 | PCF-015 | Verify selected 'HP Sprocket' printer image updates
+- [ ] COX_016 | PCF-016 | Verify selected 'HP Sprocket Panorama' printer image updates
+- [ ] COX_017 | PCF-017 | Verify that tapping the 'GET IT ON Google Play' button redirects the user to the HP Sprocket Panorama app page on the Go
+- [ ] COX_018 | PCF-018 | Verify that tapping the 'Download on the App Store' button redirects the user to the HP Sprocket Panorama app page on th
+- [ ] COX_019 | PCF_HP200_001 | Verify 'Charge + Power On' Screen UI for the HP Sprocket 200
+- [ ] COX_020 | PCF_HP200_002 | Verify the Load Paper screen UI for the HP Sprocket 200 printer.
+- [ ] COX_021 | PCF_HP200_003 | Verify Previous Button on Load Paper Screen for the HP Sprocket 200 printer.
+- [ ] COX_022 | PCF_HP200_004 | Verify 'Load Paper' Info Popup for the HP Sprocket 200 printer.
+- [ ] COX_023 | PCF_HP200_005 | Verify 'Get Connected' Screen UI for the HP Sprocket 200 printer.
+- [ ] COX_024 | PCF_HP200_006 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 200 printer.
+- [ ] COX_025 | PCF_HP200_007 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] COX_026 | PCF_HP200_008 | Verify Close Button on Unable to Connect Popup
+- [ ] COX_027 | PCF_HP200_009 | Verify 'Finish Setup' Button for the HP Sprocket 200 printer.
+- [ ] COX_028 | PCF_HP200_010 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP200 printer
+- [ ] COX_029 | PCF_HP200_011 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP200 printer
+- [ ] COX_030 | PCF_HP200_012 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP 200
+- [ ] COX_031 | PCF_HP200_013 | Verify User Cancels Bluetooth Enable Request for HP 200 printer
+- [ ] COX_032 | PCF_HP200_014 | Verify Bluetooth Already Enabled Scenario for HP 200 printer
+- [ ] COX_033 | PCF_HP200_015 | Verify Navigation to 'No Printers Found' Screen for HP 200 printer
+- [ ] COX_034 | PCF_HP200_016 | Verify all UI elements displayed on the 'No Printers Found' screen for HP 200 printer
+- [ ] COX_035 | PCF_HP200_017 | Verify that tapping 'Try Again' restarts printer discovery for HP 200 printer
+- [ ] COX_036 | PCF_HP200_018 | Verify Printer Found After Retry for HP 200 printer
+- [ ] COX_037 | PCF_HP200_019 | Verify No Printer Found Again After Retry
+- [ ] COX_038 | PCF_HP3*4_001 | Verify 'Charge + Power On' Screen UI for the HP Sprocket 3x4
+- [ ] COX_039 | PCF_HP3*4_002 | Verify the Load Paper screen UI for the HP Sprocket 3x4 printer.
+- [ ] COX_040 | PCF_HP3*4_003 | Verify Previous Button on Load Paper Screen for the HP Sprocket 3x4 printer.
+- [ ] COX_041 | PCF_HP3*4_004 | Verify 'Load Paper' Info Popup for the HP Sprocket 3x4 printer.
+- [ ] COX_042 | PCF_HP3*4_005 | Verify 'Get Connected' Screen UI for the HP Sprocket 3x4 printer.
+- [ ] COX_043 | PCF_HP3*4_006 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 3x4 printer.
+- [ ] COX_044 | PCF_HP3*4_007 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] COX_045 | PCF_HP3*4_008 | Verify Close Button on Unable to Connect Popup
+- [ ] COX_046 | PCF_HP3*4_009 | Verify 'Finish Setup' Button for the HP Sprocket 3x4 printer.
+- [ ] COX_047 | PCF_HP3*4_010 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket 3x4 printer
+- [ ] COX_048 | PCF_HP3*4_011 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket 3x4 printer
+- [ ] COX_049 | PCF_HP3*4_012 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket 3x4
+- [ ] COX_050 | PCF_HP3*4_013 | Verify User Cancels Bluetooth Enable Request for HP Sprocket 3x4 printer
+- [ ] COX_051 | PCF_HP3*4_014 | Verify Bluetooth Already Enabled Scenario for HP Sprocket 3x4 printer
+- [ ] COX_052 | PCF_HP3*4_015 | Verify Navigation to 'No Printers Found' Screen for HP Sprocket 3x4 printer
+- [ ] COX_053 | PCF_HP3*4_016 | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket 3x4 printer
+- [ ] COX_054 | PCF_HP3*4_017 | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket 3x4 printer
+- [ ] COX_055 | PCF_HP3*4_018 | Verify Printer Found After Retry for HP Sprocket 3x4 printer
+- [ ] COX_056 | PCF_HP3*4_019 | Verify No Printer Found Again After Retry
+- [ ] COX_057 | PCF_HPSelect_001 | Verify 'Charge + Power On' Screen UI for the HP Sprocket Select
+- [ ] COX_058 | PCF_HPSelect_002 | Verify the Load Paper screen UI for the HP Sprocket Select printer.
+- [ ] COX_059 | PCF_HPSelect_003 | Verify Previous Button on Load Paper Screen for the HP Sprocket Select printer.
+- [ ] COX_060 | PCF_HPSelect_004 | Verify 'Load Paper' Info Popup for the HP Sprocket Select printer.
+- [ ] COX_061 | PCF_HPSelect_005 | Verify 'Get Connected' Screen UI for the HP Sprocket Select printer.
+- [ ] COX_062 | PCF_HPSelect_006 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket Select printer.
+- [ ] COX_063 | PCF_HPSelect_007 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] COX_064 | PCF_HPSelect_008 | Verify Close Button on Unable to Connect Popup
+- [ ] COX_065 | PCF_HPSelect_009 | Verify 'Finish Setup' Button for the HP Sprocket Select printer.
+- [ ] COX_066 | PCF_HPSelect_010 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Select printer
+- [ ] COX_067 | PCF_HPSelect_011 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Select printer
+- [ ] COX_068 | PCF_HPSelect_012 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Select
+- [ ] COX_069 | PCF_HPSelect_013 | Verify User Cancels Bluetooth Enable Request for HP Sprocket Select printer
+- [ ] COX_070 | PCF_HPSelect_014 | Verify Bluetooth Already Enabled Scenario for HP Sprocket Select printer
+- [ ] COX_071 | PCF_HPSelect_015 | Verify Navigation to 'No Printers Found' Screen for HP Sprocket Select printer
+- [ ] COX_072 | PCF_HPSelect_016 | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket Select printer
+- [ ] COX_073 | PCF_HPSelect_017 | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket Select printer
+- [ ] COX_074 | PCF_HPSelect_018 | Verify Printer Found After Retry for HP Sprocket Select printer
+- [ ] COX_075 | PCF_HPSelect_019 | Verify No Printer Found Again After Retry
+- [ ] COX_076 | PCF_Studio_001 | Verify Plug In + Power On Screen for the HP Sprocket Studio
+- [ ] COX_077 | PCF_Studio_002 | Verify Learn More Popup
+- [ ] COX_078 | PCF_Studio_003 | Verify Shop Here Button
+- [ ] COX_079 | PCF_Studio_004 | Verify OK Button on Power Bank Popup
+- [ ] COX_080 | PCF_Studio_005 | Verify Next Navigation from Plug In + Power On
+- [ ] COX_081 | PCF_Studio_006 | Verify Load Paper Information Popup
+- [ ] COX_082 | PCF_Studio_007 | Verify Next Navigation from Load Paper
+- [ ] COX_083 | PCF_Studio_008 | Verify Install Ink Cartridge Screen
+- [ ] COX_084 | PCF_Studio_009 | Verify Cartridge Information Popup
+- [ ] COX_085 | PCF_Studio_010 | Verify Next Navigation from Install Ink Cartridge
+- [ ] COX_086 | PCF_Studio_011 | Verify Check Behind the Printer Screen
+- [ ] COX_087 | PCF_Studio_012 | Verify Next Navigation from Check Behind the Printer
+- [ ] COX_088 | PCF_Studio_013 | Verify Get Connected Screen
+- [ ] COX_089 | PCF_Studio_014 | Verify Unable to Connect Popup
+- [ ] COX_090 | PCF_Studio_015 | Verify Finish Setup Button
+- [ ] COX_091 | PCF_Sprocket_001 | Verify 'Charge + Power On' Screen UI for the HP Sprocket
+- [ ] COX_092 | PCF_Sprocket_002 | Verify the Load Paper screen UI for the HP Sprocket  printer
+- [ ] COX_093 | PCF_Sprocket_003 | Verify Previous Button on Load Paper Screen for the HP Sprocket  printer.
+- [ ] COX_094 | PCF_Sprocket_004 | Verify 'Load Paper' Info Popup for the HP Sprocket  printer.
+- [ ] COX_095 | PCF_Sprocket_005 | Verify 'Get Connected' Screen UI for the HP Sprocket  printer.
+- [ ] COX_096 | PCF_Sprocket_006 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket  printer.
+- [ ] COX_097 | PCF_Sprocket_007 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] COX_098 | PCF_Sprocket_008 | Verify Close Button on Unable to Connect Popup
+- [ ] COX_099 | PCF_Sprocket_009 | Verify 'Finish Setup' Button for the HP Sprocket  printer.
+- [ ] COX_100 | PCF_Sprocket_010 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket printer
+- [ ] COX_101 | PCF_Sprocket_011 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket printer
+- [ ] COX_102 | PCF_Sprocket_012 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket
+- [ ] COX_103 | PCF_Sprocket_013 | Verify User Cancels Bluetooth Enable Request for HP Sprocket printer
+- [ ] COX_104 | PCF_Sprocket_014 | Verify Bluetooth Already Enabled Scenario for HP Sprocket printer
+- [ ] COX_105 | PCF_Sprocket_015 | Verify Navigation to 'No Printers Found' Screen for HP Sprocket printer
+- [ ] COX_106 | PCF_Sprocket_016 | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket printer
+- [ ] COX_107 | PCF_Sprocket_017 | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket printer
+- [ ] COX_108 | PCF_Sprocket_018 | Verify Printer Found After Retry for HP Sprocket printer for Android
+- [ ] COX_109 | PCF_Sprocket_019 | Verify Printer Found After Retry for HP Sprocket printer for iOS
+- [ ] COX_110 | PCF_Sprocket_020 | Verify No Printer Found Again After Retry
+- [ ] COX_111 | PCF_Sprocket Plus_001 | Verify 'Charge + Power On' Screen UI for the HP Sprocket Plus
+- [ ] COX_112 | PCF_Sprocket Plus_002 | Verify the Load Paper screen UI for the HP Sprocket Plus printer.
+- [ ] COX_113 | PCF_Sprocket Plus_003 | Verify Previous Button on Load Paper Screen for the HP Sprocket Plus printer.
+- [ ] COX_114 | PCF_Sprocket Plus_004 | Verify 'Load Paper' Info Popup for the HP Sprocket Plus printer.
+- [ ] COX_115 | PCF_Sprocket Plus_005 | Verify 'Get Connected' Screen UI for the HP Sprocket Plus printer.
+- [ ] COX_116 | PCF_Sprocket Plus_006 | Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket Plus printer.
+- [ ] COX_117 | PCF_Sprocket Plus_007 | Verify UI of 'Unable to Connect ?' Info Popup screen
+- [ ] COX_118 | PCF_Sprocket Plus_008 | Verify Close Button on Unable to Connect Popup
+- [ ] COX_119 | PCF_Sprocket Plus_009 | Verify 'Finish Setup' Button for the HP Sprocket Plus printer.
+- [ ] COX_120 | PCF_Sprocket Plus_010 | Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Plus printer
+- [ ] COX_121 | PCF_Sprocket Plus_011 | Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Plus printer
+- [ ] COX_122 | PCF_Sprocket Plus_012 | Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Plus
+- [ ] COX_123 | PCF_Sprocket Plus_013 | Verify User Cancels Bluetooth Enable Request for HP Sprocket Plus printer
+- [ ] COX_124 | PCF_Sprocket Plus_014 | Verify Bluetooth Already Enabled Scenario for HP Sprocket Plus printer
+- [ ] COX_125 | PCF_Sprocket Plus_015 | Verify Navigation to 'No Printers Found' Screen for HP Sprocket Plus printer
+- [ ] COX_126 | PCF_Sprocket Plus_016 | Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket Plus printer
+- [ ] COX_127 | PCF_Sprocket Plus_017 | Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket Plus printer
+- [ ] COX_128 | PCF_Sprocket Plus_018 | Verify Printer Found After Retry for HP Sprocket Plus printer
+- [ ] COX_129 | PCF_Sprocket Plus_019 | Verify Printer Found After Retry for HP Sprocket Plus printer
+- [ ] COX_130 | PCF_Sprocket Plus_020 | Verify No Printer Found Again After Retry
+- [ ] COX_131 | PCF_Studio Plus_001 | Verify HP Sprocket Studio Plus Intro Screen
+- [ ] COX_132 | PCF_Studio Plus_002 | Verify that tapping Next navigates to the next onboarding screen.
+- [ ] COX_133 | PCF_Studio Plus_003 | Verify Load Paper Screen
+- [ ] COX_134 | PCF_Studio Plus_004 | Verify Paper Type Information Popup
+- [ ] COX_135 | PCF_Studio Plus_005 | Verify Close Button on Paper Type Popup
+- [ ] COX_136 | PCF_Studio Plus_006 | Verify Next Button on Load Paper Screen
+- [ ] COX_137 | PCF_Studio Plus_007 | Verify Install Ink Cartridge Screen
+- [ ] COX_138 | PCF_Studio Plus_008 | Verify Next Button on Install Ink Cartridge Screen
+- [ ] COX_139 | PCF_Studio Plus_009 | Verify Power On Screen
+- [ ] COX_140 | PCF_Studio Plus_010 | Verify Next Button on Power On Screen
+- [ ] COX_141 | PCF_Studio Plus_011 | Verify Check Behind the Printer Screen
+- [ ] COX_142 | PCF_Studio Plus_012 | Verify Next Button on Check Behind the Printer Screen
+- [ ] COX_143 | PCF_Studio Plus_013 | Verify Ready for Wi-Fi Connection Screen
+- [ ] COX_144 | PCF_Studio Plus_014 | Verify that the Previous button navigates to the previous setup screen.
+- [ ] COX_145 | PCF_Studio Plus_015 | Verify Finish Setup Button
+- [ ] COX_146 | PCF_Studio Plus_016 | Verify that tapping the Close (X) button exits the setup flow.
+- [ ] COX_147 | PCF_Studio Plus_017 | Verify that tapping on 'Exit' button close the set up flow
+- [ ] COX_148 | PCF_Studio Plus_018 | Verify that tapping on 'Continue' button to remain on the set up flow
+- [ ] COX_149 | General_PCF-001 | Verify selected printer remains highlighted
+- [ ] COX_150 | General_PCF-002 | Verify Continue button functionality
+- [ ] COX_151 | General_PCF-003 | Verify loading state during Printers discovery
+- [ ] COX_152 | General_PCF-004 | Verify loading state spinner timing during Printers discovery
+- [ ] COX_153 | General_PCF-005 | Navigate to 'No Printers Found' screen
+- [ ] COX_154 | General_PCF-006 | Verify 'Try Again' button functionality at 'No Printers Found' screen
+- [ ] COX_155 | General_PCF-007 | Verify printer list population
+- [ ] COX_156 | General_PCF-008 | Verify loading spinner is displayed for selected printer
+- [ ] COX_157 | General_PCF-009 | Verify other printer buttons are disabled during connection
+- [ ] COX_158 | General_PCF-010 | Verify Close (X) button is disabled during connection attempt
+- [ ] COX_159 | General_PCF-011 | Verify successful connection
+- [ ] COX_160 | General_PCF-012 | Verify behavior when Bluetooth is turned OFF on Success screen
+- [ ] COX_161 | General_PCF-013 | Verify Finish Connection behavior after Bluetooth OFF
+- [ ] COX_162 | HP600 connection flow | 
+- [ ] COX_163 | HP600_CONN_TC001 | Verify Searching for Printers screen
+- [ ] COX_164 | HP600_CONN_TC002 | Verify only HP600 printers listed
+- [ ] COX_165 | HP600_CONN_TC003 | Verify + icon
+- [ ] COX_166 | HP600_CONN_TC004 | Verify tap + starts connection
+- [ ] COX_167 | HP600_CONN_TC005 | Verify No Printer Found
+- [ ] COX_168 | HP600_CONN_TC006 | Verify 'Try Again' restarts printer discovery
+- [ ] COX_169 | HP600_CONN_TC007 | Verify searching spinner is displayed during discovery
+- [ ] COX_170 | HP600_CONN_TC008 | Verify HP600 printer details are displayed
+- [ ] COX_171 | HP600_CONN_TC009 | Verify Close exits discovery
+- [ ] COX_172 | HP600_CONN_TC010 | Verify '+' button is enabled
+- [ ] COX_173 | HP600_CONN_TC011 | Verify connection process starts after selecting printer
+- [ ] COX_174 | HP600_CONN_TC012 | Verify Bluetooth OFF flow on Android
+- [ ] COX_175 | HP600_CONN_TC013 | Verify Bluetooth OFF flow on iOS
+- [ ] COX_176 | HP600_CONN_TC014 | Verify Printer Already Added screen
+- [ ] COX_177 | HP600_CONN_TC015 | Verify Done button
+- [ ] COX_178 | HP600_CONN_TC016 | Verify 'This Printer uses wi-fi screen' for Android
+- [ ] COX_179 | HP600_CONN_TC017 | Verify the functionality of the Cancel button on the This printer uses Wi-Fi screen.
+- [ ] COX_180 | HP600_CONN_TC018 | Verify the functionality of the Open Settings button on Android.
+- [ ] COX_181 | HP600_CONN_TC019 | Verify 'This Printer uses wi-fi screen' for Android
+- [ ] COX_182 | HP600_CONN_TC020 | Verify that the app remains on the Wi-Fi instruction screen when the phone is not connected to a Wi-Fi network.
+- [ ] COX_183 | HP600_CONN_TC021 | 
+- [ ] COX_184 | HP600_CONN_TC022 | 
+- [ ] COX_185 | HP600_CONN_TC023 | 
+- [ ] COX_186 | HP600_CONN_TC024 | 
+- [ ] COX_187 | HP600_CONN_TC025 | 
+- [ ] COX_188 | HP600_CONN_TC026 | 
+- [ ] COX_189 | HP600_CONN_TC027 | 
+- [ ] COX_190 | HP600_CONN_TC028 | 
+- [ ] COX_191 | HP600_CONN_TC029 | 
+- [ ] COX_192 | HP600_CONN_TC030 | 
+- [ ] COX_193 | HP600_CONN_TC031 | Verify Connect Printer to Wi-Fi screen
+- [ ] COX_194 | HP600_CONN_TC032 | Verify current SSID
+- [ ] COX_195 | HP600_CONN_TC033 | Verify Change option
+- [ ] COX_196 | HP600_CONN_TC034 | Verify Wi-Fi list
+- [ ] COX_197 | HP600_CONN_TC035 | Verify selecting another network
+- [ ] COX_198 | HP600_CONN_TC036 | Verify password entry
+- [ ] COX_199 | HP600_CONN_TC037 | Verify show/hide password
+- [ ] COX_200 | HP600_CONN_TC038 | Verify Next enabled
+- [ ] COX_201 | HP600_CONN_TC039 | Verify loading
+- [ ] COX_202 | HP600_CONN_TC040 | Verify connection starts
+- [ ] COX_203 | HP600_CONN_TC041 | Verify loading indicator while connecting
+- [ ] COX_204 | HP600_CONN_TC042 | Verify loading screen remains until completion
+- [ ] COX_205 | HP600_CONN_TC043 | Verify Set Up Complete screen after successful connection
+- [ ] COX_206 | HP600_CONN_TC044 | Verify Set Up Complete screen contents
+- [ ] COX_207 | HP600_CONN_TC045 | Verify Finish Connection button
+- [ ] COX_208 | HP600_CONN_TC046 | Verify navigation to Your Printers
+- [ ] COX_209 | HP600_CONN_TC047 | Verify newly connected printer in list
+- [ ] COX_210 | HP600_CONN_TC048 | Verify connected printer status
+- [ ] COX_211 | HP600_CONN_TC049 | Verify printer can be selected
+- [ ] COX_212 | HP600_CONN_TC050 | Verify no duplicate printer entry
+- [ ] COX_213 | HP600_CONN_TC051 | Verify Couldn't Connect screen
+- [ ] COX_214 | HP600_CONN_TC052 | Verify Couldn't Connect UI
+- [ ] COX_215 | HP600_CONN_TC053 | Verify Try Again
+- [ ] COX_216 | HP600_CONN_TC054 | Verify Cancel
+- [ ] COX_217 | HP600_CONN_TC055 | Verify incorrect Wi-Fi password
+- [ ] COX_218 | HP600_CONN_TC056 | Verify printer powered off
+- [ ] COX_219 | HP600_CONN_TC057 | Verify printer out of Bluetooth range
+- [ ] COX_220 | HP600_CONN_TC058 | Verify phone disconnects from Wi-Fi
+- [ ] COX_221 | HP600_CONN_TC059 | Verify connection timeout
+- [ ] COX_222 | HP600_CONN_TC060 | Verify reconnect after Try Again
+- [ ] COX_223 | HP600_CONN_TC061 | Verify No Wi-Fi Available screen
+- [ ] COX_224 | HP600_CONN_TC062 | Verify Cancel on No Wi-Fi Available
+- [ ] COX_225 | HP600_CONN_TC063 | Verify Open Settings (Android)
+- [ ] COX_226 | HP600_CONN_TC064 | Verify iOS No Wi-Fi flow
+- [ ] COX_227 | HP600_CONN_TC065 | Verify Connect to DIRECT-xxxx screen
+- [ ] COX_228 | HP600_CONN_TC066 | Verify Android DIRECT connection
+- [ ] COX_229 | HP600_CONN_TC067 | Verify iOS DIRECT connection
+- [ ] COX_230 | HP600_CONN_TC068 | Verify loading after DIRECT connection
+- [ ] COX_231 | HP600_CONN_TC069 | Verify successful Wi-Fi Direct setup
+- [ ] COX_232 | HP600_CONN_TC070 | Verify failed Wi-Fi Direct setup
+- [ ] COX_233 | PS-001 | Verify complete Printer Settings screen preview
+- [ ] COX_234 | PS-002 | Verify Nickname update and persistence
+- [ ] COX_235 | PS-003 | Verify Printer Status and Battery field visibility
+- [ ] COX_236 | PS-004 | Verify LED Color update and persistence
+- [ ] COX_237 | PS-005 | Verify Sleep Timer update and persistence
+- [ ] COX_238 | PS-006 | Verify Auto Off update and persistence
+- [ ] COX_239 | PS-007 | Verify System section and MAC Address field visibility
+- [ ] COX_240 | PS-008 | Verify Firmware Version field visibility
+- [ ] COX_241 | PS-009 | 
+- [ ] COX_242 | PS-010 | 
+- [ ] COX_243 | PS-011 | 
+- [ ] COX_244 | PS-012 | 
+- [ ] COX_245 | PS-013 | Verify Firmware Update Available popup is displayed
+- [ ] COX_246 | PS-014 | Verify Not Right Now button functionality
+- [ ] COX_247 | PS-015 | 
+- [ ] COX_248 | PS-016 | Verify Firmware Download in Progress state
+- [ ] COX_249 | PS-017 | Verify Firmware Installation in Progress state
+- [ ] COX_250 | PS-018 | Verify successful firmware update completion
+- [ ] COX_251 | PS-019 | Verify Printer Detail screen UI elements after successful printer connection
+- [ ] COX_252 | PS-020 | Verify Manage Printers screen and printer list
+- [ ] COX_253 | PS-021 | Verify navigation to Printer Detail screen from printer list
+- [ ] COX_254 | PS-022 | 
+- [ ] COX_255 | PS-023 | 

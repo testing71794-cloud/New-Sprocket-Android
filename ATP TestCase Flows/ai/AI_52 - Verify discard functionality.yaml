@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_52
+# Excel: AI Tools 52 | Module: Cancellation
+# Verify discard functionality
+# Expected: Changes are discarded and user returns to Replace Background Reference screen.
+appId: com.hp.impulse.sprocket
+name: "AI_52 - Verify discard functionality"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

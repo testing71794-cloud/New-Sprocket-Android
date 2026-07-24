@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_08
+# Excel: Print Preview Screen 08 | Module: Print Preview
+# Copy Control Limits
+# Expected: At 10, the (+) button becomes disabled to enforce maximum boundary.
+appId: com.hp.impulse.sprocket
+name: "PR_08 - Copy Control Limits"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

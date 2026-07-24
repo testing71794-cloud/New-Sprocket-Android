@@ -1,0 +1,45 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+FW_01,Firmware Update 001,firmware,Firmware Update,Verify Update Available button is displayed,firmware/FW_01 - Verify Update Available button is displayed.yaml,com.hp.impulse.sprocket
+FW_02,Firmware Update 002,firmware,Firmware Update,Verify Firmware Update Available popup,firmware/FW_02 - Verify Firmware Update Available popup.yaml,com.hp.impulse.sprocket
+FW_03,Firmware Update 003,firmware,Firmware Update,Verify Update Now button functionality,firmware/FW_03 - Verify Update Now button functionality.yaml,com.hp.impulse.sprocket
+FW_04,Firmware Update 004,firmware,Firmware Download,Verify Firmware Download In Progress screen,firmware/FW_04 - Verify Firmware Download In Progress screen.yaml,com.hp.impulse.sprocket
+FW_05,Firmware Update 005,firmware,Firmware Installation,Verify Firmware Installation In Progress screen,firmware/FW_05 - Verify Firmware Installation In Progress screen.yaml,com.hp.impulse.sprocket
+FW_06,Firmware Update 006,firmware,Firmware Installation,Verify installation warning message,firmware/FW_06 - Verify installation warning message.yaml,com.hp.impulse.sprocket
+FW_07,Firmware Update 007,firmware,Firmware Installation,Verify firmware installation completion,firmware/FW_07 - Verify firmware installation completion.yaml,com.hp.impulse.sprocket
+FW_08,Firmware Update 008,firmware,Printer Switching,Verify printer switching restriction during firmware update,firmware/FW_08 - Verify printer switching restriction during firmware update.yaml,com.hp.impulse.sprocket
+FW_09,Firmware Update 009,firmware,Printer Switching,Verify Please Wait popup display,firmware/FW_09 - Verify Please Wait popup display.yaml,com.hp.impulse.sprocket
+FW_10,Firmware Update 10,firmware,Printer Switching,Verify Please Wait popup message,firmware/FW_10 - Verify Please Wait popup message.yaml,com.hp.impulse.sprocket
+FW_11,Firmware Update 11,firmware,Printer Switching,Verify OK button functionality,firmware/FW_11 - Verify OK button functionality.yaml,com.hp.impulse.sprocket
+FW_12,Firmware Update 12,firmware,Firmware Validation,Verify update restriction when battery is below 25%,firmware/FW_12 - Verify update restriction when battery is below 25.yaml,com.hp.impulse.sprocket
+FW_13,Firmware Update 13,firmware,Firmware Validation,Verify update restriction when no paper is loaded,firmware/FW_13 - Verify update restriction when no paper is loaded.yaml,com.hp.impulse.sprocket
+FW_14,Firmware Update 14,firmware,Firmware Validation,Verify internet interruption during firmware download,firmware/FW_14 - Verify internet interruption during firmware download.yaml,com.hp.impulse.sprocket
+FW_15,Firmware Update 15,firmware,Firmware Validation,Verify navigation restriction during firmware installation,firmware/FW_15 - Verify navigation restriction during firmware installation.yaml,com.hp.impulse.sprocket
+FW_16,Firmware Update 16,firmware,Firmware Update,Verify Update Available button is displayed,firmware/FW_16 - Verify Update Available button is displayed.yaml,com.hp.impulse.sprocket
+FW_17,Firmware Update 17,firmware,Firmware Update Popup,Verify Firmware Update popup opens,firmware/FW_17 - Verify Firmware Update popup opens.yaml,com.hp.impulse.sprocket
+FW_18,Firmware Update 18,firmware,Firmware Update Popup,Verify popup UI content,firmware/FW_18 - Verify popup UI content.yaml,com.hp.impulse.sprocket
+FW_19,Firmware Update 19,firmware,Firmware Update Popup,Verify Not Right Now functionality,firmware/FW_19 - Verify Not Right Now functionality.yaml,com.hp.impulse.sprocket
+FW_20,Firmware Update 20,firmware,Firmware Update,Verify Update Now starts firmware download,firmware/FW_20 - Verify Update Now starts firmware download.yaml,com.hp.impulse.sprocket
+FW_21,Firmware Update 21,firmware,Firmware Download,Verify download progress screen,firmware/FW_21 - Verify download progress screen.yaml,com.hp.impulse.sprocket
+FW_22,Firmqare Update 22,firmware,Firmware Download,Verify UI remains visible during download,firmware/FW_22 - Verify UI remains visible during download.yaml,com.hp.impulse.sprocket
+FW_23,Firmware Update 23,firmware,Firmware Installation,Verify installation screen appears,firmware/FW_23 - Verify installation screen appears.yaml,com.hp.impulse.sprocket
+FW_24,Firmware Update 24,firmware,Firmware Installation,Verify installation warning message,firmware/FW_24 - Verify installation warning message.yaml,com.hp.impulse.sprocket
+FW_25,Firmware Update 25,firmware,Firmware Installation,Verify update completion,firmware/FW_25 - Verify update completion.yaml,com.hp.impulse.sprocket
+FW_26,Firmware Update 26,firmware,Firmware UI,Verify status section,firmware/FW_26 - Verify status section.yaml,com.hp.impulse.sprocket
+FW_27,Firmware Update 27,firmware,Firmware UI,Verify battery display,firmware/FW_27 - Verify battery display.yaml,com.hp.impulse.sprocket
+FW_28,Firmware Update 28,firmware,Firmware UI,Verify customization options,firmware/FW_28 - Verify customization options.yaml,com.hp.impulse.sprocket
+FW_29,Firmware Update 29,firmware,Firmware UI,Verify system section,firmware/FW_29 - Verify system section.yaml,com.hp.impulse.sprocket
+FW_30,Firmware Update 30,firmware,Firmware Negative,Verify update blocked when battery low,firmware/FW_30 - Verify update blocked when battery low.yaml,com.hp.impulse.sprocket
+FW_31,Firmware Update 31,firmware,Firmware Negative,Verify update blocked when no paper,firmware/FW_31 - Verify update blocked when no paper.yaml,com.hp.impulse.sprocket
+FW_32,Firmware Update 32,firmware,Firmware Negative,Verify internet failure during download,firmware/FW_32 - Verify internet failure during download.yaml,com.hp.impulse.sprocket
+FW_33,Firmware Update 33,firmware,Firmware Negative,Verify Wi-Fi disconnect during update,firmware/FW_33 - Verify Wi-Fi disconnect during update.yaml,com.hp.impulse.sprocket
+FW_34,Firmware Update 34,firmware,Firmware Negative,Verify app closed during installation,firmware/FW_34 - Verify app closed during installation.yaml,com.hp.impulse.sprocket
+FW_35,Firmware Update 35,firmware,Firmware Negative,Verify printer power off during update,firmware/FW_35 - Verify printer power off during update.yaml,com.hp.impulse.sprocket
+FW_36,Firmware Update 36,firmware,Firmware Negative,Verify navigation blocked during install,firmware/FW_36 - Verify navigation blocked during install.yaml,com.hp.impulse.sprocket
+FW_37,Firmware Update 37,firmware,Firmware Popup Negative,Verify multiple Update Now taps,firmware/FW_37 - Verify multiple Update Now taps.yaml,com.hp.impulse.sprocket
+FW_38,Firmware Update 38,firmware,Firmware Popup,Verify popup reopens correctly,firmware/FW_38 - Verify popup reopens correctly.yaml,com.hp.impulse.sprocket
+FW_39,Firmware Update 39,firmware,Firmware Error Handling,Verify No Paper Tray Error during firmware update,firmware/FW_39 - Verify No Paper Tray Error during firmware update.yaml,com.hp.impulse.sprocket
+FW_40,Firmware Update 40,firmware,Firmware Error Handling,Verify Paper Empty Error during firmware update,firmware/FW_40 - Verify Paper Empty Error during firmware update.yaml,com.hp.impulse.sprocket
+FW_41,Firmware Update 41,firmware,Firmware Error Handling,Verify Paper Jam Error during firmware update,firmware/FW_41 - Verify Paper Jam Error during firmware update.yaml,com.hp.impulse.sprocket
+FW_42,Firmware Update 42,firmware,Firmware Error Handling,Verify No Carbon Ribbon Error during firmware update,firmware/FW_42 - Verify No Carbon Ribbon Error during firmware update.yaml,com.hp.impulse.sprocket
+FW_43,Firmware Update 43,firmware,Firmware Error Handling,Verify Try Again functionality after resolving hardware issue,firmware/FW_43 - Verify Try Again functionality after resolving hardware issu.yaml,com.hp.impulse.sprocket
+FW_44,Firmware Update 44,firmware,Firmware Error Handling,Verify Cancel (X) button functionality on error popup,firmware/FW_44 - Verify Cancel X button functionality on error popup.yaml,com.hp.impulse.sprocket

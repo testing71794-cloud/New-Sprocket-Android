@@ -1,0 +1,10 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+PC_01,Precut_01,precut,E2E Navigation,Verify complete flow from launch to selection.,precut/PC_01 - Verify complete flow from launch to selection.yaml,com.hp.impulse.sprocket
+PC_02,Precut_02,precut,Photo Selection,Verify selecting two unique images.,precut/PC_02 - Verify selecting two unique images.yaml,com.hp.impulse.sprocket
+PC_03,Precut_03,precut,Duplicate Restriction,Verify duplicate selection error.,precut/PC_03 - Verify duplicate selection error.yaml,com.hp.impulse.sprocket
+PC_04,Precut_04,precut,Navigation & Init,"Verify app launch, onboarding, and Pre-Cut entry.",precut/PC_04 - Verify app launch onboarding and Pre-Cut entry.yaml,com.hp.impulse.sprocket
+PC_05,Precut_05,precut,Selection Logic,"Verify 2-photo selection, duplicate prevention, and next state.",precut/PC_05 - Verify 2-photo selection duplicate prevention and next state.yaml,com.hp.impulse.sprocket
+PC_06,Precut_06,precut,Gallery Interaction,"Verify gallery expansion, collapse, and auto-snap.",precut/PC_06 - Verify gallery expansion collapse and auto-snap.yaml,com.hp.impulse.sprocket
+PC_07,Precut_07,precut,Warning Pop-up,"Verify ""Got It"" and ""Don't Show Again"" behavior.",precut/PC_07 - Verify Got It and Dont Show Again behavior.yaml,com.hp.impulse.sprocket
+PC_08,Precut_08,precut,Permission Handling,Verify UI when gallery permission is denied.,precut/PC_08 - Verify UI when gallery permission is denied.yaml,com.hp.impulse.sprocket
+PC_09,Precut_09,precut,Exit & Save Logic,Verify exit flow after editing selection.,precut/PC_09 - Verify exit flow after editing selection.yaml,com.hp.impulse.sprocket

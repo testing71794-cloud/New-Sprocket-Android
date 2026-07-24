@@ -1,0 +1,29 @@
+# ATP Test Case ID: COX_057
+# Excel: PCF_HPSelect_001 | Module: Pre Connection Flow for Sprocket Select
+# Verify 'Charge + Power On' Screen UI for the HP Sprocket Select
+# Expected: The opened screen should display the following:  1. The 'Charge + Power On' screen should be displayed. 2. The printer image should be displayed. 3. The following instructional text should be displayed: "Plug in the USB cord to charge and a
+appId: com.hp.impulse.sprocket
+name: "COX_057 - Verify Charge Power On Screen UI for the HP Sprocket Select"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Charge + Power On"
+    optional: true
+- assertVisible:
+    text: "Plug in the USB cord to charge and automatically power on the printer."
+    optional: true
+- assertVisible:
+    text: "When not charging, press and hold the power button until the LEDs light up."
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true
+- assertVisible:
+    text: "Close (X)"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

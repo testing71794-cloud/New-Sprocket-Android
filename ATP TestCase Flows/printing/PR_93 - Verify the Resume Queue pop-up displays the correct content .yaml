@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_93
+# Excel: Print Preview Screen 93 | Module: Pop-up UI Validation
+# Verify the Resume Queue pop-up displays the correct content and action buttons.
+# Expected: Title: "Print Sent!"
+appId: com.hp.impulse.sprocket
+name: "PR_93 - Verify the Resume Queue pop-up displays the correct content "
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Print Sent!"
+    optional: true

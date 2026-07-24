@@ -1,33 +1,7 @@
 {
   "stage": "Printing",
-  "count": 75,
+  "count": 106,
   "cases": [
-    {
-      "test_id": "Collage_14",
-      "module": "Print Preview UI",
-      "section": "COLLAGE",
-      "description": "Verify Print Preview screen",
-      "steps": [
-        "1. Select four images. \n2. Tap Next.\n 3. Reorder images if required. \n4. Tap Next again. \n5. Verify Back icon. \n6. Verify No Printer Added if printer is not connected or printer name if connected. \n7. Verify Share icon.\n 8. Verify collage preview. 9. Verify Copies section with + / - buttons. \n10. Verify AI icon is disabled. \n11. Verify Add Printer button. \n12. Verify Edit icon. \n13. Verify bottom navigation (More, Create, Printer) with Create selected."
-      ],
-      "type": "Positive",
-      "expected": "Print Preview screen is displayed with all controls.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 633,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Collage_14",
-          "module": "Print Preview UI",
-          "stage": "Printing",
-          "description": "Verify Print Preview screen",
-          "expected": "Print Preview screen is displayed with all controls.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
     {
       "test_id": "Print Preview Screen 01",
       "module": "Permission",
@@ -131,6 +105,42 @@
       ]
     },
     {
+      "test_id": "Print Preview Screen 03",
+      "module": "Controls",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Copies vs. Tiles",
+      "steps": [
+        "Perform pre-conditions. Toggle between \"Copies\" and \"Tiles\" options."
+      ],
+      "type": "Positive",
+      "expected": "Selection highlights correctly; adjustment controls (+/-) update according to the selected mode.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 656,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 03",
+          "module": "Controls",
+          "stage": "Printing",
+          "description": "Copies vs. Tiles",
+          "expected": "Selection highlights correctly; adjustment controls (+/-) update according to the selected mode.",
+          "verification": "Verify visible: Tiles",
+          "kind": "visible",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Print Preview Screen 03",
+          "module": "Controls",
+          "stage": "Printing",
+          "description": "Copies vs. Tiles",
+          "expected": "Selection highlights correctly; adjustment controls (+/-) update according to the selected mode.",
+          "verification": "Verify visible: Copies",
+          "kind": "visible",
+          "selector": "Copies"
+        }
+      ]
+    },
+    {
       "test_id": "Print Preview Screen 04",
       "module": "Print Action",
       "section": "PRINT PREVIEWS SCREEN",
@@ -163,6 +173,32 @@
           "verification": "Verify visible: Edit",
           "kind": "visible",
           "selector": "Edit"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 05",
+      "module": "Navigation",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Bottom Nav Bar",
+      "steps": [
+        "Perform pre-conditions. Interact with \"More\", \"Create\", and \"Printer\" icons."
+      ],
+      "type": "Positive",
+      "expected": "Bottom nav bar icons are visible, highlighted correctly, and navigate to respective modules.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 658,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 05",
+          "module": "Navigation",
+          "stage": "Printing",
+          "description": "Bottom Nav Bar",
+          "expected": "Bottom nav bar icons are visible, highlighted correctly, and navigate to respective modules.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
         }
       ]
     },
@@ -383,6 +419,148 @@
       ]
     },
     {
+      "test_id": "Print Preview Screen 14",
+      "module": "Functionality",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Tiles Option Availability Restriction",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Navigate to the Pre-Cut Sticker flow.",
+        "6. Open the Print Preview screen.",
+        "7. View the adjustment controls section beneath the sticker preview."
+      ],
+      "type": "Negative",
+      "expected": "The Tiles option is not displayed or accessible. Only the Copies control is visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 675,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 14",
+          "module": "Functionality",
+          "stage": "Printing",
+          "description": "Tiles Option Availability Restriction",
+          "expected": "The Tiles option is not displayed or accessible. Only the Copies control is visible.",
+          "verification": "Verify visible: Tiles",
+          "kind": "visible",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Print Preview Screen 14",
+          "module": "Functionality",
+          "stage": "Printing",
+          "description": "Tiles Option Availability Restriction",
+          "expected": "The Tiles option is not displayed or accessible. Only the Copies control is visible.",
+          "verification": "Verify visible: Copies",
+          "kind": "visible",
+          "selector": "Copies"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 15",
+      "module": "UI Layout",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "AI Button Visibility Restriction",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Navigate to the Pre-Cut Sticker flow.",
+        "6. Open the Print Preview screen.",
+        "7. Check the action buttons panel next to the Print button."
+      ],
+      "type": "Negative",
+      "expected": "The AI button is not displayed on the screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 682,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 15",
+          "module": "UI Layout",
+          "stage": "Printing",
+          "description": "AI Button Visibility Restriction",
+          "expected": "The AI button is not displayed on the screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 16",
+      "module": "Controls",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Copy Count Adjustment and Boundary Validation",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Navigate to the Pre-Cut Sticker flow.",
+        "6. Open the Print Preview screen.",
+        "7. Tap the (+) button to increase the copy count.",
+        "8. Verify the count increases by 1 for each tap.",
+        "9. Tap the (-) button to decrease the copy count back to 1."
+      ],
+      "type": "Positive",
+      "expected": "The copy count increases or decreases by 1 per tap. The minimum allowed value is 1, and the (-) button becomes disabled when the count reaches 1.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 689,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 16",
+          "module": "Controls",
+          "stage": "Printing",
+          "description": "Copy Count Adjustment and Boundary Validation",
+          "expected": "The copy count increases or decreases by 1 per tap. The minimum allowed value is 1, and the (-) button becomes disabled when the count reaches 1.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 17",
+      "module": "Navigation",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Edit, Print, and Back Button Functionality",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Navigate to the Pre-Cut Sticker flow.",
+        "6. Open the Print Preview screen.",
+        "7. Tap the Edit (pencil) icon.",
+        "8. Return to the Print Preview screen and tap Print.",
+        "9. Tap the Back arrow."
+      ],
+      "type": "Positive",
+      "expected": "Edit opens the editing workspace, Print initiates the print process, and Back navigates to the previous screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 698,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 17",
+          "module": "Navigation",
+          "stage": "Printing",
+          "description": "Edit, Print, and Back Button Functionality",
+          "expected": "Edit opens the editing workspace, Print initiates the print process, and Back navigates to the previous screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Print Preview Screen 18",
       "module": "Print Preview",
       "section": "PRINT PREVIEWS SCREEN",
@@ -417,9 +595,314 @@
           "stage": "Printing",
           "description": "Feature Availability Verification for Multiple Photos",
           "expected": "Copies and Tiles controls are hidden or unavailable. A photo index indicator (e.g., \"Photo 2 of 7\") is displayed below the preview.",
+          "verification": "Verify not visible: Tiles",
+          "kind": "not_visible",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Print Preview Screen 18",
+          "module": "Print Preview",
+          "stage": "Printing",
+          "description": "Feature Availability Verification for Multiple Photos",
+          "expected": "Copies and Tiles controls are hidden or unavailable. A photo index indicator (e.g., \"Photo 2 of 7\") is displayed below the preview.",
           "verification": "Verify not visible: Copies",
           "kind": "not_visible",
           "selector": "Copies"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 19",
+      "module": "Carousel",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Photo Selection Order Verification",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Select multiple photos from the gallery in a specific order.",
+        "6. Open the Print Preview screen.",
+        "7. Verify the order of images in the carousel."
+      ],
+      "type": "Positive",
+      "expected": "The carousel displays photos in the same sequence in which they were selected from the gallery.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 713,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 19",
+          "module": "Carousel",
+          "stage": "Printing",
+          "description": "Photo Selection Order Verification",
+          "expected": "The carousel displays photos in the same sequence in which they were selected from the gallery.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 20",
+      "module": "Carousel",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Swipe Navigation Between Photos",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Select multiple photos and open the Print Preview screen.",
+        "6. Swipe left and right across the main preview image."
+      ],
+      "type": "Positive",
+      "expected": "The carousel smoothly navigates to the next or previous photo based on the swipe direction.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 720,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 20",
+          "module": "Carousel",
+          "stage": "Printing",
+          "description": "Swipe Navigation Between Photos",
+          "expected": "The carousel smoothly navigates to the next or previous photo based on the swipe direction.",
+          "verification": "Verify navigation marker: Next",
+          "kind": "navigation",
+          "selector": "Next"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 21",
+      "module": "Carousel",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Peeking Photo Selection via Tap",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Select multiple photos and open the Print Preview screen.",
+        "6. Tap a partially visible (peeking) photo on either side of the carousel."
+      ],
+      "type": "Positive",
+      "expected": "The tapped photo is brought into focus and displayed as the active photo in the carousel.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 726,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 21",
+          "module": "Carousel",
+          "stage": "Printing",
+          "description": "Peeking Photo Selection via Tap",
+          "expected": "The tapped photo is brought into focus and displayed as the active photo in the carousel.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 22",
+      "module": "Carousel",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Edit Button Overlay Behavior on Peeking Photos",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for the splash screen to complete.",
+        "3. Complete onboarding screens (ON_01B → ON_01D).",
+        "4. Reach ON_01E and tap Get Started!.",
+        "5. Select multiple photos and open the Print Preview screen.",
+        "6. Locate the partially visible edit button overlay on a peeking photo.",
+        "7. Tap directly on the overlay."
+      ],
+      "type": "",
+      "expected": "",
+      "sheet": "New Sprocket Final ATP",
+      "row": 732,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 22",
+          "module": "Carousel",
+          "stage": "Printing",
+          "description": "Edit Button Overlay Behavior on Peeking Photos",
+          "expected": "",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 23",
+      "module": "Functionality",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "AI Button Functionality Without Printer",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Ensure no printer is paired or added to the application.",
+        "8. Navigate to the Print Preview screen.",
+        "9. Tap the AI button."
+      ],
+      "type": "Positive",
+      "expected": "The AI workflow launches successfully and remains fully functional even when no printer is connected.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 739,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 23",
+          "module": "Functionality",
+          "stage": "Printing",
+          "description": "AI Button Functionality Without Printer",
+          "expected": "The AI workflow launches successfully and remains fully functional even when no printer is connected.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 24",
+      "module": "Functionality",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Edit Button Functionality Without Printer",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Ensure no printer is paired or added to the application.",
+        "8. Navigate to the Print Preview screen.",
+        "9. Tap the Edit (Pencil) button."
+      ],
+      "type": "Positive",
+      "expected": "The editing workspace opens successfully and remains fully functional even when no printer is connected.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 748,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 24",
+          "module": "Functionality",
+          "stage": "Printing",
+          "description": "Edit Button Functionality Without Printer",
+          "expected": "The editing workspace opens successfully and remains fully functional even when no printer is connected.",
+          "verification": "Verify navigation marker: Printer",
+          "kind": "navigation",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen  25",
+      "module": "Functionality",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Photo Carousel Interaction Without Printer",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Ensure no printer is paired or added to the application.",
+        "8. Navigate to the Print Preview screen containing multiple photos.",
+        "9. Swipe left and right on the photo carousel."
+      ],
+      "type": "Positive",
+      "expected": "The photo carousel remains fully functional and allows navigation between photos even when no printer is connected.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 757,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen  25",
+          "module": "Functionality",
+          "stage": "Printing",
+          "description": "Photo Carousel Interaction Without Printer",
+          "expected": "The photo carousel remains fully functional and allows navigation between photos even when no printer is connected.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 26",
+      "module": "UI Layout",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "UI State and Connection Trigger When Printer is Offline",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Ensure the printer is disconnected/offline.",
+        "8. Open the Print Preview screen.",
+        "9. Verify the header shows grey disconnected status icon and Print button is replaced with Reconnect Printer button.",
+        "10. Tap the Reconnect Printer button."
+      ],
+      "type": "Positive",
+      "expected": "The UI correctly reflects offline state with a grey disconnected icon. The Print button is replaced by Reconnect Printer, and tapping it navigates to the printer reconnection loader flow.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 766,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 26",
+          "module": "UI Layout",
+          "stage": "Printing",
+          "description": "UI State and Connection Trigger When Printer is Offline",
+          "expected": "The UI correctly reflects offline state with a grey disconnected icon. The Print button is replaced by Reconnect Printer, and tapping it navigates to the printer reconnection loader flow.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 27",
+      "module": "Data & Flow",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Printer Reconnection Flow and State Persistence",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Ensure printer is offline and open Print Preview screen.",
+        "5. Apply edits such as crop, rotation, zoom, or video frame selection.",
+        "6. Tap Reconnect Printer and navigate through Connection Options, Discovery, and Connection Success screens.",
+        "7. Tap Finish Connection."
+      ],
+      "type": "Positive",
+      "expected": "All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 776,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 27",
+          "module": "Data & Flow",
+          "stage": "Printing",
+          "description": "Printer Reconnection Flow and State Persistence",
+          "expected": "All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
         }
       ]
     },
@@ -482,6 +965,32 @@
       ]
     },
     {
+      "test_id": "Print Preview Screen 30",
+      "module": "Reconnection",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Printer Reconnection Flow",
+      "steps": [
+        "1.Launch the application.\n\n2.Wait for the splash screen to complete.\n\n3.Complete all onboarding steps (ON_01B through ON_01D).\n\n4.Reach the ON_01E onboarding screen and tap \"Get Started!\".\n\n5.Ensure the printer is offline/disconnected, select an image from the gallery, and reach the Print Preview screenPerform pre-conditions. \n6. While on Print Preview, tap \"Reconnect Printer\". \n7. Navigate through Connection Options, Discovery, and Connection Success screens. \n8. Tap \"Finish Connection\"."
+      ],
+      "type": "Positive",
+      "expected": "User successfully navigates through connection flow; printer connects; status updates in header; user returns to Print Preview to proceed with print.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 791,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 30",
+          "module": "Reconnection",
+          "stage": "Printing",
+          "description": "Printer Reconnection Flow",
+          "expected": "User successfully navigates through connection flow; printer connects; status updates in header; user returns to Print Preview to proceed with print.",
+          "verification": "Verify navigation marker: Printer",
+          "kind": "navigation",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
       "test_id": "Print Preview Screen 31",
       "module": "Print Loader",
       "section": "PRINT PREVIEWS SCREEN",
@@ -501,6 +1010,160 @@
           "stage": "Printing",
           "description": "Blocker Error Handling",
           "expected": "The app displays the appropriate error pop-up (as defined in image_9794c1.png) over the print preview; the print job is blocked and does NOT proceed to the print state.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 32",
+      "module": "Error Handling",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Trigger & UI Verification",
+      "steps": [
+        "1.Launch the application.\n\n2.Wait for the splash screen to complete.\n\n3.Swipe to continue and complete all onboarding steps (ON_01B through ON_01D).\n\n4.Reach the ON_01E onboarding screen.\n\n5.Locate and verify the \"Start\" button.\n\n6.Tap the \"Get Started!\" button.\n\n7.On the home screen, connect the printer, select an image from the gallery, and reach the Print Preview screen.\nPerform pre-conditions. \n8. Simulate \"Out of Paper\" error. \n9. Tap \"Print\"."
+      ],
+      "type": "Negative",
+      "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 793,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 32",
+          "module": "Error Handling",
+          "stage": "Printing",
+          "description": "Trigger & UI Verification",
+          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
+          "verification": "Verify dialog: Out of Paper",
+          "kind": "dialog",
+          "selector": "Out of Paper"
+        },
+        {
+          "test_id": "Print Preview Screen 32",
+          "module": "Error Handling",
+          "stage": "Printing",
+          "description": "Trigger & UI Verification",
+          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
+          "verification": "Verify dialog: Please load paper and try printing again.",
+          "kind": "dialog",
+          "selector": "Please load paper and try printing again."
+        },
+        {
+          "test_id": "Print Preview Screen 32",
+          "module": "Error Handling",
+          "stage": "Printing",
+          "description": "Trigger & UI Verification",
+          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
+          "verification": "Verify dialog: TIP",
+          "kind": "dialog",
+          "selector": "TIP"
+        },
+        {
+          "test_id": "Print Preview Screen 32",
+          "module": "Error Handling",
+          "stage": "Printing",
+          "description": "Trigger & UI Verification",
+          "expected": "An \"Out of Paper\" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header \"Out of Paper\", the message \"Please load paper and try printing again.\", a \"TIP\" about the colored card, an \"OK\" button, and a Close (X) icon in the top-right corner. The print job does not proceed until paper is loaded and the error is resolved.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 33",
+      "module": "Hardware",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Sprocket 3×4 Constraint",
+      "steps": [
+        "1.Launch the application.\n\n2.Wait for the splash screen to complete.\n\n3.Swipe to continue and complete all onboarding steps (ON_01B through ON_01D).\n\n4.Reach the ON_01E onboarding screen.\n\n5.Locate and verify the \"Start\" button.\n\n6.Tap the \"Get Started!\" button.\n\n7.On the home screen, connect the printer, select an image from the gallery, and reach the Print Preview screen.\nPerform pre-conditions. \n8. Connect a Sprocket 3×4 model. 9. Empty the paper tray. \n10. Tap \"Print\"."
+      ],
+      "type": "Negative",
+      "expected": "The \"Out of Paper\" error is NOT detected or displayed, as this specific model lacks the necessary hardware sensor.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 794,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 33",
+          "module": "Hardware",
+          "stage": "Printing",
+          "description": "Sprocket 3×4 Constraint",
+          "expected": "The \"Out of Paper\" error is NOT detected or displayed, as this specific model lacks the necessary hardware sensor.",
+          "verification": "Verify visible: Out of Paper",
+          "kind": "visible",
+          "selector": "Out of Paper"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 34",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Trigger & UI Validation",
+      "steps": [
+        "1. Launch the application. 2. Wait for the splash screen. 3. Swipe through onboarding (ON_01B-ON_01D). 4. Reach ON_01E and tap \"Get Started!\". 5. On the home screen, connect the printer and select an image to reach Print Preview. 6. Ensure printer is in firmware update mode. 7. Tap \"Print\"."
+      ],
+      "type": "Neg",
+      "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 795,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 34",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Trigger & UI Validation",
+          "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+          "verification": "Verify dialog: Please Wait...",
+          "kind": "dialog",
+          "selector": "Please Wait..."
+        },
+        {
+          "test_id": "Print Preview Screen 34",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Trigger & UI Validation",
+          "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+          "verification": "Verify dialog: Please wait for the firmware update to finish before starting a print job.",
+          "kind": "dialog",
+          "selector": "Please wait for the firmware update to finish before starting a print job."
+        },
+        {
+          "test_id": "Print Preview Screen 34",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Trigger & UI Validation",
+          "expected": "The \"Please Wait...\" pop-up is displayed with a red warning icon, the instructional text \"Please wait for the firmware update to finish before starting a print job.\", an \"OK\" button, and a Close (X) icon in the top-right corner. The print job is blocked until the firmware update is completed.",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 35",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismissal Interaction",
+      "steps": [
+        "1. Launch the application. 2. Wait for the splash screen. 3. Swipe through onboarding (ON_01B-ON_01D). 4. Reach ON_01E and tap \"Get Started!\". 5. On the home screen, connect the printer and select an image to reach Print Preview. 6. Trigger the firmware update pop-up. 7. Tap \"OK\" or the \"X\" button."
+      ],
+      "type": "Pos",
+      "expected": "The warning pop-up closes immediately and focus returns to the Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 796,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 35",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Dismissal Interaction",
+          "expected": "The warning pop-up closes immediately and focus returns to the Print Preview screen.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null
@@ -530,6 +1193,188 @@
           "verification": "Verify enabled: Printer",
           "kind": "enabled",
           "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 37",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Fit/Fill Toast",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8. Observe top header.\n 9.Observe toast notification upon entry."
+      ],
+      "type": "Pos",
+      "expected": "Back arrow, Printer name/status and Share icon are visible and clickable.\nToast appears regarding double tap to reset Fit/Fill and fades after 5 seconds.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 798,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 37",
+          "module": "Gestures",
+          "stage": "Printing",
+          "description": "Verify Fit/Fill Toast",
+          "expected": "Back arrow, Printer name/status and Share icon are visible and clickable.\nToast appears regarding double tap to reset Fit/Fill and fades after 5 seconds.",
+          "verification": "Verify toast: Printer",
+          "kind": "toast",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 38",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Double Tap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8 Perform pre-conditions. Double tap the image on the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Image toggles between Fit and Fill modes correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 799,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 38",
+          "module": "Gestures",
+          "stage": "Printing",
+          "description": "Verify Double Tap",
+          "expected": "Image toggles between Fit and Fill modes correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 39",
+      "module": "Snapping",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Rotation Snap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Drag image near the center of the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Orange guideline appears and image snaps to assist rotation.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 800,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 39",
+          "module": "Snapping",
+          "stage": "Printing",
+          "description": "Verify Rotation Snap",
+          "expected": "Orange guideline appears and image snaps to assist rotation.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 40",
+      "module": "Snapping",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Center Snap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Drag image near the center of the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Pink guideline appears and image snaps horizontally/vertically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 801,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 40",
+          "module": "Snapping",
+          "stage": "Printing",
+          "description": "Verify Center Snap",
+          "expected": "Pink guideline appears and image snaps horizontally/vertically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 41",
+      "module": "Snapping",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Edge Snap",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Drag image near the edges of the canvas."
+      ],
+      "type": "Pos",
+      "expected": "Cyan guideline appears and image snaps to the canvas edges.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 802,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 41",
+          "module": "Snapping",
+          "stage": "Printing",
+          "description": "Verify Edge Snap",
+          "expected": "Cyan guideline appears and image snaps to the canvas edges.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 42",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Boundary Lock",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8. Perform pre-conditions. Attempt to drag the image completely off the canvas."
+      ],
+      "type": "Neg",
+      "expected": "Image is restricted and cannot be moved entirely off the canvas bounds.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 803,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 42",
+          "module": "Gestures",
+          "stage": "Printing",
+          "description": "Verify Boundary Lock",
+          "expected": "Image is restricted and cannot be moved entirely off the canvas bounds.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 43",
+      "module": "Gestures",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Fit/Fill Lock",
+      "steps": [
+        "1. Launch the application.\n2. Wait for splash screen.\n3. Complete onboarding (ON_01B to ON_01E).\n4. Tap Get Started!.\n5. Connect printer.\n6. Select image from gallery.\n7. Open Print Preview screen.\n8.Perform pre-conditions. Attempt Fit/Fill in restricted modes (e.g., Photo ID)."
+      ],
+      "type": "Neg",
+      "expected": "Fit/Fill toast is not displayed and gesture is disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 804,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 43",
+          "module": "Gestures",
+          "stage": "Printing",
+          "description": "Verify Fit/Fill Lock",
+          "expected": "Fit/Fill toast is not displayed and gesture is disabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
         }
       ]
     },
@@ -626,6 +1471,246 @@
       ]
     },
     {
+      "test_id": "Print Preview Screen 46",
+      "module": "Warning Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Trigger Warning for Low-Resolution Native Images",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Choose a low-resolution photo from the native Android device gallery.",
+        "8. Proceed to the Print Preview screen.",
+        "9. Repeat the same flow on iOS device."
+      ],
+      "type": "Negative",
+      "expected": "A warning toast appears at the bottom of the screen with the message: \"This photo may print blurry. Choose a higher quality image.\"",
+      "sheet": "New Sprocket Final ATP",
+      "row": 817,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 46",
+          "module": "Warning Toast",
+          "stage": "Printing",
+          "description": "Trigger Warning for Low-Resolution Native Images",
+          "expected": "A warning toast appears at the bottom of the screen with the message: \"This photo may print blurry. Choose a higher quality image.\"",
+          "verification": "Verify toast: This photo may print blurry. Choose a higher quality image.",
+          "kind": "toast",
+          "selector": "This photo may print blurry. Choose a higher quality image."
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 47",
+      "module": "Warning Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Trigger Warning for Low-Resolution Social Media Images",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Tap Get Started!.",
+        "6. Select a low-resolution image from a social media gallery source.",
+        "7. Proceed to the Print Preview screen."
+      ],
+      "type": "Negative",
+      "expected": "A low-resolution warning toast is displayed clearly on both Android and iOS devices when a social media low-quality image is selected.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 826,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 47",
+          "module": "Warning Toast",
+          "stage": "Printing",
+          "description": "Trigger Warning for Low-Resolution Social Media Images",
+          "expected": "A low-resolution warning toast is displayed clearly on both Android and iOS devices when a social media low-quality image is selected.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 48",
+      "module": "Warning Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismissal via Close Icon Interaction",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E onboarding screen and tap Get Started!.",
+        "4. Open a preview screen where the low-resolution warning toast is displayed.",
+        "5. Tap the \"X\" close button on the right side of the toast."
+      ],
+      "type": "Positive",
+      "expected": "The warning toast is dismissed immediately and disappears from the preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 833,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 48",
+          "module": "Warning Toast",
+          "stage": "Printing",
+          "description": "Dismissal via Close Icon Interaction",
+          "expected": "The warning toast is dismissed immediately and disappears from the preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 49",
+      "module": "Warning Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Layout and Icon Asset Validation",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E onboarding screen and tap Get Started!.",
+        "4. Trigger a low-resolution warning toast on the preview screen.",
+        "5. Observe the toast layout, icon, and text alignment."
+      ],
+      "type": "positive",
+      "expected": "The toast displays a red triangular warning icon on the left, followed by the exact warning message text with proper alignment and UI consistency.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 838,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 49",
+          "module": "Warning Toast",
+          "stage": "Printing",
+          "description": "Layout and Icon Asset Validation",
+          "expected": "The toast displays a red triangular warning icon on the left, followed by the exact warning message text with proper alignment and UI consistency.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 50",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Intercept Print Action During Active Firmware Update",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Ensure printer firmware update is actively in progress.",
+        "8. Navigate to the Print Preview screen.",
+        "9. Tap the Print button."
+      ],
+      "type": "Negative",
+      "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+      "sheet": "New Sprocket Final ATP",
+      "row": 843,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 50",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Intercept Print Action During Active Firmware Update",
+          "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+          "verification": "Verify dialog: Please Wait....",
+          "kind": "dialog",
+          "selector": "Please Wait...."
+        },
+        {
+          "test_id": "Print Preview Screen 50",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Intercept Print Action During Active Firmware Update",
+          "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+          "verification": "Verify dialog: Please wait for firmware installation to finish before sending a print job.",
+          "kind": "dialog",
+          "selector": "Please wait for firmware installation to finish before sending a print job."
+        },
+        {
+          "test_id": "Print Preview Screen 50",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Intercept Print Action During Active Firmware Update",
+          "expected": "The print job is blocked and not sent to the queue. A blocking overlay popup appears with a clock icon, header \"Please Wait....\", and subtext \"Please wait for firmware installation to finish before sending a print job.\" an \"OK\" button, and a Close (X) icon in the top-right corner",
+          "verification": "Verify dialog: OK",
+          "kind": "dialog",
+          "selector": "OK"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 51",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismiss Popup via OK Button",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Trigger the \"Please Wait....\" popup by attempting to print during an active firmware update.",
+        "5. Tap the OK button on the popup dialog."
+      ],
+      "type": "Positive",
+      "expected": "The popup closes immediately and the user is returned to the fully interactive Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 852,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 51",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Dismiss Popup via OK Button",
+          "expected": "The popup closes immediately and the user is returned to the fully interactive Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 52",
+      "module": "Firmware Update",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Dismiss Popup via Close Icon",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Trigger the \"Please Wait....\" popup by attempting to print during an active firmware update.",
+        "5. Tap the X (close) icon in the top-right corner of the popup."
+      ],
+      "type": "Positive",
+      "expected": "The popup is dismissed cleanly and focus is returned to the Print Preview screen without disrupting the user session.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 857,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 52",
+          "module": "Firmware Update",
+          "stage": "Printing",
+          "description": "Dismiss Popup via Close Icon",
+          "expected": "The popup is dismissed cleanly and focus is returned to the Print Preview screen without disrupting the user session.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Print Preview Screen 53",
       "module": "Print Preview",
       "section": "PRINT PREVIEWS SCREEN",
@@ -691,9 +1776,348 @@
           "stage": "Printing",
           "description": "Verify Tiles option is unavailable for Studio / Studio Plus printer",
           "expected": "The Tiles feature is hidden or disabled and cannot be selected. The app remains stable and no UI issues are observed.",
+          "verification": "Verify disabled: Tiles",
+          "kind": "disabled",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Print Preview Screen 54",
+          "module": "Print Preview",
+          "stage": "Printing",
+          "description": "Verify Tiles option is unavailable for Studio / Studio Plus printer",
+          "expected": "The Tiles feature is hidden or disabled and cannot be selected. The app remains stable and no UI issues are observed.",
           "verification": "Verify disabled: Printer",
           "kind": "disabled",
           "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 55",
+      "module": "UI/Layout",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify responsive scaling ($375\\times667$)",
+      "steps": [
+        "1.Launch the application.\n2.Wait for the splash screen to complete.\n3.Swipe to continue and complete all onboarding steps (ON_01B through ON_01D).\n4.Reach the ON_01E onboarding screen.\n5.Locate and verify the \"Start\" button.\n6.Tap the \"Get Started!\" button.\n7.On the home screen, connect the HP Sprocket Studio Plus printer.\n8.Select image(s) from the Gallery and open the Print Preview screen.\n9.Open Print Preview on a small-screen device."
+      ],
+      "type": "Pos",
+      "expected": "Preview canvas scales to 65.64% of regular mockups; UI remains readable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 874,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 55",
+          "module": "UI/Layout",
+          "stage": "Printing",
+          "description": "Verify responsive scaling ($375\\times667$)",
+          "expected": "Preview canvas scales to 65.64% of regular mockups; UI remains readable.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 56",
+      "module": "Paper Type",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nSelect standard photo paper media in settings."
+      ],
+      "type": "Pos",
+      "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 875,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 56",
+          "module": "Paper Type",
+          "stage": "Printing",
+          "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
+          "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
+          "verification": "Verify enabled: Copies",
+          "kind": "enabled",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "Print Preview Screen 56",
+          "module": "Paper Type",
+          "stage": "Printing",
+          "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
+          "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
+          "verification": "Verify enabled: Tiles",
+          "kind": "enabled",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Print Preview Screen 56",
+          "module": "Paper Type",
+          "stage": "Printing",
+          "description": "Verify $2\\times3\"$ and $4\\times6\"$ layout",
+          "expected": "\"Copies\" and \"Tiles\" are visible; standard print controls enabled.",
+          "verification": "Verify enabled: $ and $4\\times6",
+          "kind": "enabled",
+          "selector": "$ and $4\\times6"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 57",
+      "module": "Paper Type",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify $2.3\\times3.4\"$ and $3.5\\times4.25\"$ layout",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nSelect specific photo paper sizes."
+      ],
+      "type": "Pos",
+      "expected": "Preview canvas adjusts correctly to specific aspect ratio.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 876,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 57",
+          "module": "Paper Type",
+          "stage": "Printing",
+          "description": "Verify $2.3\\times3.4\"$ and $3.5\\times4.25\"$ layout",
+          "expected": "Preview canvas adjusts correctly to specific aspect ratio.",
+          "verification": "Verify visible: $ and $3.5\\times4.25",
+          "kind": "visible",
+          "selector": "$ and $3.5\\times4.25"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 58",
+      "module": "PreCut",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify PreCut Sticker restriction",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nSelect PreCut sticker paper flow."
+      ],
+      "type": "Pos",
+      "expected": "\"Tiles\" function is hidden/unavailable; AI button is removed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 877,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 58",
+          "module": "PreCut",
+          "stage": "Printing",
+          "description": "Verify PreCut Sticker restriction",
+          "expected": "\"Tiles\" function is hidden/unavailable; AI button is removed.",
+          "verification": "Verify not visible: Tiles",
+          "kind": "not_visible",
+          "selector": "Tiles"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 59",
+      "module": "UI/Layout",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify UI control presence",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nAttempt to modify \"Copies\" on any supported paper size."
+      ],
+      "type": "Pos",
+      "expected": "\"Copies\" counter is interactive (plus/minus functional).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 878,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 59",
+          "module": "UI/Layout",
+          "stage": "Printing",
+          "description": "Verify UI control presence",
+          "expected": "\"Copies\" counter is interactive (plus/minus functional).",
+          "verification": "Verify visible: Copies",
+          "kind": "visible",
+          "selector": "Copies"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 60",
+      "module": "PreCut",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify AI button absence",
+      "steps": [
+        "1-8: Perform common pre-condition steps.\nInspect UI in PreCut sticker mode."
+      ],
+      "type": "Neg",
+      "expected": "The AI button is not rendered on the screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 879,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 60",
+          "module": "PreCut",
+          "stage": "Printing",
+          "description": "Verify AI button absence",
+          "expected": "The AI button is not rendered on the screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 61",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "First-Time Session Tip Appearance",
+      "steps": [
+        "1. Launch the application.",
+        "2. Wait for splash screen completion.",
+        "3. Swipe to continue and complete onboarding steps (ON_01B → ON_01D).",
+        "4. Reach ON_01E onboarding screen.",
+        "5. Locate and verify the Get Started! button.",
+        "6. Tap the Get Started! button.",
+        "7. Navigate to Print Preview screen in a fresh session.",
+        "8. Observe the screen without any interaction."
+      ],
+      "type": "Positive",
+      "expected": "The edit tip banner with text \"Tap here to edit photo.\" appears automatically and points to the Edit button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 880,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 61",
+          "module": "Edit Tip",
+          "stage": "Printing",
+          "description": "First-Time Session Tip Appearance",
+          "expected": "The edit tip banner with text \"Tap here to edit photo.\" appears automatically and points to the Edit button.",
+          "verification": "Verify visible: Tap here to edit photo.",
+          "kind": "visible",
+          "selector": "Tap here to edit photo."
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 62",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Auto-Fade Duration Validation",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Navigate to Print Preview screen for the first time.",
+        "5. Allow the screen to remain idle."
+      ],
+      "type": "Positive",
+      "expected": "The edit tip remains visible for exactly 5 seconds and then fades out automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 888,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 62",
+          "module": "Edit Tip",
+          "stage": "Printing",
+          "description": "Auto-Fade Duration Validation",
+          "expected": "The edit tip remains visible for exactly 5 seconds and then fades out automatically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 63",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Session Repetition Restriction Check",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Open Print Preview screen and observe the edit tip once.",
+        "5. Exit Print Preview screen.",
+        "6. Re-enter Print Preview screen within the same session."
+      ],
+      "type": "Negative",
+      "expected": "The edit tip does not appear again within the same session after being shown once.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 893,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 63",
+          "module": "Edit Tip",
+          "stage": "Printing",
+          "description": "Session Repetition Restriction Check",
+          "expected": "The edit tip does not appear again within the same session after being shown once.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 64",
+      "module": "Edit Tip",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Priority Handling with System Toast Messages",
+      "steps": [
+        "1. Launch the application.",
+        "2. Complete onboarding steps (ON_01B → ON_01D).",
+        "3. Reach ON_01E and tap Get Started!.",
+        "4. Navigate to Print Preview screen where both system toast and edit tip are triggered simultaneously.",
+        "5. Observe UI behavior when both messages are active."
+      ],
+      "type": "Positive",
+      "expected": "System toast message is displayed first with highest priority. The edit tip remains hidden until the toast disappears, then appears automatically.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 899,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 64",
+          "module": "Edit Tip",
+          "stage": "Printing",
+          "description": "Priority Handling with System Toast Messages",
+          "expected": "System toast message is displayed first with highest priority. The edit tip remains hidden until the toast disappears, then appears automatically.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 65",
+      "module": "Photo Fit",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation",
+      "steps": [
+        "1. Launch the application.",
+        "2. Select and load a landscape orientation photo into the Print Preview screen.",
+        "3. Observe the image placement on the canvas.",
+        "4. Open the image in AI tools or launch the Custom SDK editor."
+      ],
+      "type": "Positive",
+      "expected": "The landscape image automatically rotates 90 degrees clockwise to fit the vertical canvas layout. The rotated orientation is preserved when opened in AI tools or the Custom SDK workspace without any layout distortion or reset.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 904,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 65",
+          "module": "Photo Fit",
+          "stage": "Printing",
+          "description": "Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation",
+          "expected": "The landscape image automatically rotates 90 degrees clockwise to fit the vertical canvas layout. The rotated orientation is preserved when opened in AI tools or the Custom SDK workspace without any layout distortion or reset.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
         }
       ]
     },
@@ -1388,6 +2812,92 @@
       ]
     },
     {
+      "test_id": "Print Preview Screen 84",
+      "module": "Automation",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify automatic queue resumption",
+      "steps": [
+        "1. Launch app and complete onboarding (ON_01B–ON_01E). 2. Connect printer and initiate print. 3. Disconnect printer to pause job. 4. Reconnect the printer."
+      ],
+      "type": "Positive",
+      "expected": "Print queue automatically resumes active printing without manual intervention.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 998,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 84",
+          "module": "Automation",
+          "stage": "Printing",
+          "description": "Verify automatic queue resumption",
+          "expected": "Print queue automatically resumes active printing without manual intervention.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 85",
+      "module": "Pop-up Logic",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify UI state after reconnection",
+      "steps": [
+        "1. Trigger print interruption (disconnect printer). 2. Stay on print state screen with error pop-up open. 3. Reconnect the printer."
+      ],
+      "type": "Positive",
+      "expected": "Error pop-up automatically dismisses itself; print status updates to \"Printing\"; progress bar resumes accurate tracking.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 999,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 85",
+          "module": "Pop-up Logic",
+          "stage": "Printing",
+          "description": "Verify UI state after reconnection",
+          "expected": "Error pop-up automatically dismisses itself; print status updates to \"Printing\"; progress bar resumes accurate tracking.",
+          "verification": "Verify dialog: Printing",
+          "kind": "dialog",
+          "selector": "Printing"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 86",
+      "module": "Navigation",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify Print Queue can be accessed from Print State and navigation controls function correctly.",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started!, connect the HP Sprocket Studio Plus printer, and select image(s) from Gallery.",
+        "3. Open Print Preview and tap Print.",
+        "4. Wait for the Print State screen.",
+        "5. Tap the print count box (e.g., \"1\").",
+        "6. Verify Print Queue opens.",
+        "7. Tap the Recent Prints icon.",
+        "8. Navigate back to Print Queue.",
+        "9. Tap the Back arrow."
+      ],
+      "type": "Positive",
+      "expected": "Print Queue opens successfully. User can navigate to DE_03L_Recent Prints. Back button returns the user to the Print State screen. Bottom navigation bar remains hidden while viewing Print Queue.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1000,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 86",
+          "module": "Navigation",
+          "stage": "Printing",
+          "description": "Verify Print Queue can be accessed from Print State and navigation controls function correctly.",
+          "expected": "Print Queue opens successfully. User can navigate to DE_03L_Recent Prints. Back button returns the user to the Print State screen. Bottom navigation bar remains hidden while viewing Print Queue.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Print Preview Screen 87",
       "module": "Single Photo Print Job",
       "section": "PRINT PREVIEWS SCREEN",
@@ -1564,6 +3074,33 @@
           "verification": "Verify dialog: Resume Queue",
           "kind": "dialog",
           "selector": "Resume Queue"
+        }
+      ]
+    },
+    {
+      "test_id": "Print Preview Screen 93",
+      "module": "Pop-up UI Validation",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify the Resume Queue pop-up displays the correct content and action buttons.",
+      "steps": [
+        "1. Trigger the Resume Queue pop-up.",
+        "2. Verify the title, body text, and buttons displayed on the pop-up."
+      ],
+      "type": "Positive",
+      "expected": "Title: \"Print Sent!\"",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1066,
+      "stage": "Printing",
+      "verifications": [
+        {
+          "test_id": "Print Preview Screen 93",
+          "module": "Pop-up UI Validation",
+          "stage": "Printing",
+          "description": "Verify the Resume Queue pop-up displays the correct content and action buttons.",
+          "expected": "Title: \"Print Sent!\"",
+          "verification": "Verify visible: Print Sent!",
+          "kind": "visible",
+          "selector": "Print Sent!"
         }
       ]
     },
@@ -1891,856 +3428,61 @@
       ]
     },
     {
-      "test_id": "Photo ID 15",
-      "module": "Print Preview 2×2",
-      "section": "PHOTO ID",
-      "description": "Verify Print Preview UI",
+      "test_id": "Print Preview Screen  106",
+      "module": "Saved to Gallery Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage",
       "steps": [
-        "1. Launch the app and wait for splash screen.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Started.",
-        "4. Tap \"Sign Up Later\"",
-        "5. Verify Home screen appears.",
-        "6. Tap Photo ID module.",
-        "7. Tap Allow.",
-        "8. Tap OK.",
-        "9. Verify Front camera opens.",
-        "10. Verify 2×2 selected by default.",
-        "11. Tap Shutter button.",
-        "12. Wait for image capture.",
-        "13. Verify Print Preview screen appears.",
-        "14. Verify Back button.",
-        "15. Verify Printer name HP Sprocket Studio Plus 66:FE.",
-        "16. Verify Share icon.",
-        "17. Verify Copies selector (+/-).",
-        "18. Verify AI button.",
-        "19. Verify Print button.",
-        "20. Verify Edit button is disabled.",
-        "21. Verify More, Create and Printer tabs."
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started!, connect the HP Sprocket Studio Plus printer, and select a Pre-Cut Sticker or Collage image from the Gallery.",
+        "3. Open the Print Preview screen and tap Print.",
+        "4. Wait for the CR_07L_Saved to Gallery Toast screen to appear.",
+        "5. Verify the Outstanding! title, Queue/Menu icon with badge count, printed image preview, timestamp, Sending to Print status, toast message and Done button.",
+        "6. Check the device Gallery after printing."
       ],
       "type": "Positive",
-      "expected": "2×2 Print Preview screen is displayed correctly with all controls.",
+      "expected": "The generated image is automatically saved to the device Gallery. The toast message \"Image saved to gallery.\" is displayed only once and disappears automatically after a few seconds. The Outstanding! title, Queue icon, image preview, timestamp, Sending to Print status and Done button are displayed correctly.",
       "sheet": "New Sprocket Final ATP",
-      "row": 1463,
+      "row": 1118,
       "stage": "Printing",
       "verifications": [
         {
-          "test_id": "Photo ID 15",
-          "module": "Print Preview 2×2",
+          "test_id": "Print Preview Screen  106",
+          "module": "Saved to Gallery Toast",
           "stage": "Printing",
-          "description": "Verify Print Preview UI",
-          "expected": "2×2 Print Preview screen is displayed correctly with all controls.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
+          "description": "Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage",
+          "expected": "The generated image is automatically saved to the device Gallery. The toast message \"Image saved to gallery.\" is displayed only once and disappears automatically after a few seconds. The Outstanding! title, Queue icon, image preview, timestamp, Sending to Print status and Done button are displayed correctly.",
+          "verification": "Verify toast: Image saved to gallery.",
+          "kind": "toast",
+          "selector": "Image saved to gallery."
         }
       ]
     },
     {
-      "test_id": "Photo ID 16",
-      "module": "Print Preview 1×1",
-      "section": "PHOTO ID",
-      "description": "Verify Print Preview UI",
+      "test_id": "Print Preview Screen 107",
+      "module": "Saved to Gallery Toast",
+      "section": "PRINT PREVIEWS SCREEN",
+      "description": "Verify toast message and Gallery save failure handling",
       "steps": [
-        "1. Launch the app and wait for splash screen.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Started.",
-        "4. Tap \"Sign Up Later\"",
-        "5. Verify Home screen appears.",
-        "6. Tap Photo ID module.",
-        "7. Tap Allow.",
-        "8. Tap OK.",
-        "9. Tap 1×1 ratio.",
-        "10. Tap Shutter button.",
-        "11. Wait for capture.",
-        "12. Verify Print Preview screen opens.",
-        "13. Verify two 1×1 photos are displayed vertically.",
-        "14. Verify dotted border around each photo.",
-        "15. Verify Copies selector.",
-        "16. Verify Print button.",
-        "17. Verify Edit button disabled."
-      ],
-      "type": "Positive",
-      "expected": "1×1 Print Preview is displayed correctly.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 1484,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Photo ID 16",
-          "module": "Print Preview 1×1",
-          "stage": "Printing",
-          "description": "Verify Print Preview UI",
-          "expected": "1×1 Print Preview is displayed correctly.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "Photo ID 17",
-      "module": "Print Preview 1.4×1.8",
-      "section": "PHOTO ID",
-      "description": "Verify Print Preview UI",
-      "steps": [
-        "1. Launch the app and wait for splash screen.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Started.",
-        "4. Tap  \"Sign Up Later\"",
-        "5. Verify Home screen appears.",
-        "6. Tap Photo ID module.",
-        "7. Tap Allow.",
-        "8. Tap OK.",
-        "9. Select 1.4×1.8 ratio.",
-        "10. Tap Shutter button.",
-        "11. Wait for image capture.",
-        "12. Verify Print Preview screen appears.",
-        "13. Verify image size label 1.4×1.8 in.",
-        "14. Verify dotted border around image.",
-        "15. Verify Copies selector.",
-        "16. Verify Print button."
-      ],
-      "type": "Positive",
-      "expected": "1.4×1.8 Print Preview is displayed correctly.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 1501,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Photo ID 17",
-          "module": "Print Preview 1.4×1.8",
-          "stage": "Printing",
-          "description": "Verify Print Preview UI",
-          "expected": "1.4×1.8 Print Preview is displayed correctly.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "Photo ID 18",
-      "module": "Print Preview 1.3×1.9",
-      "section": "PHOTO ID",
-      "description": "Verify Print Preview UI",
-      "steps": [
-        "1. Launch the app and wait for splash screen.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Started.",
-        "4. Tap \"Sign Up Later\"",
-        "5. Verify Home screen appears.",
-        "6. Tap Photo ID module.",
-        "7. Tap Allow.",
-        "8. Tap OK.",
-        "9. Select 1.3×1.9 ratio.",
-        "10. Tap Shutter button.",
-        "11. Wait for capture.",
-        "12. Verify Print Preview screen appears.",
-        "13. Verify image size label 1.3×1.9 in.",
-        "14. Verify dotted border around image.",
-        "15. Verify Copies selector.",
-        "16. Verify Print button.",
-        "17. Verify Edit button disabled."
-      ],
-      "type": "Positive",
-      "expected": "1.3×1.9 Print Preview is displayed correctly.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 1517,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Photo ID 18",
-          "module": "Print Preview 1.3×1.9",
-          "stage": "Printing",
-          "description": "Verify Print Preview UI",
-          "expected": "1.3×1.9 Print Preview is displayed correctly.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "Photo ID 23",
-      "module": "Photo ID Print Preview",
-      "section": "PHOTO ID",
-      "description": "Verify disabled Edit button and Print Preview UI",
-      "steps": [
-        "1. Launch the app and wait for the splash screen.",
-        "2. Complete onboarding flow (ON_01B to ON_01E).",
-        "3. Tap Get Started.",
-        "4. On Sign Up screen, tap  \"Sign Up Later\".",
-        "5. Verify Home screen appears.",
-        "6. Tap the Photo ID module.",
-        "7. Verify \"Sprocket would like to access the Camera\" popup appears.",
-        "8. Tap Allow.",
-        "9. Verify Photo ID Mode onboarding popup appears.",
-        "10. Tap OK.",
-        "11. Verify Photo ID camera screen appears with Front Camera selected by default.",
-        "12. Verify 2×2 ratio is selected by default.",
-        "13. Tap 1.3×1.9 ratio option.",
-        "14. Verify 1.3×1.9 ratio is highlighted.",
-        "15. Position the face inside the oval guide.",
-        "16. Tap the Shutter button.",
-        "17. Wait for image capture to complete.",
-        "18. Verify Photo ID Print Preview screen opens.",
-        "19. Verify Back Arrow icon is displayed at the top-left corner.",
-        "20. Verify printer name \"HP Sprocket Studio Plus 66:FE\" is displayed in the header.",
-        "21. Verify Share icon is displayed at the top-right corner.",
-        "22. Verify captured photo preview is displayed in 1.3×1.9 format.",
-        "23. Verify dotted gray border surrounds the photo.",
-        "24. Verify size label \"1.3×1.9 in\" is displayed below the photo.",
-        "25. Verify Copies text is displayed.",
-        "26. Verify copies count shows 1 by default.",
-        "27. Verify Minus (-) and Plus (+) icons are displayed beside the copies counter.",
-        "28. Tap + icon and verify copies count increases.",
-        "29. Tap - icon and verify copies count decreases and does not go below 1.",
-        "30. Verify AI button is displayed in disabled state.",
-        "31. Verify Print button is enabled and highlighted in green.",
-        "32. Verify Edit button is displayed in disabled state.",
-        "33. Tap the disabled Edit button.",
-        "34. Verify tooltip message \"Edit is not available for Photo ID.\" appears above the Edit button.",
-        "35. Wait for 5 seconds.",
-        "36. Verify tooltip disappears automatically.",
-        "37. Verify bottom navigation bar displays More, Create, and Printer tabs.",
-        "38. Verify Create tab is highlighted by default."
-      ],
-      "type": "Positive",
-      "expected": "Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 1585,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Photo ID 23",
-          "module": "Photo ID Print Preview",
-          "stage": "Printing",
-          "description": "Verify disabled Edit button and Print Preview UI",
-          "expected": "Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.",
-          "verification": "Verify disabled: Copies",
-          "kind": "disabled",
-          "selector": "Copies"
-        },
-        {
-          "test_id": "Photo ID 23",
-          "module": "Photo ID Print Preview",
-          "stage": "Printing",
-          "description": "Verify disabled Edit button and Print Preview UI",
-          "expected": "Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.",
-          "verification": "Verify disabled: Create",
-          "kind": "disabled",
-          "selector": "Create"
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 113",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify UI elements and functionality of the print preview screen.",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete. 2. Complete onboarding (ON_01B–ON_01E). 3. Tap Get Started → Sign Up Later. 4. Navigate to Create → Sprocket AI Tools → Fix Lighting. 5. Select image from Gallery. 6. Tap Generate. 7. Wait for result screen. 8. Tap Apply. 9. Verify top bar (Back button, Printer status, Share icon) and bottom navigation (More, Create, Printer) are visible and functional. 10. Verify Copies/Tiles adjustment controls and Print button."
-      ],
-      "type": "Positive",
-      "expected": "All UI elements (Back button, Printer status, Share icon, bottom tabs, Copies/Tiles adjustment, and Print button) are functional and correctly displayed.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2325,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 113",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify UI elements and functionality of the print preview screen.",
-          "expected": "All UI elements (Back button, Printer status, Share icon, bottom tabs, Copies/Tiles adjustment, and Print button) are functional and correctly displayed.",
-          "verification": "Verify image/logo: Copies",
-          "kind": "image",
-          "selector": "Copies"
-        },
-        {
-          "test_id": "AI Tools 113",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify UI elements and functionality of the print preview screen.",
-          "expected": "All UI elements (Back button, Printer status, Share icon, bottom tabs, Copies/Tiles adjustment, and Print button) are functional and correctly displayed.",
-          "verification": "Verify image/logo: Printer",
-          "kind": "image",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 200",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Next button navigation",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Select any image.",
-        "9. Tap Next button."
-      ],
-      "type": "Positive",
-      "expected": "User navigates to Print Preview screen successfully.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2932,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 200",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Next button navigation",
-          "expected": "User navigates to Print Preview screen successfully.",
-          "verification": "Verify navigation marker: Next",
-          "kind": "navigation",
-          "selector": "Next"
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 201",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Print Preview UI",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Tap Next.",
-        "9. Observe Print Preview screen."
-      ],
-      "type": "Positive",
-      "expected": "Top left Back Arrow, Share button, AI Print button, Edit icon, Copies option and Tiles option are displayed properly.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2936,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 201",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Print Preview UI",
-          "expected": "Top left Back Arrow, Share button, AI Print button, Edit icon, Copies option and Tiles option are displayed properly.",
-          "verification": "Verify image/logo: Copies",
-          "kind": "image",
-          "selector": "Copies"
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 202",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Back Arrow",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Open Print Preview screen.",
-        "9. Tap Back Arrow."
-      ],
-      "type": "Positive",
-      "expected": "User navigates back to Result screen.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2940,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 202",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Back Arrow",
-          "expected": "User navigates back to Result screen.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 203",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Share button",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Open Print Preview screen.",
-        "9. Tap Share button."
-      ],
-      "type": "Positive",
-      "expected": "Native Share sheet appears successfully.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2944,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 203",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Share button",
-          "expected": "Native Share sheet appears successfully.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 204",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Edit icon",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Open Print Preview screen.",
-        "9. Tap Edit icon."
-      ],
-      "type": "Positive",
-      "expected": "User navigates to image editing screen successfully.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2948,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 204",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Edit icon",
-          "expected": "User navigates to image editing screen successfully.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 205",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Copies option",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Open Print Preview screen.",
-        "9. Increase and decrease copies using + and -."
-      ],
-      "type": "Positive",
-      "expected": "Copies increase/decrease correctly and remain within allowed range.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2952,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 205",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Copies option",
-          "expected": "Copies increase/decrease correctly and remain within allowed range.",
-          "verification": "Verify visible: Copies",
-          "kind": "visible",
-          "selector": "Copies"
-        }
-      ]
-    },
-    {
-      "test_id": "AI Tools 206",
-      "module": "Print Preview",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Tiles option",
-      "steps": [
-        "1. Launch application and wait for splash screen to complete.\n2. Complete onboarding (ON_01B–ON_01E).\n3. Tap Get Started → Sign Up Later.\n4. Navigate to Create → AI Tools.\n5. Tap Text-to-Image.\n6. Verify Portrait is selected by default and Image Quantity = 3 is selected.",
-        "7. Generate images.",
-        "8. Open Print Preview screen.",
-        "9. Change different tile layouts."
-      ],
-      "type": "Positive",
-      "expected": "Selected tile layout is applied successfully and preview updates correctly.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 2956,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "AI Tools 206",
-          "module": "Print Preview",
-          "stage": "Printing",
-          "description": "Verify Tiles option",
-          "expected": "Selected tile layout is applied successfully and preview updates correctly.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "Blockers Error Pop up Android   17",
-      "module": "Transmission",
-      "section": "BLOCKERS & STOPPERS ERROR POP UP (ANDROID)",
-      "description": "Verify \"Error Sending Image\" popup",
-      "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Start!.",
-        "4. Tap Sign up later.",
-        "5. Go to Dashboard Home screen.",
-        "6. Tap Printer icon.",
-        "7. Tap Skip to Connection.",
-        "8. (iOS Only) \"Select An Accessory\" popup appears.",
-        "9. Select printer HP200 and connect successfully.",
-        "10. Verify Finish Connection screen appears.",
-        "11. Select an image from Gallery.",
-        "12. Disconnect Bluetooth/network or interrupt image transfer between app and printer.",
-        "13. Tap Print on Preview screen.",
-        "14. Observe popup on Print Preview screen."
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started!, connect the HP Sprocket Studio Plus printer, and select a Pre-Cut Sticker or Collage image from the Gallery.",
+        "3. Open the Print Preview screen and tap Print.",
+        "4. Deny Gallery/Storage permission or simulate Gallery save failure.",
+        "5. Wait for the CR_07L_Saved to Gallery Toast screen to appear.",
+        "6. Verify toast/error message and tap Done."
       ],
       "type": "Negative",
-      "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
+      "expected": "Appropriate error message is displayed if the image cannot be saved to Gallery. The toast message is not duplicated. The Outstanding! title, Queue icon, image preview, timestamp, status text and Done button remain visible and functional. The application remains stable without crashes.",
       "sheet": "New Sprocket Final ATP",
-      "row": 4278,
+      "row": 1124,
       "stage": "Printing",
       "verifications": [
         {
-          "test_id": "Blockers Error Pop up Android   17",
-          "module": "Transmission",
+          "test_id": "Print Preview Screen 107",
+          "module": "Saved to Gallery Toast",
           "stage": "Printing",
-          "description": "Verify \"Error Sending Image\" popup",
-          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
-          "verification": "Verify dialog: Error Sending Image",
-          "kind": "dialog",
-          "selector": "Error Sending Image"
-        },
-        {
-          "test_id": "Blockers Error Pop up Android   17",
-          "module": "Transmission",
-          "stage": "Printing",
-          "description": "Verify \"Error Sending Image\" popup",
-          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
-          "verification": "Verify dialog: Something went wrong. Please try printing again.",
-          "kind": "dialog",
-          "selector": "Something went wrong. Please try printing again."
-        },
-        {
-          "test_id": "Blockers Error Pop up Android   17",
-          "module": "Transmission",
-          "stage": "Printing",
-          "description": "Verify \"Error Sending Image\" popup",
-          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        },
-        {
-          "test_id": "Blockers Error Pop up Android   17",
-          "module": "Transmission",
-          "stage": "Printing",
-          "description": "Verify \"Error Sending Image\" popup",
-          "expected": "\"Error Sending Image\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Error Sending Image\", followed by the message \"Something went wrong. Please try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not transferred to the printer until the issue is resolved.",
-          "verification": "Verify dialog: Printer",
-          "kind": "dialog",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Stoppers Error Pop up Ios   17",
-      "module": "Memory",
-      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
-      "description": "Verify \"Memory Error\" popup",
-      "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Start!.",
-        "4. Tap Sign up later.",
-        "5. Go to Dashboard Home screen.",
-        "6. Tap Printer icon.",
-        "7. Tap Skip to Connection.",
-        "8. \"Select An Accessory\" popup appears.",
-        "9. Select printer HP200 and connect successfully.",
-        "10. Verify Finish Connection screen appears.",
-        "11. Select an image from Gallery.",
-        "12. Open the Print Preview screen.",
-        "13. Tap the Print button to give the print command.",
-        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
-        "15. Induce memory fault during printing.",
-        "16. Observe popup message."
-      ],
-      "type": "Negative",
-      "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4716,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Stoppers Error Pop up Ios   17",
-          "module": "Memory",
-          "stage": "Printing",
-          "description": "Verify \"Memory Error\" popup",
-          "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
-          "verification": "Verify dialog: Memory Error",
-          "kind": "dialog",
-          "selector": "Memory Error"
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios   17",
-          "module": "Memory",
-          "stage": "Printing",
-          "description": "Verify \"Memory Error\" popup",
-          "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
-          "verification": "Verify dialog: Restart your Sprocket and try printing again.",
-          "kind": "dialog",
-          "selector": "Restart your Sprocket and try printing again."
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios   17",
-          "module": "Memory",
-          "stage": "Printing",
-          "description": "Verify \"Memory Error\" popup",
-          "expected": "\"Memory Error\" popup is displayed . The popup displays the bold title \"Memory Error\", followed by the message \"Restart your Sprocket and try printing again.\" It includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until the error is resolved.",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        }
-      ]
-    },
-    {
-      "test_id": "Stoppers Error Pop up Ios    18",
-      "module": "Transmit",
-      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
-      "description": "Verify \"Transmit Error\" popup",
-      "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Start!.",
-        "4. Tap Sign up later.",
-        "5. Go to Dashboard Home screen.",
-        "6. Tap Printer icon.",
-        "7. Tap Skip to Connection.",
-        "8. \"Select An Accessory\" popup appears.",
-        "9. Select printer HP200 and connect successfully.",
-        "10. Verify Finish Connection screen appears.",
-        "11. Select an image from Gallery.",
-        "12. Open the Print Preview screen.",
-        "13. Tap the Print button to give the print command.",
-        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
-        "15. Interrupt data transfer between app and printer.",
-        "16. Observe popup message."
-      ],
-      "type": "Negative",
-      "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4732,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Stoppers Error Pop up Ios    18",
-          "module": "Transmit",
-          "stage": "Printing",
-          "description": "Verify \"Transmit Error\" popup",
-          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
-          "verification": "Verify dialog: Transmit Error",
-          "kind": "dialog",
-          "selector": "Transmit Error"
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios    18",
-          "module": "Transmit",
-          "stage": "Printing",
-          "description": "Verify \"Transmit Error\" popup",
-          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
-          "verification": "Verify dialog: Data transmission error! Please try printing again.",
-          "kind": "dialog",
-          "selector": "Data transmission error! Please try printing again."
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios    18",
-          "module": "Transmit",
-          "stage": "Printing",
-          "description": "Verify \"Transmit Error\" popup",
-          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
-          "verification": "Verify dialog: Make sure to keep the app open during printing.",
-          "kind": "dialog",
-          "selector": "Make sure to keep the app open during printing."
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios    18",
-          "module": "Transmit",
-          "stage": "Printing",
-          "description": "Verify \"Transmit Error\" popup",
-          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios    18",
-          "module": "Transmit",
-          "stage": "Printing",
-          "description": "Verify \"Transmit Error\" popup",
-          "expected": "\"Transmit Error\" popup is displayed with the bold title \"Transmit Error\", followed by the message \"Data transmission error! Please try printing again.\" A TIP is displayed: \"Make sure to keep the app open during printing.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The image data is not sent to the printer until the issue is resolved..",
-          "verification": "Verify dialog: Printer",
-          "kind": "dialog",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Stoppers Error Pop up Ios   19",
-      "module": "Voltage",
-      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
-      "description": "Verify \"Low Voltage\" popup",
-      "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Start!.",
-        "4. Tap Sign up later.",
-        "5. Go to Dashboard Home screen.",
-        "6. Tap Printer icon.",
-        "7. Tap Skip to Connection.",
-        "8. \"Select An Accessory\" popup appears.",
-        "9. Select printer HP200 and connect successfully.",
-        "10. Verify Finish Connection screen appears.",
-        "11. Select an image from Gallery.",
-        "12. Open the Print Preview screen.",
-        "13. Tap the Print button to give the print command.",
-        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
-        "15. Reduce printer battery/voltage to a low level.",
-        "16. Observe popup message."
-      ],
-      "type": "Negative",
-      "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4748,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Stoppers Error Pop up Ios   19",
-          "module": "Voltage",
-          "stage": "Printing",
-          "description": "Verify \"Low Voltage\" popup",
-          "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
-          "verification": "Verify dialog: Low Voltage",
-          "kind": "dialog",
-          "selector": "Low Voltage"
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios   19",
-          "module": "Voltage",
-          "stage": "Printing",
-          "description": "Verify \"Low Voltage\" popup",
-          "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
-          "verification": "Verify dialog: Low Electric Quantity. Try printing again after resolving the issue.",
-          "kind": "dialog",
-          "selector": "Low Electric Quantity. Try printing again after resolving the issue."
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios   19",
-          "module": "Voltage",
-          "stage": "Printing",
-          "description": "Verify \"Low Voltage\" popup",
-          "expected": "\"Low Voltage\" popup is displayed . The popup displays the bold title \"Low Voltage\", followed by the message \"Low Electric Quantity. Try printing again after resolving the issue.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job is stopped until sufficient battery/voltage is available.",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        }
-      ]
-    },
-    {
-      "test_id": "Stoppers Error Pop up Ios   20",
-      "module": "Print",
-      "section": "BLOCKERS & STOPPERS ERRORS POP UP (IOS)",
-      "description": "Verify \"Print Error\" popup",
-      "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Start!.",
-        "4. Tap Sign up later.",
-        "5. Go to Dashboard Home screen.",
-        "6. Tap Printer icon.",
-        "7. Tap Skip to Connection.",
-        "8. \"Select An Accessory\" popup appears.",
-        "9. Select printer HP200 and connect successfully.",
-        "10. Verify Finish Connection screen appears.",
-        "11. Select an image from Gallery.",
-        "12. Open the Print Preview screen.",
-        "13. Tap the Print button to give the print command.",
-        "14. Verify the image enters Queue or Printing state and the popup screen appears.",
-        "15. Induce a generic print fault.",
-        "16. Observe popup message."
-      ],
-      "type": "Negative",
-      "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4764,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Stoppers Error Pop up Ios   20",
-          "module": "Print",
-          "stage": "Printing",
-          "description": "Verify \"Print Error\" popup",
-          "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
-          "verification": "Verify dialog: Print Error",
-          "kind": "dialog",
-          "selector": "Print Error"
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios   20",
-          "module": "Print",
-          "stage": "Printing",
-          "description": "Verify \"Print Error\" popup",
-          "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
-          "verification": "Verify dialog: Restart your Sprocket and try printing again.",
-          "kind": "dialog",
-          "selector": "Restart your Sprocket and try printing again."
-        },
-        {
-          "test_id": "Stoppers Error Pop up Ios   20",
-          "module": "Print",
-          "stage": "Printing",
-          "description": "Verify \"Print Error\" popup",
-          "expected": "\"Print Error\" popup is displayed . The popup displays the bold title \"Print Error\", followed by the message \"Restart your Sprocket and try printing again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the issue is resolved.",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        }
-      ]
-    },
-    {
-      "test_id": "Custom SDK  13",
-      "module": "Video Print Preview",
-      "section": "CUSTOM SDK",
-      "description": "Verify Video Print Preview screen and all UI elements",
-      "steps": [
-        "1. Launch the application and complete onboarding flow.",
-        "2. Tap Get Start!.",
-        "3. Tap Sign up later.",
-        "4. Navigate to Dashboard Home screen.",
-        "5. Select a video from Gallery.",
-        "6. Verify user is redirected to Video Print Preview screen.",
-        "7. Verify first video frame is selected by default with green square border.",
-        "8. Select any other video frame and verify green border moves to selected frame.",
-        "9. Verify Copies option is enabled and Tiles option is disabled.",
-        "10. Verify copies count shows 1 by default.",
-        "11. Tap + icon and verify count increases.",
-        "12. Tap - icon and verify count decreases.",
-        "13. Verify AI Print icon on left side is disabled.",
-        "14. Verify Edit icon on right side is enabled.",
-        "15. Verify top left Back Arrow and top right Share icon are displayed and clickable.",
-        "16. Tap Share icon and verify share options appear."
-      ],
-      "type": "Positive",
-      "expected": "Video Print Preview screen opens successfully. All UI elements are displayed correctly and function as expected.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 5069,
-      "stage": "Printing",
-      "verifications": [
-        {
-          "test_id": "Custom SDK  13",
-          "module": "Video Print Preview",
-          "stage": "Printing",
-          "description": "Verify Video Print Preview screen and all UI elements",
-          "expected": "Video Print Preview screen opens successfully. All UI elements are displayed correctly and function as expected.",
+          "description": "Verify toast message and Gallery save failure handling",
+          "expected": "Appropriate error message is displayed if the image cannot be saved to Gallery. The toast message is not duplicated. The Outstanding! title, Queue icon, image preview, timestamp, status text and Done button remain visible and functional. The application remains stable without crashes.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null

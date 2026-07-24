@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_37
+# Excel: AI Tools 37 | Module: Functionality
+# Verify trigger on AI generation
+# Expected: A "No Internet" popup appears in the center of the screen over a dimmed background. The popup displays the bold title "No Internet", followed by the message "Please connect to the Internet and try again." An "OK" button is displayed at the 
+appId: com.hp.impulse.sprocket
+name: "AI_37 - Verify trigger on AI generation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Internet"
+    optional: true
+- assertVisible:
+    text: "Please connect to the Internet and try again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

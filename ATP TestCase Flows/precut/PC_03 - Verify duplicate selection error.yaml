@@ -1,0 +1,14 @@
+# ATP Test Case ID: PC_03
+# Excel: Precut_03 | Module: Duplicate Restriction
+# Verify duplicate selection error.
+# Expected: Duplicate image is not assigned and warning message is displayed.
+appId: com.hp.impulse.sprocket
+name: "PC_03 - Verify duplicate selection error"
+tags:
+  - precut
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

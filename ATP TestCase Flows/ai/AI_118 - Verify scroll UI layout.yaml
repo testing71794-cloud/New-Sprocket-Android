@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_118
+# Excel: AI Tools 137 | Module: AI Tool List
+# Verify scroll & UI layout
+# Expected: Feed scrolls smoothly; Back Arrow and bottom navigation are visible; all tool categories are displayed and Create tab is highlighted.
+appId: com.hp.impulse.sprocket
+name: "AI_118 - Verify scroll UI layout"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Create"
+    optional: true

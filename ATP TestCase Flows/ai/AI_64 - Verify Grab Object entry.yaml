@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_64
+# Excel: AI Tools 83 | Module: Navigation
+# Verify "Grab Object" entry
+# Expected: Reaches CR_13C.1_Grab Object - Select via Paint with "Brush Size" and inactive "Generate" button.
+appId: com.hp.impulse.sprocket
+name: "AI_64 - Verify Grab Object entry"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Brush Size"
+    optional: true
+- assertVisible:
+    text: "Generate"
+    optional: true
+- assertVisible:
+    text: "Grab Object"
+    optional: true

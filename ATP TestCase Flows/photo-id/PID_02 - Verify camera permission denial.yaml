@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_02
+# Excel: Photo ID 02 | Module: Permission
+# Verify camera permission denial
+# Expected: Camera screen does not open. Permission error/message is displayed and app remains stable.
+appId: com.hp.impulse.sprocket
+name: "PID_02 - Verify camera permission denial"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

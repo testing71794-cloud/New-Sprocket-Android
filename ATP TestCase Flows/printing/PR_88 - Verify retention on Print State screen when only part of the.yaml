@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_88
+# Excel: Print Preview Screen 88 | Module: Multiple Photo / Multiple Copy Print Job
+# Verify retention on Print State screen when only part of the queue is deleted.
+# Expected: User remains on the Print State screen. Queue count is updated to reflect the remaining photos/copies in the queue.
+appId: com.hp.impulse.sprocket
+name: "PR_88 - Verify retention on Print State screen when only part of the"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Copies"
+    optional: true

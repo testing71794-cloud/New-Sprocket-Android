@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_33
+# Excel: Print Preview Screen 33 | Module: Hardware
+# Sprocket 3×4 Constraint
+# Expected: The "Out of Paper" error is NOT detected or displayed, as this specific model lacks the necessary hardware sensor.
+appId: com.hp.impulse.sprocket
+name: "PR_33 - Sprocket 34 Constraint"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Out of Paper"
+    optional: true

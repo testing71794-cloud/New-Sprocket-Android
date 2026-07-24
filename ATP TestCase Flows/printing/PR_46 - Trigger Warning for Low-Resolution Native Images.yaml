@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_46
+# Excel: Print Preview Screen 46 | Module: Warning Toast
+# Trigger Warning for Low-Resolution Native Images
+# Expected: A warning toast appears at the bottom of the screen with the message: "This photo may print blurry. Choose a higher quality image."
+appId: com.hp.impulse.sprocket
+name: "PR_46 - Trigger Warning for Low-Resolution Native Images"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "This photo may print blurry. Choose a higher quality image."
+    optional: true

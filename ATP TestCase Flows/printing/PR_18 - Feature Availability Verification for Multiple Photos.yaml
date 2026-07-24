@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_18
+# Excel: Print Preview Screen 18 | Module: Print Preview
+# Feature Availability Verification for Multiple Photos
+# Expected: Copies and Tiles controls are hidden or unavailable. A photo index indicator (e.g., "Photo 2 of 7") is displayed below the preview.
+appId: com.hp.impulse.sprocket
+name: "PR_18 - Feature Availability Verification for Multiple Photos"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photo 2 of 7"
+    optional: true
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true

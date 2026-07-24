@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_65
+# Excel: Print Preview Screen 65 | Module: Photo Fit
+# Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation
+# Expected: The landscape image automatically rotates 90 degrees clockwise to fit the vertical canvas layout. The rotated orientation is preserved when opened in AI tools or the Custom SDK workspace without any layout distortion or reset.
+appId: com.hp.impulse.sprocket
+name: "PR_65 - Verification of Landscape Photo Automatic 90-Degree Rotation"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

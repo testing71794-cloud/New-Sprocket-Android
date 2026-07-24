@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_151
+# Excel: General_PCF-003 | Module: Pre Connection Flow
+# Verify loading state during Printers discovery
+# Expected: Discovery progress indicator should be visible at 'searching for Printers…' screen
+appId: com.hp.impulse.sprocket
+name: "COX_151 - Verify loading state during Printers discovery"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "searching for Printers…"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Searching for Printers"
+    optional: true

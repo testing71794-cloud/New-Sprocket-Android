@@ -1,0 +1,52 @@
+# Alerts / alerts — 50 Excel-generated flows
+
+- [ ] AL_01 | Blockers Error Pop up Android   01 | Verify "Memory Error" popup during printing
+- [ ] AL_02 | Blockers Error Pop up Android  02 | Verify "Transmit Error" popup during printing
+- [ ] AL_03 | Blockers Error Pop up Android   03 | Verify "Low Voltage" popup during printing
+- [ ] AL_04 | Blockers Error Pop up Android   04 | Verify "Print Error" popup during printing
+- [ ] AL_05 | Blockers Error Pop up Android   05 | Verify "High Temperature" popup during printing
+- [ ] AL_06 | Blockers Error Pop up Android    06 | Verify "Paper Jam" error popup
+- [ ] AL_07 | Blockers Error Pop up Android    07 | Verify "Out of Paper" error popup
+- [ ] AL_08 | Blockers Error Pop up Android   08 | Verify "Top Cover Open" error popup
+- [ ] AL_09 | Blockers Error Pop up Android    09 | Verify "System Error Occurred" error popup
+- [ ] AL_10 | Blockers Error Pop up Android   10 | Verify "Very Low Battery" popup
+- [ ] AL_11 | Blockers Error Pop up Android   11 | Verify "Battery Error" popup
+- [ ] AL_12 | Blockers Error Pop up Android   12 | Verify "Sprocket is Warm" popup
+- [ ] AL_13 | Blockers Error Pop up Android   13 | Verify "Sprocket is Cold" popup
+- [ ] AL_14 | Blockers Error Pop up Android   14 | Verify "Paper Feed Error" popup
+- [ ] AL_15 | Blockers Error Pop up Android   15 | Verify "Sprocket not Responding" popup
+- [ ] AL_16 | Blockers Error Pop up Android  16 | Verify "Incorrect Paper Type" popup
+- [ ] AL_17 | Blockers Error Pop up Android   17 | Verify "Error Sending Image" popup
+- [ ] AL_18 | Stoppers Error Pop up Android 18 | Verify the Memory Error popup is displayed when the printer encounters a memory-related issue during printing.
+- [ ] AL_19 | Stoppers Error Pop up Android 19 | Verify the Transmit Error popup is displayed when data transmission is interrupted during printing.
+- [ ] AL_20 | Stoppers Error Pop up Android 20 | Verify the Low Voltage popup is displayed when the printer battery voltage is too low.
+- [ ] AL_21 | Stoppers Error Pop up Android 21 | Verify the Print Error popup is displayed when the printer encounters a printing failure.
+- [ ] AL_22 | Blockers Error Pop up Ios 001 | Verify Memory Error popup during printing
+- [ ] AL_23 | Blockers Error Pop up Ios 002 | Verify Transmit Error popup during printing
+- [ ] AL_24 | Blockers Error Pop up Ios 003 | Verify Low Voltage popup when battery is low
+- [ ] AL_25 | Blockers Error Pop up Ios 004 | Verify Print Error popup during printing
+- [ ] AL_26 | Blockers Error Pop up Ios 005 | Verify High Temperature popup when printer overheats
+- [ ] AL_27 | Blockers Error Pop up Ios 006 | Verify High Battery Temperature popup when battery overheats
+- [ ] AL_28 | Blockers Error Pop up Ios 07 | Verify Paper Error popup when incorrect paper size is inserted
+- [ ] AL_29 | Blockers Error Pop up Ios 08 | Verify Paper Jam popup when paper gets stuck during printing
+- [ ] AL_30 | Blockers Error Pop up Ios 09 | Verify Out of Paper popup when printer has no paper
+- [ ] AL_31 | Blockers Error Pop up Ios 10 | Verify Top Cover Open popup when top cover is opened during printing
+- [ ] AL_32 | Blockers Error Pop up Ios 11 | Verify System Error popup
+- [ ] AL_33 | Blockers Error Pop up Ios 12 | Verify Low Battery popup
+- [ ] AL_34 | Blockers Error Pop up Ios 13 | Verify Battery Error popup
+- [ ] AL_35 | Blockers Error Pop up Ios 14 | Verify "Sprocket is Warm" popup
+- [ ] AL_36 | Blockers Error Pop up Ios 15 | Verify "Sprocket is Cold" popup
+- [ ] AL_37 | Blockers Error Pop up Ios 16 | Verify "Paper Feed Error" popup
+- [ ] AL_38 | Stoppers Error Pop up Ios   17 | Verify "Memory Error" popup
+- [ ] AL_39 | Stoppers Error Pop up Ios    18 | Verify "Transmit Error" popup
+- [ ] AL_40 | Stoppers Error Pop up Ios   19 | Verify "Low Voltage" popup
+- [ ] AL_41 | Stoppers Error Pop up Ios   20 | Verify "Print Error" popup
+- [ ] AL_42 | Stoppers Error Pop up Ios  21 | Verify "High Temperature" popup
+- [ ] AL_43 | Stoppers Error Pop up Ios  22 | Verify "High Battery Temperature" popup
+- [ ] AL_44 | Stoppers Error Pop up Ios 23 | Verify "Paper Jam" error
+- [ ] AL_45 | Stoppers Error Pop up Ios  24 | Verify "Out of Paper" error
+- [ ] AL_46 | Stoppers Error Pop up Ios  25 | Verify "Top Cover Open" error
+- [ ] AL_47 | Stoppers Error Pop up Ios  26 | Verify "System Error"
+- [ ] AL_48 | Stoppers Error Pop up Ios 27 | Verify "Battery Error" popup
+- [ ] AL_49 | Stoppers Error Pop up Ios  28 | Verify "Sprocket is Warm" popup
+- [ ] AL_50 | Stoppers Error Pop up Ios  29 | Verify "Sprocket is Cold" popup

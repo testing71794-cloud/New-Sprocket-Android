@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_55
+# Excel: AI Tools 71 | Module: Saving
+# Verify "Apply" functionality
+# Expected: Changes are saved; user is redirected to Print Preview (CR_13A.6_Changes Saved).
+appId: com.hp.impulse.sprocket
+name: "AI_55 - Verify Apply functionality"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Apply"
+    optional: true

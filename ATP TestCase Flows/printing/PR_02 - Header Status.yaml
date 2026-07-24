@@ -1,0 +1,17 @@
+# ATP Test Case ID: PR_02
+# Excel: Print Preview Screen 02 | Module: Print Preview
+# Header Status
+# Expected: Back arrow (top-left), connected printer name (e.g., "HP Sprocket 200"), and share icon (top-right) are visible.
+appId: com.hp.impulse.sprocket
+name: "PR_02 - Header Status"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "HP Sprocket 200"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

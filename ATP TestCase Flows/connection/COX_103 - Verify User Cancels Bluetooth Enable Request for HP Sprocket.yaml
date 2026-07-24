@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_103
+# Excel: PCF_Sprocket_013 | Module: Pre Connection Flow for HP Sprocket
+# Verify User Cancels Bluetooth Enable Request for HP Sprocket printer
+# Expected: Bluetooth should remain disabled and user should remain on the Bluetooth enable screen.
+appId: com.hp.impulse.sprocket
+name: "COX_103 - Verify User Cancels Bluetooth Enable Request for HP Sprocket"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

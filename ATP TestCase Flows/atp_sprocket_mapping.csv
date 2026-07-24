@@ -1,76 +1,933 @@
-TestCaseID,Module,FlowFile,App
-SP_01,splash,splash/SP_01 - Cold launch splash screen.yaml,com.hp.impulse.sprocket
-SP_02,splash,splash/SP_02 - Splash to first interactive screen.yaml,com.hp.impulse.sprocket
-ON_01,onboarding,onboarding/ON_01 - Welcome carousel first slide.yaml,com.hp.impulse.sprocket
-ON_02,onboarding,onboarding/ON_02 - AI Editing carousel slide.yaml,com.hp.impulse.sprocket
-ON_03,onboarding,onboarding/ON_03 - Inkless Seamless carousel slide.yaml,com.hp.impulse.sprocket
-ON_04,onboarding,onboarding/ON_04 - Complete onboarding via Get Started.yaml,com.hp.impulse.sprocket
-ON_05,onboarding,onboarding/ON_05 - Coachmark onboarding Skip and Next.yaml,com.hp.impulse.sprocket
-ON_06,onboarding,onboarding/ON_06 - Skip onboarding land on gallery.yaml,com.hp.impulse.sprocket
-SG_01,signup,signup/SG_01 - Sign up screen displays all options.yaml,com.hp.impulse.sprocket
-SG_02,signup,signup/SG_02 - Sign up with Google.yaml,com.hp.impulse.sprocket
-SG_03,signup,signup/SG_03 - Sign up with Facebook.yaml,com.hp.impulse.sprocket
-SG_04,signup,signup/SG_04 - Sign up with Email opens form.yaml,com.hp.impulse.sprocket
-SG_05,signup,signup/SG_05 - I already have an account opens login.yaml,com.hp.impulse.sprocket
-SG_06,signup,signup/SG_06 - Sign up with Email valid.yaml,com.hp.impulse.sprocket
-SG_07,signup,signup/SG_07 - Sign up with Email invalid email.yaml,com.hp.impulse.sprocket
-SG_08,signup,signup/SG_08 - Sign up with Email invalid password.yaml,com.hp.impulse.sprocket
-SG_09,signup,signup/SG_09 - Sign up with Email user already exists.yaml,com.hp.impulse.sprocket
-SG_10,signup,signup/SG_10 - Sign up with Email forgot password from duplicate.yaml,com.hp.impulse.sprocket
-LO_01,login,login/LO_01 - Login screen displays all options.yaml,com.hp.impulse.sprocket
-LO_02,login,login/LO_02 - Log in with Google.yaml,com.hp.impulse.sprocket
-LO_03,login,login/LO_03 - Log in with Facebook.yaml,com.hp.impulse.sprocket
-LO_04,login,login/LO_04 - Log in with Email opens form.yaml,com.hp.impulse.sprocket
-LO_05,login,login/LO_05 - I don't have an account opens signup.yaml,com.hp.impulse.sprocket
-LO_06,login,login/LO_06 - Log in with Email valid credentials.yaml,com.hp.impulse.sprocket
-LO_07,login,login/LO_07 - Log in with Email wrong credentials.yaml,com.hp.impulse.sprocket
-LO_08,login,login/LO_08 - Log in with Email forgot password.yaml,com.hp.impulse.sprocket
-LO_09,login,login/LO_09 - Continue without Logging In.yaml,com.hp.impulse.sprocket
-SL_01,signup-later,signup-later/SL_01 - Sign Up Later skip signup.yaml,com.hp.impulse.sprocket
-CO_01,connection,connection/CO_01.yaml,com.hp.impulse.sprocket
-CO_02,connection,connection/CO_02.yaml,com.hp.impulse.sprocket
-CO_03,connection,connection/CO_03.yaml,com.hp.impulse.sprocket
-CO_04,connection,connection/CO_04.yaml,com.hp.impulse.sprocket
-PM_01,permission,permission/PM_01 - Camera permission allow.yaml,com.hp.impulse.sprocket
-PM_20,permission,permission/PM_20 - Permission flow allow all permissions.yaml,com.hp.impulse.sprocket
-GA_01,gallery,gallery/GA_01 - Gallery home screen.yaml,com.hp.impulse.sprocket
-GA_02,gallery,gallery/GA_02 - Swipe from gallery coachmark.yaml,com.hp.impulse.sprocket
-QP_01,quick-print,quick-print/QP_01 - Onboarding to Quick Print gallery.yaml,com.hp.impulse.sprocket
-QP_02,quick-print,quick-print/QP_02 - Quick Print Gallery functionality.yaml,com.hp.impulse.sprocket
-QP_03,quick-print,quick-print/QP_03 - Select Mode Tip toast.yaml,com.hp.impulse.sprocket
-QP_04,quick-print,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,com.hp.impulse.sprocket
-QP_05,quick-print,quick-print/QP_05 - Onboarding to Quick Print with tip toast.yaml,com.hp.impulse.sprocket
-QP_06,quick-print,quick-print/QP_06 - Selection limits and unselection.yaml,com.hp.impulse.sprocket
-QP_07,quick-print,quick-print/QP_07 - Device permission limited and denied.yaml,com.hp.impulse.sprocket
-QP_08,quick-print,quick-print/QP_08 - Launch to Select Gallery.yaml,com.hp.impulse.sprocket
-QP_09,quick-print,quick-print/QP_09 - Gallery folder navigation.yaml,com.hp.impulse.sprocket
-QP_10,quick-print,quick-print/QP_10 - Facebook sign-in failure.yaml,com.hp.impulse.sprocket
-QP_11,quick-print,quick-print/QP_11 - Social media refresh.yaml,com.hp.impulse.sprocket
-QP_12,quick-print,quick-print/QP_12 - Social media unlink.yaml,com.hp.impulse.sprocket
-QP_13,quick-print,quick-print/QP_13 - No internet open settings.yaml,com.hp.impulse.sprocket
-QP_14,quick-print,quick-print/QP_14 - Wi-Fi Direct no data modal.yaml,com.hp.impulse.sprocket
-QP_15,quick-print,quick-print/QP_15 - Tag search success.yaml,com.hp.impulse.sprocket
-QP_16,quick-print,quick-print/QP_16 - Tag search no internet.yaml,com.hp.impulse.sprocket
-QP_17,quick-print,quick-print/QP_17 - Sorting and interaction constraints.yaml,com.hp.impulse.sprocket
-QP_18,quick-print,quick-print/QP_18 - Fast scroll mechanism.yaml,com.hp.impulse.sprocket
-QP_19,quick-print,quick-print/QP_19 - Empty state handling.yaml,com.hp.impulse.sprocket
-COL_01,collage,collage/COL_01 - Launch and navigation.yaml,com.hp.impulse.sprocket
-COL_02,collage,collage/COL_02 - Photo permission.yaml,com.hp.impulse.sprocket
-COL_03,collage,collage/COL_03 - Collage selection screen.yaml,com.hp.impulse.sprocket
-COL_04,collage,collage/COL_04 - Folder navigation.yaml,com.hp.impulse.sprocket
-COL_05,collage,collage/COL_05 - Image selection minimum.yaml,com.hp.impulse.sprocket
-COL_06,collage,collage/COL_06 - Multiple selection four photos.yaml,com.hp.impulse.sprocket
-COL_07,collage,collage/COL_07 - Duplicate selection.yaml,com.hp.impulse.sprocket
-COL_08,collage,collage/COL_08 - Remove selection.yaml,com.hp.impulse.sprocket
-COL_09,collage,collage/COL_09 - Next button validation.yaml,com.hp.impulse.sprocket
-COL_10,collage,collage/COL_10 - Drag and drop screen.yaml,com.hp.impulse.sprocket
-COL_11,collage,collage/COL_11 - Layout selection.yaml,com.hp.impulse.sprocket
-COL_12,collage,collage/COL_12 - Image reordering.yaml,com.hp.impulse.sprocket
-COL_13,collage,collage/COL_13 - Edit image.yaml,com.hp.impulse.sprocket
-COL_14,collage,collage/COL_14 - Print preview UI.yaml,com.hp.impulse.sprocket
-COL_15,collage,collage/COL_15 - Printer validation.yaml,com.hp.impulse.sprocket
-COL_16,collage,collage/COL_16 - One image collage blocked.yaml,com.hp.impulse.sprocket
-COL_17,collage,collage/COL_17 - Two image collage and layouts.yaml,com.hp.impulse.sprocket
-COL_18,collage,collage/COL_18 - Three image collage and layouts.yaml,com.hp.impulse.sprocket
-COL_19,collage,collage/COL_19 - Four image collage and layouts.yaml,com.hp.impulse.sprocket
-COL_20,collage,collage/COL_20 - More than four photos limit.yaml,com.hp.impulse.sprocket
+TestCaseID,Module,FlowFile,App,ExcelID,Description
+SP_01,splash,splash/SP_01 - Cold launch splash screen.yaml,com.hp.impulse.sprocket,,
+SP_02,splash,splash/SP_02 - Splash to first interactive screen.yaml,com.hp.impulse.sprocket,,
+ON_01,onboarding,onboarding/ON_01 - Welcome carousel first slide.yaml,com.hp.impulse.sprocket,,
+ON_02,onboarding,onboarding/ON_02 - AI Editing carousel slide.yaml,com.hp.impulse.sprocket,,
+ON_03,onboarding,onboarding/ON_03 - Inkless Seamless carousel slide.yaml,com.hp.impulse.sprocket,,
+ON_04,onboarding,onboarding/ON_04 - Complete onboarding via Get Started.yaml,com.hp.impulse.sprocket,,
+ON_05,onboarding,onboarding/ON_05 - Coachmark onboarding Skip and Next.yaml,com.hp.impulse.sprocket,,
+ON_06,onboarding,onboarding/ON_06 - Skip onboarding land on gallery.yaml,com.hp.impulse.sprocket,,
+SG_01,signup,signup/SG_01 - Sign up screen displays all options.yaml,com.hp.impulse.sprocket,,
+SG_02,signup,signup/SG_02 - Sign up with Google.yaml,com.hp.impulse.sprocket,,
+SG_03,signup,signup/SG_03 - Sign up with Facebook.yaml,com.hp.impulse.sprocket,,
+SG_04,signup,signup/SG_04 - Sign up with Email opens form.yaml,com.hp.impulse.sprocket,,
+SG_05,signup,signup/SG_05 - I already have an account opens login.yaml,com.hp.impulse.sprocket,,
+SG_06,signup,signup/SG_06 - Sign up with Email valid.yaml,com.hp.impulse.sprocket,,
+SG_07,signup,signup/SG_07 - Sign up with Email invalid email.yaml,com.hp.impulse.sprocket,,
+SG_08,signup,signup/SG_08 - Sign up with Email invalid password.yaml,com.hp.impulse.sprocket,,
+SG_09,signup,signup/SG_09 - Sign up with Email user already exists.yaml,com.hp.impulse.sprocket,,
+SG_10,signup,signup/SG_10 - Sign up with Email forgot password from duplicate.yaml,com.hp.impulse.sprocket,,
+LO_01,login,login/LO_01 - Login screen displays all options.yaml,com.hp.impulse.sprocket,,
+LO_02,login,login/LO_02 - Log in with Google.yaml,com.hp.impulse.sprocket,,
+LO_03,login,login/LO_03 - Log in with Facebook.yaml,com.hp.impulse.sprocket,,
+LO_04,login,login/LO_04 - Log in with Email opens form.yaml,com.hp.impulse.sprocket,,
+LO_05,login,login/LO_05 - I don't have an account opens signup.yaml,com.hp.impulse.sprocket,,
+LO_06,login,login/LO_06 - Log in with Email valid credentials.yaml,com.hp.impulse.sprocket,,
+LO_07,login,login/LO_07 - Log in with Email wrong credentials.yaml,com.hp.impulse.sprocket,,
+LO_08,login,login/LO_08 - Log in with Email forgot password.yaml,com.hp.impulse.sprocket,,
+LO_09,login,login/LO_09 - Continue without Logging In.yaml,com.hp.impulse.sprocket,,
+SL_01,signup-later,signup-later/SL_01 - Sign Up Later skip signup.yaml,com.hp.impulse.sprocket,,
+CO_01,connection,connection/CO_01.yaml,com.hp.impulse.sprocket,,
+CO_02,connection,connection/CO_02.yaml,com.hp.impulse.sprocket,,
+CO_03,connection,connection/CO_03.yaml,com.hp.impulse.sprocket,,
+CO_04,connection,connection/CO_04.yaml,com.hp.impulse.sprocket,,
+PM_01,permission,permission/PM_01 - Camera permission allow.yaml,com.hp.impulse.sprocket,,
+PM_20,permission,permission/PM_20 - Permission flow allow all permissions.yaml,com.hp.impulse.sprocket,,
+GA_01,gallery,gallery/GA_01 - Gallery home screen.yaml,com.hp.impulse.sprocket,,
+GA_02,gallery,gallery/GA_02 - Swipe from gallery coachmark.yaml,com.hp.impulse.sprocket,,
+QP_01,quick-print,quick-print/QP_01 - Onboarding to Quick Print gallery.yaml,com.hp.impulse.sprocket,,
+QP_02,quick-print,quick-print/QP_02 - Quick Print Gallery functionality.yaml,com.hp.impulse.sprocket,,
+QP_03,quick-print,quick-print/QP_03 - Select Mode Tip toast.yaml,com.hp.impulse.sprocket,,
+QP_04,quick-print,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,com.hp.impulse.sprocket,,
+QP_05,quick-print,quick-print/QP_05 - Onboarding to Quick Print with tip toast.yaml,com.hp.impulse.sprocket,,
+QP_06,quick-print,quick-print/QP_06 - Selection limits and unselection.yaml,com.hp.impulse.sprocket,,
+QP_07,quick-print,quick-print/QP_07 - Device permission limited and denied.yaml,com.hp.impulse.sprocket,,
+QP_08,quick-print,quick-print/QP_08 - Launch to Select Gallery.yaml,com.hp.impulse.sprocket,,
+QP_09,quick-print,quick-print/QP_09 - Gallery folder navigation.yaml,com.hp.impulse.sprocket,,
+QP_10,quick-print,quick-print/QP_10 - Facebook sign-in failure.yaml,com.hp.impulse.sprocket,,
+QP_11,quick-print,quick-print/QP_11 - Social media refresh.yaml,com.hp.impulse.sprocket,,
+QP_12,quick-print,quick-print/QP_12 - Social media unlink.yaml,com.hp.impulse.sprocket,,
+QP_13,quick-print,quick-print/QP_13 - No internet open settings.yaml,com.hp.impulse.sprocket,,
+QP_14,quick-print,quick-print/QP_14 - Wi-Fi Direct no data modal.yaml,com.hp.impulse.sprocket,,
+QP_15,quick-print,quick-print/QP_15 - Tag search success.yaml,com.hp.impulse.sprocket,,
+QP_16,quick-print,quick-print/QP_16 - Tag search no internet.yaml,com.hp.impulse.sprocket,,
+QP_17,quick-print,quick-print/QP_17 - Sorting and interaction constraints.yaml,com.hp.impulse.sprocket,,
+QP_18,quick-print,quick-print/QP_18 - Fast scroll mechanism.yaml,com.hp.impulse.sprocket,,
+QP_19,quick-print,quick-print/QP_19 - Empty state handling.yaml,com.hp.impulse.sprocket,,
+COL_01,collage,collage/COL_01 - Launch and navigation.yaml,com.hp.impulse.sprocket,,
+COL_02,collage,collage/COL_02 - Photo permission.yaml,com.hp.impulse.sprocket,,
+COL_03,collage,collage/COL_03 - Collage selection screen.yaml,com.hp.impulse.sprocket,,
+COL_04,collage,collage/COL_04 - Folder navigation.yaml,com.hp.impulse.sprocket,,
+COL_05,collage,collage/COL_05 - Image selection minimum.yaml,com.hp.impulse.sprocket,,
+COL_06,collage,collage/COL_06 - Multiple selection four photos.yaml,com.hp.impulse.sprocket,,
+COL_07,collage,collage/COL_07 - Duplicate selection.yaml,com.hp.impulse.sprocket,,
+COL_08,collage,collage/COL_08 - Remove selection.yaml,com.hp.impulse.sprocket,,
+COL_09,collage,collage/COL_09 - Next button validation.yaml,com.hp.impulse.sprocket,,
+COL_10,collage,collage/COL_10 - Drag and drop screen.yaml,com.hp.impulse.sprocket,,
+COL_11,collage,collage/COL_11 - Layout selection.yaml,com.hp.impulse.sprocket,,
+COL_12,collage,collage/COL_12 - Image reordering.yaml,com.hp.impulse.sprocket,,
+COL_13,collage,collage/COL_13 - Edit image.yaml,com.hp.impulse.sprocket,,
+COL_14,collage,collage/COL_14 - Print preview UI.yaml,com.hp.impulse.sprocket,,
+COL_15,collage,collage/COL_15 - Printer validation.yaml,com.hp.impulse.sprocket,,
+COL_16,collage,collage/COL_16 - One image collage blocked.yaml,com.hp.impulse.sprocket,,
+COL_17,collage,collage/COL_17 - Two image collage and layouts.yaml,com.hp.impulse.sprocket,,
+COL_18,collage,collage/COL_18 - Three image collage and layouts.yaml,com.hp.impulse.sprocket,,
+COL_19,collage,collage/COL_19 - Four image collage and layouts.yaml,com.hp.impulse.sprocket,,
+COL_20,collage,collage/COL_20 - More than four photos limit.yaml,com.hp.impulse.sprocket,,
+HM_01,home,home/HM_01 - Verify the complete application flow from the Splash Screen .yaml,com.hp.impulse.sprocket,HOME SCREEN_001,Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.
+HM_02,home,home/HM_02 - Verify the notification permission popup and the Allow butto.yaml,com.hp.impulse.sprocket,HOME SCREEN_002,Verify the notification permission popup and the Allow button functionality.
+HM_03,home,home/HM_03 - Verify the notification permission popup and the Dont allow .yaml,com.hp.impulse.sprocket,HOME SCREEN_003,Verify the notification permission popup and the Don't allow button functionality.
+HM_04,home,home/HM_04 - Verify the Home screen user interface when the user is not l.yaml,com.hp.impulse.sprocket,HOME SCREEN_004,Verify the Home screen user interface when the user is not logged in.
+HM_05,home,home/HM_05 - Verify the Home screen user interface when the user is logge.yaml,com.hp.impulse.sprocket,HOME SCREEN_005,Verify the Home screen user interface when the user is logged in.
+PID_01,photo-id,photo-id/PID_01 - Verify camera permission popup and Photo ID onboarding popup.yaml,com.hp.impulse.sprocket,Photo ID 01,Verify camera permission popup and Photo ID onboarding popup
+PID_02,photo-id,photo-id/PID_02 - Verify camera permission denial.yaml,com.hp.impulse.sprocket,Photo ID 02,Verify camera permission denial
+PID_03,photo-id,photo-id/PID_03 - Verify Photo ID default UI layout.yaml,com.hp.impulse.sprocket,Photo ID  03,Verify Photo ID default UI layout
+PID_04,photo-id,photo-id/PID_04 - Verify Photo ID UI after camera permission denied.yaml,com.hp.impulse.sprocket,Photo ID  04,Verify Photo ID UI after camera permission denied
+PID_05,photo-id,photo-id/PID_05 - Verify aspect ratio switching.yaml,com.hp.impulse.sprocket,Photo ID 05,Verify aspect ratio switching
+PID_06,photo-id,photo-id/PID_06 - Verify rapid aspect ratio switching.yaml,com.hp.impulse.sprocket,Photo ID 06,Verify rapid aspect ratio switching
+PID_07,photo-id,photo-id/PID_07 - Verify Timer submenu and selection.yaml,com.hp.impulse.sprocket,Photo ID  07,Verify Timer submenu and selection
+PID_08,photo-id,photo-id/PID_08 - Verify Timer Off state.yaml,com.hp.impulse.sprocket,Photo ID 08,Verify Timer Off state
+PID_09,photo-id,photo-id/PID_09 - Verify Flash and Flip Camera.yaml,com.hp.impulse.sprocket,Photo ID 09,Verify Flash and Flip Camera
+PID_10,photo-id,photo-id/PID_10 - Verify photo capture and Print Preview.yaml,com.hp.impulse.sprocket,Photo ID  10,Verify photo capture and Print Preview
+PID_11,photo-id,photo-id/PID_11 - Verify Timer submenu UI.yaml,com.hp.impulse.sprocket,Photo ID 11,Verify Timer submenu UI
+PID_12,photo-id,photo-id/PID_12 - Verify Timer ON state.yaml,com.hp.impulse.sprocket,Photo ID 12,Verify Timer ON state
+PID_13,photo-id,photo-id/PID_13 - Verify countdown UI.yaml,com.hp.impulse.sprocket,Photo ID 13,Verify countdown UI
+PID_14,photo-id,photo-id/PID_14 - Verify Stop button.yaml,com.hp.impulse.sprocket,Photo ID 14,Verify Stop button
+PID_15,photo-id,photo-id/PID_15 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket,Photo ID 15,Verify Print Preview UI
+PID_16,photo-id,photo-id/PID_16 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket,Photo ID 16,Verify Print Preview UI
+PID_17,photo-id,photo-id/PID_17 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket,Photo ID 17,Verify Print Preview UI
+PID_18,photo-id,photo-id/PID_18 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket,Photo ID 18,Verify Print Preview UI
+PID_19,photo-id,photo-id/PID_19 - Verify Photo ID onboarding popup UI.yaml,com.hp.impulse.sprocket,Photo ID 19,Verify Photo ID onboarding popup UI
+PID_20,photo-id,photo-id/PID_20 - Verify OK button functionality.yaml,com.hp.impulse.sprocket,Photo ID 20,Verify OK button functionality
+PID_21,photo-id,photo-id/PID_21 - Verify Dont Show Again.yaml,com.hp.impulse.sprocket,Photo ID 21,Verify Don't Show Again
+PID_22,photo-id,photo-id/PID_22 - Verify Edit button disabled.yaml,com.hp.impulse.sprocket,Photo ID 22,Verify Edit button disabled
+PID_23,photo-id,photo-id/PID_23 - Verify disabled Edit button and Print Preview UI.yaml,com.hp.impulse.sprocket,Photo ID 23,Verify disabled Edit button and Print Preview UI
+PB_01,photobooth,photobooth/PB_01 - Verify onboarding popup camera access and photo capture.yaml,com.hp.impulse.sprocket,Photobooth 01,"Verify onboarding popup, camera access and photo capture"
+PB_02,photobooth,photobooth/PB_02 - Verify behavior when camera permission is denied.yaml,com.hp.impulse.sprocket,Photobooth 02,Verify behavior when camera permission is denied
+PB_03,photobooth,photobooth/PB_03 - Verify shutter to stop button transformation and countdown.yaml,com.hp.impulse.sprocket,Photobooth 03,Verify shutter to stop button transformation and countdown
+PB_04,photobooth,photobooth/PB_04 - Verify cancel photo session during countdown.yaml,com.hp.impulse.sprocket,Photobooth 04,Verify cancel photo session during countdown
+PB_05,photobooth,photobooth/PB_05 - Verify countdown hides during photo capture.yaml,com.hp.impulse.sprocket,Photobooth  05,Verify countdown hides during photo capture
+PB_06,photobooth,photobooth/PB_06 - Verify progress indicator updates after each photo.yaml,com.hp.impulse.sprocket,Photobooth 06,Verify progress indicator updates after each photo
+PB_07,photobooth,photobooth/PB_07 - Verify session cancellation while photo is processing.yaml,com.hp.impulse.sprocket,Photobooth 07,Verify session cancellation while photo is processing
+PB_08,photobooth,photobooth/PB_08 - Verify progress bar increment logic.yaml,com.hp.impulse.sprocket,Photobooth  08,Verify progress bar increment logic
+PB_09,photobooth,photobooth/PB_09 - Verify countdown timer returns for next photos.yaml,com.hp.impulse.sprocket,Photobooth 09,Verify countdown timer returns for next photos
+PB_10,photobooth,photobooth/PB_10 - Verify Stop button works during intermediate countdown.yaml,com.hp.impulse.sprocket,Photobooth 10,Verify Stop button works during intermediate countdown
+PB_11,photobooth,photobooth/PB_11 - Verify Photobooth Result screen layout.yaml,com.hp.impulse.sprocket,Photobooth 11,Verify Photobooth Result screen layout
+PB_12,photobooth,photobooth/PB_12 - Verify merged image auto-save.yaml,com.hp.impulse.sprocket,Photobooth 12,Verify merged image auto-save
+PB_13,photobooth,photobooth/PB_13 - Verify Back button and Saving popup.yaml,com.hp.impulse.sprocket,Photobooth 13,Verify Back button and Saving popup
+PB_14,photobooth,photobooth/PB_14 - Verify print options and negative behavior.yaml,com.hp.impulse.sprocket,Photobooth 14,Verify print options and negative behavior
+PB_15,photobooth,photobooth/PB_15 - Verify default flash status.yaml,com.hp.impulse.sprocket,Photobooth 15,Verify default flash status
+PB_16,photobooth,photobooth/PB_16 - Verify front flash simulation.yaml,com.hp.impulse.sprocket,Photobooth 16,Verify front flash simulation
+PB_17,photobooth,photobooth/PB_17 - Verify no flash when disabled.yaml,com.hp.impulse.sprocket,Photobooth 17,Verify no flash when disabled
+CS_01,custom-sdk,custom-sdk/CS_01 - Verify user is redirected to Custom SDK screen after tapping.yaml,com.hp.impulse.sprocket,Custom SDK 01,Verify user is redirected to Custom SDK screen after tapping Edit icon.
+CS_02,custom-sdk,custom-sdk/CS_02 - Verify selected image is displayed in the Custom SDK editor.yaml,com.hp.impulse.sprocket,Custom SDK  02,Verify selected image is displayed in the Custom SDK editor.
+CS_03,custom-sdk,custom-sdk/CS_03 - Verify user can edit the selected image.yaml,com.hp.impulse.sprocket,Custom SDK  03,Verify user can edit the selected image.
+CS_04,custom-sdk,custom-sdk/CS_04 - Verify user can print an edited image successfully.yaml,com.hp.impulse.sprocket,Custom SDK   04,Verify user can print an edited image successfully.
+CS_05,custom-sdk,custom-sdk/CS_05 - Verify user can return from Custom SDK screen.yaml,com.hp.impulse.sprocket,Custom SDK  05,Verify user can return from Custom SDK screen.
+CS_06,custom-sdk,custom-sdk/CS_06 - Verify application behavior when no printer is selected.yaml,com.hp.impulse.sprocket,Custom SDK   06,Verify application behavior when no printer is selected.
+CS_07,custom-sdk,custom-sdk/CS_07 - Verify system behavior when image cannot be loaded.yaml,com.hp.impulse.sprocket,Custom SDK   07,Verify system behavior when image cannot be loaded.
+CS_08,custom-sdk,custom-sdk/CS_08 - Verify user can print image without saving any modifications.yaml,com.hp.impulse.sprocket,Custom SDK  08,Verify user can print image without saving any modifications.
+CS_09,custom-sdk,custom-sdk/CS_09 - Verify applying edit options.yaml,com.hp.impulse.sprocket,Custom SDK  09,Verify applying edit options
+CS_10,custom-sdk,custom-sdk/CS_10 - Verify cancelling edit.yaml,com.hp.impulse.sprocket,Custom SDK 10,Verify cancelling edit
+CS_11,custom-sdk,custom-sdk/CS_11 - Verify Save to Gallery.yaml,com.hp.impulse.sprocket,Custom SDK 11,"Verify ""Save to Gallery"""
+CS_12,custom-sdk,custom-sdk/CS_12 - Verify Do not save.yaml,com.hp.impulse.sprocket,Custom SDK   12,"Verify ""Do not save"""
+CS_13,custom-sdk,custom-sdk/CS_13 - Verify Video Print Preview screen and all UI elements.yaml,com.hp.impulse.sprocket,Custom SDK  13,Verify Video Print Preview screen and all UI elements
+CS_14,custom-sdk,custom-sdk/CS_14 - Verify edit functionality and discard changes.yaml,com.hp.impulse.sprocket,Custom SDK   14,Verify edit functionality and discard changes
+PR_01,printing,printing/PR_01 - Media Access Modal.yaml,com.hp.impulse.sprocket,Print Preview Screen 01,Media Access Modal
+PR_02,printing,printing/PR_02 - Header Status.yaml,com.hp.impulse.sprocket,Print Preview Screen 02,Header Status
+PR_03,printing,printing/PR_03 - Copies vs Tiles.yaml,com.hp.impulse.sprocket,Print Preview Screen 03,Copies vs. Tiles
+PR_04,printing,printing/PR_04 - Print Edit Buttons.yaml,com.hp.impulse.sprocket,Print Preview Screen 04,Print & Edit Buttons
+PR_05,printing,printing/PR_05 - Bottom Nav Bar.yaml,com.hp.impulse.sprocket,Print Preview Screen 05,Bottom Nav Bar
+PR_06,printing,printing/PR_06 - Default UI State.yaml,com.hp.impulse.sprocket,Print Preview Screen 06,Default UI State
+PR_07,printing,printing/PR_07 - Header Actions.yaml,com.hp.impulse.sprocket,Print Preview Screen 07,Header Actions
+PR_08,printing,printing/PR_08 - Copy Control Limits.yaml,com.hp.impulse.sprocket,Print Preview Screen 08,Copy Control Limits
+PR_09,printing,printing/PR_09 - Edit Functionality.yaml,com.hp.impulse.sprocket,Print Preview Screen 09,Edit Functionality
+PR_10,printing,printing/PR_10 - Print Action.yaml,com.hp.impulse.sprocket,Print Preview Screen 10,Print Action
+PR_11,printing,printing/PR_11 - Back Navigation.yaml,com.hp.impulse.sprocket,Print Preview Screen 11,Back Navigation
+PR_12,printing,printing/PR_12 - Paper Layout.yaml,com.hp.impulse.sprocket,Print Preview Screen 12,Paper Layout
+PR_13,printing,printing/PR_13 - UI Layout Verification for Pre-Cut Sticker Flow.yaml,com.hp.impulse.sprocket,Print Preview Screen 13,UI Layout Verification for Pre-Cut Sticker Flow
+PR_14,printing,printing/PR_14 - Tiles Option Availability Restriction.yaml,com.hp.impulse.sprocket,Print Preview Screen 14,Tiles Option Availability Restriction
+PR_15,printing,printing/PR_15 - AI Button Visibility Restriction.yaml,com.hp.impulse.sprocket,Print Preview Screen 15,AI Button Visibility Restriction
+PR_16,printing,printing/PR_16 - Copy Count Adjustment and Boundary Validation.yaml,com.hp.impulse.sprocket,Print Preview Screen 16,Copy Count Adjustment and Boundary Validation
+PR_17,printing,printing/PR_17 - Edit Print and Back Button Functionality.yaml,com.hp.impulse.sprocket,Print Preview Screen 17,"Edit, Print, and Back Button Functionality"
+PR_18,printing,printing/PR_18 - Feature Availability Verification for Multiple Photos.yaml,com.hp.impulse.sprocket,Print Preview Screen 18,Feature Availability Verification for Multiple Photos
+PR_19,printing,printing/PR_19 - Photo Selection Order Verification.yaml,com.hp.impulse.sprocket,Print Preview Screen 19,Photo Selection Order Verification
+PR_20,printing,printing/PR_20 - Swipe Navigation Between Photos.yaml,com.hp.impulse.sprocket,Print Preview Screen 20,Swipe Navigation Between Photos
+PR_21,printing,printing/PR_21 - Peeking Photo Selection via Tap.yaml,com.hp.impulse.sprocket,Print Preview Screen 21,Peeking Photo Selection via Tap
+PR_22,printing,printing/PR_22 - Edit Button Overlay Behavior on Peeking Photos.yaml,com.hp.impulse.sprocket,Print Preview Screen 22,Edit Button Overlay Behavior on Peeking Photos
+PR_23,printing,printing/PR_23 - AI Button Functionality Without Printer.yaml,com.hp.impulse.sprocket,Print Preview Screen 23,AI Button Functionality Without Printer
+PR_24,printing,printing/PR_24 - Edit Button Functionality Without Printer.yaml,com.hp.impulse.sprocket,Print Preview Screen 24,Edit Button Functionality Without Printer
+PR_25,printing,printing/PR_25 - Photo Carousel Interaction Without Printer.yaml,com.hp.impulse.sprocket,Print Preview Screen  25,Photo Carousel Interaction Without Printer
+PR_26,printing,printing/PR_26 - UI State and Connection Trigger When Printer is Offline.yaml,com.hp.impulse.sprocket,Print Preview Screen 26,UI State and Connection Trigger When Printer is Offline
+PR_27,printing,printing/PR_27 - Printer Reconnection Flow and State Persistence.yaml,com.hp.impulse.sprocket,Print Preview Screen 27,Printer Reconnection Flow and State Persistence
+PR_28,printing,printing/PR_28 - Connection Cancellation and Early Exit Behavior.yaml,com.hp.impulse.sprocket,Print Preview Screen 28,Connection Cancellation and Early Exit Behavior
+PR_29,printing,printing/PR_29 - Edit Validation Loader.yaml,com.hp.impulse.sprocket,Print Preview Screen 29,Edit & Validation Loader
+PR_30,printing,printing/PR_30 - Printer Reconnection Flow.yaml,com.hp.impulse.sprocket,Print Preview Screen 30,Printer Reconnection Flow
+PR_31,printing,printing/PR_31 - Blocker Error Handling.yaml,com.hp.impulse.sprocket,Print Preview Screen 31,Blocker Error Handling
+PR_32,printing,printing/PR_32 - Trigger UI Verification.yaml,com.hp.impulse.sprocket,Print Preview Screen 32,Trigger & UI Verification
+PR_33,printing,printing/PR_33 - Sprocket 34 Constraint.yaml,com.hp.impulse.sprocket,Print Preview Screen 33,Sprocket 3×4 Constraint
+PR_34,printing,printing/PR_34 - Trigger UI Validation.yaml,com.hp.impulse.sprocket,Print Preview Screen 34,Trigger & UI Validation
+PR_35,printing,printing/PR_35 - Dismissal Interaction.yaml,com.hp.impulse.sprocket,Print Preview Screen 35,Dismissal Interaction
+PR_36,printing,printing/PR_36 - Verify AIEdit Copy Limits Print Button and Error Handling.yaml,com.hp.impulse.sprocket,Print Preview Screen 36,"Verify AI/Edit, Copy Limits, Print Button and Error Handling"
+PR_37,printing,printing/PR_37 - Verify FitFill Toast.yaml,com.hp.impulse.sprocket,Print Preview Screen 37,Verify Fit/Fill Toast
+PR_38,printing,printing/PR_38 - Verify Double Tap.yaml,com.hp.impulse.sprocket,Print Preview Screen 38,Verify Double Tap
+PR_39,printing,printing/PR_39 - Verify Rotation Snap.yaml,com.hp.impulse.sprocket,Print Preview Screen 39,Verify Rotation Snap
+PR_40,printing,printing/PR_40 - Verify Center Snap.yaml,com.hp.impulse.sprocket,Print Preview Screen 40,Verify Center Snap
+PR_41,printing,printing/PR_41 - Verify Edge Snap.yaml,com.hp.impulse.sprocket,Print Preview Screen 41,Verify Edge Snap
+PR_42,printing,printing/PR_42 - Verify Boundary Lock.yaml,com.hp.impulse.sprocket,Print Preview Screen 42,Verify Boundary Lock
+PR_43,printing,printing/PR_43 - Verify FitFill Lock.yaml,com.hp.impulse.sprocket,Print Preview Screen 43,Verify Fit/Fill Lock
+PR_44,printing,printing/PR_44 - Verify Save to Gallery option.yaml,com.hp.impulse.sprocket,Print Preview Screen 44,Verify Save to Gallery option
+PR_45,printing,printing/PR_45 - Verify Do Not Save and X options.yaml,com.hp.impulse.sprocket,Print Preview Screen 45,Verify Do Not Save and X options
+PR_46,printing,printing/PR_46 - Trigger Warning for Low-Resolution Native Images.yaml,com.hp.impulse.sprocket,Print Preview Screen 46,Trigger Warning for Low-Resolution Native Images
+PR_47,printing,printing/PR_47 - Trigger Warning for Low-Resolution Social Media Images.yaml,com.hp.impulse.sprocket,Print Preview Screen 47,Trigger Warning for Low-Resolution Social Media Images
+PR_48,printing,printing/PR_48 - Dismissal via Close Icon Interaction.yaml,com.hp.impulse.sprocket,Print Preview Screen 48,Dismissal via Close Icon Interaction
+PR_49,printing,printing/PR_49 - Layout and Icon Asset Validation.yaml,com.hp.impulse.sprocket,Print Preview Screen 49,Layout and Icon Asset Validation
+PR_50,printing,printing/PR_50 - Intercept Print Action During Active Firmware Update.yaml,com.hp.impulse.sprocket,Print Preview Screen 50,Intercept Print Action During Active Firmware Update
+PR_51,printing,printing/PR_51 - Dismiss Popup via OK Button.yaml,com.hp.impulse.sprocket,Print Preview Screen 51,Dismiss Popup via OK Button
+PR_52,printing,printing/PR_52 - Dismiss Popup via Close Icon.yaml,com.hp.impulse.sprocket,Print Preview Screen 52,Dismiss Popup via Close Icon
+PR_53,printing,printing/PR_53 - Verify layout controls for Studio Studio Plus printer.yaml,com.hp.impulse.sprocket,Print Preview Screen 53,Verify layout controls for Studio / Studio Plus printer
+PR_54,printing,printing/PR_54 - Verify Tiles option is unavailable for Studio Studio Plus pr.yaml,com.hp.impulse.sprocket,Print Preview Screen 54,Verify Tiles option is unavailable for Studio / Studio Plus printer
+PR_55,printing,printing/PR_55 - Verify responsive scaling 375times667.yaml,com.hp.impulse.sprocket,Print Preview Screen 55,Verify responsive scaling ($375\times667$)
+PR_56,printing,printing/PR_56 - Verify 2times3 and 4times6 layout.yaml,com.hp.impulse.sprocket,Print Preview Screen 56,"Verify $2\times3""$ and $4\times6""$ layout"
+PR_57,printing,printing/PR_57 - Verify 23times34 and 35times425 layout.yaml,com.hp.impulse.sprocket,Print Preview Screen 57,"Verify $2.3\times3.4""$ and $3.5\times4.25""$ layout"
+PR_58,printing,printing/PR_58 - Verify PreCut Sticker restriction.yaml,com.hp.impulse.sprocket,Print Preview Screen 58,Verify PreCut Sticker restriction
+PR_59,printing,printing/PR_59 - Verify UI control presence.yaml,com.hp.impulse.sprocket,Print Preview Screen 59,Verify UI control presence
+PR_60,printing,printing/PR_60 - Verify AI button absence.yaml,com.hp.impulse.sprocket,Print Preview Screen 60,Verify AI button absence
+PR_61,printing,printing/PR_61 - First-Time Session Tip Appearance.yaml,com.hp.impulse.sprocket,Print Preview Screen 61,First-Time Session Tip Appearance
+PR_62,printing,printing/PR_62 - Auto-Fade Duration Validation.yaml,com.hp.impulse.sprocket,Print Preview Screen 62,Auto-Fade Duration Validation
+PR_63,printing,printing/PR_63 - Session Repetition Restriction Check.yaml,com.hp.impulse.sprocket,Print Preview Screen 63,Session Repetition Restriction Check
+PR_64,printing,printing/PR_64 - Priority Handling with System Toast Messages.yaml,com.hp.impulse.sprocket,Print Preview Screen 64,Priority Handling with System Toast Messages
+PR_65,printing,printing/PR_65 - Verification of Landscape Photo Automatic 90-Degree Rotation.yaml,com.hp.impulse.sprocket,Print Preview Screen 65,Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation
+PR_66,printing,printing/PR_66 - Canvas Animation and Multi-Photo Queue Sequencing.yaml,com.hp.impulse.sprocket,Print Preview Screen 66,Canvas Animation and Multi-Photo Queue Sequencing
+PR_67,printing,printing/PR_67 - Tile Grid Printing Queue Progression.yaml,com.hp.impulse.sprocket,Print Preview Screen 67,Tile Grid Printing Queue Progression
+PR_68,printing,printing/PR_68 - Error Handling During Multi-Photo Print Transitions.yaml,com.hp.impulse.sprocket,Print Preview Screen 68,Error Handling During Multi-Photo Print Transitions
+PR_69,printing,printing/PR_69 - Completion Screen UI Animation and Tips Transition.yaml,com.hp.impulse.sprocket,Print Preview Screen 69,Completion Screen UI Animation and Tips Transition
+PR_70,printing,printing/PR_70 - Sequential Tips Tricks Slide Transition Behavior.yaml,com.hp.impulse.sprocket,Print Preview Screen 70,Sequential Tips & Tricks Slide Transition Behavior
+PR_71,printing,printing/PR_71 - Verify Printer Status Label Updates in Print State.yaml,com.hp.impulse.sprocket,Print Preview Screen 71,Verify Printer Status Label Updates in Print State
+PR_72,printing,printing/PR_72 - Verify Queue Skipping for Multiple Copies.yaml,com.hp.impulse.sprocket,Print Preview Screen 72,Verify Queue Skipping for Multiple Copies
+PR_73,printing,printing/PR_73 - Verify In Queue Paused for New Job in Paused Queue.yaml,com.hp.impulse.sprocket,Print Preview Screen 73,Verify In Queue (Paused) for New Job in Paused Queue
+PR_74,printing,printing/PR_74 - Verify In Queue Paused During Multi-Copy Pause Scenario.yaml,com.hp.impulse.sprocket,Print Preview Screen 74,Verify In Queue (Paused) During Multi-Copy Pause Scenario
+PR_75,printing,printing/PR_75 - Verify Print State Does Not Show Invalid or Conflicting Stat.yaml,com.hp.impulse.sprocket,Print Preview Screen 75,Verify Print State Does Not Show Invalid or Conflicting Status
+PR_76,printing,printing/PR_76 - Verify Print Queue Does Not Process or Skip Incorrectly Duri.yaml,com.hp.impulse.sprocket,Print Preview Screen 76,Verify Print Queue Does Not Process or Skip Incorrectly During Pause or Error Conditions
+PR_77,printing,printing/PR_77 - Verify Navigation from Print State to Print Queue Screen via.yaml,com.hp.impulse.sprocket,Print Preview Screen 77,Verify Navigation from Print State to Print Queue Screen via Print Count
+PR_78,printing,printing/PR_78 - Verify Queue Resume After Hardware Error Recovery.yaml,com.hp.impulse.sprocket,Print Preview Screen 78,Verify Queue Resume After Hardware Error Recovery
+PR_79,printing,printing/PR_79 - Verify Error Behavior After Exiting Print State Using Done B.yaml,com.hp.impulse.sprocket,Print Preview Screen 79,Verify Error Behavior After Exiting Print State Using Done Button
+PR_80,printing,printing/PR_80 - Verify Print Complete Status Display and Hold Duration.yaml,com.hp.impulse.sprocket,Print Preview Screen 80,Verify Print Complete Status Display and Hold Duration
+PR_81,printing,printing/PR_81 - Verify Post-Print Navigation Behavior from Different Sources.yaml,com.hp.impulse.sprocket,Print Preview Screen 81,Verify Post-Print Navigation Behavior from Different Sources
+PR_82,printing,printing/PR_82 - Verify access interruption and data retention.yaml,com.hp.impulse.sprocket,Print Preview Screen 82,"Verify access, interruption, and data retention"
+PR_83,printing,printing/PR_83 - Verify error handling and queue state.yaml,com.hp.impulse.sprocket,Print Preview Screen 83,Verify error handling and queue state
+PR_84,printing,printing/PR_84 - Verify automatic queue resumption.yaml,com.hp.impulse.sprocket,Print Preview Screen 84,Verify automatic queue resumption
+PR_85,printing,printing/PR_85 - Verify UI state after reconnection.yaml,com.hp.impulse.sprocket,Print Preview Screen 85,Verify UI state after reconnection
+PR_86,printing,printing/PR_86 - Verify Print Queue can be accessed from Print State and navi.yaml,com.hp.impulse.sprocket,Print Preview Screen 86,Verify Print Queue can be accessed from Print State and navigation controls function correctly.
+PR_87,printing,printing/PR_87 - Verify behavior when the only pending single-photo print job.yaml,com.hp.impulse.sprocket,Print Preview Screen 87,Verify behavior when the only pending single-photo print job is deleted.
+PR_88,printing,printing/PR_88 - Verify retention on Print State screen when only part of the.yaml,com.hp.impulse.sprocket,Print Preview Screen 88,Verify retention on Print State screen when only part of the queue is deleted.
+PR_89,printing,printing/PR_89 - Verify deletion restriction for an active print job.yaml,com.hp.impulse.sprocket,Print Preview Screen 89,Verify deletion restriction for an active print job.
+PR_90,printing,printing/PR_90 - Verify Home redirection when all pending photos are deleted.yaml,com.hp.impulse.sprocket,Print Preview Screen 90,Verify Home redirection when all pending photos are deleted.
+PR_91,printing,printing/PR_91 - Verify Home redirection when all pending copies are deleted.yaml,com.hp.impulse.sprocket,Print Preview Screen 91,Verify Home redirection when all pending copies are deleted.
+PR_92,printing,printing/PR_92 - Verify Resume Queue pop-up is displayed when a new print job.yaml,com.hp.impulse.sprocket,Print Preview Screen 92,"Verify ""Resume Queue"" pop-up is displayed when a new print job is initiated while the print queue is paused."
+PR_93,printing,printing/PR_93 - Verify the Resume Queue pop-up displays the correct content .yaml,com.hp.impulse.sprocket,Print Preview Screen 93,Verify the Resume Queue pop-up displays the correct content and action buttons.
+PR_94,printing,printing/PR_94 - Verify selecting Yes Resume resumes the paused queue and sta.yaml,com.hp.impulse.sprocket,Print Preview Screen 94,"Verify selecting ""Yes, Resume"" resumes the paused queue and starts printing."
+PR_95,printing,printing/PR_95 - Verify the Resume Queue pop-up is not displayed when the que.yaml,com.hp.impulse.sprocket,Print Preview Screen 95,Verify the Resume Queue pop-up is not displayed when the queue is active and a print job is already in progress.
+PR_96,printing,printing/PR_96 - Verify printer blockererror conditions take precedence over .yaml,com.hp.impulse.sprocket,Print Preview Screen 96,Verify printer blocker/error conditions take precedence over the Resume Queue pop-up.
+PR_97,printing,printing/PR_97 - Verify stack layout image order and progress details.yaml,com.hp.impulse.sprocket,Print Preview Screen 97,"Verify stack layout, image order and progress details"
+PR_98,printing,printing/PR_98 - Verify Done button and navigation.yaml,com.hp.impulse.sprocket,Print Preview Screen 98,Verify Done button and navigation
+PR_99,printing,printing/PR_99 - Verify single-copy edge case.yaml,com.hp.impulse.sprocket,Print Preview Screen 100,Verify single-copy edge case
+PR_100,printing,printing/PR_100 - Verify queueing new print while another job is in progress.yaml,com.hp.impulse.sprocket,Print Preview Screen 101,Verify queueing new print while another job is in progress
+PR_101,printing,printing/PR_101 - Verify Queue screen UI and delete functionality.yaml,com.hp.impulse.sprocket,Print Preview Screen 102,Verify Queue screen UI and delete functionality
+PR_102,printing,printing/PR_102 - Verify restrictions and hidden UI elements.yaml,com.hp.impulse.sprocket,Print Preview Screen 103,Verify restrictions and hidden UI elements
+PR_103,printing,printing/PR_103 - Verify updated Print State graphic after queue changes.yaml,com.hp.impulse.sprocket,Print Preview Screen 104,Verify updated Print State graphic after queue changes
+PR_104,printing,printing/PR_104 - Verify UI behavior when queue becomes empty or invalid chang.yaml,com.hp.impulse.sprocket,Print Preview Screen 105,Verify UI behavior when queue becomes empty or invalid changes are made
+PR_105,printing,printing/PR_105 - Verify automatic save to Gallery and toast message after pri.yaml,com.hp.impulse.sprocket,Print Preview Screen  106,Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage
+PR_106,printing,printing/PR_106 - Verify toast message and Gallery save failure handling.yaml,com.hp.impulse.sprocket,Print Preview Screen 107,Verify toast message and Gallery save failure handling
+PC_01,precut,precut/PC_01 - Verify complete flow from launch to selection.yaml,com.hp.impulse.sprocket,Precut_01,Verify complete flow from launch to selection.
+PC_02,precut,precut/PC_02 - Verify selecting two unique images.yaml,com.hp.impulse.sprocket,Precut_02,Verify selecting two unique images.
+PC_03,precut,precut/PC_03 - Verify duplicate selection error.yaml,com.hp.impulse.sprocket,Precut_03,Verify duplicate selection error.
+PC_04,precut,precut/PC_04 - Verify app launch onboarding and Pre-Cut entry.yaml,com.hp.impulse.sprocket,Precut_04,"Verify app launch, onboarding, and Pre-Cut entry."
+PC_05,precut,precut/PC_05 - Verify 2-photo selection duplicate prevention and next state.yaml,com.hp.impulse.sprocket,Precut_05,"Verify 2-photo selection, duplicate prevention, and next state."
+PC_06,precut,precut/PC_06 - Verify gallery expansion collapse and auto-snap.yaml,com.hp.impulse.sprocket,Precut_06,"Verify gallery expansion, collapse, and auto-snap."
+PC_07,precut,precut/PC_07 - Verify Got It and Dont Show Again behavior.yaml,com.hp.impulse.sprocket,Precut_07,"Verify ""Got It"" and ""Don't Show Again"" behavior."
+PC_08,precut,precut/PC_08 - Verify UI when gallery permission is denied.yaml,com.hp.impulse.sprocket,Precut_08,Verify UI when gallery permission is denied.
+PC_09,precut,precut/PC_09 - Verify exit flow after editing selection.yaml,com.hp.impulse.sprocket,Precut_09,Verify exit flow after editing selection.
+VD_01,video,video/VD_01 - Verify video thumbnails indicate video content.yaml,com.hp.impulse.sprocket,Video frame 01,Verify video thumbnails indicate video content.
+VD_02,video,video/VD_02 - Verify mixed media selection.yaml,com.hp.impulse.sprocket,Video frame 02,Verify mixed media selection.
+VD_03,video,video/VD_03 - Verify AI tool restrictions for video frames.yaml,com.hp.impulse.sprocket,Video frame 03,Verify AI tool restrictions for video frames.
+VD_04,video,video/VD_04 - Verify full E2E flow Multi-select photosvideos previewing AI.yaml,com.hp.impulse.sprocket,Video frame 04,"Verify full E2E flow: Multi-select (photos/videos), previewing, AI restrictions, playback, and editing."
+VD_05,video,video/VD_05 - Verify video playback and scrubbing.yaml,com.hp.impulse.sprocket,Video frame 05,Verify video playback and scrubbing.
+VD_06,video,video/VD_06 - Verify frame editing and discard behavior.yaml,com.hp.impulse.sprocket,Video frame 06,Verify frame editing and discard behavior.
+VD_07,video,video/VD_07 - Verify UI restrictions during playback in Tiles mode.yaml,com.hp.impulse.sprocket,Video frame 07,Verify UI restrictions during playback in Tiles mode.
+TP_01,tile-print,tile-print/TP_01 - Verify Gallery screen UI and Tile Print navigation.yaml,com.hp.impulse.sprocket,Tiles modules 01,Verify Gallery screen UI and Tile Print navigation
+TP_02,tile-print,tile-print/TP_02 - Verify folder selection and Tile Print restrictions.yaml,com.hp.impulse.sprocket,Tiles modules 02,Verify folder selection and Tile Print restrictions
+TP_03,tile-print,tile-print/TP_03 - Verify blocked toast message UI elements and bottom navigati.yaml,com.hp.impulse.sprocket,Tiles modules 03,"Verify blocked toast message, UI elements and bottom navigation"
+TP_04,tile-print,tile-print/TP_04 - Verify multi-select restriction and error handling.yaml,com.hp.impulse.sprocket,Tiles modules 04,Verify multi-select restriction and error handling
+TP_05,tile-print,tile-print/TP_05 - Verify Tiles 22 screen UI and default layout.yaml,com.hp.impulse.sprocket,Tiles modules 05,Verify Tiles 2×2 screen UI and default layout
+TP_06,tile-print,tile-print/TP_06 - Verify print restriction when no tile is selected.yaml,com.hp.impulse.sprocket,Tiles modules 06,Verify print restriction when no tile is selected
+TP_07,tile-print,tile-print/TP_07 - Verify landing on Tiles module.yaml,com.hp.impulse.sprocket,Tiles modules 07,Verify landing on Tiles module
+TP_08,tile-print,tile-print/TP_08 - Verify bottom navigation bar presence.yaml,com.hp.impulse.sprocket,Tiles modules 08,Verify bottom navigation bar presence
+TP_09,tile-print,tile-print/TP_09 - Verify unselecting 11 tile.yaml,com.hp.impulse.sprocket,Tiles modules 09,Verify unselecting 1×1 tile
+TP_10,tile-print,tile-print/TP_10 - Verify zoom and rotation persistence.yaml,com.hp.impulse.sprocket,Tiles modules 10,Verify zoom and rotation persistence
+TP_11,tile-print,tile-print/TP_11 - Verify 33 grid UI selection and print functionality.yaml,com.hp.impulse.sprocket,Tiles modules 11,"Verify 3×3 grid UI, selection and print functionality"
+TP_12,tile-print,tile-print/TP_12 - Verify tile deselection restriction and error handling.yaml,com.hp.impulse.sprocket,Tiles modules 12,Verify tile deselection restriction and error handling
+TP_13,tile-print,tile-print/TP_13 - Verify tile selection and print.yaml,com.hp.impulse.sprocket,Tiles modules 13,Verify tile selection and print
+TP_14,tile-print,tile-print/TP_14 - Verify Print button when all tiles are unselected.yaml,com.hp.impulse.sprocket,Tiles modules 14,Verify Print button when all tiles are unselected
+TP_15,tile-print,tile-print/TP_15 - Verify Copies screen and printing.yaml,com.hp.impulse.sprocket,Tiles modules 15,Verify Copies screen and printing
+TP_16,tile-print,tile-print/TP_16 - Verify copy count retention and navigation.yaml,com.hp.impulse.sprocket,Tiles modules 16,Verify copy count retention and navigation
+SE_01,settings,settings/SE_01 - Access Hamburger Menu.yaml,com.hp.impulse.sprocket,Hamburger Menu 01,Access Hamburger Menu
+SE_02,settings,settings/SE_02 - Verify Logged Out Hamburger Menu UI.yaml,com.hp.impulse.sprocket,Hamburger Menu  02,Verify Logged Out Hamburger Menu UI
+SE_03,settings,settings/SE_03 - Verify Logged Out State.yaml,com.hp.impulse.sprocket,Hamburger Menu  03,Verify Logged Out State
+SE_04,settings,settings/SE_04 - Verify Log In Redirection.yaml,com.hp.impulse.sprocket,Hamburger Menu  04,Verify Log In Redirection
+SE_05,settings,settings/SE_05 - Verify Logged In Hamburger Menu UI.yaml,com.hp.impulse.sprocket,Hamburger Menu  05,Verify Logged In Hamburger Menu UI
+SE_06,settings,settings/SE_06 - Verify Close Menu Functionality.yaml,com.hp.impulse.sprocket,Hamburger Menu  06,Verify Close Menu Functionality
+SE_07,settings,settings/SE_07 - Verify App Settings Access.yaml,com.hp.impulse.sprocket,Hamburger Menu  07,Verify App Settings Access
+SE_08,settings,settings/SE_08 - Verify Account Settings Access.yaml,com.hp.impulse.sprocket,Hamburger Menu  08,Verify Account Settings Access
+SE_09,settings,settings/SE_09 - Verify Printer Help.yaml,com.hp.impulse.sprocket,Hamburger Menu  09,Verify Printer Help
+SE_10,settings,settings/SE_10 - Verify Order Photo Paper.yaml,com.hp.impulse.sprocket,Hamburger Menu  10,Verify Order Photo Paper
+SE_11,settings,settings/SE_11 - Verify Visit Support Website.yaml,com.hp.impulse.sprocket,Hamburger Menu  11,Verify Visit Support Website
+SE_12,settings,settings/SE_12 - Verify Legal Privacy Access.yaml,com.hp.impulse.sprocket,Hamburger Menu  12,Verify Legal & Privacy Access
+SE_13,settings,settings/SE_13 - Verify Scroll Behavior.yaml,com.hp.impulse.sprocket,Hamburger Menu  13,Verify Scroll Behavior
+SE_14,settings,settings/SE_14 - Verify Header and Logo.yaml,com.hp.impulse.sprocket,Hamburger Menu  14,Verify Header and Logo
+SE_15,settings,settings/SE_15 - Verify Log In Navigate to Account Settings.yaml,com.hp.impulse.sprocket,Hamburger Menu 15,Verify Log In & Navigate to Account Settings
+SE_16,settings,settings/SE_16 - Verify Name Field Display.yaml,com.hp.impulse.sprocket,Hamburger Menu 16,Verify Name Field Display
+SE_17,settings,settings/SE_17 - Verify Change Password with Invalid Data.yaml,com.hp.impulse.sprocket,Hamburger Menu 17,Verify Change Password with Invalid Data
+SE_18,settings,settings/SE_18 - Verify Change Password Screen UI.yaml,com.hp.impulse.sprocket,Hamburger Menu 19,Verify Change Password Screen UI
+SE_19,settings,settings/SE_19 - Verify Current Password Field.yaml,com.hp.impulse.sprocket,Humburger Menu 20,Verify Current Password Field
+SE_20,settings,settings/SE_20 - Verify Incorrect Current Password Error.yaml,com.hp.impulse.sprocket,Hamburger Menu 21,Verify Incorrect Current Password Error
+SE_21,settings,settings/SE_21 - Verify New Password Requirement Error.yaml,com.hp.impulse.sprocket,Hamburger Menu 22,Verify New Password Requirement Error
+SE_22,settings,settings/SE_22 - Verify Password Mismatch Error.yaml,com.hp.impulse.sprocket,Hamburger Menu 23,Verify Password Mismatch Error
+SE_23,settings,settings/SE_23 - Verify Empty Fields Validation.yaml,com.hp.impulse.sprocket,Hamburger Menu 24,Verify Empty Fields Validation
+SE_24,settings,settings/SE_24 - Verify Password Update Failure.yaml,com.hp.impulse.sprocket,Hamburger Menu 25,Verify Password Update Failure
+SE_25,settings,settings/SE_25 - Verify Successful Password Change.yaml,com.hp.impulse.sprocket,Hamburger Menu 26,Verify Successful Password Change
+SE_26,settings,settings/SE_26 - Verify Back Button.yaml,com.hp.impulse.sprocket,Hamburger Menu 27,Verify Back Button
+SE_27,settings,settings/SE_27 - Trigger Logout Pop-up.yaml,com.hp.impulse.sprocket,Hamburger Menu 28,Trigger Logout Pop-up
+SE_28,settings,settings/SE_28 - Cancel Logout.yaml,com.hp.impulse.sprocket,Hamburger Menu 29,Cancel Logout
+SE_29,settings,settings/SE_29 - Confirm Logout.yaml,com.hp.impulse.sprocket,Hamburger Menu 30,Confirm Logout
+SE_30,settings,settings/SE_30 - Trigger Delete Account Pop-up.yaml,com.hp.impulse.sprocket,Hamburger Menu 31,Trigger Delete Account Pop-up
+SE_31,settings,settings/SE_31 - Cancel Account Deletion.yaml,com.hp.impulse.sprocket,Hamburger Menu 32,Cancel Account Deletion
+SE_32,settings,settings/SE_32 - Launch Social Login.yaml,com.hp.impulse.sprocket,Hamburger Menu 36,Launch & Social Login
+SE_33,settings,settings/SE_33 - Access Account Settings.yaml,com.hp.impulse.sprocket,Hamburger Menu 37,Access Account Settings
+SE_34,settings,settings/SE_34 - API Auth UI Validation.yaml,com.hp.impulse.sprocket,Hamburger Menu 38,API Auth UI Validation
+SE_35,settings,settings/SE_35 - Field Constraint Validation.yaml,com.hp.impulse.sprocket,Hamburger Menu  40,Field Constraint Validation
+SE_36,settings,settings/SE_36 - Navigation to App Settings.yaml,com.hp.impulse.sprocket,Hamburger Menu 41,Navigation to App Settings
+SE_37,settings,settings/SE_37 - Verify Permissions Option.yaml,com.hp.impulse.sprocket,Hamburger Menu 42,Verify Permissions Option
+SE_38,settings,settings/SE_38 - Verify Default State of Display App Hints.yaml,com.hp.impulse.sprocket,Hamburger Menu 43,Verify Default State of Display App Hints
+SE_39,settings,settings/SE_39 - Toggle App Hints ONOFF.yaml,com.hp.impulse.sprocket,Hamburger Menu 44,Toggle App Hints ON/OFF
+SE_40,settings,settings/SE_40 - Verify Default Low Data Mode State.yaml,com.hp.impulse.sprocket,Hamburger Menu 45,Verify Default Low Data Mode State
+SE_41,settings,settings/SE_41 - Toggle Low Data Mode Functionality.yaml,com.hp.impulse.sprocket,Hamburger Menu 46,Toggle Low Data Mode Functionality
+SE_42,settings,settings/SE_42 - Verify App Version Display.yaml,com.hp.impulse.sprocket,Hamburger Menu 47,Verify App Version Display
+SE_43,settings,settings/SE_43 - Verify Back Navigation.yaml,com.hp.impulse.sprocket,Hamburger Menu 48,Verify Back Navigation
+SE_44,settings,settings/SE_44 - Access Legal Privacy Screen.yaml,com.hp.impulse.sprocket,Hamburger Menu 49,Access Legal & Privacy Screen
+SE_45,settings,settings/SE_45 - Data Collection Settings Navigation.yaml,com.hp.impulse.sprocket,Hamburger Menu 50,Data Collection Settings Navigation
+SE_46,settings,settings/SE_46 - Data Collection Exit Pop-up Validation.yaml,com.hp.impulse.sprocket,Hamburger Menu 51,Data Collection Exit Pop-up Validation
+SE_47,settings,settings/SE_47 - Verify Privacy Policy Open.yaml,com.hp.impulse.sprocket,Hamburger Menu 52,Verify Privacy Policy Open
+SE_48,settings,settings/SE_48 - Verify End User License Agreement.yaml,com.hp.impulse.sprocket,Hamburger Menu 53,Verify End User License Agreement
+SE_49,settings,settings/SE_49 - Verify Terms of Service.yaml,com.hp.impulse.sprocket,Hamburger Menu 54,Verify Terms of Service
+SE_50,settings,settings/SE_50 - Open Source Licenses Navigation.yaml,com.hp.impulse.sprocket,Hamburger Menu 55,Open Source Licenses Navigation
+SE_51,settings,settings/SE_51 - Back Button Functionality.yaml,com.hp.impulse.sprocket,Hamburger Menu 56,Back Button Functionality
+FW_01,firmware,firmware/FW_01 - Verify Update Available button is displayed.yaml,com.hp.impulse.sprocket,Firmware Update 001,Verify Update Available button is displayed
+FW_02,firmware,firmware/FW_02 - Verify Firmware Update Available popup.yaml,com.hp.impulse.sprocket,Firmware Update 002,Verify Firmware Update Available popup
+FW_03,firmware,firmware/FW_03 - Verify Update Now button functionality.yaml,com.hp.impulse.sprocket,Firmware Update 003,Verify Update Now button functionality
+FW_04,firmware,firmware/FW_04 - Verify Firmware Download In Progress screen.yaml,com.hp.impulse.sprocket,Firmware Update 004,Verify Firmware Download In Progress screen
+FW_05,firmware,firmware/FW_05 - Verify Firmware Installation In Progress screen.yaml,com.hp.impulse.sprocket,Firmware Update 005,Verify Firmware Installation In Progress screen
+FW_06,firmware,firmware/FW_06 - Verify installation warning message.yaml,com.hp.impulse.sprocket,Firmware Update 006,Verify installation warning message
+FW_07,firmware,firmware/FW_07 - Verify firmware installation completion.yaml,com.hp.impulse.sprocket,Firmware Update 007,Verify firmware installation completion
+FW_08,firmware,firmware/FW_08 - Verify printer switching restriction during firmware update.yaml,com.hp.impulse.sprocket,Firmware Update 008,Verify printer switching restriction during firmware update
+FW_09,firmware,firmware/FW_09 - Verify Please Wait popup display.yaml,com.hp.impulse.sprocket,Firmware Update 009,Verify Please Wait popup display
+FW_10,firmware,firmware/FW_10 - Verify Please Wait popup message.yaml,com.hp.impulse.sprocket,Firmware Update 10,Verify Please Wait popup message
+FW_11,firmware,firmware/FW_11 - Verify OK button functionality.yaml,com.hp.impulse.sprocket,Firmware Update 11,Verify OK button functionality
+FW_12,firmware,firmware/FW_12 - Verify update restriction when battery is below 25.yaml,com.hp.impulse.sprocket,Firmware Update 12,Verify update restriction when battery is below 25%
+FW_13,firmware,firmware/FW_13 - Verify update restriction when no paper is loaded.yaml,com.hp.impulse.sprocket,Firmware Update 13,Verify update restriction when no paper is loaded
+FW_14,firmware,firmware/FW_14 - Verify internet interruption during firmware download.yaml,com.hp.impulse.sprocket,Firmware Update 14,Verify internet interruption during firmware download
+FW_15,firmware,firmware/FW_15 - Verify navigation restriction during firmware installation.yaml,com.hp.impulse.sprocket,Firmware Update 15,Verify navigation restriction during firmware installation
+FW_16,firmware,firmware/FW_16 - Verify Update Available button is displayed.yaml,com.hp.impulse.sprocket,Firmware Update 16,Verify Update Available button is displayed
+FW_17,firmware,firmware/FW_17 - Verify Firmware Update popup opens.yaml,com.hp.impulse.sprocket,Firmware Update 17,Verify Firmware Update popup opens
+FW_18,firmware,firmware/FW_18 - Verify popup UI content.yaml,com.hp.impulse.sprocket,Firmware Update 18,Verify popup UI content
+FW_19,firmware,firmware/FW_19 - Verify Not Right Now functionality.yaml,com.hp.impulse.sprocket,Firmware Update 19,Verify Not Right Now functionality
+FW_20,firmware,firmware/FW_20 - Verify Update Now starts firmware download.yaml,com.hp.impulse.sprocket,Firmware Update 20,Verify Update Now starts firmware download
+FW_21,firmware,firmware/FW_21 - Verify download progress screen.yaml,com.hp.impulse.sprocket,Firmware Update 21,Verify download progress screen
+FW_22,firmware,firmware/FW_22 - Verify UI remains visible during download.yaml,com.hp.impulse.sprocket,Firmqare Update 22,Verify UI remains visible during download
+FW_23,firmware,firmware/FW_23 - Verify installation screen appears.yaml,com.hp.impulse.sprocket,Firmware Update 23,Verify installation screen appears
+FW_24,firmware,firmware/FW_24 - Verify installation warning message.yaml,com.hp.impulse.sprocket,Firmware Update 24,Verify installation warning message
+FW_25,firmware,firmware/FW_25 - Verify update completion.yaml,com.hp.impulse.sprocket,Firmware Update 25,Verify update completion
+FW_26,firmware,firmware/FW_26 - Verify status section.yaml,com.hp.impulse.sprocket,Firmware Update 26,Verify status section
+FW_27,firmware,firmware/FW_27 - Verify battery display.yaml,com.hp.impulse.sprocket,Firmware Update 27,Verify battery display
+FW_28,firmware,firmware/FW_28 - Verify customization options.yaml,com.hp.impulse.sprocket,Firmware Update 28,Verify customization options
+FW_29,firmware,firmware/FW_29 - Verify system section.yaml,com.hp.impulse.sprocket,Firmware Update 29,Verify system section
+FW_30,firmware,firmware/FW_30 - Verify update blocked when battery low.yaml,com.hp.impulse.sprocket,Firmware Update 30,Verify update blocked when battery low
+FW_31,firmware,firmware/FW_31 - Verify update blocked when no paper.yaml,com.hp.impulse.sprocket,Firmware Update 31,Verify update blocked when no paper
+FW_32,firmware,firmware/FW_32 - Verify internet failure during download.yaml,com.hp.impulse.sprocket,Firmware Update 32,Verify internet failure during download
+FW_33,firmware,firmware/FW_33 - Verify Wi-Fi disconnect during update.yaml,com.hp.impulse.sprocket,Firmware Update 33,Verify Wi-Fi disconnect during update
+FW_34,firmware,firmware/FW_34 - Verify app closed during installation.yaml,com.hp.impulse.sprocket,Firmware Update 34,Verify app closed during installation
+FW_35,firmware,firmware/FW_35 - Verify printer power off during update.yaml,com.hp.impulse.sprocket,Firmware Update 35,Verify printer power off during update
+FW_36,firmware,firmware/FW_36 - Verify navigation blocked during install.yaml,com.hp.impulse.sprocket,Firmware Update 36,Verify navigation blocked during install
+FW_37,firmware,firmware/FW_37 - Verify multiple Update Now taps.yaml,com.hp.impulse.sprocket,Firmware Update 37,Verify multiple Update Now taps
+FW_38,firmware,firmware/FW_38 - Verify popup reopens correctly.yaml,com.hp.impulse.sprocket,Firmware Update 38,Verify popup reopens correctly
+FW_39,firmware,firmware/FW_39 - Verify No Paper Tray Error during firmware update.yaml,com.hp.impulse.sprocket,Firmware Update 39,Verify No Paper Tray Error during firmware update
+FW_40,firmware,firmware/FW_40 - Verify Paper Empty Error during firmware update.yaml,com.hp.impulse.sprocket,Firmware Update 40,Verify Paper Empty Error during firmware update
+FW_41,firmware,firmware/FW_41 - Verify Paper Jam Error during firmware update.yaml,com.hp.impulse.sprocket,Firmware Update 41,Verify Paper Jam Error during firmware update
+FW_42,firmware,firmware/FW_42 - Verify No Carbon Ribbon Error during firmware update.yaml,com.hp.impulse.sprocket,Firmware Update 42,Verify No Carbon Ribbon Error during firmware update
+FW_43,firmware,firmware/FW_43 - Verify Try Again functionality after resolving hardware issu.yaml,com.hp.impulse.sprocket,Firmware Update 43,Verify Try Again functionality after resolving hardware issue
+FW_44,firmware,firmware/FW_44 - Verify Cancel X button functionality on error popup.yaml,com.hp.impulse.sprocket,Firmware Update 44,Verify Cancel (X) button functionality on error popup
+AI_01,ai,ai/AI_01 - Verify UI layout of Create screen.yaml,com.hp.impulse.sprocket,AI Tool 01,"Verify UI layout of ""Create"" screen"
+AI_02,ai,ai/AI_02 - Verify navigation to AI tools.yaml,com.hp.impulse.sprocket,AI Tools 02,Verify navigation to AI tools
+AI_03,ai,ai/AI_03 - Verify UI layout of AI Tools screen.yaml,com.hp.impulse.sprocket,AI Tools 03,Verify UI layout of AI Tools screen
+AI_04,ai,ai/AI_04 - Verify Tool accessibility.yaml,com.hp.impulse.sprocket,AI Tools 04,Verify Tool accessibility
+AI_05,ai,ai/AI_05 - Verify Bottom Tab persistence.yaml,com.hp.impulse.sprocket,AI Tools 05,Verify Bottom Tab persistence
+AI_06,ai,ai/AI_06 - Verify rapid tab switching.yaml,com.hp.impulse.sprocket,AI Tools 06,Verify rapid tab switching
+AI_07,ai,ai/AI_07 - Verify Background Tools navigation.yaml,com.hp.impulse.sprocket,AI Tools 07,Verify Background Tools navigation
+AI_08,ai,ai/AI_08 - Verify Object Tools navigation.yaml,com.hp.impulse.sprocket,AI Tool 08,Verify Object Tools navigation
+AI_09,ai,ai/AI_09 - Verify Photo Enhancements navigation.yaml,com.hp.impulse.sprocket,AI Tools 09,Verify Photo Enhancements navigation
+AI_10,ai,ai/AI_10 - Verify Generate Tools navigation.yaml,com.hp.impulse.sprocket,AI Tools  10,Verify Generate Tools navigation
+AI_11,ai,ai/AI_11 - Verify visual layout and typography elements of the loader s.yaml,com.hp.impulse.sprocket,AI Tools 11,Verify visual layout and typography elements of the loader screen
+AI_12,ai,ai/AI_12 - Verify selected image is used as loader backdrop.yaml,com.hp.impulse.sprocket,AI Tools 12,Verify selected image is used as loader backdrop
+AI_13,ai,ai/AI_13 - Verify loading icon animation playback.yaml,com.hp.impulse.sprocket,AI Tools 13,Verify loading icon animation playback
+AI_14,ai,ai/AI_14 - Verify loader remains active during long processing.yaml,com.hp.impulse.sprocket,AI Tools 14,Verify loader remains active during long processing
+AI_15,ai,ai/AI_15 - Verify transition after AI processing completes.yaml,com.hp.impulse.sprocket,AI Tools 15,Verify transition after AI processing completes
+AI_16,ai,ai/AI_16 - Verify behavior when app is minimized during loading.yaml,com.hp.impulse.sprocket,AI Tools 16,Verify behavior when app is minimized during loading
+AI_17,ai,ai/AI_17 - Verify handling of network loss during loading.yaml,com.hp.impulse.sprocket,AI Tools 17,Verify handling of network loss during loading
+AI_18,ai,ai/AI_18 - Verify path to Prompt Entry.yaml,com.hp.impulse.sprocket,AI Tools 18,Verify path to Prompt Entry
+AI_19,ai,ai/AI_19 - Verify Prompt Error popup.yaml,com.hp.impulse.sprocket,AI Tools 19,"Verify ""Prompt Error"" popup"
+AI_20,ai,ai/AI_20 - Verify error trigger logic.yaml,com.hp.impulse.sprocket,AI Tools 20,Verify error trigger logic
+AI_21,ai,ai/AI_21 - Verify dismiss behavior.yaml,com.hp.impulse.sprocket,AI Tools 21,Verify dismiss behavior
+AI_22,ai,ai/AI_22 - Verify error consistency.yaml,com.hp.impulse.sprocket,AI Tools 22,Verify error consistency
+AI_23,ai,ai/AI_23 - Verify background occlusion.yaml,com.hp.impulse.sprocket,AI Tools 23,Verify background occlusion
+AI_24,ai,ai/AI_24 - Verify UI text and styling.yaml,com.hp.impulse.sprocket,AI Tools 24,"Verify UI, text, and styling"
+AI_25,ai,ai/AI_25 - Verify popup appears on cancel.yaml,com.hp.impulse.sprocket,AI Tools 25,Verify popup appears on cancel
+AI_26,ai,ai/AI_26 - Verify Stay functionality.yaml,com.hp.impulse.sprocket,AI Tools 26,"Verify ""Stay"" functionality"
+AI_27,ai,ai/AI_27 - Verify Exit functionality.yaml,com.hp.impulse.sprocket,AI Tools 27,"Verify ""Exit"" functionality"
+AI_28,ai,ai/AI_28 - Verify universal scope.yaml,com.hp.impulse.sprocket,AI Tools 28,Verify universal scope
+AI_29,ai,ai/AI_29 - Verify background modality.yaml,com.hp.impulse.sprocket,AI Tools 29,Verify background modality
+AI_30,ai,ai/AI_30 - Verify app launch and Collage creation.yaml,com.hp.impulse.sprocket,AI Tools 30,Verify app launch and Collage creation
+AI_31,ai,ai/AI_31 - Verify visual state of disabled AI button.yaml,com.hp.impulse.sprocket,AI Tools 31,Verify visual state of disabled AI button
+AI_32,ai,ai/AI_32 - Verify disabled AI button behavior.yaml,com.hp.impulse.sprocket,AI Tools 32,Verify disabled AI button behavior
+AI_33,ai,ai/AI_33 - Verify specific toast text for Collage.yaml,com.hp.impulse.sprocket,AI Tools 33,Verify specific toast text for Collage
+AI_34,ai,ai/AI_34 - Verify full screen layout elements.yaml,com.hp.impulse.sprocket,AITools 34,Verify full screen layout elements
+AI_35,ai,ai/AI_35 - Verify toast text across modes.yaml,com.hp.impulse.sprocket,AI Tools 35,Verify toast text across modes
+AI_36,ai,ai/AI_36 - Verify layout and content.yaml,com.hp.impulse.sprocket,AI Tools  36,Verify layout and content
+AI_37,ai,ai/AI_37 - Verify trigger on AI generation.yaml,com.hp.impulse.sprocket,AI Tools 37,Verify trigger on AI generation
+AI_38,ai,ai/AI_38 - Verify popup priority.yaml,com.hp.impulse.sprocket,AI Tools 38,Verify popup priority
+AI_39,ai,ai/AI_39 - Verify dismissal behavior.yaml,com.hp.impulse.sprocket,AI Tools 39,Verify dismissal behavior
+AI_40,ai,ai/AI_40 - Verify background modality.yaml,com.hp.impulse.sprocket,AI Tools 40,Verify background modality
+AI_41,ai,ai/AI_41 - Verify initial tool flow and loader.yaml,com.hp.impulse.sprocket,AI Tools 41,Verify initial tool flow and loader
+AI_42,ai,ai/AI_42 - Verify processed image presentation.yaml,com.hp.impulse.sprocket,AI Tools 42,Verify processed image presentation
+AI_43,ai,ai/AI_43 - Verify toggle functionality.yaml,com.hp.impulse.sprocket,AI Tools 43,Verify toggle functionality
+AI_44,ai,ai/AI_44 - Verify cancellation behavior.yaml,com.hp.impulse.sprocket,AI Tools 44,Verify cancellation behavior
+AI_45,ai,ai/AI_45 - Verify apply with background removed.yaml,com.hp.impulse.sprocket,AI Tools 45,Verify apply with background removed
+AI_46,ai,ai/AI_46 - Verify apply while Show Original is ON.yaml,com.hp.impulse.sprocket,AI Tools 46,Verify apply while Show Original is ON
+AI_47,ai,ai/AI_47 - Verify initial tool flow and prompt.yaml,com.hp.impulse.sprocket,AI Tools 47,Verify initial tool flow and prompt
+AI_48,ai,ai/AI_48 - Verify generation loader.yaml,com.hp.impulse.sprocket,AI Tools 48,Verify generation loader
+AI_49,ai,ai/AI_49 - Verify UI layout of background options.yaml,com.hp.impulse.sprocket,AI Tools 49,Verify UI layout of background options
+AI_50,ai,ai/AI_50 - Verify background replacement.yaml,com.hp.impulse.sprocket,AI Tools 50,Verify background replacement
+AI_51,ai,ai/AI_51 - Verify save and print navigation.yaml,com.hp.impulse.sprocket,AI Tools 51,Verify save and print navigation
+AI_52,ai,ai/AI_52 - Verify discard functionality.yaml,com.hp.impulse.sprocket,AI Tools 52,Verify discard functionality
+AI_53,ai,ai/AI_53 - Verify UI elements of CR 12C5 Replace Background Result Prom.yaml,com.hp.impulse.sprocket,AI Tools 53,Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)
+AI_54,ai,ai/AI_54 - Verify selection via Tap.yaml,com.hp.impulse.sprocket,AI Tools 66,Verify selection via Tap
+AI_55,ai,ai/AI_55 - Verify Apply functionality.yaml,com.hp.impulse.sprocket,AI Tools 71,"Verify ""Apply"" functionality"
+AI_56,ai,ai/AI_56 - Verify selection TapPaint.yaml,com.hp.impulse.sprocket,AI Tools 73,Verify selection (Tap/Paint)
+AI_57,ai,ai/AI_57 - Verify generation processing.yaml,com.hp.impulse.sprocket,AI Tools 76,Verify generation processing
+AI_58,ai,ai/AI_58 - Verify result screen UI.yaml,com.hp.impulse.sprocket,AI Tools 77,Verify result screen UI
+AI_59,ai,ai/AI_59 - Verify thumbnail swapping.yaml,com.hp.impulse.sprocket,AI Tools 78,Verify thumbnail swapping
+AI_60,ai,ai/AI_60 - Verify Generate New flow.yaml,com.hp.impulse.sprocket,AI Tools 79,"Verify ""Generate New"" flow"
+AI_61,ai,ai/AI_61 - Verify Apply functionality.yaml,com.hp.impulse.sprocket,AI Tools 80,"Verify ""Apply"" functionality"
+AI_62,ai,ai/AI_62 - Verify failure state UI.yaml,com.hp.impulse.sprocket,AI Tools 81,Verify failure state UI
+AI_63,ai,ai/AI_63 - Verify failure exit.yaml,com.hp.impulse.sprocket,AI Tools 82,Verify failure exit
+AI_64,ai,ai/AI_64 - Verify Grab Object entry.yaml,com.hp.impulse.sprocket,AI Tools 83,"Verify ""Grab Object"" entry"
+AI_65,ai,ai/AI_65 - Verify selection Brush Size.yaml,com.hp.impulse.sprocket,AI Tools 84,Verify selection & Brush Size
+AI_66,ai,ai/AI_66 - Verify generation.yaml,com.hp.impulse.sprocket,AI Tools 85,Verify generation
+AI_67,ai,ai/AI_67 - Verify sticker limit pop-up.yaml,com.hp.impulse.sprocket,AI Tools 86,Verify sticker limit pop-up
+AI_68,ai,ai/AI_68 - Verify Save New Sticker.yaml,com.hp.impulse.sprocket,AI Tools 87,"Verify ""Save New Sticker"""
+AI_69,ai,ai/AI_69 - Verify Cancel navigation.yaml,com.hp.impulse.sprocket,AI Tools 88,"Verify ""Cancel"" navigation"
+AI_70,ai,ai/AI_70 - Verify print settings.yaml,com.hp.impulse.sprocket,AI Tools 89,Verify print settings
+AI_71,ai,ai/AI_71 - Verify Tool Entry.yaml,com.hp.impulse.sprocket,AI Tools 90,Verify Tool Entry
+AI_72,ai,ai/AI_72 - Verify Generation.yaml,com.hp.impulse.sprocket,AI Tools 91,Verify Generation
+AI_73,ai,ai/AI_73 - Verify Result State.yaml,com.hp.impulse.sprocket,AI Tools 92,Verify Result State
+AI_74,ai,ai/AI_74 - Verify Show Original.yaml,com.hp.impulse.sprocket,AI Tools 93,"Verify ""Show Original"""
+AI_75,ai,ai/AI_75 - Verify Apply Action.yaml,com.hp.impulse.sprocket,AI Tools 94,"Verify ""Apply"" Action"
+AI_76,ai,ai/AI_76 - Verify Cancel Action.yaml,com.hp.impulse.sprocket,AI Tools 95,"Verify ""Cancel"" Action"
+AI_77,ai,ai/AI_77 - Verify Printing.yaml,com.hp.impulse.sprocket,AI Tools 96,Verify Printing
+AI_78,ai,ai/AI_78 - Verify workflow entry.yaml,com.hp.impulse.sprocket,AI Tools 97,Verify workflow entry
+AI_79,ai,ai/AI_79 - Verify processing loader.yaml,com.hp.impulse.sprocket,AI Tools 98,Verify processing & loader
+AI_80,ai,ai/AI_80 - Verify Result UI CR 14B1.yaml,com.hp.impulse.sprocket,AI Tools 99,Verify Result UI (CR_14B.1)
+AI_81,ai,ai/AI_81 - Verify Show Original toggle.yaml,com.hp.impulse.sprocket,AI Tools 100,"Verify ""Show Original"" toggle"
+AI_82,ai,ai/AI_82 - Verify Generate New.yaml,com.hp.impulse.sprocket,AI Tools 101,"Verify ""Generate New"""
+AI_83,ai,ai/AI_83 - Verify Apply Save.yaml,com.hp.impulse.sprocket,AI Tools 102,Verify Apply & Save
+AI_84,ai,ai/AI_84 - Verify Back button.yaml,com.hp.impulse.sprocket,AI Tools 103,Verify Back button
+AI_85,ai,ai/AI_85 - Verify Print functionality.yaml,com.hp.impulse.sprocket,AI Tools 104,Verify Print functionality
+AI_86,ai,ai/AI_86 - Verify CopiesTiles adjustment.yaml,com.hp.impulse.sprocket,AI Tools 105,Verify Copies/Tiles adjustment
+AI_87,ai,ai/AI_87 - Verify workflow entry.yaml,com.hp.impulse.sprocket,AI Tools 106,Verify workflow entry
+AI_88,ai,ai/AI_88 - Verify loader processing.yaml,com.hp.impulse.sprocket,AI Tools 107,Verify loader & processing
+AI_89,ai,ai/AI_89 - Verify UI CR 14C1.yaml,com.hp.impulse.sprocket,AI Tools 108,Verify UI (CR_14C.1)
+AI_90,ai,ai/AI_90 - Verify Show Original.yaml,com.hp.impulse.sprocket,AI Tools 109,"Verify ""Show Original"""
+AI_91,ai,ai/AI_91 - Verify Generate New.yaml,com.hp.impulse.sprocket,AI Tools 110,"Verify ""Generate New"""
+AI_92,ai,ai/AI_92 - Verify Apply.yaml,com.hp.impulse.sprocket,AI Tools 111,"Verify ""Apply"""
+AI_93,ai,ai/AI_93 - Verify CancelBack.yaml,com.hp.impulse.sprocket,AI Tools 112,"Verify ""Cancel""/Back"
+AI_94,ai,ai/AI_94 - Verify UI elements and functionality of the print preview sc.yaml,com.hp.impulse.sprocket,AI Tools 113,Verify UI elements and functionality of the print preview screen.
+AI_95,ai,ai/AI_95 - Workflow Entry UI.yaml,com.hp.impulse.sprocket,AI Tools 114,Workflow Entry & UI
+AI_96,ai,ai/AI_96 - Show Original Toggle.yaml,com.hp.impulse.sprocket,AI Tools 115,"""Show Original"" Toggle"
+AI_97,ai,ai/AI_97 - Generate New.yaml,com.hp.impulse.sprocket,AI Tools 116,"""Generate New"""
+AI_98,ai,ai/AI_98 - Apply Final State.yaml,com.hp.impulse.sprocket,AI Tools 117,"""Apply"" & Final State"
+AI_99,ai,ai/AI_99 - CopiesTilesPrint.yaml,com.hp.impulse.sprocket,AI Tools 118,Copies/Tiles/Print
+AI_100,ai,ai/AI_100 - BackDiscard.yaml,com.hp.impulse.sprocket,AI tools 119,Back/Discard
+AI_101,ai,ai/AI_101 - Verify workflow entry.yaml,com.hp.impulse.sprocket,Ai Tools 120,Verify workflow entry
+AI_102,ai,ai/AI_102 - Verify image resize and reposition.yaml,com.hp.impulse.sprocket,Ai Tools 121,Verify image resize and reposition
+AI_103,ai,ai/AI_103 - Verify blank area warning.yaml,com.hp.impulse.sprocket,Ai Tools 122,Verify blank area warning
+AI_104,ai,ai/AI_104 - Verify Generate button and loader.yaml,com.hp.impulse.sprocket,AI Tools 123,Verify Generate button and loader
+AI_105,ai,ai/AI_105 - Verify result screen UI.yaml,com.hp.impulse.sprocket,AI Tools 124,Verify result screen UI
+AI_106,ai,ai/AI_106 - Verify Show Original toggle.yaml,com.hp.impulse.sprocket,AI Tools 125,Verify Show Original toggle
+AI_107,ai,ai/AI_107 - Verify Apply functionality.yaml,com.hp.impulse.sprocket,AI Tools 126,Verify Apply functionality
+AI_108,ai,ai/AI_108 - Verify top and bottom navigation.yaml,com.hp.impulse.sprocket,AI Tools 127,Verify top and bottom navigation
+AI_109,ai,ai/AI_109 - Verify CopiesTiles and Print.yaml,com.hp.impulse.sprocket,AI Tools 128,Verify Copies/Tiles and Print
+AI_110,ai,ai/AI_110 - Verify Back button.yaml,com.hp.impulse.sprocket,AI Tools 129,Verify Back button
+AI_111,ai,ai/AI_111 - Verify No Blank Areas warning pop-up.yaml,com.hp.impulse.sprocket,AI Toolw 130,"Verify ""No Blank Areas"" warning pop-up"
+AI_112,ai,ai/AI_112 - Workflow Entry.yaml,com.hp.impulse.sprocket,AI Tools 131,Workflow Entry
+AI_113,ai,ai/AI_113 - Painting Area.yaml,com.hp.impulse.sprocket,AI Tools 132,Painting Area
+AI_114,ai,ai/AI_114 - Text Entry State.yaml,com.hp.impulse.sprocket,AI Tools 133,Text Entry & State
+AI_115,ai,ai/AI_115 - Processing.yaml,com.hp.impulse.sprocket,AI Tools 134,Processing
+AI_116,ai,ai/AI_116 - Thumbnail Selection.yaml,com.hp.impulse.sprocket,AI Tools 135,Thumbnail Selection
+AI_117,ai,ai/AI_117 - Apply Print Preview.yaml,com.hp.impulse.sprocket,AI Tools 136,Apply & Print Preview
+AI_118,ai,ai/AI_118 - Verify scroll UI layout.yaml,com.hp.impulse.sprocket,AI Tools 137,Verify scroll & UI layout
+AI_119,ai,ai/AI_119 - Verify Back Navigation.yaml,com.hp.impulse.sprocket,AI Tools 138,Verify Back Navigation
+AI_120,ai,ai/AI_120 - Verify Tool Navigation.yaml,com.hp.impulse.sprocket,AI Tool 139,Verify Tool Navigation
+AI_121,ai,ai/AI_121 - Verify Image Selection Flow.yaml,com.hp.impulse.sprocket,AI Tool 140,Verify Image Selection Flow
+AI_122,ai,ai/AI_122 - Verify Temporary Updates.yaml,com.hp.impulse.sprocket,AI Tool 141,Verify Temporary Updates
+AI_123,ai,ai/AI_123 - Verify Offline Behavior.yaml,com.hp.impulse.sprocket,AI Tool 142,Verify Offline Behavior
+AI_124,ai,ai/AI_124 - Verify Header Elements.yaml,com.hp.impulse.sprocket,AI tools 143,Verify Header Elements
+AI_125,ai,ai/AI_125 - Verify Folder Dropdown.yaml,com.hp.impulse.sprocket,AI tools 144,Verify Folder Dropdown
+AI_126,ai,ai/AI_126 - Verify Date-based Grouping.yaml,com.hp.impulse.sprocket,AI tools 145,Verify Date-based Grouping
+AI_127,ai,ai/AI_127 - Verify Sticky Footer.yaml,com.hp.impulse.sprocket,AI tools 146,Verify Sticky Footer
+AI_128,ai,ai/AI_128 - Verify Group 1 Redirection.yaml,com.hp.impulse.sprocket,AI tools 147,Verify Group 1 Redirection
+AI_129,ai,ai/AI_129 - Verify Group 2 Redirection.yaml,com.hp.impulse.sprocket,AI tools 148,Verify Group 2 Redirection
+AI_130,ai,ai/AI_130 - Verify Back Button Logic.yaml,com.hp.impulse.sprocket,AI tools 149,Verify Back Button Logic
+AI_131,ai,ai/AI_131 - Verify Group 1 Ready to Generate Redirection.yaml,com.hp.impulse.sprocket,AI tools 150,Verify Group 1 (Ready to Generate) Redirection
+AI_132,ai,ai/AI_132 - Verify dynamic header tool name display.yaml,com.hp.impulse.sprocket,AI Tools 151,Verify dynamic header tool name display
+AI_133,ai,ai/AI_133 - Verify back navigation from preview.yaml,com.hp.impulse.sprocket,AI Tools 152,Verify back navigation from preview
+AI_134,ai,ai/AI_134 - Verify Generate button triggers loader.yaml,com.hp.impulse.sprocket,AI Tools 153,Verify Generate button triggers loader
+AI_135,ai,ai/AI_135 - Verify Remove Background routing.yaml,com.hp.impulse.sprocket,AI Tools 154,Verify Remove Background routing
+AI_136,ai,ai/AI_136 - Verify Replace Background routing.yaml,com.hp.impulse.sprocket,AI Tools 155,Verify Replace Background routing
+AI_137,ai,ai/AI_137 - Verify Restore Photo routing.yaml,com.hp.impulse.sprocket,AI Tools 156,Verify Restore Photo routing
+AI_138,ai,ai/AI_138 - Verify Enhance Photo routing.yaml,com.hp.impulse.sprocket,AI Tools 157,Verify Enhance Photo routing
+AI_139,ai,ai/AI_139 - Verify Fix Lighting routing.yaml,com.hp.impulse.sprocket,AI Tools 158,Verify Fix Lighting routing
+AI_140,ai,ai/AI_140 - Verify Upscale Photo routing.yaml,com.hp.impulse.sprocket,AI Tools 159,Verify Upscale Photo routing
+AI_141,ai,ai/AI_141 - Verify full UI layout.yaml,com.hp.impulse.sprocket,AI Tools 160,Verify full UI layout
+AI_142,ai,ai/AI_142 - Verify header displays selected tool name.yaml,com.hp.impulse.sprocket,AI Tools 161,Verify header displays selected tool name
+AI_143,ai,ai/AI_143 - Verify primary CTA button label.yaml,com.hp.impulse.sprocket,AI Tools 162,Verify primary CTA button label
+AI_144,ai,ai/AI_144 - Verify Remove Object routing.yaml,com.hp.impulse.sprocket,AI tools 163,Verify Remove Object routing
+AI_145,ai,ai/AI_145 - Verify Replace Object routing.yaml,com.hp.impulse.sprocket,AI Tools 164,Verify Replace Object routing
+AI_146,ai,ai/AI_146 - Verify Grab Object routing.yaml,com.hp.impulse.sprocket,AI tools 165,Verify Grab Object routing
+AI_147,ai,ai/AI_147 - Verify Extend Image routing.yaml,com.hp.impulse.sprocket,AI tools 166,Verify Extend Image routing
+AI_148,ai,ai/AI_148 - Verify Generate Object routing.yaml,com.hp.impulse.sprocket,AI  Tools 167,Verify Generate Object routing
+AI_149,ai,ai/AI_149 - Verify Back Arrow navigation.yaml,com.hp.impulse.sprocket,AI Tools 168,Verify Back Arrow navigation
+AI_150,ai,ai/AI_150 - Verify routing to Ready-to-Generate workflow.yaml,com.hp.impulse.sprocket,AI Tools 169,Verify routing to Ready-to-Generate workflow
+AI_151,ai,ai/AI_151 - Verify routing to Next Step workflow.yaml,com.hp.impulse.sprocket,AI Tools 170,Verify routing to Next Step workflow
+AI_152,ai,ai/AI_152 - Verify automatic rotation of landscape image.yaml,com.hp.impulse.sprocket,AI Gtools 171,Verify automatic rotation of landscape image
+AI_153,ai,ai/AI_153 - Verify proper fitting without cropping.yaml,com.hp.impulse.sprocket,AI tools 172,Verify proper fitting without cropping
+AI_154,ai,ai/AI_154 - Verify dynamic tool name in header.yaml,com.hp.impulse.sprocket,AI tools 173,Verify dynamic tool name in header
+AI_155,ai,ai/AI_155 - Verify Generate button execution.yaml,com.hp.impulse.sprocket,AI tools 174,Verify Generate button execution
+AI_156,ai,ai/AI_156 - Verify back navigation to gallery.yaml,com.hp.impulse.sprocket,AI Toola 175,Verify back navigation to gallery
+AI_157,ai,ai/AI_157 - Verify Text-to-Image screen UI and default values.yaml,com.hp.impulse.sprocket,AI Toola 176,Verify Text-to-Image screen UI and default values
+AI_158,ai,ai/AI_158 - Verify prompt text box placeholder.yaml,com.hp.impulse.sprocket,AI tools 177,Verify prompt text box placeholder
+AI_159,ai,ai/AI_159 - Verify prompt text box focus and keyboard.yaml,com.hp.impulse.sprocket,AI tools 178,Verify prompt text box focus and keyboard
+AI_160,ai,ai/AI_160 - Verify random prompt button.yaml,com.hp.impulse.sprocket,AI tools 179,Verify random prompt button
+AI_161,ai,ai/AI_161 - Verify random prompt when text box is focused.yaml,com.hp.impulse.sprocket,AI Tools 180,Verify random prompt when text box is focused
+AI_162,ai,ai/AI_162 - Verify Orientation selection.yaml,com.hp.impulse.sprocket,AI Tools 181,Verify Orientation selection
+AI_163,ai,ai/AI_163 - Verify Image Quantity selection.yaml,com.hp.impulse.sprocket,AI Tools 182,Verify Image Quantity selection
+AI_164,ai,ai/AI_164 - Verify Generate Images button disabled state.yaml,com.hp.impulse.sprocket,AI Tools 183,Verify Generate Image(s) button disabled state
+AI_165,ai,ai/AI_165 - Verify Generate Images button enabled state.yaml,com.hp.impulse.sprocket,AI TOOls 184,Verify Generate Image(s) button enabled state
+AI_166,ai,ai/AI_166 - Verify image generation with Portrait mode.yaml,com.hp.impulse.sprocket,AI Tools 185,Verify image generation with Portrait mode
+AI_167,ai,ai/AI_167 - Verify image generation with Landscape mode.yaml,com.hp.impulse.sprocket,AI Tools 186,Verify image generation with Landscape mode
+AI_168,ai,ai/AI_168 - Verify generation with different image quantities.yaml,com.hp.impulse.sprocket,AI Tools 187,Verify generation with different image quantities
+AI_169,ai,ai/AI_169 - Verify emptyspace-only prompt.yaml,com.hp.impulse.sprocket,AI Tools 188,Verify empty/space-only prompt
+AI_170,ai,ai/AI_170 - Verify long prompt input.yaml,com.hp.impulse.sprocket,AI Tools 189,Verify long prompt input
+AI_171,ai,ai/AI_171 - Verify special characters in prompt.yaml,com.hp.impulse.sprocket,AI Tools 190,Verify special characters in prompt
+AI_172,ai,ai/AI_172 - Verify network error while generating images.yaml,com.hp.impulse.sprocket,AI Tools 191,Verify network error while generating images
+AI_173,ai,ai/AI_173 - Verify Back button navigation.yaml,com.hp.impulse.sprocket,AI Tools 192,Verify Back button navigation
+AI_174,ai,ai/AI_174 - Verify Text-to-Image generation flow.yaml,com.hp.impulse.sprocket,AI Tools 193,Verify Text-to-Image generation flow
+AI_175,ai,ai/AI_175 - Verify Portrait image generation.yaml,com.hp.impulse.sprocket,AI TOOls 194,Verify Portrait image generation
+AI_176,ai,ai/AI_176 - Verify Landscape image generation.yaml,com.hp.impulse.sprocket,AI TOOls 195,Verify Landscape image generation
+AI_177,ai,ai/AI_177 - Verify thumbnail selection.yaml,com.hp.impulse.sprocket,AI Tools 196,Verify thumbnail selection
+AI_178,ai,ai/AI_178 - Verify Cancel button and Unsaved popup.yaml,com.hp.impulse.sprocket,AI Tools 197,Verify Cancel button and Unsaved popup
+AI_179,ai,ai/AI_179 - Verify Unsaved popup - Cancel option.yaml,com.hp.impulse.sprocket,AI tools 198,Verify Unsaved popup - Cancel option
+AI_180,ai,ai/AI_180 - Verify Unsaved popup - Leave option.yaml,com.hp.impulse.sprocket,AI Tools 199,Verify Unsaved popup - Leave option
+AI_181,ai,ai/AI_181 - Verify Next button navigation.yaml,com.hp.impulse.sprocket,AI Tools 200,Verify Next button navigation
+AI_182,ai,ai/AI_182 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket,AI Tools 201,Verify Print Preview UI
+AI_183,ai,ai/AI_183 - Verify Back Arrow.yaml,com.hp.impulse.sprocket,AI Tools 202,Verify Back Arrow
+AI_184,ai,ai/AI_184 - Verify Share button.yaml,com.hp.impulse.sprocket,AI Tools 203,Verify Share button
+AI_185,ai,ai/AI_185 - Verify Edit icon.yaml,com.hp.impulse.sprocket,AI Tools 204,Verify Edit icon
+AI_186,ai,ai/AI_186 - Verify Copies option.yaml,com.hp.impulse.sprocket,AI Tools 205,Verify Copies option
+AI_187,ai,ai/AI_187 - Verify Tiles option.yaml,com.hp.impulse.sprocket,AI Tools 206,Verify Tiles option
+AI_188,ai,ai/AI_188 - Verify Generate Images with empty prompt.yaml,com.hp.impulse.sprocket,AI Tools 207,Verify Generate Image(s) with empty prompt
+AI_189,ai,ai/AI_189 - Verify image generation without internet.yaml,com.hp.impulse.sprocket,AI Tools 208,Verify image generation without internet
+AI_190,ai,ai/AI_190 - Verify user can access Image-to-Image screen.yaml,com.hp.impulse.sprocket,AI Tools 209,Verify user can access Image-to-Image screen
+AI_191,ai,ai/AI_191 - Verify Crop Photo functionality.yaml,com.hp.impulse.sprocket,AI Tools 210,Verify Crop Photo functionality
+AI_192,ai,ai/AI_192 - Verify default quantity selection.yaml,com.hp.impulse.sprocket,AI Tools 211,Verify default quantity selection
+AI_193,ai,ai/AI_193 - Verify Generate button enabled after style selection.yaml,com.hp.impulse.sprocket,AI Tools 211,Verify Generate button enabled after style selection
+AI_194,ai,ai/AI_194 - Verify generated image count matches quantity.yaml,com.hp.impulse.sprocket,AI Tools 211,Verify generated image count matches quantity
+AI_195,ai,ai/AI_195 - Launch Navigate.yaml,com.hp.impulse.sprocket,AI Tools 211,Launch & Navigate
+AI_196,ai,ai/AI_196 - Base Image Setup.yaml,com.hp.impulse.sprocket,AI Tools 211,Base Image Setup
+AL_01,alerts,alerts/AL_01 - Verify Memory Error popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   01,"Verify ""Memory Error"" popup during printing"
+AL_02,alerts,alerts/AL_02 - Verify Transmit Error popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android  02,"Verify ""Transmit Error"" popup during printing"
+AL_03,alerts,alerts/AL_03 - Verify Low Voltage popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   03,"Verify ""Low Voltage"" popup during printing"
+AL_04,alerts,alerts/AL_04 - Verify Print Error popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   04,"Verify ""Print Error"" popup during printing"
+AL_05,alerts,alerts/AL_05 - Verify High Temperature popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   05,"Verify ""High Temperature"" popup during printing"
+AL_06,alerts,alerts/AL_06 - Verify Paper Jam error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android    06,"Verify ""Paper Jam"" error popup"
+AL_07,alerts,alerts/AL_07 - Verify Out of Paper error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android    07,"Verify ""Out of Paper"" error popup"
+AL_08,alerts,alerts/AL_08 - Verify Top Cover Open error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   08,"Verify ""Top Cover Open"" error popup"
+AL_09,alerts,alerts/AL_09 - Verify System Error Occurred error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android    09,"Verify ""System Error Occurred"" error popup"
+AL_10,alerts,alerts/AL_10 - Verify Very Low Battery popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   10,"Verify ""Very Low Battery"" popup"
+AL_11,alerts,alerts/AL_11 - Verify Battery Error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   11,"Verify ""Battery Error"" popup"
+AL_12,alerts,alerts/AL_12 - Verify Sprocket is Warm popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   12,"Verify ""Sprocket is Warm"" popup"
+AL_13,alerts,alerts/AL_13 - Verify Sprocket is Cold popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   13,"Verify ""Sprocket is Cold"" popup"
+AL_14,alerts,alerts/AL_14 - Verify Paper Feed Error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   14,"Verify ""Paper Feed Error"" popup"
+AL_15,alerts,alerts/AL_15 - Verify Sprocket not Responding popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   15,"Verify ""Sprocket not Responding"" popup"
+AL_16,alerts,alerts/AL_16 - Verify Incorrect Paper Type popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android  16,"Verify ""Incorrect Paper Type"" popup"
+AL_17,alerts,alerts/AL_17 - Verify Error Sending Image popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Android   17,"Verify ""Error Sending Image"" popup"
+AL_18,alerts,alerts/AL_18 - Verify the Memory Error popup is displayed when the printer .yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Android 18,Verify the Memory Error popup is displayed when the printer encounters a memory-related issue during printing.
+AL_19,alerts,alerts/AL_19 - Verify the Transmit Error popup is displayed when data trans.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Android 19,Verify the Transmit Error popup is displayed when data transmission is interrupted during printing.
+AL_20,alerts,alerts/AL_20 - Verify the Low Voltage popup is displayed when the printer b.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Android 20,Verify the Low Voltage popup is displayed when the printer battery voltage is too low.
+AL_21,alerts,alerts/AL_21 - Verify the Print Error popup is displayed when the printer e.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Android 21,Verify the Print Error popup is displayed when the printer encounters a printing failure.
+AL_22,alerts,alerts/AL_22 - Verify Memory Error popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 001,Verify Memory Error popup during printing
+AL_23,alerts,alerts/AL_23 - Verify Transmit Error popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 002,Verify Transmit Error popup during printing
+AL_24,alerts,alerts/AL_24 - Verify Low Voltage popup when battery is low.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 003,Verify Low Voltage popup when battery is low
+AL_25,alerts,alerts/AL_25 - Verify Print Error popup during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 004,Verify Print Error popup during printing
+AL_26,alerts,alerts/AL_26 - Verify High Temperature popup when printer overheats.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 005,Verify High Temperature popup when printer overheats
+AL_27,alerts,alerts/AL_27 - Verify High Battery Temperature popup when battery overheats.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 006,Verify High Battery Temperature popup when battery overheats
+AL_28,alerts,alerts/AL_28 - Verify Paper Error popup when incorrect paper size is insert.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 07,Verify Paper Error popup when incorrect paper size is inserted
+AL_29,alerts,alerts/AL_29 - Verify Paper Jam popup when paper gets stuck during printing.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 08,Verify Paper Jam popup when paper gets stuck during printing
+AL_30,alerts,alerts/AL_30 - Verify Out of Paper popup when printer has no paper.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 09,Verify Out of Paper popup when printer has no paper
+AL_31,alerts,alerts/AL_31 - Verify Top Cover Open popup when top cover is opened during .yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 10,Verify Top Cover Open popup when top cover is opened during printing
+AL_32,alerts,alerts/AL_32 - Verify System Error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 11,Verify System Error popup
+AL_33,alerts,alerts/AL_33 - Verify Low Battery popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 12,Verify Low Battery popup
+AL_34,alerts,alerts/AL_34 - Verify Battery Error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 13,Verify Battery Error popup
+AL_35,alerts,alerts/AL_35 - Verify Sprocket is Warm popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 14,"Verify ""Sprocket is Warm"" popup"
+AL_36,alerts,alerts/AL_36 - Verify Sprocket is Cold popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 15,"Verify ""Sprocket is Cold"" popup"
+AL_37,alerts,alerts/AL_37 - Verify Paper Feed Error popup.yaml,com.hp.impulse.sprocket,Blockers Error Pop up Ios 16,"Verify ""Paper Feed Error"" popup"
+AL_38,alerts,alerts/AL_38 - Verify Memory Error popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios   17,"Verify ""Memory Error"" popup"
+AL_39,alerts,alerts/AL_39 - Verify Transmit Error popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios    18,"Verify ""Transmit Error"" popup"
+AL_40,alerts,alerts/AL_40 - Verify Low Voltage popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios   19,"Verify ""Low Voltage"" popup"
+AL_41,alerts,alerts/AL_41 - Verify Print Error popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios   20,"Verify ""Print Error"" popup"
+AL_42,alerts,alerts/AL_42 - Verify High Temperature popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  21,"Verify ""High Temperature"" popup"
+AL_43,alerts,alerts/AL_43 - Verify High Battery Temperature popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  22,"Verify ""High Battery Temperature"" popup"
+AL_44,alerts,alerts/AL_44 - Verify Paper Jam error.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios 23,"Verify ""Paper Jam"" error"
+AL_45,alerts,alerts/AL_45 - Verify Out of Paper error.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  24,"Verify ""Out of Paper"" error"
+AL_46,alerts,alerts/AL_46 - Verify Top Cover Open error.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  25,"Verify ""Top Cover Open"" error"
+AL_47,alerts,alerts/AL_47 - Verify System Error.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  26,"Verify ""System Error"""
+AL_48,alerts,alerts/AL_48 - Verify Battery Error popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios 27,"Verify ""Battery Error"" popup"
+AL_49,alerts,alerts/AL_49 - Verify Sprocket is Warm popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  28,"Verify ""Sprocket is Warm"" popup"
+AL_50,alerts,alerts/AL_50 - Verify Sprocket is Cold popup.yaml,com.hp.impulse.sprocket,Stoppers Error Pop up Ios  29,"Verify ""Sprocket is Cold"" popup"
+OSS_01,onboarding-splash,onboarding-splash/OSS_01 - Verify app launch animation and transition.yaml,com.hp.impulse.sprocket,Sp_01,"Verify app launch, animation, and transition"
+OSS_02,onboarding-splash,onboarding-splash/OSS_02 - Verify the complete transition from Onboarding completion to.yaml,com.hp.impulse.sprocket,ON_01,Verify the complete transition from Onboarding completion to the Sign Up Options screen
+OSS_03,onboarding-splash,onboarding-splash/OSS_03 - Verify Sign Up Options screen UI and navigation.yaml,com.hp.impulse.sprocket,SU (iOS) _01,Verify Sign Up Options screen UI and navigation
+OSS_04,onboarding-splash,onboarding-splash/OSS_04 - Verify Sign Up Options Android screen UI and navigation.yaml,com.hp.impulse.sprocket,SU (Android) _01b,Verify Sign Up Options (Android) screen UI and navigation
+OSS_05,onboarding-splash,onboarding-splash/OSS_05 - Verify Sign Up with Email screen UI validations and navigati.yaml,com.hp.impulse.sprocket,SU_02,"Verify Sign Up with Email screen UI, validations and navigation"
+OSS_06,onboarding-splash,onboarding-splash/OSS_06 - Verify form field input and successful Sign Up.yaml,com.hp.impulse.sprocket,ON_02D_SU - E F F TC_ON02DE_01,Verify form field input and successful Sign Up
+OSS_07,onboarding-splash,onboarding-splash/OSS_07 - Verify Sign Up error messages.yaml,com.hp.impulse.sprocket,ON_02D_SU - E F F TC_ON02DE_02,Verify Sign Up error messages
+OSS_08,onboarding-splash,onboarding-splash/OSS_08 - Verify Privacy Policy navigation and back action.yaml,com.hp.impulse.sprocket,ON_02F_C / ON_02G_PP TC_ON02G_01,Verify Privacy Policy navigation and back action
+OSS_09,onboarding-splash,onboarding-splash/OSS_09 - Verify Privacy Policy behavior without internet connection.yaml,com.hp.impulse.sprocket,ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02,Verify Privacy Policy behavior without internet connection
+OSS_10,onboarding-splash,onboarding-splash/OSS_10 - Verify successful login using Google Facebook Apple and Emai.yaml,com.hp.impulse.sprocket,TC_LI_IOS_13,"Verify successful login using Google, Facebook, Apple, and Email"
+OSS_11,onboarding-splash,onboarding-splash/OSS_11 - Verify authentication cancellation.yaml,com.hp.impulse.sprocket,TC_LI_IOS_14,Verify authentication cancellation
+OSS_12,onboarding-splash,onboarding-splash/OSS_12 - Verify successful login using Google Facebook and Email.yaml,com.hp.impulse.sprocket,TC_LI_AND_13,"Verify successful login using Google, Facebook, and Email"
+OSS_13,onboarding-splash,onboarding-splash/OSS_13 - Verify authentication cancellation.yaml,com.hp.impulse.sprocket,TC_LI_AND_14,Verify authentication cancellation
+OSS_14,onboarding-splash,onboarding-splash/OSS_14 - Verify full journey from launch to Login.yaml,com.hp.impulse.sprocket,LI_W _E TC_E2E_001,Verify full journey from launch to Login
+OSS_15,onboarding-splash,onboarding-splash/OSS_15 - Verify invalid credential flow.yaml,com.hp.impulse.sprocket,LI_W _E TC_E2E_002,Verify invalid credential flow
+OSS_16,onboarding-splash,onboarding-splash/OSS_16 - Verify Forgot Password link.yaml,com.hp.impulse.sprocket,LI_W _E l TC_LWE_05,"Verify ""Forgot Password?"" link"
+OSS_17,onboarding-splash,onboarding-splash/OSS_17 - Verify full journey Launch Onboarding Sign Up and Forgot Pas.yaml,com.hp.impulse.sprocket,FP TC_E2E_01,"Verify full journey: Launch, Onboarding, Sign Up, and Forgot Password flow"
+OSS_18,onboarding-splash,onboarding-splash/OSS_18 - Verify invalid credentialinput handling across Login and Pas.yaml,com.hp.impulse.sprocket,FP TC_E2E_02,Verify invalid credential/input handling across Login and Password Recovery
+OSS_19,onboarding-splash,onboarding-splash/OSS_19 - Verify all input validation and system error states for Sign.yaml,com.hp.impulse.sprocket,EH TC_ERR_ALL_01,Verify all input validation and system error states for Sign Up and Log In
+OSS_20,onboarding-splash,onboarding-splash/OSS_20 - Verify all input validation and error states for Forgot Pass.yaml,com.hp.impulse.sprocket,EH TC_ERR_ALL_02,Verify all input validation and error states for Forgot Password
+QPX_01,quick-print,quick-print/QPX_01 - Verify the Gallery permission popup is displayed when the us.yaml,com.hp.impulse.sprocket,QUICK PRINT _001,Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
+QPX_02,quick-print,quick-print/QPX_02 - Verify the Allow all option opens the Gallery screen.yaml,com.hp.impulse.sprocket,QUICK PRINT_002,Verify the Allow all option opens the Gallery screen.
+QPX_03,quick-print,quick-print/QPX_03 - Verify the Gallery screen user interface.yaml,com.hp.impulse.sprocket,QUICK PRINT _003,Verify the Gallery screen user interface.
+QPX_04,quick-print,quick-print/QPX_04 - Verify the Select Mode toast message on the Gallery screen.yaml,com.hp.impulse.sprocket,QUICK PRINT_004,Verify the Select Mode toast message on the Gallery screen.
+QPX_05,quick-print,quick-print/QPX_05 - Verify the Dont allow option on the Gallery permission popup.yaml,com.hp.impulse.sprocket,QUICK PRINT_005,Verify the Don't allow option on the Gallery permission popup.
+QPX_06,quick-print,quick-print/QPX_06 - Verify the Allow limited access option.yaml,com.hp.impulse.sprocket,QUICK PRINT_006,Verify the Allow limited access option.
+QPX_07,quick-print,quick-print/QPX_07 - Verify the Gallery screen enters Select Mode after selecting.yaml,com.hp.impulse.sprocket,QUICK PRINT_007,Verify the Gallery screen enters Select Mode after selecting one photo.
+QPX_08,quick-print,quick-print/QPX_08 - Verify selecting both photos and videos in Select Mode.yaml,com.hp.impulse.sprocket,QUICK PRINT_008,Verify selecting both photos and videos in Select Mode.
+QPX_09,quick-print,quick-print/QPX_09 - Verify unselecting all selected photos and videos.yaml,com.hp.impulse.sprocket,QUICK PRINT_009,Verify unselecting all selected photos and videos.
+QPX_10,quick-print,quick-print/QPX_10 - Verify the maximum selection limit of 10 photos.yaml,com.hp.impulse.sprocket,QUICK PRINGT_010,Verify the maximum selection limit of 10 photos.
+QPX_11,quick-print,quick-print/QPX_11 - Verify the Select Mode user interface.yaml,com.hp.impulse.sprocket,QUICK PRIN_011,Verify the Select Mode user interface.
+QPX_12,quick-print,quick-print/QPX_12 - Verify that the user can open the Select Gallery screen and .yaml,com.hp.impulse.sprocket,QUICK PRINT_012,Verify that the user can open the Select Gallery screen and the Facebook option is displayed.
+QPX_13,quick-print,quick-print/QPX_13 - Verify that the Facebook Gallery opens successfully.yaml,com.hp.impulse.sprocket,QUICK PRINT 13,Verify that the Facebook Gallery opens successfully.
+QPX_14,quick-print,quick-print/QPX_14 - Verify the Unlink option in the overflow menu.yaml,com.hp.impulse.sprocket,QUICK PRINT 14,Verify the Unlink option in the overflow menu.
+QPX_15,quick-print,quick-print/QPX_15 - Verify the Unlink confirmation popup user interface.yaml,com.hp.impulse.sprocket,QUICK PRINT 15,Verify the Unlink confirmation popup user interface.
+QPX_16,quick-print,quick-print/QPX_16 - Verify that the user can sign out from Facebook successfully.yaml,com.hp.impulse.sprocket,QUICK PRINT 16,Verify that the user can sign out from Facebook successfully.
+QPX_17,quick-print,quick-print/QPX_17 - Verify the Cancel button on the Unlink popup.yaml,com.hp.impulse.sprocket,QUICK PRINT 17,Verify the Cancel button on the Unlink popup.
+QPX_18,quick-print,quick-print/QPX_18 - Verify the No Internet popup when opening Facebook Gallery w.yaml,com.hp.impulse.sprocket,QUICK PRINT 18,Verify the No Internet popup when opening Facebook Gallery without internet.
+QPX_19,quick-print,quick-print/QPX_19 - Verify that the Open Settings button redirects to Wi-Fi Sett.yaml,com.hp.impulse.sprocket,QUICK PRINT 19,Verify that the Open Settings button redirects to Wi-Fi Settings.
+QPX_20,quick-print,quick-print/QPX_20 - Verify the Wi-Fi Direct No Internet popup.yaml,com.hp.impulse.sprocket,QUICK PRINT 20,Verify the Wi-Fi Direct No Internet popup.
+QPX_21,quick-print,quick-print/QPX_21 - Verify refreshing the Facebook Gallery after the internet co.yaml,com.hp.impulse.sprocket,QUICK PRINT 21,Verify refreshing the Facebook Gallery after the internet connection is restored.
+QPX_22,quick-print,quick-print/QPX_22 - Verify opening a Facebook folder and displaying images.yaml,com.hp.impulse.sprocket,QUICK PRINT 22,Verify opening a Facebook folder and displaying images.
+QPX_23,quick-print,quick-print/QPX_23 - Verify the Tag Search screen.yaml,com.hp.impulse.sprocket,QUICK PRINT 23,Verify the Tag Search screen.
+QPX_24,quick-print,quick-print/QPX_24 - Verify filtering Facebook photos using a valid tag.yaml,com.hp.impulse.sprocket,QUICK PRINT 24,Verify filtering Facebook photos using a valid tag.
+QPX_25,quick-print,quick-print/QPX_25 - Verify the application displays the No Tagged Photos message.yaml,com.hp.impulse.sprocket,QUICK PRINT 25,"Verify the application displays the ""No Tagged Photos"" message when the user searches with an invalid Facebook tag."
+QPX_26,quick-print,quick-print/QPX_26 - Verify the application displays Facebook photos when the use.yaml,com.hp.impulse.sprocket,QUICK PRINT 26,Verify the application displays Facebook photos when the user searches with a valid Facebook tag.
+QPX_27,quick-print,quick-print/QPX_27 - Verify the No Internet screen is displayed when the user tri.yaml,com.hp.impulse.sprocket,QUICK PRINT 27,Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags without an internet 
+QPX_28,quick-print,quick-print/QPX_28 - Verify that the user can sort gallery photos using the Newes.yaml,com.hp.impulse.sprocket,QUICK PRINT 28,Verify that the user can sort gallery photos using the Newest and Oldest options.
+QPX_29,quick-print,quick-print/QPX_29 - Verify the No Photos Found screen when the selected gallery .yaml,com.hp.impulse.sprocket,QUICK PRINT 29,Verify the No Photos Found screen when the selected gallery folder does not contain any photos.
+COLX_01,collage,collage/COLX_01 - Verify app launch and Home screen.yaml,com.hp.impulse.sprocket,Collage_01,Verify app launch and Home screen
+COLX_02,collage,collage/COLX_02 - Verify Photos Videos permission popup.yaml,com.hp.impulse.sprocket,Collage_02,Verify Photos & Videos permission popup
+COLX_03,collage,collage/COLX_03 - Verify default Collage Selection UI.yaml,com.hp.impulse.sprocket,Collage_03,Verify default Collage Selection UI
+COLX_04,collage,collage/COLX_04 - Verify folder selection.yaml,com.hp.impulse.sprocket,Collage_04,Verify folder selection
+COLX_05,collage,collage/COLX_05 - Verify minimum photo selection.yaml,com.hp.impulse.sprocket,Collage_05,Verify minimum photo selection
+COLX_06,collage,collage/COLX_06 - Verify selection of up to four photos.yaml,com.hp.impulse.sprocket,Collage_06,Verify selection of up to four photos
+COLX_07,collage,collage/COLX_07 - Verify duplicate image selection.yaml,com.hp.impulse.sprocket,Collage_07,Verify duplicate image selection
+COLX_08,collage,collage/COLX_08 - Verify image deselection.yaml,com.hp.impulse.sprocket,Collage_08,Verify image deselection
+COLX_09,collage,collage/COLX_09 - Verify Next button enabledisable.yaml,com.hp.impulse.sprocket,Collage_09,Verify Next button enable/disable
+COLX_10,collage,collage/COLX_10 - Verify Drag Drop screen UI.yaml,com.hp.impulse.sprocket,Collage_10,Verify Drag & Drop screen UI
+COLX_11,collage,collage/COLX_11 - Verify collage layout options.yaml,com.hp.impulse.sprocket,Collage_11,Verify collage layout options
+COLX_12,collage,collage/COLX_12 - Verify Drag Drop functionality.yaml,com.hp.impulse.sprocket,Collage_12,Verify Drag & Drop functionality
+COLX_13,collage,collage/COLX_13 - Verify Edit icon.yaml,com.hp.impulse.sprocket,Collage_13,Verify Edit icon
+COLX_14,collage,collage/COLX_14 - Verify Print Preview screen.yaml,com.hp.impulse.sprocket,Collage_14,Verify Print Preview screen
+COLX_15,collage,collage/COLX_15 - Verify printer connection status.yaml,com.hp.impulse.sprocket,Collage_15,Verify printer connection status
+COX_001,connection,connection/COX_001 - Verify to navigate to Add a new Printer screen.yaml,com.hp.impulse.sprocket,PCF-001,Verify to navigate to 'Add a new Printer' screen
+COX_002,connection,connection/COX_002 - Verify to navigate to Enable the full Sprocket experience sc.yaml,com.hp.impulse.sprocket,PCF-002,Verify to navigate to 'Enable the full Sprocket experience' screen via 'Skip to Connection' flow
+COX_003,connection,connection/COX_003 - Verify printer discovery screen via Skip to connection flow.yaml,com.hp.impulse.sprocket,PCF-003,Verify printer discovery screen via 'Skip to connection' flow
+COX_004,connection,connection/COX_004 - Verify default HP200 printer selection at Select Your Device.yaml,com.hp.impulse.sprocket,PCF-004,Verify default HP200 printer selection at 'Select Your Device' screen
+COX_005,connection,connection/COX_005 - Verify that the user can scroll through all available printe.yaml,com.hp.impulse.sprocket,PCF-005,Verify that the user can scroll through all available printer models from right to left
+COX_006,connection,connection/COX_006 - Verify that the user can scroll through all available printe.yaml,com.hp.impulse.sprocket,PCF-006,Verify that the user can scroll through all available printer models from left to right
+COX_007,connection,connection/COX_007 - Verify that the printer carousel is not an infinite loop and.yaml,com.hp.impulse.sprocket,PCF-007,Verify that the printer carousel is not an infinite loop and has defined start and end points.
+COX_008,connection,connection/COX_008 - Verify selected Sprocket 200 printer image updates.yaml,com.hp.impulse.sprocket,PCF-008,Verify selected 'Sprocket 200' printer image updates
+COX_009,connection,connection/COX_009 - Verify selected Sprocket Studio Plus printer image updates.yaml,com.hp.impulse.sprocket,PCF-009,Verify selected 'Sprocket Studio Plus' printer image updates
+COX_010,connection,connection/COX_010 - Verify selected Sprocket 3x4 printer image updates.yaml,com.hp.impulse.sprocket,PCF-010,Verify selected 'Sprocket 3x4' printer image updates
+COX_011,connection,connection/COX_011 - Verify selected HP Sprocket Select printer image updates.yaml,com.hp.impulse.sprocket,PCF-011,Verify selected 'HP Sprocket Select' printer image updates
+COX_012,connection,connection/COX_012 - Verify selected HP Sprocket 2-in-1 printer image updates.yaml,com.hp.impulse.sprocket,PCF-012,Verify selected 'HP Sprocket 2-in-1' printer image updates
+COX_013,connection,connection/COX_013 - Verify selected HP Sprocket Plus printer image updates.yaml,com.hp.impulse.sprocket,PCF-013,Verify selected 'HP Sprocket Plus' printer image updates
+COX_014,connection,connection/COX_014 - Verify selected HP Sprocket Studio printer image updates.yaml,com.hp.impulse.sprocket,PCF-014,Verify selected 'HP Sprocket Studio' printer image updates
+COX_015,connection,connection/COX_015 - Verify selected HP Sprocket printer image updates.yaml,com.hp.impulse.sprocket,PCF-015,Verify selected 'HP Sprocket' printer image updates
+COX_016,connection,connection/COX_016 - Verify selected HP Sprocket Panorama printer image updates.yaml,com.hp.impulse.sprocket,PCF-016,Verify selected 'HP Sprocket Panorama' printer image updates
+COX_017,connection,connection/COX_017 - Verify that tapping the GET IT ON Google Play button redirec.yaml,com.hp.impulse.sprocket,PCF-017,Verify that tapping the 'GET IT ON Google Play' button redirects the user to the HP Sprocket Panorama app page on the Go
+COX_018,connection,connection/COX_018 - Verify that tapping the Download on the App Store button red.yaml,com.hp.impulse.sprocket,PCF-018,Verify that tapping the 'Download on the App Store' button redirects the user to the HP Sprocket Panorama app page on th
+COX_019,connection,connection/COX_019 - Verify Charge Power On Screen UI for the HP Sprocket 200.yaml,com.hp.impulse.sprocket,PCF_HP200_001,Verify 'Charge + Power On' Screen UI for the HP Sprocket 200
+COX_020,connection,connection/COX_020 - Verify the Load Paper screen UI for the HP Sprocket 200 prin.yaml,com.hp.impulse.sprocket,PCF_HP200_002,Verify the Load Paper screen UI for the HP Sprocket 200 printer.
+COX_021,connection,connection/COX_021 - Verify Previous Button on Load Paper Screen for the HP Sproc.yaml,com.hp.impulse.sprocket,PCF_HP200_003,Verify Previous Button on Load Paper Screen for the HP Sprocket 200 printer.
+COX_022,connection,connection/COX_022 - Verify Load Paper Info Popup for the HP Sprocket 200 printer.yaml,com.hp.impulse.sprocket,PCF_HP200_004,Verify 'Load Paper' Info Popup for the HP Sprocket 200 printer.
+COX_023,connection,connection/COX_023 - Verify Get Connected Screen UI for the HP Sprocket 200 print.yaml,com.hp.impulse.sprocket,PCF_HP200_005,Verify 'Get Connected' Screen UI for the HP Sprocket 200 printer.
+COX_024,connection,connection/COX_024 - Verify Previous Button on Get Connected Screen for the HP Sp.yaml,com.hp.impulse.sprocket,PCF_HP200_006,Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 200 printer.
+COX_025,connection,connection/COX_025 - Verify UI of Unable to Connect Info Popup screen.yaml,com.hp.impulse.sprocket,PCF_HP200_007,Verify UI of 'Unable to Connect ?' Info Popup screen
+COX_026,connection,connection/COX_026 - Verify Close Button on Unable to Connect Popup.yaml,com.hp.impulse.sprocket,PCF_HP200_008,Verify Close Button on Unable to Connect Popup
+COX_027,connection,connection/COX_027 - Verify Finish Setup Button for the HP Sprocket 200 printer.yaml,com.hp.impulse.sprocket,PCF_HP200_009,Verify 'Finish Setup' Button for the HP Sprocket 200 printer.
+COX_028,connection,connection/COX_028 - Verify Navigation to Enable the full Sprocket experience scr.yaml,com.hp.impulse.sprocket,PCF_HP200_010,Verify Navigation to 'Enable the full Sprocket experience' screen for HP200 printer
+COX_029,connection,connection/COX_029 - Verify that tapping Enable Bluetooth launches the Bluetooth .yaml,com.hp.impulse.sprocket,PCF_HP200_011,Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP200 printer
+COX_030,connection,connection/COX_030 - Verify that printer discovery starts automatically after Blu.yaml,com.hp.impulse.sprocket,PCF_HP200_012,Verify that printer discovery starts automatically after Bluetooth is enabled for HP 200
+COX_031,connection,connection/COX_031 - Verify User Cancels Bluetooth Enable Request for HP 200 prin.yaml,com.hp.impulse.sprocket,PCF_HP200_013,Verify User Cancels Bluetooth Enable Request for HP 200 printer
+COX_032,connection,connection/COX_032 - Verify Bluetooth Already Enabled Scenario for HP 200 printer.yaml,com.hp.impulse.sprocket,PCF_HP200_014,Verify Bluetooth Already Enabled Scenario for HP 200 printer
+COX_033,connection,connection/COX_033 - Verify Navigation to No Printers Found Screen for HP 200 pri.yaml,com.hp.impulse.sprocket,PCF_HP200_015,Verify Navigation to 'No Printers Found' Screen for HP 200 printer
+COX_034,connection,connection/COX_034 - Verify all UI elements displayed on the No Printers Found sc.yaml,com.hp.impulse.sprocket,PCF_HP200_016,Verify all UI elements displayed on the 'No Printers Found' screen for HP 200 printer
+COX_035,connection,connection/COX_035 - Verify that tapping Try Again restarts printer discovery for.yaml,com.hp.impulse.sprocket,PCF_HP200_017,Verify that tapping 'Try Again' restarts printer discovery for HP 200 printer
+COX_036,connection,connection/COX_036 - Verify Printer Found After Retry for HP 200 printer.yaml,com.hp.impulse.sprocket,PCF_HP200_018,Verify Printer Found After Retry for HP 200 printer
+COX_037,connection,connection/COX_037 - Verify No Printer Found Again After Retry.yaml,com.hp.impulse.sprocket,PCF_HP200_019,Verify No Printer Found Again After Retry
+COX_038,connection,connection/COX_038 - Verify Charge Power On Screen UI for the HP Sprocket 3x4.yaml,com.hp.impulse.sprocket,PCF_HP3*4_001,Verify 'Charge + Power On' Screen UI for the HP Sprocket 3x4
+COX_039,connection,connection/COX_039 - Verify the Load Paper screen UI for the HP Sprocket 3x4 prin.yaml,com.hp.impulse.sprocket,PCF_HP3*4_002,Verify the Load Paper screen UI for the HP Sprocket 3x4 printer.
+COX_040,connection,connection/COX_040 - Verify Previous Button on Load Paper Screen for the HP Sproc.yaml,com.hp.impulse.sprocket,PCF_HP3*4_003,Verify Previous Button on Load Paper Screen for the HP Sprocket 3x4 printer.
+COX_041,connection,connection/COX_041 - Verify Load Paper Info Popup for the HP Sprocket 3x4 printer.yaml,com.hp.impulse.sprocket,PCF_HP3*4_004,Verify 'Load Paper' Info Popup for the HP Sprocket 3x4 printer.
+COX_042,connection,connection/COX_042 - Verify Get Connected Screen UI for the HP Sprocket 3x4 print.yaml,com.hp.impulse.sprocket,PCF_HP3*4_005,Verify 'Get Connected' Screen UI for the HP Sprocket 3x4 printer.
+COX_043,connection,connection/COX_043 - Verify Previous Button on Get Connected Screen for the HP Sp.yaml,com.hp.impulse.sprocket,PCF_HP3*4_006,Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 3x4 printer.
+COX_044,connection,connection/COX_044 - Verify UI of Unable to Connect Info Popup screen.yaml,com.hp.impulse.sprocket,PCF_HP3*4_007,Verify UI of 'Unable to Connect ?' Info Popup screen
+COX_045,connection,connection/COX_045 - Verify Close Button on Unable to Connect Popup.yaml,com.hp.impulse.sprocket,PCF_HP3*4_008,Verify Close Button on Unable to Connect Popup
+COX_046,connection,connection/COX_046 - Verify Finish Setup Button for the HP Sprocket 3x4 printer.yaml,com.hp.impulse.sprocket,PCF_HP3*4_009,Verify 'Finish Setup' Button for the HP Sprocket 3x4 printer.
+COX_047,connection,connection/COX_047 - Verify Navigation to Enable the full Sprocket experience scr.yaml,com.hp.impulse.sprocket,PCF_HP3*4_010,Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket 3x4 printer
+COX_048,connection,connection/COX_048 - Verify that tapping Enable Bluetooth launches the Bluetooth .yaml,com.hp.impulse.sprocket,PCF_HP3*4_011,Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket 3x4 printer
+COX_049,connection,connection/COX_049 - Verify that printer discovery starts automatically after Blu.yaml,com.hp.impulse.sprocket,PCF_HP3*4_012,Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket 3x4
+COX_050,connection,connection/COX_050 - Verify User Cancels Bluetooth Enable Request for HP Sprocket.yaml,com.hp.impulse.sprocket,PCF_HP3*4_013,Verify User Cancels Bluetooth Enable Request for HP Sprocket 3x4 printer
+COX_051,connection,connection/COX_051 - Verify Bluetooth Already Enabled Scenario for HP Sprocket 3x.yaml,com.hp.impulse.sprocket,PCF_HP3*4_014,Verify Bluetooth Already Enabled Scenario for HP Sprocket 3x4 printer
+COX_052,connection,connection/COX_052 - Verify Navigation to No Printers Found Screen for HP Sprocke.yaml,com.hp.impulse.sprocket,PCF_HP3*4_015,Verify Navigation to 'No Printers Found' Screen for HP Sprocket 3x4 printer
+COX_053,connection,connection/COX_053 - Verify all UI elements displayed on the No Printers Found sc.yaml,com.hp.impulse.sprocket,PCF_HP3*4_016,Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket 3x4 printer
+COX_054,connection,connection/COX_054 - Verify that tapping Try Again restarts printer discovery for.yaml,com.hp.impulse.sprocket,PCF_HP3*4_017,Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket 3x4 printer
+COX_055,connection,connection/COX_055 - Verify Printer Found After Retry for HP Sprocket 3x4 printer.yaml,com.hp.impulse.sprocket,PCF_HP3*4_018,Verify Printer Found After Retry for HP Sprocket 3x4 printer
+COX_056,connection,connection/COX_056 - Verify No Printer Found Again After Retry.yaml,com.hp.impulse.sprocket,PCF_HP3*4_019,Verify No Printer Found Again After Retry
+COX_057,connection,connection/COX_057 - Verify Charge Power On Screen UI for the HP Sprocket Select.yaml,com.hp.impulse.sprocket,PCF_HPSelect_001,Verify 'Charge + Power On' Screen UI for the HP Sprocket Select
+COX_058,connection,connection/COX_058 - Verify the Load Paper screen UI for the HP Sprocket Select p.yaml,com.hp.impulse.sprocket,PCF_HPSelect_002,Verify the Load Paper screen UI for the HP Sprocket Select printer.
+COX_059,connection,connection/COX_059 - Verify Previous Button on Load Paper Screen for the HP Sproc.yaml,com.hp.impulse.sprocket,PCF_HPSelect_003,Verify Previous Button on Load Paper Screen for the HP Sprocket Select printer.
+COX_060,connection,connection/COX_060 - Verify Load Paper Info Popup for the HP Sprocket Select prin.yaml,com.hp.impulse.sprocket,PCF_HPSelect_004,Verify 'Load Paper' Info Popup for the HP Sprocket Select printer.
+COX_061,connection,connection/COX_061 - Verify Get Connected Screen UI for the HP Sprocket Select pr.yaml,com.hp.impulse.sprocket,PCF_HPSelect_005,Verify 'Get Connected' Screen UI for the HP Sprocket Select printer.
+COX_062,connection,connection/COX_062 - Verify Previous Button on Get Connected Screen for the HP Sp.yaml,com.hp.impulse.sprocket,PCF_HPSelect_006,Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket Select printer.
+COX_063,connection,connection/COX_063 - Verify UI of Unable to Connect Info Popup screen.yaml,com.hp.impulse.sprocket,PCF_HPSelect_007,Verify UI of 'Unable to Connect ?' Info Popup screen
+COX_064,connection,connection/COX_064 - Verify Close Button on Unable to Connect Popup.yaml,com.hp.impulse.sprocket,PCF_HPSelect_008,Verify Close Button on Unable to Connect Popup
+COX_065,connection,connection/COX_065 - Verify Finish Setup Button for the HP Sprocket Select printe.yaml,com.hp.impulse.sprocket,PCF_HPSelect_009,Verify 'Finish Setup' Button for the HP Sprocket Select printer.
+COX_066,connection,connection/COX_066 - Verify Navigation to Enable the full Sprocket experience scr.yaml,com.hp.impulse.sprocket,PCF_HPSelect_010,Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Select printer
+COX_067,connection,connection/COX_067 - Verify that tapping Enable Bluetooth launches the Bluetooth .yaml,com.hp.impulse.sprocket,PCF_HPSelect_011,Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Select printer
+COX_068,connection,connection/COX_068 - Verify that printer discovery starts automatically after Blu.yaml,com.hp.impulse.sprocket,PCF_HPSelect_012,Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Select
+COX_069,connection,connection/COX_069 - Verify User Cancels Bluetooth Enable Request for HP Sprocket.yaml,com.hp.impulse.sprocket,PCF_HPSelect_013,Verify User Cancels Bluetooth Enable Request for HP Sprocket Select printer
+COX_070,connection,connection/COX_070 - Verify Bluetooth Already Enabled Scenario for HP Sprocket Se.yaml,com.hp.impulse.sprocket,PCF_HPSelect_014,Verify Bluetooth Already Enabled Scenario for HP Sprocket Select printer
+COX_071,connection,connection/COX_071 - Verify Navigation to No Printers Found Screen for HP Sprocke.yaml,com.hp.impulse.sprocket,PCF_HPSelect_015,Verify Navigation to 'No Printers Found' Screen for HP Sprocket Select printer
+COX_072,connection,connection/COX_072 - Verify all UI elements displayed on the No Printers Found sc.yaml,com.hp.impulse.sprocket,PCF_HPSelect_016,Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket Select printer
+COX_073,connection,connection/COX_073 - Verify that tapping Try Again restarts printer discovery for.yaml,com.hp.impulse.sprocket,PCF_HPSelect_017,Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket Select printer
+COX_074,connection,connection/COX_074 - Verify Printer Found After Retry for HP Sprocket Select prin.yaml,com.hp.impulse.sprocket,PCF_HPSelect_018,Verify Printer Found After Retry for HP Sprocket Select printer
+COX_075,connection,connection/COX_075 - Verify No Printer Found Again After Retry.yaml,com.hp.impulse.sprocket,PCF_HPSelect_019,Verify No Printer Found Again After Retry
+COX_076,connection,connection/COX_076 - Verify Plug In Power On Screen for the HP Sprocket Studio.yaml,com.hp.impulse.sprocket,PCF_Studio_001,Verify Plug In + Power On Screen for the HP Sprocket Studio
+COX_077,connection,connection/COX_077 - Verify Learn More Popup.yaml,com.hp.impulse.sprocket,PCF_Studio_002,Verify Learn More Popup
+COX_078,connection,connection/COX_078 - Verify Shop Here Button.yaml,com.hp.impulse.sprocket,PCF_Studio_003,Verify Shop Here Button
+COX_079,connection,connection/COX_079 - Verify OK Button on Power Bank Popup.yaml,com.hp.impulse.sprocket,PCF_Studio_004,Verify OK Button on Power Bank Popup
+COX_080,connection,connection/COX_080 - Verify Next Navigation from Plug In Power On.yaml,com.hp.impulse.sprocket,PCF_Studio_005,Verify Next Navigation from Plug In + Power On
+COX_081,connection,connection/COX_081 - Verify Load Paper Information Popup.yaml,com.hp.impulse.sprocket,PCF_Studio_006,Verify Load Paper Information Popup
+COX_082,connection,connection/COX_082 - Verify Next Navigation from Load Paper.yaml,com.hp.impulse.sprocket,PCF_Studio_007,Verify Next Navigation from Load Paper
+COX_083,connection,connection/COX_083 - Verify Install Ink Cartridge Screen.yaml,com.hp.impulse.sprocket,PCF_Studio_008,Verify Install Ink Cartridge Screen
+COX_084,connection,connection/COX_084 - Verify Cartridge Information Popup.yaml,com.hp.impulse.sprocket,PCF_Studio_009,Verify Cartridge Information Popup
+COX_085,connection,connection/COX_085 - Verify Next Navigation from Install Ink Cartridge.yaml,com.hp.impulse.sprocket,PCF_Studio_010,Verify Next Navigation from Install Ink Cartridge
+COX_086,connection,connection/COX_086 - Verify Check Behind the Printer Screen.yaml,com.hp.impulse.sprocket,PCF_Studio_011,Verify Check Behind the Printer Screen
+COX_087,connection,connection/COX_087 - Verify Next Navigation from Check Behind the Printer.yaml,com.hp.impulse.sprocket,PCF_Studio_012,Verify Next Navigation from Check Behind the Printer
+COX_088,connection,connection/COX_088 - Verify Get Connected Screen.yaml,com.hp.impulse.sprocket,PCF_Studio_013,Verify Get Connected Screen
+COX_089,connection,connection/COX_089 - Verify Unable to Connect Popup.yaml,com.hp.impulse.sprocket,PCF_Studio_014,Verify Unable to Connect Popup
+COX_090,connection,connection/COX_090 - Verify Finish Setup Button.yaml,com.hp.impulse.sprocket,PCF_Studio_015,Verify Finish Setup Button
+COX_091,connection,connection/COX_091 - Verify Charge Power On Screen UI for the HP Sprocket.yaml,com.hp.impulse.sprocket,PCF_Sprocket_001,Verify 'Charge + Power On' Screen UI for the HP Sprocket
+COX_092,connection,connection/COX_092 - Verify the Load Paper screen UI for the HP Sprocket printer.yaml,com.hp.impulse.sprocket,PCF_Sprocket_002,Verify the Load Paper screen UI for the HP Sprocket  printer
+COX_093,connection,connection/COX_093 - Verify Previous Button on Load Paper Screen for the HP Sproc.yaml,com.hp.impulse.sprocket,PCF_Sprocket_003,Verify Previous Button on Load Paper Screen for the HP Sprocket  printer.
+COX_094,connection,connection/COX_094 - Verify Load Paper Info Popup for the HP Sprocket printer.yaml,com.hp.impulse.sprocket,PCF_Sprocket_004,Verify 'Load Paper' Info Popup for the HP Sprocket  printer.
+COX_095,connection,connection/COX_095 - Verify Get Connected Screen UI for the HP Sprocket printer.yaml,com.hp.impulse.sprocket,PCF_Sprocket_005,Verify 'Get Connected' Screen UI for the HP Sprocket  printer.
+COX_096,connection,connection/COX_096 - Verify Previous Button on Get Connected Screen for the HP Sp.yaml,com.hp.impulse.sprocket,PCF_Sprocket_006,Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket  printer.
+COX_097,connection,connection/COX_097 - Verify UI of Unable to Connect Info Popup screen.yaml,com.hp.impulse.sprocket,PCF_Sprocket_007,Verify UI of 'Unable to Connect ?' Info Popup screen
+COX_098,connection,connection/COX_098 - Verify Close Button on Unable to Connect Popup.yaml,com.hp.impulse.sprocket,PCF_Sprocket_008,Verify Close Button on Unable to Connect Popup
+COX_099,connection,connection/COX_099 - Verify Finish Setup Button for the HP Sprocket printer.yaml,com.hp.impulse.sprocket,PCF_Sprocket_009,Verify 'Finish Setup' Button for the HP Sprocket  printer.
+COX_100,connection,connection/COX_100 - Verify Navigation to Enable the full Sprocket experience scr.yaml,com.hp.impulse.sprocket,PCF_Sprocket_010,Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket printer
+COX_101,connection,connection/COX_101 - Verify that tapping Enable Bluetooth launches the Bluetooth .yaml,com.hp.impulse.sprocket,PCF_Sprocket_011,Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket printer
+COX_102,connection,connection/COX_102 - Verify that printer discovery starts automatically after Blu.yaml,com.hp.impulse.sprocket,PCF_Sprocket_012,Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket
+COX_103,connection,connection/COX_103 - Verify User Cancels Bluetooth Enable Request for HP Sprocket.yaml,com.hp.impulse.sprocket,PCF_Sprocket_013,Verify User Cancels Bluetooth Enable Request for HP Sprocket printer
+COX_104,connection,connection/COX_104 - Verify Bluetooth Already Enabled Scenario for HP Sprocket pr.yaml,com.hp.impulse.sprocket,PCF_Sprocket_014,Verify Bluetooth Already Enabled Scenario for HP Sprocket printer
+COX_105,connection,connection/COX_105 - Verify Navigation to No Printers Found Screen for HP Sprocke.yaml,com.hp.impulse.sprocket,PCF_Sprocket_015,Verify Navigation to 'No Printers Found' Screen for HP Sprocket printer
+COX_106,connection,connection/COX_106 - Verify all UI elements displayed on the No Printers Found sc.yaml,com.hp.impulse.sprocket,PCF_Sprocket_016,Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket printer
+COX_107,connection,connection/COX_107 - Verify that tapping Try Again restarts printer discovery for.yaml,com.hp.impulse.sprocket,PCF_Sprocket_017,Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket printer
+COX_108,connection,connection/COX_108 - Verify Printer Found After Retry for HP Sprocket printer for.yaml,com.hp.impulse.sprocket,PCF_Sprocket_018,Verify Printer Found After Retry for HP Sprocket printer for Android
+COX_109,connection,connection/COX_109 - Verify Printer Found After Retry for HP Sprocket printer for.yaml,com.hp.impulse.sprocket,PCF_Sprocket_019,Verify Printer Found After Retry for HP Sprocket printer for iOS
+COX_110,connection,connection/COX_110 - Verify No Printer Found Again After Retry.yaml,com.hp.impulse.sprocket,PCF_Sprocket_020,Verify No Printer Found Again After Retry
+COX_111,connection,connection/COX_111 - Verify Charge Power On Screen UI for the HP Sprocket Plus.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_001,Verify 'Charge + Power On' Screen UI for the HP Sprocket Plus
+COX_112,connection,connection/COX_112 - Verify the Load Paper screen UI for the HP Sprocket Plus pri.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_002,Verify the Load Paper screen UI for the HP Sprocket Plus printer.
+COX_113,connection,connection/COX_113 - Verify Previous Button on Load Paper Screen for the HP Sproc.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_003,Verify Previous Button on Load Paper Screen for the HP Sprocket Plus printer.
+COX_114,connection,connection/COX_114 - Verify Load Paper Info Popup for the HP Sprocket Plus printe.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_004,Verify 'Load Paper' Info Popup for the HP Sprocket Plus printer.
+COX_115,connection,connection/COX_115 - Verify Get Connected Screen UI for the HP Sprocket Plus prin.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_005,Verify 'Get Connected' Screen UI for the HP Sprocket Plus printer.
+COX_116,connection,connection/COX_116 - Verify Previous Button on Get Connected Screen for the HP Sp.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_006,Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket Plus printer.
+COX_117,connection,connection/COX_117 - Verify UI of Unable to Connect Info Popup screen.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_007,Verify UI of 'Unable to Connect ?' Info Popup screen
+COX_118,connection,connection/COX_118 - Verify Close Button on Unable to Connect Popup.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_008,Verify Close Button on Unable to Connect Popup
+COX_119,connection,connection/COX_119 - Verify Finish Setup Button for the HP Sprocket Plus printer.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_009,Verify 'Finish Setup' Button for the HP Sprocket Plus printer.
+COX_120,connection,connection/COX_120 - Verify Navigation to Enable the full Sprocket experience scr.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_010,Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Plus printer
+COX_121,connection,connection/COX_121 - Verify that tapping Enable Bluetooth launches the Bluetooth .yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_011,Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Plus printer
+COX_122,connection,connection/COX_122 - Verify that printer discovery starts automatically after Blu.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_012,Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket Plus
+COX_123,connection,connection/COX_123 - Verify User Cancels Bluetooth Enable Request for HP Sprocket.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_013,Verify User Cancels Bluetooth Enable Request for HP Sprocket Plus printer
+COX_124,connection,connection/COX_124 - Verify Bluetooth Already Enabled Scenario for HP Sprocket Pl.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_014,Verify Bluetooth Already Enabled Scenario for HP Sprocket Plus printer
+COX_125,connection,connection/COX_125 - Verify Navigation to No Printers Found Screen for HP Sprocke.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_015,Verify Navigation to 'No Printers Found' Screen for HP Sprocket Plus printer
+COX_126,connection,connection/COX_126 - Verify all UI elements displayed on the No Printers Found sc.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_016,Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket Plus printer
+COX_127,connection,connection/COX_127 - Verify that tapping Try Again restarts printer discovery for.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_017,Verify that tapping 'Try Again' restarts printer discovery for HP Sprocket Plus printer
+COX_128,connection,connection/COX_128 - Verify Printer Found After Retry for HP Sprocket Plus printe.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_018,Verify Printer Found After Retry for HP Sprocket Plus printer
+COX_129,connection,connection/COX_129 - Verify Printer Found After Retry for HP Sprocket Plus printe.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_019,Verify Printer Found After Retry for HP Sprocket Plus printer
+COX_130,connection,connection/COX_130 - Verify No Printer Found Again After Retry.yaml,com.hp.impulse.sprocket,PCF_Sprocket Plus_020,Verify No Printer Found Again After Retry
+COX_131,connection,connection/COX_131 - Verify HP Sprocket Studio Plus Intro Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_001,Verify HP Sprocket Studio Plus Intro Screen
+COX_132,connection,connection/COX_132 - Verify that tapping Next navigates to the next onboarding sc.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_002,Verify that tapping Next navigates to the next onboarding screen.
+COX_133,connection,connection/COX_133 - Verify Load Paper Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_003,Verify Load Paper Screen
+COX_134,connection,connection/COX_134 - Verify Paper Type Information Popup.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_004,Verify Paper Type Information Popup
+COX_135,connection,connection/COX_135 - Verify Close Button on Paper Type Popup.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_005,Verify Close Button on Paper Type Popup
+COX_136,connection,connection/COX_136 - Verify Next Button on Load Paper Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_006,Verify Next Button on Load Paper Screen
+COX_137,connection,connection/COX_137 - Verify Install Ink Cartridge Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_007,Verify Install Ink Cartridge Screen
+COX_138,connection,connection/COX_138 - Verify Next Button on Install Ink Cartridge Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_008,Verify Next Button on Install Ink Cartridge Screen
+COX_139,connection,connection/COX_139 - Verify Power On Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_009,Verify Power On Screen
+COX_140,connection,connection/COX_140 - Verify Next Button on Power On Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_010,Verify Next Button on Power On Screen
+COX_141,connection,connection/COX_141 - Verify Check Behind the Printer Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_011,Verify Check Behind the Printer Screen
+COX_142,connection,connection/COX_142 - Verify Next Button on Check Behind the Printer Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_012,Verify Next Button on Check Behind the Printer Screen
+COX_143,connection,connection/COX_143 - Verify Ready for Wi-Fi Connection Screen.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_013,Verify Ready for Wi-Fi Connection Screen
+COX_144,connection,connection/COX_144 - Verify that the Previous button navigates to the previous se.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_014,Verify that the Previous button navigates to the previous setup screen.
+COX_145,connection,connection/COX_145 - Verify Finish Setup Button.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_015,Verify Finish Setup Button
+COX_146,connection,connection/COX_146 - Verify that tapping the Close X button exits the setup flow.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_016,Verify that tapping the Close (X) button exits the setup flow.
+COX_147,connection,connection/COX_147 - Verify that tapping on Exit button close the set up flow.yaml,com.hp.impulse.sprocket,PCF_Studio Plus_017,Verify that tapping on 'Exit' button close the set up flow
+COX_148,connection,connection/COX_148 - Verify that tapping on Continue button to remain on the set .yaml,com.hp.impulse.sprocket,PCF_Studio Plus_018,Verify that tapping on 'Continue' button to remain on the set up flow
+COX_149,connection,connection/COX_149 - Verify selected printer remains highlighted.yaml,com.hp.impulse.sprocket,General_PCF-001,Verify selected printer remains highlighted
+COX_150,connection,connection/COX_150 - Verify Continue button functionality.yaml,com.hp.impulse.sprocket,General_PCF-002,Verify Continue button functionality
+COX_151,connection,connection/COX_151 - Verify loading state during Printers discovery.yaml,com.hp.impulse.sprocket,General_PCF-003,Verify loading state during Printers discovery
+COX_152,connection,connection/COX_152 - Verify loading state spinner timing during Printers discover.yaml,com.hp.impulse.sprocket,General_PCF-004,Verify loading state spinner timing during Printers discovery
+COX_153,connection,connection/COX_153 - Navigate to No Printers Found screen.yaml,com.hp.impulse.sprocket,General_PCF-005,Navigate to 'No Printers Found' screen
+COX_154,connection,connection/COX_154 - Verify Try Again button functionality at No Printers Found s.yaml,com.hp.impulse.sprocket,General_PCF-006,Verify 'Try Again' button functionality at 'No Printers Found' screen
+COX_155,connection,connection/COX_155 - Verify printer list population.yaml,com.hp.impulse.sprocket,General_PCF-007,Verify printer list population
+COX_156,connection,connection/COX_156 - Verify loading spinner is displayed for selected printer.yaml,com.hp.impulse.sprocket,General_PCF-008,Verify loading spinner is displayed for selected printer
+COX_157,connection,connection/COX_157 - Verify other printer buttons are disabled during connection.yaml,com.hp.impulse.sprocket,General_PCF-009,Verify other printer buttons are disabled during connection
+COX_158,connection,connection/COX_158 - Verify Close X button is disabled during connection attempt.yaml,com.hp.impulse.sprocket,General_PCF-010,Verify Close (X) button is disabled during connection attempt
+COX_159,connection,connection/COX_159 - Verify successful connection.yaml,com.hp.impulse.sprocket,General_PCF-011,Verify successful connection
+COX_160,connection,connection/COX_160 - Verify behavior when Bluetooth is turned OFF on Success scre.yaml,com.hp.impulse.sprocket,General_PCF-012,Verify behavior when Bluetooth is turned OFF on Success screen
+COX_161,connection,connection/COX_161 - Verify Finish Connection behavior after Bluetooth OFF.yaml,com.hp.impulse.sprocket,General_PCF-013,Verify Finish Connection behavior after Bluetooth OFF
+COX_162,connection,connection/COX_162 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600 connection flow,
+COX_163,connection,connection/COX_163 - Verify Searching for Printers screen.yaml,com.hp.impulse.sprocket,HP600_CONN_TC001,Verify Searching for Printers screen
+COX_164,connection,connection/COX_164 - Verify only HP600 printers listed.yaml,com.hp.impulse.sprocket,HP600_CONN_TC002,Verify only HP600 printers listed
+COX_165,connection,connection/COX_165 - Verify icon.yaml,com.hp.impulse.sprocket,HP600_CONN_TC003,Verify + icon
+COX_166,connection,connection/COX_166 - Verify tap starts connection.yaml,com.hp.impulse.sprocket,HP600_CONN_TC004,Verify tap + starts connection
+COX_167,connection,connection/COX_167 - Verify No Printer Found.yaml,com.hp.impulse.sprocket,HP600_CONN_TC005,Verify No Printer Found
+COX_168,connection,connection/COX_168 - Verify Try Again restarts printer discovery.yaml,com.hp.impulse.sprocket,HP600_CONN_TC006,Verify 'Try Again' restarts printer discovery
+COX_169,connection,connection/COX_169 - Verify searching spinner is displayed during discovery.yaml,com.hp.impulse.sprocket,HP600_CONN_TC007,Verify searching spinner is displayed during discovery
+COX_170,connection,connection/COX_170 - Verify HP600 printer details are displayed.yaml,com.hp.impulse.sprocket,HP600_CONN_TC008,Verify HP600 printer details are displayed
+COX_171,connection,connection/COX_171 - Verify Close exits discovery.yaml,com.hp.impulse.sprocket,HP600_CONN_TC009,Verify Close exits discovery
+COX_172,connection,connection/COX_172 - Verify button is enabled.yaml,com.hp.impulse.sprocket,HP600_CONN_TC010,Verify '+' button is enabled
+COX_173,connection,connection/COX_173 - Verify connection process starts after selecting printer.yaml,com.hp.impulse.sprocket,HP600_CONN_TC011,Verify connection process starts after selecting printer
+COX_174,connection,connection/COX_174 - Verify Bluetooth OFF flow on Android.yaml,com.hp.impulse.sprocket,HP600_CONN_TC012,Verify Bluetooth OFF flow on Android
+COX_175,connection,connection/COX_175 - Verify Bluetooth OFF flow on iOS.yaml,com.hp.impulse.sprocket,HP600_CONN_TC013,Verify Bluetooth OFF flow on iOS
+COX_176,connection,connection/COX_176 - Verify Printer Already Added screen.yaml,com.hp.impulse.sprocket,HP600_CONN_TC014,Verify Printer Already Added screen
+COX_177,connection,connection/COX_177 - Verify Done button.yaml,com.hp.impulse.sprocket,HP600_CONN_TC015,Verify Done button
+COX_178,connection,connection/COX_178 - Verify This Printer uses wi-fi screen for Android.yaml,com.hp.impulse.sprocket,HP600_CONN_TC016,Verify 'This Printer uses wi-fi screen' for Android
+COX_179,connection,connection/COX_179 - Verify the functionality of the Cancel button on the This pr.yaml,com.hp.impulse.sprocket,HP600_CONN_TC017,Verify the functionality of the Cancel button on the This printer uses Wi-Fi screen.
+COX_180,connection,connection/COX_180 - Verify the functionality of the Open Settings button on Andr.yaml,com.hp.impulse.sprocket,HP600_CONN_TC018,Verify the functionality of the Open Settings button on Android.
+COX_181,connection,connection/COX_181 - Verify This Printer uses wi-fi screen for Android.yaml,com.hp.impulse.sprocket,HP600_CONN_TC019,Verify 'This Printer uses wi-fi screen' for Android
+COX_182,connection,connection/COX_182 - Verify that the app remains on the Wi-Fi instruction screen .yaml,com.hp.impulse.sprocket,HP600_CONN_TC020,Verify that the app remains on the Wi-Fi instruction screen when the phone is not connected to a Wi-Fi network.
+COX_183,connection,connection/COX_183 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC021,
+COX_184,connection,connection/COX_184 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC022,
+COX_185,connection,connection/COX_185 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC023,
+COX_186,connection,connection/COX_186 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC024,
+COX_187,connection,connection/COX_187 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC025,
+COX_188,connection,connection/COX_188 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC026,
+COX_189,connection,connection/COX_189 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC027,
+COX_190,connection,connection/COX_190 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC028,
+COX_191,connection,connection/COX_191 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC029,
+COX_192,connection,connection/COX_192 - Connection Flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC030,
+COX_193,connection,connection/COX_193 - Verify Connect Printer to Wi-Fi screen.yaml,com.hp.impulse.sprocket,HP600_CONN_TC031,Verify Connect Printer to Wi-Fi screen
+COX_194,connection,connection/COX_194 - Verify current SSID.yaml,com.hp.impulse.sprocket,HP600_CONN_TC032,Verify current SSID
+COX_195,connection,connection/COX_195 - Verify Change option.yaml,com.hp.impulse.sprocket,HP600_CONN_TC033,Verify Change option
+COX_196,connection,connection/COX_196 - Verify Wi-Fi list.yaml,com.hp.impulse.sprocket,HP600_CONN_TC034,Verify Wi-Fi list
+COX_197,connection,connection/COX_197 - Verify selecting another network.yaml,com.hp.impulse.sprocket,HP600_CONN_TC035,Verify selecting another network
+COX_198,connection,connection/COX_198 - Verify password entry.yaml,com.hp.impulse.sprocket,HP600_CONN_TC036,Verify password entry
+COX_199,connection,connection/COX_199 - Verify showhide password.yaml,com.hp.impulse.sprocket,HP600_CONN_TC037,Verify show/hide password
+COX_200,connection,connection/COX_200 - Verify Next enabled.yaml,com.hp.impulse.sprocket,HP600_CONN_TC038,Verify Next enabled
+COX_201,connection,connection/COX_201 - Verify loading.yaml,com.hp.impulse.sprocket,HP600_CONN_TC039,Verify loading
+COX_202,connection,connection/COX_202 - Verify connection starts.yaml,com.hp.impulse.sprocket,HP600_CONN_TC040,Verify connection starts
+COX_203,connection,connection/COX_203 - Verify loading indicator while connecting.yaml,com.hp.impulse.sprocket,HP600_CONN_TC041,Verify loading indicator while connecting
+COX_204,connection,connection/COX_204 - Verify loading screen remains until completion.yaml,com.hp.impulse.sprocket,HP600_CONN_TC042,Verify loading screen remains until completion
+COX_205,connection,connection/COX_205 - Verify Set Up Complete screen after successful connection.yaml,com.hp.impulse.sprocket,HP600_CONN_TC043,Verify Set Up Complete screen after successful connection
+COX_206,connection,connection/COX_206 - Verify Set Up Complete screen contents.yaml,com.hp.impulse.sprocket,HP600_CONN_TC044,Verify Set Up Complete screen contents
+COX_207,connection,connection/COX_207 - Verify Finish Connection button.yaml,com.hp.impulse.sprocket,HP600_CONN_TC045,Verify Finish Connection button
+COX_208,connection,connection/COX_208 - Verify navigation to Your Printers.yaml,com.hp.impulse.sprocket,HP600_CONN_TC046,Verify navigation to Your Printers
+COX_209,connection,connection/COX_209 - Verify newly connected printer in list.yaml,com.hp.impulse.sprocket,HP600_CONN_TC047,Verify newly connected printer in list
+COX_210,connection,connection/COX_210 - Verify connected printer status.yaml,com.hp.impulse.sprocket,HP600_CONN_TC048,Verify connected printer status
+COX_211,connection,connection/COX_211 - Verify printer can be selected.yaml,com.hp.impulse.sprocket,HP600_CONN_TC049,Verify printer can be selected
+COX_212,connection,connection/COX_212 - Verify no duplicate printer entry.yaml,com.hp.impulse.sprocket,HP600_CONN_TC050,Verify no duplicate printer entry
+COX_213,connection,connection/COX_213 - Verify Couldnt Connect screen.yaml,com.hp.impulse.sprocket,HP600_CONN_TC051,Verify Couldn't Connect screen
+COX_214,connection,connection/COX_214 - Verify Couldnt Connect UI.yaml,com.hp.impulse.sprocket,HP600_CONN_TC052,Verify Couldn't Connect UI
+COX_215,connection,connection/COX_215 - Verify Try Again.yaml,com.hp.impulse.sprocket,HP600_CONN_TC053,Verify Try Again
+COX_216,connection,connection/COX_216 - Verify Cancel.yaml,com.hp.impulse.sprocket,HP600_CONN_TC054,Verify Cancel
+COX_217,connection,connection/COX_217 - Verify incorrect Wi-Fi password.yaml,com.hp.impulse.sprocket,HP600_CONN_TC055,Verify incorrect Wi-Fi password
+COX_218,connection,connection/COX_218 - Verify printer powered off.yaml,com.hp.impulse.sprocket,HP600_CONN_TC056,Verify printer powered off
+COX_219,connection,connection/COX_219 - Verify printer out of Bluetooth range.yaml,com.hp.impulse.sprocket,HP600_CONN_TC057,Verify printer out of Bluetooth range
+COX_220,connection,connection/COX_220 - Verify phone disconnects from Wi-Fi.yaml,com.hp.impulse.sprocket,HP600_CONN_TC058,Verify phone disconnects from Wi-Fi
+COX_221,connection,connection/COX_221 - Verify connection timeout.yaml,com.hp.impulse.sprocket,HP600_CONN_TC059,Verify connection timeout
+COX_222,connection,connection/COX_222 - Verify reconnect after Try Again.yaml,com.hp.impulse.sprocket,HP600_CONN_TC060,Verify reconnect after Try Again
+COX_223,connection,connection/COX_223 - Verify No Wi-Fi Available screen.yaml,com.hp.impulse.sprocket,HP600_CONN_TC061,Verify No Wi-Fi Available screen
+COX_224,connection,connection/COX_224 - Verify Cancel on No Wi-Fi Available.yaml,com.hp.impulse.sprocket,HP600_CONN_TC062,Verify Cancel on No Wi-Fi Available
+COX_225,connection,connection/COX_225 - Verify Open Settings Android.yaml,com.hp.impulse.sprocket,HP600_CONN_TC063,Verify Open Settings (Android)
+COX_226,connection,connection/COX_226 - Verify iOS No Wi-Fi flow.yaml,com.hp.impulse.sprocket,HP600_CONN_TC064,Verify iOS No Wi-Fi flow
+COX_227,connection,connection/COX_227 - Verify Connect to DIRECT-xxxx screen.yaml,com.hp.impulse.sprocket,HP600_CONN_TC065,Verify Connect to DIRECT-xxxx screen
+COX_228,connection,connection/COX_228 - Verify Android DIRECT connection.yaml,com.hp.impulse.sprocket,HP600_CONN_TC066,Verify Android DIRECT connection
+COX_229,connection,connection/COX_229 - Verify iOS DIRECT connection.yaml,com.hp.impulse.sprocket,HP600_CONN_TC067,Verify iOS DIRECT connection
+COX_230,connection,connection/COX_230 - Verify loading after DIRECT connection.yaml,com.hp.impulse.sprocket,HP600_CONN_TC068,Verify loading after DIRECT connection
+COX_231,connection,connection/COX_231 - Verify successful Wi-Fi Direct setup.yaml,com.hp.impulse.sprocket,HP600_CONN_TC069,Verify successful Wi-Fi Direct setup
+COX_232,connection,connection/COX_232 - Verify failed Wi-Fi Direct setup.yaml,com.hp.impulse.sprocket,HP600_CONN_TC070,Verify failed Wi-Fi Direct setup
+COX_233,connection,connection/COX_233 - Verify complete Printer Settings screen preview.yaml,com.hp.impulse.sprocket,PS-001,Verify complete Printer Settings screen preview
+COX_234,connection,connection/COX_234 - Verify Nickname update and persistence.yaml,com.hp.impulse.sprocket,PS-002,Verify Nickname update and persistence
+COX_235,connection,connection/COX_235 - Verify Printer Status and Battery field visibility.yaml,com.hp.impulse.sprocket,PS-003,Verify Printer Status and Battery field visibility
+COX_236,connection,connection/COX_236 - Verify LED Color update and persistence.yaml,com.hp.impulse.sprocket,PS-004,Verify LED Color update and persistence
+COX_237,connection,connection/COX_237 - Verify Sleep Timer update and persistence.yaml,com.hp.impulse.sprocket,PS-005,Verify Sleep Timer update and persistence
+COX_238,connection,connection/COX_238 - Verify Auto Off update and persistence.yaml,com.hp.impulse.sprocket,PS-006,Verify Auto Off update and persistence
+COX_239,connection,connection/COX_239 - Verify System section and MAC Address field visibility.yaml,com.hp.impulse.sprocket,PS-007,Verify System section and MAC Address field visibility
+COX_240,connection,connection/COX_240 - Verify Firmware Version field visibility.yaml,com.hp.impulse.sprocket,PS-008,Verify Firmware Version field visibility
+COX_241,connection,connection/COX_241 - Printer Settings.yaml,com.hp.impulse.sprocket,PS-009,
+COX_242,connection,connection/COX_242 - Printer Settings.yaml,com.hp.impulse.sprocket,PS-010,
+COX_243,connection,connection/COX_243 - Printer Settings.yaml,com.hp.impulse.sprocket,PS-011,
+COX_244,connection,connection/COX_244 - Printer Settings.yaml,com.hp.impulse.sprocket,PS-012,
+COX_245,connection,connection/COX_245 - Verify Firmware Update Available popup is displayed.yaml,com.hp.impulse.sprocket,PS-013,Verify Firmware Update Available popup is displayed
+COX_246,connection,connection/COX_246 - Verify Not Right Now button functionality.yaml,com.hp.impulse.sprocket,PS-014,Verify Not Right Now button functionality
+COX_247,connection,connection/COX_247 - Firmware Update.yaml,com.hp.impulse.sprocket,PS-015,
+COX_248,connection,connection/COX_248 - Verify Firmware Download in Progress state.yaml,com.hp.impulse.sprocket,PS-016,Verify Firmware Download in Progress state
+COX_249,connection,connection/COX_249 - Verify Firmware Installation in Progress state.yaml,com.hp.impulse.sprocket,PS-017,Verify Firmware Installation in Progress state
+COX_250,connection,connection/COX_250 - Verify successful firmware update completion.yaml,com.hp.impulse.sprocket,PS-018,Verify successful firmware update completion
+COX_251,connection,connection/COX_251 - Verify Printer Detail screen UI elements after successful pr.yaml,com.hp.impulse.sprocket,PS-019,Verify Printer Detail screen UI elements after successful printer connection
+COX_252,connection,connection/COX_252 - Verify Manage Printers screen and printer list.yaml,com.hp.impulse.sprocket,PS-020,Verify Manage Printers screen and printer list
+COX_253,connection,connection/COX_253 - Verify navigation to Printer Detail screen from printer list.yaml,com.hp.impulse.sprocket,PS-021,Verify navigation to Printer Detail screen from printer list
+COX_254,connection,connection/COX_254 - Printers detail pages.yaml,com.hp.impulse.sprocket,PS-022,
+COX_255,connection,connection/COX_255 - Printers detail pages.yaml,com.hp.impulse.sprocket,PS-023,

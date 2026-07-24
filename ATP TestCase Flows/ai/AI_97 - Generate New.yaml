@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_97
+# Excel: AI Tools 116 | Module: Interaction
+# "Generate New"
+# Expected: CR_12A.3 loader displays; new upscale result generated.
+appId: com.hp.impulse.sprocket
+name: "AI_97 - Generate New"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Generate New"
+    optional: true

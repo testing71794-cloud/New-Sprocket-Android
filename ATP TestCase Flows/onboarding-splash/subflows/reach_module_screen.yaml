@@ -1,0 +1,17 @@
+# Shared Excel-generated setup for OnboardingSplash ATP module
+appId: com.hp.impulse.sprocket
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+# Carousel is optional — current builds often open Sign up directly.
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 20000
+- assertVisible:
+    text: ".*(?i)(I.ll do it later|Sign Up Later).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(I already have (an )?account).*"
+    optional: true

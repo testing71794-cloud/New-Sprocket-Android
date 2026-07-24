@@ -1,0 +1,20 @@
+# ATP Test Case ID: PC_07
+# Excel: Precut_07 | Module: Warning Pop-up
+# Verify "Got It" and "Don't Show Again" behavior.
+# Expected: Popup behaves correctly and user preference is maintained.
+appId: com.hp.impulse.sprocket
+name: "PC_07 - Verify Got It and Dont Show Again behavior"
+tags:
+  - precut
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Got It"
+    optional: true
+- assertVisible:
+    text: "Don"
+    optional: true
+- assertVisible:
+    text: "Don't Show Again"
+    optional: true

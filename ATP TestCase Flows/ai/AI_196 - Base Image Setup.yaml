@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_196
+# Excel: AI Tools 211 | Module: Selection
+# Base Image Setup
+# Expected: Redirect to Main Screen; "Change Photo" and "Crop Photo" options displayed.
+appId: com.hp.impulse.sprocket
+name: "AI_196 - Base Image Setup"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Change Photo"
+    optional: true
+- assertVisible:
+    text: "Crop Photo"
+    optional: true

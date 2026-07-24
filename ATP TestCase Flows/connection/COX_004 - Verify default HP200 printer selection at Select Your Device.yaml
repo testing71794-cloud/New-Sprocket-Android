@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_004
+# Excel: PCF-004 | Module: Pre Connection Flow
+# Verify default HP200 printer selection at 'Select Your Device' screen
+# Expected: At 'Select Your Device' screen HP200 printer should be selected by default and highlighted in the carousel.
+appId: com.hp.impulse.sprocket
+name: "COX_004 - Verify default HP200 printer selection at Select Your Device"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Select Your Device"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

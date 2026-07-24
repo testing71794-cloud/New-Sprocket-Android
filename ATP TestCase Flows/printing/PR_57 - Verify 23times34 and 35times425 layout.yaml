@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_57
+# Excel: Print Preview Screen 57 | Module: Paper Type
+# Verify $2.3\times3.4"$ and $3.5\times4.25"$ layout
+# Expected: Preview canvas adjusts correctly to specific aspect ratio.
+appId: com.hp.impulse.sprocket
+name: "PR_57 - Verify 23times34 and 35times425 layout"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "$ and $3.5\times4.25"
+    optional: true

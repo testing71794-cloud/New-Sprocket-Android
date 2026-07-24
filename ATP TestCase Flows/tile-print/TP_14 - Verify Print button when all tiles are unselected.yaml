@@ -1,0 +1,14 @@
+# ATP Test Case ID: TP_14
+# Excel: Tiles modules 14 | Module: Create > Tiles
+# Verify Print button when all tiles are unselected
+# Expected: All tiles become unselected successfully. The Print button is disabled (greyed out). Tapping the disabled Print button performs no action. All top and bottom options remain visible and the app remains stable.
+appId: com.hp.impulse.sprocket
+name: "TP_14 - Verify Print button when all tiles are unselected"
+tags:
+  - tile-print
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true

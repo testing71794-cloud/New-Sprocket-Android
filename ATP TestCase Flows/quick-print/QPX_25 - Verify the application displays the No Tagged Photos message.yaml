@@ -1,0 +1,17 @@
+# ATP Test Case ID: QPX_25
+# Excel: QUICK PRINT 25 | Module: Facebook Gallery - Invalid Tag Search
+# Verify the application displays the "No Tagged Photos" message when the user searches with an invalid Facebook tag.
+# Expected: The application displays the "No Tagged Photos" message with the description "Please try searching another tag." when no matching tag is found.
+appId: com.hp.impulse.sprocket
+name: "QPX_25 - Verify the application displays the No Tagged Photos message"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "No Tagged Photos"
+    optional: true
+- assertVisible:
+    text: "Please try searching another tag."
+    optional: true

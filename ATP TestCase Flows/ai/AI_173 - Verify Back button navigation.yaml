@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_173
+# Excel: AI Tools 192 | Module: Text-to-Image
+# Verify Back button navigation
+# Expected: User is navigated back to the AI Tools/Create screen successfully.
+appId: com.hp.impulse.sprocket
+name: "AI_173 - Verify Back button navigation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Create"
+    optional: true

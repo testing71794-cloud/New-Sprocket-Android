@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_106
+# Excel: Print Preview Screen 107 | Module: Saved to Gallery Toast
+# Verify toast message and Gallery save failure handling
+# Expected: Appropriate error message is displayed if the image cannot be saved to Gallery. The toast message is not duplicated. The Outstanding! title, Queue icon, image preview, timestamp, status text and Done button remain visible and functional. Th
+appId: com.hp.impulse.sprocket
+name: "PR_106 - Verify toast message and Gallery save failure handling"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

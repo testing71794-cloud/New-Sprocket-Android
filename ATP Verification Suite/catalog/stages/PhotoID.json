@@ -1,0 +1,920 @@
+{
+  "stage": "PhotoID",
+  "count": 23,
+  "cases": [
+    {
+      "test_id": "Photo ID 01",
+      "module": "Onboarding",
+      "section": "PHOTO ID",
+      "description": "Verify camera permission popup and Photo ID onboarding popup",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!.",
+        "4. On Sign Up screen tap Sign Up Later.",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Open the feature for the first time.",
+        "8. Verify \"Sprocket would like to access the Camera\" popup appears.",
+        "9. Tap Allow.",
+        "10. Verify Photo ID Mode onboarding popup appears.",
+        "11. Verify popup title \"Photo ID Mode\" and description text are displayed.",
+        "12. Tap OK.",
+        "13. Verify popup closes and Photo ID camera screen appears."
+      ],
+      "type": "Positive",
+      "expected": "Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1314,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 01",
+          "module": "Onboarding",
+          "stage": "PhotoID",
+          "description": "Verify camera permission popup and Photo ID onboarding popup",
+          "expected": "Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.",
+          "verification": "Verify dialog: Photo ID",
+          "kind": "dialog",
+          "selector": "Photo ID"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 02",
+      "module": "Permission",
+      "section": "PHOTO ID",
+      "description": "Verify camera permission denial",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!.",
+        "4. On Sign Up screen tap \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Open the feature for the first time.",
+        "8. Verify \"Sprocket would like to access the Camera\" popup appears.",
+        "9. Tap Don't Allow."
+      ],
+      "type": "Negative",
+      "expected": "Camera screen does not open. Permission error/message is displayed and app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1327,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 02",
+          "module": "Permission",
+          "stage": "PhotoID",
+          "description": "Verify camera permission denial",
+          "expected": "Camera screen does not open. Permission error/message is displayed and app remains stable.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID  03",
+      "module": "UI Verification",
+      "section": "PHOTO ID",
+      "description": "Verify Photo ID default UI layout",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!.",
+        "4. On Sign Up screen tap \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow on camera permission popup.",
+        "8. Tap OK on onboarding popup.",
+        "9. Verify Photo ID screen appears.",
+        "10. Verify Front camera opens by default.",
+        "11. Verify 2×2 ratio is selected by default.",
+        "12. Verify Back Arrow icon at top-left.",
+        "13. Verify Timer icon at top-right.",
+        "14. Verify Flash OFF icon at bottom-left.",
+        "15. Verify Shutter button at bottom-center.",
+        "16. Verify Flip Camera icon at bottom-right."
+      ],
+      "type": "Positive",
+      "expected": "All Photo ID UI elements are displayed correctly and Front camera opens by default.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1336,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID  03",
+          "module": "UI Verification",
+          "stage": "PhotoID",
+          "description": "Verify Photo ID default UI layout",
+          "expected": "All Photo ID UI elements are displayed correctly and Front camera opens by default.",
+          "verification": "Verify navigation marker: Photo ID",
+          "kind": "navigation",
+          "selector": "Photo ID"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID  04",
+      "module": "UI Verification",
+      "section": "PHOTO ID",
+      "description": "Verify Photo ID UI after camera permission denied",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!.",
+        "4. On Sign Up screen tap  \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Don't Allow on camera permission popup.",
+        "8. Observe screen."
+      ],
+      "type": "Negative",
+      "expected": "Photo ID camera preview is not displayed and user receives camera permission message.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1352,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID  04",
+          "module": "UI Verification",
+          "stage": "PhotoID",
+          "description": "Verify Photo ID UI after camera permission denied",
+          "expected": "Photo ID camera preview is not displayed and user receives camera permission message.",
+          "verification": "Verify permission UI: Photo ID",
+          "kind": "permission",
+          "selector": "Photo ID"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 05",
+      "module": "Aspect Ratio",
+      "section": "PHOTO ID",
+      "description": "Verify aspect ratio switching",
+      "steps": [
+        "1. Launch the app and complete onboarding.",
+        "2. Tap Get Started!.",
+        "3. Tap  \"Sign Up Later\".",
+        "4. Open Photo ID module.",
+        "5. Allow camera permission.",
+        "6. Tap OK on onboarding popup.",
+        "7. Verify 2×2 is selected by default.",
+        "8. Tap 1×1 and observe preview.",
+        "9. Tap 1.4×1.8 and observe preview.",
+        "10. Tap 1.3×1.9 and observe preview.",
+        "11. Tap 2×2 again."
+      ],
+      "type": "Positive",
+      "expected": "Selected aspect ratio is highlighted and preview guide changes according to selected size.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1360,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 05",
+          "module": "Aspect Ratio",
+          "stage": "PhotoID",
+          "description": "Verify aspect ratio switching",
+          "expected": "Selected aspect ratio is highlighted and preview guide changes according to selected size.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 06",
+      "module": "Aspect Ratio",
+      "section": "PHOTO ID",
+      "description": "Verify rapid aspect ratio switching",
+      "steps": [
+        "1. Launch app and navigate to Photo ID screen.",
+        "2. Tap 1×1, 1.4×1.8, 1.3×1.9, and 2×2 repeatedly.",
+        "3. Observe preview and UI state."
+      ],
+      "type": "Negative",
+      "expected": "UI remains stable and only one ratio remains selected at a time.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1371,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 06",
+          "module": "Aspect Ratio",
+          "stage": "PhotoID",
+          "description": "Verify rapid aspect ratio switching",
+          "expected": "UI remains stable and only one ratio remains selected at a time.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID  07",
+      "module": "Timer",
+      "section": "PHOTO ID",
+      "description": "Verify Timer submenu and selection",
+      "steps": [
+        "1. Launch app and navigate to Photo ID screen.",
+        "2. Verify Timer icon at top-right.",
+        "3. Tap Timer icon.",
+        "4. Verify options Timer Off, 3s, 5s, and 10s are displayed.",
+        "5. Select 3s.",
+        "6. Verify Timer icon changes to active state.",
+        "7. Repeat for 5s and 10s."
+      ],
+      "type": "Positive",
+      "expected": "Timer submenu opens successfully and selected timer becomes active.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1374,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID  07",
+          "module": "Timer",
+          "stage": "PhotoID",
+          "description": "Verify Timer submenu and selection",
+          "expected": "Timer submenu opens successfully and selected timer becomes active.",
+          "verification": "Verify navigation marker: Timer",
+          "kind": "navigation",
+          "selector": "Timer"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 08",
+      "module": "Timer",
+      "section": "PHOTO ID",
+      "description": "Verify Timer Off state",
+      "steps": [
+        "1. Launch app and navigate to Photo ID screen.",
+        "2. Tap Timer icon.",
+        "3. Select Timer Off.",
+        "4. Observe Timer icon."
+      ],
+      "type": "Negative",
+      "expected": "Timer icon returns to inactive state and no countdown is applied.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1381,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 08",
+          "module": "Timer",
+          "stage": "PhotoID",
+          "description": "Verify Timer Off state",
+          "expected": "Timer icon returns to inactive state and no countdown is applied.",
+          "verification": "Verify disabled: Timer",
+          "kind": "disabled",
+          "selector": "Timer"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 09",
+      "module": "Camera Controls",
+      "section": "PHOTO ID",
+      "description": "Verify Flash and Flip Camera",
+      "steps": [
+        "1. Launch app and navigate to Photo ID screen.",
+        "2. Verify Flash is OFF by default.",
+        "3. Tap Flash icon and verify Flash turns ON.",
+        "4. Tap Flash icon again and verify Flash turns OFF.",
+        "5. Verify Front camera is active.",
+        "6. Tap Flip Camera icon.",
+        "7. Verify Back camera opens.",
+        "8. Tap Flip Camera icon again."
+      ],
+      "type": "Positive",
+      "expected": "Flash toggles successfully and camera switches between Front and Back cameras.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1385,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 09",
+          "module": "Camera Controls",
+          "stage": "PhotoID",
+          "description": "Verify Flash and Flip Camera",
+          "expected": "Flash toggles successfully and camera switches between Front and Back cameras.",
+          "verification": "Verify visible: Flash",
+          "kind": "visible",
+          "selector": "Flash"
+        },
+        {
+          "test_id": "Photo ID 09",
+          "module": "Camera Controls",
+          "stage": "PhotoID",
+          "description": "Verify Flash and Flip Camera",
+          "expected": "Flash toggles successfully and camera switches between Front and Back cameras.",
+          "verification": "Verify visible: Flip Camera",
+          "kind": "visible",
+          "selector": "Flip Camera"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID  10",
+      "module": "Capture",
+      "section": "PHOTO ID",
+      "description": "Verify photo capture and Print Preview",
+      "steps": [
+        "1. Launch app and navigate to Photo ID screen.",
+        "2. Allow camera permission.",
+        "3. Tap OK on onboarding popup.",
+        "4. Position face inside oval guide.",
+        "5. Verify 2×2 ratio is selected.",
+        "6. Tap Shutter button.",
+        "7. Wait for capture completion.",
+        "8. Verify user is redirected to Print Preview screen.",
+        "9. Verify Back Arrow, Share icon, Copies selector, AI button, Print button and Edit button are displayed."
+      ],
+      "type": "Positive",
+      "expected": "Photo is captured successfully and Print Preview screen opens with all controls displaye",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1393,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID  10",
+          "module": "Capture",
+          "stage": "PhotoID",
+          "description": "Verify photo capture and Print Preview",
+          "expected": "Photo is captured successfully and Print Preview screen opens with all controls displaye",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 11",
+      "module": "Timer Submenu",
+      "section": "PHOTO ID",
+      "description": "Verify Timer submenu UI",
+      "steps": [
+        "1. Launch the app and wait for the splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!.",
+        "4. On Sign Up screen, tap  \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap the Photo ID module.",
+        "7. Open the feature for the first time.",
+        "8. Verify \"Sprocket would like to access the Camera\" popup appears.",
+        "9. Tap Allow.",
+        "10. Verify Photo ID Mode onboarding popup appears.",
+        "11. Tap OK.",
+        "12. Verify Photo ID screen appears with Front camera.",
+        "13. Verify 2×2 is selected by default.",
+        "14. Verify Back Arrow icon at top-left.",
+        "15. Verify Timer icon at top-right.",
+        "16. Tap Timer icon.",
+        "17. Verify submenu opens.",
+        "18. Verify options: Timer Off, 3s, 5s and 10s are displayed.",
+        "19. Verify Timer Off is selected by default."
+      ],
+      "type": "Positive",
+      "expected": "Timer submenu opens successfully and all timer options are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1402,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 11",
+          "module": "Timer Submenu",
+          "stage": "PhotoID",
+          "description": "Verify Timer submenu UI",
+          "expected": "Timer submenu opens successfully and all timer options are displayed correctly.",
+          "verification": "Verify navigation marker: Timer",
+          "kind": "navigation",
+          "selector": "Timer"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 12",
+      "module": "Timer On",
+      "section": "PHOTO ID",
+      "description": "Verify Timer ON state",
+      "steps": [
+        "1. Launch the app and wait for the splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started!",
+        "4. Tap \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow on camera permission popup.",
+        "8. Tap OK on onboarding popup.",
+        "9. Verify Front camera opens.",
+        "10. Verify 2×2 ratio selected by default.",
+        "11. Tap Timer icon.",
+        "12. Select 3s timer.",
+        "13. Observe Timer icon."
+      ],
+      "type": "Positive",
+      "expected": "Timer icon changes to active state and selected timer is highlighted.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1421,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 12",
+          "module": "Timer On",
+          "stage": "PhotoID",
+          "description": "Verify Timer ON state",
+          "expected": "Timer icon changes to active state and selected timer is highlighted.",
+          "verification": "Verify image/logo: Timer",
+          "kind": "image",
+          "selector": "Timer"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 13",
+      "module": "Timer Countdown",
+      "section": "PHOTO ID",
+      "description": "Verify countdown UI",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow on permission popup.",
+        "8. Tap OK on onboarding popup.",
+        "9. Verify Photo ID screen appears.",
+        "10. Tap Timer icon.",
+        "11. Select 3s timer.",
+        "12. Tap Shutter button.",
+        "13. Observe countdown.",
+        "14. Verify countdown starts from 3.",
+        "15. Verify Stop button appears.",
+        "16. Verify Flash, Timer, Back button, Flip Camera and Aspect Ratio options are hidden during countdown."
+      ],
+      "type": "Positive",
+      "expected": "Countdown starts successfully and screen UI changes according to design.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1434,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 13",
+          "module": "Timer Countdown",
+          "stage": "PhotoID",
+          "description": "Verify countdown UI",
+          "expected": "Countdown starts successfully and screen UI changes according to design.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 14",
+      "module": "Timer Countdown",
+      "section": "PHOTO ID",
+      "description": "Verify Stop button",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap \"Sign Up Later\"",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Tap OK.",
+        "9. Tap Timer icon.",
+        "10. Select 5s timer.",
+        "11. Tap Shutter button.",
+        "12. During countdown tap Stop button.",
+        "13. Observe screen."
+      ],
+      "type": "Positive",
+      "expected": "Countdown stops and Photo ID screen is restored with all controls visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1450,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 14",
+          "module": "Timer Countdown",
+          "stage": "PhotoID",
+          "description": "Verify Stop button",
+          "expected": "Countdown stops and Photo ID screen is restored with all controls visible.",
+          "verification": "Verify visible: Photo ID",
+          "kind": "visible",
+          "selector": "Photo ID"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 15",
+      "module": "Print Preview 2×2",
+      "section": "PHOTO ID",
+      "description": "Verify Print Preview UI",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap \"Sign Up Later\"",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Tap OK.",
+        "9. Verify Front camera opens.",
+        "10. Verify 2×2 selected by default.",
+        "11. Tap Shutter button.",
+        "12. Wait for image capture.",
+        "13. Verify Print Preview screen appears.",
+        "14. Verify Back button.",
+        "15. Verify Printer name HP Sprocket Studio Plus 66:FE.",
+        "16. Verify Share icon.",
+        "17. Verify Copies selector (+/-).",
+        "18. Verify AI button.",
+        "19. Verify Print button.",
+        "20. Verify Edit button is disabled.",
+        "21. Verify More, Create and Printer tabs."
+      ],
+      "type": "Positive",
+      "expected": "2×2 Print Preview screen is displayed correctly with all controls.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1463,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 15",
+          "module": "Print Preview 2×2",
+          "stage": "PhotoID",
+          "description": "Verify Print Preview UI",
+          "expected": "2×2 Print Preview screen is displayed correctly with all controls.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 16",
+      "module": "Print Preview 1×1",
+      "section": "PHOTO ID",
+      "description": "Verify Print Preview UI",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap \"Sign Up Later\"",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Tap OK.",
+        "9. Tap 1×1 ratio.",
+        "10. Tap Shutter button.",
+        "11. Wait for capture.",
+        "12. Verify Print Preview screen opens.",
+        "13. Verify two 1×1 photos are displayed vertically.",
+        "14. Verify dotted border around each photo.",
+        "15. Verify Copies selector.",
+        "16. Verify Print button.",
+        "17. Verify Edit button disabled."
+      ],
+      "type": "Positive",
+      "expected": "1×1 Print Preview is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1484,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 16",
+          "module": "Print Preview 1×1",
+          "stage": "PhotoID",
+          "description": "Verify Print Preview UI",
+          "expected": "1×1 Print Preview is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 17",
+      "module": "Print Preview 1.4×1.8",
+      "section": "PHOTO ID",
+      "description": "Verify Print Preview UI",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap  \"Sign Up Later\"",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Tap OK.",
+        "9. Select 1.4×1.8 ratio.",
+        "10. Tap Shutter button.",
+        "11. Wait for image capture.",
+        "12. Verify Print Preview screen appears.",
+        "13. Verify image size label 1.4×1.8 in.",
+        "14. Verify dotted border around image.",
+        "15. Verify Copies selector.",
+        "16. Verify Print button."
+      ],
+      "type": "Positive",
+      "expected": "1.4×1.8 Print Preview is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1501,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 17",
+          "module": "Print Preview 1.4×1.8",
+          "stage": "PhotoID",
+          "description": "Verify Print Preview UI",
+          "expected": "1.4×1.8 Print Preview is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 18",
+      "module": "Print Preview 1.3×1.9",
+      "section": "PHOTO ID",
+      "description": "Verify Print Preview UI",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap \"Sign Up Later\"",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Tap OK.",
+        "9. Select 1.3×1.9 ratio.",
+        "10. Tap Shutter button.",
+        "11. Wait for capture.",
+        "12. Verify Print Preview screen appears.",
+        "13. Verify image size label 1.3×1.9 in.",
+        "14. Verify dotted border around image.",
+        "15. Verify Copies selector.",
+        "16. Verify Print button.",
+        "17. Verify Edit button disabled."
+      ],
+      "type": "Positive",
+      "expected": "1.3×1.9 Print Preview is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1517,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 18",
+          "module": "Print Preview 1.3×1.9",
+          "stage": "PhotoID",
+          "description": "Verify Print Preview UI",
+          "expected": "1.3×1.9 Print Preview is displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 19",
+      "module": "Photo ID Pop-up",
+      "section": "PHOTO ID",
+      "description": "Verify Photo ID onboarding popup UI",
+      "steps": [
+        "1. Install and launch the application.",
+        "2. Verify the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "3. Wait for the Splash Screen to complete automatically.",
+        "4. Swipe through all onboarding screens until the final screen.",
+        "5. Tap Get Started.",
+        "6. Tap the Sign Up Later button.",
+        "7. Wait until the Home screen is displayed.",
+        "8. If the notification permission popup appears, tap Allow.",
+        "9. Tap the Photo ID module.",
+        "10. Verify the camera permission popup \"Allow Sprocket to take pictures and record video?\" is displayed.",
+        "11. Verify the permission options are displayed:",
+        "While using the app",
+        "Only this time",
+        "Don't allow",
+        "12. Tap While using the app. \n13Verify the Photo ID Mode popup is displayed (only the first time the Photo ID module is opened).\n14.Verify the Photo ID icon is displayed.\n15.Verify the title \"Photo ID Mode\" is displayed.\n\n16.Verify the description is displayed:\n\n17.\"Sprocket Photo ID mode provides tips to take a formal photo. \n18We don't guarantee that the photo will be accepted by all entities that require an official photo. 19.You will need to confirm that the photo meets the applicable requirements.\"\n\n20.Verify the OK button is displayed and is selected by default.\n21.Verify the Don't Show Again option is displayed below the OK button.\n22.Tap the OK button.\n23.Verify the Photo ID Camera screen opens successfully.\n24.Verify the Photo ID icon is displayed on the camera screen.\n25.Verify the Background controls are disabled by default.\n26.Verify the user can continue using the Photo ID camera without any errors."
+      ],
+      "type": "Positive",
+      "expected": "Popup UI is displayed correctly and background controls are disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1534,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 19",
+          "module": "Photo ID Pop-up",
+          "stage": "PhotoID",
+          "description": "Verify Photo ID onboarding popup UI",
+          "expected": "Popup UI is displayed correctly and background controls are disabled.",
+          "verification": "Verify dialog: Photo ID",
+          "kind": "dialog",
+          "selector": "Photo ID"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 20",
+      "module": "Photo ID Pop-up",
+      "section": "PHOTO ID",
+      "description": "Verify OK button functionality",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap  \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Verify Photo ID popup appears.",
+        "9. Tap OK.",
+        "10. Observe screen."
+      ],
+      "type": "Positive",
+      "expected": "Popup closes and Photo ID camera screen becomes active.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1549,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 20",
+          "module": "Photo ID Pop-up",
+          "stage": "PhotoID",
+          "description": "Verify OK button functionality",
+          "expected": "Popup closes and Photo ID camera screen becomes active.",
+          "verification": "Verify dialog: Photo ID",
+          "kind": "dialog",
+          "selector": "Photo ID"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 21",
+      "module": "Photo ID Pop-up",
+      "section": "PHOTO ID",
+      "description": "Verify Don't Show Again",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap  \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Verify Photo ID popup appears.",
+        "9. Tap Don't Show Again.",
+        "10. Verify popup closes.",
+        "11. Exit Photo ID.",
+        "12. Reopen Photo ID module."
+      ],
+      "type": "Positive",
+      "expected": "Popup does not appear again and user enters Photo ID screen directly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1559,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 21",
+          "module": "Photo ID Pop-up",
+          "stage": "PhotoID",
+          "description": "Verify Don't Show Again",
+          "expected": "Popup does not appear again and user enters Photo ID screen directly.",
+          "verification": "Verify dialog: Photo ID",
+          "kind": "dialog",
+          "selector": "Photo ID"
+        },
+        {
+          "test_id": "Photo ID 21",
+          "module": "Photo ID Pop-up",
+          "stage": "PhotoID",
+          "description": "Verify Don't Show Again",
+          "expected": "Popup does not appear again and user enters Photo ID screen directly.",
+          "verification": "Verify dialog: Don't Show Again",
+          "kind": "dialog",
+          "selector": "Don't Show Again"
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 22",
+      "module": "Edit Button",
+      "section": "PHOTO ID",
+      "description": "Verify Edit button disabled",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding flow.",
+        "3. Tap Get Started.",
+        "4. Tap \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap Photo ID module.",
+        "7. Tap Allow.",
+        "8. Tap OK.",
+        "9. Select 1.3×1.9 ratio.",
+        "10. Tap Shutter button.",
+        "11. Wait for capture.",
+        "12. Open Print Preview screen.",
+        "13. Locate Edit button beside Print button.",
+        "14. Observe button state."
+      ],
+      "type": "Positive",
+      "expected": "Edit button is greyed out and disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1571,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 22",
+          "module": "Edit Button",
+          "stage": "PhotoID",
+          "description": "Verify Edit button disabled",
+          "expected": "Edit button is greyed out and disabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photo ID 23",
+      "module": "Photo ID Print Preview",
+      "section": "PHOTO ID",
+      "description": "Verify disabled Edit button and Print Preview UI",
+      "steps": [
+        "1. Launch the app and wait for the splash screen.",
+        "2. Complete onboarding flow (ON_01B to ON_01E).",
+        "3. Tap Get Started.",
+        "4. On Sign Up screen, tap  \"Sign Up Later\".",
+        "5. Verify Home screen appears.",
+        "6. Tap the Photo ID module.",
+        "7. Verify \"Sprocket would like to access the Camera\" popup appears.",
+        "8. Tap Allow.",
+        "9. Verify Photo ID Mode onboarding popup appears.",
+        "10. Tap OK.",
+        "11. Verify Photo ID camera screen appears with Front Camera selected by default.",
+        "12. Verify 2×2 ratio is selected by default.",
+        "13. Tap 1.3×1.9 ratio option.",
+        "14. Verify 1.3×1.9 ratio is highlighted.",
+        "15. Position the face inside the oval guide.",
+        "16. Tap the Shutter button.",
+        "17. Wait for image capture to complete.",
+        "18. Verify Photo ID Print Preview screen opens.",
+        "19. Verify Back Arrow icon is displayed at the top-left corner.",
+        "20. Verify printer name \"HP Sprocket Studio Plus 66:FE\" is displayed in the header.",
+        "21. Verify Share icon is displayed at the top-right corner.",
+        "22. Verify captured photo preview is displayed in 1.3×1.9 format.",
+        "23. Verify dotted gray border surrounds the photo.",
+        "24. Verify size label \"1.3×1.9 in\" is displayed below the photo.",
+        "25. Verify Copies text is displayed.",
+        "26. Verify copies count shows 1 by default.",
+        "27. Verify Minus (-) and Plus (+) icons are displayed beside the copies counter.",
+        "28. Tap + icon and verify copies count increases.",
+        "29. Tap - icon and verify copies count decreases and does not go below 1.",
+        "30. Verify AI button is displayed in disabled state.",
+        "31. Verify Print button is enabled and highlighted in green.",
+        "32. Verify Edit button is displayed in disabled state.",
+        "33. Tap the disabled Edit button.",
+        "34. Verify tooltip message \"Edit is not available for Photo ID.\" appears above the Edit button.",
+        "35. Wait for 5 seconds.",
+        "36. Verify tooltip disappears automatically.",
+        "37. Verify bottom navigation bar displays More, Create, and Printer tabs.",
+        "38. Verify Create tab is highlighted by default."
+      ],
+      "type": "Positive",
+      "expected": "Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1585,
+      "stage": "PhotoID",
+      "verifications": [
+        {
+          "test_id": "Photo ID 23",
+          "module": "Photo ID Print Preview",
+          "stage": "PhotoID",
+          "description": "Verify disabled Edit button and Print Preview UI",
+          "expected": "Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.",
+          "verification": "Verify disabled: Copies",
+          "kind": "disabled",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "Photo ID 23",
+          "module": "Photo ID Print Preview",
+          "stage": "PhotoID",
+          "description": "Verify disabled Edit button and Print Preview UI",
+          "expected": "Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.",
+          "verification": "Verify disabled: Create",
+          "kind": "disabled",
+          "selector": "Create"
+        }
+      ]
+    }
+  ]
+}

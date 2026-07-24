@@ -1,0 +1,25 @@
+# PhotoID — 23 ATP cases
+
+- [ ] Photo ID 01 | Onboarding | Verify camera permission popup and Photo ID onboarding popup
+- [ ] Photo ID 02 | Permission | Verify camera permission denial
+- [ ] Photo ID  03 | UI Verification | Verify Photo ID default UI layout
+- [ ] Photo ID  04 | UI Verification | Verify Photo ID UI after camera permission denied
+- [ ] Photo ID 05 | Aspect Ratio | Verify aspect ratio switching
+- [ ] Photo ID 06 | Aspect Ratio | Verify rapid aspect ratio switching
+- [ ] Photo ID  07 | Timer | Verify Timer submenu and selection
+- [ ] Photo ID 08 | Timer | Verify Timer Off state
+- [ ] Photo ID 09 | Camera Controls | Verify Flash and Flip Camera
+- [ ] Photo ID  10 | Capture | Verify photo capture and Print Preview
+- [ ] Photo ID 11 | Timer Submenu | Verify Timer submenu UI
+- [ ] Photo ID 12 | Timer On | Verify Timer ON state
+- [ ] Photo ID 13 | Timer Countdown | Verify countdown UI
+- [ ] Photo ID 14 | Timer Countdown | Verify Stop button
+- [ ] Photo ID 15 | Print Preview 2×2 | Verify Print Preview UI
+- [ ] Photo ID 16 | Print Preview 1×1 | Verify Print Preview UI
+- [ ] Photo ID 17 | Print Preview 1.4×1.8 | Verify Print Preview UI
+- [ ] Photo ID 18 | Print Preview 1.3×1.9 | Verify Print Preview UI
+- [ ] Photo ID 19 | Photo ID Pop-up | Verify Photo ID onboarding popup UI
+- [ ] Photo ID 20 | Photo ID Pop-up | Verify OK button functionality
+- [ ] Photo ID 21 | Photo ID Pop-up | Verify Don't Show Again
+- [ ] Photo ID 22 | Edit Button | Verify Edit button disabled
+- [ ] Photo ID 23 | Photo ID Print Preview | Verify disabled Edit button and Print Preview UI

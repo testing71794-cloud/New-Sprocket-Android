@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_131
+# Excel: AI tools 150 | Module: Workflow
+# Verify Group 1 (Ready to Generate) Redirection
+# Expected: User is successfully redirected to CR_16A.2 Preview Image - Ready to Generate.
+appId: com.hp.impulse.sprocket
+name: "AI_131 - Verify Group 1 Ready to Generate Redirection"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

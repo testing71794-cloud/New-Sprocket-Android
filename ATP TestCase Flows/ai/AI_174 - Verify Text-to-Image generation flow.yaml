@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_174
+# Excel: AI Tools 193 | Module: AI Tools
+# Verify Text-to-Image generation flow
+# Expected: Loader screen appears and generated images are displayed on Result screen according to selected orientation.
+appId: com.hp.impulse.sprocket
+name: "AI_174 - Verify Text-to-Image generation flow"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

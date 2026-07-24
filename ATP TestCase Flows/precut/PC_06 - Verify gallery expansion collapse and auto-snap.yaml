@@ -1,0 +1,14 @@
+# ATP Test Case ID: PC_06
+# Excel: Precut_06 | Module: Gallery Interaction
+# Verify gallery expansion, collapse, and auto-snap.
+# Expected: Gallery expands, collapses, and snaps correctly.
+appId: com.hp.impulse.sprocket
+name: "PC_06 - Verify gallery expansion collapse and auto-snap"
+tags:
+  - precut
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

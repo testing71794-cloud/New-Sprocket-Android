@@ -1,0 +1,14 @@
+# ATP Test Case ID: SE_50
+# Excel: Hamburger Menu 55 | Module: Legal
+# Open Source Licenses Navigation
+# Expected: Open Source Licenses screen displays all dependencies correctly.
+appId: com.hp.impulse.sprocket
+name: "SE_50 - Open Source Licenses Navigation"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

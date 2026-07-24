@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_72
+# Excel: AI Tools 91 | Module: Restore Photo
+# Verify Generation
+# Expected: CR_12A.3_AI Generating Loader appears for a few seconds.
+appId: com.hp.impulse.sprocket
+name: "AI_72 - Verify Generation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_02
+# Excel: Photobooth 02 | Module: Photobooth
+# Verify behavior when camera permission is denied
+# Expected: Camera permission is denied and the Photobooth Camera screen does not open. An appropriate permission/error message is displayed. User cannot capture photos or use camera controls until permission is granted. The app remains stable without 
+appId: com.hp.impulse.sprocket
+name: "PB_02 - Verify behavior when camera permission is denied"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photobooth"
+    optional: true

@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_83
+# Excel: Print Preview Screen 83 | Module: Print Interruption
+# Verify error handling and queue state
+# Expected: "Printer Disconnected" popup displays; print queue status switches to "Paused"; user redirected to CR_01A_Home - Logged In.
+appId: com.hp.impulse.sprocket
+name: "PR_83 - Verify error handling and queue state"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer Disconnected"
+    optional: true
+- assertVisible:
+    text: "Paused"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

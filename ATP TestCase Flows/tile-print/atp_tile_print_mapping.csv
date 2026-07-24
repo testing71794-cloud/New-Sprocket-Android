@@ -1,0 +1,17 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+TP_01,Tiles modules 01,tile-print,Gallery (Tile Print),Verify Gallery screen UI and Tile Print navigation,tile-print/TP_01 - Verify Gallery screen UI and Tile Print navigation.yaml,com.hp.impulse.sprocket
+TP_02,Tiles modules 02,tile-print,Gallery (Tile Print),Verify folder selection and Tile Print restrictions,tile-print/TP_02 - Verify folder selection and Tile Print restrictions.yaml,com.hp.impulse.sprocket
+TP_03,Tiles modules 03,tile-print,Select Mode Blocked Toast Message (Tile Print),"Verify blocked toast message, UI elements and bottom navigation",tile-print/TP_03 - Verify blocked toast message UI elements and bottom navigati.yaml,com.hp.impulse.sprocket
+TP_04,Tiles modules 04,tile-print,Select Mode Blocked Toast Message (Tile Print),Verify multi-select restriction and error handling,tile-print/TP_04 - Verify multi-select restriction and error handling.yaml,com.hp.impulse.sprocket
+TP_05,Tiles modules 05,tile-print,Tiles 2×2,Verify Tiles 2×2 screen UI and default layout,tile-print/TP_05 - Verify Tiles 22 screen UI and default layout.yaml,com.hp.impulse.sprocket
+TP_06,Tiles modules 06,tile-print,Tiles 2×2,Verify print restriction when no tile is selected,tile-print/TP_06 - Verify print restriction when no tile is selected.yaml,com.hp.impulse.sprocket
+TP_07,Tiles modules 07,tile-print,Navigation,Verify landing on Tiles module,tile-print/TP_07 - Verify landing on Tiles module.yaml,com.hp.impulse.sprocket
+TP_08,Tiles modules 08,tile-print,UI Layout,Verify bottom navigation bar presence,tile-print/TP_08 - Verify bottom navigation bar presence.yaml,com.hp.impulse.sprocket
+TP_09,Tiles modules 09,tile-print,Interaction,Verify unselecting 1×1 tile,tile-print/TP_09 - Verify unselecting 11 tile.yaml,com.hp.impulse.sprocket
+TP_10,Tiles modules 10,tile-print,Gestures,Verify zoom and rotation persistence,tile-print/TP_10 - Verify zoom and rotation persistence.yaml,com.hp.impulse.sprocket
+TP_11,Tiles modules 11,tile-print,Tiles 3×3,"Verify 3×3 grid UI, selection and print functionality",tile-print/TP_11 - Verify 33 grid UI selection and print functionality.yaml,com.hp.impulse.sprocket
+TP_12,Tiles modules 12,tile-print,Tiles 3×3,Verify tile deselection restriction and error handling,tile-print/TP_12 - Verify tile deselection restriction and error handling.yaml,com.hp.impulse.sprocket
+TP_13,Tiles modules 13,tile-print,Create > Tiles,Verify tile selection and print,tile-print/TP_13 - Verify tile selection and print.yaml,com.hp.impulse.sprocket
+TP_14,Tiles modules 14,tile-print,Create > Tiles,Verify Print button when all tiles are unselected,tile-print/TP_14 - Verify Print button when all tiles are unselected.yaml,com.hp.impulse.sprocket
+TP_15,Tiles modules 15,tile-print,Create > Copies,Verify Copies screen and printing,tile-print/TP_15 - Verify Copies screen and printing.yaml,com.hp.impulse.sprocket
+TP_16,Tiles modules 16,tile-print,Create > Copies,Verify copy count retention and navigation,tile-print/TP_16 - Verify copy count retention and navigation.yaml,com.hp.impulse.sprocket

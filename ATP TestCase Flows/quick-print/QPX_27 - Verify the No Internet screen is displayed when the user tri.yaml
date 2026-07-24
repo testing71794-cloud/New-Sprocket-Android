@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_27
+# Excel: QUICK PRINT 27 | Module: Facebook Gallery - No Internet Tag Search
+# Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags without an internet connection.
+# Expected: The application displays the "No Internet" screen with the correct message, disables the tag search field, and prevents tag searching until the internet connection is restored.
+appId: com.hp.impulse.sprocket
+name: "QPX_27 - Verify the No Internet screen is displayed when the user tri"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "No Internet"
+    optional: true

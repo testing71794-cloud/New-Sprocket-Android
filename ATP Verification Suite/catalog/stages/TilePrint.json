@@ -1,7 +1,133 @@
 {
   "stage": "TilePrint",
-  "count": 8,
+  "count": 16,
   "cases": [
+    {
+      "test_id": "Tiles modules 01",
+      "module": "Gallery (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify Gallery screen UI and Tile Print navigation",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and navigate to the Home screen.",
+        "3. Tap the Tile Print module.",
+        "4. Verify that the CR_08A_Gallery screen opens.",
+        "5. Verify the Back button, Folder Name dropdown, Sort icon, photo grid, date headers and bottom navigation (More, Create, Printer).",
+        "6. Tap any photo from the grid."
+      ],
+      "type": "Positive",
+      "expected": "Gallery screen opens successfully after tapping Tile Print. The Back button, Folder dropdown, Sort icon, photo grid and date headers are displayed correctly. Images are grouped by date and loaded from the Recents folder by default. Tapping a photo navigates the user to the Tile Print flow successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1131,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 01",
+          "module": "Gallery (Tile Print)",
+          "stage": "TilePrint",
+          "description": "Verify Gallery screen UI and Tile Print navigation",
+          "expected": "Gallery screen opens successfully after tapping Tile Print. The Back button, Folder dropdown, Sort icon, photo grid and date headers are displayed correctly. Images are grouped by date and loaded from the Recents folder by default. Tapping a photo navigates the user to the Tile Print flow successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 02",
+      "module": "Gallery (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify folder selection and Tile Print restrictions",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and open the Tile Print module.",
+        "3. On the Gallery screen, tap the Folder Name dropdown and select another folder.",
+        "4. Exit the Gallery screen and open it again.",
+        "5. Try to enable Select Mode or select multiple photos.",
+        "6. Observe the screen behavior and error messages if any."
+      ],
+      "type": "Negative",
+      "expected": "Folder selector opens successfully. After reopening the Gallery, the default folder is reset to Recents. Select Mode is not available and multiple photo selection is not allowed in Tile Print mode. Appropriate message is displayed if the user attempts an unsupported action. The app remains stable without crashes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1137,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 02",
+          "module": "Gallery (Tile Print)",
+          "stage": "TilePrint",
+          "description": "Verify folder selection and Tile Print restrictions",
+          "expected": "Folder selector opens successfully. After reopening the Gallery, the default folder is reset to Recents. Select Mode is not available and multiple photo selection is not allowed in Tile Print mode. Appropriate message is displayed if the user attempts an unsupported action. The app remains stable without crashes.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 03",
+      "module": "Select Mode Blocked Toast Message (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify blocked toast message, UI elements and bottom navigation",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and navigate to the Home screen.",
+        "3. Tap the Tile Print module and verify the Gallery screen opens.",
+        "4. Verify the Back button, Folder Name dropdown, Sort icon, photo grid, date headers and bottom navigation (More, Create, Printer).",
+        "5. Long press a photo or perform an action to enable Select Mode.",
+        "6. Verify the warning toast message at the bottom of the screen.",
+        "7. Verify the toast contains the red alert icon, text \"Multi-select is not available in Tile Print.\", and the X close icon.",
+        "8. Tap the X icon and verify the toast disappears.",
+        "9. Verify the bottom navigation (More, Create, Printer) remains visible and clickable."
+      ],
+      "type": "Positive",
+      "expected": "Gallery screen opens successfully from Tile Print. Top bar, Folder dropdown, Sort icon, date headers and photo grid are displayed correctly. Warning toast appears with the correct icon, text and close button. Toast disappears after tapping X. Bottom navigation remains visible and functional.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1143,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 03",
+          "module": "Select Mode Blocked Toast Message (Tile Print)",
+          "stage": "TilePrint",
+          "description": "Verify blocked toast message, UI elements and bottom navigation",
+          "expected": "Gallery screen opens successfully from Tile Print. Top bar, Folder dropdown, Sort icon, date headers and photo grid are displayed correctly. Warning toast appears with the correct icon, text and close button. Toast disappears after tapping X. Bottom navigation remains visible and functional.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 04",
+      "module": "Select Mode Blocked Toast Message (Tile Print)",
+      "section": "TILES MODULES",
+      "description": "Verify multi-select restriction and error handling",
+      "steps": [
+        "1. Launch the application, wait for the splash screen, and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap Get Started! and open the Tile Print Gallery screen.",
+        "3. Trigger the blocked toast message by attempting to enter Select Mode.",
+        "4. Keep the toast visible and try selecting a second photo.",
+        "5. Observe the Gallery screen behavior and error message."
+      ],
+      "type": "Negative",
+      "expected": "The application does not allow multi-select in Tile Print mode. Only one photo can be selected at a time. The toast message \"Multi-select is not available in Tile Print.\" is displayed correctly. No UI overlap or crash occurs and the app remains stable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1152,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 04",
+          "module": "Select Mode Blocked Toast Message (Tile Print)",
+          "stage": "TilePrint",
+          "description": "Verify multi-select restriction and error handling",
+          "expected": "The application does not allow multi-select in Tile Print mode. Only one photo can be selected at a time. The toast message \"Multi-select is not available in Tile Print.\" is displayed correctly. No UI overlap or crash occurs and the app remains stable.",
+          "verification": "Verify toast: Multi-select is not available in Tile Print.",
+          "kind": "toast",
+          "selector": "Multi-select is not available in Tile Print."
+        }
+      ]
+    },
     {
       "test_id": "Tiles modules 05",
       "module": "Tiles 2×2",
@@ -23,9 +149,9 @@
           "stage": "TilePrint",
           "description": "Verify Tiles 2×2 screen UI and default layout",
           "expected": "Tiles 2×2 screen opens successfully. Image is divided into 4 tiles by default with checkmarks. All top and bottom options are visible and clickable. No UI issue is observed.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
+          "verification": "Verify image/logo: Tiles",
+          "kind": "image",
+          "selector": "Tiles"
         }
       ]
     },
@@ -50,6 +176,174 @@
           "stage": "TilePrint",
           "description": "Verify print restriction when no tile is selected",
           "expected": "User cannot print without selecting at least one tile. Appropriate warning/error message is displayed. Print job is not started and the app remains stable.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 07",
+      "module": "Navigation",
+      "section": "TILES MODULES",
+      "description": "Verify landing on Tiles module",
+      "steps": [
+        "1. Launch the application, complete onboarding (ON_01B to ON_01E), connect the printer, tap Tiles from Home and select an image from Gallery.",
+        "2. Verify the user is redirected to the Tiles Print Preview screen and observe the screen from top to bottom."
+      ],
+      "type": "Positive",
+      "expected": "Tiles Print Preview screen opens successfully. Back button, Printer name/status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) are displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1161,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 07",
+          "module": "Navigation",
+          "stage": "TilePrint",
+          "description": "Verify landing on Tiles module",
+          "expected": "Tiles Print Preview screen opens successfully. Back button, Printer name/status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) are displayed correctly.",
+          "verification": "Verify image/logo: Tiles",
+          "kind": "image",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Tiles modules 07",
+          "module": "Navigation",
+          "stage": "TilePrint",
+          "description": "Verify landing on Tiles module",
+          "expected": "Tiles Print Preview screen opens successfully. Back button, Printer name/status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) are displayed correctly.",
+          "verification": "Verify image/logo: Copies",
+          "kind": "image",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "Tiles modules 07",
+          "module": "Navigation",
+          "stage": "TilePrint",
+          "description": "Verify landing on Tiles module",
+          "expected": "Tiles Print Preview screen opens successfully. Back button, Printer name/status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) are displayed correctly.",
+          "verification": "Verify image/logo: Create",
+          "kind": "image",
+          "selector": "Create"
+        },
+        {
+          "test_id": "Tiles modules 07",
+          "module": "Navigation",
+          "stage": "TilePrint",
+          "description": "Verify landing on Tiles module",
+          "expected": "Tiles Print Preview screen opens successfully. Back button, Printer name/status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) are displayed correctly.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        },
+        {
+          "test_id": "Tiles modules 07",
+          "module": "Navigation",
+          "stage": "TilePrint",
+          "description": "Verify landing on Tiles module",
+          "expected": "Tiles Print Preview screen opens successfully. Back button, Printer name/status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) are displayed correctly.",
+          "verification": "Verify image/logo: More",
+          "kind": "image",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 08",
+      "module": "UI Layout",
+      "section": "TILES MODULES",
+      "description": "Verify bottom navigation bar presence",
+      "steps": [
+        "1. Perform the above preconditions and open the Tiles Print Preview screen.",
+        "2. Observe the bottom section of the screen."
+      ],
+      "type": "Positive",
+      "expected": "Bottom navigation bar (More, Create, Printer) is visible and clickable.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1163,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 08",
+          "module": "UI Layout",
+          "stage": "TilePrint",
+          "description": "Verify bottom navigation bar presence",
+          "expected": "Bottom navigation bar (More, Create, Printer) is visible and clickable.",
+          "verification": "Verify visible: Create",
+          "kind": "visible",
+          "selector": "Create"
+        },
+        {
+          "test_id": "Tiles modules 08",
+          "module": "UI Layout",
+          "stage": "TilePrint",
+          "description": "Verify bottom navigation bar presence",
+          "expected": "Bottom navigation bar (More, Create, Printer) is visible and clickable.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        },
+        {
+          "test_id": "Tiles modules 08",
+          "module": "UI Layout",
+          "stage": "TilePrint",
+          "description": "Verify bottom navigation bar presence",
+          "expected": "Bottom navigation bar (More, Create, Printer) is visible and clickable.",
+          "verification": "Verify visible: More",
+          "kind": "visible",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 09",
+      "module": "Interaction",
+      "section": "TILES MODULES",
+      "description": "Verify unselecting 1×1 tile",
+      "steps": [
+        "1. Perform the above preconditions and open 1×1 Tiles view.",
+        "2. Tap the photo or green checkmark to deselect the tile."
+      ],
+      "type": "Negative",
+      "expected": "The green checkmark disappears and the tile is not included in printing.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1165,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 09",
+          "module": "Interaction",
+          "stage": "TilePrint",
+          "description": "Verify unselecting 1×1 tile",
+          "expected": "The green checkmark disappears and the tile is not included in printing.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Tiles modules 10",
+      "module": "Gestures",
+      "section": "TILES MODULES",
+      "description": "Verify zoom and rotation persistence",
+      "steps": [
+        "1. Perform the above preconditions and open 1×1 Tiles view.",
+        "2. Zoom and rotate the image, then tap Print."
+      ],
+      "type": "Positive",
+      "expected": "The printed image matches the zoom level and rotation shown in the preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1167,
+      "stage": "TilePrint",
+      "verifications": [
+        {
+          "test_id": "Tiles modules 10",
+          "module": "Gestures",
+          "stage": "TilePrint",
+          "description": "Verify zoom and rotation persistence",
+          "expected": "The printed image matches the zoom level and rotation shown in the preview screen.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null
@@ -85,9 +379,9 @@
           "stage": "TilePrint",
           "description": "Verify 3×3 grid UI, selection and print functionality",
           "expected": "User is redirected to the 3×3 Tiles Print Preview screen successfully. Image is displayed in 9-grid format with green checkmarks. Top and bottom options are visible and clickable. Only the selected 6 tiles are printed successfully. No UI issue or error message is displayed.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
+          "verification": "Verify image/logo: Tiles",
+          "kind": "image",
+          "selector": "Tiles"
         }
       ]
     },
@@ -114,6 +408,16 @@
       "row": 1179,
       "stage": "TilePrint",
       "verifications": [
+        {
+          "test_id": "Tiles modules 12",
+          "module": "Tiles 3×3",
+          "stage": "TilePrint",
+          "description": "Verify tile deselection restriction and error handling",
+          "expected": "User cannot print when all tiles are deselected. Appropriate warning/error message is displayed. Print job is not started. Back button, Printer Name/Status, Share icon, preview image, Copies, Tiles, AI, Edit, Print button and bottom navigation (More, Create, Printer) remain visible and functional. Application remains stable without crashes.",
+          "verification": "Verify image/logo: Tiles",
+          "kind": "image",
+          "selector": "Tiles"
+        },
         {
           "test_id": "Tiles modules 12",
           "module": "Tiles 3×3",
@@ -181,9 +485,9 @@
           "stage": "TilePrint",
           "description": "Verify tile selection and print",
           "expected": "All tiles are selected by default. Unselected tile changes to an empty circle and reselected tile shows a green checkmark. Only selected tiles are printed. Back, Share, AI, Edit, Print and bottom navigation options are visible and working properly.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
+          "verification": "Verify visible: Tiles",
+          "kind": "visible",
+          "selector": "Tiles"
         }
       ]
     },
@@ -212,9 +516,9 @@
           "stage": "TilePrint",
           "description": "Verify Print button when all tiles are unselected",
           "expected": "All tiles become unselected successfully. The Print button is disabled (greyed out). Tapping the disabled Print button performs no action. All top and bottom options remain visible and the app remains stable.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
+          "verification": "Verify disabled: Tiles",
+          "kind": "disabled",
+          "selector": "Tiles"
         }
       ]
     },

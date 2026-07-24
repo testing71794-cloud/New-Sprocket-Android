@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_10
+# Excel: Blockers Error Pop up Android   10 | Module: Battery
+# Verify "Very Low Battery" popup
+# Expected: "Very Low Battery" popup is displayed on the Print Preview screen. The popup displays the bold title "Very Low Battery", followed by the message "Your printer battery is too low. Charge your printer and try printing again." The popup includ
+appId: com.hp.impulse.sprocket
+name: "AL_10 - Verify Very Low Battery popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Very Low Battery"
+    optional: true
+- assertVisible:
+    text: "Your printer battery is too low. Charge your printer and try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

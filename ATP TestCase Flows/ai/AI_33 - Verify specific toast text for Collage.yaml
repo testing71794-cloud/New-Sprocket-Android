@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_33
+# Excel: AI Tools 33 | Module: Toast Message
+# Verify specific toast text for Collage
+# Expected: Toast appears: "AI Edit is not available for Collage."
+appId: com.hp.impulse.sprocket
+name: "AI_33 - Verify specific toast text for Collage"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "AI Edit is not available for Collage."
+    optional: true

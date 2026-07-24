@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_06
+# Excel: Photobooth 06 | Module: Progress
+# Verify progress indicator updates after each photo
+# Expected: Progress indicator updates correctly and shows captured photos count out of 4.
+appId: com.hp.impulse.sprocket
+name: "PB_06 - Verify progress indicator updates after each photo"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

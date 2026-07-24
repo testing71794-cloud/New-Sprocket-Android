@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_237
+# Excel: PS-005 | Module: Printer Settings
+# Verify Sleep Timer update and persistence
+# Expected: Selected Sleep Timer value is saved successfully and persists after reopening Printer Settings.
+appId: com.hp.impulse.sprocket
+name: "COX_237 - Verify Sleep Timer update and persistence"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Timer"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

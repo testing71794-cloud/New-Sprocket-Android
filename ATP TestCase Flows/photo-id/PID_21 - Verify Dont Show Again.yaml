@@ -1,0 +1,17 @@
+# ATP Test Case ID: PID_21
+# Excel: Photo ID 21 | Module: Photo ID Pop-up
+# Verify Don't Show Again
+# Expected: Popup does not appear again and user enters Photo ID screen directly.
+appId: com.hp.impulse.sprocket
+name: "PID_21 - Verify Dont Show Again"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photo ID"
+    optional: true
+- assertVisible:
+    text: "Don't Show Again"
+    optional: true

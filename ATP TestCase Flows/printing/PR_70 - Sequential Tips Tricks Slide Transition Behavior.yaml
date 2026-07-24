@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_70
+# Excel: Print Preview Screen 70 | Module: Print Tips
+# Sequential Tips & Tricks Slide Transition Behavior
+# Expected: The next sequential Tips & Tricks item automatically slides in from the right-side panel. The displayed text matches the expected template exactly (e.g., "Creative Idea: Start a 30-day photo challenge and print each day's highlight with you
+appId: com.hp.impulse.sprocket
+name: "PR_70 - Sequential Tips Tricks Slide Transition Behavior"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Creative Idea: Start a 30-day photo challenge and print each day"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true

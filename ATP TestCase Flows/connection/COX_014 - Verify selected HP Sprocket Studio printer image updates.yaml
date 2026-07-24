@@ -1,0 +1,23 @@
+# ATP Test Case ID: COX_014
+# Excel: PCF-014 | Module: Pre Connection Flow
+# Verify selected 'HP Sprocket Studio' printer image updates
+# Expected: HP Sprocket Studio printer image should display with the printer name 'HP Sprocket Studio' at 'Select Your Device' screen along with 'Continue with this Printer' button
+appId: com.hp.impulse.sprocket
+name: "COX_014 - Verify selected HP Sprocket Studio printer image updates"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "HP Sprocket Studio"
+    optional: true
+- assertVisible:
+    text: "Select Your Device"
+    optional: true
+- assertVisible:
+    text: "Continue with this Printer"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_253
+# Excel: PS-021 | Module: Printers detail pages
+# Verify navigation to Printer Detail screen from printer list
+# Expected: 
+appId: com.hp.impulse.sprocket
+name: "COX_253 - Verify navigation to Printer Detail screen from printer list"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

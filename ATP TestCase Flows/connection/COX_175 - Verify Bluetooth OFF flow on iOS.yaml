@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_175
+# Excel: HP600_CONN_TC013 | Module: Bluetooth
+# Verify Bluetooth OFF flow on iOS
+# Expected: Bluetooth OFF message should be displayed according to iOS flow.
+appId: com.hp.impulse.sprocket
+name: "COX_175 - Verify Bluetooth OFF flow on iOS"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

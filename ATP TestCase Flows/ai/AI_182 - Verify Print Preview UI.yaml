@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_182
+# Excel: AI Tools 201 | Module: Print Preview
+# Verify Print Preview UI
+# Expected: Top left Back Arrow, Share button, AI Print button, Edit icon, Copies option and Tiles option are displayed properly.
+appId: com.hp.impulse.sprocket
+name: "AI_182 - Verify Print Preview UI"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true

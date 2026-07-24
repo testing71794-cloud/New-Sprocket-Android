@@ -1,0 +1,20 @@
+# ATP Test Case ID: AL_38
+# Excel: Stoppers Error Pop up Ios   17 | Module: Memory
+# Verify "Memory Error" popup
+# Expected: "Memory Error" popup is displayed . The popup displays the bold title "Memory Error", followed by the message "Restart your Sprocket and try printing again." It includes an "OK" button at the bottom and a Close (X) icon in the top-right cor
+appId: com.hp.impulse.sprocket
+name: "AL_38 - Verify Memory Error popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Memory Error"
+    optional: true
+- assertVisible:
+    text: "Restart your Sprocket and try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

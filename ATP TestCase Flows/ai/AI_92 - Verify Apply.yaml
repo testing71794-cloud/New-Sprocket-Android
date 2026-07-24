@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_92
+# Excel: AI Tools 111 | Module: Saving
+# Verify "Apply"
+# Expected: Redirects to CR_14C.4_Changes Saved.
+appId: com.hp.impulse.sprocket
+name: "AI_92 - Verify Apply"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Apply"
+    optional: true

@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_13
+# Excel: Blockers Error Pop up Android   13 | Module: Temperature
+# Verify "Sprocket is Cold" popup
+# Expected: "Sprocket is Cold" popup is displayed on the Print Preview screen. The popup displays the bold title "Sprocket is Cold", followed by the message "Wait for your printer to warm up, and try printing again." The popup includes an "OK" button a
+appId: com.hp.impulse.sprocket
+name: "AL_13 - Verify Sprocket is Cold popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sprocket is Cold"
+    optional: true
+- assertVisible:
+    text: "Wait for your printer to warm up, and try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

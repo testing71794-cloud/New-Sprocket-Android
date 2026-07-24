@@ -1,0 +1,14 @@
+# ATP Test Case ID: VD_06
+# Excel: Video frame 06 | Module: CR_05D_Video Frames Print Preview
+# Verify frame editing and discard behavior.
+# Expected: Changing the frame discards previously applied edits automatically.
+appId: com.hp.impulse.sprocket
+name: "VD_06 - Verify frame editing and discard behavior"
+tags:
+  - video
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

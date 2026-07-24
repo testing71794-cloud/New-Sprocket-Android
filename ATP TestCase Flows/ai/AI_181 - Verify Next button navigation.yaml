@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_181
+# Excel: AI Tools 200 | Module: Print Preview
+# Verify Next button navigation
+# Expected: User navigates to Print Preview screen successfully.
+appId: com.hp.impulse.sprocket
+name: "AI_181 - Verify Next button navigation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

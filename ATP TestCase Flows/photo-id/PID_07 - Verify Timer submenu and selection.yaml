@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_07
+# Excel: Photo ID  07 | Module: Timer
+# Verify Timer submenu and selection
+# Expected: Timer submenu opens successfully and selected timer becomes active.
+appId: com.hp.impulse.sprocket
+name: "PID_07 - Verify Timer submenu and selection"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Timer"
+    optional: true

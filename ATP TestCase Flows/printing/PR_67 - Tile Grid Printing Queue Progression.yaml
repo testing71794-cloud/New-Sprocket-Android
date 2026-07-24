@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_67
+# Excel: Print Preview Screen 67 | Module: Print State
+# Tile Grid Printing Queue Progression
+# Expected: The first tile segment of the grid is displayed. No progress text such as “Printing Tile 1 of 4” is shown.
+appId: com.hp.impulse.sprocket
+name: "PR_67 - Tile Grid Printing Queue Progression"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printing Tile 1 of 4"
+    optional: true

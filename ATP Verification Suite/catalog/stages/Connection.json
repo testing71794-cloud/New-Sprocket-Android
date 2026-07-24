@@ -1,242 +1,7 @@
 {
   "stage": "Connection",
-  "count": 256,
+  "count": 255,
   "cases": [
-    {
-      "test_id": "Collage_15",
-      "module": "Printer Validation",
-      "section": "COLLAGE",
-      "description": "Verify printer connection status",
-      "steps": [
-        "1. Open Print Preview without connecting a printer. \n2. Verify No Printer Added is displayed. \n3. Connect a supported printer.\n 4. Return to Print Preview. 5. Verify printer name is displayed."
-      ],
-      "type": "Positive",
-      "expected": "Printer name replaces No Printer Added after successful connection.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 634,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Collage_15",
-          "module": "Printer Validation",
-          "stage": "Connection",
-          "description": "Verify printer connection status",
-          "expected": "Printer name replaces No Printer Added after successful connection.",
-          "verification": "Verify visible: Printer",
-          "kind": "visible",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Print Preview Screen 30",
-      "module": "Reconnection",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Printer Reconnection Flow",
-      "steps": [
-        "1.Launch the application.\n\n2.Wait for the splash screen to complete.\n\n3.Complete all onboarding steps (ON_01B through ON_01D).\n\n4.Reach the ON_01E onboarding screen and tap \"Get Started!\".\n\n5.Ensure the printer is offline/disconnected, select an image from the gallery, and reach the Print Preview screenPerform pre-conditions. \n6. While on Print Preview, tap \"Reconnect Printer\". \n7. Navigate through Connection Options, Discovery, and Connection Success screens. \n8. Tap \"Finish Connection\"."
-      ],
-      "type": "Positive",
-      "expected": "User successfully navigates through connection flow; printer connects; status updates in header; user returns to Print Preview to proceed with print.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 791,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Print Preview Screen 30",
-          "module": "Reconnection",
-          "stage": "Connection",
-          "description": "Printer Reconnection Flow",
-          "expected": "User successfully navigates through connection flow; printer connects; status updates in header; user returns to Print Preview to proceed with print.",
-          "verification": "Verify navigation marker: Printer",
-          "kind": "navigation",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Firmware Update 008",
-      "module": "Printer Switching",
-      "section": "Bluetooth / HP 600 Firmware Update",
-      "description": "Verify printer switching restriction during firmware update",
-      "steps": [
-        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware update. 4. Attempt to switch printer during update process."
-      ],
-      "type": "Negative",
-      "expected": "Printer switching is blocked during firmware update.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4005,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Firmware Update 008",
-          "module": "Printer Switching",
-          "stage": "Connection",
-          "description": "Verify printer switching restriction during firmware update",
-          "expected": "Printer switching is blocked during firmware update.",
-          "verification": "Verify visible: Printer",
-          "kind": "visible",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Firmware Update 009",
-      "module": "Printer Switching",
-      "section": "Bluetooth / HP 600 Firmware Update",
-      "description": "Verify Please Wait popup display",
-      "steps": [
-        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware update. 4. Attempt to switch printer."
-      ],
-      "type": "Negative",
-      "expected": "Please Wait popup is displayed.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4006,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Firmware Update 009",
-          "module": "Printer Switching",
-          "stage": "Connection",
-          "description": "Verify Please Wait popup display",
-          "expected": "Please Wait popup is displayed.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "Firmware Update 10",
-      "module": "Printer Switching",
-      "section": "Bluetooth / HP 600 Firmware Update",
-      "description": "Verify Please Wait popup message",
-      "steps": [
-        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware update. 4. Attempt to switch printer. 5. Observe popup message."
-      ],
-      "type": "Negative",
-      "expected": "A warning popup is displayed with the message \"Please wait for firmware update to complete before selecting another printer.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The user cannot select another printer until the firmware update is complete.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4007,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Firmware Update 10",
-          "module": "Printer Switching",
-          "stage": "Connection",
-          "description": "Verify Please Wait popup message",
-          "expected": "A warning popup is displayed with the message \"Please wait for firmware update to complete before selecting another printer.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The user cannot select another printer until the firmware update is complete.",
-          "verification": "Verify dialog: Please wait for firmware update to complete before selecting another printer.",
-          "kind": "dialog",
-          "selector": "Please wait for firmware update to complete before selecting another printer."
-        },
-        {
-          "test_id": "Firmware Update 10",
-          "module": "Printer Switching",
-          "stage": "Connection",
-          "description": "Verify Please Wait popup message",
-          "expected": "A warning popup is displayed with the message \"Please wait for firmware update to complete before selecting another printer.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The user cannot select another printer until the firmware update is complete.",
-          "verification": "Verify dialog: OK",
-          "kind": "dialog",
-          "selector": "OK"
-        },
-        {
-          "test_id": "Firmware Update 10",
-          "module": "Printer Switching",
-          "stage": "Connection",
-          "description": "Verify Please Wait popup message",
-          "expected": "A warning popup is displayed with the message \"Please wait for firmware update to complete before selecting another printer.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The user cannot select another printer until the firmware update is complete.",
-          "verification": "Verify dialog: Printer",
-          "kind": "dialog",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Firmware Update 11",
-      "module": "Printer Switching",
-      "section": "Bluetooth / HP 600 Firmware Update",
-      "description": "Verify OK button functionality",
-      "steps": [
-        "1. Launch application and complete onboarding. 2. Connect printer. 3. Start firmware update. 4. Trigger Please Wait popup. 5. Tap OK."
-      ],
-      "type": "Positive",
-      "expected": "Popup closes and user remains on current printer screen.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4008,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Firmware Update 11",
-          "module": "Printer Switching",
-          "stage": "Connection",
-          "description": "Verify OK button functionality",
-          "expected": "Popup closes and user remains on current printer screen.",
-          "verification": "Verify dialog: Printer",
-          "kind": "dialog",
-          "selector": "Printer"
-        }
-      ]
-    },
-    {
-      "test_id": "Blockers Error Pop up Android   15",
-      "module": "Printer",
-      "section": "BLOCKERS & STOPPERS ERROR POP UP (ANDROID)",
-      "description": "Verify \"Sprocket not Responding\" popup",
-      "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding flow.",
-        "3. Tap Get Start!.",
-        "4. Tap Sign up later.",
-        "5. Go to Dashboard Home screen.",
-        "6. Tap Printer icon.",
-        "7. Tap Skip to Connection.",
-        "8. (iOS Only) \"Select An Accessory\" popup appears.",
-        "9. Select printer HP200 and connect successfully.",
-        "10. Verify Finish Connection screen appears.",
-        "11. Select an image from Gallery.",
-        "12. Make the printer unresponsive (turn off printer / disconnect Bluetooth / freeze printer response).",
-        "13. Tap Print on Preview screen.",
-        "14. Observe popup on Print Preview screen."
-      ],
-      "type": "Negative",
-      "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 4250,
-      "stage": "Connection",
-      "verifications": [
-        {
-          "test_id": "Blockers Error Pop up Android   15",
-          "module": "Printer",
-          "stage": "Connection",
-          "description": "Verify \"Sprocket not Responding\" popup",
-          "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
-          "verification": "Verify dialog: Sprocket not Responding",
-          "kind": "dialog",
-          "selector": "Sprocket not Responding"
-        },
-        {
-          "test_id": "Blockers Error Pop up Android   15",
-          "module": "Printer",
-          "stage": "Connection",
-          "description": "Verify \"Sprocket not Responding\" popup",
-          "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
-          "verification": "Verify dialog: The popup includes an",
-          "kind": "dialog",
-          "selector": "The popup includes an"
-        },
-        {
-          "test_id": "Blockers Error Pop up Android   15",
-          "module": "Printer",
-          "stage": "Connection",
-          "description": "Verify \"Sprocket not Responding\" popup",
-          "expected": "\"Sprocket not Responding\" popup is displayed on the Print Preview screen. The popup displays the bold title \"Sprocket not Responding\", followed by the message \"Your printer might have automatically restarted. If issues continue, remove the power cord from the printer, then reconnect it, power on the printer, and try again.\" The popup includes an \"OK\" button at the bottom and a Close (X) icon in the top-right corner. The print job does not start until the printer is responding properly.",
-          "verification": "Verify dialog: Printer",
-          "kind": "dialog",
-          "selector": "Printer"
-        }
-      ]
-    },
     {
       "test_id": "PCF-001",
       "module": "Pre Connection Flow",
@@ -12963,6 +12728,16 @@
           "stage": "Connection",
           "description": "Verify Sleep Timer update and persistence",
           "expected": "Selected Sleep Timer value is saved successfully and persists after reopening Printer Settings.",
+          "verification": "Verify visible: Timer",
+          "kind": "visible",
+          "selector": "Timer"
+        },
+        {
+          "test_id": "PS-005",
+          "module": "Printer Settings",
+          "stage": "Connection",
+          "description": "Verify Sleep Timer update and persistence",
+          "expected": "Selected Sleep Timer value is saved successfully and persists after reopening Printer Settings.",
           "verification": "Verify visible: Printer",
           "kind": "visible",
           "selector": "Printer"
@@ -13306,6 +13081,329 @@
           "verification": "Verify visible: Printer",
           "kind": "visible",
           "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "PS-013",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Firmware Update Available popup is displayed",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Verify update description text is displayed.",
+        "25. Verify Update Now button is displayed.",
+        "26. Verify Not Right Now button is displayed."
+      ],
+      "type": "",
+      "expected": "Firmware Update Available popup is displayed with update details, Update Now button, and Not Right Now button.",
+      "sheet": "Printers detail pages",
+      "row": 14,
+      "stage": "Connection",
+      "verifications": [
+        {
+          "test_id": "PS-013",
+          "module": "Firmware Update",
+          "stage": "Connection",
+          "description": "Verify Firmware Update Available popup is displayed",
+          "expected": "Firmware Update Available popup is displayed with update details, Update Now button, and Not Right Now button.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-014",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Not Right Now button functionality",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Not Right Now' button.",
+        "25. Verify Firmware Update Available popup is dismissed.",
+        "26. Verify user remains on Printer Settings screen.",
+        "27. Verify Update Available banner is still displayed."
+      ],
+      "type": "",
+      "expected": "Popup is dismissed and user remains on Printer Settings screen with Update Available banner visible.",
+      "sheet": "Printers detail pages",
+      "row": 15,
+      "stage": "Connection",
+      "verifications": [
+        {
+          "test_id": "PS-014",
+          "module": "Firmware Update",
+          "stage": "Connection",
+          "description": "Verify Not Right Now button functionality",
+          "expected": "Popup is dismissed and user remains on Printer Settings screen with Update Available banner visible.",
+          "verification": "Verify dialog: Printer",
+          "kind": "dialog",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "PS-015",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Verify firmware update process is initiated.",
+        "26. Verify Firmware Download in Progress screen/message is displayed.",
+        "27. Verify update progress indicator is displayed."
+      ],
+      "type": "",
+      "expected": "Firmware update starts successfully and Firmware Download in Progress status is displayed.",
+      "sheet": "Printers detail pages",
+      "row": 16,
+      "stage": "Connection",
+      "verifications": [
+        {
+          "test_id": "PS-015",
+          "module": "Firmware Update",
+          "stage": "Connection",
+          "description": "",
+          "expected": "Firmware update starts successfully and Firmware Download in Progress status is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-016",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Firmware Download in Progress state",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Observe Firmware Download in Progress screen.",
+        "26. Verify download progress indicator is displayed.",
+        "27. Verify firmware download status message is displayed.",
+        "28. Verify printer remains connected during download process."
+      ],
+      "type": "",
+      "expected": "Firmware download progress and status message are displayed correctly during firmware download.",
+      "sheet": "Printers detail pages",
+      "row": 17,
+      "stage": "Connection",
+      "verifications": [
+        {
+          "test_id": "PS-016",
+          "module": "Firmware Update",
+          "stage": "Connection",
+          "description": "Verify Firmware Download in Progress state",
+          "expected": "Firmware download progress and status message are displayed correctly during firmware download.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-017",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify Firmware Installation in Progress state",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Observe Firmware Download in Progress screen.",
+        "26. Verify download progress indicator is displayed.",
+        "27. Verify firmware download status message is displayed.",
+        "28. Wait for firmware download to complete.",
+        "29.  Verify Firmware Installation in Progress screen/message is displayed.",
+        "30. Verify installation instruction message is displayed.",
+        "31. Verify user is instructed not to power off or reset the printer.",
+        "32. Verify update progress indicator is displayed."
+      ],
+      "type": "",
+      "expected": "Firmware Installation in Progress message and instructions are displayed correctly.",
+      "sheet": "Printers detail pages",
+      "row": 18,
+      "stage": "Connection",
+      "verifications": [
+        {
+          "test_id": "PS-017",
+          "module": "Firmware Update",
+          "stage": "Connection",
+          "description": "Verify Firmware Installation in Progress state",
+          "expected": "Firmware Installation in Progress message and instructions are displayed correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "PS-018",
+      "module": "Firmware Update",
+      "section": "Printers detail pages",
+      "description": "Verify successful firmware update completion",
+      "steps": [
+        "1. Make sure 200 printer is powered on.",
+        "2. Launch the application.",
+        "3. Wait for splash screen to complete.",
+        "4. Swipe onboarding screens until final screen.",
+        "5. Tap 'Get Started'.",
+        "6. Tap on 'Sign Up Later'.",
+        "7. Wait for Home screen.",
+        "8. Tap 'Printer' from footer.",
+        "9. Tap 'Add a new Printer' button.",
+        "10. Tap 'Skip to Connection'.",
+        "11. Grant all permissions.",
+        "12. Navigate to discovery screen.",
+        "13. Wait to complete the printer discovery spinner.",
+        "14. Wait for scan completion.",
+        "15. Tap '+' for a discovered 200 printer.",
+        "16. Wait for connection process to complete.",
+        "17. Verify Your printer is connected! screen is displayed.",
+        "18. Tap Finish Connection button.",
+        "19. Tap on connected or added printer.",
+        "20. Navigate to Printer Settings screen.",
+        "21. Verify Update Available banner is displayed.",
+        "22. Tap 'Update Available!' button.",
+        "23. Verify Firmware Update Available popup is displayed.",
+        "24. Tap 'Update Now' button.",
+        "25. Observe Firmware Download in Progress screen.",
+        "26. Verify download progress indicator is displayed.",
+        "27. Verify firmware download status message is displayed.",
+        "28. Wait for firmware installation process to complete.",
+        "29. Verify firmware update completes successfully.",
+        "30. Verify Update Available banner is no longer displayed.",
+        "31. Scroll to System section.",
+        "32. Verify Firmware Version field is displayed.",
+        "33. Verify Firmware Version value is updated to the latest version."
+      ],
+      "type": "",
+      "expected": "Firmware update completes successfully and Firmware Version reflects the updated version.",
+      "sheet": "Printers detail pages",
+      "row": 19,
+      "stage": "Connection",
+      "verifications": [
+        {
+          "test_id": "PS-018",
+          "module": "Firmware Update",
+          "stage": "Connection",
+          "description": "Verify successful firmware update completion",
+          "expected": "Firmware update completes successfully and Firmware Version reflects the updated version.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
         }
       ]
     },

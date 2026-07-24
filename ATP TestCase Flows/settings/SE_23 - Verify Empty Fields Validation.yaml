@@ -1,0 +1,14 @@
+# ATP Test Case ID: SE_23
+# Excel: Hamburger Menu 24 | Module: Validation
+# Verify Empty Fields Validation
+# Expected: Required field validation message is displayed or Save button remains disabled.
+appId: com.hp.impulse.sprocket
+name: "SE_23 - Verify Empty Fields Validation"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

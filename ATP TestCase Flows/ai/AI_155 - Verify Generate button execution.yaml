@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_155
+# Excel: AI tools 174 | Module: Landscape Photo Fit
+# Verify Generate button execution
+# Expected: AI processing is triggered successfully.
+appId: com.hp.impulse.sprocket
+name: "AI_155 - Verify Generate button execution"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

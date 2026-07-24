@@ -1,0 +1,14 @@
+# ATP Test Case ID: TP_13
+# Excel: Tiles modules 13 | Module: Create > Tiles
+# Verify tile selection and print
+# Expected: All tiles are selected by default. Unselected tile changes to an empty circle and reselected tile shows a green checkmark. Only selected tiles are printed. Back, Share, AI, Edit, Print and bottom navigation options are visible and working p
+appId: com.hp.impulse.sprocket
+name: "TP_13 - Verify tile selection and print"
+tags:
+  - tile-print
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true

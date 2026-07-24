@@ -1,0 +1,46 @@
+# Firmware / firmware — 44 Excel-generated flows
+
+- [ ] FW_01 | Firmware Update 001 | Verify Update Available button is displayed
+- [ ] FW_02 | Firmware Update 002 | Verify Firmware Update Available popup
+- [ ] FW_03 | Firmware Update 003 | Verify Update Now button functionality
+- [ ] FW_04 | Firmware Update 004 | Verify Firmware Download In Progress screen
+- [ ] FW_05 | Firmware Update 005 | Verify Firmware Installation In Progress screen
+- [ ] FW_06 | Firmware Update 006 | Verify installation warning message
+- [ ] FW_07 | Firmware Update 007 | Verify firmware installation completion
+- [ ] FW_08 | Firmware Update 008 | Verify printer switching restriction during firmware update
+- [ ] FW_09 | Firmware Update 009 | Verify Please Wait popup display
+- [ ] FW_10 | Firmware Update 10 | Verify Please Wait popup message
+- [ ] FW_11 | Firmware Update 11 | Verify OK button functionality
+- [ ] FW_12 | Firmware Update 12 | Verify update restriction when battery is below 25%
+- [ ] FW_13 | Firmware Update 13 | Verify update restriction when no paper is loaded
+- [ ] FW_14 | Firmware Update 14 | Verify internet interruption during firmware download
+- [ ] FW_15 | Firmware Update 15 | Verify navigation restriction during firmware installation
+- [ ] FW_16 | Firmware Update 16 | Verify Update Available button is displayed
+- [ ] FW_17 | Firmware Update 17 | Verify Firmware Update popup opens
+- [ ] FW_18 | Firmware Update 18 | Verify popup UI content
+- [ ] FW_19 | Firmware Update 19 | Verify Not Right Now functionality
+- [ ] FW_20 | Firmware Update 20 | Verify Update Now starts firmware download
+- [ ] FW_21 | Firmware Update 21 | Verify download progress screen
+- [ ] FW_22 | Firmqare Update 22 | Verify UI remains visible during download
+- [ ] FW_23 | Firmware Update 23 | Verify installation screen appears
+- [ ] FW_24 | Firmware Update 24 | Verify installation warning message
+- [ ] FW_25 | Firmware Update 25 | Verify update completion
+- [ ] FW_26 | Firmware Update 26 | Verify status section
+- [ ] FW_27 | Firmware Update 27 | Verify battery display
+- [ ] FW_28 | Firmware Update 28 | Verify customization options
+- [ ] FW_29 | Firmware Update 29 | Verify system section
+- [ ] FW_30 | Firmware Update 30 | Verify update blocked when battery low
+- [ ] FW_31 | Firmware Update 31 | Verify update blocked when no paper
+- [ ] FW_32 | Firmware Update 32 | Verify internet failure during download
+- [ ] FW_33 | Firmware Update 33 | Verify Wi-Fi disconnect during update
+- [ ] FW_34 | Firmware Update 34 | Verify app closed during installation
+- [ ] FW_35 | Firmware Update 35 | Verify printer power off during update
+- [ ] FW_36 | Firmware Update 36 | Verify navigation blocked during install
+- [ ] FW_37 | Firmware Update 37 | Verify multiple Update Now taps
+- [ ] FW_38 | Firmware Update 38 | Verify popup reopens correctly
+- [ ] FW_39 | Firmware Update 39 | Verify No Paper Tray Error during firmware update
+- [ ] FW_40 | Firmware Update 40 | Verify Paper Empty Error during firmware update
+- [ ] FW_41 | Firmware Update 41 | Verify Paper Jam Error during firmware update
+- [ ] FW_42 | Firmware Update 42 | Verify No Carbon Ribbon Error during firmware update
+- [ ] FW_43 | Firmware Update 43 | Verify Try Again functionality after resolving hardware issue
+- [ ] FW_44 | Firmware Update 44 | Verify Cancel (X) button functionality on error popup

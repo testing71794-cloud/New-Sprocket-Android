@@ -1,0 +1,24 @@
+# ATP Test Case ID: COX_100
+# Excel: PCF_Sprocket_010 | Module: Pre Connection Flow for HP Sprocket
+# Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket printer
+# Expected: 1. The Enable the Full Sprocket Experience screen should be displayed along with the text description "Allow the app to connect to your sprocket printer using Bluetooth". 2. The Bluetooth icon should be displayed. 3. The Enable Bluetooth bu
+appId: com.hp.impulse.sprocket
+name: "COX_100 - Verify Navigation to Enable the full Sprocket experience scr"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Allow the app to connect to your
+sprocket printer using Bluetooth"
+    optional: true
+- assertVisible:
+    text: "Enable the full Sprocket experience"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Enable Bluetooth"
+    optional: true

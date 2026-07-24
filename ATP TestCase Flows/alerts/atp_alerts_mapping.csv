@@ -1,0 +1,51 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+AL_01,Blockers Error Pop up Android   01,alerts,Memory Error,"Verify ""Memory Error"" popup during printing",alerts/AL_01 - Verify Memory Error popup during printing.yaml,com.hp.impulse.sprocket
+AL_02,Blockers Error Pop up Android  02,alerts,Transmit Error,"Verify ""Transmit Error"" popup during printing",alerts/AL_02 - Verify Transmit Error popup during printing.yaml,com.hp.impulse.sprocket
+AL_03,Blockers Error Pop up Android   03,alerts,Low Voltage,"Verify ""Low Voltage"" popup during printing",alerts/AL_03 - Verify Low Voltage popup during printing.yaml,com.hp.impulse.sprocket
+AL_04,Blockers Error Pop up Android   04,alerts,Print Error,"Verify ""Print Error"" popup during printing",alerts/AL_04 - Verify Print Error popup during printing.yaml,com.hp.impulse.sprocket
+AL_05,Blockers Error Pop up Android   05,alerts,High Temperature,"Verify ""High Temperature"" popup during printing",alerts/AL_05 - Verify High Temperature popup during printing.yaml,com.hp.impulse.sprocket
+AL_06,Blockers Error Pop up Android    06,alerts,Paper,"Verify ""Paper Jam"" error popup",alerts/AL_06 - Verify Paper Jam error popup.yaml,com.hp.impulse.sprocket
+AL_07,Blockers Error Pop up Android    07,alerts,Paper,"Verify ""Out of Paper"" error popup",alerts/AL_07 - Verify Out of Paper error popup.yaml,com.hp.impulse.sprocket
+AL_08,Blockers Error Pop up Android   08,alerts,Cover,"Verify ""Top Cover Open"" error popup",alerts/AL_08 - Verify Top Cover Open error popup.yaml,com.hp.impulse.sprocket
+AL_09,Blockers Error Pop up Android    09,alerts,System,"Verify ""System Error Occurred"" error popup",alerts/AL_09 - Verify System Error Occurred error popup.yaml,com.hp.impulse.sprocket
+AL_10,Blockers Error Pop up Android   10,alerts,Battery,"Verify ""Very Low Battery"" popup",alerts/AL_10 - Verify Very Low Battery popup.yaml,com.hp.impulse.sprocket
+AL_11,Blockers Error Pop up Android   11,alerts,Battery,"Verify ""Battery Error"" popup",alerts/AL_11 - Verify Battery Error popup.yaml,com.hp.impulse.sprocket
+AL_12,Blockers Error Pop up Android   12,alerts,Temperature,"Verify ""Sprocket is Warm"" popup",alerts/AL_12 - Verify Sprocket is Warm popup.yaml,com.hp.impulse.sprocket
+AL_13,Blockers Error Pop up Android   13,alerts,Temperature,"Verify ""Sprocket is Cold"" popup",alerts/AL_13 - Verify Sprocket is Cold popup.yaml,com.hp.impulse.sprocket
+AL_14,Blockers Error Pop up Android   14,alerts,Paper,"Verify ""Paper Feed Error"" popup",alerts/AL_14 - Verify Paper Feed Error popup.yaml,com.hp.impulse.sprocket
+AL_15,Blockers Error Pop up Android   15,alerts,Printer,"Verify ""Sprocket not Responding"" popup",alerts/AL_15 - Verify Sprocket not Responding popup.yaml,com.hp.impulse.sprocket
+AL_16,Blockers Error Pop up Android  16,alerts,Paper,"Verify ""Incorrect Paper Type"" popup",alerts/AL_16 - Verify Incorrect Paper Type popup.yaml,com.hp.impulse.sprocket
+AL_17,Blockers Error Pop up Android   17,alerts,Transmission,"Verify ""Error Sending Image"" popup",alerts/AL_17 - Verify Error Sending Image popup.yaml,com.hp.impulse.sprocket
+AL_18,Stoppers Error Pop up Android 18,alerts,AD_08A_Memory Error,Verify the Memory Error popup is displayed when the printer encounters a memory-related issue during printing.,alerts/AL_18 - Verify the Memory Error popup is displayed when the printer .yaml,com.hp.impulse.sprocket
+AL_19,Stoppers Error Pop up Android 19,alerts,AD_04A_Transmit Error,Verify the Transmit Error popup is displayed when data transmission is interrupted during printing.,alerts/AL_19 - Verify the Transmit Error popup is displayed when data trans.yaml,com.hp.impulse.sprocket
+AL_20,Stoppers Error Pop up Android 20,alerts,AD_07A_Low Voltage,Verify the Low Voltage popup is displayed when the printer battery voltage is too low.,alerts/AL_20 - Verify the Low Voltage popup is displayed when the printer b.yaml,com.hp.impulse.sprocket
+AL_21,Stoppers Error Pop up Android 21,alerts,AD_05A_Print Error,Verify the Print Error popup is displayed when the printer encounters a printing failure.,alerts/AL_21 - Verify the Print Error popup is displayed when the printer e.yaml,com.hp.impulse.sprocket
+AL_22,Blockers Error Pop up Ios 001,alerts,iOS_08_Memory Error,Verify Memory Error popup during printing,alerts/AL_22 - Verify Memory Error popup during printing.yaml,com.hp.impulse.sprocket
+AL_23,Blockers Error Pop up Ios 002,alerts,iOS_12_Transmit Error,Verify Transmit Error popup during printing,alerts/AL_23 - Verify Transmit Error popup during printing.yaml,com.hp.impulse.sprocket
+AL_24,Blockers Error Pop up Ios 003,alerts,iOS_14_Low Voltage,Verify Low Voltage popup when battery is low,alerts/AL_24 - Verify Low Voltage popup when battery is low.yaml,com.hp.impulse.sprocket
+AL_25,Blockers Error Pop up Ios 004,alerts,iOS_15_Print Error,Verify Print Error popup during printing,alerts/AL_25 - Verify Print Error popup during printing.yaml,com.hp.impulse.sprocket
+AL_26,Blockers Error Pop up Ios 005,alerts,iOS_16_High Temperature,Verify High Temperature popup when printer overheats,alerts/AL_26 - Verify High Temperature popup when printer overheats.yaml,com.hp.impulse.sprocket
+AL_27,Blockers Error Pop up Ios 006,alerts,iOS_17_High Battery Temperature,Verify High Battery Temperature popup when battery overheats,alerts/AL_27 - Verify High Battery Temperature popup when battery overheats.yaml,com.hp.impulse.sprocket
+AL_28,Blockers Error Pop up Ios 07,alerts,iOS_19_Paper Not Match,Verify Paper Error popup when incorrect paper size is inserted,alerts/AL_28 - Verify Paper Error popup when incorrect paper size is insert.yaml,com.hp.impulse.sprocket
+AL_29,Blockers Error Pop up Ios 08,alerts,iOS_22_Paper Jam,Verify Paper Jam popup when paper gets stuck during printing,alerts/AL_29 - Verify Paper Jam popup when paper gets stuck during printing.yaml,com.hp.impulse.sprocket
+AL_30,Blockers Error Pop up Ios 09,alerts,iOS_23_Out of Paper,Verify Out of Paper popup when printer has no paper,alerts/AL_30 - Verify Out of Paper popup when printer has no paper.yaml,com.hp.impulse.sprocket
+AL_31,Blockers Error Pop up Ios 10,alerts,iOS_26_Top Cover Open,Verify Top Cover Open popup when top cover is opened during printing,alerts/AL_31 - Verify Top Cover Open popup when top cover is opened during .yaml,com.hp.impulse.sprocket
+AL_32,Blockers Error Pop up Ios 11,alerts,Print Error,Verify System Error popup,alerts/AL_32 - Verify System Error popup.yaml,com.hp.impulse.sprocket
+AL_33,Blockers Error Pop up Ios 12,alerts,Print Error,Verify Low Battery popup,alerts/AL_33 - Verify Low Battery popup.yaml,com.hp.impulse.sprocket
+AL_34,Blockers Error Pop up Ios 13,alerts,Print Error,Verify Battery Error popup,alerts/AL_34 - Verify Battery Error popup.yaml,com.hp.impulse.sprocket
+AL_35,Blockers Error Pop up Ios 14,alerts,Temperature,"Verify ""Sprocket is Warm"" popup",alerts/AL_35 - Verify Sprocket is Warm popup.yaml,com.hp.impulse.sprocket
+AL_36,Blockers Error Pop up Ios 15,alerts,Temperature,"Verify ""Sprocket is Cold"" popup",alerts/AL_36 - Verify Sprocket is Cold popup.yaml,com.hp.impulse.sprocket
+AL_37,Blockers Error Pop up Ios 16,alerts,Paper,"Verify ""Paper Feed Error"" popup",alerts/AL_37 - Verify Paper Feed Error popup.yaml,com.hp.impulse.sprocket
+AL_38,Stoppers Error Pop up Ios   17,alerts,Memory,"Verify ""Memory Error"" popup",alerts/AL_38 - Verify Memory Error popup.yaml,com.hp.impulse.sprocket
+AL_39,Stoppers Error Pop up Ios    18,alerts,Transmit,"Verify ""Transmit Error"" popup",alerts/AL_39 - Verify Transmit Error popup.yaml,com.hp.impulse.sprocket
+AL_40,Stoppers Error Pop up Ios   19,alerts,Voltage,"Verify ""Low Voltage"" popup",alerts/AL_40 - Verify Low Voltage popup.yaml,com.hp.impulse.sprocket
+AL_41,Stoppers Error Pop up Ios   20,alerts,Print,"Verify ""Print Error"" popup",alerts/AL_41 - Verify Print Error popup.yaml,com.hp.impulse.sprocket
+AL_42,Stoppers Error Pop up Ios  21,alerts,Temperature,"Verify ""High Temperature"" popup",alerts/AL_42 - Verify High Temperature popup.yaml,com.hp.impulse.sprocket
+AL_43,Stoppers Error Pop up Ios  22,alerts,Battery,"Verify ""High Battery Temperature"" popup",alerts/AL_43 - Verify High Battery Temperature popup.yaml,com.hp.impulse.sprocket
+AL_44,Stoppers Error Pop up Ios 23,alerts,Paper,"Verify ""Paper Jam"" error",alerts/AL_44 - Verify Paper Jam error.yaml,com.hp.impulse.sprocket
+AL_45,Stoppers Error Pop up Ios  24,alerts,Paper,"Verify ""Out of Paper"" error",alerts/AL_45 - Verify Out of Paper error.yaml,com.hp.impulse.sprocket
+AL_46,Stoppers Error Pop up Ios  25,alerts,Cover,"Verify ""Top Cover Open"" error",alerts/AL_46 - Verify Top Cover Open error.yaml,com.hp.impulse.sprocket
+AL_47,Stoppers Error Pop up Ios  26,alerts,System,"Verify ""System Error""",alerts/AL_47 - Verify System Error.yaml,com.hp.impulse.sprocket
+AL_48,Stoppers Error Pop up Ios 27,alerts,Battery,"Verify ""Battery Error"" popup",alerts/AL_48 - Verify Battery Error popup.yaml,com.hp.impulse.sprocket
+AL_49,Stoppers Error Pop up Ios  28,alerts,Temperature,"Verify ""Sprocket is Warm"" popup",alerts/AL_49 - Verify Sprocket is Warm popup.yaml,com.hp.impulse.sprocket
+AL_50,Stoppers Error Pop up Ios  29,alerts,Temperature,"Verify ""Sprocket is Cold"" popup",alerts/AL_50 - Verify Sprocket is Cold popup.yaml,com.hp.impulse.sprocket

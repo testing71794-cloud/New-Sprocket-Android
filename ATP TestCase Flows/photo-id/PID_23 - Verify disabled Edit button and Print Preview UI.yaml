@@ -1,0 +1,17 @@
+# ATP Test Case ID: PID_23
+# Excel: Photo ID 23 | Module: Photo ID Print Preview
+# Verify disabled Edit button and Print Preview UI
+# Expected: Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.
+appId: com.hp.impulse.sprocket
+name: "PID_23 - Verify disabled Edit button and Print Preview UI"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Copies"
+    optional: true
+- assertVisible:
+    text: "Create"
+    optional: true

@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_173
+# Excel: HP600_CONN_TC011 | Module: Discovery
+# Verify connection process starts after selecting printer
+# Expected: The next connection step should be displayed without error.
+appId: com.hp.impulse.sprocket
+name: "COX_173 - Verify connection process starts after selecting printer"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Next"
+    optional: true

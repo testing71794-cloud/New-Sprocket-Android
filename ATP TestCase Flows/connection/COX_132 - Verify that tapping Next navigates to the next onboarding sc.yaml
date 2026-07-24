@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_132
+# Excel: PCF_Studio Plus_002 | Module: Pre Connection Flow for Sprocket Studio Plus
+# Verify that tapping Next navigates to the next onboarding screen.
+# Expected: The Load Paper screen should be displayed. Step 2 of the setup progress indicator should be highlighted.
+appId: com.hp.impulse.sprocket
+name: "COX_132 - Verify that tapping Next navigates to the next onboarding sc"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

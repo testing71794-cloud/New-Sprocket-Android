@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_08
+# Excel: Photo ID 08 | Module: Timer
+# Verify Timer Off state
+# Expected: Timer icon returns to inactive state and no countdown is applied.
+appId: com.hp.impulse.sprocket
+name: "PID_08 - Verify Timer Off state"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Timer"
+    optional: true

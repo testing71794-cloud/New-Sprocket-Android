@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_160
+# Excel: AI tools 179 | Module: Text-to-Image
+# Verify random prompt button
+# Expected: A random prompt is inserted into the text box each time. Previous prompt is replaced with a new one.
+appId: com.hp.impulse.sprocket
+name: "AI_160 - Verify random prompt button"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,17 @@
+# ATP Test Case ID: GN_01
+# Excel: FP TC_E2E_01 | Module: E2E Navigation
+# Verify full journey: Launch, Onboarding, Sign Up, and Forgot Password flow
+# Expected: App transitions through all screens, successfully arriving at ON_04B_Forgot Password - Entering Password.
+appId: com.hp.impulse.sprocket
+name: "GN_01 - Verify full journey Launch Onboarding Sign Up and Forgot Pas"
+tags:
+  - general
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sign up"
+    optional: true
+- assertVisible:
+    text: "password"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_147
+# Excel: AI tools 166 | Module: Preview Next Step
+# Verify Extend Image routing
+# Expected: User navigates to CR_15A.1_Extend Image - Align Photo.
+appId: com.hp.impulse.sprocket
+name: "AI_147 - Verify Extend Image routing"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

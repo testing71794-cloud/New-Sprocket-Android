@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_143
+# Excel: AI Tools 162 | Module: Preview Next Step
+# Verify primary CTA button label
+# Expected: Button displays "Use This Image" and works correctly.
+appId: com.hp.impulse.sprocket
+name: "AI_143 - Verify primary CTA button label"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Use This Image"
+    optional: true

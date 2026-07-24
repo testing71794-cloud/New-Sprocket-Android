@@ -1,7 +1,59 @@
 {
   "stage": "PreCut",
-  "count": 6,
+  "count": 9,
   "cases": [
+    {
+      "test_id": "Precut_01",
+      "module": "E2E Navigation",
+      "section": "PRECUT",
+      "description": "Verify complete flow from launch to selection.",
+      "steps": [
+        "1. Install and launch the app. 2. Verify Splash Screen with HP logo and \"sprocket\". 3. Wait for splash to complete. 4. Tap Get Started. 5. Tap Sign Up Later. 6. Wait for Home screen. 7. Allow notification permission (if displayed). 8. Tap Pre-Cut Stickers. 9. Allow Photos & Videos permission. 10. Tap Allow. 11. Tap Got It on info popup. 12. Verify Pre-Cut screen: Back, Select 2 Photos, disabled Next button, first slot selected (green), second slot disabled (grey), gallery displayed."
+      ],
+      "type": "Positive",
+      "expected": "User reaches the Pre-Cut selection screen with empty slots and disabled Next button.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 636,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_01",
+          "module": "E2E Navigation",
+          "stage": "PreCut",
+          "description": "Verify complete flow from launch to selection.",
+          "expected": "User reaches the Pre-Cut selection screen with empty slots and disabled Next button.",
+          "verification": "Verify disabled: Next",
+          "kind": "disabled",
+          "selector": "Next"
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_02",
+      "module": "Photo Selection",
+      "section": "PRECUT",
+      "description": "Verify selecting two unique images.",
+      "steps": [
+        "1. Perform Precut_01 steps. 2. Select first gallery image. 3. Verify count appears and Delete, Edit, AI icons are displayed. 4. Select a different second image. 5. Verify both slots are filled. 6. Verify Next button is enabled. 7. Tap Next. 8. Verify Print Preview screen with Back, No Printer Added, Share icon, selected Pre-Cut image, Copies controls, disabled AI, Add Printer, and Edit icon."
+      ],
+      "type": "Positive",
+      "expected": "Two unique photos are selected and Print Preview opens successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 637,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_02",
+          "module": "Photo Selection",
+          "stage": "PreCut",
+          "description": "Verify selecting two unique images.",
+          "expected": "Two unique photos are selected and Print Preview opens successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
     {
       "test_id": "Precut_03",
       "module": "Duplicate Restriction",
@@ -22,6 +74,84 @@
           "stage": "PreCut",
           "description": "Verify duplicate selection error.",
           "expected": "Duplicate image is not assigned and warning message is displayed.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_04",
+      "module": "Navigation & Init",
+      "section": "PRECUT",
+      "description": "Verify app launch, onboarding, and Pre-Cut entry.",
+      "steps": [
+        "1. Install and launch app. 2. Verify Splash Screen. 3. Tap Get Started. 4. Tap Sign Up Later. 5. Allow notification permission. 6. Open Pre-Cut Stickers. 7. Allow gallery permission. 8. Tap Got It. 9. Verify Pre-Cut screen UI elements are displayed correctly."
+      ],
+      "type": "Positive",
+      "expected": "User successfully enters the Pre-Cut screen with default UI.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 639,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_04",
+          "module": "Navigation & Init",
+          "stage": "PreCut",
+          "description": "Verify app launch, onboarding, and Pre-Cut entry.",
+          "expected": "User successfully enters the Pre-Cut screen with default UI.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_05",
+      "module": "Selection Logic",
+      "section": "PRECUT",
+      "description": "Verify 2-photo selection, duplicate prevention, and next state.",
+      "steps": [
+        "1. Perform Precut_01 steps. 2. Select two different images. 3. Verify Next button becomes enabled. 4. Attempt to replace one image with the same image already selected."
+      ],
+      "type": "Positive/Negative",
+      "expected": "Unique images are accepted, duplicate selection is prevented, and Next remains enabled only for valid selection.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 640,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_05",
+          "module": "Selection Logic",
+          "stage": "PreCut",
+          "description": "Verify 2-photo selection, duplicate prevention, and next state.",
+          "expected": "Unique images are accepted, duplicate selection is prevented, and Next remains enabled only for valid selection.",
+          "verification": "Verify enabled: Next",
+          "kind": "enabled",
+          "selector": "Next"
+        }
+      ]
+    },
+    {
+      "test_id": "Precut_06",
+      "module": "Gallery Interaction",
+      "section": "PRECUT",
+      "description": "Verify gallery expansion, collapse, and auto-snap.",
+      "steps": [
+        "1. Perform Precut_01 steps. 2. Drag gallery drawer upward. 3. Drag downward. 4. Release at different heights and verify auto-snap behavior."
+      ],
+      "type": "Positive/Negative",
+      "expected": "Gallery expands, collapses, and snaps correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 641,
+      "stage": "PreCut",
+      "verifications": [
+        {
+          "test_id": "Precut_06",
+          "module": "Gallery Interaction",
+          "stage": "PreCut",
+          "description": "Verify gallery expansion, collapse, and auto-snap.",
+          "expected": "Gallery expands, collapses, and snaps correctly.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null
@@ -61,6 +191,16 @@
           "verification": "Verify dialog: Don",
           "kind": "dialog",
           "selector": "Don"
+        },
+        {
+          "test_id": "Precut_07",
+          "module": "Warning Pop-up",
+          "stage": "PreCut",
+          "description": "Verify \"Got It\" and \"Don't Show Again\" behavior.",
+          "expected": "Popup behaves correctly and user preference is maintained.",
+          "verification": "Verify dialog: Don't Show Again",
+          "kind": "dialog",
+          "selector": "Don't Show Again"
         }
       ]
     },
@@ -110,58 +250,6 @@
           "stage": "PreCut",
           "description": "Verify exit flow after editing selection.",
           "expected": "Save popup appears and selected option works correctly.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
-        }
-      ]
-    },
-    {
-      "test_id": "Print Preview Screen 58",
-      "module": "PreCut",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Verify PreCut Sticker restriction",
-      "steps": [
-        "1-8: Perform common pre-condition steps.\nSelect PreCut sticker paper flow."
-      ],
-      "type": "Pos",
-      "expected": "\"Tiles\" function is hidden/unavailable; AI button is removed.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 877,
-      "stage": "PreCut",
-      "verifications": [
-        {
-          "test_id": "Print Preview Screen 58",
-          "module": "PreCut",
-          "stage": "PreCut",
-          "description": "Verify PreCut Sticker restriction",
-          "expected": "\"Tiles\" function is hidden/unavailable; AI button is removed.",
-          "verification": "Verify not visible: Tiles",
-          "kind": "not_visible",
-          "selector": "Tiles"
-        }
-      ]
-    },
-    {
-      "test_id": "Print Preview Screen 60",
-      "module": "PreCut",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Verify AI button absence",
-      "steps": [
-        "1-8: Perform common pre-condition steps.\nInspect UI in PreCut sticker mode."
-      ],
-      "type": "Neg",
-      "expected": "The AI button is not rendered on the screen.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 879,
-      "stage": "PreCut",
-      "verifications": [
-        {
-          "test_id": "Print Preview Screen 60",
-          "module": "PreCut",
-          "stage": "PreCut",
-          "description": "Verify AI button absence",
-          "expected": "The AI button is not rendered on the screen.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null

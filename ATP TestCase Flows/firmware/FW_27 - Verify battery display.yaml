@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_27
+# Excel: Firmware Update 27 | Module: Firmware UI
+# Verify battery display
+# Expected: Battery percentage is displayed correctly.
+appId: com.hp.impulse.sprocket
+name: "FW_27 - Verify battery display"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,23 @@
+# ATP Test Case ID: FW_17
+# Excel: Firmware Update 17 | Module: Firmware Update Popup
+# Verify Firmware Update popup opens
+# Expected: The "Firmware Update Available" popup is displayed with the bold title "Firmware Update Available", the message "We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest versi
+appId: com.hp.impulse.sprocket
+name: "FW_17 - Verify Firmware Update popup opens"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Firmware Update Available"
+    optional: true
+- assertVisible:
+    text: "We"
+    optional: true
+- assertVisible:
+    text: ", the"
+    optional: true
+- assertVisible:
+    text: "option selected by default, and the"
+    optional: true

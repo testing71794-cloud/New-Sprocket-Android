@@ -1,0 +1,6 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+HM_01,HOME SCREEN_001,home,Application Launch and Home Screen,Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.,home/HM_01 - Verify the complete application flow from the Splash Screen .yaml,com.hp.impulse.sprocket
+HM_02,HOME SCREEN_002,home,Notification Permission Popup,Verify the notification permission popup and the Allow button functionality.,home/HM_02 - Verify the notification permission popup and the Allow butto.yaml,com.hp.impulse.sprocket
+HM_03,HOME SCREEN_003,home,Notification Permission Popup,Verify the notification permission popup and the Don't allow button functionality.,home/HM_03 - Verify the notification permission popup and the Dont allow .yaml,com.hp.impulse.sprocket
+HM_04,HOME SCREEN_004,home,Home Screen - Not Logged In,Verify the Home screen user interface when the user is not logged in.,home/HM_04 - Verify the Home screen user interface when the user is not l.yaml,com.hp.impulse.sprocket
+HM_05,HOME SCREEN_005,home,Home Screen - Logged In,Verify the Home screen user interface when the user is logged in.,home/HM_05 - Verify the Home screen user interface when the user is logge.yaml,com.hp.impulse.sprocket

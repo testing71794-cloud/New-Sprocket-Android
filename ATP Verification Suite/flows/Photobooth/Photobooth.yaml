@@ -1,0 +1,27 @@
+# ATP Stage Flow: Photobooth
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - Photobooth"
+tags:
+  - atp-verification
+  - photobooth
+---
+# Cases in this stage (17):
+#   - Photobooth 01: Verify onboarding popup, camera access and photo capture
+#   - Photobooth 02: Verify behavior when camera permission is denied
+#   - Photobooth 03: Verify shutter to stop button transformation and countdown
+#   - Photobooth 04: Verify cancel photo session during countdown
+#   - Photobooth  05: Verify countdown hides during photo capture
+#   - Photobooth 06: Verify progress indicator updates after each photo
+#   - Photobooth 07: Verify session cancellation while photo is processing
+#   - Photobooth  08: Verify progress bar increment logic
+#   - Photobooth 09: Verify countdown timer returns for next photos
+#   - Photobooth 10: Verify Stop button works during intermediate countdown
+#   - Photobooth 11: Verify Photobooth Result screen layout
+#   - Photobooth 12: Verify merged image auto-save
+#   - Photobooth 13: Verify Back button and Saving popup
+#   - Photobooth 14: Verify print options and negative behavior
+#   - Photobooth 15: Verify default flash status
+#   - Photobooth 16: Verify front flash simulation
+#   - Photobooth 17: Verify no flash when disabled
+- runFlow: ../Home/Home.yaml

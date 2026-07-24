@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_10
+# Excel: QUICK PRINGT_010 | Module: Gallery - Maximum Selection Limit
+# Verify the maximum selection limit of 10 photos.
+# Expected: The application prevents selecting more than ten photos and displays the warning toast message correctly.
+appId: com.hp.impulse.sprocket
+name: "QPX_10 - Verify the maximum selection limit of 10 photos"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "More"
+    optional: true

@@ -1,0 +1,53 @@
+# Settings / settings — 51 Excel-generated flows
+
+- [ ] SE_01 | Hamburger Menu 01 | Access Hamburger Menu
+- [ ] SE_02 | Hamburger Menu  02 | Verify Logged Out Hamburger Menu UI
+- [ ] SE_03 | Hamburger Menu  03 | Verify Logged Out State
+- [ ] SE_04 | Hamburger Menu  04 | Verify Log In Redirection
+- [ ] SE_05 | Hamburger Menu  05 | Verify Logged In Hamburger Menu UI
+- [ ] SE_06 | Hamburger Menu  06 | Verify Close Menu Functionality
+- [ ] SE_07 | Hamburger Menu  07 | Verify App Settings Access
+- [ ] SE_08 | Hamburger Menu  08 | Verify Account Settings Access
+- [ ] SE_09 | Hamburger Menu  09 | Verify Printer Help
+- [ ] SE_10 | Hamburger Menu  10 | Verify Order Photo Paper
+- [ ] SE_11 | Hamburger Menu  11 | Verify Visit Support Website
+- [ ] SE_12 | Hamburger Menu  12 | Verify Legal & Privacy Access
+- [ ] SE_13 | Hamburger Menu  13 | Verify Scroll Behavior
+- [ ] SE_14 | Hamburger Menu  14 | Verify Header and Logo
+- [ ] SE_15 | Hamburger Menu 15 | Verify Log In & Navigate to Account Settings
+- [ ] SE_16 | Hamburger Menu 16 | Verify Name Field Display
+- [ ] SE_17 | Hamburger Menu 17 | Verify Change Password with Invalid Data
+- [ ] SE_18 | Hamburger Menu 19 | Verify Change Password Screen UI
+- [ ] SE_19 | Humburger Menu 20 | Verify Current Password Field
+- [ ] SE_20 | Hamburger Menu 21 | Verify Incorrect Current Password Error
+- [ ] SE_21 | Hamburger Menu 22 | Verify New Password Requirement Error
+- [ ] SE_22 | Hamburger Menu 23 | Verify Password Mismatch Error
+- [ ] SE_23 | Hamburger Menu 24 | Verify Empty Fields Validation
+- [ ] SE_24 | Hamburger Menu 25 | Verify Password Update Failure
+- [ ] SE_25 | Hamburger Menu 26 | Verify Successful Password Change
+- [ ] SE_26 | Hamburger Menu 27 | Verify Back Button
+- [ ] SE_27 | Hamburger Menu 28 | Trigger Logout Pop-up
+- [ ] SE_28 | Hamburger Menu 29 | Cancel Logout
+- [ ] SE_29 | Hamburger Menu 30 | Confirm Logout
+- [ ] SE_30 | Hamburger Menu 31 | Trigger Delete Account Pop-up
+- [ ] SE_31 | Hamburger Menu 32 | Cancel Account Deletion
+- [ ] SE_32 | Hamburger Menu 36 | Launch & Social Login
+- [ ] SE_33 | Hamburger Menu 37 | Access Account Settings
+- [ ] SE_34 | Hamburger Menu 38 | API Auth UI Validation
+- [ ] SE_35 | Hamburger Menu  40 | Field Constraint Validation
+- [ ] SE_36 | Hamburger Menu 41 | Navigation to App Settings
+- [ ] SE_37 | Hamburger Menu 42 | Verify Permissions Option
+- [ ] SE_38 | Hamburger Menu 43 | Verify Default State of Display App Hints
+- [ ] SE_39 | Hamburger Menu 44 | Toggle App Hints ON/OFF
+- [ ] SE_40 | Hamburger Menu 45 | Verify Default Low Data Mode State
+- [ ] SE_41 | Hamburger Menu 46 | Toggle Low Data Mode Functionality
+- [ ] SE_42 | Hamburger Menu 47 | Verify App Version Display
+- [ ] SE_43 | Hamburger Menu 48 | Verify Back Navigation
+- [ ] SE_44 | Hamburger Menu 49 | Access Legal & Privacy Screen
+- [ ] SE_45 | Hamburger Menu 50 | Data Collection Settings Navigation
+- [ ] SE_46 | Hamburger Menu 51 | Data Collection Exit Pop-up Validation
+- [ ] SE_47 | Hamburger Menu 52 | Verify Privacy Policy Open
+- [ ] SE_48 | Hamburger Menu 53 | Verify End User License Agreement
+- [ ] SE_49 | Hamburger Menu 54 | Verify Terms of Service
+- [ ] SE_50 | Hamburger Menu 55 | Open Source Licenses Navigation
+- [ ] SE_51 | Hamburger Menu 56 | Back Button Functionality

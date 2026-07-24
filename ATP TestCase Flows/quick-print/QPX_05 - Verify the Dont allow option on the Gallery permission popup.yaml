@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_05
+# Excel: QUICK PRINT_005 | Module: Gallery Permission
+# Verify the Don't allow option on the Gallery permission popup.
+# Expected: Gallery access is denied and images are not displayed.
+appId: com.hp.impulse.sprocket
+name: "QPX_05 - Verify the Dont allow option on the Gallery permission popup"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Don't allow"
+    optional: true

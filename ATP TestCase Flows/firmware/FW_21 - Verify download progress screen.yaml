@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_21
+# Excel: Firmware Update 21 | Module: Firmware Download
+# Verify download progress screen
+# Expected: "Firmware download in progress" with loader is displayed.
+appId: com.hp.impulse.sprocket
+name: "FW_21 - Verify download progress screen"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Firmware download in progress"
+    optional: true

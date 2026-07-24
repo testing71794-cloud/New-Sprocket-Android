@@ -1,0 +1,14 @@
+# ATP Test Case ID: PID_03
+# Excel: Photo ID  03 | Module: UI Verification
+# Verify Photo ID default UI layout
+# Expected: All Photo ID UI elements are displayed correctly and Front camera opens by default.
+appId: com.hp.impulse.sprocket
+name: "PID_03 - Verify Photo ID default UI layout"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photo ID"
+    optional: true

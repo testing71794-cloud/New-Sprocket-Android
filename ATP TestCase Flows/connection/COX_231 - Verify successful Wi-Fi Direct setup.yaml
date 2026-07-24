@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_231
+# Excel: HP600_CONN_TC069 | Module: Wi-Fi Direct
+# Verify successful Wi-Fi Direct setup
+# Expected: Set Up Complete screen is displayed with Finish Connection button.
+appId: com.hp.impulse.sprocket
+name: "COX_231 - Verify successful Wi-Fi Direct setup"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

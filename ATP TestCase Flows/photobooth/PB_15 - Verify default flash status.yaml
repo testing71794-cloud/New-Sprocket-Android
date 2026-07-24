@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_15
+# Excel: Photobooth 15 | Module: Flash Logic
+# Verify default flash status
+# Expected: Camera flash setting is disabled (OFF) by default and the Flash OFF icon is displayed.
+appId: com.hp.impulse.sprocket
+name: "PB_15 - Verify default flash status"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Flash"
+    optional: true

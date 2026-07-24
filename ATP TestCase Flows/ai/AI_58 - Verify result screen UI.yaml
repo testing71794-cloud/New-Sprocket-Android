@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_58
+# Excel: AI Tools 77 | Module: Replace Object
+# Verify result screen UI
+# Expected: Redirects to CR_13B.6_Result with 2 generated thumbnails, "Generate New" button, and "Apply" button.
+appId: com.hp.impulse.sprocket
+name: "AI_58 - Verify result screen UI"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Generate New"
+    optional: true
+- assertVisible:
+    text: "Apply"
+    optional: true

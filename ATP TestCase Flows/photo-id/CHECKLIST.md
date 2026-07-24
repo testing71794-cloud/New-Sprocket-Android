@@ -1,0 +1,25 @@
+# PhotoID / photo-id — 23 Excel-generated flows
+
+- [ ] PID_01 | Photo ID 01 | Verify camera permission popup and Photo ID onboarding popup
+- [ ] PID_02 | Photo ID 02 | Verify camera permission denial
+- [ ] PID_03 | Photo ID  03 | Verify Photo ID default UI layout
+- [ ] PID_04 | Photo ID  04 | Verify Photo ID UI after camera permission denied
+- [ ] PID_05 | Photo ID 05 | Verify aspect ratio switching
+- [ ] PID_06 | Photo ID 06 | Verify rapid aspect ratio switching
+- [ ] PID_07 | Photo ID  07 | Verify Timer submenu and selection
+- [ ] PID_08 | Photo ID 08 | Verify Timer Off state
+- [ ] PID_09 | Photo ID 09 | Verify Flash and Flip Camera
+- [ ] PID_10 | Photo ID  10 | Verify photo capture and Print Preview
+- [ ] PID_11 | Photo ID 11 | Verify Timer submenu UI
+- [ ] PID_12 | Photo ID 12 | Verify Timer ON state
+- [ ] PID_13 | Photo ID 13 | Verify countdown UI
+- [ ] PID_14 | Photo ID 14 | Verify Stop button
+- [ ] PID_15 | Photo ID 15 | Verify Print Preview UI
+- [ ] PID_16 | Photo ID 16 | Verify Print Preview UI
+- [ ] PID_17 | Photo ID 17 | Verify Print Preview UI
+- [ ] PID_18 | Photo ID 18 | Verify Print Preview UI
+- [ ] PID_19 | Photo ID 19 | Verify Photo ID onboarding popup UI
+- [ ] PID_20 | Photo ID 20 | Verify OK button functionality
+- [ ] PID_21 | Photo ID 21 | Verify Don't Show Again
+- [ ] PID_22 | Photo ID 22 | Verify Edit button disabled
+- [ ] PID_23 | Photo ID 23 | Verify disabled Edit button and Print Preview UI

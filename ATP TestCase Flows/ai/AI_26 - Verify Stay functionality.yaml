@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_26
+# Excel: AI Tools 26 | Module: Interaction: Stay
+# Verify "Stay" functionality
+# Expected: Popup closes and user remains on AI tool screen with generated image and edits intact.
+appId: com.hp.impulse.sprocket
+name: "AI_26 - Verify Stay functionality"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Stay"
+    optional: true

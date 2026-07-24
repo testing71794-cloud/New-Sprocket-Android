@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_143
+# Excel: PCF_Studio Plus_013 | Module: Pre Connection Flow for Sprocket Studio Plus
+# Verify Ready for Wi-Fi Connection Screen
+# Expected: 1. The Ready for Wi-Fi Connection screen should be displayed. 2. Printer and mobile device illustration should be displayed. 3. Wi-Fi connection instructions "Press Finish Setup and follow instructions to set up your printer's Wi-Fi connect
+appId: com.hp.impulse.sprocket
+name: "COX_143 - Verify Ready for Wi-Fi Connection Screen"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Press Finish Setup and follow instructions to set up your printer"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

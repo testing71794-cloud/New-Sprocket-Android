@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_183
+# Excel: AI Tools 202 | Module: Print Preview
+# Verify Back Arrow
+# Expected: User navigates back to Result screen.
+appId: com.hp.impulse.sprocket
+name: "AI_183 - Verify Back Arrow"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

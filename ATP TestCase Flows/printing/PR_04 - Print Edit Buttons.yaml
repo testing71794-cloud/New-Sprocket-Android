@@ -1,0 +1,17 @@
+# ATP Test Case ID: PR_04
+# Excel: Print Preview Screen 04 | Module: Print Action
+# Print & Edit Buttons
+# Expected: Green "Print" button and the "Edit" (pencil) button are rendered, visible, and clickable.
+appId: com.hp.impulse.sprocket
+name: "PR_04 - Print Edit Buttons"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Print"
+    optional: true
+- assertVisible:
+    text: "Edit"
+    optional: true

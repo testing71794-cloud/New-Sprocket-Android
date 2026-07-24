@@ -1,70 +1,467 @@
 {
   "stage": "Settings",
-  "count": 25,
+  "count": 51,
   "cases": [
     {
-      "test_id": "Print Preview Screen 27",
-      "module": "Data & Flow",
-      "section": "PRINT PREVIEWS SCREEN",
-      "description": "Printer Reconnection Flow and State Persistence",
+      "test_id": "Hamburger Menu 01",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Access Hamburger Menu",
       "steps": [
-        "1. Launch the application.",
-        "2. Complete onboarding steps (ON_01B → ON_01D).",
-        "3. Reach ON_01E and tap Get Started!.",
-        "4. Ensure printer is offline and open Print Preview screen.",
-        "5. Apply edits such as crop, rotation, zoom, or video frame selection.",
-        "6. Tap Reconnect Printer and navigate through Connection Options, Discovery, and Connection Success screens.",
-        "7. Tap Finish Connection."
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button from bottom navigation bar."
       ],
       "type": "Positive",
-      "expected": "All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.",
+      "expected": "Hamburger menu slides out from left side and background scrim fades in.",
       "sheet": "New Sprocket Final ATP",
-      "row": 776,
+      "row": 3574,
       "stage": "Settings",
       "verifications": [
         {
-          "test_id": "Print Preview Screen 27",
-          "module": "Data & Flow",
+          "test_id": "Hamburger Menu 01",
+          "module": "Navigation",
           "stage": "Settings",
-          "description": "Printer Reconnection Flow and State Persistence",
-          "expected": "All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.",
-          "verification": "Verify visible: Printer",
-          "kind": "visible",
+          "description": "Access Hamburger Menu",
+          "expected": "Hamburger menu slides out from left side and background scrim fades in.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  02",
+      "module": "UI/Layout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Logged Out Hamburger Menu UI",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Observe Hamburger Menu UI."
+      ],
+      "type": "Positive",
+      "expected": "Menu displays App Logo, Log In > header, App Settings, Printer Help, Order Photo Paper, Visit Support Website and Legal & Privacy options.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3578,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  02",
+          "module": "UI/Layout",
+          "stage": "Settings",
+          "description": "Verify Logged Out Hamburger Menu UI",
+          "expected": "Menu displays App Logo, Log In > header, App Settings, Printer Help, Order Photo Paper, Visit Support Website and Legal & Privacy options.",
+          "verification": "Verify image/logo: Log In",
+          "kind": "image",
+          "selector": "Log In"
+        },
+        {
+          "test_id": "Hamburger Menu  02",
+          "module": "UI/Layout",
+          "stage": "Settings",
+          "description": "Verify Logged Out Hamburger Menu UI",
+          "expected": "Menu displays App Logo, Log In > header, App Settings, Printer Help, Order Photo Paper, Visit Support Website and Legal & Privacy options.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
           "selector": "Printer"
         }
       ]
     },
     {
-      "test_id": "AI Tools 105",
-      "module": "Settings",
-      "section": "AI TOOLS SDK",
-      "description": "Verify Copies/Tiles adjustment",
+      "test_id": "Hamburger Menu  03",
+      "module": "Logic",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Logged Out State",
       "steps": [
         "1. Launch application and wait for splash screen to complete.",
         "2. Complete onboarding (ON_01B–ON_01E).",
-        "3. Tap Get Started !→ Sign Up Later.",
-        "4. Navigate to Create → Sprocket AI Tools → Enhance Photo.",
-        "5. Select image from Gallery.",
-        "6. Tap Generate/Enhance button.",
-        "7. Wait for result screen.",
-        "8. Tap Apply.",
-        "9. Adjust Copies/Tiles settings."
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button."
       ],
-      "type": "Positive",
-      "expected": "Values reflected in the print job settings.",
+      "type": "Negative",
+      "expected": "Account Settings option is hidden when user is logged out.",
       "sheet": "New Sprocket Final ATP",
-      "row": 2265,
+      "row": 3583,
       "stage": "Settings",
       "verifications": [
         {
-          "test_id": "AI Tools 105",
-          "module": "Settings",
+          "test_id": "Hamburger Menu  03",
+          "module": "Logic",
           "stage": "Settings",
-          "description": "Verify Copies/Tiles adjustment",
-          "expected": "Values reflected in the print job settings.",
-          "verification": "Verify visible: Copies",
+          "description": "Verify Logged Out State",
+          "expected": "Account Settings option is hidden when user is logged out.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  04",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Log In Redirection",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap Log In >."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to Log In Options screen (ON_03A/B).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3587,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  04",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Log In Redirection",
+          "expected": "User is redirected to Log In Options screen (ON_03A/B).",
+          "verification": "Verify visible: Log In",
           "kind": "visible",
-          "selector": "Copies"
+          "selector": "Log In"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  05",
+      "module": "UI/Layout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Logged In Hamburger Menu UI",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Login with valid account.",
+        "4. Tap More button.",
+        "5. Observe Hamburger Menu UI."
+      ],
+      "type": "Positive",
+      "expected": "Menu displays App Logo, User Name, App Settings, Account Settings, Printer Help, Order Photo Paper, Visit Support Website, and Legal & Privacy sections.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3592,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  05",
+          "module": "UI/Layout",
+          "stage": "Settings",
+          "description": "Verify Logged In Hamburger Menu UI",
+          "expected": "Menu displays App Logo, User Name, App Settings, Account Settings, Printer Help, Order Photo Paper, Visit Support Website, and Legal & Privacy sections.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  06",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Close Menu Functionality",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap X icon from top-left corner."
+      ],
+      "type": "Positive",
+      "expected": "Hamburger Menu closes and user returns to previous screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3597,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  06",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Close Menu Functionality",
+          "expected": "Hamburger Menu closes and user returns to previous screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  07",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify App Settings Access",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap App Settings."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to App Settings screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3602,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  07",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify App Settings Access",
+          "expected": "User navigates to App Settings screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  08",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Account Settings Access",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Login with valid account.",
+        "4. Tap More button.",
+        "5. Tap Account Settings."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to Account Settings screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3607,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  08",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Account Settings Access",
+          "expected": "User navigates to Account Settings screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  09",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Printer Help",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap Printer Help."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to Printer Help screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3612,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  09",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Printer Help",
+          "expected": "User navigates to Printer Help screen successfully.",
+          "verification": "Verify navigation marker: Printer",
+          "kind": "navigation",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  10",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Order Photo Paper",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap Order Photo Paper."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to Order Photo Paper page successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3617,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  10",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Order Photo Paper",
+          "expected": "User navigates to Order Photo Paper page successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  11",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Visit Support Website",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap Visit Support Website."
+      ],
+      "type": "Positive",
+      "expected": "Support website opens successfully in browser/WebView.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3622,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  11",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Visit Support Website",
+          "expected": "Support website opens successfully in browser/WebView.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  12",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Legal & Privacy Access",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Tap Legal & Privacy."
+      ],
+      "type": "Positive",
+      "expected": "User navigates to Legal & Privacy screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3627,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  12",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Legal & Privacy Access",
+          "expected": "User navigates to Legal & Privacy screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  13",
+      "module": "UI/UX",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Scroll Behavior",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Login with valid account.",
+        "4. Tap More button.",
+        "5. Scroll menu from top to bottom."
+      ],
+      "type": "Positive",
+      "expected": "Menu scrolls smoothly and all menu items remain accessible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3632,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  13",
+          "module": "UI/UX",
+          "stage": "Settings",
+          "description": "Verify Scroll Behavior",
+          "expected": "Menu scrolls smoothly and all menu items remain accessible.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  14",
+      "module": "UI/Layout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Header and Logo",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started → Sign Up Later.",
+        "4. Tap More button.",
+        "5. Observe top section."
+      ],
+      "type": "Positive",
+      "expected": "App Logo, Header text and Close (X) icon are displayed properly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3637,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  14",
+          "module": "UI/Layout",
+          "stage": "Settings",
+          "description": "Verify Header and Logo",
+          "expected": "App Logo, Header text and Close (X) icon are displayed properly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 15",
+      "module": "Initialization",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Log In & Navigate to Account Settings",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started.",
+        "4. Tap Continue with Email.",
+        "5. Enter valid email and password.",
+        "6. Tap Login button.",
+        "7. Verify user lands on Home/Menu screen.",
+        "8. Tap More from bottom menu.",
+        "9. Verify Hamburger Menu opens.",
+        "10. Tap Account Settings under Settings section."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to HM_02A - Account Settings screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3642,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 15",
+          "module": "Initialization",
+          "stage": "Settings",
+          "description": "Verify Log In & Navigate to Account Settings",
+          "expected": "User is redirected to HM_02A - Account Settings screen successfully.",
+          "verification": "Verify visible: Log In",
+          "kind": "visible",
+          "selector": "Log In"
         }
       ]
     },
@@ -215,6 +612,155 @@
       ]
     },
     {
+      "test_id": "Hamburger Menu 21",
+      "module": "Validation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Incorrect Current Password Error",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Enter incorrect Current Password.",
+        "3. Enter valid New Password.",
+        "4. Enter matching Confirm Password.",
+        "5. Tap Save."
+      ],
+      "type": "Negative",
+      "expected": "Error message \"Current password is incorrect\" is displayed below Current Password field. Password is not updated.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3699,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 21",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify Incorrect Current Password Error",
+          "expected": "Error message \"Current password is incorrect\" is displayed below Current Password field. Password is not updated.",
+          "verification": "Verify visible: Current password is incorrect",
+          "kind": "visible",
+          "selector": "Current password is incorrect"
+        },
+        {
+          "test_id": "Hamburger Menu 21",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify Incorrect Current Password Error",
+          "expected": "Error message \"Current password is incorrect\" is displayed below Current Password field. Password is not updated.",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 22",
+      "module": "Validation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify New Password Requirement Error",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Tap New Password field.",
+        "3. Enter invalid password (less than 8 characters or missing uppercase/lowercase/special character).",
+        "4. Observe Password Requirement section."
+      ],
+      "type": "Negative",
+      "expected": "Requirement text under \"Password must include:\" turns red/highlighted. Save button remains disabled/inactive.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3704,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 22",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify New Password Requirement Error",
+          "expected": "Requirement text under \"Password must include:\" turns red/highlighted. Save button remains disabled/inactive.",
+          "verification": "Verify disabled: Password must include:",
+          "kind": "disabled",
+          "selector": "Password must include:"
+        },
+        {
+          "test_id": "Hamburger Menu 22",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify New Password Requirement Error",
+          "expected": "Requirement text under \"Password must include:\" turns red/highlighted. Save button remains disabled/inactive.",
+          "verification": "Verify disabled: password",
+          "kind": "disabled",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 23",
+      "module": "Validation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Password Mismatch Error",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Enter valid Current Password.",
+        "3. Enter valid New Password.",
+        "4. Enter different Confirm Password.",
+        "5. Tap Save."
+      ],
+      "type": "Negative",
+      "expected": "Error message \"Passwords do not match\" is displayed below Confirm Password field. Password is not updated.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3708,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 23",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify Password Mismatch Error",
+          "expected": "Error message \"Passwords do not match\" is displayed below Confirm Password field. Password is not updated.",
+          "verification": "Verify visible: Passwords do not match",
+          "kind": "visible",
+          "selector": "Passwords do not match"
+        },
+        {
+          "test_id": "Hamburger Menu 23",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify Password Mismatch Error",
+          "expected": "Error message \"Passwords do not match\" is displayed below Confirm Password field. Password is not updated.",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 24",
+      "module": "Validation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Empty Fields Validation",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Leave Current Password blank.",
+        "3. Leave New Password blank.",
+        "4. Leave Confirm Password blank.",
+        "5. Tap Save."
+      ],
+      "type": "Negative",
+      "expected": "Required field validation message is displayed or Save button remains disabled.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3713,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 24",
+          "module": "Validation",
+          "stage": "Settings",
+          "description": "Verify Empty Fields Validation",
+          "expected": "Required field validation message is displayed or Save button remains disabled.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Hamburger Menu 25",
       "module": "Error",
       "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
@@ -282,6 +828,33 @@
           "verification": "Verify visible: password",
           "kind": "visible",
           "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 27",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Back Button",
+      "steps": [
+        "1. Navigate to Change Password screen.",
+        "2. Tap Back arrow from top left."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected back to Account Settings screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3729,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 27",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Back Button",
+          "expected": "User is redirected back to Account Settings screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
         }
       ]
     },
@@ -552,6 +1125,194 @@
       ]
     },
     {
+      "test_id": "Hamburger Menu 36",
+      "module": "Initialization",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Launch & Social Login",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started.",
+        "4. Verify Login screen is displayed.",
+        "5. Verify social login options: Continue with Google, Continue with Facebook, and Continue with Apple are displayed.",
+        "6. Tap any social login option (e.g., Continue with Apple).",
+        "7. Verify Sign In popup/page appears.",
+        "8. Enter valid email ID.",
+        "9. Enter valid password.",
+        "10. Tap Sign In/Continue button.",
+        "11. Verify authentication is successful.",
+        "12. Verify user is redirected to the Home/Main screen."
+      ],
+      "type": "Positive",
+      "expected": "User successfully logs in using social login and is redirected to Home screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3815,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 36",
+          "module": "Initialization",
+          "stage": "Settings",
+          "description": "Launch & Social Login",
+          "expected": "User successfully logs in using social login and is redirected to Home screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 37",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Access Account Settings",
+      "steps": [
+        "1. Launch application and complete onboarding.",
+        "2. Tap Get Started.",
+        "3. Login using any social login option.",
+        "4. Verify user is redirected to Home/Main screen.",
+        "5. Tap More button from bottom menu.",
+        "6. Verify Hamburger Menu appears.",
+        "7. Verify all menu options are displayed.",
+        "8. Tap Account Settings under Settings section.",
+        "9. Verify HM_02L_API Account Settings screen is displayed."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to HM_02L_API Account Settings screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3827,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 37",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Access Account Settings",
+          "expected": "User is redirected to HM_02L_API Account Settings screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 38",
+      "module": "UI Layout",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "API Auth UI Validation",
+      "steps": [
+        "1. Launch application and login using Google/Facebook/Apple.",
+        "2. Tap More button.",
+        "3. Tap Account Settings.",
+        "4. Verify Account Settings screen opens.",
+        "5. Verify Personal section is displayed.",
+        "6. Verify Username/Email editable fields are not displayed.",
+        "7. Verify Password and Change Password options are hidden.",
+        "8. Verify API authentication banner is displayed.",
+        "9. Verify API icon (Google/Facebook/Apple) is displayed correctly.",
+        "10. Verify text \"Signed in via Google/Facebook/Apple\" is displayed as per Figma.",
+        "11. Verify Logout and Delete Account options are displayed in Account section."
+      ],
+      "type": "Positive",
+      "expected": "Username and Password fields are hidden. API banner with icon and \"Signed in via [Method]\" text is displayed correctly.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3836,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 38",
+          "module": "UI Layout",
+          "stage": "Settings",
+          "description": "API Auth UI Validation",
+          "expected": "Username and Password fields are hidden. API banner with icon and \"Signed in via [Method]\" text is displayed correctly.",
+          "verification": "Verify image/logo: Signed in via [Method]",
+          "kind": "image",
+          "selector": "Signed in via [Method]"
+        },
+        {
+          "test_id": "Hamburger Menu 38",
+          "module": "UI Layout",
+          "stage": "Settings",
+          "description": "API Auth UI Validation",
+          "expected": "Username and Password fields are hidden. API banner with icon and \"Signed in via [Method]\" text is displayed correctly.",
+          "verification": "Verify image/logo: password",
+          "kind": "image",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu  40",
+      "module": "Logic",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Field Constraint Validation",
+      "steps": [
+        "1. Launch application and login using social login.",
+        "2. Tap More button.",
+        "3. Tap Account Settings.",
+        "4. Verify Account Settings screen is displayed.",
+        "5. Verify Personal section.",
+        "6. Verify Name/Username field is not editable.",
+        "7. Verify Change Password option is not displayed.",
+        "8. Verify Password field is not displayed.",
+        "9. Try to find edit or password update option.",
+        "10. Verify no edit or password change functionality is available for API users.",
+        "11. Verify account information is managed only by external API provider."
+      ],
+      "type": "Positive",
+      "expected": "Username edit and password change options are unavailable for API authenticated users.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3847,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu  40",
+          "module": "Logic",
+          "stage": "Settings",
+          "description": "Field Constraint Validation",
+          "expected": "Username edit and password change options are unavailable for API authenticated users.",
+          "verification": "Verify visible: password",
+          "kind": "visible",
+          "selector": "password"
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 41",
+      "module": "Initialization",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Navigation to App Settings",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started.",
+        "4. Choose Sign up / Login / Continue without login.",
+        "5. Verify user is redirected to Home/Main screen.",
+        "6. Tap More button from bottom menu.",
+        "7. Verify Hamburger menu appears.",
+        "8. Verify menu options are visible.",
+        "9. Tap App Settings.",
+        "10. Verify user navigates to HM_03A_App Settings screen."
+      ],
+      "type": "Positive",
+      "expected": "User successfully navigates to App Settings screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3858,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 41",
+          "module": "Initialization",
+          "stage": "Settings",
+          "description": "Navigation to App Settings",
+          "expected": "User successfully navigates to App Settings screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Hamburger Menu 42",
       "module": "Permissions",
       "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
@@ -753,6 +1514,76 @@
       ]
     },
     {
+      "test_id": "Hamburger Menu 48",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Verify Back Navigation",
+      "steps": [
+        "1. Navigate to App Settings screen.",
+        "2. Verify all sections are visible (Permissions, Display, Data, Version).",
+        "3. Tap Back arrow at top-left corner.",
+        "4. Verify navigation to previous screen.",
+        "5. Verify Hamburger menu screen appears.",
+        "6. Verify no data loss or UI glitch occurs."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected back to previous menu screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3919,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 48",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Verify Back Navigation",
+          "expected": "User is redirected back to previous menu screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 49",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Access Legal & Privacy Screen",
+      "steps": [
+        "1. Launch application and wait for splash screen to complete.",
+        "2. Complete onboarding (ON_01B–ON_01E).",
+        "3. Tap Get Started.",
+        "4. Choose Sign up / Login / Continue without login.",
+        "5. Verify user is redirected to Home/Main screen.",
+        "6. Tap More button from bottom menu.",
+        "7. Verify Hamburger menu appears.",
+        "8. Tap App Settings.",
+        "9. Verify App Settings screen opens.",
+        "10. Scroll to Support section.",
+        "11. Verify Legal & Privacy option is visible.",
+        "12. Tap Legal & Privacy.",
+        "13. Verify navigation to HM_04A_Legal & Privacy screen.",
+        "14. Verify screen title and all menu items are visible."
+      ],
+      "type": "Positive",
+      "expected": "User successfully navigates to Legal & Privacy screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3925,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 49",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Access Legal & Privacy Screen",
+          "expected": "User successfully navigates to Legal & Privacy screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Hamburger Menu 50",
       "module": "Data",
       "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
@@ -946,6 +1777,39 @@
           "stage": "Settings",
           "description": "Open Source Licenses Navigation",
           "expected": "Open Source Licenses screen displays all dependencies correctly.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Hamburger Menu 56",
+      "module": "Navigation",
+      "section": "HUMBURGER MENU (MAIN, ACCOUNT SETTING, APP SETTINGS , LEGAL & PRIICY)",
+      "description": "Back Button Functionality",
+      "steps": [
+        "1. Navigate to Legal & Privacy screen.",
+        "2. Open any sub-menu (Privacy Policy / EULA / Data Collection).",
+        "3. Verify sub-screen opens correctly.",
+        "4. Tap Back arrow from top-left.",
+        "5. Verify user returns to Legal & Privacy screen.",
+        "6. Repeat for other sub-screens.",
+        "7. Verify no UI freeze or data loss occurs.",
+        "8. Verify navigation consistency across all screens."
+      ],
+      "type": "Positive",
+      "expected": "User successfully returns to Legal & Privacy main screen from all sub-pages.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 3989,
+      "stage": "Settings",
+      "verifications": [
+        {
+          "test_id": "Hamburger Menu 56",
+          "module": "Navigation",
+          "stage": "Settings",
+          "description": "Back Button Functionality",
+          "expected": "User successfully returns to Legal & Privacy main screen from all sub-pages.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null

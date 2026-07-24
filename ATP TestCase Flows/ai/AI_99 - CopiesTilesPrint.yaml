@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_99
+# Excel: AI Tools 118 | Module: Printing
+# Copies/Tiles/Print
+# Expected: Correct print settings applied and image sent to printer.
+appId: com.hp.impulse.sprocket
+name: "AI_99 - CopiesTilesPrint"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

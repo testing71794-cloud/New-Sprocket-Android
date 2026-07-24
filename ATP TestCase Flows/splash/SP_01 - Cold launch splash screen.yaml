@@ -1,13 +1,14 @@
 # ATP Test Case ID: SP_01
-# Video t02–t03 — cold launch splash / branding
+# Cold launch — splash may be brief; first durable screen is Sign up (carousel optional).
 appId: com.hp.impulse.sprocket
 name: "SP_01 - Cold launch splash screen"
 ---
 - launchApp:
     clearState: true
 - runFlow: ../common/subflows/wait_after_cold_launch.yaml
-- assertVisible: "Welcome to the new Sprocket!"
-- assertVisible: "Swipe to continue."
-- assertVisible: "Enjoy the revamped Sprocket experience with intuitive navigation."
-- assertVisible: "Swipe to continue."
-
+- runFlow: ../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 20000
+- assertVisible: "Sign up"
+- assertVisible: ".*(?i)(I.ll do it later|Sign Up Later).*"

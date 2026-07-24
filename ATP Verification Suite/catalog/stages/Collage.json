@@ -1,7 +1,33 @@
 {
   "stage": "Collage",
-  "count": 11,
+  "count": 15,
   "cases": [
+    {
+      "test_id": "Collage_01",
+      "module": "Launch & Navigation",
+      "section": "COLLAGE",
+      "description": "Verify app launch and Home screen",
+      "steps": [
+        "1. Install the app. \n2. Launch the app.\n 3. Verify HP Splash Screen. \n4. Complete all onboarding screens.\n 5. Tap Get Started. \n6. Verify Sign Up screen. 7. Tap Sign Up Later.\n 8. Allow notification permission (if displayed). 9. Verify Home screen is displayed successfully."
+      ],
+      "type": "Positive",
+      "expected": "User successfully reaches the Home screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 620,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_01",
+          "module": "Launch & Navigation",
+          "stage": "Collage",
+          "description": "Verify app launch and Home screen",
+          "expected": "User successfully reaches the Home screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
     {
       "test_id": "Collage_02",
       "module": "Photo Permission",
@@ -107,6 +133,32 @@
       ]
     },
     {
+      "test_id": "Collage_06",
+      "module": "Multiple Selection",
+      "section": "COLLAGE",
+      "description": "Verify selection of up to four photos",
+      "steps": [
+        "1. Open Collage screen. 2. Select first, second, third and fourth images one by one. 3. Verify all four collage placeholders are filled."
+      ],
+      "type": "Positive",
+      "expected": "User can select up to four images successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 625,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_06",
+          "module": "Multiple Selection",
+          "stage": "Collage",
+          "description": "Verify selection of up to four photos",
+          "expected": "User can select up to four images successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
       "test_id": "Collage_07",
       "module": "Duplicate Selection",
       "section": "COLLAGE",
@@ -155,6 +207,32 @@
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_09",
+      "module": "Next Button Validation",
+      "section": "COLLAGE",
+      "description": "Verify Next button enable/disable",
+      "steps": [
+        "1. Select only one image. 2. Verify Next button remains disabled. \n3. Select second image. \n4. Verify Next button becomes enabled."
+      ],
+      "type": "Positive / Negative",
+      "expected": "Next button enables only after selecting at least two images.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 628,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_09",
+          "module": "Next Button Validation",
+          "stage": "Collage",
+          "description": "Verify Next button enable/disable",
+          "expected": "Next button enables only after selecting at least two images.",
+          "verification": "Verify image/logo: Next",
+          "kind": "image",
+          "selector": "Next"
         }
       ]
     },
@@ -263,35 +341,54 @@
       ]
     },
     {
-      "test_id": "Custom SDK   07",
-      "module": "Gallery - Invalid Image Selection",
-      "section": "CUSTOM SDK",
-      "description": "Verify system behavior when image cannot be loaded.",
+      "test_id": "Collage_14",
+      "module": "Print Preview UI",
+      "section": "COLLAGE",
+      "description": "Verify Print Preview screen",
       "steps": [
-        "1. Launch the application and complete onboarding flow.",
-        "2. Tap Get Start!.",
-        "3. Tap Sign up later.",
-        "4. Navigate to Dashboard Home screen.",
-        "5. Tap Printer and connect printer successfully.",
-        "6. Select an unsupported or corrupted image from Gallery.",
-        "7. Tap the image.",
-        "8. Attempt to open the Edit screen."
+        "1. Select four images. \n2. Tap Next.\n 3. Reorder images if required. \n4. Tap Next again. \n5. Verify Back icon. \n6. Verify No Printer Added if printer is not connected or printer name if connected. \n7. Verify Share icon.\n 8. Verify collage preview. 9. Verify Copies section with + / - buttons. \n10. Verify AI icon is disabled. \n11. Verify Add Printer button. \n12. Verify Edit icon. \n13. Verify bottom navigation (More, Create, Printer) with Create selected."
       ],
-      "type": "Negative",
-      "expected": "Appropriate error message is displayed and the image editor is not opened.",
+      "type": "Positive",
+      "expected": "Print Preview screen is displayed with all controls.",
       "sheet": "New Sprocket Final ATP",
-      "row": 4994,
+      "row": 633,
       "stage": "Collage",
       "verifications": [
         {
-          "test_id": "Custom SDK   07",
-          "module": "Gallery - Invalid Image Selection",
+          "test_id": "Collage_14",
+          "module": "Print Preview UI",
           "stage": "Collage",
-          "description": "Verify system behavior when image cannot be loaded.",
-          "expected": "Appropriate error message is displayed and the image editor is not opened.",
+          "description": "Verify Print Preview screen",
+          "expected": "Print Preview screen is displayed with all controls.",
           "verification": "Manual/heuristic check — review expected result on current screen",
           "kind": "manual_note",
           "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Collage_15",
+      "module": "Printer Validation",
+      "section": "COLLAGE",
+      "description": "Verify printer connection status",
+      "steps": [
+        "1. Open Print Preview without connecting a printer. \n2. Verify No Printer Added is displayed. \n3. Connect a supported printer.\n 4. Return to Print Preview. 5. Verify printer name is displayed."
+      ],
+      "type": "Positive",
+      "expected": "Printer name replaces No Printer Added after successful connection.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 634,
+      "stage": "Collage",
+      "verifications": [
+        {
+          "test_id": "Collage_15",
+          "module": "Printer Validation",
+          "stage": "Collage",
+          "description": "Verify printer connection status",
+          "expected": "Printer name replaces No Printer Added after successful connection.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
         }
       ]
     }

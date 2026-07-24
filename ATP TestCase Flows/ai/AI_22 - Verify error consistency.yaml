@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_22
+# Excel: AI Tools 22 | Module: Cross-Module
+# Verify error consistency
+# Expected: A "Prompt Error" popup is displayed in the center of the screen. The popup contains the bold title "Prompt Error", the message "That request can't be processed. Try adjusting your prompt and submit again.", and an "OK" button at the bottom.
+appId: com.hp.impulse.sprocket
+name: "AI_22 - Verify error consistency"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Prompt Error"
+    optional: true
+- assertVisible:
+    text: "That request can"
+    optional: true
+- assertVisible:
+    text: ", and an"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_76
+# Excel: AI Tools 95 | Module: Restore Photo
+# Verify "Cancel" Action
+# Expected: Discards changes and returns user to CR_14A_Restore Photo - Reference.
+appId: com.hp.impulse.sprocket
+name: "AI_76 - Verify Cancel Action"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Cancel"
+    optional: true

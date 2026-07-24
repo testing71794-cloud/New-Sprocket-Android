@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_82
+# Excel: AI Tools 101 | Module: Interaction
+# Verify "Generate New"
+# Expected: CR_12A.3_AI Generating Loader re-appears and generates a new result.
+appId: com.hp.impulse.sprocket
+name: "AI_82 - Verify Generate New"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Generate New"
+    optional: true

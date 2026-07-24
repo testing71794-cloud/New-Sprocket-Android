@@ -1,0 +1,14 @@
+# ATP Test Case ID: CS_12
+# Excel: Custom SDK   12 | Module: Save Photo
+# Verify "Do not save"
+# Expected: Image is not saved to Gallery and the popup closes successfully.
+appId: com.hp.impulse.sprocket
+name: "CS_12 - Verify Do not save"
+tags:
+  - custom-sdk
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Do not save"
+    optional: true

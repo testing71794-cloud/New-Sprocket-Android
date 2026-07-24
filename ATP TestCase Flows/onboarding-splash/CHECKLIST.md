@@ -1,0 +1,22 @@
+# OnboardingSplash / onboarding-splash — 20 Excel-generated flows
+
+- [ ] OSS_01 | Sp_01 | Verify app launch, animation, and transition
+- [ ] OSS_02 | ON_01 | Verify the complete transition from Onboarding completion to the Sign Up Options screen
+- [ ] OSS_03 | SU (iOS) _01 | Verify Sign Up Options screen UI and navigation
+- [ ] OSS_04 | SU (Android) _01b | Verify Sign Up Options (Android) screen UI and navigation
+- [ ] OSS_05 | SU_02 | Verify Sign Up with Email screen UI, validations and navigation
+- [ ] OSS_06 | ON_02D_SU - E F F TC_ON02DE_01 | Verify form field input and successful Sign Up
+- [ ] OSS_07 | ON_02D_SU - E F F TC_ON02DE_02 | Verify Sign Up error messages
+- [ ] OSS_08 | ON_02F_C / ON_02G_PP TC_ON02G_01 | Verify Privacy Policy navigation and back action
+- [ ] OSS_09 | ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02 | Verify Privacy Policy behavior without internet connection
+- [ ] OSS_10 | TC_LI_IOS_13 | Verify successful login using Google, Facebook, Apple, and Email
+- [ ] OSS_11 | TC_LI_IOS_14 | Verify authentication cancellation
+- [ ] OSS_12 | TC_LI_AND_13 | Verify successful login using Google, Facebook, and Email
+- [ ] OSS_13 | TC_LI_AND_14 | Verify authentication cancellation
+- [ ] OSS_14 | LI_W _E TC_E2E_001 | Verify full journey from launch to Login
+- [ ] OSS_15 | LI_W _E TC_E2E_002 | Verify invalid credential flow
+- [ ] OSS_16 | LI_W _E l TC_LWE_05 | Verify "Forgot Password?" link
+- [ ] OSS_17 | FP TC_E2E_01 | Verify full journey: Launch, Onboarding, Sign Up, and Forgot Password flow
+- [ ] OSS_18 | FP TC_E2E_02 | Verify invalid credential/input handling across Login and Password Recovery
+- [ ] OSS_19 | EH TC_ERR_ALL_01 | Verify all input validation and system error states for Sign Up and Log In
+- [ ] OSS_20 | EH TC_ERR_ALL_02 | Verify all input validation and error states for Forgot Password

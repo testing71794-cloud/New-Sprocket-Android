@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_17
+# Excel: Blockers Error Pop up Android   17 | Module: Transmission
+# Verify "Error Sending Image" popup
+# Expected: "Error Sending Image" popup is displayed on the Print Preview screen. The popup displays the bold title "Error Sending Image", followed by the message "Something went wrong. Please try printing again." The popup includes an "OK" button at t
+appId: com.hp.impulse.sprocket
+name: "AL_17 - Verify Error Sending Image popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Error Sending Image"
+    optional: true
+- assertVisible:
+    text: "Something went wrong. Please try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

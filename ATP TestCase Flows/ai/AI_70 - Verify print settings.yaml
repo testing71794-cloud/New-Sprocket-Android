@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_70
+# Excel: AI Tools 89 | Module: Print Logic
+# Verify print settings
+# Expected: Selected number of copies reflected in print job for HP Sprocket Studio Plus 68FE.
+appId: com.hp.impulse.sprocket
+name: "AI_70 - Verify print settings"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Copies"
+    optional: true

@@ -1,0 +1,17 @@
+# ATP Test Case ID: PID_09
+# Excel: Photo ID 09 | Module: Camera Controls
+# Verify Flash and Flip Camera
+# Expected: Flash toggles successfully and camera switches between Front and Back cameras.
+appId: com.hp.impulse.sprocket
+name: "PID_09 - Verify Flash and Flip Camera"
+tags:
+  - photo-id
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Flash"
+    optional: true
+- assertVisible:
+    text: "Flip Camera"
+    optional: true

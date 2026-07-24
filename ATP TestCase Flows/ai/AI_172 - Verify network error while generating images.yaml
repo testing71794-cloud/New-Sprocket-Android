@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_172
+# Excel: AI Tools 191 | Module: Text-to-Image
+# Verify network error while generating images
+# Expected: Proper error message is displayed (e.g., "No Internet Connection") and app remains stable.
+appId: com.hp.impulse.sprocket
+name: "AI_172 - Verify network error while generating images"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Internet Connection"
+    optional: true

@@ -1,0 +1,197 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+AI_01,AI Tool 01,ai,Create Screen,"Verify UI layout of ""Create"" screen",ai/AI_01 - Verify UI layout of Create screen.yaml,com.hp.impulse.sprocket
+AI_02,AI Tools 02,ai,Sprocket AI,Verify navigation to AI tools,ai/AI_02 - Verify navigation to AI tools.yaml,com.hp.impulse.sprocket
+AI_03,AI Tools 03,ai,AI Tools,Verify UI layout of AI Tools screen,ai/AI_03 - Verify UI layout of AI Tools screen.yaml,com.hp.impulse.sprocket
+AI_04,AI Tools 04,ai,AI Tools,Verify Tool accessibility,ai/AI_04 - Verify Tool accessibility.yaml,com.hp.impulse.sprocket
+AI_05,AI Tools 05,ai,Navigation,Verify Bottom Tab persistence,ai/AI_05 - Verify Bottom Tab persistence.yaml,com.hp.impulse.sprocket
+AI_06,AI Tools 06,ai,Performance,Verify rapid tab switching,ai/AI_06 - Verify rapid tab switching.yaml,com.hp.impulse.sprocket
+AI_07,AI Tools 07,ai,AI Tools,Verify Background Tools navigation,ai/AI_07 - Verify Background Tools navigation.yaml,com.hp.impulse.sprocket
+AI_08,AI Tool 08,ai,AI Tools,Verify Object Tools navigation,ai/AI_08 - Verify Object Tools navigation.yaml,com.hp.impulse.sprocket
+AI_09,AI Tools 09,ai,AI Tools,Verify Photo Enhancements navigation,ai/AI_09 - Verify Photo Enhancements navigation.yaml,com.hp.impulse.sprocket
+AI_10,AI Tools  10,ai,AI Tools,Verify Generate Tools navigation,ai/AI_10 - Verify Generate Tools navigation.yaml,com.hp.impulse.sprocket
+AI_11,AI Tools 11,ai,UI Layout,Verify visual layout and typography elements of the loader screen,ai/AI_11 - Verify visual layout and typography elements of the loader s.yaml,com.hp.impulse.sprocket
+AI_12,AI Tools 12,ai,UI Backdrop,Verify selected image is used as loader backdrop,ai/AI_12 - Verify selected image is used as loader backdrop.yaml,com.hp.impulse.sprocket
+AI_13,AI Tools 13,ai,Animation,Verify loading icon animation playback,ai/AI_13 - Verify loading icon animation playback.yaml,com.hp.impulse.sprocket
+AI_14,AI Tools 14,ai,Timeout / Threshold,Verify loader remains active during long processing,ai/AI_14 - Verify loader remains active during long processing.yaml,com.hp.impulse.sprocket
+AI_15,AI Tools 15,ai,State Transition,Verify transition after AI processing completes,ai/AI_15 - Verify transition after AI processing completes.yaml,com.hp.impulse.sprocket
+AI_16,AI Tools 16,ai,Navigation Interruption,Verify behavior when app is minimized during loading,ai/AI_16 - Verify behavior when app is minimized during loading.yaml,com.hp.impulse.sprocket
+AI_17,AI Tools 17,ai,Network Interruption,Verify handling of network loss during loading,ai/AI_17 - Verify handling of network loss during loading.yaml,com.hp.impulse.sprocket
+AI_18,AI Tools 18,ai,Navigation,Verify path to Prompt Entry,ai/AI_18 - Verify path to Prompt Entry.yaml,com.hp.impulse.sprocket
+AI_19,AI Tools 19,ai,UI Layout,"Verify ""Prompt Error"" popup",ai/AI_19 - Verify Prompt Error popup.yaml,com.hp.impulse.sprocket
+AI_20,AI Tools 20,ai,Guard Rails,Verify error trigger logic,ai/AI_20 - Verify error trigger logic.yaml,com.hp.impulse.sprocket
+AI_21,AI Tools 21,ai,Interaction,Verify dismiss behavior,ai/AI_21 - Verify dismiss behavior.yaml,com.hp.impulse.sprocket
+AI_22,AI Tools 22,ai,Cross-Module,Verify error consistency,ai/AI_22 - Verify error consistency.yaml,com.hp.impulse.sprocket
+AI_23,AI Tools 23,ai,UI Block,Verify background occlusion,ai/AI_23 - Verify background occlusion.yaml,com.hp.impulse.sprocket
+AI_24,AI Tools 24,ai,UI Layout,"Verify UI, text, and styling",ai/AI_24 - Verify UI text and styling.yaml,com.hp.impulse.sprocket
+AI_25,AI Tools 25,ai,Trigger Condition,Verify popup appears on cancel,ai/AI_25 - Verify popup appears on cancel.yaml,com.hp.impulse.sprocket
+AI_26,AI Tools 26,ai,Interaction: Stay,"Verify ""Stay"" functionality",ai/AI_26 - Verify Stay functionality.yaml,com.hp.impulse.sprocket
+AI_27,AI Tools 27,ai,Interaction: Exit,"Verify ""Exit"" functionality",ai/AI_27 - Verify Exit functionality.yaml,com.hp.impulse.sprocket
+AI_28,AI Tools 28,ai,Scope Verification,Verify universal scope,ai/AI_28 - Verify universal scope.yaml,com.hp.impulse.sprocket
+AI_29,AI Tools 29,ai,UI Block,Verify background modality,ai/AI_29 - Verify background modality.yaml,com.hp.impulse.sprocket
+AI_30,AI Tools 30,ai,Setup & Navigation,Verify app launch and Collage creation,ai/AI_30 - Verify app launch and Collage creation.yaml,com.hp.impulse.sprocket
+AI_31,AI Tools 31,ai,UI Layout,Verify visual state of disabled AI button,ai/AI_31 - Verify visual state of disabled AI button.yaml,com.hp.impulse.sprocket
+AI_32,AI Tools 32,ai,Functionality,Verify disabled AI button behavior,ai/AI_32 - Verify disabled AI button behavior.yaml,com.hp.impulse.sprocket
+AI_33,AI Tools 33,ai,Toast Message,Verify specific toast text for Collage,ai/AI_33 - Verify specific toast text for Collage.yaml,com.hp.impulse.sprocket
+AI_34,AITools 34,ai,UI Coverage,Verify full screen layout elements,ai/AI_34 - Verify full screen layout elements.yaml,com.hp.impulse.sprocket
+AI_35,AI Tools 35,ai,Toast Consistency,Verify toast text across modes,ai/AI_35 - Verify toast text across modes.yaml,com.hp.impulse.sprocket
+AI_36,AI Tools  36,ai,UI Layout,Verify layout and content,ai/AI_36 - Verify layout and content.yaml,com.hp.impulse.sprocket
+AI_37,AI Tools 37,ai,Functionality,Verify trigger on AI generation,ai/AI_37 - Verify trigger on AI generation.yaml,com.hp.impulse.sprocket
+AI_38,AI Tools 38,ai,Priority,Verify popup priority,ai/AI_38 - Verify popup priority.yaml,com.hp.impulse.sprocket
+AI_39,AI Tools 39,ai,Interaction,Verify dismissal behavior,ai/AI_39 - Verify dismissal behavior.yaml,com.hp.impulse.sprocket
+AI_40,AI Tools 40,ai,UI Block,Verify background modality,ai/AI_40 - Verify background modality.yaml,com.hp.impulse.sprocket
+AI_41,AI Tools 41,ai,Navigation & Loader,Verify initial tool flow and loader,ai/AI_41 - Verify initial tool flow and loader.yaml,com.hp.impulse.sprocket
+AI_42,AI Tools 42,ai,Result View,Verify processed image presentation,ai/AI_42 - Verify processed image presentation.yaml,com.hp.impulse.sprocket
+AI_43,AI Tools 43,ai,Show Original,Verify toggle functionality,ai/AI_43 - Verify toggle functionality.yaml,com.hp.impulse.sprocket
+AI_44,AI Tools 44,ai,Cancel Edits,Verify cancellation behavior,ai/AI_44 - Verify cancellation behavior.yaml,com.hp.impulse.sprocket
+AI_45,AI Tools 45,ai,Apply (Standard),Verify apply with background removed,ai/AI_45 - Verify apply with background removed.yaml,com.hp.impulse.sprocket
+AI_46,AI Tools 46,ai,Apply (Override),Verify apply while Show Original is ON,ai/AI_46 - Verify apply while Show Original is ON.yaml,com.hp.impulse.sprocket
+AI_47,AI Tools 47,ai,Navigation & Selection,Verify initial tool flow and prompt,ai/AI_47 - Verify initial tool flow and prompt.yaml,com.hp.impulse.sprocket
+AI_48,AI Tools 48,ai,Processing,Verify generation loader,ai/AI_48 - Verify generation loader.yaml,com.hp.impulse.sprocket
+AI_49,AI Tools 49,ai,Background Options,Verify UI layout of background options,ai/AI_49 - Verify UI layout of background options.yaml,com.hp.impulse.sprocket
+AI_50,AI Tools 50,ai,Selection & Preview,Verify background replacement,ai/AI_50 - Verify background replacement.yaml,com.hp.impulse.sprocket
+AI_51,AI Tools 51,ai,Apply & Preview,Verify save and print navigation,ai/AI_51 - Verify save and print navigation.yaml,com.hp.impulse.sprocket
+AI_52,AI Tools 52,ai,Cancellation,Verify discard functionality,ai/AI_52 - Verify discard functionality.yaml,com.hp.impulse.sprocket
+AI_53,AI Tools 53,ai,Generate Background,Verify UI elements of CR_12C.5_Replace Background – Result (Prompt),ai/AI_53 - Verify UI elements of CR 12C5 Replace Background Result Prom.yaml,com.hp.impulse.sprocket
+AI_54,AI Tools 66,ai,Selection,Verify selection via Tap,ai/AI_54 - Verify selection via Tap.yaml,com.hp.impulse.sprocket
+AI_55,AI Tools 71,ai,Saving,"Verify ""Apply"" functionality",ai/AI_55 - Verify Apply functionality.yaml,com.hp.impulse.sprocket
+AI_56,AI Tools 73,ai,Replace Object,Verify selection (Tap/Paint),ai/AI_56 - Verify selection TapPaint.yaml,com.hp.impulse.sprocket
+AI_57,AI Tools 76,ai,Replace Object,Verify generation processing,ai/AI_57 - Verify generation processing.yaml,com.hp.impulse.sprocket
+AI_58,AI Tools 77,ai,Replace Object,Verify result screen UI,ai/AI_58 - Verify result screen UI.yaml,com.hp.impulse.sprocket
+AI_59,AI Tools 78,ai,Replace Object,Verify thumbnail swapping,ai/AI_59 - Verify thumbnail swapping.yaml,com.hp.impulse.sprocket
+AI_60,AI Tools 79,ai,Replace Object,"Verify ""Generate New"" flow",ai/AI_60 - Verify Generate New flow.yaml,com.hp.impulse.sprocket
+AI_61,AI Tools 80,ai,Replace Object,"Verify ""Apply"" functionality",ai/AI_61 - Verify Apply functionality.yaml,com.hp.impulse.sprocket
+AI_62,AI Tools 81,ai,Replace Object,Verify failure state UI,ai/AI_62 - Verify failure state UI.yaml,com.hp.impulse.sprocket
+AI_63,AI Tools 82,ai,Replace Object,Verify failure exit,ai/AI_63 - Verify failure exit.yaml,com.hp.impulse.sprocket
+AI_64,AI Tools 83,ai,Navigation,"Verify ""Grab Object"" entry",ai/AI_64 - Verify Grab Object entry.yaml,com.hp.impulse.sprocket
+AI_65,AI Tools 84,ai,Interaction,Verify selection & Brush Size,ai/AI_65 - Verify selection Brush Size.yaml,com.hp.impulse.sprocket
+AI_66,AI Tools 85,ai,Processing,Verify generation,ai/AI_66 - Verify generation.yaml,com.hp.impulse.sprocket
+AI_67,AI Tools 86,ai,Limit Warning,Verify sticker limit pop-up,ai/AI_67 - Verify sticker limit pop-up.yaml,com.hp.impulse.sprocket
+AI_68,AI Tools 87,ai,Save Limit,"Verify ""Save New Sticker""",ai/AI_68 - Verify Save New Sticker.yaml,com.hp.impulse.sprocket
+AI_69,AI Tools 88,ai,Cancel,"Verify ""Cancel"" navigation",ai/AI_69 - Verify Cancel navigation.yaml,com.hp.impulse.sprocket
+AI_70,AI Tools 89,ai,Print Logic,Verify print settings,ai/AI_70 - Verify print settings.yaml,com.hp.impulse.sprocket
+AI_71,AI Tools 90,ai,Restore Photo,Verify Tool Entry,ai/AI_71 - Verify Tool Entry.yaml,com.hp.impulse.sprocket
+AI_72,AI Tools 91,ai,Restore Photo,Verify Generation,ai/AI_72 - Verify Generation.yaml,com.hp.impulse.sprocket
+AI_73,AI Tools 92,ai,Restore Photo,Verify Result State,ai/AI_73 - Verify Result State.yaml,com.hp.impulse.sprocket
+AI_74,AI Tools 93,ai,Restore Photo,"Verify ""Show Original""",ai/AI_74 - Verify Show Original.yaml,com.hp.impulse.sprocket
+AI_75,AI Tools 94,ai,Restore Photo,"Verify ""Apply"" Action",ai/AI_75 - Verify Apply Action.yaml,com.hp.impulse.sprocket
+AI_76,AI Tools 95,ai,Restore Photo,"Verify ""Cancel"" Action",ai/AI_76 - Verify Cancel Action.yaml,com.hp.impulse.sprocket
+AI_77,AI Tools 96,ai,Restore Photo,Verify Printing,ai/AI_77 - Verify Printing.yaml,com.hp.impulse.sprocket
+AI_78,AI Tools 97,ai,Navigation,Verify workflow entry,ai/AI_78 - Verify workflow entry.yaml,com.hp.impulse.sprocket
+AI_79,AI Tools 98,ai,Generation,Verify processing & loader,ai/AI_79 - Verify processing loader.yaml,com.hp.impulse.sprocket
+AI_80,AI Tools 99,ai,Result,Verify Result UI (CR_14B.1),ai/AI_80 - Verify Result UI CR 14B1.yaml,com.hp.impulse.sprocket
+AI_81,AI Tools 100,ai,Interaction,"Verify ""Show Original"" toggle",ai/AI_81 - Verify Show Original toggle.yaml,com.hp.impulse.sprocket
+AI_82,AI Tools 101,ai,Interaction,"Verify ""Generate New""",ai/AI_82 - Verify Generate New.yaml,com.hp.impulse.sprocket
+AI_83,AI Tools 102,ai,Saving,Verify Apply & Save,ai/AI_83 - Verify Apply Save.yaml,com.hp.impulse.sprocket
+AI_84,AI Tools 103,ai,Cancellation,Verify Back button,ai/AI_84 - Verify Back button.yaml,com.hp.impulse.sprocket
+AI_85,AI Tools 104,ai,Print,Verify Print functionality,ai/AI_85 - Verify Print functionality.yaml,com.hp.impulse.sprocket
+AI_86,AI Tools 105,ai,Settings,Verify Copies/Tiles adjustment,ai/AI_86 - Verify CopiesTiles adjustment.yaml,com.hp.impulse.sprocket
+AI_87,AI Tools 106,ai,Navigation,Verify workflow entry,ai/AI_87 - Verify workflow entry.yaml,com.hp.impulse.sprocket
+AI_88,AI Tools 107,ai,Generation,Verify loader & processing,ai/AI_88 - Verify loader processing.yaml,com.hp.impulse.sprocket
+AI_89,AI Tools 108,ai,Result,Verify UI (CR_14C.1),ai/AI_89 - Verify UI CR 14C1.yaml,com.hp.impulse.sprocket
+AI_90,AI Tools 109,ai,Interaction,"Verify ""Show Original""",ai/AI_90 - Verify Show Original.yaml,com.hp.impulse.sprocket
+AI_91,AI Tools 110,ai,Interaction,"Verify ""Generate New""",ai/AI_91 - Verify Generate New.yaml,com.hp.impulse.sprocket
+AI_92,AI Tools 111,ai,Saving,"Verify ""Apply""",ai/AI_92 - Verify Apply.yaml,com.hp.impulse.sprocket
+AI_93,AI Tools 112,ai,Cancellation,"Verify ""Cancel""/Back",ai/AI_93 - Verify CancelBack.yaml,com.hp.impulse.sprocket
+AI_94,AI Tools 113,ai,Print Preview,Verify UI elements and functionality of the print preview screen.,ai/AI_94 - Verify UI elements and functionality of the print preview sc.yaml,com.hp.impulse.sprocket
+AI_95,AI Tools 114,ai,Navigation,Workflow Entry & UI,ai/AI_95 - Workflow Entry UI.yaml,com.hp.impulse.sprocket
+AI_96,AI Tools 115,ai,Interaction,"""Show Original"" Toggle",ai/AI_96 - Show Original Toggle.yaml,com.hp.impulse.sprocket
+AI_97,AI Tools 116,ai,Interaction,"""Generate New""",ai/AI_97 - Generate New.yaml,com.hp.impulse.sprocket
+AI_98,AI Tools 117,ai,Saving,"""Apply"" & Final State",ai/AI_98 - Apply Final State.yaml,com.hp.impulse.sprocket
+AI_99,AI Tools 118,ai,Printing,Copies/Tiles/Print,ai/AI_99 - CopiesTilesPrint.yaml,com.hp.impulse.sprocket
+AI_100,AI tools 119,ai,Cancellation,Back/Discard,ai/AI_100 - BackDiscard.yaml,com.hp.impulse.sprocket
+AI_101,Ai Tools 120,ai,Navigation,Verify workflow entry,ai/AI_101 - Verify workflow entry.yaml,com.hp.impulse.sprocket
+AI_102,Ai Tools 121,ai,Interaction,Verify image resize and reposition,ai/AI_102 - Verify image resize and reposition.yaml,com.hp.impulse.sprocket
+AI_103,Ai Tools 122,ai,Validation,Verify blank area warning,ai/AI_103 - Verify blank area warning.yaml,com.hp.impulse.sprocket
+AI_104,AI Tools 123,ai,Generation,Verify Generate button and loader,ai/AI_104 - Verify Generate button and loader.yaml,com.hp.impulse.sprocket
+AI_105,AI Tools 124,ai,Result,Verify result screen UI,ai/AI_105 - Verify result screen UI.yaml,com.hp.impulse.sprocket
+AI_106,AI Tools 125,ai,Interaction,Verify Show Original toggle,ai/AI_106 - Verify Show Original toggle.yaml,com.hp.impulse.sprocket
+AI_107,AI Tools 126,ai,Saving,Verify Apply functionality,ai/AI_107 - Verify Apply functionality.yaml,com.hp.impulse.sprocket
+AI_108,AI Tools 127,ai,UI,Verify top and bottom navigation,ai/AI_108 - Verify top and bottom navigation.yaml,com.hp.impulse.sprocket
+AI_109,AI Tools 128,ai,Print,Verify Copies/Tiles and Print,ai/AI_109 - Verify CopiesTiles and Print.yaml,com.hp.impulse.sprocket
+AI_110,AI Tools 129,ai,Cancellation,Verify Back button,ai/AI_110 - Verify Back button.yaml,com.hp.impulse.sprocket
+AI_111,AI Toolw 130,ai,Extend Image,"Verify ""No Blank Areas"" warning pop-up",ai/AI_111 - Verify No Blank Areas warning pop-up.yaml,com.hp.impulse.sprocket
+AI_112,AI Tools 131,ai,Navigation,Workflow Entry,ai/AI_112 - Workflow Entry.yaml,com.hp.impulse.sprocket
+AI_113,AI Tools 132,ai,Interaction,Painting Area,ai/AI_113 - Painting Area.yaml,com.hp.impulse.sprocket
+AI_114,AI Tools 133,ai,Prompting,Text Entry & State,ai/AI_114 - Text Entry State.yaml,com.hp.impulse.sprocket
+AI_115,AI Tools 134,ai,Generation,Processing,ai/AI_115 - Processing.yaml,com.hp.impulse.sprocket
+AI_116,AI Tools 135,ai,Result,Thumbnail Selection,ai/AI_116 - Thumbnail Selection.yaml,com.hp.impulse.sprocket
+AI_117,AI Tools 136,ai,Saving,Apply & Print Preview,ai/AI_117 - Apply Print Preview.yaml,com.hp.impulse.sprocket
+AI_118,AI Tools 137,ai,AI Tool List,Verify scroll & UI layout,ai/AI_118 - Verify scroll UI layout.yaml,com.hp.impulse.sprocket
+AI_119,AI Tools 138,ai,AI Tool List,Verify Back Navigation,ai/AI_119 - Verify Back Navigation.yaml,com.hp.impulse.sprocket
+AI_120,AI Tool 139,ai,AI Tool List,Verify Tool Navigation,ai/AI_120 - Verify Tool Navigation.yaml,com.hp.impulse.sprocket
+AI_121,AI Tool 140,ai,AI Tool List,Verify Image Selection Flow,ai/AI_121 - Verify Image Selection Flow.yaml,com.hp.impulse.sprocket
+AI_122,AI Tool 141,ai,AI Tool List,Verify Temporary Updates,ai/AI_122 - Verify Temporary Updates.yaml,com.hp.impulse.sprocket
+AI_123,AI Tool 142,ai,AI Tool List,Verify Offline Behavior,ai/AI_123 - Verify Offline Behavior.yaml,com.hp.impulse.sprocket
+AI_124,AI tools 143,ai,Navigation,Verify Header Elements,ai/AI_124 - Verify Header Elements.yaml,com.hp.impulse.sprocket
+AI_125,AI tools 144,ai,Folder Nav,Verify Folder Dropdown,ai/AI_125 - Verify Folder Dropdown.yaml,com.hp.impulse.sprocket
+AI_126,AI tools 145,ai,Gallery,Verify Date-based Grouping,ai/AI_126 - Verify Date-based Grouping.yaml,com.hp.impulse.sprocket
+AI_127,AI tools 146,ai,Instructional,Verify Sticky Footer,ai/AI_127 - Verify Sticky Footer.yaml,com.hp.impulse.sprocket
+AI_128,AI tools 147,ai,Workflow,Verify Group 1 Redirection,ai/AI_128 - Verify Group 1 Redirection.yaml,com.hp.impulse.sprocket
+AI_129,AI tools 148,ai,Workflow,Verify Group 2 Redirection,ai/AI_129 - Verify Group 2 Redirection.yaml,com.hp.impulse.sprocket
+AI_130,AI tools 149,ai,Navigation,Verify Back Button Logic,ai/AI_130 - Verify Back Button Logic.yaml,com.hp.impulse.sprocket
+AI_131,AI tools 150,ai,Workflow,Verify Group 1 (Ready to Generate) Redirection,ai/AI_131 - Verify Group 1 Ready to Generate Redirection.yaml,com.hp.impulse.sprocket
+AI_132,AI Tools 151,ai,Preview Ready,Verify dynamic header tool name display,ai/AI_132 - Verify dynamic header tool name display.yaml,com.hp.impulse.sprocket
+AI_133,AI Tools 152,ai,Preview Ready,Verify back navigation from preview,ai/AI_133 - Verify back navigation from preview.yaml,com.hp.impulse.sprocket
+AI_134,AI Tools 153,ai,Preview Ready,Verify Generate button triggers loader,ai/AI_134 - Verify Generate button triggers loader.yaml,com.hp.impulse.sprocket
+AI_135,AI Tools 154,ai,Preview Ready,Verify Remove Background routing,ai/AI_135 - Verify Remove Background routing.yaml,com.hp.impulse.sprocket
+AI_136,AI Tools 155,ai,Preview Ready,Verify Replace Background routing,ai/AI_136 - Verify Replace Background routing.yaml,com.hp.impulse.sprocket
+AI_137,AI Tools 156,ai,Preview Ready,Verify Restore Photo routing,ai/AI_137 - Verify Restore Photo routing.yaml,com.hp.impulse.sprocket
+AI_138,AI Tools 157,ai,Preview Ready,Verify Enhance Photo routing,ai/AI_138 - Verify Enhance Photo routing.yaml,com.hp.impulse.sprocket
+AI_139,AI Tools 158,ai,Preview Ready,Verify Fix Lighting routing,ai/AI_139 - Verify Fix Lighting routing.yaml,com.hp.impulse.sprocket
+AI_140,AI Tools 159,ai,Preview Ready,Verify Upscale Photo routing,ai/AI_140 - Verify Upscale Photo routing.yaml,com.hp.impulse.sprocket
+AI_141,AI Tools 160,ai,Preview Ready,Verify full UI layout,ai/AI_141 - Verify full UI layout.yaml,com.hp.impulse.sprocket
+AI_142,AI Tools 161,ai,Preview Next Step,Verify header displays selected tool name,ai/AI_142 - Verify header displays selected tool name.yaml,com.hp.impulse.sprocket
+AI_143,AI Tools 162,ai,Preview Next Step,Verify primary CTA button label,ai/AI_143 - Verify primary CTA button label.yaml,com.hp.impulse.sprocket
+AI_144,AI tools 163,ai,Preview Next Step,Verify Remove Object routing,ai/AI_144 - Verify Remove Object routing.yaml,com.hp.impulse.sprocket
+AI_145,AI Tools 164,ai,Preview Next Step,Verify Replace Object routing,ai/AI_145 - Verify Replace Object routing.yaml,com.hp.impulse.sprocket
+AI_146,AI tools 165,ai,Preview Next Step,Verify Grab Object routing,ai/AI_146 - Verify Grab Object routing.yaml,com.hp.impulse.sprocket
+AI_147,AI tools 166,ai,Preview Next Step,Verify Extend Image routing,ai/AI_147 - Verify Extend Image routing.yaml,com.hp.impulse.sprocket
+AI_148,AI  Tools 167,ai,Preview Next Step,Verify Generate Object routing,ai/AI_148 - Verify Generate Object routing.yaml,com.hp.impulse.sprocket
+AI_149,AI Tools 168,ai,Preview Next Step,Verify Back Arrow navigation,ai/AI_149 - Verify Back Arrow navigation.yaml,com.hp.impulse.sprocket
+AI_150,AI Tools 169,ai,Select Video Frame,Verify routing to Ready-to-Generate workflow,ai/AI_150 - Verify routing to Ready-to-Generate workflow.yaml,com.hp.impulse.sprocket
+AI_151,AI Tools 170,ai,Select Video Frame,Verify routing to Next Step workflow,ai/AI_151 - Verify routing to Next Step workflow.yaml,com.hp.impulse.sprocket
+AI_152,AI Gtools 171,ai,Landscape Photo Fit,Verify automatic rotation of landscape image,ai/AI_152 - Verify automatic rotation of landscape image.yaml,com.hp.impulse.sprocket
+AI_153,AI tools 172,ai,Landscape Photo Fit,Verify proper fitting without cropping,ai/AI_153 - Verify proper fitting without cropping.yaml,com.hp.impulse.sprocket
+AI_154,AI tools 173,ai,Landscape Photo Fit,Verify dynamic tool name in header,ai/AI_154 - Verify dynamic tool name in header.yaml,com.hp.impulse.sprocket
+AI_155,AI tools 174,ai,Landscape Photo Fit,Verify Generate button execution,ai/AI_155 - Verify Generate button execution.yaml,com.hp.impulse.sprocket
+AI_156,AI Toola 175,ai,Landscape Photo Fit,Verify back navigation to gallery,ai/AI_156 - Verify back navigation to gallery.yaml,com.hp.impulse.sprocket
+AI_157,AI Toola 176,ai,Text-to-Image,Verify Text-to-Image screen UI and default values,ai/AI_157 - Verify Text-to-Image screen UI and default values.yaml,com.hp.impulse.sprocket
+AI_158,AI tools 177,ai,Text-to-Image,Verify prompt text box placeholder,ai/AI_158 - Verify prompt text box placeholder.yaml,com.hp.impulse.sprocket
+AI_159,AI tools 178,ai,Text-to-Image,Verify prompt text box focus and keyboard,ai/AI_159 - Verify prompt text box focus and keyboard.yaml,com.hp.impulse.sprocket
+AI_160,AI tools 179,ai,Text-to-Image,Verify random prompt button,ai/AI_160 - Verify random prompt button.yaml,com.hp.impulse.sprocket
+AI_161,AI Tools 180,ai,Text-to-Image,Verify random prompt when text box is focused,ai/AI_161 - Verify random prompt when text box is focused.yaml,com.hp.impulse.sprocket
+AI_162,AI Tools 181,ai,Text-to-Image,Verify Orientation selection,ai/AI_162 - Verify Orientation selection.yaml,com.hp.impulse.sprocket
+AI_163,AI Tools 182,ai,Text-to-Image,Verify Image Quantity selection,ai/AI_163 - Verify Image Quantity selection.yaml,com.hp.impulse.sprocket
+AI_164,AI Tools 183,ai,Text-to-Image,Verify Generate Image(s) button disabled state,ai/AI_164 - Verify Generate Images button disabled state.yaml,com.hp.impulse.sprocket
+AI_165,AI TOOls 184,ai,Text-to-Image,Verify Generate Image(s) button enabled state,ai/AI_165 - Verify Generate Images button enabled state.yaml,com.hp.impulse.sprocket
+AI_166,AI Tools 185,ai,Text-to-Image,Verify image generation with Portrait mode,ai/AI_166 - Verify image generation with Portrait mode.yaml,com.hp.impulse.sprocket
+AI_167,AI Tools 186,ai,Text-to-Image,Verify image generation with Landscape mode,ai/AI_167 - Verify image generation with Landscape mode.yaml,com.hp.impulse.sprocket
+AI_168,AI Tools 187,ai,Text-to-Image,Verify generation with different image quantities,ai/AI_168 - Verify generation with different image quantities.yaml,com.hp.impulse.sprocket
+AI_169,AI Tools 188,ai,Text-to-Image,Verify empty/space-only prompt,ai/AI_169 - Verify emptyspace-only prompt.yaml,com.hp.impulse.sprocket
+AI_170,AI Tools 189,ai,Text-to-Image,Verify long prompt input,ai/AI_170 - Verify long prompt input.yaml,com.hp.impulse.sprocket
+AI_171,AI Tools 190,ai,Text-to-Image,Verify special characters in prompt,ai/AI_171 - Verify special characters in prompt.yaml,com.hp.impulse.sprocket
+AI_172,AI Tools 191,ai,Text-to-Image,Verify network error while generating images,ai/AI_172 - Verify network error while generating images.yaml,com.hp.impulse.sprocket
+AI_173,AI Tools 192,ai,Text-to-Image,Verify Back button navigation,ai/AI_173 - Verify Back button navigation.yaml,com.hp.impulse.sprocket
+AI_174,AI Tools 193,ai,AI Tools,Verify Text-to-Image generation flow,ai/AI_174 - Verify Text-to-Image generation flow.yaml,com.hp.impulse.sprocket
+AI_175,AI TOOls 194,ai,AI Tools,Verify Portrait image generation,ai/AI_175 - Verify Portrait image generation.yaml,com.hp.impulse.sprocket
+AI_176,AI TOOls 195,ai,AI Tools,Verify Landscape image generation,ai/AI_176 - Verify Landscape image generation.yaml,com.hp.impulse.sprocket
+AI_177,AI Tools 196,ai,AI Tools,Verify thumbnail selection,ai/AI_177 - Verify thumbnail selection.yaml,com.hp.impulse.sprocket
+AI_178,AI Tools 197,ai,AI Tools,Verify Cancel button and Unsaved popup,ai/AI_178 - Verify Cancel button and Unsaved popup.yaml,com.hp.impulse.sprocket
+AI_179,AI tools 198,ai,AI Tools,Verify Unsaved popup - Cancel option,ai/AI_179 - Verify Unsaved popup - Cancel option.yaml,com.hp.impulse.sprocket
+AI_180,AI Tools 199,ai,AI Tools,Verify Unsaved popup - Leave option,ai/AI_180 - Verify Unsaved popup - Leave option.yaml,com.hp.impulse.sprocket
+AI_181,AI Tools 200,ai,Print Preview,Verify Next button navigation,ai/AI_181 - Verify Next button navigation.yaml,com.hp.impulse.sprocket
+AI_182,AI Tools 201,ai,Print Preview,Verify Print Preview UI,ai/AI_182 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket
+AI_183,AI Tools 202,ai,Print Preview,Verify Back Arrow,ai/AI_183 - Verify Back Arrow.yaml,com.hp.impulse.sprocket
+AI_184,AI Tools 203,ai,Print Preview,Verify Share button,ai/AI_184 - Verify Share button.yaml,com.hp.impulse.sprocket
+AI_185,AI Tools 204,ai,Print Preview,Verify Edit icon,ai/AI_185 - Verify Edit icon.yaml,com.hp.impulse.sprocket
+AI_186,AI Tools 205,ai,Print Preview,Verify Copies option,ai/AI_186 - Verify Copies option.yaml,com.hp.impulse.sprocket
+AI_187,AI Tools 206,ai,Print Preview,Verify Tiles option,ai/AI_187 - Verify Tiles option.yaml,com.hp.impulse.sprocket
+AI_188,AI Tools 207,ai,AI Tools,Verify Generate Image(s) with empty prompt,ai/AI_188 - Verify Generate Images with empty prompt.yaml,com.hp.impulse.sprocket
+AI_189,AI Tools 208,ai,AI Tools,Verify image generation without internet,ai/AI_189 - Verify image generation without internet.yaml,com.hp.impulse.sprocket
+AI_190,AI Tools 209,ai,Navigation,Verify user can access Image-to-Image screen,ai/AI_190 - Verify user can access Image-to-Image screen.yaml,com.hp.impulse.sprocket
+AI_191,AI Tools 210,ai,Crop Photo,Verify Crop Photo functionality,ai/AI_191 - Verify Crop Photo functionality.yaml,com.hp.impulse.sprocket
+AI_192,AI Tools 211,ai,Image Quantity,Verify default quantity selection,ai/AI_192 - Verify default quantity selection.yaml,com.hp.impulse.sprocket
+AI_193,AI Tools 211,ai,Generate Button,Verify Generate button enabled after style selection,ai/AI_193 - Verify Generate button enabled after style selection.yaml,com.hp.impulse.sprocket
+AI_194,AI Tools 211,ai,Results,Verify generated image count matches quantity,ai/AI_194 - Verify generated image count matches quantity.yaml,com.hp.impulse.sprocket
+AI_195,AI Tools 211,ai,Initialization,Launch & Navigate,ai/AI_195 - Launch Navigate.yaml,com.hp.impulse.sprocket
+AI_196,AI Tools 211,ai,Selection,Base Image Setup,ai/AI_196 - Base Image Setup.yaml,com.hp.impulse.sprocket

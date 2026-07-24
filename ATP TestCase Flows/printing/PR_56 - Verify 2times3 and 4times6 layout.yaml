@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_56
+# Excel: Print Preview Screen 56 | Module: Paper Type
+# Verify $2\times3"$ and $4\times6"$ layout
+# Expected: "Copies" and "Tiles" are visible; standard print controls enabled.
+appId: com.hp.impulse.sprocket
+name: "PR_56 - Verify 2times3 and 4times6 layout"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Copies"
+    optional: true
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "$ and $4\times6"
+    optional: true

@@ -1,0 +1,23 @@
+# ATP Test Case ID: SE_27
+# Excel: Hamburger Menu 28 | Module: Logout
+# Trigger Logout Pop-up
+# Expected: "Log Out?" pop-up appears displaying: "Are you sure you want to log out?", "Cancel" button, and "Log Out" button.
+appId: com.hp.impulse.sprocket
+name: "SE_27 - Trigger Logout Pop-up"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Log Out?"
+    optional: true
+- assertVisible:
+    text: "Are you sure you want to log out?"
+    optional: true
+- assertVisible:
+    text: "Cancel"
+    optional: true
+- assertVisible:
+    text: "Log Out"
+    optional: true

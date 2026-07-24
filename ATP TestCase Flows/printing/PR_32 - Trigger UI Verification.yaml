@@ -1,0 +1,23 @@
+# ATP Test Case ID: PR_32
+# Excel: Print Preview Screen 32 | Module: Error Handling
+# Trigger & UI Verification
+# Expected: An "Out of Paper" error pop-up appears over the dimmed Print Preview screen. The pop-up contains the header "Out of Paper", the message "Please load paper and try printing again.", a "TIP" about the colored card, an "OK" button, and a Close
+appId: com.hp.impulse.sprocket
+name: "PR_32 - Trigger UI Verification"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Out of Paper"
+    optional: true
+- assertVisible:
+    text: "Please load paper and try printing again."
+    optional: true
+- assertVisible:
+    text: "TIP"
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

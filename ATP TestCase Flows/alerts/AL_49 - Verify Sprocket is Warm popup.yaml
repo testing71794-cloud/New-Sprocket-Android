@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_49
+# Excel: Stoppers Error Pop up Ios  28 | Module: Temperature
+# Verify "Sprocket is Warm" popup
+# Expected: "Sprocket is Warm" popup is displayed. The popup displays the bold title "Sprocket is Warm", followed by the message "Wait for your printer to cool down, and try printing again." The popup includes an "OK" button at the bottom and a Close (
+appId: com.hp.impulse.sprocket
+name: "AL_49 - Verify Sprocket is Warm popup"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Sprocket is Warm"
+    optional: true
+- assertVisible:
+    text: "Wait for your printer to cool down, and try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

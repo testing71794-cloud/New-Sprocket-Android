@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_169
+# Excel: HP600_CONN_TC007 | Module: Discovery
+# Verify searching spinner is displayed during discovery
+# Expected: Searching spinner should remain visible until printer discovery completes.
+appId: com.hp.impulse.sprocket
+name: "COX_169 - Verify searching spinner is displayed during discovery"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

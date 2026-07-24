@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_111
+# Excel: AI Toolw 130 | Module: Extend Image
+# Verify "No Blank Areas" warning pop-up
+# Expected: Warning pop-up "No Blank Areas" is displayed; tapping "OK" successfully dismisses the pop-up.
+appId: com.hp.impulse.sprocket
+name: "AI_111 - Verify No Blank Areas warning pop-up"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Blank Areas"
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true

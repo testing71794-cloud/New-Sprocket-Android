@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_38
+# Excel: AI Tools 38 | Module: Priority
+# Verify popup priority
+# Expected: "No Internet" popup takes priority over all other errors (e.g., AI connection failure).
+appId: com.hp.impulse.sprocket
+name: "AI_38 - Verify popup priority"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "No Internet"
+    optional: true

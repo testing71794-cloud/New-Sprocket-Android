@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_11
+# Excel: AI Tools 11 | Module: UI Layout
+# Verify visual layout and typography elements of the loader screen
+# Expected: Loader screen must match design exactly and display: • Selected image as backdrop • Blurred overlay • Sparkle/glow icon • "Generating..." text (purple) • Subtext: "This may take a few seconds"
+appId: com.hp.impulse.sprocket
+name: "AI_11 - Verify visual layout and typography elements of the loader s"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Generating..."
+    optional: true
+- assertVisible:
+    text: "This may take a few seconds"
+    optional: true

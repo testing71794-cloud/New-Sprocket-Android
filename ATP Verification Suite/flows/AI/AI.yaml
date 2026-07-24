@@ -6,46 +6,46 @@ tags:
   - atp-verification
   - ai
 ---
-# Cases in this stage (81):
+# Cases in this stage (196):
 #   - AI Tool 01: Verify UI layout of "Create" screen
 #   - AI Tools 02: Verify navigation to AI tools
 #   - AI Tools 03: Verify UI layout of AI Tools screen
 #   - AI Tools 04: Verify Tool accessibility
+#   - AI Tools 05: Verify Bottom Tab persistence
+#   - AI Tools 06: Verify rapid tab switching
 #   - AI Tools 07: Verify Background Tools navigation
 #   - AI Tool 08: Verify Object Tools navigation
 #   - AI Tools 09: Verify Photo Enhancements navigation
 #   - AI Tools  10: Verify Generate Tools navigation
+#   - AI Tools 11: Verify visual layout and typography elements of the loader screen
+#   - AI Tools 12: Verify selected image is used as loader backdrop
+#   - AI Tools 13: Verify loading icon animation playback
 #   - AI Tools 14: Verify loader remains active during long processing
 #   - AI Tools 15: Verify transition after AI processing completes
+#   - AI Tools 16: Verify behavior when app is minimized during loading
 #   - AI Tools 17: Verify handling of network loss during loading
+#   - AI Tools 18: Verify path to Prompt Entry
+#   - AI Tools 19: Verify "Prompt Error" popup
+#   - AI Tools 20: Verify error trigger logic
+#   - AI Tools 21: Verify dismiss behavior
+#   - AI Tools 22: Verify error consistency
+#   - AI Tools 23: Verify background occlusion
+#   - AI Tools 24: Verify UI, text, and styling
 #   - AI Tools 25: Verify popup appears on cancel
+#   - AI Tools 26: Verify "Stay" functionality
+#   - AI Tools 27: Verify "Exit" functionality
 #   - AI Tools 28: Verify universal scope
+#   - AI Tools 29: Verify background modality
+#   - AI Tools 30: Verify app launch and Collage creation
+#   - AI Tools 31: Verify visual state of disabled AI button
+#   - AI Tools 32: Verify disabled AI button behavior
+#   - AI Tools 33: Verify specific toast text for Collage
+#   - AITools 34: Verify full screen layout elements
+#   - AI Tools 35: Verify toast text across modes
+#   - AI Tools  36: Verify layout and content
+#   - AI Tools 37: Verify trigger on AI generation
 #   - AI Tools 38: Verify popup priority
-#   - AI Tools 43: Verify toggle functionality
-#   - AI Tools 44: Verify cancellation behavior
-#   - AI Tools 45: Verify apply with background removed
-#   - AI Tools 46: Verify apply while Show Original is ON
-#   - AI Tools 48: Verify generation loader
-#   - AI Tools 49: Verify UI layout of background options
-#   - AI Tools 53: Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)
-#   - AI Tools 73: Verify selection (Tap/Paint)
-#   - AI Tools 76: Verify generation processing
-#   - AI Tools 77: Verify result screen UI
-#   - AI Tools 78: Verify thumbnail swapping
-#   - AI Tools 79: Verify "Generate New" flow
-#   - AI Tools 80: Verify "Apply" functionality
-#   - AI Tools 81: Verify failure state UI
-#   - AI Tools 82: Verify failure exit
-#   - AI Tools 85: Verify generation
-#   - AI Tools 86: Verify sticker limit pop-up
-#   - AI Tools 87: Verify "Save New Sticker"
-#   - AI Tools 88: Verify "Cancel" navigation
-#   - AI Tools 90: Verify Tool Entry
-#   - AI Tools 91: Verify Generation
-#   - AI Tools 92: Verify Result State
-#   - AI Tools 93: Verify "Show Original"
-#   - AI Tools 94: Verify "Apply" Action
-#   - AI Tools 95: Verify "Cancel" Action
-#   - AI Tools 96: Verify Printing
-#   ... +41 more
+#   - AI Tools 39: Verify dismissal behavior
+#   - AI Tools 40: Verify background modality
+#   ... +156 more
 - runFlow: ../Home/Home.yaml

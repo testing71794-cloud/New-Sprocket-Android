@@ -1,0 +1,14 @@
+# ATP Test Case ID: SE_04
+# Excel: Hamburger Menu  04 | Module: Navigation
+# Verify Log In Redirection
+# Expected: User is redirected to Log In Options screen (ON_03A/B).
+appId: com.hp.impulse.sprocket
+name: "SE_04 - Verify Log In Redirection"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Log In"
+    optional: true

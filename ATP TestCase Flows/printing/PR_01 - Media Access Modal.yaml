@@ -1,0 +1,26 @@
+# ATP Test Case ID: PR_01
+# Excel: Print Preview Screen 01 | Module: Permission
+# Media Access Modal
+# Expected: Modal "Allow Sprocket to access photos and videos on this device?" appears with options: "Allow limited access", "Allow all", "Don't allow".
+appId: com.hp.impulse.sprocket
+name: "PR_01 - Media Access Modal"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Allow Sprocket to access photos and videos on this device?"
+    optional: true
+- assertVisible:
+    text: "Allow limited access"
+    optional: true
+- assertVisible:
+    text: "Allow all"
+    optional: true
+- assertVisible:
+    text: "Don"
+    optional: true
+- assertVisible:
+    text: "Don't allow"
+    optional: true

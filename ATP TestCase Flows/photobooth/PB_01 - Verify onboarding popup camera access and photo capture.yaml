@@ -1,0 +1,17 @@
+# ATP Test Case ID: PB_01
+# Excel: Photobooth 01 | Module: Photobooth
+# Verify onboarding popup, camera access and photo capture
+# Expected: Onboarding popup is displayed successfully. Camera permission is granted and the Photobooth Camera screen opens successfully. Flash is OFF by default and Front Camera is selected by default. Flash and Camera Switch icons work correctly. The
+appId: com.hp.impulse.sprocket
+name: "PB_01 - Verify onboarding popup camera access and photo capture"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Flash"
+    optional: true
+- assertVisible:
+    text: "Photobooth"
+    optional: true

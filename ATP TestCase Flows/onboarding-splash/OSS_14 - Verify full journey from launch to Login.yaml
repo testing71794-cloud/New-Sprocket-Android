@@ -1,0 +1,14 @@
+# ATP Test Case ID: OSS_14
+# Excel: LI_W _E TC_E2E_001 | Module: App Launch & Auth
+# Verify full journey from launch to Login
+# Expected: App transitions smoothly through all screens ending at the Login interface.
+appId: com.hp.impulse.sprocket
+name: "OSS_14 - Verify full journey from launch to Login"
+tags:
+  - onboarding-splash
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,23 @@
+# ATP Test Case ID: SE_30
+# Excel: Hamburger Menu 31 | Module: Account
+# Trigger Delete Account Pop-up
+# Expected: The "Delete Account" popup appears with the bold title "Delete Account", the warning message, a checkbox with "I understand that deleting my account is permanent and cannot be undone.", and the "No, Cancel" and "Yes, Delete Account" options
+appId: com.hp.impulse.sprocket
+name: "SE_30 - Trigger Delete Account Pop-up"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Delete Account"
+    optional: true
+- assertVisible:
+    text: "I understand that deleting my account is permanent and cannot be undone."
+    optional: true
+- assertVisible:
+    text: "No, Cancel"
+    optional: true
+- assertVisible:
+    text: "Yes, Delete Account"
+    optional: true

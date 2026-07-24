@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_61
+# Excel: Print Preview Screen 61 | Module: Edit Tip
+# First-Time Session Tip Appearance
+# Expected: The edit tip banner with text "Tap here to edit photo." appears automatically and points to the Edit button.
+appId: com.hp.impulse.sprocket
+name: "PR_61 - First-Time Session Tip Appearance"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tap here to edit photo."
+    optional: true

@@ -1,0 +1,23 @@
+# ATP Test Case ID: COX_034
+# Excel: PCF_HP200_016 | Module: Pre Connection Flow for HP 200
+# Verify all UI elements displayed on the 'No Printers Found' screen for HP 200 printer
+# Expected: The 'No Printers Found' screen should display:  Close (X) button. Warning icon. "No Printers Found" title. "We were unable to find a Sprocket." message. "Try Again" button.
+appId: com.hp.impulse.sprocket
+name: "COX_034 - Verify all UI elements displayed on the No Printers Found sc"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "No Printers Found"
+    optional: true
+- assertVisible:
+    text: "We were unable to find a Sprocket."
+    optional: true
+- assertVisible:
+    text: "Try Again"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

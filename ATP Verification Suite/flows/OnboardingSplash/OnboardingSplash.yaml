@@ -1,0 +1,30 @@
+# ATP Stage Flow: OnboardingSplash
+# Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
+appId: com.hp.impulse.sprocket
+name: "Stage - OnboardingSplash"
+tags:
+  - atp-verification
+  - onboardingsplash
+---
+# Cases in this stage (20):
+#   - Sp_01: Verify app launch, animation, and transition
+#   - ON_01: Verify the complete transition from Onboarding completion to the Sign Up Options
+#   - SU (iOS) _01: Verify Sign Up Options screen UI and navigation
+#   - SU (Android) _01b: Verify Sign Up Options (Android) screen UI and navigation
+#   - SU_02: Verify Sign Up with Email screen UI, validations and navigation
+#   - ON_02D_SU - E F F TC_ON02DE_01: Verify form field input and successful Sign Up
+#   - ON_02D_SU - E F F TC_ON02DE_02: Verify Sign Up error messages
+#   - ON_02F_C / ON_02G_PP TC_ON02G_01: Verify Privacy Policy navigation and back action
+#   - ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02: Verify Privacy Policy behavior without internet connection
+#   - TC_LI_IOS_13: Verify successful login using Google, Facebook, Apple, and Email
+#   - TC_LI_IOS_14: Verify authentication cancellation
+#   - TC_LI_AND_13: Verify successful login using Google, Facebook, and Email
+#   - TC_LI_AND_14: Verify authentication cancellation
+#   - LI_W _E TC_E2E_001: Verify full journey from launch to Login
+#   - LI_W _E TC_E2E_002: Verify invalid credential flow
+#   - LI_W _E l TC_LWE_05: Verify "Forgot Password?" link
+#   - FP TC_E2E_01: Verify full journey: Launch, Onboarding, Sign Up, and Forgot Password flow
+#   - FP TC_E2E_02: Verify invalid credential/input handling across Login and Password Recovery
+#   - EH TC_ERR_ALL_01: Verify all input validation and system error states for Sign Up and Log In
+#   - EH TC_ERR_ALL_02: Verify all input validation and error states for Forgot Password
+- runFlow: ../Home/Home.yaml

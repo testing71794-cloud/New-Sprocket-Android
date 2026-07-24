@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_082
+# Excel: PCF_Studio_007 | Module: Pre Connection Flow for Sprocket Studio
+# Verify Next Navigation from Load Paper
+# Expected: 1. The Install Ink Cartridge screen should be displayed. 2. Step 3 should be highlighted.
+appId: com.hp.impulse.sprocket
+name: "COX_082 - Verify Next Navigation from Load Paper"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

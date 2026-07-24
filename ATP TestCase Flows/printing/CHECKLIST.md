@@ -1,0 +1,108 @@
+# Printing / printing — 106 Excel-generated flows
+
+- [ ] PR_01 | Print Preview Screen 01 | Media Access Modal
+- [ ] PR_02 | Print Preview Screen 02 | Header Status
+- [ ] PR_03 | Print Preview Screen 03 | Copies vs. Tiles
+- [ ] PR_04 | Print Preview Screen 04 | Print & Edit Buttons
+- [ ] PR_05 | Print Preview Screen 05 | Bottom Nav Bar
+- [ ] PR_06 | Print Preview Screen 06 | Default UI State
+- [ ] PR_07 | Print Preview Screen 07 | Header Actions
+- [ ] PR_08 | Print Preview Screen 08 | Copy Control Limits
+- [ ] PR_09 | Print Preview Screen 09 | Edit Functionality
+- [ ] PR_10 | Print Preview Screen 10 | Print Action
+- [ ] PR_11 | Print Preview Screen 11 | Back Navigation
+- [ ] PR_12 | Print Preview Screen 12 | Paper Layout
+- [ ] PR_13 | Print Preview Screen 13 | UI Layout Verification for Pre-Cut Sticker Flow
+- [ ] PR_14 | Print Preview Screen 14 | Tiles Option Availability Restriction
+- [ ] PR_15 | Print Preview Screen 15 | AI Button Visibility Restriction
+- [ ] PR_16 | Print Preview Screen 16 | Copy Count Adjustment and Boundary Validation
+- [ ] PR_17 | Print Preview Screen 17 | Edit, Print, and Back Button Functionality
+- [ ] PR_18 | Print Preview Screen 18 | Feature Availability Verification for Multiple Photos
+- [ ] PR_19 | Print Preview Screen 19 | Photo Selection Order Verification
+- [ ] PR_20 | Print Preview Screen 20 | Swipe Navigation Between Photos
+- [ ] PR_21 | Print Preview Screen 21 | Peeking Photo Selection via Tap
+- [ ] PR_22 | Print Preview Screen 22 | Edit Button Overlay Behavior on Peeking Photos
+- [ ] PR_23 | Print Preview Screen 23 | AI Button Functionality Without Printer
+- [ ] PR_24 | Print Preview Screen 24 | Edit Button Functionality Without Printer
+- [ ] PR_25 | Print Preview Screen  25 | Photo Carousel Interaction Without Printer
+- [ ] PR_26 | Print Preview Screen 26 | UI State and Connection Trigger When Printer is Offline
+- [ ] PR_27 | Print Preview Screen 27 | Printer Reconnection Flow and State Persistence
+- [ ] PR_28 | Print Preview Screen 28 | Connection Cancellation and Early Exit Behavior
+- [ ] PR_29 | Print Preview Screen 29 | Edit & Validation Loader
+- [ ] PR_30 | Print Preview Screen 30 | Printer Reconnection Flow
+- [ ] PR_31 | Print Preview Screen 31 | Blocker Error Handling
+- [ ] PR_32 | Print Preview Screen 32 | Trigger & UI Verification
+- [ ] PR_33 | Print Preview Screen 33 | Sprocket 3×4 Constraint
+- [ ] PR_34 | Print Preview Screen 34 | Trigger & UI Validation
+- [ ] PR_35 | Print Preview Screen 35 | Dismissal Interaction
+- [ ] PR_36 | Print Preview Screen 36 | Verify AI/Edit, Copy Limits, Print Button and Error Handling
+- [ ] PR_37 | Print Preview Screen 37 | Verify Fit/Fill Toast
+- [ ] PR_38 | Print Preview Screen 38 | Verify Double Tap
+- [ ] PR_39 | Print Preview Screen 39 | Verify Rotation Snap
+- [ ] PR_40 | Print Preview Screen 40 | Verify Center Snap
+- [ ] PR_41 | Print Preview Screen 41 | Verify Edge Snap
+- [ ] PR_42 | Print Preview Screen 42 | Verify Boundary Lock
+- [ ] PR_43 | Print Preview Screen 43 | Verify Fit/Fill Lock
+- [ ] PR_44 | Print Preview Screen 44 | Verify Save to Gallery option
+- [ ] PR_45 | Print Preview Screen 45 | Verify Do Not Save and X options
+- [ ] PR_46 | Print Preview Screen 46 | Trigger Warning for Low-Resolution Native Images
+- [ ] PR_47 | Print Preview Screen 47 | Trigger Warning for Low-Resolution Social Media Images
+- [ ] PR_48 | Print Preview Screen 48 | Dismissal via Close Icon Interaction
+- [ ] PR_49 | Print Preview Screen 49 | Layout and Icon Asset Validation
+- [ ] PR_50 | Print Preview Screen 50 | Intercept Print Action During Active Firmware Update
+- [ ] PR_51 | Print Preview Screen 51 | Dismiss Popup via OK Button
+- [ ] PR_52 | Print Preview Screen 52 | Dismiss Popup via Close Icon
+- [ ] PR_53 | Print Preview Screen 53 | Verify layout controls for Studio / Studio Plus printer
+- [ ] PR_54 | Print Preview Screen 54 | Verify Tiles option is unavailable for Studio / Studio Plus printer
+- [ ] PR_55 | Print Preview Screen 55 | Verify responsive scaling ($375\times667$)
+- [ ] PR_56 | Print Preview Screen 56 | Verify $2\times3"$ and $4\times6"$ layout
+- [ ] PR_57 | Print Preview Screen 57 | Verify $2.3\times3.4"$ and $3.5\times4.25"$ layout
+- [ ] PR_58 | Print Preview Screen 58 | Verify PreCut Sticker restriction
+- [ ] PR_59 | Print Preview Screen 59 | Verify UI control presence
+- [ ] PR_60 | Print Preview Screen 60 | Verify AI button absence
+- [ ] PR_61 | Print Preview Screen 61 | First-Time Session Tip Appearance
+- [ ] PR_62 | Print Preview Screen 62 | Auto-Fade Duration Validation
+- [ ] PR_63 | Print Preview Screen 63 | Session Repetition Restriction Check
+- [ ] PR_64 | Print Preview Screen 64 | Priority Handling with System Toast Messages
+- [ ] PR_65 | Print Preview Screen 65 | Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation
+- [ ] PR_66 | Print Preview Screen 66 | Canvas Animation and Multi-Photo Queue Sequencing
+- [ ] PR_67 | Print Preview Screen 67 | Tile Grid Printing Queue Progression
+- [ ] PR_68 | Print Preview Screen 68 | Error Handling During Multi-Photo Print Transitions
+- [ ] PR_69 | Print Preview Screen 69 | Completion Screen UI Animation and Tips Transition
+- [ ] PR_70 | Print Preview Screen 70 | Sequential Tips & Tricks Slide Transition Behavior
+- [ ] PR_71 | Print Preview Screen 71 | Verify Printer Status Label Updates in Print State
+- [ ] PR_72 | Print Preview Screen 72 | Verify Queue Skipping for Multiple Copies
+- [ ] PR_73 | Print Preview Screen 73 | Verify In Queue (Paused) for New Job in Paused Queue
+- [ ] PR_74 | Print Preview Screen 74 | Verify In Queue (Paused) During Multi-Copy Pause Scenario
+- [ ] PR_75 | Print Preview Screen 75 | Verify Print State Does Not Show Invalid or Conflicting Status
+- [ ] PR_76 | Print Preview Screen 76 | Verify Print Queue Does Not Process or Skip Incorrectly During Pause or Error Conditions
+- [ ] PR_77 | Print Preview Screen 77 | Verify Navigation from Print State to Print Queue Screen via Print Count
+- [ ] PR_78 | Print Preview Screen 78 | Verify Queue Resume After Hardware Error Recovery
+- [ ] PR_79 | Print Preview Screen 79 | Verify Error Behavior After Exiting Print State Using Done Button
+- [ ] PR_80 | Print Preview Screen 80 | Verify Print Complete Status Display and Hold Duration
+- [ ] PR_81 | Print Preview Screen 81 | Verify Post-Print Navigation Behavior from Different Sources
+- [ ] PR_82 | Print Preview Screen 82 | Verify access, interruption, and data retention
+- [ ] PR_83 | Print Preview Screen 83 | Verify error handling and queue state
+- [ ] PR_84 | Print Preview Screen 84 | Verify automatic queue resumption
+- [ ] PR_85 | Print Preview Screen 85 | Verify UI state after reconnection
+- [ ] PR_86 | Print Preview Screen 86 | Verify Print Queue can be accessed from Print State and navigation controls function correctly.
+- [ ] PR_87 | Print Preview Screen 87 | Verify behavior when the only pending single-photo print job is deleted.
+- [ ] PR_88 | Print Preview Screen 88 | Verify retention on Print State screen when only part of the queue is deleted.
+- [ ] PR_89 | Print Preview Screen 89 | Verify deletion restriction for an active print job.
+- [ ] PR_90 | Print Preview Screen 90 | Verify Home redirection when all pending photos are deleted.
+- [ ] PR_91 | Print Preview Screen 91 | Verify Home redirection when all pending copies are deleted.
+- [ ] PR_92 | Print Preview Screen 92 | Verify "Resume Queue" pop-up is displayed when a new print job is initiated while the print queue is paused.
+- [ ] PR_93 | Print Preview Screen 93 | Verify the Resume Queue pop-up displays the correct content and action buttons.
+- [ ] PR_94 | Print Preview Screen 94 | Verify selecting "Yes, Resume" resumes the paused queue and starts printing.
+- [ ] PR_95 | Print Preview Screen 95 | Verify the Resume Queue pop-up is not displayed when the queue is active and a print job is already in progress.
+- [ ] PR_96 | Print Preview Screen 96 | Verify printer blocker/error conditions take precedence over the Resume Queue pop-up.
+- [ ] PR_97 | Print Preview Screen 97 | Verify stack layout, image order and progress details
+- [ ] PR_98 | Print Preview Screen 98 | Verify Done button and navigation
+- [ ] PR_99 | Print Preview Screen 100 | Verify single-copy edge case
+- [ ] PR_100 | Print Preview Screen 101 | Verify queueing new print while another job is in progress
+- [ ] PR_101 | Print Preview Screen 102 | Verify Queue screen UI and delete functionality
+- [ ] PR_102 | Print Preview Screen 103 | Verify restrictions and hidden UI elements
+- [ ] PR_103 | Print Preview Screen 104 | Verify updated Print State graphic after queue changes
+- [ ] PR_104 | Print Preview Screen 105 | Verify UI behavior when queue becomes empty or invalid changes are made
+- [ ] PR_105 | Print Preview Screen  106 | Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage
+- [ ] PR_106 | Print Preview Screen 107 | Verify toast message and Gallery save failure handling

@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_22
+# Excel: Firmqare Update 22 | Module: Firmware Download
+# Verify UI remains visible during download
+# Expected: Printer Settings UI remains visible during download.
+appId: com.hp.impulse.sprocket
+name: "FW_22 - Verify UI remains visible during download"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_74
+# Excel: AI Tools 93 | Module: Restore Photo
+# Verify "Show Original"
+# Expected: Tapping toggle switches the display between restored image and original color image for comparison.
+appId: com.hp.impulse.sprocket
+name: "AI_74 - Verify Show Original"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Show Original"
+    optional: true

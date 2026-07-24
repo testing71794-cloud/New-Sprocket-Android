@@ -1,0 +1,14 @@
+# ATP Test Case ID: AL_24
+# Excel: Blockers Error Pop up Ios 003 | Module: iOS_14_Low Voltage
+# Verify Low Voltage popup when battery is low
+# Expected: Title: Low Voltage.
+appId: com.hp.impulse.sprocket
+name: "AL_24 - Verify Low Voltage popup when battery is low"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

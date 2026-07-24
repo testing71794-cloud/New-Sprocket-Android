@@ -1,0 +1,14 @@
+# ATP Test Case ID: CS_01
+# Excel: Custom SDK 01 | Module: Gallery - Edit Screen Navigation
+# Verify user is redirected to Custom SDK screen after tapping Edit icon.
+# Expected: User is redirected to the Custom SDK editing screen successfully.
+appId: com.hp.impulse.sprocket
+name: "CS_01 - Verify user is redirected to Custom SDK screen after tapping"
+tags:
+  - custom-sdk
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,619 @@
+{
+  "stage": "Photobooth",
+  "count": 17,
+  "cases": [
+    {
+      "test_id": "Photobooth 01",
+      "module": "Photobooth",
+      "section": "PHOTOBOOTH",
+      "description": "Verify onboarding popup, camera access and photo capture",
+      "steps": [
+        "1.Install  and launch the application.",
+        "2,.Verify the Splash Screen displays the HP logo with the \"sprocket\" text.",
+        "3.Wait for the Splash Screen to complete automatically.",
+        "4.Swipe through all onboarding screens until the final screen.",
+        "5.Tap Get Started.",
+        "6.Tap the Sign Up Later button.",
+        "7.Wait until the Home screen is displayed.",
+        "8.If the notification permission popup appears, tap Allow.",
+        "9.Tap the Photobooth module.",
+        "10.Verify the Photobooth onboarding popup appears the first time the module is opened.",
+        "11.Tap Got It (if displayed).",
+        "12.Verify the camera permission popup \"Allow Sprocket to take pictures and record video?\" is displayed.",
+        "13.Verify the permission options are displayed:While using the app\n.Only this time\n.Don't allow\n.Tap While using the app.\n14.Verify the Photobooth Camera screen opens successfully.\n15.Verify the Flash icon is OFF by default.\n16.Verify the Front Camera is selected by default.\n17.Verify the Switch Camera icon is displayed.\n18.Verify the Shutter button is displayed at the bottom of the screen.\n19.Tap the Flash icon and verify it toggles ON and OFF.\n20.Tap the Switch Camera icon and verify it switches between the Front and Back cameras.\n21.Tap the Shutter button.\n22.Verify a 3-second countdown is displayed before each capture.\n23.Verify the application automatically captures 4 photos, with a 3-second countdown between each shot.\n24.Verify the captured photos are displayed successfully.\n25.Tap the Back button.\n26.Verify the app returns to the previous screen successfully without any errors."
+      ],
+      "type": "Positive",
+      "expected": "Onboarding popup is displayed successfully. Camera permission is granted and the Photobooth Camera screen opens successfully. Flash is OFF by default and Front Camera is selected by default. Flash and Camera Switch icons work correctly. The app captures 4 photos with a 3-second countdown between each shot. Back button returns the user to the Home screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1214,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 01",
+          "module": "Photobooth",
+          "stage": "Photobooth",
+          "description": "Verify onboarding popup, camera access and photo capture",
+          "expected": "Onboarding popup is displayed successfully. Camera permission is granted and the Photobooth Camera screen opens successfully. Flash is OFF by default and Front Camera is selected by default. Flash and Camera Switch icons work correctly. The app captures 4 photos with a 3-second countdown between each shot. Back button returns the user to the Home screen successfully.",
+          "verification": "Verify dialog: Flash",
+          "kind": "dialog",
+          "selector": "Flash"
+        },
+        {
+          "test_id": "Photobooth 01",
+          "module": "Photobooth",
+          "stage": "Photobooth",
+          "description": "Verify onboarding popup, camera access and photo capture",
+          "expected": "Onboarding popup is displayed successfully. Camera permission is granted and the Photobooth Camera screen opens successfully. Flash is OFF by default and Front Camera is selected by default. Flash and Camera Switch icons work correctly. The app captures 4 photos with a 3-second countdown between each shot. Back button returns the user to the Home screen successfully.",
+          "verification": "Verify dialog: Photobooth",
+          "kind": "dialog",
+          "selector": "Photobooth"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 02",
+      "module": "Photobooth",
+      "section": "PHOTOBOOTH",
+      "description": "Verify behavior when camera permission is denied",
+      "steps": [
+        "1. Launch the app and wait for the splash screen.",
+        "2. Complete onboarding (ON_01B to ON_01E).",
+        "3. Tap Get Started! and on the Sign Up screen tap  \" Sign Up Later\".",
+        "4. Verify the Home screen appears.",
+        "5. Tap the Photobooth module.",
+        "6. Verify the onboarding popup appears for the first time.",
+        "7. Tap Don't Allow on the camera permission popup.",
+        "8. Tap the Shutter button or camera controls."
+      ],
+      "type": "Negative",
+      "expected": "Camera permission is denied and the Photobooth Camera screen does not open. An appropriate permission/error message is displayed. User cannot capture photos or use camera controls until permission is granted. The app remains stable without any crash or UI issue.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1228,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 02",
+          "module": "Photobooth",
+          "stage": "Photobooth",
+          "description": "Verify behavior when camera permission is denied",
+          "expected": "Camera permission is denied and the Photobooth Camera screen does not open. An appropriate permission/error message is displayed. User cannot capture photos or use camera controls until permission is granted. The app remains stable without any crash or UI issue.",
+          "verification": "Verify permission UI: Photobooth",
+          "kind": "permission",
+          "selector": "Photobooth"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 03",
+      "module": "Photobooth Countdown",
+      "section": "PHOTOBOOTH",
+      "description": "Verify shutter to stop button transformation and countdown",
+      "steps": [
+        "1. Launch the app and wait for the splash screen.",
+        "2. Complete onboarding (ON_01B to ON_01E).",
+        "3. Tap Get Started! and on the Sign Up screen tap \"Sign Up  Later\".",
+        "4. Verify the Home screen appears.",
+        "5. Tap the Photobooth module.",
+        "6. Verify the onboarding popup appears for the first time.",
+        "7. Allow camera permission.",
+        "8. Verify the Photobooth Camera screen opens successfully.",
+        "9. Verify Flash is OFF and Front Camera is selected by default.",
+        "10. Tap the round Shutter button.",
+        "11. Verify the round shutter button changes to a square Stop button.",
+        "12. Verify the countdown displays 3 → 2 → 1 before each photo.",
+        "13. Verify Back, Flash, and Switch Camera buttons disappear during capture.",
+        "14. Verify the app captures 4 photos successfully."
+      ],
+      "type": "Positive",
+      "expected": "Round shutter button changes to a square Stop button instantly. Countdown numbers 3, 2, 1 are displayed clearly before each photo. Flash, Switch Camera, and Back buttons are hidden during capture. The app captures 4 photos successfully without any issue.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1236,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 03",
+          "module": "Photobooth Countdown",
+          "stage": "Photobooth",
+          "description": "Verify shutter to stop button transformation and countdown",
+          "expected": "Round shutter button changes to a square Stop button instantly. Countdown numbers 3, 2, 1 are displayed clearly before each photo. Flash, Switch Camera, and Back buttons are hidden during capture. The app captures 4 photos successfully without any issue.",
+          "verification": "Verify not visible: Flash",
+          "kind": "not_visible",
+          "selector": "Flash"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 04",
+      "module": "Photobooth Countdown",
+      "section": "PHOTOBOOTH",
+      "description": "Verify cancel photo session during countdown",
+      "steps": [
+        "1. Launch the app and wait for the splash screen.",
+        "2. Complete onboarding (ON_01B to ON_01E).",
+        "3. Tap Get Started! and on the Sign Up screen tap \"Sign Up Later\".",
+        "4. Verify the Home screen appears.",
+        "5. Tap the Photobooth module.",
+        "6. Verify the onboarding popup appears for the first time.",
+        "7. Allow camera permission.",
+        "8. Verify the Photobooth Camera screen opens successfully.",
+        "9. Tap the round Shutter button to start capturing.",
+        "10. During the countdown, tap the square Stop button."
+      ],
+      "type": "Negative",
+      "expected": "Photo session is cancelled immediately. Any photos captured during the session are discarded and not saved. User remains on the Photobooth camera screen without any crash or UI issue.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1250,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 04",
+          "module": "Photobooth Countdown",
+          "stage": "Photobooth",
+          "description": "Verify cancel photo session during countdown",
+          "expected": "Photo session is cancelled immediately. Any photos captured during the session are discarded and not saved. User remains on the Photobooth camera screen without any crash or UI issue.",
+          "verification": "Verify visible: Photobooth",
+          "kind": "visible",
+          "selector": "Photobooth"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth  05",
+      "module": "Capture View",
+      "section": "PHOTOBOOTH",
+      "description": "Verify countdown hides during photo capture",
+      "steps": [
+        "1. Launch the app and wait for the Splash screen. \n2. Complete onboarding (ON_01B to ON_01E). \n3. Tap Get Started! and on the Sign Up screen tap \"Sign Up Later\". \n4. Verify the Home screen appears. \n5. Tap the Photobooth module.\n 6. Verify onboarding popup appears for the first time. \n7. Verify popup text and buttons are displayed correctly. \n8. Allow camera permission by tapping \"While using the app\". 9. Verify the Photobooth Camera screen opens successfully. 10. Verify top options: Back button and title are visible. \n11. Verify bottom options: Flash, Shutter, and Switch Camera icons are visible. \n12. Verify Flash is OFF and Front Camera is selected by default. 13. Tap the Shutter button. \n14. Let the countdown reach 1 and observe the photo capture moment."
+      ],
+      "type": "Positive",
+      "expected": "Countdown number disappears immediately when the photo is captured and the photo is saved successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1260,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth  05",
+          "module": "Capture View",
+          "stage": "Photobooth",
+          "description": "Verify countdown hides during photo capture",
+          "expected": "Countdown number disappears immediately when the photo is captured and the photo is saved successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 06",
+      "module": "Progress",
+      "section": "PHOTOBOOTH",
+      "description": "Verify progress indicator updates after each photo",
+      "steps": [
+        "1. Perform Steps 1 to 13 of TC_PB_01. 2. Complete the first photo capture. 3. Observe the progress indicator at the bottom of the screen. 4. Continue the capture sequence and observe progress updates."
+      ],
+      "type": "Positive",
+      "expected": "Progress indicator updates correctly and shows captured photos count out of 4.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1261,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 06",
+          "module": "Progress",
+          "stage": "Photobooth",
+          "description": "Verify progress indicator updates after each photo",
+          "expected": "Progress indicator updates correctly and shows captured photos count out of 4.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 07",
+      "module": "Interaction",
+      "section": "PHOTOBOOTH",
+      "description": "Verify session cancellation while photo is processing",
+      "steps": [
+        "1. Launch the app and wait for the Splash screen. \n2. Complete onboarding (ON_01B to ON_01E). \n3. Tap Get Started! and on the Sign Up screen tap \"Sign Up Later\". \n4. Verify the Home screen appears. \n5. Tap the Photobooth module.\n 6. Verify onboarding popup appears for the first time. \n7. Verify popup text and buttons are displayed correctly. \n8. Allow camera permission by tapping \"While using the app\". 9. Verify the Photobooth Camera screen opens successfully. 10. Verify top options: Back button and title are visible. \n11. Verify bottom options: Flash, Shutter, and Switch Camera icons are visible. \n12. Verify Flash is OFF and Front Camera is selected by default. 13. Tap the Shutter button. \n14. During countdown or while a photo is being processed, tap the Square Stop button. \n15. Observe the screen behavior."
+      ],
+      "type": "Negative",
+      "expected": "Photobooth session stops immediately and captured photos are discarded successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1262,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 07",
+          "module": "Interaction",
+          "stage": "Photobooth",
+          "description": "Verify session cancellation while photo is processing",
+          "expected": "Photobooth session stops immediately and captured photos are discarded successfully.",
+          "verification": "Verify visible: Photobooth",
+          "kind": "visible",
+          "selector": "Photobooth"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth  08",
+      "module": "Progress Bar",
+      "section": "PHOTOBOOTH",
+      "description": "Verify progress bar increment logic",
+      "steps": [
+        "1. Launch the app and wait for splash screen.",
+        "2. Complete onboarding (ON_01B to ON_01E).",
+        "3. Tap Get Started! and on Sign Up tap \"Sign Up Later\".",
+        "4. Verify Home screen appears.",
+        "5. Tap Photobooth module.",
+        "6. Verify onboarding popup appears for first time.",
+        "7. Allow camera permission.",
+        "8. Verify Photobooth camera screen opens.",
+        "9. Verify Back, Flash, Shutter, and Switch Camera icons are visible.",
+        "10. Verify Flash is OFF and Front Camera is selected by default.",
+        "11. Tap the Shutter button.",
+        "12. Let the camera capture the first photo.",
+        "13. Observe the horizontal progress bar."
+      ],
+      "type": "Positive",
+      "expected": "Progress bar moves forward by one slot after each photo capture.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1263,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth  08",
+          "module": "Progress Bar",
+          "stage": "Photobooth",
+          "description": "Verify progress bar increment logic",
+          "expected": "Progress bar moves forward by one slot after each photo capture.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 09",
+      "module": "Countdown",
+      "section": "PHOTOBOOTH",
+      "description": "Verify countdown timer returns for next photos",
+      "steps": [
+        "1. Perform Steps 1-11 from TC_PB_01.",
+        "2. Wait for the first photo to be taken.",
+        "3. Observe the screen immediately after the snapshot.",
+        "4. Verify countdown numbers are displayed again for the next photo."
+      ],
+      "type": "Positive",
+      "expected": "Countdown timer reappears and shows 3 → 2 → 1 before the next photo is captured.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1276,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 09",
+          "module": "Countdown",
+          "stage": "Photobooth",
+          "description": "Verify countdown timer returns for next photos",
+          "expected": "Countdown timer reappears and shows 3 → 2 → 1 before the next photo is captured.",
+          "verification": "Verify visible: Timer",
+          "kind": "visible",
+          "selector": "Timer"
+        },
+        {
+          "test_id": "Photobooth 09",
+          "module": "Countdown",
+          "stage": "Photobooth",
+          "description": "Verify countdown timer returns for next photos",
+          "expected": "Countdown timer reappears and shows 3 → 2 → 1 before the next photo is captured.",
+          "verification": "Verify visible: Next",
+          "kind": "visible",
+          "selector": "Next"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 10",
+      "module": "Interaction",
+      "section": "PHOTOBOOTH",
+      "description": "Verify Stop button works during intermediate countdown",
+      "steps": [
+        "1. Perform Steps 1-11 from TC_PB_01.",
+        "2. Wait until the first photo is captured.",
+        "3. During the next countdown, tap the Square Stop button.",
+        "4. Observe the screen behavior."
+      ],
+      "type": "Negative",
+      "expected": "Capture session stops immediately and all photos captured during the current session are discarded.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1280,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 10",
+          "module": "Interaction",
+          "stage": "Photobooth",
+          "description": "Verify Stop button works during intermediate countdown",
+          "expected": "Capture session stops immediately and all photos captured during the current session are discarded.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 11",
+      "module": "UI Layout",
+      "section": "PHOTOBOOTH",
+      "description": "Verify Photobooth Result screen layout",
+      "steps": [
+        "1. Launch the app and complete onboarding (ON_01B to ON_01E). \n2. Tap Get Started! and select \"Sign Up Later. \n3. From Home, tap Photobooth. \n4. Allow camera permission popup (\"Allow Sprocket to take pictures and record video?\" → While using the app). \n5. Capture all 4 photos.\n 6. Verify Result screen opens. \n7. Observe screen from top to bottom."
+      ],
+      "type": "Positive",
+      "expected": "Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1284,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 11",
+          "module": "UI Layout",
+          "stage": "Photobooth",
+          "description": "Verify Photobooth Result screen layout",
+          "expected": "Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.",
+          "verification": "Verify image/logo: Photobooth",
+          "kind": "image",
+          "selector": "Photobooth"
+        },
+        {
+          "test_id": "Photobooth 11",
+          "module": "UI Layout",
+          "stage": "Photobooth",
+          "description": "Verify Photobooth Result screen layout",
+          "expected": "Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.",
+          "verification": "Verify image/logo: Copies",
+          "kind": "image",
+          "selector": "Copies"
+        },
+        {
+          "test_id": "Photobooth 11",
+          "module": "UI Layout",
+          "stage": "Photobooth",
+          "description": "Verify Photobooth Result screen layout",
+          "expected": "Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.",
+          "verification": "Verify image/logo: Create",
+          "kind": "image",
+          "selector": "Create"
+        },
+        {
+          "test_id": "Photobooth 11",
+          "module": "UI Layout",
+          "stage": "Photobooth",
+          "description": "Verify Photobooth Result screen layout",
+          "expected": "Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        },
+        {
+          "test_id": "Photobooth 11",
+          "module": "UI Layout",
+          "stage": "Photobooth",
+          "description": "Verify Photobooth Result screen layout",
+          "expected": "Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.",
+          "verification": "Verify image/logo: More",
+          "kind": "image",
+          "selector": "More"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 12",
+      "module": "Local Saving",
+      "section": "PHOTOBOOTH",
+      "description": "Verify merged image auto-save",
+      "steps": [
+        "1. Launch the app and complete onboarding (ON_01B to ON_01E). \n2. Tap Get Started! and select \"Sign Up Later. \n3. From Home, tap Photobooth. \n4. Allow camera permission popup (\"Allow Sprocket to take pictures and record video?\" → While using the app). \n5. Capture all 4 photos.\n 6. Verify Result screen opens \n7. Stay on Photobooth Result screen. \n8. Open device Gallery/Photos app. \n9. Search latest image."
+      ],
+      "type": "Positive",
+      "expected": "Final Photobooth collage is automatically saved as a single merged image in device Gallery without any error popup.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1285,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 12",
+          "module": "Local Saving",
+          "stage": "Photobooth",
+          "description": "Verify merged image auto-save",
+          "expected": "Final Photobooth collage is automatically saved as a single merged image in device Gallery without any error popup.",
+          "verification": "Verify dialog: Photobooth",
+          "kind": "dialog",
+          "selector": "Photobooth"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 13",
+      "module": "Navigation",
+      "section": "PHOTOBOOTH",
+      "description": "Verify Back button and Saving popup",
+      "steps": [
+        "1. Launch the app and complete onboarding (ON_01B to ON_01E). \n2. Tap Get Started! and select \"Sign Up Later. \n3. From Home, tap Photobooth. \n4. Allow camera permission popup (\"Allow Sprocket to take pictures and record video?\" → While using the app). \n5. Capture all 4 photos.\n 6. Verify Result screen opens \n7. On Result screen tap Back Arrow (top-left).\n 8. Observe popup and navigation."
+      ],
+      "type": "Positive",
+      "expected": "A \"Saving...\" popup/loader appears. After saving completes, user is redirected back to the Photobooth Camera screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1286,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 13",
+          "module": "Navigation",
+          "stage": "Photobooth",
+          "description": "Verify Back button and Saving popup",
+          "expected": "A \"Saving...\" popup/loader appears. After saving completes, user is redirected back to the Photobooth Camera screen successfully.",
+          "verification": "Verify dialog: Saving...",
+          "kind": "dialog",
+          "selector": "Saving..."
+        },
+        {
+          "test_id": "Photobooth 13",
+          "module": "Navigation",
+          "stage": "Photobooth",
+          "description": "Verify Back button and Saving popup",
+          "expected": "A \"Saving...\" popup/loader appears. After saving completes, user is redirected back to the Photobooth Camera screen successfully.",
+          "verification": "Verify dialog: Photobooth",
+          "kind": "dialog",
+          "selector": "Photobooth"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 14",
+      "module": "Print Logic",
+      "section": "PHOTOBOOTH",
+      "description": "Verify print options and negative behavior",
+      "steps": [
+        "1. Launch the app and complete onboarding (ON_01B to ON_01E). \n2. Tap Get Started! and select \"Sign Up Later. \n3. From Home, tap Photobooth. \n4. Allow camera permission popup (\"Allow Sprocket to take pictures and record video?\" → While using the app). \n5. Capture all 4 photos.\n 6. Verify Result screen opens \n7. Observe print options below image preview. \n8. Verify only Copies option is available.\n9. Increase and decrease copies using + / - buttons. \n10. Try to find Tiles/Grid options."
+      ],
+      "type": "Negative",
+      "expected": "Only Copies control is displayed. Copy count increases/decreases correctly. Tiles/Grid options are not available on Photobooth Result screen. No unexpected options or error messages are shown.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1287,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 14",
+          "module": "Print Logic",
+          "stage": "Photobooth",
+          "description": "Verify print options and negative behavior",
+          "expected": "Only Copies control is displayed. Copy count increases/decreases correctly. Tiles/Grid options are not available on Photobooth Result screen. No unexpected options or error messages are shown.",
+          "verification": "Verify visible: Photobooth",
+          "kind": "visible",
+          "selector": "Photobooth"
+        },
+        {
+          "test_id": "Photobooth 14",
+          "module": "Print Logic",
+          "stage": "Photobooth",
+          "description": "Verify print options and negative behavior",
+          "expected": "Only Copies control is displayed. Copy count increases/decreases correctly. Tiles/Grid options are not available on Photobooth Result screen. No unexpected options or error messages are shown.",
+          "verification": "Verify visible: Tiles",
+          "kind": "visible",
+          "selector": "Tiles"
+        },
+        {
+          "test_id": "Photobooth 14",
+          "module": "Print Logic",
+          "stage": "Photobooth",
+          "description": "Verify print options and negative behavior",
+          "expected": "Only Copies control is displayed. Copy count increases/decreases correctly. Tiles/Grid options are not available on Photobooth Result screen. No unexpected options or error messages are shown.",
+          "verification": "Verify visible: Copies",
+          "kind": "visible",
+          "selector": "Copies"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 15",
+      "module": "Flash Logic",
+      "section": "PHOTOBOOTH",
+      "description": "Verify default flash status",
+      "steps": [
+        "1. Launch the application and wait for the splash screen.",
+        "2. Complete onboarding (ON_01B to ON_01E).",
+        "3. Tap \"Get Started!\" and on the Sign Up screen tap \"I'll Do It Later\".",
+        "4. Verify the Home screen appears.",
+        "5. Tap the Photobooth module.",
+        "6. Allow camera permission if prompted.",
+        "7. Verify the Photobooth camera screen opens successfully.",
+        "8. Observe the Flash icon at the top of the screen."
+      ],
+      "type": "Positive",
+      "expected": "Camera flash setting is disabled (OFF) by default and the Flash OFF icon is displayed.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1288,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 15",
+          "module": "Flash Logic",
+          "stage": "Photobooth",
+          "description": "Verify default flash status",
+          "expected": "Camera flash setting is disabled (OFF) by default and the Flash OFF icon is displayed.",
+          "verification": "Verify disabled: Flash",
+          "kind": "disabled",
+          "selector": "Flash"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 16",
+      "module": "Flash Logic",
+      "section": "PHOTOBOOTH",
+      "description": "Verify front flash simulation",
+      "steps": [
+        "1. Launch the application and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap \"Get Started!\" and select \"I'll Do It Later\".",
+        "3. Open the Photobooth module from the Home screen.",
+        "4. Allow camera permission if prompted.",
+        "5. Verify Front Camera is selected by default.",
+        "6. Tap the Flash icon and set Flash to ON.",
+        "7. Verify Flash ON icon is displayed at the top.",
+        "8. Tap the Shutter button.",
+        "9. Observe the screen at the moment of capture."
+      ],
+      "type": "Positive",
+      "expected": "Screen turns completely white at the exact moment of capture to simulate a front flash and the photo is captured successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1296,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 16",
+          "module": "Flash Logic",
+          "stage": "Photobooth",
+          "description": "Verify front flash simulation",
+          "expected": "Screen turns completely white at the exact moment of capture to simulate a front flash and the photo is captured successfully.",
+          "verification": "Verify visible: Flash",
+          "kind": "visible",
+          "selector": "Flash"
+        }
+      ]
+    },
+    {
+      "test_id": "Photobooth 17",
+      "module": "Flash Logic",
+      "section": "PHOTOBOOTH",
+      "description": "Verify no flash when disabled",
+      "steps": [
+        "1. Launch the application and complete onboarding (ON_01B to ON_01E).",
+        "2. Tap \"Get Started!\" and select \"Sign Up Later\".",
+        "3. Open the Photobooth module from the Home screen.",
+        "4. Allow camera permission if prompted.",
+        "5. Verify Front Camera is selected.",
+        "6. Ensure Flash is set to OFF.",
+        "7. Verify Flash OFF icon is displayed at the top.",
+        "8. Tap the Shutter button and observe the capture process."
+      ],
+      "type": "Negative",
+      "expected": "Screen does not turn white. Photo is captured normally without any flash effect.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 1305,
+      "stage": "Photobooth",
+      "verifications": [
+        {
+          "test_id": "Photobooth 17",
+          "module": "Flash Logic",
+          "stage": "Photobooth",
+          "description": "Verify no flash when disabled",
+          "expected": "Screen does not turn white. Photo is captured normally without any flash effect.",
+          "verification": "Verify visible: Flash",
+          "kind": "visible",
+          "selector": "Flash"
+        }
+      ]
+    }
+  ]
+}

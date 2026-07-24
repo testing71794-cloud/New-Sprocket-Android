@@ -1,0 +1,16 @@
+# ATP Test Case ID: COX_147
+# Excel: PCF_Studio Plus_017 | Module: Pre Connection Flow for Sprocket Studio Plus
+# Verify that tapping on 'Exit' button close the set up flow
+# Expected: Exit setup?' pop up should close Set up flow process should close
+appId: com.hp.impulse.sprocket
+name: "COX_147 - Verify that tapping on Exit button close the set up flow"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "pop up should close
+Set up flow process should close
+Verify that tapping on"
+    optional: true

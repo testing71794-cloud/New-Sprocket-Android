@@ -1,0 +1,107 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+PR_01,Print Preview Screen 01,printing,Permission,Media Access Modal,printing/PR_01 - Media Access Modal.yaml,com.hp.impulse.sprocket
+PR_02,Print Preview Screen 02,printing,Print Preview,Header Status,printing/PR_02 - Header Status.yaml,com.hp.impulse.sprocket
+PR_03,Print Preview Screen 03,printing,Controls,Copies vs. Tiles,printing/PR_03 - Copies vs Tiles.yaml,com.hp.impulse.sprocket
+PR_04,Print Preview Screen 04,printing,Print Action,Print & Edit Buttons,printing/PR_04 - Print Edit Buttons.yaml,com.hp.impulse.sprocket
+PR_05,Print Preview Screen 05,printing,Navigation,Bottom Nav Bar,printing/PR_05 - Bottom Nav Bar.yaml,com.hp.impulse.sprocket
+PR_06,Print Preview Screen 06,printing,Print Preview,Default UI State,printing/PR_06 - Default UI State.yaml,com.hp.impulse.sprocket
+PR_07,Print Preview Screen 07,printing,Print Preview,Header Actions,printing/PR_07 - Header Actions.yaml,com.hp.impulse.sprocket
+PR_08,Print Preview Screen 08,printing,Print Preview,Copy Control Limits,printing/PR_08 - Copy Control Limits.yaml,com.hp.impulse.sprocket
+PR_09,Print Preview Screen 09,printing,Print Preview,Edit Functionality,printing/PR_09 - Edit Functionality.yaml,com.hp.impulse.sprocket
+PR_10,Print Preview Screen 10,printing,Print Preview,Print Action,printing/PR_10 - Print Action.yaml,com.hp.impulse.sprocket
+PR_11,Print Preview Screen 11,printing,Print Preview,Back Navigation,printing/PR_11 - Back Navigation.yaml,com.hp.impulse.sprocket
+PR_12,Print Preview Screen 12,printing,Print Preview,Paper Layout,printing/PR_12 - Paper Layout.yaml,com.hp.impulse.sprocket
+PR_13,Print Preview Screen 13,printing,Print Preview,UI Layout Verification for Pre-Cut Sticker Flow,printing/PR_13 - UI Layout Verification for Pre-Cut Sticker Flow.yaml,com.hp.impulse.sprocket
+PR_14,Print Preview Screen 14,printing,Functionality,Tiles Option Availability Restriction,printing/PR_14 - Tiles Option Availability Restriction.yaml,com.hp.impulse.sprocket
+PR_15,Print Preview Screen 15,printing,UI Layout,AI Button Visibility Restriction,printing/PR_15 - AI Button Visibility Restriction.yaml,com.hp.impulse.sprocket
+PR_16,Print Preview Screen 16,printing,Controls,Copy Count Adjustment and Boundary Validation,printing/PR_16 - Copy Count Adjustment and Boundary Validation.yaml,com.hp.impulse.sprocket
+PR_17,Print Preview Screen 17,printing,Navigation,"Edit, Print, and Back Button Functionality",printing/PR_17 - Edit Print and Back Button Functionality.yaml,com.hp.impulse.sprocket
+PR_18,Print Preview Screen 18,printing,Print Preview,Feature Availability Verification for Multiple Photos,printing/PR_18 - Feature Availability Verification for Multiple Photos.yaml,com.hp.impulse.sprocket
+PR_19,Print Preview Screen 19,printing,Carousel,Photo Selection Order Verification,printing/PR_19 - Photo Selection Order Verification.yaml,com.hp.impulse.sprocket
+PR_20,Print Preview Screen 20,printing,Carousel,Swipe Navigation Between Photos,printing/PR_20 - Swipe Navigation Between Photos.yaml,com.hp.impulse.sprocket
+PR_21,Print Preview Screen 21,printing,Carousel,Peeking Photo Selection via Tap,printing/PR_21 - Peeking Photo Selection via Tap.yaml,com.hp.impulse.sprocket
+PR_22,Print Preview Screen 22,printing,Carousel,Edit Button Overlay Behavior on Peeking Photos,printing/PR_22 - Edit Button Overlay Behavior on Peeking Photos.yaml,com.hp.impulse.sprocket
+PR_23,Print Preview Screen 23,printing,Functionality,AI Button Functionality Without Printer,printing/PR_23 - AI Button Functionality Without Printer.yaml,com.hp.impulse.sprocket
+PR_24,Print Preview Screen 24,printing,Functionality,Edit Button Functionality Without Printer,printing/PR_24 - Edit Button Functionality Without Printer.yaml,com.hp.impulse.sprocket
+PR_25,Print Preview Screen  25,printing,Functionality,Photo Carousel Interaction Without Printer,printing/PR_25 - Photo Carousel Interaction Without Printer.yaml,com.hp.impulse.sprocket
+PR_26,Print Preview Screen 26,printing,UI Layout,UI State and Connection Trigger When Printer is Offline,printing/PR_26 - UI State and Connection Trigger When Printer is Offline.yaml,com.hp.impulse.sprocket
+PR_27,Print Preview Screen 27,printing,Data & Flow,Printer Reconnection Flow and State Persistence,printing/PR_27 - Printer Reconnection Flow and State Persistence.yaml,com.hp.impulse.sprocket
+PR_28,Print Preview Screen 28,printing,Flow Handling,Connection Cancellation and Early Exit Behavior,printing/PR_28 - Connection Cancellation and Early Exit Behavior.yaml,com.hp.impulse.sprocket
+PR_29,Print Preview Screen 29,printing,Print Flow,Edit & Validation Loader,printing/PR_29 - Edit Validation Loader.yaml,com.hp.impulse.sprocket
+PR_30,Print Preview Screen 30,printing,Reconnection,Printer Reconnection Flow,printing/PR_30 - Printer Reconnection Flow.yaml,com.hp.impulse.sprocket
+PR_31,Print Preview Screen 31,printing,Print Loader,Blocker Error Handling,printing/PR_31 - Blocker Error Handling.yaml,com.hp.impulse.sprocket
+PR_32,Print Preview Screen 32,printing,Error Handling,Trigger & UI Verification,printing/PR_32 - Trigger UI Verification.yaml,com.hp.impulse.sprocket
+PR_33,Print Preview Screen 33,printing,Hardware,Sprocket 3×4 Constraint,printing/PR_33 - Sprocket 34 Constraint.yaml,com.hp.impulse.sprocket
+PR_34,Print Preview Screen 34,printing,Firmware Update,Trigger & UI Validation,printing/PR_34 - Trigger UI Validation.yaml,com.hp.impulse.sprocket
+PR_35,Print Preview Screen 35,printing,Firmware Update,Dismissal Interaction,printing/PR_35 - Dismissal Interaction.yaml,com.hp.impulse.sprocket
+PR_36,Print Preview Screen 36,printing,Print Preview,"Verify AI/Edit, Copy Limits, Print Button and Error Handling",printing/PR_36 - Verify AIEdit Copy Limits Print Button and Error Handling.yaml,com.hp.impulse.sprocket
+PR_37,Print Preview Screen 37,printing,Gestures,Verify Fit/Fill Toast,printing/PR_37 - Verify FitFill Toast.yaml,com.hp.impulse.sprocket
+PR_38,Print Preview Screen 38,printing,Gestures,Verify Double Tap,printing/PR_38 - Verify Double Tap.yaml,com.hp.impulse.sprocket
+PR_39,Print Preview Screen 39,printing,Snapping,Verify Rotation Snap,printing/PR_39 - Verify Rotation Snap.yaml,com.hp.impulse.sprocket
+PR_40,Print Preview Screen 40,printing,Snapping,Verify Center Snap,printing/PR_40 - Verify Center Snap.yaml,com.hp.impulse.sprocket
+PR_41,Print Preview Screen 41,printing,Snapping,Verify Edge Snap,printing/PR_41 - Verify Edge Snap.yaml,com.hp.impulse.sprocket
+PR_42,Print Preview Screen 42,printing,Gestures,Verify Boundary Lock,printing/PR_42 - Verify Boundary Lock.yaml,com.hp.impulse.sprocket
+PR_43,Print Preview Screen 43,printing,Gestures,Verify Fit/Fill Lock,printing/PR_43 - Verify FitFill Lock.yaml,com.hp.impulse.sprocket
+PR_44,Print Preview Screen 44,printing,Save Pop-up,Verify Save to Gallery option,printing/PR_44 - Verify Save to Gallery option.yaml,com.hp.impulse.sprocket
+PR_45,Print Preview Screen 45,printing,Save Pop-up,Verify Do Not Save and X options,printing/PR_45 - Verify Do Not Save and X options.yaml,com.hp.impulse.sprocket
+PR_46,Print Preview Screen 46,printing,Warning Toast,Trigger Warning for Low-Resolution Native Images,printing/PR_46 - Trigger Warning for Low-Resolution Native Images.yaml,com.hp.impulse.sprocket
+PR_47,Print Preview Screen 47,printing,Warning Toast,Trigger Warning for Low-Resolution Social Media Images,printing/PR_47 - Trigger Warning for Low-Resolution Social Media Images.yaml,com.hp.impulse.sprocket
+PR_48,Print Preview Screen 48,printing,Warning Toast,Dismissal via Close Icon Interaction,printing/PR_48 - Dismissal via Close Icon Interaction.yaml,com.hp.impulse.sprocket
+PR_49,Print Preview Screen 49,printing,Warning Toast,Layout and Icon Asset Validation,printing/PR_49 - Layout and Icon Asset Validation.yaml,com.hp.impulse.sprocket
+PR_50,Print Preview Screen 50,printing,Firmware Update,Intercept Print Action During Active Firmware Update,printing/PR_50 - Intercept Print Action During Active Firmware Update.yaml,com.hp.impulse.sprocket
+PR_51,Print Preview Screen 51,printing,Firmware Update,Dismiss Popup via OK Button,printing/PR_51 - Dismiss Popup via OK Button.yaml,com.hp.impulse.sprocket
+PR_52,Print Preview Screen 52,printing,Firmware Update,Dismiss Popup via Close Icon,printing/PR_52 - Dismiss Popup via Close Icon.yaml,com.hp.impulse.sprocket
+PR_53,Print Preview Screen 53,printing,Print Preview,Verify layout controls for Studio / Studio Plus printer,printing/PR_53 - Verify layout controls for Studio Studio Plus printer.yaml,com.hp.impulse.sprocket
+PR_54,Print Preview Screen 54,printing,Print Preview,Verify Tiles option is unavailable for Studio / Studio Plus printer,printing/PR_54 - Verify Tiles option is unavailable for Studio Studio Plus pr.yaml,com.hp.impulse.sprocket
+PR_55,Print Preview Screen 55,printing,UI/Layout,Verify responsive scaling ($375\times667$),printing/PR_55 - Verify responsive scaling 375times667.yaml,com.hp.impulse.sprocket
+PR_56,Print Preview Screen 56,printing,Paper Type,"Verify $2\times3""$ and $4\times6""$ layout",printing/PR_56 - Verify 2times3 and 4times6 layout.yaml,com.hp.impulse.sprocket
+PR_57,Print Preview Screen 57,printing,Paper Type,"Verify $2.3\times3.4""$ and $3.5\times4.25""$ layout",printing/PR_57 - Verify 23times34 and 35times425 layout.yaml,com.hp.impulse.sprocket
+PR_58,Print Preview Screen 58,printing,PreCut,Verify PreCut Sticker restriction,printing/PR_58 - Verify PreCut Sticker restriction.yaml,com.hp.impulse.sprocket
+PR_59,Print Preview Screen 59,printing,UI/Layout,Verify UI control presence,printing/PR_59 - Verify UI control presence.yaml,com.hp.impulse.sprocket
+PR_60,Print Preview Screen 60,printing,PreCut,Verify AI button absence,printing/PR_60 - Verify AI button absence.yaml,com.hp.impulse.sprocket
+PR_61,Print Preview Screen 61,printing,Edit Tip,First-Time Session Tip Appearance,printing/PR_61 - First-Time Session Tip Appearance.yaml,com.hp.impulse.sprocket
+PR_62,Print Preview Screen 62,printing,Edit Tip,Auto-Fade Duration Validation,printing/PR_62 - Auto-Fade Duration Validation.yaml,com.hp.impulse.sprocket
+PR_63,Print Preview Screen 63,printing,Edit Tip,Session Repetition Restriction Check,printing/PR_63 - Session Repetition Restriction Check.yaml,com.hp.impulse.sprocket
+PR_64,Print Preview Screen 64,printing,Edit Tip,Priority Handling with System Toast Messages,printing/PR_64 - Priority Handling with System Toast Messages.yaml,com.hp.impulse.sprocket
+PR_65,Print Preview Screen 65,printing,Photo Fit,Verification of Landscape Photo Automatic 90-Degree Rotation and SDK Preservation,printing/PR_65 - Verification of Landscape Photo Automatic 90-Degree Rotation.yaml,com.hp.impulse.sprocket
+PR_66,Print Preview Screen 66,printing,Print State,Canvas Animation and Multi-Photo Queue Sequencing,printing/PR_66 - Canvas Animation and Multi-Photo Queue Sequencing.yaml,com.hp.impulse.sprocket
+PR_67,Print Preview Screen 67,printing,Print State,Tile Grid Printing Queue Progression,printing/PR_67 - Tile Grid Printing Queue Progression.yaml,com.hp.impulse.sprocket
+PR_68,Print Preview Screen 68,printing,Print State,Error Handling During Multi-Photo Print Transitions,printing/PR_68 - Error Handling During Multi-Photo Print Transitions.yaml,com.hp.impulse.sprocket
+PR_69,Print Preview Screen 69,printing,Print Complete,Completion Screen UI Animation and Tips Transition,printing/PR_69 - Completion Screen UI Animation and Tips Transition.yaml,com.hp.impulse.sprocket
+PR_70,Print Preview Screen 70,printing,Print Tips,Sequential Tips & Tricks Slide Transition Behavior,printing/PR_70 - Sequential Tips Tricks Slide Transition Behavior.yaml,com.hp.impulse.sprocket
+PR_71,Print Preview Screen 71,printing,Print Queue,Verify Printer Status Label Updates in Print State,printing/PR_71 - Verify Printer Status Label Updates in Print State.yaml,com.hp.impulse.sprocket
+PR_72,Print Preview Screen 72,printing,Print Queue,Verify Queue Skipping for Multiple Copies,printing/PR_72 - Verify Queue Skipping for Multiple Copies.yaml,com.hp.impulse.sprocket
+PR_73,Print Preview Screen 73,printing,Print Queue,Verify In Queue (Paused) for New Job in Paused Queue,printing/PR_73 - Verify In Queue Paused for New Job in Paused Queue.yaml,com.hp.impulse.sprocket
+PR_74,Print Preview Screen 74,printing,Print Queue,Verify In Queue (Paused) During Multi-Copy Pause Scenario,printing/PR_74 - Verify In Queue Paused During Multi-Copy Pause Scenario.yaml,com.hp.impulse.sprocket
+PR_75,Print Preview Screen 75,printing,Print Queue,Verify Print State Does Not Show Invalid or Conflicting Status,printing/PR_75 - Verify Print State Does Not Show Invalid or Conflicting Stat.yaml,com.hp.impulse.sprocket
+PR_76,Print Preview Screen 76,printing,Print Queue,Verify Print Queue Does Not Process or Skip Incorrectly During Pause or Error Conditions,printing/PR_76 - Verify Print Queue Does Not Process or Skip Incorrectly Duri.yaml,com.hp.impulse.sprocket
+PR_77,Print Preview Screen 77,printing,Print Queue,Verify Navigation from Print State to Print Queue Screen via Print Count,printing/PR_77 - Verify Navigation from Print State to Print Queue Screen via.yaml,com.hp.impulse.sprocket
+PR_78,Print Preview Screen 78,printing,Print Queue,Verify Queue Resume After Hardware Error Recovery,printing/PR_78 - Verify Queue Resume After Hardware Error Recovery.yaml,com.hp.impulse.sprocket
+PR_79,Print Preview Screen 79,printing,Print State,Verify Error Behavior After Exiting Print State Using Done Button,printing/PR_79 - Verify Error Behavior After Exiting Print State Using Done B.yaml,com.hp.impulse.sprocket
+PR_80,Print Preview Screen 80,printing,Print Complete,Verify Print Complete Status Display and Hold Duration,printing/PR_80 - Verify Print Complete Status Display and Hold Duration.yaml,com.hp.impulse.sprocket
+PR_81,Print Preview Screen 81,printing,Print Complete,Verify Post-Print Navigation Behavior from Different Sources,printing/PR_81 - Verify Post-Print Navigation Behavior from Different Sources.yaml,com.hp.impulse.sprocket
+PR_82,Print Preview Screen 82,printing,Print Queue,"Verify access, interruption, and data retention",printing/PR_82 - Verify access interruption and data retention.yaml,com.hp.impulse.sprocket
+PR_83,Print Preview Screen 83,printing,Print Interruption,Verify error handling and queue state,printing/PR_83 - Verify error handling and queue state.yaml,com.hp.impulse.sprocket
+PR_84,Print Preview Screen 84,printing,Automation,Verify automatic queue resumption,printing/PR_84 - Verify automatic queue resumption.yaml,com.hp.impulse.sprocket
+PR_85,Print Preview Screen 85,printing,Pop-up Logic,Verify UI state after reconnection,printing/PR_85 - Verify UI state after reconnection.yaml,com.hp.impulse.sprocket
+PR_86,Print Preview Screen 86,printing,Navigation,Verify Print Queue can be accessed from Print State and navigation controls function correctly.,printing/PR_86 - Verify Print Queue can be accessed from Print State and navi.yaml,com.hp.impulse.sprocket
+PR_87,Print Preview Screen 87,printing,Single Photo Print Job,Verify behavior when the only pending single-photo print job is deleted.,printing/PR_87 - Verify behavior when the only pending single-photo print job.yaml,com.hp.impulse.sprocket
+PR_88,Print Preview Screen 88,printing,Multiple Photo / Multiple Copy Print Job,Verify retention on Print State screen when only part of the queue is deleted.,printing/PR_88 - Verify retention on Print State screen when only part of the.yaml,com.hp.impulse.sprocket
+PR_89,Print Preview Screen 89,printing,Single Photo Print Job,Verify deletion restriction for an active print job.,printing/PR_89 - Verify deletion restriction for an active print job.yaml,com.hp.impulse.sprocket
+PR_90,Print Preview Screen 90,printing,Multiple Photo Print Job,Verify Home redirection when all pending photos are deleted.,printing/PR_90 - Verify Home redirection when all pending photos are deleted.yaml,com.hp.impulse.sprocket
+PR_91,Print Preview Screen 91,printing,Multiple Copy Print Job,Verify Home redirection when all pending copies are deleted.,printing/PR_91 - Verify Home redirection when all pending copies are deleted.yaml,com.hp.impulse.sprocket
+PR_92,Print Preview Screen 92,printing,Pop-up Trigger,"Verify ""Resume Queue"" pop-up is displayed when a new print job is initiated while the print queue is paused.",printing/PR_92 - Verify Resume Queue pop-up is displayed when a new print job.yaml,com.hp.impulse.sprocket
+PR_93,Print Preview Screen 93,printing,Pop-up UI Validation,Verify the Resume Queue pop-up displays the correct content and action buttons.,printing/PR_93 - Verify the Resume Queue pop-up displays the correct content .yaml,com.hp.impulse.sprocket
+PR_94,Print Preview Screen 94,printing,Resume Queue Action,"Verify selecting ""Yes, Resume"" resumes the paused queue and starts printing.",printing/PR_94 - Verify selecting Yes Resume resumes the paused queue and sta.yaml,com.hp.impulse.sprocket
+PR_95,Print Preview Screen 95,printing,Active Printing Validation,Verify the Resume Queue pop-up is not displayed when the queue is active and a print job is already in progress.,printing/PR_95 - Verify the Resume Queue pop-up is not displayed when the que.yaml,com.hp.impulse.sprocket
+PR_96,Print Preview Screen 96,printing,Blocker Priority Validation,Verify printer blocker/error conditions take precedence over the Resume Queue pop-up.,printing/PR_96 - Verify printer blockererror conditions take precedence over .yaml,com.hp.impulse.sprocket
+PR_97,Print Preview Screen 97,printing,Multicopy / Multiprint,"Verify stack layout, image order and progress details",printing/PR_97 - Verify stack layout image order and progress details.yaml,com.hp.impulse.sprocket
+PR_98,Print Preview Screen 98,printing,Multicopy / Multiprint,Verify Done button and navigation,printing/PR_98 - Verify Done button and navigation.yaml,com.hp.impulse.sprocket
+PR_99,Print Preview Screen 100,printing,Multicopy / Multiprint,Verify single-copy edge case,printing/PR_99 - Verify single-copy edge case.yaml,com.hp.impulse.sprocket
+PR_100,Print Preview Screen 101,printing,Multicopy / Multiprint,Verify queueing new print while another job is in progress,printing/PR_100 - Verify queueing new print while another job is in progress.yaml,com.hp.impulse.sprocket
+PR_101,Print Preview Screen 102,printing,Deleting from Queue,Verify Queue screen UI and delete functionality,printing/PR_101 - Verify Queue screen UI and delete functionality.yaml,com.hp.impulse.sprocket
+PR_102,Print Preview Screen 103,printing,Deleting from Queue,Verify restrictions and hidden UI elements,printing/PR_102 - Verify restrictions and hidden UI elements.yaml,com.hp.impulse.sprocket
+PR_103,Print Preview Screen 104,printing,Print UI,Verify updated Print State graphic after queue changes,printing/PR_103 - Verify updated Print State graphic after queue changes.yaml,com.hp.impulse.sprocket
+PR_104,Print Preview Screen 105,printing,Print UI,Verify UI behavior when queue becomes empty or invalid changes are made,printing/PR_104 - Verify UI behavior when queue becomes empty or invalid chang.yaml,com.hp.impulse.sprocket
+PR_105,Print Preview Screen  106,printing,Saved to Gallery Toast,Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage,printing/PR_105 - Verify automatic save to Gallery and toast message after pri.yaml,com.hp.impulse.sprocket
+PR_106,Print Preview Screen 107,printing,Saved to Gallery Toast,Verify toast message and Gallery save failure handling,printing/PR_106 - Verify toast message and Gallery save failure handling.yaml,com.hp.impulse.sprocket

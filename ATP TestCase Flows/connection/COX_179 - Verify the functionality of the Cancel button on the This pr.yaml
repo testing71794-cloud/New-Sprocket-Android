@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_179
+# Excel: HP600_CONN_TC017 | Module: This Printer uses wi-fi pop up
+# Verify the functionality of the Cancel button on the This printer uses Wi-Fi screen.
+# Expected: Should redirect to back 'Searching for printers' screen
+appId: com.hp.impulse.sprocket
+name: "COX_179 - Verify the functionality of the Cancel button on the This pr"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Searching for printers"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Searching for Printers"
+    optional: true

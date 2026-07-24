@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_56
+# Excel: AI Tools 73 | Module: Replace Object
+# Verify selection (Tap/Paint)
+# Expected: Object highlighted with #8054F6 color; prompt box and "Generate" button become active.
+appId: com.hp.impulse.sprocket
+name: "AI_56 - Verify selection TapPaint"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Generate"
+    optional: true

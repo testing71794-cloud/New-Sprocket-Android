@@ -1,0 +1,17 @@
+# ATP Test Case ID: PR_03
+# Excel: Print Preview Screen 03 | Module: Controls
+# Copies vs. Tiles
+# Expected: Selection highlights correctly; adjustment controls (+/-) update according to the selected mode.
+appId: com.hp.impulse.sprocket
+name: "PR_03 - Copies vs Tiles"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true

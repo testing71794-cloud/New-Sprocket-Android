@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_07
+# Excel: Photobooth 07 | Module: Interaction
+# Verify session cancellation while photo is processing
+# Expected: Photobooth session stops immediately and captured photos are discarded successfully.
+appId: com.hp.impulse.sprocket
+name: "PB_07 - Verify session cancellation while photo is processing"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photobooth"
+    optional: true

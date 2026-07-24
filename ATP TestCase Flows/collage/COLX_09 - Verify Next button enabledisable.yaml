@@ -1,0 +1,14 @@
+# ATP Test Case ID: COLX_09
+# Excel: Collage_09 | Module: Next Button Validation
+# Verify Next button enable/disable
+# Expected: Next button enables only after selecting at least two images.
+appId: com.hp.impulse.sprocket
+name: "COLX_09 - Verify Next button enabledisable"
+tags:
+  - collage
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

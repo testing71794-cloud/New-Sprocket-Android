@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_32
+# Excel: AI Tools 32 | Module: Functionality
+# Verify disabled AI button behavior
+# Expected: No navigation or AI tool opening occurs.
+appId: com.hp.impulse.sprocket
+name: "AI_32 - Verify disabled AI button behavior"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

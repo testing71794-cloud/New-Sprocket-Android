@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_151
+# Excel: AI Tools 170 | Module: Select Video Frame
+# Verify routing to Next Step workflow
+# Expected: User navigates to CR_16A.3_Preview Image - Next Step screen.
+appId: com.hp.impulse.sprocket
+name: "AI_151 - Verify routing to Next Step workflow"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

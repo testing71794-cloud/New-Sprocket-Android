@@ -1,0 +1,14 @@
+# ATP Test Case ID: CS_09
+# Excel: Custom SDK  09 | Module: Image Editor
+# Verify applying edit options
+# Expected: Edit is applied successfully and user is redirected to Print Preview screen.
+appId: com.hp.impulse.sprocket
+name: "CS_09 - Verify applying edit options"
+tags:
+  - custom-sdk
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

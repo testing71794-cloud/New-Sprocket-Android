@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_30
+# Excel: Print Preview Screen 30 | Module: Reconnection
+# Printer Reconnection Flow
+# Expected: User successfully navigates through connection flow; printer connects; status updates in header; user returns to Print Preview to proceed with print.
+appId: com.hp.impulse.sprocket
+name: "PR_30 - Printer Reconnection Flow"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

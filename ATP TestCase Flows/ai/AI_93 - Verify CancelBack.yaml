@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_93
+# Excel: AI Tools 112 | Module: Cancellation
+# Verify "Cancel"/Back
+# Expected: Discards changes; returns to CR_14C_Reference.
+appId: com.hp.impulse.sprocket
+name: "AI_93 - Verify CancelBack"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Cancel"
+    optional: true

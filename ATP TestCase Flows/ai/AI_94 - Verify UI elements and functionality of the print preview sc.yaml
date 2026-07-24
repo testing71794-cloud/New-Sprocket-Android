@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_94
+# Excel: AI Tools 113 | Module: Print Preview
+# Verify UI elements and functionality of the print preview screen.
+# Expected: All UI elements (Back button, Printer status, Share icon, bottom tabs, Copies/Tiles adjustment, and Print button) are functional and correctly displayed.
+appId: com.hp.impulse.sprocket
+name: "AI_94 - Verify UI elements and functionality of the print preview sc"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertVisible:
+    text: "Copies"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

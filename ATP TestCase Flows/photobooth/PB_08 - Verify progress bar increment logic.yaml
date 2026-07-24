@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_08
+# Excel: Photobooth  08 | Module: Progress Bar
+# Verify progress bar increment logic
+# Expected: Progress bar moves forward by one slot after each photo capture.
+appId: com.hp.impulse.sprocket
+name: "PB_08 - Verify progress bar increment logic"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

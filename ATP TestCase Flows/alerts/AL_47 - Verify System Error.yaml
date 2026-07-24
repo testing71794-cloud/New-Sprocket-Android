@@ -1,0 +1,23 @@
+# ATP Test Case ID: AL_47
+# Excel: Stoppers Error Pop up Ios  26 | Module: System
+# Verify "System Error"
+# Expected: "System Error " popup is displayed on the Print Preview screen. The popup displays the bold title "System Error", followed by the message "Restart your printer and try printing again." The popup includes an "OK" button at the bottom and a C
+appId: com.hp.impulse.sprocket
+name: "AL_47 - Verify System Error"
+tags:
+  - alerts
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "System Error"
+    optional: true
+- assertVisible:
+    text: "Restart your printer and try printing again."
+    optional: true
+- assertVisible:
+    text: "OK"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

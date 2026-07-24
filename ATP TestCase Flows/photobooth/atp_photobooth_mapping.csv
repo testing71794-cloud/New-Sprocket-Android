@@ -1,0 +1,18 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+PB_01,Photobooth 01,photobooth,Photobooth,"Verify onboarding popup, camera access and photo capture",photobooth/PB_01 - Verify onboarding popup camera access and photo capture.yaml,com.hp.impulse.sprocket
+PB_02,Photobooth 02,photobooth,Photobooth,Verify behavior when camera permission is denied,photobooth/PB_02 - Verify behavior when camera permission is denied.yaml,com.hp.impulse.sprocket
+PB_03,Photobooth 03,photobooth,Photobooth Countdown,Verify shutter to stop button transformation and countdown,photobooth/PB_03 - Verify shutter to stop button transformation and countdown.yaml,com.hp.impulse.sprocket
+PB_04,Photobooth 04,photobooth,Photobooth Countdown,Verify cancel photo session during countdown,photobooth/PB_04 - Verify cancel photo session during countdown.yaml,com.hp.impulse.sprocket
+PB_05,Photobooth  05,photobooth,Capture View,Verify countdown hides during photo capture,photobooth/PB_05 - Verify countdown hides during photo capture.yaml,com.hp.impulse.sprocket
+PB_06,Photobooth 06,photobooth,Progress,Verify progress indicator updates after each photo,photobooth/PB_06 - Verify progress indicator updates after each photo.yaml,com.hp.impulse.sprocket
+PB_07,Photobooth 07,photobooth,Interaction,Verify session cancellation while photo is processing,photobooth/PB_07 - Verify session cancellation while photo is processing.yaml,com.hp.impulse.sprocket
+PB_08,Photobooth  08,photobooth,Progress Bar,Verify progress bar increment logic,photobooth/PB_08 - Verify progress bar increment logic.yaml,com.hp.impulse.sprocket
+PB_09,Photobooth 09,photobooth,Countdown,Verify countdown timer returns for next photos,photobooth/PB_09 - Verify countdown timer returns for next photos.yaml,com.hp.impulse.sprocket
+PB_10,Photobooth 10,photobooth,Interaction,Verify Stop button works during intermediate countdown,photobooth/PB_10 - Verify Stop button works during intermediate countdown.yaml,com.hp.impulse.sprocket
+PB_11,Photobooth 11,photobooth,UI Layout,Verify Photobooth Result screen layout,photobooth/PB_11 - Verify Photobooth Result screen layout.yaml,com.hp.impulse.sprocket
+PB_12,Photobooth 12,photobooth,Local Saving,Verify merged image auto-save,photobooth/PB_12 - Verify merged image auto-save.yaml,com.hp.impulse.sprocket
+PB_13,Photobooth 13,photobooth,Navigation,Verify Back button and Saving popup,photobooth/PB_13 - Verify Back button and Saving popup.yaml,com.hp.impulse.sprocket
+PB_14,Photobooth 14,photobooth,Print Logic,Verify print options and negative behavior,photobooth/PB_14 - Verify print options and negative behavior.yaml,com.hp.impulse.sprocket
+PB_15,Photobooth 15,photobooth,Flash Logic,Verify default flash status,photobooth/PB_15 - Verify default flash status.yaml,com.hp.impulse.sprocket
+PB_16,Photobooth 16,photobooth,Flash Logic,Verify front flash simulation,photobooth/PB_16 - Verify front flash simulation.yaml,com.hp.impulse.sprocket
+PB_17,Photobooth 17,photobooth,Flash Logic,Verify no flash when disabled,photobooth/PB_17 - Verify no flash when disabled.yaml,com.hp.impulse.sprocket

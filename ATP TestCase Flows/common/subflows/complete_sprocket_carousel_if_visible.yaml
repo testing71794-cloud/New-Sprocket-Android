@@ -1,0 +1,33 @@
+appId: com.hp.impulse.sprocket
+---
+# Many builds skip the welcome carousel and open Sign up directly after splash.
+# Only drive carousel steps that are actually visible (no hard AI Editing assert).
+- runFlow:
+    when:
+      visible: "Welcome to the new Sprocket!"
+    commands:
+      - runFlow:
+          when:
+            visible: "Swipe to continue."
+          commands:
+            - swipe:
+                direction: LEFT
+            - runFlow:
+                when:
+                  visible: "AI Editing & Generation"
+                commands:
+                  - swipe:
+                      direction: LEFT
+            - runFlow:
+                when:
+                  visible: "Inkless & Seamless"
+                commands:
+                  - swipe:
+                      direction: LEFT
+            - runFlow:
+                when:
+                  visible: "Get Started!"
+                commands:
+                  - tapOn: "Get Started!"
+                  - waitForAnimationToEnd:
+                      timeout: 5000

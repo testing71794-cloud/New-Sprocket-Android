@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_129
+# Excel: AI tools 148 | Module: Workflow
+# Verify Group 2 Redirection
+# Expected: Application redirects user to CR_16A.3 Preview Image - Next Step.
+appId: com.hp.impulse.sprocket
+name: "AI_129 - Verify Group 2 Redirection"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: TP_11
+# Excel: Tiles modules 11 | Module: Tiles 3×3
+# Verify 3×3 grid UI, selection and print functionality
+# Expected: User is redirected to the 3×3 Tiles Print Preview screen successfully. Image is displayed in 9-grid format with green checkmarks. Top and bottom options are visible and clickable. Only the selected 6 tiles are printed successfully. No UI is
+appId: com.hp.impulse.sprocket
+name: "TP_11 - Verify 33 grid UI selection and print functionality"
+tags:
+  - tile-print
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true

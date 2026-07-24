@@ -1,0 +1,531 @@
+{
+  "stage": "CustomSDK",
+  "count": 14,
+  "cases": [
+    {
+      "test_id": "Custom SDK 01",
+      "module": "Gallery - Edit Screen Navigation",
+      "section": "CUSTOM SDK",
+      "description": "Verify user is redirected to Custom SDK screen after tapping Edit icon.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Verify Share icon at top-right and Back arrow at top-left.",
+        "9. Verify Copies and Tiles options are displayed and Copies is selected by default.",
+        "10. Verify AI icon at bottom-left, Print button at center and Edit icon at bottom-right.",
+        "11. Verify bottom navigation bar displays More, Create, and Printer, and Create is highlighted by default.",
+        "12. Tap the Edit icon.",
+        "13. Verify navigation to Custom SDK editing screen."
+      ],
+      "type": "Positive",
+      "expected": "User is redirected to the Custom SDK editing screen successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4925,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK 01",
+          "module": "Gallery - Edit Screen Navigation",
+          "stage": "CustomSDK",
+          "description": "Verify user is redirected to Custom SDK screen after tapping Edit icon.",
+          "expected": "User is redirected to the Custom SDK editing screen successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  02",
+      "module": "Gallery - Image Display",
+      "section": "CUSTOM SDK",
+      "description": "Verify selected image is displayed in the Custom SDK editor.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Observe the image preview in Custom SDK editor."
+      ],
+      "type": "Positive",
+      "expected": "Selected image is displayed correctly without distortion.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4938,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  02",
+          "module": "Gallery - Image Display",
+          "stage": "CustomSDK",
+          "description": "Verify selected image is displayed in the Custom SDK editor.",
+          "expected": "Selected image is displayed correctly without distortion.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  03",
+      "module": "Gallery - Apply Edit",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can edit the selected image.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Apply any edit option.",
+        "10. Tap Done.",
+        "11. Verify user returns to Print Preview screen.",
+        "12. Apply any edit option and tap Apply.",
+        "13. Tap the Back Arrow icon.",
+        "14. Verify \"Save as new photo?\" popup appears.",
+        "15. Tap Save to Gallery."
+      ],
+      "type": "Positive",
+      "expected": "Image modifications are saved successfully and reflected on the Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4947,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  03",
+          "module": "Gallery - Apply Edit",
+          "stage": "CustomSDK",
+          "description": "Verify user can edit the selected image.",
+          "expected": "Image modifications are saved successfully and reflected on the Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   04",
+      "module": "Gallery - Print Edited Image",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can print an edited image successfully.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Apply any edit option and tap Done.",
+        "10. Verify changes are displayed on Preview screen.",
+        "11. Tap Print button."
+      ],
+      "type": "Positive",
+      "expected": "Edited image is sent to the printer and printing starts successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4962,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   04",
+          "module": "Gallery - Print Edited Image",
+          "stage": "CustomSDK",
+          "description": "Verify user can print an edited image successfully.",
+          "expected": "Edited image is sent to the printer and printing starts successfully.",
+          "verification": "Verify image/logo: Printer",
+          "kind": "image",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  05",
+      "module": "Gallery - Back Navigation from Custom SDK",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can return from Custom SDK screen.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Tap Back Arrow icon.",
+        "10. Verify \"Save as new photo?\" popup appears.",
+        "11. Tap Save to Gallery."
+      ],
+      "type": "Positive",
+      "expected": "User is returned to the Print Preview screen and edited image is saved successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4973,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  05",
+          "module": "Gallery - Back Navigation from Custom SDK",
+          "stage": "CustomSDK",
+          "description": "Verify user can return from Custom SDK screen.",
+          "expected": "User is returned to the Print Preview screen and edited image is saved successfully.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   06",
+      "module": "Gallery - No Printer Connected",
+      "section": "CUSTOM SDK",
+      "description": "Verify application behavior when no printer is selected.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Do not connect any printer.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon and apply any edit.",
+        "9. Tap Done.",
+        "10. Tap Print button."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate printer connection message is displayed and printing is not initiated.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4984,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   06",
+          "module": "Gallery - No Printer Connected",
+          "stage": "CustomSDK",
+          "description": "Verify application behavior when no printer is selected.",
+          "expected": "Appropriate printer connection message is displayed and printing is not initiated.",
+          "verification": "Verify visible: Printer",
+          "kind": "visible",
+          "selector": "Printer"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   07",
+      "module": "Gallery - Invalid Image Selection",
+      "section": "CUSTOM SDK",
+      "description": "Verify system behavior when image cannot be loaded.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an unsupported or corrupted image from Gallery.",
+        "7. Tap the image.",
+        "8. Attempt to open the Edit screen."
+      ],
+      "type": "Negative",
+      "expected": "Appropriate error message is displayed and the image editor is not opened.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 4994,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   07",
+          "module": "Gallery - Invalid Image Selection",
+          "stage": "CustomSDK",
+          "description": "Verify system behavior when image cannot be loaded.",
+          "expected": "Appropriate error message is displayed and the image editor is not opened.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  08",
+      "module": "Gallery - Print Without Saving Edit",
+      "section": "CUSTOM SDK",
+      "description": "Verify user can print image without saving any modifications.",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Tap Printer and connect printer successfully.",
+        "6. Select an image from Gallery or Facebook.",
+        "7. Tap the selected image and verify Print Preview screen opens.",
+        "8. Tap the Edit icon.",
+        "9. Make changes but do not tap Save or Apply.",
+        "10. Return to Print Preview screen.",
+        "11. Tap Print button."
+      ],
+      "type": "Negative",
+      "expected": "System follows defined behavior (warning message is displayed or original image is printed as per requirement).",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5002,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  08",
+          "module": "Gallery - Print Without Saving Edit",
+          "stage": "CustomSDK",
+          "description": "Verify user can print image without saving any modifications.",
+          "expected": "System follows defined behavior (warning message is displayed or original image is printed as per requirement).",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  09",
+      "module": "Image Editor",
+      "section": "CUSTOM SDK",
+      "description": "Verify applying edit options",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.",
+        "7. Tap the Edit icon.",
+        "8. Verify Edit screen opens with Back Arrow on left and Done button on right.",
+        "9. Verify edit options are displayed at the bottom. (Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "10. Apply any edit option.",
+        "11. Verify Cancel button on left, Restore Photo text at center and Apply button on right are displayed.",
+        "12. Tap Apply.",
+        "13. Verify edit is applied to the image.",
+        "14. Tap Done.",
+        "15. Verify user is redirected to Print Preview screen."
+      ],
+      "type": "Positive",
+      "expected": "Edit is applied successfully and user is redirected to Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5013,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  09",
+          "module": "Image Editor",
+          "stage": "CustomSDK",
+          "description": "Verify applying edit options",
+          "expected": "Edit is applied successfully and user is redirected to Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK 10",
+      "module": "Image Editor",
+      "section": "CUSTOM SDK",
+      "description": "Verify cancelling edit",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.",
+        "7. Tap the Edit icon.",
+        "8. Verify Edit screen opens with Back Arrow on left and Done button on right.",
+        "9. Verify edit options are displayed at the bottom.",
+        "10. Apply any edit option.(Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "11. Verify Cancel, Restore Photo, and Apply options are displayed.",
+        "12. Tap Cancel.",
+        "13. Verify changes are discarded.",
+        "14. Tap Done.",
+        "15. Verify user is redirected to Print Preview screen without applying edits."
+      ],
+      "type": "Negative",
+      "expected": "Changes are discarded and original image is displayed on Print Preview screen.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5028,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK 10",
+          "module": "Image Editor",
+          "stage": "CustomSDK",
+          "description": "Verify cancelling edit",
+          "expected": "Changes are discarded and original image is displayed on Print Preview screen.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK 11",
+      "module": "Save Photo",
+      "section": "CUSTOM SDK",
+      "description": "Verify \"Save to Gallery\"",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.",
+        "7. Tap the Edit icon.",
+        "8. Apply any edit option and tap Apply.(Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "9. Tap Done and verify user returns to Print Preview screen.",
+        "10. Tap the Back Arrow icon on Print Preview screen.",
+        "11. Verify \"Save as new photo?\" popup appears with Save to Gallery, Do not save, and Close(X) icon.",
+        "12. Tap Save to Gallery.",
+        "13. Open Gallery and verify edited image is saved successfully."
+      ],
+      "type": "Positive",
+      "expected": "Image is saved successfully to the device Gallery and popup closes.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5043,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK 11",
+          "module": "Save Photo",
+          "stage": "CustomSDK",
+          "description": "Verify \"Save to Gallery\"",
+          "expected": "Image is saved successfully to the device Gallery and popup closes.",
+          "verification": "Verify dialog: Save to Gallery",
+          "kind": "dialog",
+          "selector": "Save to Gallery"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   12",
+      "module": "Save Photo",
+      "section": "CUSTOM SDK",
+      "description": "Verify \"Do not save\"",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select an image from Gallery or Facebook.",
+        "6. Tap the selected image and verify Print Preview screen opens.(Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform)",
+        "7. Tap the Edit icon.",
+        "8. Apply any edit option and tap Apply.",
+        "9. Tap Done and verify user returns to Print Preview screen.",
+        "10. Tap the Back Arrow icon on Print Preview screen.",
+        "11. Verify \"Save as new photo?\" popup appears with Save to Gallery, Do not save, and Close(X) icon.",
+        "12. Tap Do not save.",
+        "13. Verify popup closes and edited image is not saved to Gallery."
+      ],
+      "type": "Negative",
+      "expected": "Image is not saved to Gallery and the popup closes successfully.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5056,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   12",
+          "module": "Save Photo",
+          "stage": "CustomSDK",
+          "description": "Verify \"Do not save\"",
+          "expected": "Image is not saved to Gallery and the popup closes successfully.",
+          "verification": "Verify dialog: Do not save",
+          "kind": "dialog",
+          "selector": "Do not save"
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK  13",
+      "module": "Video Print Preview",
+      "section": "CUSTOM SDK",
+      "description": "Verify Video Print Preview screen and all UI elements",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select a video from Gallery.",
+        "6. Verify user is redirected to Video Print Preview screen.",
+        "7. Verify first video frame is selected by default with green square border.",
+        "8. Select any other video frame and verify green border moves to selected frame.",
+        "9. Verify Copies option is enabled and Tiles option is disabled.",
+        "10. Verify copies count shows 1 by default.",
+        "11. Tap + icon and verify count increases.",
+        "12. Tap - icon and verify count decreases.",
+        "13. Verify AI Print icon on left side is disabled.",
+        "14. Verify Edit icon on right side is enabled.",
+        "15. Verify top left Back Arrow and top right Share icon are displayed and clickable.",
+        "16. Tap Share icon and verify share options appear."
+      ],
+      "type": "Positive",
+      "expected": "Video Print Preview screen opens successfully. All UI elements are displayed correctly and function as expected.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5069,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK  13",
+          "module": "Video Print Preview",
+          "stage": "CustomSDK",
+          "description": "Verify Video Print Preview screen and all UI elements",
+          "expected": "Video Print Preview screen opens successfully. All UI elements are displayed correctly and function as expected.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    },
+    {
+      "test_id": "Custom SDK   14",
+      "module": "Video Editing",
+      "section": "CUSTOM SDK",
+      "description": "Verify edit functionality and discard changes",
+      "steps": [
+        "1. Launch the application and complete onboarding flow.",
+        "2. Tap Get Start!.",
+        "3. Tap Sign up later.",
+        "4. Navigate to Dashboard Home screen.",
+        "5. Select a video from Gallery.",
+        "6. Verify user is redirected to Video Print Preview screen.",
+        "7. Tap the Edit icon.",
+        "8. Verify Edit screen opens.",
+        "9. Verify editing options are displayed: Auto, Adjust, Filters, Frames, Stickers, Text, Brush, Add Photo, Transform.",
+        "10. Apply any edit option and tap Apply.",
+        "11. Tap Done and verify user returns to Print Preview screen.",
+        "12. Tap the Back Arrow icon.",
+        "13. Verify \"Save as new photo?\" popup appears with Save to Gallery, Do not save, and Close (X) options.",
+        "14. Tap Do not save.",
+        "15. Verify popup closes and edited image is not saved to Gallery."
+      ],
+      "type": "Negative",
+      "expected": "Changes are discarded successfully. Popup closes and edited image is not saved to Gallery. Application remains stable without crash.",
+      "sheet": "New Sprocket Final ATP",
+      "row": 5085,
+      "stage": "CustomSDK",
+      "verifications": [
+        {
+          "test_id": "Custom SDK   14",
+          "module": "Video Editing",
+          "stage": "CustomSDK",
+          "description": "Verify edit functionality and discard changes",
+          "expected": "Changes are discarded successfully. Popup closes and edited image is not saved to Gallery. Application remains stable without crash.",
+          "verification": "Manual/heuristic check — review expected result on current screen",
+          "kind": "manual_note",
+          "selector": null
+        }
+      ]
+    }
+  ]
+}

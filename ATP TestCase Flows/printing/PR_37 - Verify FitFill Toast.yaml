@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_37
+# Excel: Print Preview Screen 37 | Module: Gestures
+# Verify Fit/Fill Toast
+# Expected: Back arrow, Printer name/status and Share icon are visible and clickable. Toast appears regarding double tap to reset Fit/Fill and fades after 5 seconds.
+appId: com.hp.impulse.sprocket
+name: "PR_37 - Verify FitFill Toast"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

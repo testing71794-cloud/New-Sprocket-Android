@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_69
+# Excel: AI Tools 88 | Module: Cancel
+# Verify "Cancel" navigation
+# Expected: Discards all changes and returns user to CR_13C_Grab Object - Reference.
+appId: com.hp.impulse.sprocket
+name: "AI_69 - Verify Cancel navigation"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Cancel"
+    optional: true

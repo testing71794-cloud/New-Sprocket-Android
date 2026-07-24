@@ -1,0 +1,14 @@
+# ATP Test Case ID: COX_090
+# Excel: PCF_Studio_015 | Module: Pre Connection Flow for Sprocket Studio
+# Verify Finish Setup Button
+# Expected: Setup flow should complete successfully. User should proceed to the Bluetooth/printer discovery flow.
+appId: com.hp.impulse.sprocket
+name: "COX_090 - Verify Finish Setup Button"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

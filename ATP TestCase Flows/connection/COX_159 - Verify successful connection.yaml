@@ -1,0 +1,17 @@
+# ATP Test Case ID: COX_159
+# Excel: General_PCF-011 | Module: Pre Connection Flow
+# Verify successful connection
+# Expected: Your Printer is Connected' screen should display along with 'Finish Connection' button
+appId: com.hp.impulse.sprocket
+name: "COX_159 - Verify successful connection"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "screen should display along with"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

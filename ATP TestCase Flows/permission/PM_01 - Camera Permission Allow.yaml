@@ -6,10 +6,14 @@ name: "PM_01 - Camera permission allow"
 - launchApp:
     clearState: true
 - runFlow: ../signup/subflows/open_signup_screen.yaml
-- tapOn: "Sign Up Later"
+- runFlow: ../common/subflows/tap_sign_up_later.yaml
 - runFlow: ../common/subflows/accept_terms_if_visible.yaml
 - runFlow: ../common/subflows/reach_kodak_coachmark_onboarding.yaml
-- tapOn: "Skip"
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
 - waitForAnimationToEnd:
     timeout: 2000
 - runFlow: subflows/allow_camera_permission.yaml

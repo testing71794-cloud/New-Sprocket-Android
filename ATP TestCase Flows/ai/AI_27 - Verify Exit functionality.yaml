@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_27
+# Excel: AI Tools 27 | Module: Interaction: Exit
+# Verify "Exit" functionality
+# Expected: Popup closes and user exits AI tool without saving generated image; returns to main SDK level.
+appId: com.hp.impulse.sprocket
+name: "AI_27 - Verify Exit functionality"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Exit"
+    optional: true

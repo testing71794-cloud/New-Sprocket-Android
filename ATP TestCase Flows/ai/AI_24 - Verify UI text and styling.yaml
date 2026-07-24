@@ -1,0 +1,23 @@
+# ATP Test Case ID: AI_24
+# Excel: AI Tools 24 | Module: UI Layout
+# Verify UI, text, and styling
+# Expected: An "Unsaved Changes" popup is displayed in the center of the screen. The popup contains a chartreuse dashed exclamation icon, the bold title "Unsaved Changes", and the message:  "Your AI-generated edits have not been saved. If you leave now
+appId: com.hp.impulse.sprocket
+name: "AI_24 - Verify UI text and styling"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Unsaved Changes"
+    optional: true
+- assertVisible:
+    text: "Your AI-generated edits have not been saved. If you leave now, they"
+    optional: true
+- assertVisible:
+    text: "The"
+    optional: true
+- assertVisible:
+    text: "button is selected by default, with the"
+    optional: true

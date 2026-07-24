@@ -1,6 +1,6 @@
 {
   "stage": "Onboarding",
-  "count": 18,
+  "count": 17,
   "cases": [
     {
       "test_id": "ON_01",
@@ -693,44 +693,6 @@
           "verification": "Verify image/logo: password",
           "kind": "image",
           "selector": "password"
-        }
-      ]
-    },
-    {
-      "test_id": "Photo ID 01",
-      "module": "Onboarding",
-      "section": "PHOTO ID",
-      "description": "Verify camera permission popup and Photo ID onboarding popup",
-      "steps": [
-        "1. Launch the app and wait for splash screen.",
-        "2. Complete onboarding flow (ON_01B to ON_01E).",
-        "3. Tap Get Started!.",
-        "4. On Sign Up screen tap Sign Up Later.",
-        "5. Verify Home screen appears.",
-        "6. Tap Photo ID module.",
-        "7. Open the feature for the first time.",
-        "8. Verify \"Sprocket would like to access the Camera\" popup appears.",
-        "9. Tap Allow.",
-        "10. Verify Photo ID Mode onboarding popup appears.",
-        "11. Verify popup title \"Photo ID Mode\" and description text are displayed.",
-        "12. Tap OK.",
-        "13. Verify popup closes and Photo ID camera screen appears."
-      ],
-      "type": "Positive",
-      "expected": "Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.",
-      "sheet": "New Sprocket Final ATP",
-      "row": 1314,
-      "stage": "Onboarding",
-      "verifications": [
-        {
-          "test_id": "Photo ID 01",
-          "module": "Onboarding",
-          "stage": "Onboarding",
-          "description": "Verify camera permission popup and Photo ID onboarding popup",
-          "expected": "Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.",
-          "verification": "Manual/heuristic check — review expected result on current screen",
-          "kind": "manual_note",
-          "selector": null
         }
       ]
     }

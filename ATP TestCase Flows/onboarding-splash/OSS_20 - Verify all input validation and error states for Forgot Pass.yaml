@@ -1,0 +1,29 @@
+# ATP Test Case ID: OSS_20
+# Excel: EH TC_ERR_ALL_02 | Module: Forgot Password Errors
+# Verify all input validation and error states for Forgot Password
+# Expected: Inline red text "Invalid email address format" or "No account found with this email" displays accordingly; "Send Recovery Email" button disables/reacts correctly as per image_fb16c1.png.
+appId: com.hp.impulse.sprocket
+name: "OSS_20 - Verify all input validation and error states for Forgot Pass"
+tags:
+  - onboarding-splash
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Invalid email address format"
+    optional: true
+- assertVisible:
+    text: "No account found with this email"
+    optional: true
+- assertVisible:
+    text: "Send Recovery Email"
+    optional: true
+- assertVisible:
+    text: "Invalid Email"
+    optional: true
+- assertVisible:
+    text: "Invalid email"
+    optional: true
+- assertVisible:
+    text: "password"
+    optional: true

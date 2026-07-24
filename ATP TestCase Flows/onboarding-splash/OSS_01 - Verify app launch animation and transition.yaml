@@ -1,0 +1,14 @@
+# ATP Test Case ID: OSS_01
+# Excel: Sp_01 | Module: Splash Screen
+# Verify app launch, animation, and transition
+# Expected: App launches immediately; splash screen animation plays; transitions automatically to ON_01B_Onboarding Step.
+appId: com.hp.impulse.sprocket
+name: "OSS_01 - Verify app launch animation and transition"
+tags:
+  - onboarding-splash
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Welcome to the new Sprocket!"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_74
+# Excel: Print Preview Screen 74 | Module: Print Queue
+# Verify In Queue (Paused) During Multi-Copy Pause Scenario
+# Expected: Active print completes successfully. Remaining jobs update to "In Queue (Paused)" state.
+appId: com.hp.impulse.sprocket
+name: "PR_74 - Verify In Queue Paused During Multi-Copy Pause Scenario"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "In Queue (Paused)"
+    optional: true

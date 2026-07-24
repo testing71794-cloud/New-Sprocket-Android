@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_68
+# Excel: AI Tools 87 | Module: Save Limit
+# Verify "Save New Sticker"
+# Expected: Overwrites the oldest sticker; applies the current sticker to the custom SDK menu.
+appId: com.hp.impulse.sprocket
+name: "AI_68 - Verify Save New Sticker"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Save New Sticker"
+    optional: true

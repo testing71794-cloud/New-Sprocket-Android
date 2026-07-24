@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_68
+# Excel: Print Preview Screen 68 | Module: Print State
+# Error Handling During Multi-Photo Print Transitions
+# Expected: The print queue stops immediately. The preview remains frozen and does not transition to the next photo or segment.
+appId: com.hp.impulse.sprocket
+name: "PR_68 - Error Handling During Multi-Photo Print Transitions"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

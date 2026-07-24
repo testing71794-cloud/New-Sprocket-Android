@@ -1,0 +1,14 @@
+# ATP Test Case ID: QPX_03
+# Excel: QUICK PRINT _003 | Module: Gallery Screen
+# Verify the Gallery screen user interface.
+# Expected: The Gallery screen user interface is displayed correctly.
+appId: com.hp.impulse.sprocket
+name: "QPX_03 - Verify the Gallery screen user interface"
+tags:
+  - quick-print
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

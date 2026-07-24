@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_105
+# Excel: Print Preview Screen  106 | Module: Saved to Gallery Toast
+# Verify automatic save to Gallery and toast message after printing Pre-Cut Sticker/Collage
+# Expected: The generated image is automatically saved to the device Gallery. The toast message "Image saved to gallery." is displayed only once and disappears automatically after a few seconds. The Outstanding! title, Queue icon, image preview, timest
+appId: com.hp.impulse.sprocket
+name: "PR_105 - Verify automatic save to Gallery and toast message after pri"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Image saved to gallery."
+    optional: true

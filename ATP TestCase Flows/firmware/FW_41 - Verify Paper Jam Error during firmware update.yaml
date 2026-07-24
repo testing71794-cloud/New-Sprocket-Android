@@ -1,0 +1,20 @@
+# ATP Test Case ID: FW_41
+# Excel: Firmware Update 41 | Module: Firmware Error Handling
+# Verify Paper Jam Error during firmware update
+# Expected: Error message is displayed: "Paper Jam Error" popup is displayed with the message "Please clear the paper jam to complete the firmware update." The popup includes a "Try Again" button at the bottom and a Close (X) icon in the top-right corn
+appId: com.hp.impulse.sprocket
+name: "FW_41 - Verify Paper Jam Error during firmware update"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Paper Jam Error"
+    optional: true
+- assertVisible:
+    text: "Please clear the paper jam to complete the firmware update."
+    optional: true
+- assertVisible:
+    text: "Try Again"
+    optional: true

@@ -1,0 +1,15 @@
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+CS_01,Custom SDK 01,custom-sdk,Gallery - Edit Screen Navigation,Verify user is redirected to Custom SDK screen after tapping Edit icon.,custom-sdk/CS_01 - Verify user is redirected to Custom SDK screen after tapping.yaml,com.hp.impulse.sprocket
+CS_02,Custom SDK  02,custom-sdk,Gallery - Image Display,Verify selected image is displayed in the Custom SDK editor.,custom-sdk/CS_02 - Verify selected image is displayed in the Custom SDK editor.yaml,com.hp.impulse.sprocket
+CS_03,Custom SDK  03,custom-sdk,Gallery - Apply Edit,Verify user can edit the selected image.,custom-sdk/CS_03 - Verify user can edit the selected image.yaml,com.hp.impulse.sprocket
+CS_04,Custom SDK   04,custom-sdk,Gallery - Print Edited Image,Verify user can print an edited image successfully.,custom-sdk/CS_04 - Verify user can print an edited image successfully.yaml,com.hp.impulse.sprocket
+CS_05,Custom SDK  05,custom-sdk,Gallery - Back Navigation from Custom SDK,Verify user can return from Custom SDK screen.,custom-sdk/CS_05 - Verify user can return from Custom SDK screen.yaml,com.hp.impulse.sprocket
+CS_06,Custom SDK   06,custom-sdk,Gallery - No Printer Connected,Verify application behavior when no printer is selected.,custom-sdk/CS_06 - Verify application behavior when no printer is selected.yaml,com.hp.impulse.sprocket
+CS_07,Custom SDK   07,custom-sdk,Gallery - Invalid Image Selection,Verify system behavior when image cannot be loaded.,custom-sdk/CS_07 - Verify system behavior when image cannot be loaded.yaml,com.hp.impulse.sprocket
+CS_08,Custom SDK  08,custom-sdk,Gallery - Print Without Saving Edit,Verify user can print image without saving any modifications.,custom-sdk/CS_08 - Verify user can print image without saving any modifications.yaml,com.hp.impulse.sprocket
+CS_09,Custom SDK  09,custom-sdk,Image Editor,Verify applying edit options,custom-sdk/CS_09 - Verify applying edit options.yaml,com.hp.impulse.sprocket
+CS_10,Custom SDK 10,custom-sdk,Image Editor,Verify cancelling edit,custom-sdk/CS_10 - Verify cancelling edit.yaml,com.hp.impulse.sprocket
+CS_11,Custom SDK 11,custom-sdk,Save Photo,"Verify ""Save to Gallery""",custom-sdk/CS_11 - Verify Save to Gallery.yaml,com.hp.impulse.sprocket
+CS_12,Custom SDK   12,custom-sdk,Save Photo,"Verify ""Do not save""",custom-sdk/CS_12 - Verify Do not save.yaml,com.hp.impulse.sprocket
+CS_13,Custom SDK  13,custom-sdk,Video Print Preview,Verify Video Print Preview screen and all UI elements,custom-sdk/CS_13 - Verify Video Print Preview screen and all UI elements.yaml,com.hp.impulse.sprocket
+CS_14,Custom SDK   14,custom-sdk,Video Editing,Verify edit functionality and discard changes,custom-sdk/CS_14 - Verify edit functionality and discard changes.yaml,com.hp.impulse.sprocket

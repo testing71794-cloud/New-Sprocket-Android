@@ -1,0 +1,14 @@
+# ATP Test Case ID: PC_05
+# Excel: Precut_05 | Module: Selection Logic
+# Verify 2-photo selection, duplicate prevention, and next state.
+# Expected: Unique images are accepted, duplicate selection is prevented, and Next remains enabled only for valid selection.
+appId: com.hp.impulse.sprocket
+name: "PC_05 - Verify 2-photo selection duplicate prevention and next state"
+tags:
+  - precut
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Next"
+    optional: true

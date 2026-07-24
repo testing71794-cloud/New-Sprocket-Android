@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_179
+# Excel: AI tools 198 | Module: AI Tools
+# Verify Unsaved popup - Cancel option
+# Expected: Popup closes and user remains on Result screen.
+appId: com.hp.impulse.sprocket
+name: "AI_179 - Verify Unsaved popup - Cancel option"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

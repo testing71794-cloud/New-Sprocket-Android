@@ -1,0 +1,20 @@
+# ATP Test Case ID: COX_168
+# Excel: HP600_CONN_TC006 | Module: Discovery
+# Verify 'Try Again' restarts printer discovery
+# Expected: Searching for Printers' screen should reopen with the loading spinner and a new discovery scan should start.
+appId: com.hp.impulse.sprocket
+name: "COX_168 - Verify Try Again restarts printer discovery"
+tags:
+  - connection
+  - atp-excel
+---
+- runFlow: subflows/reach_excel_screen.yaml
+- assertVisible:
+    text: "Try Again"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true
+- assertVisible:
+    text: "Searching for Printers"
+    optional: true

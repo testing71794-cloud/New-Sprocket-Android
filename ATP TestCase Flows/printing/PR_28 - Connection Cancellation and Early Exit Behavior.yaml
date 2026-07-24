@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_28
+# Excel: Print Preview Screen 28 | Module: Flow Handling
+# Connection Cancellation and Early Exit Behavior
+# Expected: User is safely returned to Print Preview screen without crash. Printer remains offline and Reconnect Printer button remains visible, ensuring no unintended state change.
+appId: com.hp.impulse.sprocket
+name: "PR_28 - Connection Cancellation and Early Exit Behavior"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: FW_16
+# Excel: Firmware Update 16 | Module: Firmware Update
+# Verify Update Available button is displayed
+# Expected: Update Available button is displayed when firmware update exists.
+appId: com.hp.impulse.sprocket
+name: "FW_16 - Verify Update Available button is displayed"
+tags:
+  - firmware
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

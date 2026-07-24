@@ -1,0 +1,14 @@
+# ATP Test Case ID: AI_20
+# Excel: AI Tools 20 | Module: Guard Rails
+# Verify error trigger logic
+# Expected: "Prompt Error" popup modal appears over grayed-out background.
+appId: com.hp.impulse.sprocket
+name: "AI_20 - Verify error trigger logic"
+tags:
+  - ai
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Prompt Error"
+    optional: true

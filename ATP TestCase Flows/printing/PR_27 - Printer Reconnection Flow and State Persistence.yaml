@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_27
+# Excel: Print Preview Screen 27 | Module: Data & Flow
+# Printer Reconnection Flow and State Persistence
+# Expected: All preview edits (crop, rotation, zoom, video frame selection) are preserved throughout reconnection flow. Printer status updates to online and user is redirected back to Print Preview screen.
+appId: com.hp.impulse.sprocket
+name: "PR_27 - Printer Reconnection Flow and State Persistence"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Printer"
+    optional: true

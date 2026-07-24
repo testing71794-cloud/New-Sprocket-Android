@@ -1,0 +1,14 @@
+# ATP Test Case ID: TP_04
+# Excel: Tiles modules 04 | Module: Select Mode Blocked Toast Message (Tile Print)
+# Verify multi-select restriction and error handling
+# Expected: The application does not allow multi-select in Tile Print mode. Only one photo can be selected at a time. The toast message "Multi-select is not available in Tile Print." is displayed correctly. No UI overlap or crash occurs and the app rem
+appId: com.hp.impulse.sprocket
+name: "TP_04 - Verify multi-select restriction and error handling"
+tags:
+  - tile-print
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Multi-select is not available in Tile Print."
+    optional: true

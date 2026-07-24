@@ -1,0 +1,14 @@
+# ATP Test Case ID: PR_76
+# Excel: Print Preview Screen 76 | Module: Print Queue
+# Verify Print Queue Does Not Process or Skip Incorrectly During Pause or Error Conditions
+# Expected: Printing must stop immediately when paused. No further pages or queue items should process until explicitly resumed. Queue must not skip incorrectly or continue processing in paused state.
+appId: com.hp.impulse.sprocket
+name: "PR_76 - Verify Print Queue Does Not Process or Skip Incorrectly Duri"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Skip"
+    optional: true

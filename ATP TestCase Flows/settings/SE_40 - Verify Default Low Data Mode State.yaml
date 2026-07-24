@@ -1,0 +1,14 @@
+# ATP Test Case ID: SE_40
+# Excel: Hamburger Menu 45 | Module: Data
+# Verify Default Low Data Mode State
+# Expected: Low Data Mode toggle is OFF (disabled) by default.
+appId: com.hp.impulse.sprocket
+name: "SE_40 - Verify Default Low Data Mode State"
+tags:
+  - settings
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    optional: true

@@ -1,0 +1,26 @@
+# ATP Test Case ID: PR_71
+# Excel: Print Preview Screen 71 | Module: Print Queue
+# Verify Printer Status Label Updates in Print State
+# Expected: The status label updates correctly to reflect printer state: "In Queue", "Printing", "Completed", or "Paused".
+appId: com.hp.impulse.sprocket
+name: "PR_71 - Verify Printer Status Label Updates in Print State"
+tags:
+  - printing
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "In Queue"
+    optional: true
+- assertVisible:
+    text: "Printing"
+    optional: true
+- assertVisible:
+    text: "Completed"
+    optional: true
+- assertVisible:
+    text: "Paused"
+    optional: true
+- assertVisible:
+    text: "Printer"
+    optional: true

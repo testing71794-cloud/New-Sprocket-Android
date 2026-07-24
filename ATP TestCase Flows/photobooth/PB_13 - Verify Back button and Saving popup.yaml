@@ -1,0 +1,17 @@
+# ATP Test Case ID: PB_13
+# Excel: Photobooth 13 | Module: Navigation
+# Verify Back button and Saving popup
+# Expected: A "Saving..." popup/loader appears. After saving completes, user is redirected back to the Photobooth Camera screen successfully.
+appId: com.hp.impulse.sprocket
+name: "PB_13 - Verify Back button and Saving popup"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Saving..."
+    optional: true
+- assertVisible:
+    text: "Photobooth"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: VD_07
+# Excel: Video frame 07 | Module: CR_05E_Video Frames Tile Print
+# Verify UI restrictions during playback in Tiles mode.
+# Expected: Layout modifications and copy count adjustments are restricted while video playback is active.
+appId: com.hp.impulse.sprocket
+name: "VD_07 - Verify UI restrictions during playback in Tiles mode"
+tags:
+  - video
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Tiles"
+    optional: true

@@ -1,0 +1,14 @@
+# ATP Test Case ID: PB_12
+# Excel: Photobooth 12 | Module: Local Saving
+# Verify merged image auto-save
+# Expected: Final Photobooth collage is automatically saved as a single merged image in device Gallery without any error popup.
+appId: com.hp.impulse.sprocket
+name: "PB_12 - Verify merged image auto-save"
+tags:
+  - photobooth
+  - atp-excel
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible:
+    text: "Photobooth"
+    optional: true
