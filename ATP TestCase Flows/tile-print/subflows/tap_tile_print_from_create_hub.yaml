@@ -1,0 +1,9 @@
+# Gallery home (Create hub): tap Tile Print — toast is verified by extendedWaitUntil only (auto-dismisses fast).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    text: ".*(?i)Tile Print.*"
+    retryTapIfNoChange: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Sorry.*Tiles feature is not compatible with this printer|not compatible with this printer).*"
+    timeout: 5000

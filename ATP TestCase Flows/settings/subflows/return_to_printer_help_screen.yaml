@@ -1,0 +1,23 @@
+# Return from a Printer Help sub-screen back to Printer Help landing.
+appId: com.hp.impulse.sprocket
+---
+- back
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow:
+    when:
+      notVisible: ".*(?i)Printer Help.*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      notVisible: ".*(?i)Printer Help.*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)Printer Help.*"
+    timeout: 10000

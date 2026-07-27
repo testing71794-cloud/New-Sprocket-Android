@@ -1,7 +1,7 @@
 # ATP Test Case ID: SE_14
 # Excel: Hamburger Menu  14 | Module: UI/Layout
 # Verify Header and Logo
-# Expected: App Logo, Header text and Close (X) icon are displayed properly.
+# Expected: HP Sprocket logo and close control are visible on the Hamburger menu header.
 appId: com.hp.impulse.sprocket
 name: "SE_14 - Verify Header and Logo"
 tags:
@@ -10,5 +10,10 @@ tags:
 ---
 - runFlow: subflows/reach_module_screen.yaml
 - assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+    text: ".*(?i)sprocket.*"
+- runFlow:
+    when:
+      visible: ".*(?i)Close.*"
+    commands:
+      - assertVisible:
+          text: ".*(?i)Close.*"

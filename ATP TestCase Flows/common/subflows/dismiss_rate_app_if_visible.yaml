@@ -1,0 +1,17 @@
+appId: com.hp.impulse.sprocket
+---
+# Rate App prompt — dismiss with No Thanks (button is more reliable than title text).
+- runFlow:
+    when:
+      visible: ".*(?i)No Thanks.*"
+    commands:
+      - tapOn: ".*(?i)No Thanks.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "Rate App"
+    commands:
+      - tapOn: ".*(?i)No Thanks.*"
+      - waitForAnimationToEnd:
+          timeout: 2000

@@ -1,0 +1,7 @@
+# Tap the Low Data Mode switch (right side of row on App Settings).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "88%,42%"
+- waitForAnimationToEnd:
+    timeout: 1500

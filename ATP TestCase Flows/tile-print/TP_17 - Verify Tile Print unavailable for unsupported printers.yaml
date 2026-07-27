@@ -1,0 +1,20 @@
+# ATP Test Case ID: TP_17
+# Supplementary: Tile Print printer limitation (not in Excel TilePrint stage)
+# Verify Tiles / Tile Print is incompatible with Sprocket 3x4, HP Sprocket Studio,
+# and HP Sprocket Studio Plus.
+# Clears app cache, completes first-launch onboarding, connects Sprocket 3x4 when needed,
+# then Create hub → Tile Print → toast.
+# Expected: toast "Sorry, the Tiles feature is not compatible with this printer."
+appId: com.hp.impulse.sprocket
+name: "TP_17 - Verify Tile Print unavailable for unsupported printers"
+tags:
+  - tile-print
+  - tiles-unsupported-printer
+  - atp-supplementary
+---
+- runFlow: ../common/subflows/launch_sprocket_clear_cache.yaml
+- runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
+- runFlow: ../permission/subflows/allow_notification_permission.yaml
+- runFlow: ../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: subflows/tp17_setup_printer_and_create_hub.yaml
+- runFlow: subflows/tap_tile_print_from_create_hub.yaml

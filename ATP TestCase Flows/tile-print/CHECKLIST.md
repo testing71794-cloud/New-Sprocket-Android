@@ -1,4 +1,6 @@
-# TilePrint / tile-print — 16 Excel-generated flows
+# TilePrint / tile-print — 16 Excel-generated flows + 1 supplementary limitation flow
+
+**Printer limitation:** Tiles / Tile Print does not work on **Sprocket 3x4**, **HP Sprocket Studio**, or **HP Sprocket Studio Plus**. Positive cases (TP_01–TP_16) require a tiles-compatible printer. Run **TP_17** on an unsupported printer to verify the incompatible toast when entering Tile Print or attempting to print tiles.
 
 - [ ] TP_01 | Tiles modules 01 | Verify Gallery screen UI and Tile Print navigation
 - [ ] TP_02 | Tiles modules 02 | Verify folder selection and Tile Print restrictions
@@ -16,3 +18,4 @@
 - [ ] TP_14 | Tiles modules 14 | Verify Print button when all tiles are unselected
 - [ ] TP_15 | Tiles modules 15 | Verify Copies screen and printing
 - [ ] TP_16 | Tiles modules 16 | Verify copy count retention and navigation
+- [ ] TP_17 | Supplementary | Verify Tile Print unavailable for unsupported printers (3x4 / Studio / Studio Plus)

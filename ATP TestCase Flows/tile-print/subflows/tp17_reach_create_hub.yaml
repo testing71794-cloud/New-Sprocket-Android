@@ -1,0 +1,20 @@
+# Reach Create hub only — printer must already be connected before running TP_17.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: exit_module_screen_if_needed.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)Tile Print.*"
+    commands:
+      - tapOn:
+          point: "50%,96%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - swipe:
+          direction: DOWN
+          duration: 400
+      - waitForAnimationToEnd:
+          timeout: 1000
+- extendedWaitUntil:
+    visible: ".*(?i)Tile Print.*"
+    timeout: 8000

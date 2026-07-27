@@ -1,0 +1,27 @@
+appId: com.hp.impulse.sprocket
+---
+# Tiles / Tile Print positive tests require a tiles-compatible printer.
+# Not supported on Sprocket 3x4, HP Sprocket Studio, or HP Sprocket Studio Plus.
+# Fail when the incompatible toast appears or when an unsupported model name is visible.
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|Studio Plus|Sprocket Studio Plus).*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|Studio Plus|Sprocket Studio Plus).*"
+          label: "Tiles tests require a tiles-compatible printer (not Sprocket 3x4 / Studio / Studio Plus)."
+- runFlow:
+    when:
+      visible: ".*(?i)HP Sprocket Studio.*"
+      notVisible: ".*(?i)Studio Plus.*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)HP Sprocket Studio.*"
+          label: "Tiles tests require a tiles-compatible printer (not Sprocket 3x4 / Studio / Studio Plus)."
+- runFlow:
+    when:
+      visible: ".*(?i)Sorry.*Tiles feature is not compatible with this printer.*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)Sorry.*Tiles feature is not compatible with this printer.*"
+          label: "Tiles tests require a tiles-compatible printer (not Sprocket 3x4 / Studio / Studio Plus)."

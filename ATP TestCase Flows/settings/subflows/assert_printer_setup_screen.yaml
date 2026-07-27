@@ -1,0 +1,13 @@
+# Printer Setup (screen 3) — Charge + Power On onboarding step.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Charge \\+ Power On.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Charge \\+ Power On.*"
+- assertVisible:
+    text: ".*(?i)Next.*"
+- assertVisible:
+    text: ".*(?i)(USB cord|power button).*"
+    optional: true

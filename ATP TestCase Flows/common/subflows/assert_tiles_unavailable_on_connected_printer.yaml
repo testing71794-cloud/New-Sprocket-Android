@@ -1,0 +1,6 @@
+appId: com.hp.impulse.sprocket
+---
+# Connect Sprocket 3x4 when needed, then Create hub → Tile Print → incompatible toast.
+- runFlow: dismiss_rate_app_if_visible.yaml
+- runFlow: ../../tile-print/subflows/tp17_setup_printer_and_create_hub.yaml
+- runFlow: ../../tile-print/subflows/tap_tile_print_from_create_hub.yaml

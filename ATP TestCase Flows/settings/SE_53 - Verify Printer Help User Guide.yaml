@@ -1,0 +1,12 @@
+# Printer Help screen 2 — User Guide opens sprocketprinters.com support page.
+appId: com.hp.impulse.sprocket
+name: "SE_53 - Verify Printer Help User Guide"
+tags:
+  - settings
+  - printer-help
+---
+- runFlow: subflows/reach_printer_help_screen.yaml
+- tapOn: ".*(?i)User Guide.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: subflows/assert_user_guide_screen.yaml

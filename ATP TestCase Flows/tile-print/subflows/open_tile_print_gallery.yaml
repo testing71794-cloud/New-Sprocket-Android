@@ -1,0 +1,16 @@
+# Open Tile Print from Create hub and land on the gallery picker.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 3000
+    optional: true
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - runFlow: tap_tile_print_open_gallery.yaml
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 15000

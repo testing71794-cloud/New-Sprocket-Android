@@ -1,8 +1,10 @@
 appId: com.hp.impulse.sprocket
 ---
-# Gallery home from video ~00:20+ (UI dump: MY GALLERY / All Photos / Select).
+# Sprocket Create hub after onboarding (not Kodak MY GALLERY).
 - extendedWaitUntil:
-    visible: "MY GALLERY"
-    timeout: 8000
-- assertVisible: "All Photos"
-- assertVisible: "Select"
+    visible: ".*(?i)(Collage Maker|Quick Print|Create).*"
+    timeout: 12000
+- assertVisible: ".*(?i)(Collage Maker|Quick Print).*"
+- assertVisible:
+    text: ".*(?i)Create.*"
+    optional: true

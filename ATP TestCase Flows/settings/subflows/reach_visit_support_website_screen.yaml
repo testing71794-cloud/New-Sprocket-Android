@@ -1,0 +1,8 @@
+# Hamburger → Visit Support Website → sprocketprinters.com homepage (screen 2).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_hamburger_menu.yaml
+- tapOn: ".*(?i)Visit Support Website.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: assert_visit_support_website_screen.yaml

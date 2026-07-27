@@ -1,0 +1,19 @@
+# Close Hamburger menu and return to Create hub.
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)Close.*"
+    commands:
+      - tapOn: ".*(?i)Close.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)App Settings.*"
+    commands:
+      - tapOn:
+          point: "8%,7%"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow: ../../gallery/subflows/assert_gallery_home.yaml

@@ -1,0 +1,18 @@
+# Legal & Privacy (screen 3) — in-app legal menu from Hamburger.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Legal.*Privacy.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Legal.*Privacy.*"
+- assertVisible:
+    text: ".*(?i)Data Collection Settings.*"
+- assertVisible:
+    text: ".*(?i)Privacy Policy.*"
+- assertVisible:
+    text: ".*(?i)End User License Agreement.*"
+- assertVisible:
+    text: ".*(?i)Terms of Service.*"
+- assertVisible:
+    text: ".*(?i)Open Source Licenses.*"

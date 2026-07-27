@@ -1,0 +1,34 @@
+# Navigate back to Create hub from Printer tab or discovery screens.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: exit_module_screen_if_needed.yaml
+- runFlow:
+    when:
+      visible: "Searching for Printers"
+    commands:
+      - extendedWaitUntil:
+          visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|Your Printers|Finish Connection|No Printers Found|Tap to Connect).*"
+          timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)Try Again.*"
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - tapOn: ".*(?i)Try Again.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- tapOn:
+    point: "50%,96%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- swipe:
+    direction: DOWN
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)Tile Print.*"
+    timeout: 15000
+    optional: true

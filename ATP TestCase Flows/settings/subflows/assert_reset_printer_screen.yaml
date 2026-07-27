@@ -1,0 +1,14 @@
+# Reset Sprocket Select (screen 6) — hardware reset instructions.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Reset Sprocket Select.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Reset Sprocket Select.*"
+- assertVisible:
+    text: ".*(?i)(connectivity issues|hardware reset).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(personalized settings|Custom Name).*"
+    optional: true

@@ -1,0 +1,119 @@
+# Select Sprocket 3x4 on "Select Your Device".
+# Chip strip layout shifts with center device: tap left (23%), center (48%), or right (79%) slot, then hero swipe if needed.
+# When selected, center title shows "HP Sprocket 3x4" and 3x4 chip sits at ~48%,74% (see COX_010 / Maestro debug hierarchies).
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Select Your Device.*"
+    timeout: 15000
+- extendedWaitUntil:
+    visible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+    timeout: 2000
+    optional: true
+# 200 default: 3x4 chip is immediately left — tap 23%,74% (video + successful Maestro run 143112).
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+    commands:
+      - tapOn:
+          point: "23%,74%"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+# Studio Plus / other defaults: 3x4 chip often on the right — tap 79%,74%.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+    commands:
+      - tapOn:
+          point: "79%,74%"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+# Fallback: tap the 3x4 chip element wherever it appears in the strip.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+      visible: "3x4"
+    commands:
+      - tapOn:
+          text: "3x4"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+      - tapOn:
+          point: "48%,74%"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+# Still on HP Sprocket 200: one hero swipe right, then tap left chip again.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+      visible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - swipe:
+          start: "35%,38%"
+          end: "65%,38%"
+          duration: 400
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          point: "23%,74%"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+# On Studio Plus: one hero swipe left (3x4 is next to the right), tap centered chip.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+      visible: ".*(?i)HP Sprocket Studio Plus.*"
+    commands:
+      - swipe:
+          start: "65%,38%"
+          end: "35%,38%"
+          duration: 400
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          point: "48%,74%"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)HP Sprocket Panorama.*"
+      notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+    commands:
+      - repeat:
+          times: 6
+          commands:
+            - runFlow:
+                when:
+                  notVisible: "3x4"
+                commands:
+                  - swipe:
+                      start: "70%,74%"
+                      end: "30%,74%"
+                      duration: 400
+                  - waitForAnimationToEnd:
+                      timeout: 1200
+            - runFlow:
+                when:
+                  visible: "3x4"
+                  notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+                commands:
+                  - tapOn:
+                      point: "48%,74%"
+                      retryTapIfNoChange: true
+                  - waitForAnimationToEnd:
+                      timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+    label: "Center title must show Sprocket 3x4 before Continue."
+- tapOn: ".*(?i)Continue with this Printer.*"
+- waitForAnimationToEnd:
+    timeout: 4000

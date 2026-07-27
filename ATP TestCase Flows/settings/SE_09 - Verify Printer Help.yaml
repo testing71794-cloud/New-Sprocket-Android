@@ -7,8 +7,6 @@ name: "SE_09 - Verify Printer Help"
 tags:
   - settings
   - atp-excel
+  - printer-help
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Printer"
-    optional: true
+- runFlow: subflows/reach_printer_help_screen.yaml

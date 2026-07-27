@@ -1,0 +1,15 @@
+# App Settings screen (screen 3) — opened from Hamburger → App Settings.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)App Settings.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)App Settings.*"
+- assertVisible:
+    text: ".*(?i)Permissions.*"
+- assertVisible:
+    text: ".*(?i)Display App Hints.*"
+- assertVisible:
+    text: ".*(?i)Low Data Mode.*"
+- runFlow: assert_app_version.yaml

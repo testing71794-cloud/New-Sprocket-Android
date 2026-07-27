@@ -1,0 +1,36 @@
+# Use an already-connected Sprocket 3x4, or connect it from the Printer tab when needed.
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)Select Your Device.*"
+    commands:
+      - runFlow: select_sprocket_3x4_on_carousel.yaml
+      - runFlow: ensure_sprocket_3x4_after_select.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)Select Your Device.*"
+    commands:
+      - tapOn:
+          point: "83%,96%"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Tap to Connect.*"
+    commands:
+      - runFlow: ensure_sprocket_3x4_connected.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      notVisible: ".*(?i)(No Printers Added|Tap to Connect|Select Your Device).*"
+    commands:
+      - tapOn:
+          point: "50%,96%"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)No Printers Added.*"
+    commands:
+      - runFlow: ensure_sprocket_3x4_connected.yaml

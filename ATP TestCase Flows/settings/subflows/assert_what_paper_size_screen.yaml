@@ -1,0 +1,15 @@
+# What Paper Size? (screen 4) — Sprocket Select paper compatibility.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)What Paper Size.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)What Paper Size.*"
+- assertVisible:
+    text: ".*(?i)HP Sprocket Select uses.*"
+- assertVisible:
+    text: ".*(?i)2\\.3 x 3\\.4.*"
+- assertVisible:
+    text: ".*(?i)Not compatible with.*"
+    optional: true

@@ -1,0 +1,14 @@
+# Tips & Tricks (screen 5) — Print Quality Tips and Tricks.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Print Quality Tips and Tricks.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Print Quality Tips and Tricks.*"
+- assertVisible:
+    text: ".*(?i)Use the Colored Print Quality Card.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(print quality|HP Sprocket printers).*"
+    optional: true

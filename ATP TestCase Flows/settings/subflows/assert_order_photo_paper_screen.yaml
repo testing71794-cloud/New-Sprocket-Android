@@ -1,0 +1,14 @@
+# Order Photo Paper (screen 1) — sprocketprinters.com shop/collections page.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket Photo Printers|Paper and cartridges|sprocketprinters|Sort by).*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)HP Sprocket Photo Printers.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)Paper and cartridges.*"
+- assertVisible:
+    text: ".*(?i)(Sort by|Instantly print snapshots).*"
+    optional: true

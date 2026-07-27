@@ -1,0 +1,8 @@
+# Create hub → More → Hamburger → Printer Help (screen 1).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_hamburger_menu.yaml
+- tapOn: ".*(?i)Printer Help.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: assert_printer_help_screen.yaml

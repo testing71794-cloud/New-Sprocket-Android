@@ -1,0 +1,19 @@
+# Logged-out Hamburger menu (screen 2) — More tab → slide-out menu.
+appId: com.hp.impulse.sprocket
+---
+- assertVisible:
+    text: ".*(?i)Log In.*"
+- assertVisible:
+    text: ".*(?i)Settings.*"
+- assertVisible:
+    text: ".*(?i)App Settings.*"
+- assertVisible:
+    text: ".*(?i)Support.*"
+- assertVisible:
+    text: ".*(?i)Printer Help.*"
+- assertVisible:
+    text: ".*(?i)Order Photo Paper.*"
+- assertVisible:
+    text: ".*(?i)Visit Support Website.*"
+- assertVisible:
+    text: ".*(?i)Legal.*Privacy.*"

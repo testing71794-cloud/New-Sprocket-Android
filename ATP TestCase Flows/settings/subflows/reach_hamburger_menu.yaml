@@ -1,0 +1,5 @@
+# Create hub → More → Hamburger menu (screen 2).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_create_hub.yaml
+- runFlow: open_hamburger_menu.yaml

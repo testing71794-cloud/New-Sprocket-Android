@@ -1,0 +1,46 @@
+# Navigate to Create hub when session preserved (no launch — caller launches first).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+- runFlow: exit_module_screen_if_needed.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow:
+    when:
+      visible: "Sign up"
+    commands:
+      - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+      - extendedWaitUntil:
+          visible: "Sign up"
+          timeout: 15000
+      - runFlow: ../../common/subflows/tap_sign_up_later.yaml
+      - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+      - runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+      - runFlow: ../../permission/subflows/allow_notification_permission.yaml
+      - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Select Your Device.*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- tapOn:
+    point: "50%,96%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- swipe:
+    direction: DOWN
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)Tile Print.*"
+    timeout: 15000
+    optional: true

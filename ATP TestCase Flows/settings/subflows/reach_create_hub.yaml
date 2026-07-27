@@ -1,0 +1,10 @@
+# Create hub (gallery home) after cold launch onboarding — starting point for Hamburger module.
+appId: com.hp.impulse.sprocket
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+- runFlow: ../../onboarding/subflows/skip_onboarding_to_gallery.yaml
+- runFlow: ../../permission/subflows/allow_notification_permission.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../gallery/subflows/assert_gallery_home.yaml

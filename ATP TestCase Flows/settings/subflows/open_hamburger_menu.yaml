@@ -1,0 +1,22 @@
+# Open Hamburger menu from Create hub via bottom-nav More tab.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../gallery/subflows/assert_gallery_home.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)More.*"
+    commands:
+      - tapOn: ".*(?i)More.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      notVisible: ".*(?i)(App Settings|Log In|Settings|Support).*"
+    commands:
+      - tapOn:
+          point: "17%,96%"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)(App Settings|Log In|Settings).*"
+    timeout: 10000

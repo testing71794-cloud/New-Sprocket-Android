@@ -15,3 +15,4 @@ TP_13,Tiles modules 13,tile-print,Create > Tiles,Verify tile selection and print
 TP_14,Tiles modules 14,tile-print,Create > Tiles,Verify Print button when all tiles are unselected,tile-print/TP_14 - Verify Print button when all tiles are unselected.yaml,com.hp.impulse.sprocket
 TP_15,Tiles modules 15,tile-print,Create > Copies,Verify Copies screen and printing,tile-print/TP_15 - Verify Copies screen and printing.yaml,com.hp.impulse.sprocket
 TP_16,Tiles modules 16,tile-print,Create > Copies,Verify copy count retention and navigation,tile-print/TP_16 - Verify copy count retention and navigation.yaml,com.hp.impulse.sprocket
+TP_17,Supplementary,tile-print,Printer limitation,Verify Tile Print unavailable for Sprocket 3x4 / Studio / Studio Plus,tile-print/TP_17 - Verify Tile Print unavailable for unsupported printers.yaml,com.hp.impulse.sprocket

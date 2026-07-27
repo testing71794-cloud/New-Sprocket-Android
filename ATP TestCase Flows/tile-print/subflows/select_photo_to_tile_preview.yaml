@@ -1,0 +1,14 @@
+# Select a photo when Tile Print gallery is already open (Recent visible).
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 15000
+- tapOn:
+    point: "19%,24%"
+- waitForAnimationToEnd:
+    timeout: 4000
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$).*"
+    timeout: 12000
+    optional: true

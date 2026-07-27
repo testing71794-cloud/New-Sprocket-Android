@@ -8,7 +8,9 @@ tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/reach_app_settings_screen.yaml
 - assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+    text: ".*(?i)Display App Hints.*"
+- runFlow: subflows/tap_display_app_hints_toggle.yaml
+- runFlow: subflows/tap_display_app_hints_toggle.yaml
+- runFlow: subflows/assert_app_settings_screen.yaml

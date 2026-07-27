@@ -1,0 +1,6 @@
+appId: com.hp.impulse.sprocket
+---
+# Toast shown when Tiles / Tile Print is used with Sprocket 3x4, Studio, or Studio Plus.
+- extendedWaitUntil:
+    visible: ".*(?i)(Sorry.*Tiles feature is not compatible with this printer|not compatible with this printer).*"
+    timeout: 8000

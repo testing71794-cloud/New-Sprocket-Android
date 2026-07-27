@@ -1,0 +1,72 @@
+# Steps after Sprocket 3x4 is chosen on Select Your Device (Continue tapped).
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- repeat:
+    times: 8
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)^Next$"
+          commands:
+            - tapOn: ".*(?i)^Next$"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Finish Setup|Finish Connection).*"
+          commands:
+            - tapOn: ".*(?i)(Finish Setup|Finish Connection).*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|No Printers Found|Finish Connection|Your Printers|Tap to Connect).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(Finish Connection|Finish Setup).*"
+    commands:
+      - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+      - waitForAnimationToEnd:
+          timeout: 5000

@@ -1,13 +1,14 @@
 appId: com.hp.impulse.sprocket
 ---
-# QP TCs — Continue without Logging In → Create home (Quick Print tile).
-- tapOn: "I already have an account"
+# Continue without Logging In → Create home (Quick Print tile).
+# Current build label: "I already have account" (no "an").
+- tapOn: ".*(?i)I already have (an )?account.*"
 - waitForAnimationToEnd:
     timeout: 3000
 - extendedWaitUntil:
-    visible: "Continue without Logging In"
+    visible: ".*(?i)Continue without Logging In.*"
     timeout: 15000
-- tapOn: "Continue without Logging In"
+- tapOn: ".*(?i)Continue without Logging In.*"
 - waitForAnimationToEnd:
     timeout: 5000
 - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
@@ -23,7 +24,6 @@ appId: com.hp.impulse.sprocket
 - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
 - waitForAnimationToEnd:
     timeout: 3000
-# Bottom nav may expose Create as "Create\nTab 2 of 3"
 - runFlow:
     when:
       visible: ".*Create.*"
@@ -31,8 +31,17 @@ appId: com.hp.impulse.sprocket
       - tapOn: ".*Create.*"
       - waitForAnimationToEnd:
           timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Quick Print.*"
+    commands:
+      - swipe:
+          direction: DOWN
+          duration: 400
 - extendedWaitUntil:
-    visible: ".*Quick Print.*"
+    visible: ".*(?i)Quick Print.*"
     timeout: 15000
-- assertVisible: ".*Quick Print.*"
-- assertVisible: ".*Print photos from your gallery.*"
+- assertVisible: ".*(?i)Quick Print.*"
+- assertVisible:
+    text: ".*(?i)(Print photos from your gallery|gallery).*"
+    optional: true

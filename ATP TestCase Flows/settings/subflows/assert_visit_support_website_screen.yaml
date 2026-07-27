@@ -1,0 +1,14 @@
+# Visit Support Website (screen 2) — sprocketprinters.com homepage.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)(sprocketprinters|Instant Prints|Endless Fun|BUY NOW|LEARN MORE|photobooth).*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)(Instant Prints.*Endless Fun|Endless Fun.*Any Occasion).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(BUY NOW|LEARN MORE|SHOP).*"
+- assertVisible:
+    text: ".*(?i)(sprocket|photobooth|Official Licensee).*"
+    optional: true

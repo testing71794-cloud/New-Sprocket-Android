@@ -1,0 +1,26 @@
+# Confirm Sprocket 3x4 is listed and connected (not Tap to Connect / No Printers Added).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "83%,96%"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - runFlow: ensure_sprocket_3x4_connected.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(No Printers Added|Tap to Connect|Select Your Device).*"
+    commands:
+      - runFlow: ensure_sprocket_3x4_connected.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    timeout: 120000
+- assertNotVisible:
+    text: ".*(?i)Tap to Connect.*"
+    optional: true
+- assertNotVisible:
+    text: ".*(?i)No Printers Added.*"
+    optional: true

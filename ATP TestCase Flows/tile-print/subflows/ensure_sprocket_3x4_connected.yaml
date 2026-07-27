@@ -1,0 +1,125 @@
+# Navigate to Printer tab and connect Sprocket 3x4 when listed (session preserved).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "83%,96%"
+- waitForAnimationToEnd:
+    timeout: 4000
+# Reconnect an existing 3x4 entry first.
+- runFlow:
+    when:
+      visible: ".*(?i)Tap to Connect.*"
+    commands:
+      - tapOn: ".*(?i)Tap to Connect.*"
+      - waitForAnimationToEnd:
+          timeout: 10000
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 5000
+# Add printer when nothing is connected yet.
+- runFlow:
+    when:
+      visible: ".*(?i)Add a new Printer.*"
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - tapOn: ".*(?i)Add a new Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Set Up My Printer.*"
+    commands:
+      - tapOn: ".*(?i)Set Up My Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Add Printer.*"
+    commands:
+      - tapOn: ".*(?i)Add Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+# Select Sprocket 3x4 on carousel — do not continue with default HP Sprocket 200.
+- runFlow:
+    when:
+      visible: ".*(?i)Select Your Device.*"
+    commands:
+      - runFlow: select_sprocket_3x4_on_carousel.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- repeat:
+    times: 8
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)^Next$"
+          commands:
+            - tapOn: ".*(?i)^Next$"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Finish Setup|Finish Connection).*"
+          commands:
+            - tapOn: ".*(?i)(Finish Setup|Finish Connection).*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+# Wait for Bluetooth discovery to find the physical Sprocket 3x4.
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|No Printers Found|Finish Connection|Your Printers|Tap to Connect).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(Finish Connection|Finish Setup).*"
+    commands:
+      - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    timeout: 60000
+    optional: true

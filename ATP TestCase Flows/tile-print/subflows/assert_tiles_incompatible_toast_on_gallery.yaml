@@ -1,0 +1,11 @@
+# Incompatible toast on the Tile Print photo picker (Recent), checked immediately after it opens.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 5000
+- extendedWaitUntil:
+    visible: ".*(?i)(Sorry.*Tiles feature is not compatible with this printer|not compatible with this printer).*"
+    timeout: 8000
+- assertVisible:
+    text: ".*(?i)(Sorry.*Tiles feature is not compatible with this printer|not compatible with this printer).*"

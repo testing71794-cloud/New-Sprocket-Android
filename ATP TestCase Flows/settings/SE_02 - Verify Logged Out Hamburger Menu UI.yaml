@@ -9,9 +9,4 @@ tags:
   - atp-excel
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Log In"
-    optional: true
-- assertVisible:
-    text: "Printer"
-    optional: true
+- runFlow: subflows/assert_hamburger_menu_logged_out.yaml

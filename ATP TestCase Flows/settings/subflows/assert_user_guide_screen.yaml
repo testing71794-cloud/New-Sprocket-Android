@@ -1,0 +1,14 @@
+# User Guide (screen 2) — sprocketprinters.com support page in browser.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket Select Photo Printer series|Setup your printer|sprocketprinters|Back to support).*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)HP Sprocket Select Photo Printer series.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)Setup your printer.*"
+- assertVisible:
+    text: ".*(?i)(Troubleshooting|Manuals|How to).*"
+    optional: true

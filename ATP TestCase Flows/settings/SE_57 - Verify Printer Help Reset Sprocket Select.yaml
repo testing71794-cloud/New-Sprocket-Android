@@ -1,0 +1,12 @@
+# Printer Help screen 6 — Reset Sprocket Select instructions.
+appId: com.hp.impulse.sprocket
+name: "SE_57 - Verify Printer Help Reset Sprocket Select"
+tags:
+  - settings
+  - printer-help
+---
+- runFlow: subflows/reach_printer_help_screen.yaml
+- tapOn: ".*(?i)Reset.*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: subflows/assert_reset_printer_screen.yaml

@@ -1,0 +1,15 @@
+# From Create hub: tap Tile Print and land on the photo picker (Recent).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- scrollUntilVisible:
+    element: ".*(?i)Tile Print.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn:
+    text: ".*(?i)Tile Print.*"
+    retryTapIfNoChange: true
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 15000

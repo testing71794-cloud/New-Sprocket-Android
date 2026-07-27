@@ -1,0 +1,12 @@
+# Printer Help screen 3 — Printer Setup opens Charge + Power On flow.
+appId: com.hp.impulse.sprocket
+name: "SE_54 - Verify Printer Help Printer Setup"
+tags:
+  - settings
+  - printer-help
+---
+- runFlow: subflows/reach_printer_help_screen.yaml
+- tapOn: ".*(?i)Printer Setup.*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: subflows/assert_printer_setup_screen.yaml

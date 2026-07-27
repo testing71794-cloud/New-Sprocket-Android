@@ -1,0 +1,30 @@
+# After entering Tile Print preview, Tiles tab or Print must show the incompatible toast.
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: "Tiles"
+    commands:
+      - tapOn: "Tiles"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Print$"
+    commands:
+      - tapOn: ".*(?i)^Print$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Sorry.*Tiles feature is not compatible with this printer|not compatible with this printer).*"
+    timeout: 5000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)^Print$"
+      notVisible: ".*(?i)(Sorry.*Tiles feature is not compatible with this printer|not compatible with this printer).*"
+    commands:
+      - tapOn: ".*(?i)^Print$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: ../../common/subflows/assert_tiles_incompatible_error.yaml

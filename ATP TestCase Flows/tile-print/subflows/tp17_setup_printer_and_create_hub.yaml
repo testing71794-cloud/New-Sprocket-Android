@@ -1,0 +1,44 @@
+# Connect Sprocket 3x4 only when needed, then reach Create hub (gallery home).
+# Always opens Printer tab first — Create hub alone does not prove 3x4 is connected.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: exit_module_screen_if_needed.yaml
+- tapOn:
+    point: "83%,96%"
+- waitForAnimationToEnd:
+    timeout: 2000
+# Not connected — pair Sprocket 3x4 from Printer tab.
+- runFlow:
+    when:
+      visible: ".*(?i)(No Printers Added|Tap to Connect|Select Your Device).*"
+    commands:
+      - runFlow: ensure_sprocket_3x4_connected.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - runFlow: ensure_sprocket_3x4_connected.yaml
+# 3x4 connected but setup wizard still showing — dismiss without opening discovery.
+- runFlow:
+    when:
+      visible: ".*(?i)Set Up My Printer.*"
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Searching for Printers.*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- tapOn:
+    point: "50%,96%"
+- waitForAnimationToEnd:
+    timeout: 2500
+- scrollUntilVisible:
+    element: ".*(?i)Tile Print.*"
+    direction: DOWN
+    timeout: 15000

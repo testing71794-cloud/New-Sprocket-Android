@@ -1,0 +1,21 @@
+# Printer Help landing (screen 1) — Hamburger → Printer Help.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Printer Help.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Printer Help.*"
+- assertVisible:
+    text: ".*(?i)Change Printer.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)User Guide.*"
+- assertVisible:
+    text: ".*(?i)Printer Setup.*"
+- assertVisible:
+    text: ".*(?i)What Paper Size.*"
+- assertVisible:
+    text: ".*(?i)Tips.*Tricks.*"
+- assertVisible:
+    text: ".*(?i)Reset.*"

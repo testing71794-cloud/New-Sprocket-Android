@@ -1,0 +1,16 @@
+# Android system App info for Sprocket — opened from App Settings → Permissions.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)App info.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)App info.*"
+- assertVisible:
+    text: ".*(?i)Sprocket.*"
+- assertVisible:
+    text: ".*(?i)Notifications.*"
+- assertVisible:
+    text: ".*(?i)Permissions.*"
+- assertVisible:
+    text: ".*(?i)Uninstall.*"

@@ -1,0 +1,6 @@
+# Reach Tile Print preview without requiring a tiles-compatible printer.
+# Used by negative / limitation flows (TP_17).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: open_tile_print_gallery.yaml
+- runFlow: select_photo_to_tile_preview.yaml

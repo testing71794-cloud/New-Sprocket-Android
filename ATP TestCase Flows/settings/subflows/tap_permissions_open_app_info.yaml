@@ -1,0 +1,7 @@
+# App Settings → Permissions → Android App info screen.
+appId: com.hp.impulse.sprocket
+---
+- tapOn: ".*(?i)Permissions.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: assert_android_app_info_screen.yaml

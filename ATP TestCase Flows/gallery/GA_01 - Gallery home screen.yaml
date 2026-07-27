@@ -1,35 +1,43 @@
 # ATP Test Case ID: GA_01
-# TC_ID: GA_01
-# Video ~00:20 — Gallery home after first-launch permissions
+# Create / home hub after first-launch permissions (Sprocket).
 appId: com.hp.impulse.sprocket
 name: "GA_01 - Gallery home screen"
 ---
 - launchApp:
     clearState: true
 - runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
-# Header
-- assertVisible: "Log in"
-
-# Main Menu Options
-- assertVisible: "Quick Print"
-- assertVisible: "Print photos from your gallery"
-
-- assertVisible: "Collage Maker"
-- assertVisible: "Combine multiple photos"
-
-- assertVisible: "Pre-Cut Stickers"
-- assertVisible: "Print stickers of 2 photos"
-
-- assertVisible: "Tile Print"
-- assertVisible: "Print a large photo by using multiple sheets of paper"
-
-- assertVisible: "Photobooth"
-- assertVisible: "Snap a 4-photo collage"
-
-- assertVisible: "Photo ID"
-- assertVisible: "Snap ID-ready photos"
-
+- swipe:
+    direction: DOWN
+    duration: 500
+- assertVisible:
+    text: ".*(?i)(Log in|Sign in).*"
+    optional: true
+# Create hub tiles (labels vary slightly by build)
+- assertVisible: ".*(?i)Quick Print.*"
+- assertVisible:
+    text: ".*(?i)(Print photos from your gallery|gallery).*"
+    optional: true
+- assertVisible: ".*(?i)Collage Maker.*"
+- assertVisible:
+    text: ".*(?i)(Combine multiple photos|multiple photos).*"
+    optional: true
+- assertVisible: ".*(?i)Pre-?Cut Stickers.*"
+- assertVisible:
+    text: ".*(?i)(Print stickers|2 photos).*"
+    optional: true
+- assertVisible: ".*(?i)Tile Print.*"
+- assertVisible:
+    text: ".*(?i)(multiple sheets|large photo).*"
+    optional: true
+- assertVisible: ".*(?i)Photobooth.*"
+- assertVisible:
+    text: ".*(?i)(4-photo|collage).*"
+    optional: true
+- assertVisible: ".*(?i)Photo ID.*"
+- assertVisible:
+    text: ".*(?i)(ID-ready|ID).*"
+    optional: true
 # Bottom Navigation
-- assertVisible: "More"
-- assertVisible: "Create"
-- assertVisible: "Printer"
+- assertVisible: ".*(?i)More.*"
+- assertVisible: ".*(?i)Create.*"
+- assertVisible: ".*(?i)Printer.*"

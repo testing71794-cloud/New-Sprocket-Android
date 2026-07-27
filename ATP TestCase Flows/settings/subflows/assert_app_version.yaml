@@ -1,0 +1,8 @@
+# App Version row on App Settings — must match build shown in-app.
+appId: com.hp.impulse.sprocket
+---
+- assertVisible:
+    text: ".*(?i)App Version.*"
+- assertVisible:
+    text: "v3\\.0\\.202"
+    label: "App version must match the value shown on App Settings."

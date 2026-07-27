@@ -1,0 +1,24 @@
+# Back out of an active module (Photobooth, gallery, preview) toward Create hub.
+# Skip when bottom navigation is visible — Printer tab is a valid setup screen.
+appId: com.hp.impulse.sprocket
+---
+- repeat:
+    times: 4
+    commands:
+      - runFlow:
+          when:
+            notVisible: ".*(?i)Tile Print.*"
+            notVisible: ".*(?i)(Quick Print|Collage Maker|Printer|Create|More).*"
+          commands:
+            - back
+            - waitForAnimationToEnd:
+                timeout: 2500
+      - runFlow:
+          when:
+            notVisible: ".*(?i)Tile Print.*"
+            notVisible: ".*(?i)(Quick Print|Collage Maker|Printer|Create|More).*"
+          commands:
+            - tapOn:
+                point: "7%,17%"
+            - waitForAnimationToEnd:
+                timeout: 2500

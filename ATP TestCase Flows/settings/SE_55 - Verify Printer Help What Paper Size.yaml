@@ -1,0 +1,12 @@
+# Printer Help screen 4 — What Paper Size? compatibility info.
+appId: com.hp.impulse.sprocket
+name: "SE_55 - Verify Printer Help What Paper Size"
+tags:
+  - settings
+  - printer-help
+---
+- runFlow: subflows/reach_printer_help_screen.yaml
+- tapOn: ".*(?i)What Paper Size.*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: subflows/assert_what_paper_size_screen.yaml
