@@ -1,0 +1,6 @@
+# Logged-in Create hub → More → Hamburger menu.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_logged_in_create_hub.yaml
+- runFlow: open_hamburger_menu.yaml
+- runFlow: assert_hamburger_menu_logged_in.yaml

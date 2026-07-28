@@ -7,8 +7,20 @@ name: "SE_51 - Back Button Functionality"
 tags:
   - settings
   - atp-excel
+  - legal-privacy
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: subflows/reach_data_collection_settings_screen.yaml
+- back
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)Are you sure.*"
+    commands:
+      - tapOn: ".*(?i)(Yes, I'm Sure|Yes I.*Sure).*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)Legal.*Privacy.*"
+    timeout: 10000
+- runFlow: subflows/assert_legal_privacy_screen.yaml

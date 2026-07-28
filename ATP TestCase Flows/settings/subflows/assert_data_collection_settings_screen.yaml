@@ -1,0 +1,18 @@
+# Data Collection Settings — opened from Legal & Privacy.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Data Collection Settings.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Data Collection Settings.*"
+- assertVisible:
+    text: ".*(?i)C&A Marketing.*"
+- assertVisible:
+    text: ".*(?i)Automatic Data Collection.*Device and App.*"
+- assertVisible:
+    text: ".*(?i)Automatic Data Collection.*Applications.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(privacy-statement|personalize your settings).*"
+    optional: true

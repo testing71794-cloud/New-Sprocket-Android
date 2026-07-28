@@ -8,7 +8,4 @@ tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Printer"
-    optional: true
+- runFlow: subflows/reach_module_screen_logged_in.yaml

@@ -7,8 +7,7 @@ name: "SE_46 - Data Collection Exit Pop-up Validation"
 tags:
   - settings
   - atp-excel
+  - legal-privacy
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: subflows/reach_data_collection_settings_screen.yaml
+- runFlow: subflows/trigger_data_collection_exit_popup.yaml

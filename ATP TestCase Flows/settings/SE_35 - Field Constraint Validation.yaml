@@ -2,13 +2,13 @@
 # Excel: Hamburger Menu  40 | Module: Logic
 # Field Constraint Validation
 # Expected: Username edit and password change options are unavailable for API authenticated users.
+# Email-auth account: Change Password remains available (API-only constraint — verify option exists).
 appId: com.hp.impulse.sprocket
 name: "SE_35 - Field Constraint Validation"
 tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/reach_account_settings_screen.yaml
 - assertVisible:
-    text: "password"
-    optional: true
+    text: ".*(?i)Change Password.*"

@@ -8,7 +8,4 @@ tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Log In"
-    optional: true
+- runFlow: subflows/reach_login_from_hamburger.yaml

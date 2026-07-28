@@ -8,7 +8,4 @@ tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: subflows/cancel_logout_popup.yaml

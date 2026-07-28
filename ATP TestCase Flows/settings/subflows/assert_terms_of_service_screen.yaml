@@ -1,0 +1,11 @@
+# Terms of Service — in-app browser / web view.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Terms of Service.*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)Terms of Service.*"
+- assertVisible:
+    text: ".*(?i)(Agreement to Terms|C&A Marketing|sprocketprinters).*"
+    optional: true

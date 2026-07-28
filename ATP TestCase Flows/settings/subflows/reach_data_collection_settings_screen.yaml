@@ -1,0 +1,8 @@
+# Legal & Privacy → Data Collection Settings.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_legal_privacy_screen.yaml
+- tapOn: ".*(?i)Data Collection Settings.*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: assert_data_collection_settings_screen.yaml

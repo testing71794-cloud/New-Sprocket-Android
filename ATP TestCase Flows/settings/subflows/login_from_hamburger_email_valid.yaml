@@ -1,0 +1,18 @@
+# Cold launch → Create hub → More → Log In → email login → Create hub (logged in).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_create_hub.yaml
+- runFlow: open_hamburger_menu.yaml
+- tapOn: ".*(?i)Log In.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Log In"
+    timeout: 15000
+- tapOn: "Continue with Email"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Log In with Email"
+    timeout: 10000
+- runFlow: complete_email_login_valid.yaml

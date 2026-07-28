@@ -1,0 +1,15 @@
+# Data Collection exit confirmation pop-up.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Are you sure.*"
+    timeout: 8000
+- assertVisible:
+    text: ".*(?i)Are you sure.*"
+- assertVisible:
+    text: ".*(?i)(No, Go Back|No Go Back).*"
+- assertVisible:
+    text: ".*(?i)(Yes, I'm Sure|Yes I.*Sure).*"
+- assertVisible:
+    text: ".*(?i)(Data Collection|app updates|firmware upgrades).*"
+    optional: true

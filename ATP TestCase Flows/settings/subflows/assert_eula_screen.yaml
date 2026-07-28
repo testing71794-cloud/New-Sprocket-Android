@@ -1,0 +1,11 @@
+# End User License Agreement — in-app browser / web view.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)End User License Agreement.*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)End User License Agreement.*"
+- assertVisible:
+    text: ".*(?i)(READ CAREFULLY|C&A Marketing|GRANT OF LICENSE).*"
+    optional: true

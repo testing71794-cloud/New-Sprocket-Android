@@ -10,7 +10,9 @@ tags:
 ---
 - runFlow: subflows/reach_module_screen.yaml
 - assertVisible:
-    text: ".*(?i)sprocket.*"
+    text: ".*(?i)Log In.*"
+- assertVisible:
+    text: ".*(?i)App Settings.*"
 - runFlow:
     when:
       visible: ".*(?i)Close.*"

@@ -7,8 +7,10 @@ name: "SE_49 - Verify Terms of Service"
 tags:
   - settings
   - atp-excel
+  - legal-privacy
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: subflows/reach_legal_privacy_screen.yaml
+- tapOn: ".*(?i)Terms of Service.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: subflows/assert_terms_of_service_screen.yaml

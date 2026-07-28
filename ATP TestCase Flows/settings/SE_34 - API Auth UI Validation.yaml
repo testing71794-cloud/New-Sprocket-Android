@@ -2,16 +2,17 @@
 # Excel: Hamburger Menu 38 | Module: UI Layout
 # API Auth UI Validation
 # Expected: Username and Password fields are hidden. API banner with icon and "Signed in via [Method]" text is displayed correctly.
+# Email-auth account: user name shown; no standalone Username/Password login fields on Account Settings.
 appId: com.hp.impulse.sprocket
 name: "SE_34 - API Auth UI Validation"
 tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/reach_account_settings_screen.yaml
 - assertVisible:
-    text: "Signed in via [Method]"
-    optional: true
+    text: ".*(?i)Nitesh.*"
+- assertNotVisible:
+    text: ".*(?i)Username.*"
 - assertVisible:
-    text: "password"
-    optional: true
+    text: ".*(?i)Change Password.*"

@@ -1,0 +1,31 @@
+# Account Settings → Delete Account → confirmation pop-up (scroll if needed).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_account_settings_screen.yaml
+- swipe:
+    start: "50%,85%"
+    end: "50%,15%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      notVisible: ".*(?i)Delete Account.*"
+    commands:
+      - swipe:
+          start: "50%,85%"
+          end: "50%,15%"
+          duration: 500
+      - waitForAnimationToEnd:
+          timeout: 1500
+- tapOn: ".*(?i)Delete Account.*"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: "Delete Account"
+- assertVisible:
+    text: "I understand that deleting my account is permanent and cannot be undone."
+- assertVisible:
+    text: "No, Cancel"
+- assertVisible:
+    text: "Yes, Delete Account"

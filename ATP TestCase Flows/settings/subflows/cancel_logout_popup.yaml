@@ -1,0 +1,8 @@
+# Cancel Log Out pop-up — remain on Account Settings.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: trigger_logout_popup.yaml
+- tapOn: "Cancel"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: assert_account_settings_screen.yaml

@@ -1,0 +1,23 @@
+# Logged-in Hamburger menu — user name, Account Settings, Support items.
+appId: com.hp.impulse.sprocket
+---
+- assertVisible:
+    text: ".*(?i)Nitesh.*"
+- assertNotVisible:
+    text: ".*(?i)Log In.*"
+- assertVisible:
+    text: ".*(?i)Settings.*"
+- assertVisible:
+    text: ".*(?i)App Settings.*"
+- assertVisible:
+    text: ".*(?i)Account Settings.*"
+- assertVisible:
+    text: ".*(?i)Support.*"
+- assertVisible:
+    text: ".*(?i)Printer Help.*"
+- assertVisible:
+    text: ".*(?i)Order Photo Paper.*"
+- assertVisible:
+    text: ".*(?i)Visit Support Website.*"
+- assertVisible:
+    text: ".*(?i)Legal.*Privacy.*"

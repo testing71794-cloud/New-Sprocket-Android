@@ -1,0 +1,9 @@
+# Confirm Log Out — return to logged-out Hamburger menu.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: trigger_logout_popup.yaml
+- tapOn: "Log Out"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: open_hamburger_menu.yaml
+- runFlow: assert_hamburger_menu_logged_out.yaml

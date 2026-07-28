@@ -1,0 +1,6 @@
+# Logged-out Hamburger menu — Account Settings must not appear (screenshot 2).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: assert_hamburger_menu_logged_out.yaml
+- assertNotVisible:
+    text: ".*(?i)Account Settings.*"

@@ -1,0 +1,31 @@
+# Toggle a Data Collection checkbox and dismiss the confirmation pop-up.
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "8%,38%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Are you sure.*"
+    commands:
+      - runFlow: assert_data_collection_exit_popup.yaml
+      - tapOn: ".*(?i)(No, Go Back|No Go Back).*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)Are you sure.*"
+      visible: ".*(?i)Data Collection Settings.*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)Are you sure.*"
+          commands:
+            - runFlow: assert_data_collection_exit_popup.yaml
+            - tapOn: ".*(?i)(No, Go Back|No Go Back).*"
+            - waitForAnimationToEnd:
+                timeout: 2000

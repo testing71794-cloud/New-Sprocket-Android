@@ -8,7 +8,9 @@ tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Log In"
-    optional: true
+- runFlow: subflows/login_from_hamburger_email_valid.yaml
+- runFlow: subflows/open_hamburger_menu.yaml
+- tapOn: ".*(?i)Account Settings.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: subflows/assert_account_settings_screen.yaml

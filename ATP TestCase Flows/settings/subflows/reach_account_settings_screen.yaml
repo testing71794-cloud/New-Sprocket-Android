@@ -1,0 +1,8 @@
+# Logged-in Hamburger → Account Settings.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_module_screen_logged_in.yaml
+- tapOn: ".*(?i)Account Settings.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: assert_account_settings_screen.yaml

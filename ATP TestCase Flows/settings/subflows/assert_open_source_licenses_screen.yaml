@@ -1,0 +1,14 @@
+# Open Source Licenses — in-app attributions screen.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Open Source Licenses.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Open Source Licenses.*"
+- assertVisible:
+    text: ".*(?i)(attribution notices|third party software|sprocket mobile application).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Apache License|AndroidSVG|PaperSlidingTabStrip).*"
+    optional: true

@@ -1,0 +1,20 @@
+# Account Settings screen — opened from logged-in Hamburger menu.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Account Settings.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Account Settings.*"
+- assertVisible:
+    text: ".*(?i)Nitesh.*"
+- assertVisible:
+    text: ".*(?i)Change Password.*"
+- swipe:
+    start: "50%,80%"
+    end: "50%,30%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible:
+    text: ".*(?i)Log.?Out.*"

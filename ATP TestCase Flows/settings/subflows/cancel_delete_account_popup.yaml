@@ -1,0 +1,8 @@
+# Cancel Delete Account pop-up — account is not deleted.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: trigger_delete_account_popup.yaml
+- tapOn: "No, Cancel"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: assert_account_settings_screen.yaml

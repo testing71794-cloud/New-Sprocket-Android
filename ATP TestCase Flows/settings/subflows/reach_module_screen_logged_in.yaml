@@ -1,0 +1,4 @@
+# Shared setup: logged-in Hamburger menu for Settings ATP module.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_hamburger_menu_logged_in.yaml

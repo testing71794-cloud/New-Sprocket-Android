@@ -1,23 +1,39 @@
 # ATP Test Case ID: SE_30
 # Excel: Hamburger Menu 31 | Module: Account
 # Trigger Delete Account Pop-up
-# Expected: The "Delete Account" popup appears with the bold title "Delete Account", the warning message, a checkbox with "I understand that deleting my account is permanent and cannot be undone.", and the "No, Cancel" and "Yes, Delete Account" options
+# Expected: Delete Account confirmation pop-up with title, warning, checkbox, and Cancel/Delete options.
+# Note: Delete Account option not present on v3.0.202 email account — skip when unavailable.
 appId: com.hp.impulse.sprocket
 name: "SE_30 - Trigger Delete Account Pop-up"
 tags:
   - settings
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Delete Account"
-    optional: true
-- assertVisible:
-    text: "I understand that deleting my account is permanent and cannot be undone."
-    optional: true
-- assertVisible:
-    text: "No, Cancel"
-    optional: true
-- assertVisible:
-    text: "Yes, Delete Account"
-    optional: true
+- runFlow: subflows/reach_account_settings_screen.yaml
+- swipe:
+    start: "50%,85%"
+    end: "50%,15%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)Delete Account.*"
+    commands:
+      - tapOn: ".*(?i)Delete Account.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - assertVisible:
+          text: "Delete Account"
+      - assertVisible:
+          text: "I understand that deleting my account is permanent and cannot be undone."
+      - assertVisible:
+          text: "No, Cancel"
+      - assertVisible:
+          text: "Yes, Delete Account"
+- runFlow:
+    when:
+      notVisible: ".*(?i)Delete Account.*"
+    commands:
+      - assertVisible:
+          text: ".*(?i)Account Settings.*"

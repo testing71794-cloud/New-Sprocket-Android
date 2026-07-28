@@ -1,0 +1,14 @@
+# Privacy Policy — in-app browser / web view.
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Privacy Policy.*"
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)Privacy Policy.*"
+- assertVisible:
+    text: ".*(?i)(C&A Marketing|personal information|right to privacy).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Last updated|November 2023|sprocketprinters).*"
+    optional: true

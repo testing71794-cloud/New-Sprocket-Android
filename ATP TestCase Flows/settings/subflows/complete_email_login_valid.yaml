@@ -1,0 +1,18 @@
+# Fill and submit email login form — assumes Log In with Email screen is open.
+appId: com.hp.impulse.sprocket
+---
+- tapOn: "Email"
+- inputText: Niteshmehra56@gmail.com
+- tapOn: "Password"
+- inputText: 252546Nm#
+- hideKeyboard
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: "Log In"
+- waitForAnimationToEnd:
+    timeout: 5000
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Welcome).*"
+    timeout: 20000
+- assertNotVisible:
+    text: "Log In with Email"

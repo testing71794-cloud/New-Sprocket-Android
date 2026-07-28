@@ -1,0 +1,21 @@
+# Account Settings → Log Out → confirmation pop-up.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_account_settings_screen.yaml
+- swipe:
+    start: "50%,80%"
+    end: "50%,30%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
+- tapOn: ".*(?i)Log.?Out.*"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: "Log Out?"
+- assertVisible:
+    text: ".*(?i)Are you sure.*"
+- assertVisible:
+    text: "Cancel"
+- assertVisible:
+    text: "Log Out"

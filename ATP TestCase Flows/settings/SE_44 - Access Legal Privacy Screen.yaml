@@ -2,6 +2,7 @@
 # Excel: Hamburger Menu 49 | Module: Navigation
 # Access Legal & Privacy Screen
 # Expected: User successfully navigates to Legal & Privacy screen.
+# Duplicate of SE_12 — kept for Excel ID mapping; same subflow coverage.
 appId: com.hp.impulse.sprocket
 name: "SE_44 - Access Legal Privacy Screen"
 tags:

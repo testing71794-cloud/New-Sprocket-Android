@@ -9,6 +9,19 @@ tags:
   - atp-excel
 ---
 - runFlow: subflows/reach_module_screen.yaml
+- swipe:
+    start: "50%,80%"
+    end: "50%,25%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
 - assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+    text: ".*(?i)Legal.*Privacy.*"
+- swipe:
+    start: "50%,25%"
+    end: "50%,80%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible:
+    text: ".*(?i)App Settings.*"
