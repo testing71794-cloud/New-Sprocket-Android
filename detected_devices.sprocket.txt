@@ -1,0 +1,3 @@
+# Local Sprocket / Maestro runs only — Samsung M34 (not used by Jenkins).
+# Jenkins keeps using detected_devices.txt (Motorola ZA222RFQ75).
+RZCWA2B05RB
