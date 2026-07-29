@@ -1,0 +1,54 @@
+# ATP Test Case ID: QP_042
+# Matrix: Permissions | Return without granting permission
+# Expected: Permission prompt remains or appropriate blocked screen is shown.
+appId: com.hp.impulse.sprocket
+name: "QP_042 - Return without granting permission"
+tags:
+  - quick-print
+  - matrix
+  - permissions
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_create_home.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: subflows/deny_photos_permission.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Open Settings|Settings).*"
+    commands:
+      - tapOn: ".*(?i)(Open Settings|Settings).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*photos and videos.*"
+    commands:
+      - assertVisible: "Don't allow"
+      - assertVisible: "Allow all"
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - assertVisible:
+          text: ".*(?i)(permission|allow|access|No photos|Quick Print|Create).*"
+          optional: true
+- runFlow:
+    when:
+      visible: "Recent"
+    commands:
+      - assertVisible:
+          text: ".*(?i)(Limited|Selected photos|Manage).*"
+          optional: true
+- assertVisible:
+    text: ".*(?i)(Quick Print|Create|photos and videos|Recent|Don't allow).*"

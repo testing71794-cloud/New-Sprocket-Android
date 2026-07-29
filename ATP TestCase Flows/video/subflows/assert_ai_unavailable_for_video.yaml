@@ -1,0 +1,17 @@
+# CR_05C — AI disabled on video; tooltip ~5s (May 14 2026 Figma).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: tap_ai_tool_button.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: "AI Edit is not available for Video."
+    optional: true
+- assertVisible:
+    text: ".*(?i)AI Edit is not available.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)not available for Video.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Print|Copies|Tiles).*"

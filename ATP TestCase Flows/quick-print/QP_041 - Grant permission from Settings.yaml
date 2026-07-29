@@ -1,0 +1,39 @@
+# ATP Test Case ID: QP_041
+# Matrix: Permissions | Grant permission from Settings
+# Expected: Gallery loads successfully after granting photos access.
+appId: com.hp.impulse.sprocket
+name: "QP_041 - Grant permission from Settings"
+tags:
+  - quick-print
+  - matrix
+  - permissions
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_create_home.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: subflows/deny_photos_permission.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Open Settings|Settings).*"
+    commands:
+      - tapOn: ".*(?i)(Open Settings|Settings).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../permission/subflows/allow_photos_all_permission.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 12000
+- assertVisible: "Recent"

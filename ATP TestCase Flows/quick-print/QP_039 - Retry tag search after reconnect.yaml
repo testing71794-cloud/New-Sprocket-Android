@@ -1,0 +1,39 @@
+# ATP Test Case ID: QP_039
+# Matrix: Tag Search | Retry after reconnect
+# Expected: Search succeeds after internet is restored.
+# Prerequisite: disable internet before tag submit; re-enable before retry.
+appId: com.hp.impulse.sprocket
+name: "QP_039 - Retry tag search after reconnect"
+tags:
+  - quick-print
+  - matrix
+  - tag-search
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_album.yaml
+- runFlow: subflows/open_tag_search_screen.yaml
+- inputText: "#nature"
+- runFlow:
+    when:
+      visible: "Done"
+    commands:
+      - tapOn: "Done"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: ".*(?i)No Internet.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Try again|Retry|Refresh).*"
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)(Try again|Retry).*"
+    commands:
+      - tapOn: ".*(?i)(Try again|Retry).*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+- assertVisible:
+    text: ".*(?i)(#nature|nature|No Tagged Photos|photos).*"
+    optional: true

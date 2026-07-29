@@ -1,0 +1,12 @@
+# Swipe carousel when mixed photo + video selected (CR_05C counter: Photo & Video x of x).
+appId: com.hp.impulse.sprocket
+---
+- swipe:
+    start: "85%,50%"
+    end: "15%,50%"
+    duration: 450
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible:
+    text: ".*(?i)(of|Photo|Video).*"
+    optional: true

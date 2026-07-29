@@ -1,14 +1,19 @@
 # ATP Test Case ID: VD_05
 # Excel: Video frame 05 | Module: CR_05D_Video Frames Print Preview
 # Verify video playback and scrubbing.
-# Expected: Video plays smoothly and selected frame updates correctly while scrubbing.
+# Expected: Play/pause toggles; scrubbing updates selected frame (first frame default per Figma).
 appId: com.hp.impulse.sprocket
 name: "VD_05 - Verify video playback and scrubbing"
 tags:
   - video
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/reach_video_frames_print_preview.yaml
+- runFlow: subflows/toggle_video_playback.yaml
+- runFlow: subflows/scrub_video_playback_bar.yaml
 - assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    text: ".*(?i)(Print|Pause|Play|Copies|Tiles).*"
     optional: true

@@ -1,0 +1,6 @@
+# Quick Print gallery with photos/videos (Recent folder).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- assertVisible: "Recent"
+- assertVisible: ".*Create.*"

@@ -1,0 +1,4 @@
+# Long-press a video grid cell and enter Select Mode (CR_05A). Delegates to select_video_only.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: select_video_only.yaml

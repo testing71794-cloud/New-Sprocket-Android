@@ -1,0 +1,25 @@
+# CR_05B — select photos and videos; numbered badges and mixed counter.
+# Photos: long-press/tap grid cells without duration labels. Video: duration label (mm:ss).
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../quick-print/subflows/enter_select_mode.yaml
+- assertVisible: ".*Selected.*"
+- assertVisible: "1"
+- tapOn:
+    point: "50%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: "2"
+- assertVisible: ".*Selected.*"
+- runFlow: tap_gallery_video_cell.yaml
+- assertVisible: ".*Selected.*"
+- assertVisible:
+    text: "3"
+    optional: true
+- assertVisible:
+    text: "2"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Photo.*Video|Video.*Photo|Photos.*&.*Video|Photos.*Video).*"
+    optional: true
+- assertVisible: "Print Preview"

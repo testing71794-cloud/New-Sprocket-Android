@@ -1,0 +1,10 @@
+# Scroll the gallery grid until media cells are visible below Recent.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: open_videos_album_if_visible.yaml
+- scrollUntilVisible:
+    element:
+      below: "Recent"
+    direction: DOWN
+    timeout: 20000
+    visibilityPercentage: 50

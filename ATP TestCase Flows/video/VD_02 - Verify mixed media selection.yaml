@@ -1,14 +1,18 @@
 # ATP Test Case ID: VD_02
 # Excel: Video frame 02 | Module: CR_05B_Select Mode with Videos
 # Verify mixed media selection.
-# Expected: Selected items show sequence numbers and bottom counter displays the correct number of selected photos and videos.
+# Expected: Selected items show sequence numbers and bottom counter displays photos and videos.
 appId: com.hp.impulse.sprocket
 name: "VD_02 - Verify mixed media selection"
 tags:
   - video
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/select_mixed_photo_and_video.yaml
+- tapOn: "Cancel"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Recent"

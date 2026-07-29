@@ -1,0 +1,10 @@
+# Open tag search from Facebook album (overflow / search icon).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "88%,88%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: ".*(?i)(Search|Tag|#).*"
+    optional: true

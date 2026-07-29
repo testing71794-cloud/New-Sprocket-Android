@@ -1,0 +1,15 @@
+# Quick Print → Select Gallery → Facebook login → open first album/folder.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: reach_quick_print_gallery.yaml
+- runFlow: open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
+- waitForAnimationToEnd:
+    timeout: 8000
+- tapOn:
+    point: "50%,40%"
+- waitForAnimationToEnd:
+    timeout: 3000

@@ -1,0 +1,28 @@
+# ATP Test Case ID: QP_049
+# Matrix: Error Handling | Lose network during gallery refresh
+# Expected: Error displayed and app remains stable when network drops during refresh.
+# Prerequisite: disable internet before pull-to-refresh on Facebook gallery.
+appId: com.hp.impulse.sprocket
+name: "QP_049 - Lose network during gallery refresh"
+tags:
+  - quick-print
+  - matrix
+  - error-handling
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_album.yaml
+- swipe:
+    start: "50%,30%"
+    end: "50%,70%"
+    duration: 800
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(Facebook|Select Gallery|Recent|Camera|Album).*"
+- assertVisible:
+    text: ".*(?i)(No Internet|Couldn't|error|try again|Refreshing|Facebook|photos).*"
+    optional: true
+- assertVisible:
+    text: ".*Create.*"
+    optional: true

@@ -1,14 +1,39 @@
 # ATP Test Case ID: VD_06
 # Excel: Video frame 06 | Module: CR_05D_Video Frames Print Preview
 # Verify frame editing and discard behavior.
-# Expected: Changing the frame discards previously applied edits automatically.
+# Expected: Edits on a frame are discarded when user scrubs to another frame (Apr 1 2026 Figma).
 appId: com.hp.impulse.sprocket
 name: "VD_06 - Verify frame editing and discard behavior"
 tags:
   - video
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/reach_video_frames_print_preview.yaml
+- tapOn:
+    point: "88%,88%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Save|Done|Apply).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)(Save|Done|Apply).*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Print|Copies|Tiles).*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: subflows/scrub_video_playback_bar.yaml
 - assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    text: ".*(?i)(Print|Copies|Tiles|of).*"
     optional: true

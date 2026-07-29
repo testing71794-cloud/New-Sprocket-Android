@@ -1,0 +1,10 @@
+# Open Print Preview from Select Mode footer (CR_05B → CR_05C).
+appId: com.hp.impulse.sprocket
+---
+- tapOn: "Print Preview"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: ".*(?i)(Print|Copies|Tiles|of|Sprocket).*"
+    optional: true
+- assertVisible: ".*Create.*"

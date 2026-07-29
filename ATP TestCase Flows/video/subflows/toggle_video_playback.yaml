@@ -1,0 +1,10 @@
+# Toggle play/pause on main video frame preview.
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    point: "50%,45%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: ".*(?i)(Pause|Play).*"
+    optional: true

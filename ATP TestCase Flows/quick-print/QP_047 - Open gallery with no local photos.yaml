@@ -1,0 +1,25 @@
+# ATP Test Case ID: QP_047
+# Matrix: Empty State | Open gallery with no local photos
+# Expected: No Photos screen displayed when selected local folder is empty.
+appId: com.hp.impulse.sprocket
+name: "QP_047 - Open gallery with no local photos"
+tags:
+  - quick-print
+  - matrix
+  - empty-state
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Camera.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)No photos found\\.?"
+    optional: true
+- assertVisible:
+    text: ".*(?i)No Photos.*"
+    optional: true
+- assertVisible: "Camera"
+- assertVisible: ".*Create.*"

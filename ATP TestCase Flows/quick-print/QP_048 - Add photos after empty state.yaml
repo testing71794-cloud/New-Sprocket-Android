@@ -1,0 +1,18 @@
+# ATP Test Case ID: QP_048
+# Matrix: Empty State | Add photos after empty state
+# Expected: Gallery refreshes and displays photos after new media is added.
+# Skipped in automation — requires adding photos outside the app (ADB/media store).
+appId: com.hp.impulse.sprocket
+name: "QP_048 - Add photos after empty state"
+tags:
+  - quick-print
+  - matrix
+  - empty-state
+  - manual-only
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- assertVisible:
+    text: "Recent"
+    optional: true

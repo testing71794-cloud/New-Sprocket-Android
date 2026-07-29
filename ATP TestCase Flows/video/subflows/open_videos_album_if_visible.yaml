@@ -1,0 +1,10 @@
+# Open the Videos album chip when the gallery exposes it (all items then are videos).
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)Video.*"
+    commands:
+      - tapOn: ".*(?i)Video.*"
+      - waitForAnimationToEnd:
+          timeout: 2000

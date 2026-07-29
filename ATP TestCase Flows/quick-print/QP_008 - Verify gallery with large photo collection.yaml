@@ -1,0 +1,55 @@
+# ATP Test Case ID: QP_008
+# Matrix: Gallery | Verify gallery with large photo collection
+# Expected: Performance remains acceptable (scroll smoke — grid stays responsive).
+appId: com.hp.impulse.sprocket
+name: "QP_008 - Verify gallery with large photo collection"
+tags:
+  - quick-print
+  - matrix
+  - gallery
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- assertVisible: "Recent"
+- swipe:
+    start: "50%,80%"
+    end: "50%,20%"
+    duration: 400
+- swipe:
+    start: "50%,80%"
+    end: "50%,20%"
+    duration: 400
+- swipe:
+    start: "50%,80%"
+    end: "50%,20%"
+    duration: 400
+- swipe:
+    start: "50%,80%"
+    end: "50%,20%"
+    duration: 400
+- swipe:
+    start: "50%,80%"
+    end: "50%,20%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
+- swipe:
+    start: "50%,20%"
+    end: "50%,80%"
+    duration: 400
+- swipe:
+    start: "50%,20%"
+    end: "50%,80%"
+    duration: 400
+- swipe:
+    start: "50%,20%"
+    end: "50%,80%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Recent"
+- assertVisible: ".*Create.*"
+- tapOn:
+    point: "15%,28%"
+    optional: true

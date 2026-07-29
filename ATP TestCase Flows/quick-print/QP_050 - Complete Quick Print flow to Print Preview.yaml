@@ -1,0 +1,32 @@
+# ATP Test Case ID: QP_050
+# Matrix: End-to-End | Complete Quick Print flow to Print Preview
+# Expected: Select photos from gallery and reach Print Preview successfully.
+appId: com.hp.impulse.sprocket
+name: "QP_050 - Complete Quick Print flow to Print Preview"
+tags:
+  - quick-print
+  - matrix
+  - e2e
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/assert_quick_print_gallery.yaml
+- runFlow: subflows/enter_select_mode.yaml
+- tapOn:
+    point: "50%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn:
+    point: "80%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: ".*Selected.*"
+- assertVisible: "Print Preview"
+- tapOn: "Print Preview"
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: ".*(?i)(Print Preview|Print|copies|Copies|Preview).*"
+    optional: true

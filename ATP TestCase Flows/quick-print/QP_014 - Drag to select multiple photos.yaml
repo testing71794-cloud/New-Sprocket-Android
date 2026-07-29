@@ -1,0 +1,26 @@
+# ATP Test Case ID: QP_014
+# Matrix: Selection | Drag to select multiple photos
+# Expected: Continuous drag selection selects multiple items.
+appId: com.hp.impulse.sprocket
+name: "QP_014 - Drag to select multiple photos"
+tags:
+  - quick-print
+  - matrix
+  - selection
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- longPressOn:
+    point: "15%,28%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- swipe:
+    start: "15%,28%"
+    end: "80%,28%"
+    duration: 1200
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: ".*Selected.*"
+- assertVisible: "Print Preview"
+- assertVisible: "Cancel"

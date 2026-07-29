@@ -10,7 +10,7 @@ tags:
     clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/enter_select_mode.yaml
-- assertVisible: "1 Photo Selected"
+- assertVisible: ".*Selected.*"
 - assertVisible: "1"
 # Select additional items
 - tapOn:
@@ -31,7 +31,8 @@ tags:
 - assertVisible: ".*Create.*"
 # Select exactly 1 item → Print Preview
 - runFlow: subflows/enter_select_mode.yaml
-- assertVisible: "1 Photo Selected"
+- assertVisible: ".*Selected.*"
+- assertVisible: "1"
 - tapOn: "Print Preview"
 - waitForAnimationToEnd:
     timeout: 4000

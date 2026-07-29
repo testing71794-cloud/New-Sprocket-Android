@@ -1,0 +1,52 @@
+# Quick Print matrix QP_001–QP_050 → existing or new Maestro flow (do not rename legacy QP_01/QPX_01 IDs)
+MatrixID,Module,Priority,Test Scenario,Status,FlowFile,Notes
+QP_001,Gallery,P0,Launch Quick Print and open Gallery,covered,quick-print/QP_01 - Onboarding to Quick Print gallery.yaml,Also QPX_02 reach_quick_print_gallery
+QP_002,Gallery,P1,Verify Recent folder is displayed by default,covered,quick-print/subflows/assert_quick_print_gallery.yaml,Asserted in QP_02 and gallery subflow
+QP_003,Gallery,P1,Switch between folders,covered,quick-print/QP_09 - Gallery folder navigation.yaml,Also QP_02 folder chip back
+QP_004,Gallery,P1,Verify thumbnails load while scrolling,new,quick-print/QP_004 - Verify thumbnails load while scrolling.yaml,
+QP_005,Gallery,P0,Open photo in Print Preview,covered,quick-print/QP_02 - Quick Print Gallery functionality.yaml,Also QP_04
+QP_006,Gallery,P1,Navigate back from Print Preview,covered,quick-print/QP_02 - Quick Print Gallery functionality.yaml,back from preview
+QP_007,Gallery,P2,Verify gallery after app relaunch,new,quick-print/QP_007 - Verify gallery after app relaunch.yaml,Folder retention optional by build
+QP_008,Gallery,P2,Verify gallery with large photo collection,new,quick-print/QP_008 - Verify gallery with large photo collection.yaml,Scroll smoke test
+QP_009,Selection,P0,Enter selection mode using long press,covered,quick-print/subflows/enter_select_mode.yaml,Also QPX_07 QP_04
+QP_010,Selection,P0,Select a single photo,covered,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,
+QP_011,Selection,P0,Select multiple photos,covered,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,Also QPX_08
+QP_012,Selection,P0,Deselect a selected photo,covered,quick-print/QP_06 - Selection limits and unselection.yaml,Also QPX_09
+QP_013,Selection,P1,Verify numbering updates after deselection,new,quick-print/QP_013 - Verify numbering updates after deselection.yaml,
+QP_014,Selection,P1,Drag to select multiple photos,new,quick-print/QP_014 - Drag to select multiple photos.yaml,
+QP_015,Selection,P1,Cancel selection mode,covered,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,Cancel tap
+QP_016,Selection,P0,Verify Print button enabled after selection,covered,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,Print Preview button
+QP_017,Selection,P0,Verify Print button disabled when nothing selected,new,quick-print/QP_017 - Verify Print button disabled when nothing selected.yaml,
+QP_018,Selection,P0,Select exactly 10 photos,covered,quick-print/QP_06 - Selection limits and unselection.yaml,Also QPX_10
+QP_019,Selection,P0,Attempt to select 11th photo,covered,quick-print/QP_06 - Selection limits and unselection.yaml,Maximum 10 toast
+QP_020,Selection,P0,Navigate to Print Preview with multiple photos,covered,quick-print/QP_04 - Select Mode selection and Print Preview.yaml,
+QP_021,Folder,P1,Open folder picker,covered,quick-print/QP_08 - Launch to Select Gallery.yaml,open_select_gallery subflow
+QP_022,Folder,P2,Verify folders without photos,covered,quick-print/QP_19 - Empty state handling.yaml,Also QPX_29
+QP_023,Folder,P2,Scroll folder list,new,quick-print/QP_023 - Scroll folder list.yaml,
+QP_024,Folder,P1,Change folder after selecting photos,new,quick-print/QP_024 - Change folder after selecting photos.yaml,
+QP_025,Folder,P2,Return from folder selection,covered,quick-print/QP_02 - Quick Print Gallery functionality.yaml,back from Select Gallery
+QP_026,Facebook,P0,Login successfully,covered,quick-print/QPX_13 - Verify that the Facebook Gallery opens successfully.yaml,Also QP_15 path
+QP_027,Facebook,P1,Login failure,covered,quick-print/QP_10 - Facebook sign-in failure.yaml,
+QP_028,Facebook,P1,Refresh Facebook gallery,covered,quick-print/QP_11 - Social media refresh.yaml,Also QPX_21
+QP_029,Facebook,P1,Unlink Facebook account,covered,quick-print/QP_12 - Social media unlink.yaml,Also QPX_16
+QP_030,Facebook,P2,Cancel unlink operation,covered,quick-print/QPX_17 - Verify the Cancel button on the Unlink popup.yaml,
+QP_031,Facebook,P1,Verify offline behaviour,covered,quick-print/QPX_18 - Verify the No Internet popup when opening Facebook Gallery w.yaml,Also QP_13 QP_16
+QP_032,Facebook,P1,Retry after reconnect,covered,quick-print/QPX_21 - Verify refreshing the Facebook Gallery after the internet co.yaml,
+QP_033,Facebook,P2,Verify no Facebook data,covered,quick-print/QP_14 - Wi-Fi Direct no data modal.yaml,Also QPX_29 empty folder
+QP_034,Tag Search,P1,Open Tagged Photos screen,covered,quick-print/QPX_23 - Verify the Tag Search screen.yaml,Also QP_15 search icon path
+QP_035,Tag Search,P0,Search with valid tag,covered,quick-print/QP_15 - Tag search success.yaml,Also QPX_24 QPX_26
+QP_036,Tag Search,P1,Search with invalid/non-existent tag,covered,quick-print/QPX_25 - Verify the application displays the No Tagged Photos message.yaml,
+QP_037,Tag Search,P1,Submit empty search,new,quick-print/QP_037 - Submit empty search validation.yaml,
+QP_038,Tag Search,P1,Search while offline,covered,quick-print/QP_16 - Tag search no internet.yaml,Also QPX_27
+QP_039,Tag Search,P2,Retry after reconnect,new,quick-print/QP_039 - Retry tag search after reconnect.yaml,Requires network restore
+QP_040,Permissions,P0,Deny photo permission,covered,quick-print/QPX_05 - Verify the Dont allow option on the Gallery permission popup.yaml,Also QP_07
+QP_041,Permissions,P0,Grant permission from Settings,new,quick-print/QP_041 - Grant permission from Settings.yaml,
+QP_042,Permissions,P1,Return without granting permission,new,quick-print/QP_042 - Return without granting permission.yaml,
+QP_043,Sort,P1,Sort photos by Newest,covered,quick-print/QP_02 - Quick Print Gallery functionality.yaml,Also QPX_28
+QP_044,Sort,P1,Sort photos by Oldest,covered,quick-print/QP_02 - Quick Print Gallery functionality.yaml,Also QP_17 QPX_28
+QP_045,Fast Scroll,P2,Fast scroll in large gallery,covered,quick-print/QP_18 - Fast scroll mechanism.yaml,
+QP_046,Fast Scroll,P2,Release fast scroll,covered,quick-print/QP_046 - Release fast scroll gallery responsive.yaml,Extends QP_18 scenario
+QP_047,Empty State,P1,Open gallery with no local photos,new,quick-print/QP_047 - Open gallery with no local photos.yaml,Uses empty folder when available
+QP_048,Empty State,P2,Add photos after empty state,manual,quick-print/QP_048 - Add photos after empty state.yaml,manual-only external photo add
+QP_049,Error Handling,P1,Lose network during gallery refresh,new,quick-print/QP_049 - Lose network during gallery refresh.yaml,Offline during pull-to-refresh
+QP_050,End-to-End,P0,Complete Quick Print flow to Print Preview,new,quick-print/QP_050 - Complete Quick Print flow to Print Preview.yaml,

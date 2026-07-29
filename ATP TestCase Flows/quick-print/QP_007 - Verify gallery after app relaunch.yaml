@@ -1,0 +1,49 @@
+# ATP Test Case ID: QP_007
+# Matrix: Gallery | Verify gallery after app relaunch
+# Expected: Previous folder is retained when supported by the build.
+appId: com.hp.impulse.sprocket
+name: "QP_007 - Verify gallery after app relaunch"
+tags:
+  - quick-print
+  - matrix
+  - gallery
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- tapOn: ".*Camera.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible: "Camera"
+- stopApp
+- launchApp:
+    clearState: false
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    when:
+      visible: ".*Quick Print.*"
+    commands:
+      - tapOn: ".*Quick Print.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*Create.*"
+    commands:
+      - tapOn: ".*Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - tapOn: ".*Quick Print.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- assertVisible:
+    text: "Camera"
+    optional: true
+- assertVisible:
+    text: "Recent"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Quick Print|Create|Collage Maker).*"
+    optional: true

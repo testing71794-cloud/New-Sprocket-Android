@@ -1,0 +1,15 @@
+# CR_05E — play control hidden in Tiles mode; scrub bar still usable.
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    text: "Tiles"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: "Tiles"
+    optional: true
+- assertNotVisible:
+    text: ".*(?i)^Play$.*"
+    optional: true
+- runFlow: scrub_video_playback_bar.yaml

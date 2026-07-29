@@ -1,0 +1,12 @@
+# Add a video in mixed Select Mode — tap the cell right of the first photo thumbnail.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: scroll_to_gallery_video_cell.yaml
+- tapOn:
+    below: "Recent"
+    rightOf:
+      below: "Recent"
+      index: 1
+    index: 0
+- waitForAnimationToEnd:
+    timeout: 1000

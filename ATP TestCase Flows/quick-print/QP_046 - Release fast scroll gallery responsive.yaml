@@ -1,0 +1,39 @@
+# ATP Test Case ID: QP_046
+# Matrix: Fast Scroll | Release fast scroll
+# Expected: Gallery remains responsive after releasing the fast-scroll handle.
+appId: com.hp.impulse.sprocket
+name: "QP_046 - Release fast scroll gallery responsive"
+tags:
+  - quick-print
+  - matrix
+  - fast-scroll
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- assertVisible: "Recent"
+- swipe:
+    start: "96%,35%"
+    end: "96%,75%"
+    duration: 1200
+- waitForAnimationToEnd:
+    timeout: 2000
+- swipe:
+    start: "50%,25%"
+    end: "50%,75%"
+    duration: 600
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Recent"
+- assertVisible: ".*Create.*"
+- tapOn:
+    point: "15%,28%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: ".*(?i)(Print Preview|Print|Preview).*"
+    optional: true
+- back
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Recent"

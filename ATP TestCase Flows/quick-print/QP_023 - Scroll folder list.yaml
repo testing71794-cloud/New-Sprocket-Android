@@ -1,0 +1,30 @@
+# ATP Test Case ID: QP_023
+# Matrix: Folder | Scroll folder list
+# Expected: Folder list scrolls correctly in Select Gallery.
+appId: com.hp.impulse.sprocket
+name: "QP_023 - Scroll folder list"
+tags:
+  - quick-print
+  - matrix
+  - folder
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- assertVisible: "Select Gallery"
+- swipe:
+    start: "50%,75%"
+    end: "50%,30%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Select Gallery"
+- assertVisible: ".*Facebook.*"
+- swipe:
+    start: "50%,30%"
+    end: "50%,75%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: ".*Recent.*"

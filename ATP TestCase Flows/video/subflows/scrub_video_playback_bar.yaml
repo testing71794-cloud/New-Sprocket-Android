@@ -1,0 +1,15 @@
+# Scrub video playback bar under main preview (CR_05D).
+appId: com.hp.impulse.sprocket
+---
+- swipe:
+    start: "25%,72%"
+    end: "75%,72%"
+    duration: 900
+- waitForAnimationToEnd:
+    timeout: 1500
+- swipe:
+    start: "75%,72%"
+    end: "25%,72%"
+    duration: 900
+- waitForAnimationToEnd:
+    timeout: 1500

@@ -1,0 +1,14 @@
+# Tap AI tool on Print Preview (icon-only on some builds — coordinate fallback).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    text: ".*(?i)AI.*"
+    optional: true
+- runFlow:
+    when:
+      notVisible: ".*(?i)AI Edit is not available.*"
+    commands:
+      - tapOn:
+          point: "12%,88%"
+      - waitForAnimationToEnd:
+          timeout: 1500

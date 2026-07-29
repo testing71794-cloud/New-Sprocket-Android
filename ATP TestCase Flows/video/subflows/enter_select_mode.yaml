@@ -1,0 +1,4 @@
+# PHOTO cell only — used by mixed photo+video flows (VD_02, VD_04). Do not use for video-only cases.
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../quick-print/subflows/enter_select_mode.yaml

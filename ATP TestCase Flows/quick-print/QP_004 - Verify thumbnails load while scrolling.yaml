@@ -1,0 +1,32 @@
+# ATP Test Case ID: QP_004
+# Matrix: Gallery | Verify thumbnails load while scrolling
+# Expected: Images load without errors while scrolling the gallery grid.
+appId: com.hp.impulse.sprocket
+name: "QP_004 - Verify thumbnails load while scrolling"
+tags:
+  - quick-print
+  - matrix
+  - gallery
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/assert_quick_print_gallery.yaml
+- swipe:
+    start: "50%,75%"
+    end: "50%,25%"
+    duration: 600
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Recent"
+- swipe:
+    start: "50%,25%"
+    end: "50%,75%"
+    duration: 600
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Recent"
+- assertVisible:
+    text: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*"
+    optional: true
+- assertVisible: ".*Create.*"

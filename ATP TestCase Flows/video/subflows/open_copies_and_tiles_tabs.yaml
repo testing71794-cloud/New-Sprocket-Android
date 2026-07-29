@@ -1,0 +1,19 @@
+# CR_05D.1 / CR_05E — Copies and Tiles tabs (single-video Print Preview).
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    text: "Copies"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible:
+    text: "Copies"
+    optional: true
+- tapOn:
+    text: "Tiles"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: "Tiles"
+    optional: true

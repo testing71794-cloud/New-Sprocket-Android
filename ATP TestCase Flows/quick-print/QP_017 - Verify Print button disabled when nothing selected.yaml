@@ -1,0 +1,17 @@
+# ATP Test Case ID: QP_017
+# Matrix: Selection | Verify Print button disabled when nothing selected
+# Expected: Print Preview is not available in normal browse mode.
+appId: com.hp.impulse.sprocket
+name: "QP_017 - Verify Print button disabled when nothing selected"
+tags:
+  - quick-print
+  - matrix
+  - selection
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/assert_quick_print_gallery.yaml
+- assertNotVisible: "Print Preview"
+- assertNotVisible: ".*Photos Selected.*"
+- assertNotVisible: "Cancel"

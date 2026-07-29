@@ -1,0 +1,34 @@
+# ATP Test Case ID: QP_024
+# Matrix: Folder | Change folder after selecting photos
+# Expected: Folder change is handled per design (selection cleared or gallery updates).
+appId: com.hp.impulse.sprocket
+name: "QP_024 - Change folder after selecting photos"
+tags:
+  - quick-print
+  - matrix
+  - folder
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/enter_select_mode.yaml
+- tapOn:
+    point: "50%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible: ".*Selected.*"
+- tapOn: "Recent"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible: "Select Gallery"
+- tapOn: ".*Camera.*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible: "Camera"
+- assertVisible: ".*Create.*"
+- assertVisible:
+    text: ".*Selected.*"
+    optional: true
+- assertNotVisible:
+    text: "Print Preview"
+    optional: true
