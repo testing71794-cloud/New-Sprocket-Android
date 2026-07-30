@@ -6,13 +6,17 @@ name: "GA_01 - Gallery home screen"
 - launchApp:
     clearState: true
 - runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
-- swipe:
-    direction: DOWN
-    duration: 500
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+- waitForAnimationToEnd:
+    timeout: 2000
 - assertVisible:
     text: ".*(?i)(Log in|Sign in).*"
     optional: true
-# Create hub tiles (labels vary slightly by build)
+# Create hub tiles (labels live in content-desc; Photo ID is below the fold)
 - assertVisible: ".*(?i)Quick Print.*"
 - assertVisible:
     text: ".*(?i)(Print photos from your gallery|gallery).*"
@@ -33,6 +37,10 @@ name: "GA_01 - Gallery home screen"
 - assertVisible:
     text: ".*(?i)(4-photo|collage).*"
     optional: true
+- scrollUntilVisible:
+    element: ".*(?i)Photo ID.*"
+    direction: DOWN
+    timeout: 15000
 - assertVisible: ".*(?i)Photo ID.*"
 - assertVisible:
     text: ".*(?i)(ID-ready|ID).*"

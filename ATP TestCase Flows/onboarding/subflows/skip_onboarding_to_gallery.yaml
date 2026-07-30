@@ -3,6 +3,8 @@ appId: com.hp.impulse.sprocket
 # Sign Up Later → optional coachmark → permissions → Create home (Sprocket).
 # Kodak "Skip" coachmark is optional — many builds go straight to permissions/home.
 # Current builds often skip welcome carousel and show "I'll do it later".
+# After permissions, Create hub tiles can take a few seconds; bottom "Create" tab
+# may need an explicit tap when the app lands on Camera/Printer first.
 - runFlow: ../../common/subflows/reach_signup_screen.yaml
 - runFlow: ../../common/subflows/tap_sign_up_later.yaml
 - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
@@ -17,13 +19,30 @@ appId: com.hp.impulse.sprocket
 - runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
 - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
 - waitForAnimationToEnd:
-    timeout: 2000
+    timeout: 4000
+# Prefer Create tab when bottom nav is present (Camera / other tab may be selected).
 - runFlow:
     when:
-      visible: ".*Create.*"
+      visible: ".*(?i)Create.*"
     commands:
-      - tapOn: ".*Create.*"
+      - tapOn: ".*(?i)Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+# Soft wait for Create hub chrome (tiles or bottom nav) — Jenkins #87 timed out here.
 - extendedWaitUntil:
-    visible: ".*(?i)(Collage Maker|Quick Print|Create).*"
-    timeout: 15000
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 25000
+# Retry Create tab if hub tiles still not up (slow post-permission render).
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    timeout: 20000
 - assertVisible: ".*(?i)(Collage Maker|Quick Print).*"

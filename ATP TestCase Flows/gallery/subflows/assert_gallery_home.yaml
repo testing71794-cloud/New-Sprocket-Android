@@ -1,9 +1,20 @@
 appId: com.hp.impulse.sprocket
 ---
 # Sprocket Create hub after onboarding (not Kodak MY GALLERY).
+# Tiles are often content-desc with newlines; wait for hub chrome then tiles.
 - extendedWaitUntil:
-    visible: ".*(?i)(Collage Maker|Quick Print|Create).*"
-    timeout: 12000
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    timeout: 15000
 - assertVisible: ".*(?i)(Collage Maker|Quick Print).*"
 - assertVisible:
     text: ".*(?i)Create.*"
