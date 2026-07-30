@@ -1,0 +1,21 @@
+appId: com.hp.impulse.sprocket
+---
+# Sign Up Later → Create hub → deny non-camera prompts → trigger camera dialog.
+- runFlow: complete_onboarding_for_permission.yaml
+- runFlow: deny_non_camera_runtime_permissions.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    text: "Create"
+    optional: true
+- tapOn:
+    text: ".*Create.*"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth|Photo ID).*"
+    timeout: 20000
+- runFlow: trigger_camera_permission_prompt.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(take pictures and record video|access the camera|allow .+ to take pictures|take photos and videos).*"
+    timeout: 30000

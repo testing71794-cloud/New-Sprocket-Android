@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Mid-flow camera deny so Photobooth shows the OS permission dialog (no launchApp / adb).
+- setPermissions:
+    permissions:
+      camera: deny
+- waitForAnimationToEnd:
+    timeout: 2000

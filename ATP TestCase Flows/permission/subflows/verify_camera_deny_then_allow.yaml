@@ -1,0 +1,28 @@
+appId: com.hp.impulse.sprocket
+---
+# PERM_003/030: Deny Camera once, allow on retry, then capture works.
+- runFlow: ensure_create_hub_visible.yaml
+- tapOn: ".*(?i)(Photobooth|Photo Booth).*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+    commands:
+      - tapOn: "Don't allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- pressKey: back
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: ensure_create_hub_visible.yaml
+- runFlow: reset_camera_permission_prompt.yaml
+- tapOn: ".*(?i)(Photobooth|Photo Booth).*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+    commands:
+      - runFlow: allow_camera_permission.yaml
+- runFlow: capture_and_verify_photobooth_preview.yaml

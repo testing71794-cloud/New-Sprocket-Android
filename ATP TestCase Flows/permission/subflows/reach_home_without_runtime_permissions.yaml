@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Sign Up Later → Create home without granting runtime permissions in-flow.
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*Create.*"
+    commands:
+      - tapOn: ".*Create.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth|Photo ID).*"
+    timeout: 20000

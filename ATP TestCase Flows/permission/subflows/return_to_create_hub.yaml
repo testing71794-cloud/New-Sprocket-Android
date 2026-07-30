@@ -1,0 +1,13 @@
+appId: com.hp.impulse.sprocket
+---
+- pressKey: back
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*Create.*"
+    commands:
+      - tapOn: ".*Create.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth).*"
+    timeout: 15000

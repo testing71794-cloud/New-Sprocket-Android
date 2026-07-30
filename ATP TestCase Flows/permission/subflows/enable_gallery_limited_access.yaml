@@ -1,0 +1,37 @@
+appId: com.hp.impulse.sprocket
+---
+# Quick Print → Allow limited access; confirm picker if shown.
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(Allow limited access|Select photos|photos and videos).*"
+    commands:
+      - tapOn:
+          text: "Allow limited access"
+          optional: true
+      - tapOn:
+          text: ".*(?i)Select photos.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Done|Allow|Select).*"
+    commands:
+      - tapOn:
+          point: "20%,35%"
+          optional: true
+      - tapOn:
+          text: "Done"
+          optional: true
+      - tapOn:
+          text: "Allow"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery|No photos|Add photos).*"
+    timeout: 25000
+- assertVisible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery|No photos|Add photos).*"

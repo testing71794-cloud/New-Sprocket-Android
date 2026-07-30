@@ -1,0 +1,36 @@
+appId: com.hp.impulse.sprocket
+---
+# PERM_016/038: Deny Photos twice → Permission Required; gallery stays blocked.
+- runFlow: ensure_create_hub_visible.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all).*"
+    commands:
+      - tapOn: "Don't allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- assertNotVisible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery).*"
+- pressKey: back
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: ensure_create_hub_visible.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all).*"
+    commands:
+      - tapOn: "Don't allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Permission Required.*"
+    commands:
+      - assertVisible: "Permission Required"
+      - assertVisible: ".*(?i)some permissions are needed.*"
+- assertNotVisible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery).*"

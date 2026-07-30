@@ -1,0 +1,15 @@
+# ATP Test Case ID: PM_03
+# PERM_018/019: Deny upstream permissions; allow Photos only — gallery works, Camera blocked.
+appId: com.hp.impulse.sprocket
+name: "PM_03 - Gallery only camera blocked"
+---
+- launchApp:
+    permissions:
+      all: deny
+- runFlow: subflows/pm01_onboarding_single_launch.yaml
+- runFlow: subflows/deny_all_permissions_sequence.yaml
+- runFlow: subflows/dismiss_onboarding_permission_dialogs.yaml
+- runFlow: subflows/ensure_create_hub_visible.yaml
+- runFlow: subflows/enable_gallery_allow_all.yaml
+- runFlow: subflows/return_to_create_hub.yaml
+- runFlow: subflows/verify_gallery_only_camera_blocked.yaml

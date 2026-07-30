@@ -1,0 +1,36 @@
+appId: com.hp.impulse.sprocket
+---
+# Deny stacked runtime dialogs after Sign Up Later (notification often blocks Create hub).
+- repeat:
+    times: 6
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)send you notifications.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)access this device.*location.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)nearby devices.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)photos and videos.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - waitForAnimationToEnd:
+          timeout: 500

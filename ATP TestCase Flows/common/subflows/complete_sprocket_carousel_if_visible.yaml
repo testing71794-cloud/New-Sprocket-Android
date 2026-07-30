@@ -4,6 +4,13 @@ appId: com.hp.impulse.sprocket
 # Only drive carousel steps that are actually visible (no hard AI Editing assert).
 - runFlow:
     when:
+      visible: "Get Started!"
+    commands:
+      - tapOn: "Get Started!"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
       visible: "Welcome to the new Sprocket!"
     commands:
       - runFlow:

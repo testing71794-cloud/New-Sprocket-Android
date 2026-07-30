@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# After Camera re-prompt was allowed, Photobooth capture succeeds.
+- runFlow: ensure_create_hub_visible.yaml
+- tapOn: ".*(?i)(Photobooth|Photo Booth).*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+    commands:
+      - runFlow: allow_camera_permission.yaml
+- runFlow: capture_and_verify_photobooth_preview.yaml
+- assertNotVisible: ".*(?i)(Permission Required|some permissions are needed).*"

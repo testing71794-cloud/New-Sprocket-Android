@@ -1,10 +1,48 @@
 appId: com.hp.impulse.sprocket
+
 ---
-# Video ~00:12–00:14 — Android camera permission after onboarding Skip.
+
+# Strict allow on the Camera runtime dialog.
+
+- assertVisible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+
 - runFlow:
+
     when:
-      visible: ".*take pictures and record video.*"
+
+      visible: "While using the app"
+
     commands:
+
       - tapOn: "While using the app"
-      - waitForAnimationToEnd:
-          timeout: 2000
+
+- runFlow:
+
+    when:
+
+      visible: "Only this time"
+
+      notVisible: "While using the app"
+
+    commands:
+
+      - tapOn: "Only this time"
+
+- runFlow:
+
+    when:
+
+      visible: "Allow"
+
+      notVisible: "While using the app"
+
+    commands:
+
+      - tapOn: "Allow"
+
+- extendedWaitUntil:
+
+    notVisible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+
+    timeout: 15000
+

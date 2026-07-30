@@ -1,0 +1,34 @@
+appId: com.hp.impulse.sprocket
+---
+# Deny onboarding runtime prompts except Camera (repeat — dialogs can stack after Sign Up Later).
+- repeat:
+    times: 4
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)send you notifications.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)access this device.*location.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)nearby devices.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)photos and videos.*"
+          commands:
+            - tapOn: "Don't allow"
+            - waitForAnimationToEnd:
+                timeout: 2000

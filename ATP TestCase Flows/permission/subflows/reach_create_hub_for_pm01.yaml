@@ -1,0 +1,19 @@
+appId: com.hp.impulse.sprocket
+---
+# PM_01 part 1 — reach Create hub (invoked by scripts/run_pm01.ps1).
+- launchApp
+- runFlow: ../../common/subflows/dismiss_usb_charging_popup_if_visible.yaml
+- runFlow: complete_onboarding_for_permission.yaml
+- runFlow: deny_non_camera_runtime_permissions.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    text: "Create"
+    optional: true
+- tapOn:
+    text: ".*Create.*"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth|Photo ID).*"
+    timeout: 20000

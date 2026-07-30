@@ -1,0 +1,13 @@
+appId: com.hp.impulse.sprocket
+---
+# Quick Print from Create hub (expects photos dialog after tap when permissions denied).
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: allow_photos_all_permission_strict.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 20000
+- assertVisible: "Recent"

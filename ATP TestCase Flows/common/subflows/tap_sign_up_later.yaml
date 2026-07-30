@@ -3,13 +3,8 @@ appId: com.hp.impulse.sprocket
 # Current Sprocket build: "I'll do it later". Older builds / options screen: "Sign Up Later".
 - runFlow:
     when:
-      visible: "I'll do it later"
+      visible: ".*(?i)(I.ll do it later|Sign Up Later).*"
     commands:
-      - tapOn: "I'll do it later"
-- runFlow:
-    when:
-      visible: "Sign Up Later"
-    commands:
-      - tapOn: "Sign Up Later"
+      - tapOn: ".*(?i)(I.ll do it later|Sign Up Later).*"
 - waitForAnimationToEnd:
     timeout: 2000

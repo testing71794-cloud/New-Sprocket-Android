@@ -1,0 +1,37 @@
+appId: com.hp.impulse.sprocket
+---
+# PM_01 onboarding — single launchApp in parent flow; no nested launchApp here.
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: ../../common/subflows/dismiss_usb_charging_popup_if_visible.yaml
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- runFlow:
+    when:
+      visible: "Get Started!"
+    commands:
+      - tapOn: "Get Started!"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- extendedWaitUntil:
+    visible: ".*(?i)(Sign up|I.ll do it later|Sign Up Later|Agree Terms|Log in|Create account|Email).*"
+    timeout: 25000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow:
+    when:
+      visible: "Agree Terms and Conditions"
+    commands:
+      - tapOn: "Agree Terms and Conditions"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth).*"
+    commands:
+      - runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+            - waitForAnimationToEnd:
+                timeout: 2000

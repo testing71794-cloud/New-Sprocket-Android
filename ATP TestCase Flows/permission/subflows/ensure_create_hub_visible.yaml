@@ -1,0 +1,18 @@
+appId: com.hp.impulse.sprocket
+---
+# Create hub tiles — tap Create tab if needed (no launchApp).
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    text: ".*Create.*Tab.*"
+    optional: true
+- tapOn:
+    text: "Create"
+    optional: true
+- tapOn:
+    text: ".*Create.*"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth).*"
+    timeout: 45000

@@ -1,0 +1,24 @@
+appId: com.hp.impulse.sprocket
+---
+# PERM_018/019: Photos allowed, Camera denied — gallery works, Photobooth blocked.
+- runFlow: ensure_create_hub_visible.yaml
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery).*"
+- runFlow: return_to_create_hub.yaml
+- runFlow: revoke_camera_before_photobooth.yaml
+- tapOn: ".*(?i)(Photobooth|Photo Booth).*"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+    commands:
+      - tapOn: "Don't allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- assertNotVisible: "Copies"

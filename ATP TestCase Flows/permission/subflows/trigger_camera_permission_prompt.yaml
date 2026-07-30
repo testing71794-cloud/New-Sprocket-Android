@@ -1,0 +1,27 @@
+appId: com.hp.impulse.sprocket
+---
+# Prefer Photobooth on this build; Photo ID onboarding blocks the OS dialog timing.
+- runFlow:
+    when:
+      visible: ".*(?i)(Photobooth|Photo Booth).*"
+    commands:
+      - tapOn: ".*(?i)(Photobooth|Photo Booth).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+      visible: ".*(?i)(Photo ID|PhotoID).*"
+    commands:
+      - tapOn: ".*(?i)(Photo ID|PhotoID).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: ../../photo-id/subflows/dismiss_photo_id_onboarding_if_visible.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(take pictures and record video|While using the app|Only this time).*"
+    commands:
+      - tapOn:
+          point: "50%,93%"
+      - waitForAnimationToEnd:
+          timeout: 3000

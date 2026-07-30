@@ -1,0 +1,12 @@
+# ATP Test Case ID: PM_02
+# Negative: deny all runtime permissions; verify gallery and camera stay blocked.
+appId: com.hp.impulse.sprocket
+name: "PM_02 - All permissions deny"
+---
+- launchApp:
+    permissions:
+      all: deny
+- runFlow: subflows/pm01_onboarding_single_launch.yaml
+- runFlow: subflows/deny_all_permissions_sequence.yaml
+- runFlow: subflows/dismiss_onboarding_permission_dialogs.yaml
+- runFlow: subflows/verify_negative_permission_coverage.yaml

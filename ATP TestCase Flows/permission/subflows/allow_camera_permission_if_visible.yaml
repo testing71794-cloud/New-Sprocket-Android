@@ -1,0 +1,17 @@
+# Shared camera allow for permission chains (PM_20 / COL_02) — optional when dialog visible.
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)take pictures and record video.*"
+    commands:
+      - tapOn:
+          text: "While using the app"
+          optional: true
+      - runFlow:
+          when:
+            visible: ".*(?i)take pictures and record video.*"
+          commands:
+            - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 2000

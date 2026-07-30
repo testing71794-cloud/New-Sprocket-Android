@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Reset Camera to OS prompt state (retry / re-ask scenarios).
+- setPermissions:
+    permissions:
+      camera: unset
+- waitForAnimationToEnd:
+    timeout: 2000

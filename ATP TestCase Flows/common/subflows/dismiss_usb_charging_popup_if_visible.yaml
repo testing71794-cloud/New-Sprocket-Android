@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Motorola / Android USB mode picker can appear when the device is plugged in during Maestro runs.
+- runFlow:
+    when:
+      visible: ".*(?i)(Use USB for|USB controlled by|File transfer).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500

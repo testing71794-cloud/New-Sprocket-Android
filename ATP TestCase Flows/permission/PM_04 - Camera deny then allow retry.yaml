@@ -1,0 +1,15 @@
+# ATP Test Case ID: PM_04
+# PERM_003/030: Deny Camera during permission chain, allow on re-prompt — Photobooth capture works.
+appId: com.hp.impulse.sprocket
+name: "PM_04 - Camera deny then allow retry"
+---
+- launchApp:
+    permissions:
+      all: deny
+- runFlow: subflows/pm01_onboarding_single_launch.yaml
+- runFlow: subflows/allow_all_except_camera_sequence.yaml
+- runFlow: subflows/allow_all_permissions_sequence.yaml
+- runFlow: subflows/ensure_create_hub_visible.yaml
+- runFlow: subflows/enable_gallery_allow_all.yaml
+- runFlow: subflows/return_to_create_hub.yaml
+- runFlow: subflows/verify_camera_allowed_after_reprompt.yaml

@@ -1,0 +1,24 @@
+appId: com.hp.impulse.sprocket
+---
+# Sign Up Later → optional terms → optional coachmark Skip — stop before granting runtime permissions.
+- runFlow: ../../common/subflows/reach_signup_screen.yaml
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow:
+    when:
+      visible: "Agree Terms and Conditions"
+    commands:
+      - tapOn: "Agree Terms and Conditions"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo Booth).*"
+    commands:
+      - runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+      - runFlow:
+          when:
+            visible: "Skip"
+          commands:
+            - tapOn: "Skip"
+            - waitForAnimationToEnd:
+                timeout: 2000

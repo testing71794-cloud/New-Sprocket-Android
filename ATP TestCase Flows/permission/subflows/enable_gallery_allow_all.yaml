@@ -1,0 +1,35 @@
+appId: com.hp.impulse.sprocket
+---
+# Quick Print → Allow all; fallback Collage Maker if photos prompt did not appear.
+- tapOn: ".*Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all|Allow limited access).*"
+    commands:
+      - assertVisible: "Allow all"
+      - tapOn: "Allow all"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - tapOn: ".*Collage Maker.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+      - runFlow:
+          when:
+            visible: ".*(?i)(photos and videos|Allow all).*"
+          commands:
+            - tapOn: "Allow all"
+            - waitForAnimationToEnd:
+                timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Recent|Select 2 to 4 photos|Select Gallery).*"

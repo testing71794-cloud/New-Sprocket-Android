@@ -1,0 +1,27 @@
+appId: com.hp.impulse.sprocket
+---
+# Shutter → capture/result → tap captured image → verify preview.
+- tapOn:
+    point: "50%,93%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Stop|Copies|Print|Processing|Timer).*"
+    timeout: 45000
+- runFlow:
+    when:
+      visible: "Stop"
+    commands:
+      - tapOn: "Stop"
+      - waitForAnimationToEnd:
+          timeout: 10000
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 120000
+- assertVisible: "Copies"
+- tapOn:
+    point: "50%,45%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible:
+    text: ".*(?i)(Copies|Print|Photobooth|Photo Booth|Back|Share).*"

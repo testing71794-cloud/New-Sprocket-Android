@@ -1,0 +1,48 @@
+appId: com.hp.impulse.sprocket
+---
+# Allow Camera, Location, Photos — deny Nearby and Notification when shown.
+- repeat:
+    times: 10
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)take pictures and record video.*"
+          commands:
+            - runFlow: allow_camera_permission.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)access this device.*location.*"
+          commands:
+            - tapOn:
+                text: "Precise"
+                optional: true
+            - tapOn: "While using the app"
+            - extendedWaitUntil:
+                notVisible: ".*(?i)access this device.*location.*"
+                timeout: 15000
+      - runFlow:
+          when:
+            visible: ".*(?i)(nearby devices|relative position of nearby).*"
+          commands:
+            - tapOn: "Don't allow"
+            - extendedWaitUntil:
+                notVisible: ".*(?i)(nearby devices|relative position of nearby).*"
+                timeout: 15000
+      - runFlow:
+          when:
+            visible: ".*(?i)send you notifications.*"
+          commands:
+            - tapOn: "Don't allow"
+            - extendedWaitUntil:
+                notVisible: ".*(?i)send you notifications.*"
+                timeout: 15000
+      - runFlow:
+          when:
+            visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all).*"
+          commands:
+            - tapOn: "Allow all"
+            - extendedWaitUntil:
+                notVisible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all).*"
+                timeout: 15000
+      - waitForAnimationToEnd:
+          timeout: 1000
