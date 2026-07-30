@@ -10,10 +10,7 @@ tags:
     clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/open_select_gallery.yaml
-- tapOn: ".*Camera.*"
-- waitForAnimationToEnd:
-    timeout: 3000
-- assertVisible: "Camera"
+- runFlow: subflows/open_device_album.yaml
 - assertVisible:
     text: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|No photos).*"
     optional: true

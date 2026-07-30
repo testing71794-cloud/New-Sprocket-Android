@@ -2,7 +2,10 @@ appId: com.hp.impulse.sprocket
 ---
 # Open Quick Print from Create home; allow photo access when prompted.
 # Real UI: folder chip is "Recent" (content-desc), date headers, bottom Create tab.
-- tapOn: ".*Quick Print.*"
+- extendedWaitUntil:
+    visible: "(?i)Quick Print.*"
+    timeout: 20000
+- tapOn: "(?i)Quick Print.*"
 - waitForAnimationToEnd:
     timeout: 5000
 - runFlow: ../../permission/subflows/allow_photos_all_permission.yaml

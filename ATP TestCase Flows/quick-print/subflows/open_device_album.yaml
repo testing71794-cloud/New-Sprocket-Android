@@ -1,0 +1,42 @@
+appId: com.hp.impulse.sprocket
+---
+# Open a local album from Select Gallery.
+# Many devices have no "Camera" album — prefer Camera, else Pictures, else Movies.
+- swipe:
+    direction: UP
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 1000
+- runFlow:
+    when:
+      visible: "(?i)Camera.*"
+    commands:
+      - tapOn: "(?i)Camera.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+# Still on picker → try Pictures
+- runFlow:
+    when:
+      visible: "Select Gallery"
+    commands:
+      - runFlow:
+          when:
+            visible: "(?i)Pictures.*"
+          commands:
+            - tapOn: "(?i)Pictures.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+# Still on picker → try Movies
+- runFlow:
+    when:
+      visible: "Select Gallery"
+    commands:
+      - runFlow:
+          when:
+            visible: "(?i)Movies.*"
+          commands:
+            - tapOn: "(?i)Movies.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+- assertVisible:
+    text: "(?i)(Camera|Pictures|Movies|Screenshots|Recent).*"

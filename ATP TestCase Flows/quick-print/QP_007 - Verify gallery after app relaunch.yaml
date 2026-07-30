@@ -12,10 +12,7 @@ tags:
     clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/open_select_gallery.yaml
-- tapOn: ".*Camera.*"
-- waitForAnimationToEnd:
-    timeout: 3000
-- assertVisible: "Camera"
+- runFlow: subflows/open_device_album.yaml
 - stopApp
 - launchApp:
     clearState: false
@@ -39,7 +36,7 @@ tags:
       - waitForAnimationToEnd:
           timeout: 4000
 - assertVisible:
-    text: "Camera"
+    text: "(?i)(Camera|Pictures|Movies|Recent).*"
     optional: true
 - assertVisible:
     text: "Recent"

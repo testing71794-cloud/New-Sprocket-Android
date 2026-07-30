@@ -21,10 +21,7 @@ tags:
 - waitForAnimationToEnd:
     timeout: 3000
 - assertVisible: "Select Gallery"
-- tapOn: ".*Camera.*"
-- waitForAnimationToEnd:
-    timeout: 3000
-- assertVisible: "Camera"
+- runFlow: subflows/open_device_album.yaml
 - assertVisible: ".*Create.*"
 - assertVisible:
     text: ".*Selected.*"

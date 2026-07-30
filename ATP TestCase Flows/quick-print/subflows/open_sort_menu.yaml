@@ -1,10 +1,23 @@
 appId: com.hp.impulse.sprocket
 ---
 # Open sort menu (Newest / Oldest) via top-right sort icon.
-# Device UI: one content-desc node "Newest\nOldest" (not separate labels).
+# Device UI: icon has empty content-desc; menu node is "Newest\nOldest".
+# Icon bounds ~[968,136][1043,323] on Pixel 5 (1080w) → ~93%,10%.
 - tapOn:
-    point: "92%,8%"
+    point: "93%,10%"
 - waitForAnimationToEnd:
-    timeout: 2000
-- assertVisible: ".*Newest.*"
+    timeout: 2500
+- runFlow:
+    when:
+      notVisible: "Dismiss menu"
+    commands:
+      - tapOn:
+          point: "90%,10%"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: "Dismiss menu"
+    timeout: 8000
+# content-desc is "Newest\nOldest" — avoid leading .* (newline breaks Java regex)
+- assertVisible: "(?i)Newest.*"
 - assertVisible: "Dismiss menu"

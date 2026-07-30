@@ -2,6 +2,8 @@ appId: com.hp.impulse.sprocket
 ---
 # Continue without Logging In → Create home (Quick Print tile).
 # Current build label: "I already have account" (no "an").
+# After permissions, Create hub can land on Camera/Printer first — tap Create and
+# retry (same flake as Jenkins #87 QP_04 / skip_onboarding_to_gallery).
 - tapOn: ".*(?i)I already have (an )?account.*"
 - waitForAnimationToEnd:
     timeout: 3000
@@ -23,25 +25,30 @@ appId: com.hp.impulse.sprocket
 - runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
 - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
 - waitForAnimationToEnd:
-    timeout: 3000
+    timeout: 4000
 - runFlow:
     when:
-      visible: ".*Create.*"
+      visible: ".*(?i)Create.*"
     commands:
-      - tapOn: ".*Create.*"
+      - tapOn: ".*(?i)Create.*"
       - waitForAnimationToEnd:
-          timeout: 2000
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 25000
 - runFlow:
     when:
-      visible: ".*(?i)Quick Print.*"
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
     commands:
-      - swipe:
-          direction: DOWN
-          duration: 400
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
 - extendedWaitUntil:
-    visible: ".*(?i)Quick Print.*"
-    timeout: 15000
-- assertVisible: ".*(?i)Quick Print.*"
+    visible: "(?i)Quick Print.*"
+    timeout: 20000
+- assertVisible: "(?i)Quick Print.*"
 - assertVisible:
-    text: ".*(?i)(Print photos from your gallery|gallery).*"
+    text: "(?i).*(Print photos from your gallery|gallery).*"
     optional: true

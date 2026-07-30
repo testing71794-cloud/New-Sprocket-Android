@@ -12,8 +12,12 @@ tags:
 - runFlow: subflows/open_select_gallery.yaml
 - assertVisible: "Select Gallery"
 - assertVisible: ".*Recent.*"
-- assertVisible: ".*Pictures.*"
-- assertVisible: ".*Camera.*"
+# Local albums vary by device (Camera often missing)
+- assertVisible:
+    text: "(?i)(Pictures|Camera|Movies|Screenshots).*"
+- assertVisible:
+    text: "(?i)Camera.*"
+    optional: true
 - assertVisible: "or"
 - assertVisible: ".*Facebook.*"
 - assertVisible: ".*Tap to Connect Account.*"
