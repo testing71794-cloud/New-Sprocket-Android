@@ -1,0 +1,9 @@
+# Submit email login — taps the bottom Log In button (not the full-screen wrapper).
+appId: com.hp.impulse.sprocket
+---
+- hideKeyboard
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    text: "Log In"
+    below: "Forgot password?"

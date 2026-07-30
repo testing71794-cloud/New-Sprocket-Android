@@ -28,3 +28,6 @@ LO_06,login,post-onboarding,Email valid login,login/LO_06 - Log in with Email va
 LO_07,login,post-onboarding,Email wrong credentials,login/LO_07 - Log in with Email wrong credentials.yaml
 LO_08,login,post-onboarding,Email forgot password,login/LO_08 - Log in with Email forgot password.yaml
 LO_09,login,post-onboarding,Continue without Logging In,login/LO_09 - Continue without Logging In.yaml
+LO_10,login,post-onboarding,Back to Log In Options,login/LO_10 - Back to Log In Options from email form.yaml
+LO_11,login,post-onboarding,Log In disabled until filled,login/LO_11 - Log In button disabled until fields filled.yaml
+LO_12,login,post-onboarding,Email show password,login/LO_12 - Log in with Email show password.yaml

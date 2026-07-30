@@ -6,5 +6,6 @@ appId: com.hp.impulse.sprocket
 - assertVisible: "Continue with Google"
 - assertVisible: "Continue with Facebook"
 - assertVisible: "Continue with Email"
+- assertNotVisible: "Continue with Apple"
 - assertVisible: "I don't have an account"
 - assertVisible: "Continue without Logging In"
