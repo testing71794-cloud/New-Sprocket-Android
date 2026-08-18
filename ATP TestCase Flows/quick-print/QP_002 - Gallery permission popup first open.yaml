@@ -1,0 +1,28 @@
+# ATP: QUICK PRINT _002 | Quick Print - Gallery Permission
+# First-open photos popup: Allow limited access, Allow all, Don't allow.
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/setpermissions
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+name: "QP_002 - Gallery permission popup first open"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: subflows/reach_home_keep_photos.yaml
+- runFlow: subflows/revoke_photos_if_needed.yaml
+- extendedWaitUntil:
+    visible: "(?i)Quick Print.*"
+    timeout: 20000
+- tapOn: "(?i)Quick Print.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Allow all|Allow limited access|photos and videos|Allow Sprocket to access photos).*"
+    timeout: 25000
+- assertVisible: ".*(?i)Allow all.*"
+- assertVisible: ".*(?i)Allow limited access.*"
+- assertVisible: ".*(?i)Don.?t allow.*"

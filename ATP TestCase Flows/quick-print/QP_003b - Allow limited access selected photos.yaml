@@ -1,0 +1,49 @@
+# ATP: QUICK PRINT_003 (b) | Gallery Permission
+# Allow limited access → pick photos → Done.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_003b - Allow limited access selected photos"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: subflows/reach_home_keep_photos.yaml
+- runFlow: subflows/revoke_photos_if_needed.yaml
+- runFlow: subflows/tap_quick_print.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(photos and videos|Allow limited access).*"
+    timeout: 15000
+- tapOn: "Allow limited access"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Allow limited access.*"
+    commands:
+      - tapOn: ".*(?i)Allow limited access.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- tapOn:
+    point: "20%,30%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn:
+    point: "50%,30%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Selected|Photos|Gallery).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Recent|Selected|Photos).*"

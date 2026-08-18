@@ -1,0 +1,26 @@
+# ATP: QUICK PRINT_003 (a) | Gallery Permission
+# Allow all → Gallery with images.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_003a - Allow all opens Gallery"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: subflows/reach_home_keep_photos.yaml
+- runFlow: subflows/revoke_photos_if_needed.yaml
+- runFlow: subflows/tap_quick_print.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(photos and videos|Allow all).*"
+    timeout: 20000
+- assertVisible: "Allow all"
+- runFlow: subflows/allow_photos_all_and_os.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 15000
+- runFlow: subflows/assert_quick_print_gallery.yaml

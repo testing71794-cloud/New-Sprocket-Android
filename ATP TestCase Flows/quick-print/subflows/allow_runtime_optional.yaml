@@ -1,0 +1,16 @@
+# Camera / location / nearby / notification only. Do not tap Allow all (photos).
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    text: ".*(?i)While using the app.*"
+    optional: true
+- runFlow:
+    when:
+      notVisible: ".*(?i)(photos and videos|Allow all|Allow limited access).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Allow$"
+          optional: true
+- waitForAnimationToEnd:
+    timeout: 1200

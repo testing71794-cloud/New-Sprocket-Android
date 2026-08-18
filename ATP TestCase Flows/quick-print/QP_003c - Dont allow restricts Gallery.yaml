@@ -1,0 +1,25 @@
+# ATP: QUICK PRINT_003 (c) | Gallery Permission
+# Don't allow → grant-permission screen with Open Settings.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_003c - Dont allow restricts Gallery"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: subflows/reach_home_keep_photos.yaml
+- runFlow: subflows/revoke_photos_if_needed.yaml
+- runFlow: subflows/tap_quick_print.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(photos and videos|Don.?t allow|Allow all).*"
+    timeout: 20000
+- runFlow: subflows/deny_photos_permission.yaml
+- waitForAnimationToEnd:
+    timeout: 4000
+- assertVisible: ".*(?i)(Go to device settings|grant photo|Open Settings).*"
+- assertVisible: ".*(?i)Open Settings.*"

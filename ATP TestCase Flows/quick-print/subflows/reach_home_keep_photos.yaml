@@ -1,0 +1,18 @@
+# Guest Create home without granting Photos (permission cases).
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+appId: com.hp.impulse.sprocket
+---
+- runFlow: complete_onboarding_to_signup.yaml
+- runFlow: guest_to_create_home_deny_runtime.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all|Allow limited access).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Don.?t [Aa]llow.*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^Deny$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000

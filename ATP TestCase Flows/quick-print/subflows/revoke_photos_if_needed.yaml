@@ -1,0 +1,15 @@
+# Deny media while staying on Create home. No relaunch (USB Settings steals focus).
+# See: https://docs.maestro.dev/reference/commands-available/setpermissions
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/permissions
+appId: com.hp.impulse.sprocket
+---
+- setPermissions:
+    permissions:
+      medialibrary: deny
+      storage: deny
+      android.permission.READ_MEDIA_IMAGES: deny
+      android.permission.READ_MEDIA_VIDEO: deny
+      android.permission.READ_MEDIA_VISUAL_USER_SELECTED: deny
+      android.permission.READ_EXTERNAL_STORAGE: deny
+- waitForAnimationToEnd:
+    timeout: 1000

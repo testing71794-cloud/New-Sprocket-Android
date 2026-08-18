@@ -1,0 +1,41 @@
+# Sign-up → guest Create home. Never tap Allow (permission cases).
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)I already have (an )?account.*"
+    commands:
+      - tapOn: ".*(?i)I already have (an )?account.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)Continue without Logging In.*"
+    commands:
+      - tapOn: ".*(?i)Continue without Logging In.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: ../../permission/subflows/dismiss_onboarding_permission_dialogs.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: "(?i)Quick Print.*"
+    timeout: 25000
+- assertVisible: "(?i)Quick Print.*"
