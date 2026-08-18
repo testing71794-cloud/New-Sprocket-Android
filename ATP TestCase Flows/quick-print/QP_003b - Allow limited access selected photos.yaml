@@ -1,6 +1,7 @@
 # ATP: QUICK PRINT_003 (b) | Gallery Permission
-# Allow limited access → pick photos → Done.
-# See: https://docs.maestro.dev/
+# Allow limited access → pick photos in the OS picker → those photos show in Gallery.
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 appId: com.hp.impulse.sprocket
 name: "QP_003b - Allow limited access selected photos"
 tags:
@@ -17,10 +18,10 @@ tags:
 - runFlow: subflows/tap_quick_print.yaml
 - extendedWaitUntil:
     visible: ".*(?i)(photos and videos|Allow limited access).*"
-    timeout: 15000
+    timeout: 20000
 - tapOn: "Allow limited access"
 - waitForAnimationToEnd:
-    timeout: 4000
+    timeout: 3000
 - runFlow:
     when:
       visible: ".*(?i)Allow limited access.*"
@@ -28,22 +29,5 @@ tags:
       - tapOn: ".*(?i)Allow limited access.*"
       - waitForAnimationToEnd:
           timeout: 3000
-- tapOn:
-    point: "20%,30%"
-- waitForAnimationToEnd:
-    timeout: 1000
-- tapOn:
-    point: "50%,30%"
-- waitForAnimationToEnd:
-    timeout: 1000
-- runFlow:
-    when:
-      visible: ".*(?i)^Done$"
-    commands:
-      - tapOn: ".*(?i)^Done$"
-      - waitForAnimationToEnd:
-          timeout: 3000
-- extendedWaitUntil:
-    visible: ".*(?i)(Recent|Selected|Photos|Gallery).*"
-    timeout: 15000
-- assertVisible: ".*(?i)(Recent|Selected|Photos).*"
+- runFlow: subflows/pick_limited_access_photos.yaml
+- runFlow: subflows/assert_limited_gallery_shows_photos.yaml

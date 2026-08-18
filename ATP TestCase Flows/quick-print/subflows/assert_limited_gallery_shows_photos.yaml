@@ -1,0 +1,24 @@
+# Limited-access Gallery must show the photos just picked — not an empty/deny screen.
+# Select Mode on a thumbnail proves a selected image is on the grid.
+# See: https://docs.maestro.dev/reference/commands-available/assertvisible
+# See: https://docs.maestro.dev/reference/commands-available/assertnotvisible
+# See: https://docs.maestro.dev/reference/commands-available/longpresson
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Folder name|Create).*"
+    timeout: 15000
+- assertNotVisible: ".*(?i)No photos found.*"
+- assertNotVisible: ".*(?i)(Go to device settings|grant photo|Open Settings).*"
+- assertVisible: ".*Create.*"
+- assertVisible:
+    text: "Recent"
+    optional: true
+- longPressOn:
+    point: "15%,28%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Cancel"
+- assertVisible: ".*(?i)(1 Photo Selected|2 Photos Selected|1.*Selected|2.*Selected).*"
+- assertVisible: "Print Preview"

@@ -1,0 +1,59 @@
+# Motorola/Android photo picker is a bottom sheet. Default album can be
+# Favorites (empty). Switch to Photos, then select — confirm only if count > 0.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+---
+- waitForAnimationToEnd:
+    timeout: 3500
+- runFlow:
+    when:
+      visible: ".*(?i)(Favorites|Favourites).*"
+    commands:
+      - tapOn: ".*(?i)(Favorites|Favourites).*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^(Photos|Recents?|Library|Pictures|Camera)$"
+    commands:
+      - tapOn: ".*(?i)^(Photos|Recents?|Library|Pictures|Camera)$"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)No favourites yet.*"
+    commands:
+      - tapOn:
+          point: "50%,42%"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- tapOn:
+    point: "20%,58%"
+    retryTapIfNoChange: true
+- waitForAnimationToEnd:
+    timeout: 600
+- tapOn:
+    point: "50%,58%"
+- waitForAnimationToEnd:
+    timeout: 600
+- tapOn:
+    point: "80%,58%"
+- waitForAnimationToEnd:
+    timeout: 600
+- runFlow:
+    when:
+      notVisible: ".*(?i)[1-9].*photos or videos selected.*"
+    commands:
+      - tapOn:
+          point: "20%,70%"
+      - tapOn:
+          point: "50%,70%"
+      - waitForAnimationToEnd:
+          timeout: 1000
+- extendedWaitUntil:
+    visible: ".*(?i)[1-9].*photos or videos selected.*"
+    timeout: 12000
+- tapOn: "Done"
+- waitForAnimationToEnd:
+    timeout: 3000
