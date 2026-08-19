@@ -1,0 +1,17 @@
+# In-app Allow all; OS Photos "Allow" only if that exact dialog is up.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Allow Sprocket to access photos.*"
+    commands:
+      - tapOn: "Allow all"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- tapOn:
+    text: ".*(?i)^Allow$"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000

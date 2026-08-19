@@ -1,7 +1,10 @@
-# Photos permission — Don't allow / Deny (straight + curly apostrophe).
+# Deny notification / runtime dialogs without a 6-loop hierarchy scan.
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 appId: com.hp.impulse.sprocket
 ---
+- tapOn:
+    text: ".*(?i)Don.?t [Aa]llow.*"
+    optional: true
 - tapOn:
     text: ".*(?i)Don.?t [Aa]llow.*"
     optional: true

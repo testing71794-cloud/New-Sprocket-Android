@@ -1,5 +1,5 @@
-# Sign-up → guest Create home. Never tap Allow (permission cases).
-# Wait after Sign Up Later so the next tap does not hit Create-hub tiles.
+# Sign-up → guest Create home. Wait after Sign Up Later so the next tap
+# does not hit Create-hub tiles (Photobooth) during the transition.
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions

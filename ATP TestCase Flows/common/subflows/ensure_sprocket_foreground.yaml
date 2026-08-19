@@ -1,0 +1,16 @@
+appId: com.hp.impulse.sprocket
+---
+# Recover when Settings or USB picker steals focus during launch.
+- runFlow:
+    when:
+      visible: ".*(?i)(Device details|Use USB for|USB controlled by|File transfer|Search settings).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - launchApp:
+          clearState: false
+- runFlow: dismiss_usb_charging_popup_if_visible.yaml

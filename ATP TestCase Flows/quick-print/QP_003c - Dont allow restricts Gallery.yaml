@@ -1,12 +1,15 @@
 # ATP: QUICK PRINT_003 (c) | Gallery Permission
-# Don't allow → grant-permission screen with Open Settings.
-# See: https://docs.maestro.dev/
+# Don't allow → Open Settings → enable Photos → Gallery shows images.
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/assertvisible
+# See: https://docs.maestro.dev/reference/commands-available/assertnotvisible
 appId: com.hp.impulse.sprocket
 name: "QP_003c - Dont allow restricts Gallery"
 tags:
   - quick-print
   - atp-excel
-  - positive
+  - negative
 ---
 - launchApp:
     clearState: true
@@ -17,9 +20,18 @@ tags:
 - runFlow: subflows/tap_quick_print.yaml
 - extendedWaitUntil:
     visible: ".*(?i)(photos and videos|Don.?t allow|Allow all).*"
-    timeout: 20000
+    timeout: 15000
 - runFlow: subflows/deny_photos_permission.yaml
-- waitForAnimationToEnd:
-    timeout: 4000
-- assertVisible: ".*(?i)(Go to device settings|grant photo|Open Settings).*"
+- extendedWaitUntil:
+    visible: ".*(?i)Open Settings.*"
+    timeout: 10000
 - assertVisible: ".*(?i)Open Settings.*"
+- assertNotVisible: ".*(?i)^Recent$"
+- runFlow: subflows/grant_photos_from_open_settings.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 12000
+- assertVisible: "Recent"
+- assertVisible: ".*Create.*"
+- assertNotVisible: ".*(?i)No photos found.*"
+- assertNotVisible: ".*(?i)Open Settings.*"

@@ -1,0 +1,83 @@
+# First Gallery visit after cache+data clear.
+# Legacy: toast "Tap and hold an image to enter select mode" (~5s, often not in UiAutomator).
+# 3.0.2871+: that toast is not shown; first Gallery visit exposes Select (Select Mode entry).
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/selectors/relational-selectors
+# See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+# See: https://docs.maestro.dev/reference/commands-available/asserttrue
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- evalScript: ${output.qp005ToastOk = '0'}
+- runFlow: complete_onboarding_to_signup.yaml
+- runFlow: complete_guest_welcome.yaml
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: "(?i)Quick Print.*"
+- runFlow:
+    when:
+      visible: ".*(?i)Enable the full sprocket experience.*"
+    commands:
+      - tapOn:
+          rightOf: "Photo Gallery"
+      - runFlow:
+          when:
+            visible: ".*(?i)Allow all.*"
+          commands:
+            - tapOn: "Allow all"
+      - runScript:
+          file: assert_select_mode_toast.js
+          env:
+            TOAST_EXPECT: present
+            TOAST_ACTION: arm
+      - tapOn:
+          text: "Next"
+          waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all|Allow Sprocket to access photos).*"
+    commands:
+      - runScript:
+          file: assert_select_mode_toast.js
+          env:
+            TOAST_EXPECT: present
+            TOAST_ACTION: arm
+      - tapOn:
+          text: "Allow all"
+          waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      visible: ".*(?i)^Allow$"
+    commands:
+      - tapOn: ".*(?i)^Allow$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Tap and hold an image to enter select mode|select mode).*"
+    timeout: 8000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)(Tap and hold an image to enter select mode|select mode).*"
+    commands:
+      - evalScript: ${output.qp005ToastOk = '1'}
+- runScript:
+    file: assert_select_mode_toast.js
+    env:
+      TOAST_EXPECT: present
+      TOAST_ACTION: result
+- runFlow:
+    when:
+      true: ${output.qp005ToastOk != '1'}
+      visible: ".*(?i)^Select$"
+    commands:
+      - evalScript: ${output.qp005ToastOk = '1'}
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Select|^All$|Gallery).*"
+    timeout: 15000
+- assertTrue:
+    condition: ${output.qp005ToastOk == '1'}
+    label: Select Mode tip on first Gallery visit
+- assertVisible: ".*(?i)(Recent|Select).*"

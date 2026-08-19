@@ -1,0 +1,77 @@
+# Open Settings → Always allow all / Allow all → back to Sprocket → open Gallery.
+# After Don't allow, Photos and videos sits under Not allowed — scroll before tap.
+# Motorola radio: Always allow all. Permission UI stays on top unless we back out.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/scrolluntilvisible
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/setpermissions
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/back
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- tapOn: ".*(?i)Open Settings.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Permissions|App info|Always allow all|Photos and videos|Sprocket).*"
+    timeout: 8000
+- runFlow:
+    when:
+      visible: ".*(?i)^Permissions$"
+      notVisible: ".*(?i)(Always allow all|Allow limited access).*"
+    commands:
+      - tapOn: ".*(?i)^Permissions$"
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Always allow all|Allow limited access).*"
+    commands:
+      - scrollUntilVisible:
+          element: ".*(?i)^Photos and videos$"
+          direction: DOWN
+          timeout: 8000
+          speed: 80
+          visibilityPercentage: 50
+          centerElement: true
+      - tapOn: ".*(?i)^Photos and videos$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Always allow all|Allow all|Always allow).*"
+    timeout: 8000
+- tapOn: ".*(?i)(Always allow all|Always allow|^Allow all$).*"
+- setPermissions:
+    permissions:
+      medialibrary: allow
+      storage: allow
+      android.permission.READ_MEDIA_IMAGES: allow
+      android.permission.READ_MEDIA_VIDEO: allow
+- back
+- back
+- back
+- launchApp:
+    clearState: false
+    stopApp: false
+- runFlow:
+    when:
+      visible: ".*(?i)(Always allow all|Photos and videos access|App info|^Permissions$).*"
+    commands:
+      - back
+      - launchApp:
+          clearState: false
+          stopApp: false
+- runFlow: ../../common/subflows/ensure_sprocket_foreground.yaml
+- extendedWaitUntil:
+    visible: "(?i)(Quick Print|Recent|Open Settings|Create|Allow Sprocket).*"
+    timeout: 12000
+- runFlow:
+    when:
+      visible: ".*(?i)Open Settings.*"
+    commands:
+      - back
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: "(?i)Quick Print.*"
+- runFlow:
+    when:
+      visible: ".*(?i)(Allow all|Allow Sprocket to access photos).*"
+    commands:
+      - tapOn: "Allow all"

@@ -11,8 +11,3 @@ appId: com.hp.impulse.sprocket
       - tapOn:
           text: ".*(?i)Don.?t [Aa]llow.*"
           optional: true
-      - tapOn:
-          text: ".*(?i)^Deny$"
-          optional: true
-      - waitForAnimationToEnd:
-          timeout: 2000

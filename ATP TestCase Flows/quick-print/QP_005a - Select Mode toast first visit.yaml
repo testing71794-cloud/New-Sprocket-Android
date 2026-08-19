@@ -1,0 +1,25 @@
+# ATP: QUICK PRINT_005 (a) | Select Mode Tip
+# First Gallery visit after cache + data clear. Toast when the build still shows it;
+# 3.0.2871+ uses the Select control instead.
+# See: https://docs.maestro.dev/reference/commands-available/clearstate
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/asserttrue
+appId: com.hp.impulse.sprocket
+name: "QP_005a - Select Mode toast first visit"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- clearState
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: subflows/open_gallery_catch_tip_toast.yaml
+- waitForAnimationToEnd:
+    timeout: 6000
+- assertNotVisible:
+    text: ".*(?i)Tap and hold an image to enter select mode.*"
+    optional: true
+- assertVisible: ".*(?i)(Recent|Select).*"

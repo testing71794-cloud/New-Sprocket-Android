@@ -1,0 +1,16 @@
+# ATP QUICK PRINT_004 chrome: unlabeled back left of Recent, folder, dates, tabs.
+# See: https://docs.maestro.dev/reference/commands-available/assertvisible
+# See: https://docs.maestro.dev/reference/selectors/relational-selectors
+# See: https://docs.maestro.dev/reference/selectors/state-selectors
+appId: com.hp.impulse.sprocket
+---
+- assertVisible:
+    enabled: true
+    leftOf: "Recent"
+- assertVisible: "Recent"
+- assertVisible: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*"
+- assertVisible: ".*(?i)More.*"
+- assertVisible:
+    text: ".*(?i)Create.*"
+    selected: true
+- assertVisible: ".*(?i)Printer.*"

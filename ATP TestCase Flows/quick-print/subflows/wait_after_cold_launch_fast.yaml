@@ -1,0 +1,6 @@
+# Cold launch without a 3s animation wait (status-bar loops can burn the full timeout).
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../common/subflows/ensure_sprocket_foreground.yaml
+- runFlow: ../../common/subflows/dismiss_usb_charging_popup_if_visible.yaml

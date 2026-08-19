@@ -1,0 +1,49 @@
+# ATP: QUICK PRINT_005 (b) | Select Mode Tip
+# First visit after cache+data clear shows toast; second visit does not.
+# See: https://docs.maestro.dev/reference/commands-available/clearstate
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+# See: https://docs.maestro.dev/reference/commands-available/asserttrue
+appId: com.hp.impulse.sprocket
+name: "QP_005b - Select Mode toast not on second visit"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- clearState
+- launchApp:
+    clearState: true
+    permissions:
+      all: deny
+- runFlow: subflows/open_gallery_catch_tip_toast.yaml
+- waitForAnimationToEnd:
+    timeout: 7000
+- pressKey: home
+- waitForAnimationToEnd:
+    timeout: 2000
+- launchApp:
+    clearState: false
+    stopApp: false
+- runFlow: subflows/wait_after_cold_launch_fast.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(Sign up|I.ll do it later|Sign Up Later).*"
+    commands:
+      - runFlow: subflows/reach_home_keep_photos.yaml
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: "(?i)Quick Print.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Select).*"
+    timeout: 15000
+- runScript:
+    file: subflows/assert_select_mode_toast.js
+    env:
+      TOAST_EXPECT: absent
+- assertTrue:
+    condition: ${output.qp005ToastOk == '1'}
+    label: Select Mode tip toast absent on second Gallery visit
+- assertVisible: ".*(?i)(Recent|Select).*"

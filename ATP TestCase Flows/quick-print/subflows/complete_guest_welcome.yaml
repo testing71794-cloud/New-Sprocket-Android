@@ -1,0 +1,36 @@
+# 3.0.2871+ after I'll do it later: Welcome → Explore → privacy → data → notifications.
+# Legacy builds skip this and already show Quick Print.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)(I.ll do it later|Sign Up Later).*"
+    commands:
+      - tapOn: ".*(?i)(I.ll do it later|Sign Up Later).*"
+      - extendedWaitUntil:
+          notVisible: ".*(?i)(I.ll do it later|Sign Up Later).*"
+          timeout: 10000
+- runFlow:
+    when:
+      visible: ".*(?i)explore sprocket.*"
+    commands:
+      - tapOn: ".*(?i)explore sprocket.*"
+- runFlow:
+    when:
+      visible: ".*(?i)^Get Started$"
+    commands:
+      - tapOn: ".*(?i)^Get Started$"
+- runFlow:
+    when:
+      visible: ".*(?i)(Help us improve|Automatically collect).*"
+    commands:
+      - tapOn: ".*(?i)^Continue$"
+- runFlow:
+    when:
+      visible: ".*(?i)Yes, I.?m Sure.*"
+    commands:
+      - tapOn: ".*(?i)Yes, I.?m Sure.*"
+- runFlow: dismiss_runtime_fast.yaml

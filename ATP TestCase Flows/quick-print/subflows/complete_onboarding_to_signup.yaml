@@ -1,16 +1,13 @@
+# QP TCs — optional carousel → Sign up. Wait for the screen, not a fixed delay.
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 appId: com.hp.impulse.sprocket
 ---
-# QP TCs — optional carousel (many builds skip Welcome) → Sign up screen.
-# Jenkins #87 QP_12 timed out waiting for exact "Sign up" after cold launch.
-- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+- runFlow: wait_after_cold_launch_fast.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Get Started!|Welcome to the new Sprocket).*"
+    timeout: 20000
 - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
 - extendedWaitUntil:
     visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later).*"
-    timeout: 30000
-- assertVisible:
-    text: ".*(?i)Sign up.*"
-    optional: true
-- assertVisible:
-    text: ".*(?i)(I already have (an )?account).*"
-    optional: true
+    timeout: 20000
 - assertVisible: ".*(?i)(I.ll do it later|Sign Up Later|I already have (an )?account).*"

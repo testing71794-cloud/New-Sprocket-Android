@@ -1,0 +1,13 @@
+# Cold-path → guest Create → Quick Print → Recent.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+---
+- runFlow: complete_onboarding_to_signup.yaml
+- runFlow: guest_to_create_home.yaml
+- runFlow: tap_quick_print.yaml
+- runFlow: allow_photos_all_and_os.yaml
+- runFlow: allow_runtime_optional.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 15000
+- assertVisible: "Recent"

@@ -12,8 +12,10 @@ import json
 import os
 import queue
 import subprocess
+import sys
 import threading
 import time
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -63,6 +65,9 @@ def prepare(serial: str, *, parallel: bool = False) -> None:
         cmds.append(["forward", "--remove-all"])
     cmds.extend(
         [
+            ["shell", "cmd", "connectivity", "airplane-mode", "disable"],
+            ["shell", "svc", "wifi", "enable"],
+            ["shell", "svc", "data", "enable"],
             ["shell", "am", "force-stop", "dev.mobile.maestro"],
             ["shell", "am", "force-stop", "dev.mobile.maestro.test"],
             ["shell", "am", "force-stop", "com.android.settings"],
@@ -230,8 +235,11 @@ def _run_one_with_retry(
     if rec["status"] == "PASS":
         return rec
     prepare(serial, parallel=parallel)
+    reason = rec.get("failure_reason") or ""
+    low = reason.lower()
+    letters = [c for c in reason if c.isalpha()]
     need_reinstall = any(
-        x in (rec.get("failure_reason") or "").lower()
+        x in low
         for x in (
             "install failed",
             "driver",
@@ -240,7 +248,12 @@ def _run_one_with_retry(
             "not connected",
             "unsatisfiedlinkerror",
             "jansi",
+            "deadline_exceeded",
+            "waiting_for_connection",
         )
+    ) or (
+        float(rec.get("execution_time_sec") or 999) < 20
+        and (not letters or set(reason.strip()) <= set("? \t"))
     )
     rec2 = run_flow(maestro, serial, flow, timeout=timeout, reinstall=need_reinstall)
     if rec2["status"] == "PASS":
@@ -275,7 +288,7 @@ def run_parallel(
             idx, flow = item
             with print_lock:
                 print(f"[{idx + 1}/{len(flows)}] {flow.name} @ {serial} ...", flush=True)
-            reinstall = not first_done[serial]
+            reinstall = False
             first_done[serial] = True
             rec = _run_one_with_retry(
                 maestro,
@@ -313,7 +326,7 @@ def run_sequential(maestro: str, serial: str, flows: list[Path], timeout: int) -
             serial,
             flow,
             timeout,
-            reinstall_first=(i == 1),
+            reinstall_first=False,
             parallel=False,
         )
         rows.append(rec)
@@ -395,11 +408,40 @@ def main() -> int:
     )
     print(f"Devices: {', '.join(devices)}", flush=True)
 
+    ocr_proc = None
+    if args.module == "quick-print":
+        env = os.environ.copy()
+        env["ANDROID_SERIAL"] = devices[0]
+        ocr_proc = subprocess.Popen(
+            [sys.executable, str(REPO / "scripts" / "qp005_toast_ocr_server.py")],
+            cwd=str(REPO),
+            env=env,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        for _ in range(20):
+            try:
+                urllib.request.urlopen("http://127.0.0.1:8765/health", timeout=1)
+                print("[qp005] toast OCR helper ready on :8765", flush=True)
+                break
+            except Exception:
+                time.sleep(0.25)
+        else:
+            print("[qp005] WARN: toast OCR helper did not start", flush=True)
+
     t0 = time.time()
-    if len(devices) > 1:
-        rows = run_parallel(args.maestro, devices, flows, args.timeout)
-    else:
-        rows = run_sequential(args.maestro, devices[0], flows, args.timeout)
+    try:
+        if len(devices) > 1:
+            rows = run_parallel(args.maestro, devices, flows, args.timeout)
+        else:
+            rows = run_sequential(args.maestro, devices[0], flows, args.timeout)
+    finally:
+        if ocr_proc is not None:
+            ocr_proc.terminate()
+            try:
+                ocr_proc.wait(timeout=5)
+            except Exception:
+                ocr_proc.kill()
 
     if args.only_failed and prior_rows:
         by_name = {r["flow"]: r for r in prior_rows}
