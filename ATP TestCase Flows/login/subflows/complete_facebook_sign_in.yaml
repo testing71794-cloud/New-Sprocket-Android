@@ -37,6 +37,7 @@ appId: com.hp.impulse.sprocket
           timeout: 5000
 
 - runFlow: enter_facebook_credentials.yaml
+- runFlow: dismiss_facebook_captcha.yaml
 - runFlow: dismiss_facebook_save_login_prompt.yaml
 
 # After credentials, Facebook shows Continue as / Continue again (SG_03).

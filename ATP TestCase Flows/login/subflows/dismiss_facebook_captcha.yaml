@@ -1,0 +1,32 @@
+appId: com.hp.impulse.sprocket
+---
+# Facebook sometimes shows Google reCAPTCHA after login (same pattern as complete_google_sign_in).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+
+- runFlow:
+    when:
+      visible: "I'm not a robot"
+    commands:
+      - tapOn: "I'm not a robot"
+      - waitForAnimationToEnd:
+          timeout: 8000
+
+- runFlow:
+    when:
+      visible: ".*not a robot.*"
+    commands:
+      - tapOn:
+          text: ".*not a robot.*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+
+- runFlow:
+    when:
+      visible:
+        id: "recaptcha-anchor"
+    commands:
+      - tapOn:
+          id: "recaptcha-anchor"
+      - waitForAnimationToEnd:
+          timeout: 8000

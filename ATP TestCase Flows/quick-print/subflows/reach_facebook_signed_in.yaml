@@ -14,13 +14,16 @@ appId: com.hp.impulse.sprocket
 - waitForAnimationToEnd:
     timeout: 8000
 - repeat:
-    times: 2
+    times: 3
     while:
-      visible: ".*(?i)(m\\.facebook\\.com|log in to facebook|email or phone|mobile number or email|save your login|continue as).*"
+      visible: "m.facebook.com"
     commands:
-      - runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
+      - runFlow: ../../login/subflows/handle_facebook_continue_as.yaml
+      - runFlow: ../../login/subflows/dismiss_facebook_captcha.yaml
+      - runFlow: ../../login/subflows/dismiss_facebook_save_login_prompt.yaml
+      - runFlow: ../../login/subflows/tap_facebook_log_in.yaml
       - waitForAnimationToEnd:
-          timeout: 8000
+          timeout: 5000
 - extendedWaitUntil:
     visible: ".*(?i)(More options|Unlink).*"
     timeout: 25000

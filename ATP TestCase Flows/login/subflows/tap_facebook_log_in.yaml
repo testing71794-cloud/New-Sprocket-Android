@@ -1,0 +1,39 @@
+appId: com.hp.impulse.sprocket
+---
+# Submit Facebook login — English or Punjabi m.facebook.com button.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+
+- runFlow:
+    when:
+      visible: "ਲੌਗ ਇਨ ਕਰੋ"
+    commands:
+      - tapOn: "ਲੌਗ ਇਨ ਕਰੋ"
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "Log In"
+    commands:
+      - tapOn:
+          text: "Log In"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "Log in"
+    commands:
+      - tapOn: "Log in"
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "Sign in"
+    commands:
+      - tapOn: "Sign in"
+      - waitForAnimationToEnd:
+          timeout: 3000
