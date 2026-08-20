@@ -1,6 +1,7 @@
 appId: com.hp.impulse.sprocket
 ---
-# Complete Facebook OAuth — SG_03 signup sequence plus Chrome Custom Tab.
+# Complete Facebook OAuth for signup, login, and Quick Print gallery.
+# Covers: Chrome tab, language, Continue as, credentials, save-login, captcha, cookies.
 # Credentials: cplusadev@gmail.com / CAglobal@127
 # Do NOT use hideKeyboard or pressKey back — they dismiss the WebView.
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
@@ -15,7 +16,7 @@ appId: com.hp.impulse.sprocket
           timeout: 1000
 
 - waitForAnimationToEnd:
-    timeout: 3000
+    timeout: 1500
 
 - runFlow: dismiss_facebook_language_picker.yaml
 
@@ -24,9 +25,9 @@ appId: com.hp.impulse.sprocket
       visible: ".*(?i)(m\\.facebook\\.com|minimi[sz]e tab).*"
     commands:
       - waitForAnimationToEnd:
-          timeout: 5000
+          timeout: 2000
 
-- runFlow: handle_facebook_continue_as.yaml
+- runFlow: handle_facebook_oauth_screens.yaml
 
 - runFlow:
     when:
@@ -34,14 +35,9 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: "cplusadev@gmail.com"
       - waitForAnimationToEnd:
-          timeout: 5000
+          timeout: 2000
 
 - runFlow: enter_facebook_credentials.yaml
-- runFlow: dismiss_facebook_captcha.yaml
-- runFlow: dismiss_facebook_save_login_prompt.yaml
-
-# After credentials, Facebook shows Continue as / Continue again (SG_03).
-- runFlow: handle_facebook_continue_as.yaml
-- runFlow: dismiss_facebook_save_login_prompt.yaml
+- runFlow: advance_facebook_after_credentials.yaml
 - waitForAnimationToEnd:
-    timeout: 5000
+    timeout: 2000

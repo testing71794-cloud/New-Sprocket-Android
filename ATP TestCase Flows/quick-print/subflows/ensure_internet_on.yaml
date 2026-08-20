@@ -1,0 +1,12 @@
+# Clear airplane mode and re-enable wifi/data.
+# See: https://docs.maestro.dev/reference/commands-available/setairplanemode
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+appId: com.hp.impulse.sprocket
+---
+- setAirplaneMode: disabled
+- runScript:
+    file: set_device_network.js
+    env:
+      NET_STATE: on
+- waitForAnimationToEnd:
+    timeout: 2500

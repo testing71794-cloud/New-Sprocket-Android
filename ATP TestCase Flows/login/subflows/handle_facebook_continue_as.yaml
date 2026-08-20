@@ -1,6 +1,6 @@
 appId: com.hp.impulse.sprocket
 ---
-# Facebook OAuth consent — same Continue / Continue as path as signup SG_03.
+# Facebook OAuth consent — SG_03 Continue / Continue as (English, Punjabi, Hindi).
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 
@@ -13,7 +13,7 @@ appId: com.hp.impulse.sprocket
           text: "Continue as.*"
           retryTapIfNoChange: true
       - waitForAnimationToEnd:
-          timeout: 8000
+          timeout: 2500
 
 - runFlow:
     when:
@@ -23,24 +23,7 @@ appId: com.hp.impulse.sprocket
           text: "Continue as.*"
           retryTapIfNoChange: true
       - waitForAnimationToEnd:
-          timeout: 8000
-
-- runFlow:
-    when:
-      visible: "Continue"
-    commands:
-      - tapOn: "Continue"
-      - waitForAnimationToEnd:
-          timeout: 3000
-
-- runFlow:
-    when:
-      visible: "Edit access"
-    commands:
-      - tapOn:
-          text: "Continue as.*"
-      - waitForAnimationToEnd:
-          timeout: 5000
+          timeout: 2500
 
 - runFlow:
     when:
@@ -50,7 +33,44 @@ appId: com.hp.impulse.sprocket
           text: "Continue as.*"
           optional: true
       - waitForAnimationToEnd:
-          timeout: 5000
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "Edit access"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+          optional: true
+      - tapOn: "Continue"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "Continue"
+      notVisible:
+        id: "m_login_email"
+    commands:
+      - tapOn: "Continue"
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "ਜਾਰੀ ਰੱਖੋ"
+    commands:
+      - tapOn: "ਜਾਰੀ ਰੱਖੋ"
+      - waitForAnimationToEnd:
+          timeout: 2500
+
+- runFlow:
+    when:
+      visible: "जारी रखें"
+    commands:
+      - tapOn: "जारी रखें"
+      - waitForAnimationToEnd:
+          timeout: 2500
 
 - runFlow:
     when:

@@ -1,17 +1,69 @@
 appId: com.hp.impulse.sprocket
 ---
-# Facebook post-login — dismiss "Save your login info?" without saving.
+# Dismiss "Save your login info?" — English, Punjabi, Hindi.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+
 - runFlow:
     when:
       visible: "Save your login info"
     commands:
       - tapOn: "Not now"
       - waitForAnimationToEnd:
-          timeout: 5000
+          timeout: 2000
+
 - runFlow:
     when:
       visible: "Not now"
     commands:
       - tapOn: "Not now"
       - waitForAnimationToEnd:
-          timeout: 5000
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "ਹੁਣੇ ਨਹੀਂ"
+    commands:
+      - tapOn: "ਹੁਣੇ ਨਹੀਂ"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "ਹੁਣ ਨਹੀਂ"
+    commands:
+      - tapOn: "ਹੁਣ ਨਹੀਂ"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "अभी नहीं"
+    commands:
+      - tapOn: "अभी नहीं"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "ਸੁਰੱਖਿਅਤ ਕਰੋ"
+    commands:
+      - tapOn: "ਸੁਰੱਖਿਅਤ ਕਰੋ"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "ਸੇਵ ਕਰੋ"
+    commands:
+      - tapOn: "ਸੇਵ ਕਰੋ"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+- runFlow:
+    when:
+      visible: "सहेजें"
+    commands:
+      - tapOn: "सहेजें"
+      - waitForAnimationToEnd:
+          timeout: 2000

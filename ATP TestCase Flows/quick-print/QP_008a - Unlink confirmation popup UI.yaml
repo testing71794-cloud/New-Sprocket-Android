@@ -1,0 +1,21 @@
+# ATP: QUICK PRINT_08 (a) | Facebook Unlink Popup
+# After Unlink tap, menu item is gone — assert the dialog body and buttons.
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+name: "QP_008a - Unlink confirmation popup UI"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_overflow.yaml
+- tapOn: ".*(?i)Unlink.*"
+- extendedWaitUntil:
+    visible: ".*(?i)Are you sure you want to sign out.*"
+    timeout: 8000
+- assertVisible: ".*(?i)sign out of Facebook.*"
+- assertVisible: "Cancel"
+- assertVisible: "Sign Out"

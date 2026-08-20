@@ -1,0 +1,92 @@
+appId: com.hp.impulse.sprocket
+---
+# Every Facebook Chrome OAuth screen after (or instead of) the login form.
+# English, Punjabi, Hindi. Do not tap Create account / Forgot password / Close tab.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+
+- runFlow: dismiss_facebook_language_picker.yaml
+- runFlow: handle_facebook_continue_as.yaml
+- runFlow: dismiss_facebook_captcha.yaml
+- runFlow: dismiss_facebook_save_login_prompt.yaml
+
+# Cookies
+- runFlow:
+    when:
+      visible: "Allow all cookies"
+    commands:
+      - tapOn: "Allow all cookies"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "Accept all"
+    commands:
+      - tapOn: "Accept all"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "Allow all"
+    commands:
+      - tapOn: "Allow all"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+# App permission / share info
+- runFlow:
+    when:
+      visible: "Edit the info you share"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+          optional: true
+      - tapOn: "Continue"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Allow$"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "OK"
+    commands:
+      - tapOn: "OK"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: "Got it"
+    commands:
+      - tapOn: "Got it"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: "Next"
+      notVisible:
+        id: "m_login_email"
+    commands:
+      - tapOn: "Next"
+      - waitForAnimationToEnd:
+          timeout: 2000
+
+# Already-logged-in account chip
+- runFlow:
+    when:
+      visible: "Nitesh"
+    commands:
+      - tapOn:
+          text: "Continue as.*"
+          optional: true
+      - tapOn:
+          text: "ਜਾਰੀ ਰੱਖੋ"
+          optional: true
+      - tapOn:
+          point: "50%,78%"
+      - waitForAnimationToEnd:
+          timeout: 2500

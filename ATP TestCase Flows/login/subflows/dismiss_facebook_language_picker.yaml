@@ -1,11 +1,53 @@
 appId: com.hp.impulse.sprocket
 ---
-# Dismiss Facebook "Select your language" sheet — never pick a language.
+# Switch Facebook WebView to English so later OAuth screens match SG_03 labels.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+
 - runFlow:
     when:
       visible: "Select your language"
     commands:
       - tapOn:
-          point: "50%, 12%"
+          text: "English (US)"
+          optional: true
+      - tapOn:
+          text: "English (UK)"
+          optional: true
+      - tapOn:
+          text: "English"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "ਪੰਜਾਬੀ"
+    commands:
+      - tapOn: "ਪੰਜਾਬੀ"
       - waitForAnimationToEnd:
           timeout: 2000
+      - tapOn:
+          text: "English (US)"
+          optional: true
+      - tapOn:
+          text: "English"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+
+- runFlow:
+    when:
+      visible: "हिन्दी"
+    commands:
+      - tapOn: "हिन्दी"
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - tapOn:
+          text: "English (US)"
+          optional: true
+      - tapOn:
+          text: "English"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000

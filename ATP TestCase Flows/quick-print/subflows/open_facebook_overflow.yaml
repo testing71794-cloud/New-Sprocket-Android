@@ -1,0 +1,61 @@
+# Overflow ⋮ is on the Facebook account row (~94%,17%), not the Select Gallery app bar.
+# Parent already waited for Chrome to close.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- waitForAnimationToEnd:
+    timeout: 600
+
+- runFlow:
+    when:
+      visible: ".*(?i)Unlink.*"
+    commands:
+      - waitForAnimationToEnd:
+          timeout: 200
+
+- runFlow:
+    when:
+      notVisible: ".*(?i)Unlink.*"
+    commands:
+      - tapOn:
+          point: "94%,17%"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 800
+
+- runFlow:
+    when:
+      notVisible: ".*(?i)Unlink.*"
+      visible: ".*(?i)Nitesh.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Nitesh.*"
+          point: "98%,50%"
+      - waitForAnimationToEnd:
+          timeout: 800
+
+- runFlow:
+    when:
+      notVisible: ".*(?i)Unlink.*"
+      visible: ".*(?i)More options.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)More options.*"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 800
+
+- runFlow:
+    when:
+      notVisible: ".*(?i)Unlink.*"
+    commands:
+      - tapOn:
+          point: "94%,20%"
+      - waitForAnimationToEnd:
+          timeout: 800
+
+- extendedWaitUntil:
+    visible: ".*(?i)Unlink.*"
+    timeout: 8000

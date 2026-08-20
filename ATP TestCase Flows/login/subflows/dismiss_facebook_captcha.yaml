@@ -10,7 +10,7 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: "I'm not a robot"
       - waitForAnimationToEnd:
-          timeout: 8000
+          timeout: 3000
 
 - runFlow:
     when:
@@ -19,7 +19,7 @@ appId: com.hp.impulse.sprocket
       - tapOn:
           text: ".*not a robot.*"
       - waitForAnimationToEnd:
-          timeout: 8000
+          timeout: 3000
 
 - runFlow:
     when:
@@ -29,4 +29,4 @@ appId: com.hp.impulse.sprocket
       - tapOn:
           id: "recaptcha-anchor"
       - waitForAnimationToEnd:
-          timeout: 8000
+          timeout: 3000

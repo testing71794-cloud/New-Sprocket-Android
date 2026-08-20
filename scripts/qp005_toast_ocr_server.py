@@ -691,6 +691,9 @@ def tap_kind(serial: str, kind: str) -> dict:
             hits.append((cx, cy, x1, blob))
         if kind == "overflow" and clickable and cy < int(h * 0.14) and cx > int(w * 0.72):
             right_bar.append((cx, cy, x1))
+        # Facebook ⋮ sits on the account sub-header under Select Gallery.
+        if kind == "overflow" and clickable and int(h * 0.12) < cy < int(h * 0.32) and cx > int(w * 0.78):
+            right_bar.append((cx, cy, x1))
 
     if hits:
         hits.sort(key=lambda t: t[2], reverse=True)
