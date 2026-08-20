@@ -1,0 +1,53 @@
+# ATP: QUICK PRINT_006 (e) | Gallery - Maximum Selection Limit
+# 11th tap → "Maximum of 10 photos allowed."; count stays 10; then print successfully.
+# See: https://docs.maestro.dev/reference/commands-available/asserttrue
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+# See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+name: "QP_006e - Maximum selection limit of 10"
+tags:
+  - quick-print
+  - atp-excel
+  - negative
+  - print-success
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/enter_select_mode.yaml
+- runFlow: subflows/select_ten_photos.yaml
+- assertVisible: ".*(?i)10 Photos Selected.*"
+- assertVisible: "Print Preview"
+- runScript: subflows/peek_unselected.js
+- runScript:
+    file: subflows/assert_ocr_contains.js
+    env:
+      OCR_ACTION: arm
+      OCR_NEEDLE: "maximum of 10 photos allowed,maximum of 10,10 photos allowed"
+      OCR_SECONDS: "6"
+      OCR_EXPECT: present
+- runScript: subflows/tap_xy.js
+- runFlow:
+    when:
+      visible: ".*(?i)Maximum of 10 photos allowed.*"
+    commands:
+      - evalScript: ${output.qpOcrOk = '1'}
+- runScript:
+    file: subflows/assert_ocr_contains.js
+    env:
+      OCR_ACTION: result
+      OCR_NEEDLE: "maximum of 10 photos allowed,maximum of 10,10 photos allowed"
+      OCR_SECONDS: "6"
+      OCR_EXPECT: present
+- runFlow:
+    when:
+      visible: ".*(?i)Maximum of 10 photos allowed.*"
+    commands:
+      - evalScript: ${output.qpOcrOk = '1'}
+- assertTrue:
+    condition: ${output.qpOcrOk == '1'}
+    label: Maximum of 10 photos allowed toast
+- assertVisible: ".*(?i)10 Photos Selected.*"
+- assertVisible: "Print Preview"
+- runFlow: subflows/open_print_preview_connect_and_print.yaml

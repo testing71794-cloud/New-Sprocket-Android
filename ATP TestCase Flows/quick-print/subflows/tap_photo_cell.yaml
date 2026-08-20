@@ -1,0 +1,22 @@
+# Tap output.qpPoint. Skip if already at 10 photos. Undo if the tap selected a video.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/maestro-flows/javascript/manage-data-and-states
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      notVisible: ".*(?i)10 Photos Selected.*"
+    commands:
+      - tapOn:
+          point: "${output.qpPoint}"
+      - waitForAnimationToEnd:
+          timeout: 400
+      - runFlow:
+          when:
+            visible: ".*(?i)\\d+\\s*Videos? Selected.*"
+          commands:
+            - tapOn:
+                point: "${output.qpPoint}"
+            - waitForAnimationToEnd:
+                timeout: 400

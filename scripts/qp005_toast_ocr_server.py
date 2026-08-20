@@ -6,6 +6,13 @@ Maestro JS (sandboxed) calls these HTTP endpoints:
   GET /toast/arm?expect=present&serial=   (start burst capture in background)
   GET /toast/result
   GET /ocr?needle=comma,needles&serial=&seconds=
+  GET /ocr/arm?needle=&seconds=&serial=   (burst capture in background)
+  GET /ocr/result
+  GET /select-until?want=10&kind=photos&serial=
+  GET /select-one?serial=
+  GET /peek-unselected?serial=
+  GET /tap-xy?x=&y=&serial=
+  GET /tap-unselected?serial=
   GET /network?state=off|on&serial=
   GET /tap?kind=overflow|tag&serial=
   GET /revoke-photos?serial=
@@ -294,6 +301,283 @@ def tap_xy(serial: str, x: int, y: int) -> None:
     log(f"tap {x},{y}")
 
 
+def swipe_grid(serial: str) -> None:
+    w, h = screen_size(serial)
+    x = w // 2
+    y1 = int(h * 0.70)
+    y2 = int(h * 0.38)
+    adb(
+        serial,
+        "shell",
+        "input",
+        "swipe",
+        str(x),
+        str(y1),
+        str(x),
+        str(y2),
+        "320",
+        timeout=10,
+    )
+    log(f"swipe grid {x},{y1} -> {x},{y2}")
+
+
+def _node_blob(node: ET.Element) -> str:
+    return f"{node.attrib.get('content-desc') or ''} {node.attrib.get('text') or ''}".strip()
+
+
+def parse_selection_counts(root: ET.Element) -> tuple[int, int, str]:
+    """Return (photos, videos, count_label) from Select Mode footer."""
+    best = ""
+    for node in root.iter():
+        blob = _node_blob(node)
+        if re.search(r"\bSelected\b", blob, re.I) and re.search(
+            r"\d+\s*(Photo|Video)", blob, re.I
+        ):
+            if len(blob) > len(best):
+                best = blob
+    photos = 0
+    videos = 0
+    if best:
+        m = re.search(r"(\d+)\s*Photos?", best, re.I)
+        if m:
+            photos = int(m.group(1))
+        m = re.search(r"(\d+)\s*Videos?", best, re.I)
+        if m:
+            videos = int(m.group(1))
+    return photos, videos, best
+
+
+def _is_play_overlay(parent: tuple[int, int, int, int], child: tuple[int, int, int, int]) -> bool:
+    px1, py1, px2, py2 = parent
+    cx1, cy1, cx2, cy2 = child
+    cw, ch = cx2 - cx1, cy2 - cy1
+    pw, ph = px2 - px1, py2 - py1
+    if pw < 200 or ph < 200:
+        return False
+    if cw > 130 or ch > 130:
+        return False
+    return cx1 > px1 + pw * 0.45 and cy1 > py1 + ph * 0.45
+
+
+def grid_media_cells(root: ET.Element, w: int, h: int) -> list[dict]:
+    """Clickable gallery thumbnails in the Select Mode grid (skip chrome / scrollbar)."""
+    cells: list[dict] = []
+    y_min = int(h * 0.13)
+    y_max = int(h * 0.86)
+    for node in root.iter():
+        if node.attrib.get("clickable") != "true":
+            continue
+        b = _bounds(node)
+        if not b:
+            continue
+        x1, y1, x2, y2 = b
+        bw, bh = x2 - x1, y2 - y1
+        if bw < 220 or bh < 220:
+            continue
+        if y1 < y_min or y2 > y_max:
+            continue
+        if x1 > int(w * 0.88):
+            continue
+        blob = _node_blob(node)
+        if re.search(
+            r"(cancel|recent|print preview|select gallery|facebook|more options)",
+            blob,
+            re.I,
+        ):
+            continue
+        video = bool(re.search(r"\d{1,2}:\d{2}", blob))
+        for child in node.iter():
+            if child is node:
+                continue
+            cb = _bounds(child)
+            if cb and _is_play_overlay(b, cb):
+                video = True
+                break
+        selected = bool(re.fullmatch(r"\d{1,2}", blob.strip()))
+        cells.append(
+            {
+                "cx": (x1 + x2) // 2,
+                "cy": (y1 + y2) // 2,
+                "y": y1,
+                "x": x1,
+                "video": video,
+                "selected": selected,
+            }
+        )
+    cells.sort(key=lambda c: (c["y"], c["x"]))
+    # Deduplicate overlapping dump nodes (parent View vs inner ImageView).
+    uniq: list[dict] = []
+    for c in cells:
+        if any(abs(c["cx"] - u["cx"]) < 40 and abs(c["cy"] - u["cy"]) < 40 for u in uniq):
+            # Prefer the video/selected flags if either copy has them.
+            for u in uniq:
+                if abs(c["cx"] - u["cx"]) < 40 and abs(c["cy"] - u["cy"]) < 40:
+                    u["video"] = u["video"] or c["video"]
+                    u["selected"] = u["selected"] or c["selected"]
+                    break
+            continue
+        uniq.append(c)
+    return uniq
+
+
+def select_until(serial: str, want: int = 10, kind: str = "photos") -> dict:
+    """Select `want` photos (deselect videos that count toward the 10-item cap)."""
+    last_text = ""
+    photos = videos = 0
+    for step in range(32):
+        root = dump_ui(serial)
+        if root is None:
+            return {"ok": False, "error": "ui dump failed", "step": step}
+        photos, videos, last_text = parse_selection_counts(root)
+        log(f"select-until step={step} photos={photos} videos={videos} text={last_text!r}")
+        w, h = screen_size(serial)
+        cells = grid_media_cells(root, w, h)
+        if kind == "photos" and photos >= want and videos == 0:
+            nxt = next((c for c in cells if not c["selected"]), None)
+            if nxt is None:
+                swipe_grid(serial)
+                time.sleep(0.45)
+                root2 = dump_ui(serial)
+                if root2 is not None:
+                    cells2 = grid_media_cells(root2, *screen_size(serial))
+                    nxt = next((c for c in cells2 if not c["selected"]), None)
+            return {
+                "ok": True,
+                "photos": photos,
+                "videos": videos,
+                "text": last_text,
+                "step": step,
+                "next_ok": bool(nxt),
+                "next_x": nxt["cx"] if nxt else 0,
+                "next_y": nxt["cy"] if nxt else 0,
+            }
+        if kind == "photos" and videos > 0:
+            hit = next((c for c in cells if c["video"] and c["selected"]), None)
+            if hit is None:
+                hit = next((c for c in cells if c["video"]), None)
+            if hit:
+                tap_xy(serial, hit["cx"], hit["cy"])
+                time.sleep(0.35)
+                continue
+        if kind == "photos" and photos < want:
+            hit = next((c for c in cells if (not c["video"]) and (not c["selected"])), None)
+            if hit:
+                tap_xy(serial, hit["cx"], hit["cy"])
+                time.sleep(0.35)
+                continue
+            swipe_grid(serial)
+            time.sleep(0.55)
+            continue
+        swipe_grid(serial)
+        time.sleep(0.55)
+    return {
+        "ok": False,
+        "photos": photos,
+        "videos": videos,
+        "text": last_text,
+        "error": f"did not reach {want} photos-only",
+    }
+
+
+def _unselected_cell(serial: str) -> dict:
+    """Find one unselected grid cell without tapping (so OCR can arm first)."""
+    w, h = screen_size(serial)
+    for attempt in range(2):
+        root = dump_ui(serial)
+        if root is not None:
+            cells = grid_media_cells(root, w, h)
+            hit = next((c for c in cells if not c["selected"]), None)
+            if hit:
+                return {
+                    "ok": True,
+                    "video": hit["video"],
+                    "x": hit["cx"],
+                    "y": hit["cy"],
+                    "w": w,
+                    "h": h,
+                }
+        if attempt == 0:
+            swipe_grid(serial)
+            time.sleep(0.4)
+    return {
+        "ok": True,
+        "fallback": True,
+        "x": int(w * 0.82),
+        "y": int(h * 0.68),
+        "w": w,
+        "h": h,
+    }
+
+
+def tap_unselected(serial: str) -> dict:
+    """Tap one more unselected grid cell (11th item / max-limit toast)."""
+    hit = _unselected_cell(serial)
+    tap_xy(serial, int(hit["x"]), int(hit["y"]))
+    hit["tapped"] = True
+    return hit
+
+
+def select_one(serial: str) -> dict:
+    """Select one more photo, or undo a selected video. Swipe if the row is full."""
+    root = dump_ui(serial)
+    if root is None:
+        return {"ok": False, "error": "ui dump failed"}
+    photos, videos, last_text = parse_selection_counts(root)
+    w, h = screen_size(serial)
+    cells = grid_media_cells(root, w, h)
+    if photos >= 10 and videos == 0:
+        return {
+            "ok": True,
+            "done": True,
+            "photos": photos,
+            "videos": videos,
+            "text": last_text,
+        }
+    if videos > 0:
+        hit = next((c for c in cells if c["video"] and c["selected"]), None)
+        if hit is None:
+            hit = next((c for c in cells if c["video"]), None)
+        if hit:
+            tap_xy(serial, hit["cx"], hit["cy"])
+            return {
+                "ok": True,
+                "action": "deselect-video",
+                "photos": photos,
+                "videos": videos,
+                "text": last_text,
+            }
+    hit = next((c for c in cells if (not c["video"]) and (not c["selected"])), None)
+    if hit:
+        tap_xy(serial, hit["cx"], hit["cy"])
+        return {
+            "ok": True,
+            "action": "select-photo",
+            "photos": photos,
+            "videos": videos,
+            "text": last_text,
+        }
+    swipe_grid(serial)
+    return {
+        "ok": True,
+        "action": "swipe",
+        "photos": photos,
+        "videos": videos,
+        "text": last_text,
+    }
+
+
+def _run_armed_ocr(serial: str, needles: list[str], seconds: float) -> None:
+    ok, found, text = burst_ocr(
+        serial, needles, seconds=max(1.0, seconds), prefix="qp_ocr"
+    )
+    with _TOAST_LOCK:
+        _TOAST_JOB["payload"] = {
+            "ok": ok,
+            "found": found,
+            "text": (text or "")[:400],
+        }
+
+
 def tap_kind(serial: str, kind: str) -> dict:
     root = dump_ui(serial)
     w, h = screen_size(serial)
@@ -408,19 +692,81 @@ class Handler(BaseHTTPRequestHandler):
                 )
                 self._json(200, {"ok": ok, "found": found, "expect": expect, "text": text[:400]})
                 return
+            if u.path == "/ocr/arm":
+                raw = (q.get("needle") or ["maximum of 10"])[0]
+                needles = [n.strip() for n in raw.split(",") if n.strip()]
+                seconds = float((q.get("seconds") or ["5"])[0])
+                with _TOAST_LOCK:
+                    prev = _TOAST_JOB.get("thread")
+                    _TOAST_JOB["payload"] = None
+                if prev is not None and prev.is_alive():
+                    prev.join(timeout=1)
+                t = threading.Thread(
+                    target=_run_armed_ocr,
+                    args=(serial, needles, seconds),
+                    daemon=True,
+                )
+                with _TOAST_LOCK:
+                    _TOAST_JOB["thread"] = t
+                t.start()
+                self._json(200, {"ok": True, "armed": True, "needles": needles})
+                return
+            if u.path == "/ocr/result":
+                with _TOAST_LOCK:
+                    t = _TOAST_JOB.get("thread")
+                if t is not None:
+                    t.join(timeout=40)
+                with _TOAST_LOCK:
+                    payload = _TOAST_JOB.get("payload")
+                if not payload:
+                    self._json(
+                        200,
+                        {"ok": False, "found": False, "error": "no ocr job"},
+                    )
+                    return
+                self._json(200, payload)
+                return
             if u.path == "/ocr":
                 raw = (q.get("needle") or ["select mode"])[0]
                 needles = [n.strip() for n in raw.split(",") if n.strip()]
                 seconds = float((q.get("seconds") or ["4"])[0])
                 expect = (q.get("expect") or ["present"])[0]
-                ok, found, text = poll_ocr(
-                    serial,
-                    needles,
-                    expect_present=(expect == "present"),
-                    seconds=seconds,
-                    prefix="qp_ocr",
-                )
+                if expect == "present":
+                    ok, found, text = burst_ocr(
+                        serial, needles, seconds=seconds, prefix="qp_ocr"
+                    )
+                else:
+                    ok, found, text = poll_ocr(
+                        serial,
+                        needles,
+                        expect_present=False,
+                        seconds=seconds,
+                        prefix="qp_ocr",
+                    )
                 self._json(200, {"ok": ok, "found": found, "text": text[:400]})
+                return
+            if u.path == "/select-until":
+                want = int((q.get("want") or ["10"])[0])
+                kind = (q.get("kind") or ["photos"])[0]
+                self._json(200, select_until(serial, want=want, kind=kind))
+                return
+            if u.path == "/select-one":
+                self._json(200, select_one(serial))
+                return
+            if u.path == "/peek-unselected":
+                self._json(200, _unselected_cell(serial))
+                return
+            if u.path == "/tap-xy":
+                x = int((q.get("x") or ["0"])[0] or "0")
+                y = int((q.get("y") or ["0"])[0] or "0")
+                if x <= 0 or y <= 0:
+                    w, h = screen_size(serial)
+                    x, y = int(w * 0.82), int(h * 0.68)
+                tap_xy(serial, x, y)
+                self._json(200, {"ok": True, "x": x, "y": y})
+                return
+            if u.path == "/tap-unselected":
+                self._json(200, tap_unselected(serial))
                 return
             if u.path == "/network":
                 state = (q.get("state") or ["on"])[0]

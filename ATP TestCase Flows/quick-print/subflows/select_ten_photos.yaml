@@ -1,0 +1,66 @@
+# Fill Select Mode to "10 Photos Selected" without keeping videos (they count toward the cap).
+# See: https://docs.maestro.dev/reference/commands-available/evalscript
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/swipe
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/maestro-flows/javascript/manage-data-and-states
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)\\d+\\s*Videos? Selected.*"
+    commands:
+      - tapOn:
+          point: "18%,24%"
+      - waitForAnimationToEnd:
+          timeout: 600
+- evalScript: ${output.qpPoint = '50%,24%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,24%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '18%,38%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '50%,38%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,38%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '18%,52%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '50%,52%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,52%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '18%,64%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '50%,64%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,64%'}
+- runFlow: tap_photo_cell.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)10 Photos Selected.*"
+    commands:
+      - swipe:
+          start: "50%, 58%"
+          end: "50%, 40%"
+          duration: 350
+      - waitForAnimationToEnd:
+          timeout: 600
+- evalScript: ${output.qpPoint = '18%,40%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '50%,40%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,40%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '18%,54%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '50%,54%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,54%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '18%,68%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '50%,68%'}
+- runFlow: tap_photo_cell.yaml
+- evalScript: ${output.qpPoint = '82%,68%'}
+- runFlow: tap_photo_cell.yaml
