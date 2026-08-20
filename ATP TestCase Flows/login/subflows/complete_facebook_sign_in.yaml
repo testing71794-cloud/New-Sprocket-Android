@@ -1,15 +1,16 @@
 appId: com.hp.impulse.sprocket
 ---
-# Facebook OAuth — Kodak SE_06 credentials; no language change.
+# Complete Facebook OAuth — SG_03 signup sequence plus Chrome Custom Tab.
 # Credentials: cplusadev@gmail.com / CAglobal@127
 # Do NOT use hideKeyboard or pressKey back — they dismiss the WebView.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/loops
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 
 - runFlow:
     when:
-      visible: "Minimize tab"
+      visible: ".*(?i)minimi[sz]e tab.*"
     commands:
-      - tapOn:
-          point: "50%, 70%"
       - waitForAnimationToEnd:
           timeout: 1000
 
@@ -18,52 +19,14 @@ appId: com.hp.impulse.sprocket
 
 - runFlow: dismiss_facebook_language_picker.yaml
 
-# Saved session — Continue as Nitesh (skip credential entry).
 - runFlow:
     when:
-      visible:
-        text: ".*(?i)(would you like to continue|previously logged in).*"
+      visible: ".*(?i)(m\\.facebook\\.com|minimi[sz]e tab).*"
     commands:
-      - tapOn:
-          text: "Continue as.*"
-          retryTapIfNoChange: true
-      - waitForAnimationToEnd:
-          timeout: 8000
-
-- runFlow:
-    when:
-      visible: "Continue as"
-    commands:
-      - tapOn:
-          text: "Continue as.*"
-          retryTapIfNoChange: true
-      - waitForAnimationToEnd:
-          timeout: 8000
-
-- runFlow:
-    when:
-      visible: "Continue"
-    commands:
-      - tapOn: "Continue"
-      - waitForAnimationToEnd:
-          timeout: 3000
-
-- runFlow:
-    when:
-      visible: "Edit access"
-    commands:
-      - tapOn:
-          text: "Continue as.*"
       - waitForAnimationToEnd:
           timeout: 5000
 
-- runFlow:
-    when:
-      visible: "I already have a profile"
-    commands:
-      - tapOn: "I already have a profile"
-      - waitForAnimationToEnd:
-          timeout: 3000
+- runFlow: handle_facebook_continue_as.yaml
 
 - runFlow:
     when:
@@ -73,8 +36,11 @@ appId: com.hp.impulse.sprocket
       - waitForAnimationToEnd:
           timeout: 5000
 
-# Credentials only when login form shown and no saved Continue-as session.
 - runFlow: enter_facebook_credentials.yaml
-
-# After successful login — skip "Save your login info?" prompt.
 - runFlow: dismiss_facebook_save_login_prompt.yaml
+
+# After credentials, Facebook shows Continue as / Continue again (SG_03).
+- runFlow: handle_facebook_continue_as.yaml
+- runFlow: dismiss_facebook_save_login_prompt.yaml
+- waitForAnimationToEnd:
+    timeout: 5000

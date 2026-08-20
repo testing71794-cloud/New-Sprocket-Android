@@ -1,0 +1,15 @@
+# ATP: QUICK PRINT_07 (a) | Facebook Gallery
+# Facebook login → folder list with account and overflow.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_007a - Facebook Gallery folders after login"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- assertVisible: ".*(?i)Facebook.*"
+- assertVisible: ".*(?i)(More options|Unlink|folder).*"

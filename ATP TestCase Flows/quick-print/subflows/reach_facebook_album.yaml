@@ -1,14 +1,8 @@
 # Quick Print → Select Gallery → Facebook login → open first album/folder.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
 appId: com.hp.impulse.sprocket
 ---
-- runFlow: reach_quick_print_gallery.yaml
-- runFlow: open_select_gallery.yaml
-- tapOn: ".*Facebook.*"
-- waitForAnimationToEnd:
-    timeout: 5000
-- runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
-- waitForAnimationToEnd:
-    timeout: 8000
+- runFlow: reach_facebook_signed_in.yaml
 - tapOn:
     point: "50%,40%"
 - waitForAnimationToEnd:

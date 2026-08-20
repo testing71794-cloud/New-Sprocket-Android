@@ -1,5 +1,6 @@
 # ATP Test Case ID: SG_03
-# HP Sprocket — tap Sign up with Facebook
+# HP Sprocket — tap Sign up with Facebook, then complete OAuth (shared login subflow).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
 appId: com.hp.impulse.sprocket
 name: "SG_03 - Sign up with Facebook"
 ---
@@ -12,58 +13,5 @@ name: "SG_03 - Sign up with Facebook"
 - assertVisible:
     text: ".*[Ff]acebook.*"
     optional: true
-
-- runFlow:
-    when:
-      visible: "Continue"
-    commands:
-      - tapOn: "Continue"
-
-- runFlow:
-    when:
-      visible: "Edit access"
-    commands:
-      - tapOn:
-          text: "Continue as.*"
-- runFlow:
-    when:
-      visible: "Continue as.*"
-    commands:
-      - tapOn:
-          text: "Continue as.*"
-          optional: true
-- waitForAnimationToEnd:
-    timeout: 2000
-- runFlow:
-    when:
-      visible: "I already have a profile"
-    commands:
-      - tapOn: "I already have a profile"
-- runFlow:
-    when:
-      visible:
-        text: ".*(?i)(email or phone|mobile number or email|log in to facebook).*"
-    commands:
-      - tapOn:
-          text: "Email"
-          optional: true
-      - tapOn:
-          text: "Mobile number or email"
-          optional: true
-      - tapOn:
-          text: "Email or phone"
-          optional: true
-      - inputText: "cplusadev@gmail.com"
-      - tapOn:
-          text: "Password"
-          optional: true
-      - inputText: "CAglobal@127"
-      - tapOn:
-          text: "Log in"
-          optional: true
-      - tapOn:
-          text: "Log In"
-          optional: true
-      - waitForAnimationToEnd:
-          timeout: 2000
+- runFlow: ../login/subflows/complete_facebook_sign_in.yaml
 - assertNotVisible: "Log in"

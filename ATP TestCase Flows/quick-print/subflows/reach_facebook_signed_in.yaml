@@ -1,0 +1,26 @@
+# Gallery → Select Gallery → Facebook login (SG_03 complete path). Stops on folder list.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/loops
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ensure_internet_on.yaml
+- runFlow: reach_gallery_allow_all.yaml
+- runFlow: open_select_gallery.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
+- waitForAnimationToEnd:
+    timeout: 8000
+- repeat:
+    times: 2
+    while:
+      visible: ".*(?i)(m\\.facebook\\.com|log in to facebook|email or phone|mobile number or email|save your login|continue as).*"
+    commands:
+      - runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
+      - waitForAnimationToEnd:
+          timeout: 8000
+- extendedWaitUntil:
+    visible: ".*(?i)(More options|Unlink).*"
+    timeout: 25000
