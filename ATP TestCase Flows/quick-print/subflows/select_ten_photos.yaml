@@ -46,21 +46,21 @@ appId: com.hp.impulse.sprocket
           duration: 350
       - waitForAnimationToEnd:
           timeout: 600
-- evalScript: ${output.qpPoint = '18%,40%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '50%,40%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,40%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '18%,54%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '50%,54%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,54%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '18%,68%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '50%,68%'}
-- runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,68%'}
-- runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '18%,40%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '50%,40%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '82%,40%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '18%,54%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '50%,54%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '82%,54%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '18%,68%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '50%,68%'}
+      - runFlow: tap_photo_cell.yaml
+      - evalScript: ${output.qpPoint = '82%,68%'}
+      - runFlow: tap_photo_cell.yaml

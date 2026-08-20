@@ -12,6 +12,7 @@ Maestro JS (sandboxed) calls these HTTP endpoints:
   GET /select-one?serial=
   GET /peek-unselected?serial=
   GET /tap-xy?x=&y=&serial=
+  GET /tap-max-limit?serial=&seconds=
   GET /tap-unselected?serial=
   GET /network?state=off|on&serial=
   GET /tap?kind=overflow|tag&serial=
@@ -394,6 +395,13 @@ def grid_media_cells(root: ET.Element, w: int, h: int) -> list[dict]:
                 video = True
                 break
         selected = bool(re.fullmatch(r"\d{1,2}", blob.strip()))
+        for child in node.iter():
+            if child is node:
+                continue
+            cblob = _node_blob(child)
+            if re.fullmatch(r"\d{1,2}", (cblob or "").strip()):
+                selected = True
+                break
         cells.append(
             {
                 "cx": (x1 + x2) // 2,
@@ -479,33 +487,107 @@ def select_until(serial: str, want: int = 10, kind: str = "photos") -> dict:
     }
 
 
+def first_adb_serial() -> str:
+    p = subprocess.run(
+        [adb_bin(), "devices"],
+        capture_output=True,
+        text=True,
+        timeout=15,
+        check=False,
+    )
+    for line in (p.stdout or "").splitlines():
+        line = line.strip()
+        if re.match(r"^\S+\s+device$", line):
+            return line.split()[0]
+    return ""
+
+
+def resolve_serial(q: dict) -> str:
+    raw = ((q.get("serial") or [""])[0] or "").strip()
+    if raw:
+        return raw
+    env = (os.environ.get("ANDROID_SERIAL") or "").strip()
+    if env:
+        return env
+    return first_adb_serial()
+
+
 def _unselected_cell(serial: str) -> dict:
-    """Find one unselected grid cell without tapping (so OCR can arm first)."""
+    """Find the last unselected thumbnail (11th item). Do not swipe first — that
+    moves already-selected cells onto the fallback tap point."""
     w, h = screen_size(serial)
-    for attempt in range(2):
-        root = dump_ui(serial)
-        if root is not None:
-            cells = grid_media_cells(root, w, h)
-            hit = next((c for c in cells if not c["selected"]), None)
-            if hit:
-                return {
-                    "ok": True,
-                    "video": hit["video"],
-                    "x": hit["cx"],
-                    "y": hit["cy"],
-                    "w": w,
-                    "h": h,
-                }
-        if attempt == 0:
-            swipe_grid(serial)
-            time.sleep(0.4)
+    root = dump_ui(serial)
+    cells = grid_media_cells(root, w, h) if root is not None else []
+    hit = next((c for c in reversed(cells) if not c["selected"]), None)
+    if hit is None and cells:
+        hit = cells[-1]
+    if hit:
+        return {
+            "ok": True,
+            "video": hit["video"],
+            "x": hit["cx"],
+            "y": hit["cy"],
+            "w": w,
+            "h": h,
+            "via": "dump",
+        }
+    swipe_grid(serial)
+    time.sleep(0.4)
+    root2 = dump_ui(serial)
+    cells2 = grid_media_cells(root2, w, h) if root2 is not None else []
+    hit = next((c for c in cells2 if not c["selected"]), None)
+    if hit is None and cells2:
+        hit = cells2[0]
+    if hit:
+        return {
+            "ok": True,
+            "video": hit["video"],
+            "x": hit["cx"],
+            "y": hit["cy"],
+            "w": w,
+            "h": h,
+            "via": "swipe",
+        }
     return {
         "ok": True,
         "fallback": True,
         "x": int(w * 0.82),
-        "y": int(h * 0.68),
+        "y": int(h * 0.40),
         "w": w,
         "h": h,
+        "via": "percent",
+    }
+
+
+def tap_max_limit(serial: str, needles: list[str], seconds: float) -> dict:
+    """Find 11th cell, start OCR burst, tap, wait for toast text."""
+    hit = _unselected_cell(serial)
+    with _TOAST_LOCK:
+        prev = _TOAST_JOB.get("thread")
+        _TOAST_JOB["payload"] = None
+    if prev is not None and prev.is_alive():
+        prev.join(timeout=1)
+    t = threading.Thread(
+        target=_run_armed_ocr,
+        args=(serial, needles, max(1.0, seconds)),
+        daemon=True,
+    )
+    with _TOAST_LOCK:
+        _TOAST_JOB["thread"] = t
+    t.start()
+    time.sleep(0.12)
+    tap_xy(serial, int(hit["x"]), int(hit["y"]))
+    t.join(timeout=40)
+    with _TOAST_LOCK:
+        payload = _TOAST_JOB.get("payload") or {}
+    return {
+        "ok": bool(payload.get("ok")),
+        "found": bool(payload.get("found")),
+        "text": (payload.get("text") or "")[:400],
+        "x": hit["x"],
+        "y": hit["y"],
+        "via": hit.get("via"),
+        "tapped": True,
     }
 
 
@@ -640,7 +722,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self) -> None:  # noqa: N802
         u = urlparse(self.path)
         q = parse_qs(u.query)
-        serial = (q.get("serial") or [os.environ.get("ANDROID_SERIAL", "")])[0]
+        serial = resolve_serial(q)
         if u.path in ("/health", "/"):
             self._json(200, {"ok": True})
             return
@@ -761,9 +843,15 @@ class Handler(BaseHTTPRequestHandler):
                 y = int((q.get("y") or ["0"])[0] or "0")
                 if x <= 0 or y <= 0:
                     w, h = screen_size(serial)
-                    x, y = int(w * 0.82), int(h * 0.68)
+                    x, y = int(w * 0.82), int(h * 0.40)
                 tap_xy(serial, x, y)
                 self._json(200, {"ok": True, "x": x, "y": y})
+                return
+            if u.path == "/tap-max-limit":
+                raw = (q.get("needle") or ["maximum of 10 photos allowed,maximum of 10,10 photos allowed"])[0]
+                needles = [n.strip() for n in raw.split(",") if n.strip()]
+                seconds = float((q.get("seconds") or ["6"])[0])
+                self._json(200, tap_max_limit(serial, needles, seconds))
                 return
             if u.path == "/tap-unselected":
                 self._json(200, tap_unselected(serial))
