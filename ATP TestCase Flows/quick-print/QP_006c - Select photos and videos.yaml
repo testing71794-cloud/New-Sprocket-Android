@@ -1,0 +1,20 @@
+# ATP: QUICK PRINT_006 (c) | Gallery - Multiple Selection
+# Pass if ANY footer is visible. Do not print.
+#   2 Photos Selected | 2 Videos Selected | 1 Photo & 1 Video Selected
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+# See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
+appId: com.hp.impulse.sprocket
+name: "QP_006c - Select photos and videos"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/enter_select_mode.yaml
+- runScript:
+    file: subflows/select_two.js
+- runFlow: subflows/assert_any_two_selected.yaml

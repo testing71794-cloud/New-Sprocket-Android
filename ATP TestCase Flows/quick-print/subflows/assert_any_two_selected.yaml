@@ -1,0 +1,34 @@
+# Pass if ANY of the three Select Mode footer strings is visible.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/evalscript
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/asserttrue
+appId: com.hp.impulse.sprocket
+---
+- evalScript: ${output.qp006cCountOk = '0'}
+- runFlow:
+    when:
+      visible: ".*(?i)2 Photos? Selected.*"
+    commands:
+      - evalScript: ${output.qp006cCountOk = '1'}
+- runFlow:
+    when:
+      visible: ".*(?i)2 Videos? Selected.*"
+    commands:
+      - evalScript: ${output.qp006cCountOk = '1'}
+- runFlow:
+    when:
+      visible: ".*(?i)1 Photo.{0,20}1 Video Selected.*"
+    commands:
+      - evalScript: ${output.qp006cCountOk = '1'}
+- runFlow:
+    when:
+      true: ${output.qp006cCountOk != '1'}
+    commands:
+      - extendedWaitUntil:
+          visible: ".*(?i)(2 Photos? Selected|2 Videos? Selected|1 Photo.{0,20}1 Video Selected).*"
+          timeout: 20000
+      - evalScript: ${output.qp006cCountOk = '1'}
+- assertTrue:
+    condition: ${output.qp006cCountOk == '1'}
+    label: 2 photos selected OR 2 videos selected OR 1 Photo and 1 Video Selected

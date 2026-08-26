@@ -8,7 +8,7 @@ Maestro JS (sandboxed) calls these HTTP endpoints:
   GET /ocr?needle=comma,needles&serial=&seconds=
   GET /ocr/arm?needle=&seconds=&serial=   (burst capture in background)
   GET /ocr/result
-  GET /select-until?want=10&kind=photos&serial=
+  GET /select-until?want=10&kind=photos|mixed|any&serial=
   GET /select-one?serial=
   GET /peek-unselected?serial=
   GET /tap-xy?x=&y=&serial=
@@ -17,6 +17,7 @@ Maestro JS (sandboxed) calls these HTTP endpoints:
   GET /network?state=off|on&serial=
   GET /tap?kind=overflow|tag&serial=
   GET /revoke-photos?serial=
+  GET /ensure-empty-album?serial=
 
 See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
 """
@@ -25,6 +26,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import struct
 import subprocess
 import sys
 import threading
@@ -33,6 +35,8 @@ import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
+
+import numpy as np
 
 REPO = Path(__file__).resolve().parents[1]
 PS1 = Path(__file__).resolve().with_name("ocr_select_mode_toast.ps1")
@@ -46,8 +50,15 @@ TOAST_NEEDLES = (
 )
 PORT = int(os.environ.get("QP005_OCR_PORT", "8765"))
 LOG = REPO / "logs" / "qp_helper.log"
+SPROCKET_PKG = "com.hp.impulse.sprocket"
 _TOAST_JOB: dict = {"thread": None, "payload": None}
 _TOAST_LOCK = threading.Lock()
+_QP_LATTICE_I: dict[str, int] = {}
+_QP_LAST_XY: dict[str, tuple[int, int]] = {}
+_QP_SKIP_DUMP: set[str] = set()
+_SCREEN_SIZE: dict[str, tuple[int, int]] = {}
+_OCR_PROC: subprocess.Popen[str] | None = None
+_OCR_LOCK = threading.Lock()
 
 
 def adb_bin() -> str:
@@ -80,21 +91,65 @@ def adb(serial: str, *args: str, timeout: int = 30) -> subprocess.CompletedProce
     )
 
 
+def _start_ocr_worker() -> subprocess.Popen[str]:
+    return subprocess.Popen(
+        [
+            "powershell",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            str(PS1),
+            "-Loop",
+        ],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        bufsize=1,
+    )
+
+
+def ocr_via_worker(image: Path, bottom_percent: int = 0) -> str:
+    global _OCR_PROC
+    line = f"{image.resolve()}|{int(bottom_percent)}\n"
+    with _OCR_LOCK:
+        proc = _OCR_PROC
+        if proc is None or proc.poll() is not None:
+            proc = _start_ocr_worker()
+            _OCR_PROC = proc
+        assert proc.stdin is not None and proc.stdout is not None
+        try:
+            proc.stdin.write(line)
+            proc.stdin.flush()
+            out = proc.stdout.readline().strip()
+        except OSError:
+            proc = _start_ocr_worker()
+            _OCR_PROC = proc
+            assert proc.stdin is not None and proc.stdout is not None
+            proc.stdin.write(line)
+            proc.stdin.flush()
+            out = proc.stdout.readline().strip()
+        return out
+
+
 def ocr_png(image: Path, bottom_percent: int = 0) -> str:
-    cmd = [
-        "powershell",
-        "-NoProfile",
-        "-ExecutionPolicy",
-        "Bypass",
-        "-File",
-        str(PS1),
-        "-ImagePath",
-        str(image.resolve()),
-    ]
-    if bottom_percent > 0:
-        cmd.extend(["-BottomPercent", str(bottom_percent)])
-    p = subprocess.run(cmd, capture_output=True, text=True, timeout=60, check=False)
-    return ((p.stdout or "") + (p.stderr or "")).strip()
+    return ocr_via_worker(image, bottom_percent)
+
+
+def write_bmp_rgb(path: Path, rgb: np.ndarray) -> None:
+    rgb = np.ascontiguousarray(rgb[:, :, :3], dtype=np.uint8)
+    h, w = rgb.shape[:2]
+    bgr = np.ascontiguousarray(rgb[:, :, ::-1])
+    row_bytes = (w * 3 + 3) & ~3
+    padded = np.zeros((h, row_bytes), dtype=np.uint8)
+    padded[:, : w * 3] = bgr.reshape(h, w * 3)
+    pixel = np.flipud(padded).tobytes()
+    header = struct.pack("<2sIHHI", b"BM", 54 + len(pixel), 0, 0, 54)
+    dib = struct.pack("<IiiHHIIiiII", 40, w, h, 1, 24, 0, len(pixel), 0, 0, 0, 0)
+    path.write_bytes(header + dib + pixel)
 
 
 def has_needles(text: str, needles: tuple[str, ...] | list[str]) -> bool:
@@ -171,33 +226,20 @@ def burst_ocr(
     seconds: float,
     prefix: str,
 ) -> tuple[bool, bool, str]:
-    """Grab screenshots for `seconds`, then OCR until a needle hits (toast is ~5s)."""
-    frames: list[Path] = []
-    deadline = time.time() + max(0.5, seconds)
+    """Grab+OCR until a needle hits. Toast is short-lived; do not batch-then-OCR."""
+    deadline = time.time() + max(0.4, seconds)
+    last_text = ""
     n = 0
     while time.time() < deadline:
         n += 1
-        ok_grab, png_or_err = grab_png(serial, f"{prefix}_b{n}_{serial}.png")
-        if ok_grab:
-            frames.append(Path(png_or_err))
-        time.sleep(0.18)
-    last_text = ""
-    for png in frames:
-        text = ocr_png(png, bottom_percent=45)
+        text = ocr_band(serial, y0_frac=0.52, y1_frac=0.92, name=f"{prefix}_b{n}_{serial}.bmp")
         last_text = text
         if "OCR_ENGINE_UNAVAILABLE" in text:
             return False, False, "Windows OCR unavailable"
         found = has_needles(text, needles)
-        log(f"burst {png.name} found={found} text={text[:140]!r}")
+        log(f"burst n={n} found={found} text={text[:140]!r}")
         if found:
             return True, True, text
-    if frames:
-        text_full = ocr_png(frames[len(frames) // 2], bottom_percent=0)
-        last_text = text_full or last_text
-        found = has_needles(text_full, needles)
-        log(f"burst full found={found} text={text_full[:160]!r}")
-        if found:
-            return True, True, text_full
     return False, False, last_text
 
 
@@ -260,6 +302,26 @@ def revoke_photos(serial: str) -> dict:
     return {"ok": True}
 
 
+def ensure_empty_album(serial: str) -> dict:
+    """Empty Pictures/MaestroEmpty folder for QP_015 No Photos Found."""
+    name = "MaestroEmpty"
+    path = f"/sdcard/Pictures/{name}"
+    adb(serial, "shell", "mkdir", "-p", path, timeout=15)
+    adb(
+        serial,
+        "shell",
+        "am",
+        "broadcast",
+        "-a",
+        "android.intent.action.MEDIA_SCANNER_SCAN_FILE",
+        "-d",
+        f"file://{path}",
+        timeout=20,
+    )
+    log(f"ensured empty album {path} on {serial}")
+    return {"ok": True, "name": name}
+
+
 def _bounds(node: ET.Element) -> tuple[int, int, int, int] | None:
     raw = node.attrib.get("bounds") or ""
     m = re.match(r"\[(\d+),(\d+)\]\[(\d+),(\d+)\]", raw)
@@ -271,30 +333,59 @@ def _bounds(node: ET.Element) -> tuple[int, int, int, int] | None:
     return x1, y1, x2, y2
 
 
+def dump_package(root: ET.Element | None) -> str:
+    if root is None:
+        return ""
+    for node in root.iter():
+        pkg = (node.attrib.get("package") or "").strip()
+        if pkg:
+            return pkg
+    return ""
+
+
 def dump_ui(serial: str) -> ET.Element | None:
-    remote = "/data/local/tmp/qp_uidump.xml"
-    p = adb(serial, "shell", "uiautomator", "dump", remote, timeout=25)
-    if p.returncode != 0:
-        p = adb(serial, "shell", "uiautomator", "dump", "/sdcard/window_dump.xml", timeout=25)
-        remote = "/sdcard/window_dump.xml"
+    """Fresh uiautomator dump. Ignore stale files and non-Sprocket windows.
+
+    Maestro holds the UI, so dump often fails with 'could not get idle state'.
+    A unique remote path avoids pulling an old launcher hierarchy.
+    """
+    stamp = int(time.time() * 1000)
+    remote = f"/sdcard/qp_uidump_{stamp}.xml"
+    p = adb(serial, "shell", "uiautomator", "dump", remote, timeout=20)
+    out = ((p.stdout or b"") + (p.stderr or b"")).decode("utf-8", "replace")
+    m = re.search(r"dumped to:\s*(\S+)", out)
+    if m:
+        remote = m.group(1).rstrip(".")
     pulled = REPO / "logs" / f"qp_uidump_{serial}.xml"
     pulled.parent.mkdir(parents=True, exist_ok=True)
-    adb(serial, "pull", remote, str(pulled), timeout=20)
+    adb(serial, "pull", remote, str(pulled), timeout=15)
+    adb(serial, "shell", "rm", "-f", remote, timeout=5)
+    if p.returncode != 0:
+        log(f"uidump failed rc={p.returncode} {out[:160]!r}")
+        return None
     if not pulled.exists():
         return None
     try:
-        return ET.parse(pulled).getroot()
+        root = ET.parse(pulled).getroot()
     except ET.ParseError:
         return None
+    pkg = dump_package(root)
+    if pkg and pkg != SPROCKET_PKG:
+        log(f"uidump ignored package={pkg}")
+        return None
+    return root
 
 
 def screen_size(serial: str) -> tuple[int, int]:
+    cached = _SCREEN_SIZE.get(serial)
+    if cached:
+        return cached
     p = adb(serial, "shell", "wm", "size", timeout=10)
     text = (p.stdout or b"").decode("utf-8", "replace")
     m = re.search(r"(\d+)x(\d+)", text)
-    if m:
-        return int(m.group(1)), int(m.group(2))
-    return 1080, 2400
+    size = (int(m.group(1)), int(m.group(2))) if m else (1080, 2400)
+    _SCREEN_SIZE[serial] = size
+    return size
 
 
 def tap_xy(serial: str, x: int, y: int) -> None:
@@ -358,6 +449,203 @@ def _is_play_overlay(parent: tuple[int, int, int, int], child: tuple[int, int, i
     if cw > 130 or ch > 130:
         return False
     return cx1 > px1 + pw * 0.45 and cy1 > py1 + ph * 0.45
+
+
+def parse_selection_from_text(text: str) -> tuple[int, int, str]:
+    """Footer counts only ('N Photo(s) Selected', mixed '1 Photo, 1 Video Selected')."""
+    if not text or not re.search(r"Selected", text, re.I):
+        return 0, 0, ""
+    body = re.sub(r"(?i)maximum of \d+ photos? allowed[^\n]*", " ", text)
+    photos = 0
+    videos = 0
+    m = re.search(r"(\d+)\s*Photos?", body, re.I)
+    v = re.search(r"(\d+)\s*Videos?", body, re.I)
+    if m:
+        photos = int(m.group(1))
+    if v:
+        videos = int(v.group(1))
+    best = ""
+    if m or v:
+        best = body.strip()[:120]
+    return photos, videos, best
+
+
+def ocr_band(serial: str, y0_frac: float, y1_frac: float, name: str) -> str:
+    stamp = int(time.time() * 1000)
+    base = name.rsplit(".", 1)[0]
+    bmp_name = f"{base}_{stamp}.bmp"
+    rgba = grab_rgba(serial)
+    if rgba is None:
+        ok_grab, png_or_err = grab_png(serial, f"{base}_{stamp}.png")
+        if not ok_grab:
+            return str(png_or_err)
+        return ocr_png(Path(png_or_err), bottom_percent=max(8, int((1 - y0_frac) * 100)))
+    h = rgba.shape[0]
+    y0, y1 = int(h * y0_frac), int(h * y1_frac)
+    band = np.ascontiguousarray(rgba[max(0, y0) : max(y0 + 8, y1), :, :3])
+    if band.size == 0 or band.shape[0] < 8 or band.shape[1] < 8:
+        ok_grab, png_or_err = grab_png(serial, f"{base}_{stamp}.png")
+        if not ok_grab:
+            return str(png_or_err)
+        return ocr_png(Path(png_or_err), bottom_percent=22)
+    path = REPO / "logs" / bmp_name
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        write_bmp_rgb(path, band)
+        return ocr_via_worker(path, 0)
+    except OSError as exc:
+        log(f"bmp ocr fallback {exc}")
+        ok_grab, png_or_err = grab_png(serial, f"{base}_{stamp}.png")
+        if not ok_grab:
+            return str(png_or_err)
+        return ocr_png(Path(png_or_err), bottom_percent=max(8, int((1 - y0_frac) * 100)))
+
+
+def ocr_selection_counts(serial: str) -> tuple[int, int, str]:
+    text = ocr_band(serial, 0.78, 0.96, f"qp_sel_{serial}.bmp")
+    if "OCR_ENGINE_UNAVAILABLE" in text:
+        return 0, 0, text
+    return parse_selection_from_text(text)
+
+
+def read_selection_counts(serial: str) -> tuple[int, int, str]:
+    # uiautomator dump waits for idle and hangs while Maestro is attached / videos loop.
+    return ocr_selection_counts(serial)
+
+
+def grab_rgba(serial: str) -> np.ndarray | None:
+    """Raw `adb screencap` RGBA (not PNG). Maestro-safe; no idle-state wait."""
+    raw = adb(serial, "exec-out", "screencap", timeout=30)
+    data = raw.stdout or b""
+    if len(data) < 12:
+        log(f"screencap short {len(data)}")
+        return None
+    w, h, fmt = struct.unpack_from("<III", data, 0)
+    if w <= 0 or h <= 0 or w > 4096 or h > 4096:
+        return None
+    expected = w * h * 4
+    offset = 16 if len(data) >= 16 + expected else 12
+    payload = data[offset : offset + expected]
+    if len(payload) < expected:
+        payload = data[12 : 12 + expected]
+    if len(payload) < expected:
+        log(f"screencap payload {len(data)} w={w} h={h} fmt={fmt}")
+        return None
+    return np.frombuffer(payload, dtype=np.uint8).reshape((h, w, 4)).copy()
+
+
+def _tile_selected(rgb: np.ndarray, x1: int, y1: int, x2: int, y2: int) -> bool:
+    """Select-mode badge is a lime circle in the thumbnail's top-left."""
+    patch = rgb[y1 : y1 + 52, x1 : x1 + 52]
+    if patch.size == 0:
+        return False
+    r, g, b = patch[:, :, 0], patch[:, :, 1], patch[:, :, 2]
+    lime = (g > 150) & (g > r + 15) & (g > b + 15) & (r > 60)
+    return int(lime.sum()) >= 40
+
+
+def _tile_video(rgb: np.ndarray, x1: int, y1: int, x2: int, y2: int) -> bool:
+    """Play overlay: dark disk + white triangle in the thumbnail's bottom-right."""
+    tw, th = max(1, x2 - x1), max(1, y2 - y1)
+    patch = rgb[y1 + int(th * 0.55) : y2, x1 + int(tw * 0.55) : x2]
+    if patch.size == 0:
+        return False
+    lum = patch.mean(axis=2)
+    return int((lum < 80).sum()) >= 40 and int((lum > 210).sum()) >= 20
+
+
+def find_gallery_tiles(serial: str) -> list[dict]:
+    """Thumbnails = non-white blobs on the Quick Print canvas (date-grouped, ragged)."""
+    rgba = grab_rgba(serial)
+    if rgba is None:
+        return []
+    h, w = rgba.shape[:2]
+    rgb = rgba[:, :, :3]
+    y0, y1 = int(h * 0.12), int(h * 0.74)
+    x0, x1 = 4, int(w * 0.92)
+    lum = rgb[y0:y1, x0:x1].mean(axis=2)
+    step = 4
+    small = lum[::step, ::step] < 248
+    gh, gw = small.shape
+    vis = np.zeros_like(small, dtype=bool)
+    tiles: list[dict] = []
+    for iy in range(gh):
+        for ix in range(gw):
+            if not small[iy, ix] or vis[iy, ix]:
+                continue
+            stack = [(iy, ix)]
+            vis[iy, ix] = True
+            cells: list[tuple[int, int]] = []
+            while stack:
+                cy, cx = stack.pop()
+                cells.append((cy, cx))
+                for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    ny, nx = cy + dy, cx + dx
+                    if 0 <= ny < gh and 0 <= nx < gw and small[ny, nx] and not vis[ny, nx]:
+                        vis[ny, nx] = True
+                        stack.append((ny, nx))
+            if len(cells) < 80:
+                continue
+            ys = [c[0] for c in cells]
+            xs = [c[1] for c in cells]
+            x1t = min(xs) * step + x0
+            x2t = (max(xs) + 1) * step + x0
+            y1t = min(ys) * step + y0
+            y2t = (max(ys) + 1) * step + y0
+            tw, th = x2t - x1t, y2t - y1t
+            if tw < 80 or th < 80:
+                continue
+            cx = int(sum(xs) / len(xs) * step + x0)
+            cy = int(sum(ys) / len(ys) * step + y0)
+            if cy > int(h * 0.72):
+                continue
+            tiles.append(
+                {
+                    "cx": cx,
+                    "cy": cy,
+                    "x": x1t,
+                    "y": y1t,
+                    "w": tw,
+                    "h": th,
+                    "selected": _tile_selected(rgb, x1t, y1t, x2t, y2t),
+                    "video": _tile_video(rgb, x1t, y1t, x2t, y2t),
+                }
+            )
+    tiles.sort(key=lambda t: (t["y"], t["x"]))
+    uniq: list[dict] = []
+    for t in tiles:
+        if any(abs(t["cx"] - u["cx"]) < 36 and abs(t["cy"] - u["cy"]) < 36 for u in uniq):
+            continue
+        uniq.append(t)
+    log(
+        "tiles "
+        + ",".join(
+            f"{t['cx']}x{t['cy']}{'S' if t['selected'] else ''}{'V' if t['video'] else ''}"
+            for t in uniq
+        )
+    )
+    return uniq
+
+
+def lattice_points(w: int, h: int, page: int) -> list[tuple[int, int]]:
+    xs = (0.17, 0.50, 0.83)
+    ys = (0.26, 0.40, 0.54, 0.66)
+    dy = 0.04 * (page % 2)
+    return [(int(w * x), int(h * min(0.72, y + dy))) for y in ys for x in xs]
+
+
+def next_lattice_tap(serial: str, *, swipe_if_wrapped: bool) -> tuple[int, int]:
+    w, h = screen_size(serial)
+    per_page = 12
+    i = _QP_LATTICE_I.get(serial, 0)
+    page, local = divmod(i, per_page)
+    if swipe_if_wrapped and i > 0 and local == 0:
+        swipe_grid(serial)
+        time.sleep(0.4)
+    x, y = lattice_points(w, h, page)[local]
+    _QP_LATTICE_I[serial] = i + 1
+    _QP_LAST_XY[serial] = (x, y)
+    return x, y
 
 
 def grid_media_cells(root: ET.Element, w: int, h: int) -> list[dict]:
@@ -428,62 +716,277 @@ def grid_media_cells(root: ET.Element, w: int, h: int) -> list[dict]:
     return uniq
 
 
-def select_until(serial: str, want: int = 10, kind: str = "photos") -> dict:
-    """Select `want` photos (deselect videos that count toward the 10-item cap)."""
-    last_text = ""
-    photos = videos = 0
-    for step in range(32):
-        root = dump_ui(serial)
-        if root is None:
-            return {"ok": False, "error": "ui dump failed", "step": step}
-        photos, videos, last_text = parse_selection_counts(root)
-        log(f"select-until step={step} photos={photos} videos={videos} text={last_text!r}")
-        w, h = screen_size(serial)
-        cells = grid_media_cells(root, w, h)
-        if kind == "photos" and photos >= want and videos == 0:
-            nxt = next((c for c in cells if not c["selected"]), None)
-            if nxt is None:
-                swipe_grid(serial)
-                time.sleep(0.45)
-                root2 = dump_ui(serial)
-                if root2 is not None:
-                    cells2 = grid_media_cells(root2, *screen_size(serial))
-                    nxt = next((c for c in cells2 if not c["selected"]), None)
+def _atp_two_selected(photos: int, videos: int, text: str) -> bool:
+    """QP_006c: 2 photos OR 2 videos OR 1 photo & 1 video."""
+    if photos == 2 and videos == 0:
+        return True
+    if videos == 2 and photos == 0:
+        return True
+    if photos >= 1 and videos >= 1:
+        return True
+    return bool(
+        re.search(
+            r"2\s*Photos?\s*Selected|2\s*Videos?\s*Selected|1\s*Photo.{0,12}1\s*Video\s*Selected",
+            text or "",
+            re.I,
+        )
+    )
+
+
+def select_any_two(serial: str) -> dict:
+    """Select two items of any type (QP_006c). ADB taps; no Maestro swipe."""
+    photos, videos, last_text = ocr_selection_counts(serial)
+    log(f"select-any-two start photos={photos} videos={videos} text={last_text!r}")
+    stagnant = 0
+    for page in range(10):
+        if _atp_two_selected(photos, videos, last_text):
+            log(f"select-any-two done photos={photos} videos={videos} text={last_text!r}")
             return {
                 "ok": True,
                 "photos": photos,
                 "videos": videos,
                 "text": last_text,
-                "step": step,
-                "next_ok": bool(nxt),
-                "next_x": nxt["cx"] if nxt else 0,
-                "next_y": nxt["cy"] if nxt else 0,
+                "step": page,
             }
-        if kind == "photos" and videos > 0:
-            hit = next((c for c in cells if c["video"] and c["selected"]), None)
-            if hit is None:
-                hit = next((c for c in cells if c["video"]), None)
-            if hit:
-                tap_xy(serial, hit["cx"], hit["cy"])
-                time.sleep(0.35)
-                continue
-        if kind == "photos" and photos < want:
-            hit = next((c for c in cells if (not c["video"]) and (not c["selected"])), None)
-            if hit:
-                tap_xy(serial, hit["cx"], hit["cy"])
-                time.sleep(0.35)
-                continue
+        tiles = find_gallery_tiles(serial)
+        hit = next((t for t in tiles if not t["selected"]), None)
+        if hit is None:
             swipe_grid(serial)
-            time.sleep(0.55)
+            time.sleep(0.28)
+            stagnant += 1
+            if stagnant >= 6:
+                break
             continue
-        swipe_grid(serial)
-        time.sleep(0.55)
+        tap_xy(serial, hit["cx"], hit["cy"])
+        _QP_LAST_XY[serial] = (hit["cx"], hit["cy"])
+        time.sleep(0.18)
+        np_, nv, nt = ocr_selection_counts(serial)
+        if nt:
+            photos, videos, last_text = np_, nv, nt
+            stagnant = 0
+        else:
+            stagnant += 1
+        log(
+            f"select-any-two tap {hit['cx']},{hit['cy']} "
+            f"photos={photos} videos={videos} text={last_text!r}"
+        )
+    ok = _atp_two_selected(photos, videos, last_text)
+    log(f"select-any-two fail photos={photos} videos={videos} text={last_text!r}")
     return {
-        "ok": False,
+        "ok": ok,
         "photos": photos,
         "videos": videos,
         "text": last_text,
-        "error": f"did not reach {want} photos-only",
+        "error": "" if ok else "did not reach 2 selected items",
+    }
+
+
+def select_mixed(serial: str) -> dict:
+    """Select at least one photo and one video. ADB taps; no Maestro swipe."""
+    photos, videos, last_text = ocr_selection_counts(serial)
+    log(f"select-mixed start photos={photos} videos={videos} text={last_text!r}")
+    stagnant = 0
+    for page in range(14):
+        if photos >= 1 and videos >= 1:
+            log(f"select-mixed done photos={photos} videos={videos} text={last_text!r}")
+            return {
+                "ok": True,
+                "photos": photos,
+                "videos": videos,
+                "text": last_text,
+                "step": page,
+            }
+        tiles = find_gallery_tiles(serial)
+        hit = None
+        if photos < 1:
+            hit = next((t for t in tiles if not t["selected"] and not t["video"]), None)
+        if hit is None and videos < 1:
+            hit = next((t for t in tiles if not t["selected"] and t["video"]), None)
+        if hit is None:
+            swipe_grid(serial)
+            time.sleep(0.28)
+            stagnant += 1
+            if stagnant >= 6:
+                break
+            continue
+        tap_xy(serial, hit["cx"], hit["cy"])
+        _QP_LAST_XY[serial] = (hit["cx"], hit["cy"])
+        time.sleep(0.18)
+        np_, nv, nt = ocr_selection_counts(serial)
+        if nt:
+            photos, videos, last_text = np_, nv, nt
+            stagnant = 0
+        else:
+            stagnant += 1
+        log(
+            f"select-mixed tap {hit['cx']},{hit['cy']} "
+            f"photos={photos} videos={videos} text={last_text!r}"
+        )
+    ok = photos >= 1 and videos >= 1
+    log(f"select-mixed fail photos={photos} videos={videos} text={last_text!r}")
+    return {
+        "ok": ok,
+        "photos": photos,
+        "videos": videos,
+        "text": last_text,
+        "error": "" if ok else "did not select both a photo and a video",
+    }
+
+
+def select_until(serial: str, want: int = 10, kind: str = "photos") -> dict:
+    """Select `want` photos, mixed photo+video, or any two items."""
+    kind_l = str(kind).lower()
+    if kind_l in ("any", "two"):
+        return select_any_two(serial)
+    if kind_l == "mixed":
+        return select_mixed(serial)
+    photos, videos, last_text = ocr_selection_counts(serial)
+    log(f"select-until start photos={photos} videos={videos} text={last_text!r}")
+    if not last_text:
+        photos, videos = 1, 0
+
+    def read_counts(prev_p: int, prev_v: int, prev_t: str) -> tuple[int, int, str]:
+        np_, nv, text = ocr_selection_counts(serial)
+        if text:
+            return np_, nv, text
+        return prev_p, prev_v, prev_t
+
+    def apply_tap(x: int, y: int, p: int, v: int, t: str) -> tuple[int, int, str]:
+        tap_xy(serial, x, y)
+        _QP_LAST_XY[serial] = (x, y)
+        time.sleep(0.08)
+        np_, nv, nt = read_counts(p, v, t)
+        if nv > v:
+            tap_xy(serial, x, y)
+            time.sleep(0.08)
+            np_, nv, nt = read_counts(p, v, t)
+            log(f"select-until undo-video photos={np_} videos={nv}")
+            return np_, nv, nt
+        if np_ < p:
+            tap_xy(serial, x, y)
+            time.sleep(0.08)
+            np_, nv, nt = read_counts(p, v, t)
+            log(f"select-until restore photos={np_} videos={nv}")
+            return np_, nv, nt
+        return np_, nv, nt
+
+    stagnant = 0
+    video_tries = 0
+    for page in range(12):
+        if kind == "photos" and photos >= want and videos == 0:
+            log(f"select-until done photos={photos} text={last_text!r}")
+            return {
+                "ok": True,
+                "photos": photos,
+                "videos": videos,
+                "text": last_text,
+                "step": page,
+            }
+        tiles = find_gallery_tiles(serial)
+        if not tiles:
+            swipe_grid(serial)
+            time.sleep(0.25)
+            stagnant += 1
+            if stagnant >= 5:
+                break
+            continue
+        if videos > 0 and video_tries < 3:
+            video_tries += 1
+            hit = next((t for t in tiles if t["selected"]), None)
+            if hit is None:
+                hit = next((t for t in tiles if t["video"]), None)
+            if hit:
+                photos, videos, last_text = apply_tap(
+                    hit["cx"], hit["cy"], photos, videos, last_text
+                )
+                log(f"select-until deselect photos={photos} videos={videos}")
+            continue
+        if videos > 0:
+            videos = 0
+            log("select-until ignore stale video count")
+        cands = [t for t in tiles if not t["selected"] and not t["video"]]
+        if not cands:
+            swipe_grid(serial)
+            time.sleep(0.22)
+            stagnant += 1
+            if stagnant >= 5:
+                break
+            continue
+        page_gains = 0
+        pending = 0
+        before_sync = photos
+        batch: list[tuple[int, int]] = []
+        for t in cands:
+            if photos >= want and videos == 0:
+                break
+            tap_xy(serial, t["cx"], t["cy"])
+            batch.append((t["cx"], t["cy"]))
+            _QP_LAST_XY[serial] = (t["cx"], t["cy"])
+            pending += 1
+            time.sleep(0.06)
+            should_read = pending >= 3 or photos + pending >= want or t is cands[-1]
+            if not should_read:
+                continue
+            np_, nv, nt = read_counts(photos, videos, last_text)
+            if nv > videos:
+                for bx, by in reversed(batch):
+                    tap_xy(serial, bx, by)
+                    time.sleep(0.05)
+                np_, nv, nt = read_counts(photos, videos, last_text)
+                log(f"select-until undo-video-batch photos={np_} videos={nv}")
+                photos, videos, last_text = np_, nv, nt
+                batch.clear()
+                pending = 0
+                break
+            log(
+                f"select-until page={page} photos={np_} videos={nv} "
+                f"pending={pending} text={nt!r}"
+            )
+            pending = 0
+            batch.clear()
+            if np_ > photos:
+                page_gains += np_ - photos
+                stagnant = 0
+            elif np_ <= before_sync:
+                photos, videos, last_text = np_, nv, nt
+                break
+            photos, videos, last_text = np_, nv, nt
+            before_sync = photos
+            if photos >= want and videos == 0:
+                log(f"select-until done photos={photos} text={last_text!r}")
+                return {
+                    "ok": True,
+                    "photos": photos,
+                    "videos": videos,
+                    "text": last_text,
+                    "step": page,
+                }
+            if videos > 0:
+                break
+        if pending:
+            photos, videos, last_text = read_counts(photos, videos, last_text)
+        if photos >= want and videos == 0:
+            log(f"select-until done photos={photos} text={last_text!r}")
+            return {
+                "ok": True,
+                "photos": photos,
+                "videos": videos,
+                "text": last_text,
+                "step": page,
+            }
+        swipe_grid(serial)
+        time.sleep(0.22)
+        if page_gains == 0:
+            stagnant += 1
+        if stagnant >= 5:
+            break
+    log(f"select-until fail photos={photos} videos={videos} text={last_text!r}")
+    return {
+        "ok": photos >= want and videos == 0,
+        "photos": photos,
+        "videos": videos,
+        "text": last_text,
+        "error": "" if photos >= want and videos == 0 else f"did not reach {want} photos-only",
     }
 
 
@@ -513,49 +1016,36 @@ def resolve_serial(q: dict) -> str:
 
 
 def _unselected_cell(serial: str) -> dict:
-    """Find the last unselected thumbnail (11th item). Do not swipe first — that
-    moves already-selected cells onto the fallback tap point."""
+    """11th thumbnail: screenshot tiles, then adb swipe (not Maestro)."""
     w, h = screen_size(serial)
-    root = dump_ui(serial)
-    cells = grid_media_cells(root, w, h) if root is not None else []
-    hit = next((c for c in reversed(cells) if not c["selected"]), None)
-    if hit is None and cells:
-        hit = cells[-1]
+    tiles = find_gallery_tiles(serial)
+    hit = next((t for t in tiles if not t["selected"] and not t["video"]), None)
+    if hit is None:
+        swipe_grid(serial)
+        time.sleep(0.35)
+        tiles = find_gallery_tiles(serial)
+        hit = next((t for t in tiles if not t["selected"] and not t["video"]), None)
     if hit:
         return {
             "ok": True,
-            "video": hit["video"],
             "x": hit["cx"],
             "y": hit["cy"],
             "w": w,
             "h": h,
-            "via": "dump",
+            "via": "tiles",
         }
-    swipe_grid(serial)
-    time.sleep(0.4)
-    root2 = dump_ui(serial)
-    cells2 = grid_media_cells(root2, w, h) if root2 is not None else []
-    hit = next((c for c in cells2 if not c["selected"]), None)
-    if hit is None and cells2:
-        hit = cells2[0]
-    if hit:
-        return {
-            "ok": True,
-            "video": hit["video"],
-            "x": hit["cx"],
-            "y": hit["cy"],
-            "w": w,
-            "h": h,
-            "via": "swipe",
-        }
+    x, y = int(w * 0.83), int(h * 0.62)
+    last = _QP_LAST_XY.get(serial)
+    if last and abs(last[0] - x) < 48 and abs(last[1] - y) < 48:
+        x, y = int(w * 0.17), int(h * 0.62)
     return {
         "ok": True,
         "fallback": True,
-        "x": int(w * 0.82),
-        "y": int(h * 0.40),
+        "x": x,
+        "y": y,
         "w": w,
         "h": h,
-        "via": "percent",
+        "via": "swipe-percent",
     }
 
 
@@ -689,6 +1179,9 @@ def tap_kind(serial: str, kind: str) -> dict:
             hits.append((cx, cy, x1, blob))
         if kind == "tag" and blob and tag_re.search(blob) and cy > int(h * 0.7):
             hits.append((cx, cy, x1, blob))
+        # Tag chip sits above the More/Create/Printer bar, bottom-right.
+        if kind == "tag" and clickable and int(h * 0.70) < cy < int(h * 0.90) and cx > int(w * 0.72):
+            right_bar.append((cx, cy, x1))
         if kind == "overflow" and clickable and cy < int(h * 0.14) and cx > int(w * 0.72):
             right_bar.append((cx, cy, x1))
         # Facebook ⋮ sits on the account sub-header under Select Gallery.
@@ -703,10 +1196,14 @@ def tap_kind(serial: str, kind: str) -> dict:
         right_bar.sort(key=lambda t: t[0], reverse=True)
         tap_xy(serial, right_bar[0][0], right_bar[0][1])
         return {"ok": True, "via": "top-right", "kind": kind}
+    if kind == "tag" and right_bar:
+        right_bar.sort(key=lambda t: t[0], reverse=True)
+        tap_xy(serial, right_bar[0][0], right_bar[0][1])
+        return {"ok": True, "via": "bottom-right", "kind": kind}
     if kind == "overflow":
         tap_xy(serial, int(w * 0.94), int(h * 0.07))
     else:
-        tap_xy(serial, int(w * 0.88), int(h * 0.88))
+        tap_xy(serial, int(w * 0.90), int(h * 0.82))
     return {"ok": True, "fallback": True, "kind": kind}
 
 
@@ -870,6 +1367,9 @@ class Handler(BaseHTTPRequestHandler):
             if u.path == "/revoke-photos":
                 self._json(200, revoke_photos(serial))
                 return
+            if u.path == "/ensure-empty-album":
+                self._json(200, ensure_empty_album(serial))
+                return
             self._json(404, {"ok": False, "error": "not found"})
         except Exception as exc:  # noqa: BLE001
             log(f"error {u.path}: {exc}")
@@ -877,6 +1377,8 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
+    global _OCR_PROC
+    _OCR_PROC = _start_ocr_worker()
     httpd = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
     print(f"qp helper listening on http://127.0.0.1:{PORT}", flush=True)
     httpd.serve_forever()
