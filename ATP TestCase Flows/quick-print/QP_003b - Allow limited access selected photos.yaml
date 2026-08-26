@@ -18,16 +18,12 @@ tags:
 - runFlow: subflows/tap_quick_print.yaml
 - extendedWaitUntil:
     visible: ".*(?i)(photos and videos|Allow limited access).*"
-    timeout: 20000
+    timeout: 15000
 - tapOn: "Allow limited access"
-- waitForAnimationToEnd:
-    timeout: 3000
 - runFlow:
     when:
       visible: ".*(?i)Allow limited access.*"
     commands:
       - tapOn: ".*(?i)Allow limited access.*"
-      - waitForAnimationToEnd:
-          timeout: 3000
 - runFlow: subflows/pick_limited_access_photos.yaml
 - runFlow: subflows/assert_limited_gallery_shows_photos.yaml

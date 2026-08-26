@@ -15,22 +15,31 @@ tags:
 # Deny photos if the system asks during Create home entry
 - runFlow:
     when:
-      visible: ".*photos and videos.*"
+      visible: ".*(?i)photos and videos.*"
     commands:
-      - tapOn: "Don't allow"
+      - tapOn:
+          text: ".*(?i)Don.?t [Aa]llow.*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^Deny$"
+          optional: true
       - waitForAnimationToEnd:
           timeout: 2000
 - tapOn: ".*Collage Maker.*"
 - waitForAnimationToEnd:
     timeout: 3000
 - extendedWaitUntil:
-    visible: ".*(?i)(photos and videos|Allow all|Allow limited access|Don't allow).*"
+    visible: ".*(?i)(photos and videos|Allow all|Allow limited access|Don.?t [Aa]llow|Deny).*"
     timeout: 15000
 - assertVisible: ".*(?i)(photos and videos|photos & videos).*"
-- assertVisible: "Allow all"
-- assertVisible: "Allow limited access"
-- assertVisible: "Don't allow"
-- tapOn: "Allow all"
+- assertVisible: ".*(?i)Allow all.*"
+- tapOn:
+    text: ".*(?i)Allow all.*"
+    optional: true
+- tapOn:
+    text: "Allow all"
+    optional: true
+
 - waitForAnimationToEnd:
     timeout: 3000
 - extendedWaitUntil:

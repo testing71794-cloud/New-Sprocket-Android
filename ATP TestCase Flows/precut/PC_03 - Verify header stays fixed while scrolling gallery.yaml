@@ -1,0 +1,23 @@
+# ATP Test Case ID: PC_03
+# Excel: Precut_03 | Module: Pre-Cut Stickers- Scroll gallery
+# Verify that the header remains fixed while scrolling through photos.
+# Expected: Back, Select 2 photos, and Next stay visible while gallery scrolls.
+appId: com.hp.impulse.sprocket
+name: "PC_03 - Verify header stays fixed while scrolling gallery"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- assertVisible: ".*(?i)Select 2 photos.*"
+- swipe:
+    start: "50%,82%"
+    end: "50%,58%"
+    duration: 500
+- swipe:
+    start: "50%,82%"
+    end: "50%,58%"
+    duration: 500
+- assertVisible: ".*(?i)Select 2 photos.*"
+- assertVisible: "Next"

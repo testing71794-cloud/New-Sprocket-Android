@@ -1,5 +1,5 @@
+# Cold launch → Create → Quick Print gallery (Allow all photos).
+# See: https://docs.maestro.dev/
 appId: com.hp.impulse.sprocket
 ---
-# Cold launch → Create → Quick Print gallery (Allow all photos).
-- runFlow: reach_create_home.yaml
-- runFlow: open_quick_print.yaml
+- runFlow: reach_gallery_allow_all.yaml

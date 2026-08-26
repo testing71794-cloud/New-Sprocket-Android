@@ -1,0 +1,54 @@
+# ATP Test Case ID: PC_11a
+# Excel: Precut_11 (a) | Module: Pre-Cut Stickers – Gallery Permission Recovery
+# Verify that granting photo permission from device settings returns the user to the Pre-Cut photo selection screen.
+# Expected: Permission screen gone; gallery available for selection.
+appId: com.hp.impulse.sprocket
+name: "PC_11a - Verify grant photo permission returns to Pre-Cut"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_home_no_photos.yaml
+- runFlow: subflows/tap_precut.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(photos and videos|photos and media|Allow all|ALLOW|Open [Ss]ettings|grant photo|Got It).*"
+    timeout: 20000
+- runFlow: subflows/deny_photos_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Open [Ss]ettings.*"
+    timeout: 20000
+- tapOn: ".*(?i)Open [Ss]ettings.*"
+- setPermissions:
+    permissions:
+      storage: allow
+      medialibrary: allow
+- back
+- launchApp:
+    stopApp: false
+- extendedWaitUntil:
+    visible: ".*(?i)(Select 2 photos|Pre-Cut Stickers|Got It|Open [Ss]ettings).*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: "(?i)Got It.*"
+    commands:
+      - tapOn: "(?i)Got It.*"
+- runFlow:
+    when:
+      visible: ".*(?i)Open [Ss]ettings.*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|photos and media|Allow all|ALLOW).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)(Allow all|ALLOW|Allow).*"
+          optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)Select 2 photos.*"
+    timeout: 25000
+- assertVisible: ".*(?i)Select 2 photos.*"

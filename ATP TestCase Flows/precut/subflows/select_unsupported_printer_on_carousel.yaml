@@ -1,0 +1,57 @@
+appId: com.hp.impulse.sprocket
+---
+# On Select Your Device, center a non-2x3 model (Plus, 3x4, 600, Studio Plus) and Continue.
+# Soft selection — does not require Bluetooth pairing to finish.
+- extendedWaitUntil:
+    visible: ".*(?i)Select Your Device.*"
+    timeout: 15000
+- repeat:
+    times: 10
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket Studio Plus|Studio Plus).*"
+          commands:
+            - tapOn: ".*(?i)(HP Sprocket Studio Plus|Studio Plus).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket Plus|Sprocket Plus).*"
+            notVisible: ".*(?i)Studio Plus.*"
+          commands:
+            - tapOn: ".*(?i)(HP Sprocket Plus|Sprocket Plus).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+          commands:
+            - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: "3x4"
+            notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus|Studio Plus).*"
+          commands:
+            - tapOn: "3x4"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            notVisible: ".*(?i)(HP Sprocket Plus|Studio Plus|HP Sprocket 3x4|Sprocket 3x4|Sprocket 600|HP600).*"
+          commands:
+            - swipe:
+                direction: LEFT
+                duration: 350
+            - waitForAnimationToEnd:
+                timeout: 1200
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket Plus|Studio Plus|HP Sprocket 3x4|Sprocket 3x4|Sprocket 600|HP600).*"
+    timeout: 10000
+- tapOn:
+    text: ".*(?i)Continue with this Printer.*"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000

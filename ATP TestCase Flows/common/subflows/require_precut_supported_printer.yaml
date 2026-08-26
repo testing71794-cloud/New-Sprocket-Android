@@ -1,0 +1,41 @@
+appId: com.hp.impulse.sprocket
+---
+# Pre-Cut requires 2x3 paper. Fail when a non-2x3 printer is connected or the incompatible toast appears.
+# Supported: HP Sprocket 200 / 200D, 2-in-1 (2x1), Original Sprocket, Foxconn 200D (2x3 family).
+# Unsupported: Sprocket 3x4, HP Sprocket Plus, Sprocket 600 / HP600, Studio / Studio Plus (not 2x3).
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+          label: "Pre-Cut tests require a 2x3 printer (not Sprocket 3x4)."
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket Plus|Sprocket Plus).*"
+      notVisible: ".*(?i)Studio Plus.*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(HP Sprocket Plus|Sprocket Plus).*"
+          label: "Pre-Cut tests require a 2x3 printer (not Sprocket Plus)."
+- runFlow:
+    when:
+      visible: ".*(?i)(Sprocket 600|HP Sprocket 600|HP600).*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(Sprocket 600|HP Sprocket 600|HP600).*"
+          label: "Pre-Cut tests require a 2x3 printer (not Sprocket 600)."
+- runFlow:
+    when:
+      visible: ".*(?i)(Studio Plus|Sprocket Studio).*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(Studio Plus|Sprocket Studio).*"
+          label: "Pre-Cut tests require a 2x3 printer (not Studio / Studio Plus)."
+- runFlow:
+    when:
+      visible: ".*(?i)(Sorry.*Pre-?Cut.*not compatible|Pre-?Cut.*not compatible with this printer|Pre-?Cut Stickers.*not compatible).*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(Sorry.*Pre-?Cut.*not compatible|Pre-?Cut.*not compatible with this printer|Pre-?Cut Stickers.*not compatible).*"
+          label: "Pre-Cut tests require a 2x3-compatible printer."

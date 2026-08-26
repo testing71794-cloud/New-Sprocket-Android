@@ -1,14 +1,10 @@
 # ATP Test Case ID: COLX_15
 # Excel: Collage_15 | Module: Printer Validation
-# Verify printer connection status
-# Expected: Printer name replaces No Printer Added after successful connection.
+# Verify printer connection status — delegates to COL_15.
 appId: com.hp.impulse.sprocket
 name: "COLX_15 - Verify printer connection status"
 tags:
   - collage
   - atp-excel
 ---
-- runFlow: subflows/reach_excel_screen.yaml
-- assertVisible:
-    text: "Printer"
-    optional: true
+- runFlow: "COL_15 - Printer validation.yaml"

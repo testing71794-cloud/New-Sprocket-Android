@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Photobooth toolbar Back is an unlabeled ImageView at top-left.
+# Do not tap text "Back" — that matches the Android system nav Back.
+- tapOn:
+    point: "7%,10%"
+- waitForAnimationToEnd:
+    timeout: 2500

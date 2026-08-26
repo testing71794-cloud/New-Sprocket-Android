@@ -1,0 +1,21 @@
+# ATP Test Case ID: PB_11
+# Excel: Photobooth 11 | Module: Photobooth – Capture process
+# Verify that tapping the Stop button cancels the ongoing Photobooth capture process.
+# Expected: Capture stops; Capture button returns; preview ready for a new session.
+appId: com.hp.impulse.sprocket
+name: "PB_11 - Verify Stop cancels Photobooth capture"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_capture.yaml
+- extendedWaitUntil:
+    visible: "3"
+    timeout: 8000
+- runFlow: subflows/tap_stop.yaml
+- waitForAnimationToEnd:
+    timeout: 4000
+- assertVisible: "(?i)Photobooth.*"

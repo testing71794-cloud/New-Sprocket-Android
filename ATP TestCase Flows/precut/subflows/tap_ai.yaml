@@ -1,0 +1,65 @@
+appId: com.hp.impulse.sprocket
+---
+# Tap AI on selected slot. On Vivo, action icons are on the right (~93% x).
+# Edit opens Custom SDK at ~93%,32% — do NOT use that point for AI.
+- tapOn:
+    point: "28%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- swipe:
+    start: "50%,55%"
+    end: "50%,95%"
+    duration: 600
+- waitForAnimationToEnd:
+    timeout: 1200
+- tapOn:
+    point: "28%,28%"
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow:
+    when:
+      visible: "(?i)^AI$"
+    commands:
+      - tapOn: "(?i)^AI$"
+- runFlow:
+    when:
+      notVisible: "(?i)^AI$"
+    commands:
+      # Prefer points below Edit (Edit = ~93%,32%).
+      - tapOn:
+          point: "93%,42%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+# If we accidentally opened Custom SDK (Edit), back out and try lower AI point.
+- runFlow:
+    when:
+      visible: ".*(?i)(Auto|Adjust|Filters|Frames|Stickers|Retouch).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          point: "28%,28%"
+      - waitForAnimationToEnd:
+          timeout: 800
+      - tapOn:
+          point: "93%,48%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(Auto|Adjust|Filters|Frames|Stickers|Retouch).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          point: "28%,28%"
+      - waitForAnimationToEnd:
+          timeout: 800
+      - tapOn:
+          point: "93%,38%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- waitForAnimationToEnd:
+    timeout: 800

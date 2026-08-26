@@ -1,0 +1,16 @@
+appId: com.hp.impulse.sprocket
+---
+# Assert Pre-Cut print preview after Next (no printer is OK).
+# Do not match the substring "Print" inside "Incompatible Printer".
+- runFlow:
+    when:
+      visible: ".*(?i)(Incompatible Printer|exclusively with the Sprocket).*"
+    commands:
+      - assertNotVisible:
+          text: ".*(?i)(Incompatible Printer|exclusively with the Sprocket).*"
+          label: "Print preview expected, but Incompatible Printer dialog is showing."
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|^Print$|Add Printer|No Printers Added|Share|^Edit$).*"
+    timeout: 30000
+- assertVisible: ".*(?i)(Copies|^Print$|Add Printer|No Printers Added|Share|^Edit$).*"
+- assertNotVisible: ".*(?i)Select 2 [Pp]hotos.*"

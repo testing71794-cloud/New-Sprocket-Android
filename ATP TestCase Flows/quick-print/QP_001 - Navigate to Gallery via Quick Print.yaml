@@ -1,0 +1,14 @@
+# ATP: QUICK PRINT _001 | Quick Print- Gallery Screen
+# Verify the navigation flow to Gallery screen via Quick Print.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_001 - Navigate to Gallery via Quick Print"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/assert_quick_print_gallery.yaml

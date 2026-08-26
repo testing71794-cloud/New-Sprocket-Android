@@ -1,0 +1,15 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Precut_07 (a): same photo in both slots — fill slot 1, then slot 2.
+- tapOn:
+    point: "18%,72%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- tapOn:
+    point: "72%,30%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- tapOn:
+    point: "18%,72%"
+- waitForAnimationToEnd:
+    timeout: 1500

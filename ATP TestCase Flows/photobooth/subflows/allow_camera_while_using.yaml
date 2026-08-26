@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: If camera permission appears, tap While using the app.
+- runFlow:
+    when:
+      visible: ".*(?i)(take pictures|record video|While using the app).*"
+    commands:
+      - tapOn: "(?i)While using the app"

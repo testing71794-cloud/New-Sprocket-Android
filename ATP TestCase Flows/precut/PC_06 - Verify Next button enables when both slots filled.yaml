@@ -1,0 +1,21 @@
+# ATP Test Case ID: PC_06
+# Excel: Precut_06 | Module: Pre-Cut Stickers – Next Button
+# Verify that the “Next” button becomes enabled when both photo slots are selected.
+# Expected: Next does not leave the screen until both slots are filled.
+# Compose reports Next as enabled=true even when visually disabled, so this is behavioral.
+appId: com.hp.impulse.sprocket
+name: "PC_06 - Verify Next button enables when both slots filled"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- assertVisible: "Next"
+- tapOn: "Next"
+- assertVisible: ".*(?i)Select 2 photos.*"
+- runFlow: subflows/select_first_gallery_photo.yaml
+- tapOn: "Next"
+- assertVisible: ".*(?i)Select 2 photos.*"
+- runFlow: subflows/select_second_gallery_photo.yaml
+- assertVisible: "Next"

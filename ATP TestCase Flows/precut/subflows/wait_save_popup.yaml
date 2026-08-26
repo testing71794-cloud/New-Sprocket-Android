@@ -1,0 +1,6 @@
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: "(?i)Save as new photo.*"
+    timeout: 12000
+- assertVisible: "(?i)Save as new photo.*"

@@ -1,0 +1,25 @@
+appId: com.hp.impulse.sprocket
+---
+# Launch → connect incompatible 3×4 (00FE) → enter Pre-Cut.
+# With unsupported printer, Incompatible Printer often appears immediately on Pre-Cut entry
+# (before the normal warning / photo selection). Otherwise continue to print and assert there.
+- runFlow: excel_launch_to_home.yaml
+- runFlow: ensure_incompatible_printer_connected.yaml
+- runFlow: tap_precut.yaml
+- runFlow: allow_photos_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Incompatible Printer|Got It|Pre-Cut Stickers|Select.*photo|photos and media|ALLOW).*"
+    timeout: 25000
+- runFlow:
+    when:
+      visible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - runFlow: assert_incompatible_printer_message.yaml
+      - assertVisible: "(?i)Got It.*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - runFlow: wait_warning_popup.yaml
+      - runFlow: tap_got_it.yaml
+      - runFlow: wait_selection_screen.yaml

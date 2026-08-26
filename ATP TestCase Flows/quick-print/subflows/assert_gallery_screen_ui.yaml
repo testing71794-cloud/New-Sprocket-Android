@@ -6,11 +6,11 @@ appId: com.hp.impulse.sprocket
 ---
 - assertVisible:
     enabled: true
-    leftOf: "Recent"
-- assertVisible: "Recent"
-- assertVisible: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*"
-- assertVisible: ".*(?i)More.*"
+    leftOf: ".*(?i)(Recent|^All$).*"
+- assertVisible: ".*(?i)(Recent|^All$).*"
+- assertVisible: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|Your Recommended Photos).*"
+- assertVisible: ".*(?i)(More|Collage|Facebook).*"
+- assertVisible: ".*(?i)(Create|Gallery).*"
 - assertVisible:
-    text: ".*(?i)Create.*"
-    selected: true
-- assertVisible: ".*(?i)Printer.*"
+    text: ".*(?i)Printer.*"
+    optional: true

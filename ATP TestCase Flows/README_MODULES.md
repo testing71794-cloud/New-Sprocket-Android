@@ -47,7 +47,7 @@ These **add** flows next to hand-tuned ones (do not overwrite SP_/ON_/QP_/COL_/C
 |--------|--------------|-------------|------------:|
 | splash | SPX_ | Splash | 1 |
 | onboarding | ONX_ | Onboarding | 18 |
-| quick-print | QPX_ | QuickPrint | 45 |
+| quick-print | QP_ | QuickPrint (Excel 001–015, 31 flows) | 31 |
 | collage | COLX_ | Collage | 11 |
 | connection | COX_ | Connection | 256 |
 

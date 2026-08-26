@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Second gallery thumbnail in the Pre-Cut bottom sheet.
+- tapOn:
+    point: "50%,72%"
+- waitForAnimationToEnd:
+    timeout: 1500

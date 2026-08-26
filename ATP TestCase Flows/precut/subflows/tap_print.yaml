@@ -1,0 +1,16 @@
+appId: com.hp.impulse.sprocket
+---
+# Tap Print on Print Preview only.
+# Never fall back to 50%,90% after Print — that hits bottom tabs and dismisses popups/toasts.
+- runFlow:
+    when:
+      visible: "^Print$"
+    commands:
+      - tapOn: "^Print$"
+- runFlow:
+    when:
+      notVisible: "^Print$"
+      visible: ".*(?i)(Copies|Save to Gallery).*"
+    commands:
+      - tapOn:
+          point: "50%,82%"

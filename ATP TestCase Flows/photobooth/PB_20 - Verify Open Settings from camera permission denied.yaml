@@ -1,0 +1,24 @@
+# ATP Test Case ID: PB_20
+# Excel: Photobooth 20 | Module: Photobooth- camera permission deny
+# Verify Open Settings Button Functionality.
+# Expected: App Settings page opens for the application.
+appId: com.hp.impulse.sprocket
+name: "PB_20 - Verify Open Settings from camera permission denied"
+tags:
+  - photobooth
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photobooth.yaml
+- runFlow: subflows/deny_camera.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Open Settings.*"
+    timeout: 15000
+- tapOn: ".*(?i)Open Settings.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- extendedWaitUntil:
+    visible: ".*(?i)(Permissions|App info|Sprocket|Notifications).*"
+    timeout: 10000
+- assertVisible: ".*(?i)(Permissions|App info|Sprocket|Notifications).*"

@@ -1,0 +1,13 @@
+# ATP Test Case ID: PB_02
+# Excel: Photobooth 02 | Module: Photobooth
+# Verify the UI of the Photobooth Capture screen.
+# Expected: Title Photobooth, Back, preview, 4-dot progress, Flash OFF, Capture, Switch Camera.
+appId: com.hp.impulse.sprocket
+name: "PB_02 - Verify Photobooth Capture screen UI"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/assert_photobooth_capture_ui.yaml

@@ -1,0 +1,12 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Tap the Photobooth module (tile is below the fold on Create hub).
+- scrollUntilVisible:
+    element: "(?i)Photobooth.*"
+    direction: DOWN
+    timeout: 15000
+    centerElement: true
+- tapOn: "(?i)Photobooth.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Photobooth|While using the app|Don't allow|take pictures).*"
+    timeout: 15000

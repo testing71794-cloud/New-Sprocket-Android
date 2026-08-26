@@ -1,0 +1,111 @@
+appId: com.hp.impulse.sprocket
+---
+# Complete Studio Plus (or other Wi-Fi) pairing after selecting it from Searching.
+# Requires env WIFI_PASSWORD (passed by run_precut_suite.ps1 for PC_10/PC_11).
+# Optional WIFI_SSID (default CAGlobal).
+- runFlow:
+    when:
+      visible: ".*(?i)Exit Setup.*"
+    commands:
+      - tapOn: ".*(?i)^Continue$"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(Couldn't Connect|Could not connect).*"
+    commands:
+      - tapOn: ".*(?i)Try Again.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)CAGlobal.*"
+    commands:
+      - tapOn: ".*(?i)CAGlobal.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(password|Password|Wi-?Fi password|Enter the password).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)(password|Password|Enter the password).*"
+          optional: true
+      - inputText: ${WIFI_PASSWORD}
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          text: ".*(?i)^(Next|Continue|Join|Connect|Done)$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 5000
+# Advance through remaining Wi-Fi / setup steps.
+- repeat:
+    times: 10
+    commands:
+      - runFlow:
+          when:
+            visible: "Allow"
+          commands:
+            - tapOn: "Allow"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)(password|Password|Enter the password).*"
+            notVisible: ".*(?i)(Couldn't Connect|Your Printers|Pre-?Cut).*"
+          commands:
+            - tapOn:
+                text: ".*(?i)(password|Password|Enter the password).*"
+                optional: true
+            - inputText: ${WIFI_PASSWORD}
+            - tapOn:
+                text: ".*(?i)^(Next|Continue|Join|Connect)$"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Couldn't Connect|Could not connect).*"
+          commands:
+            - tapOn: ".*(?i)Try Again.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+            - runFlow:
+                when:
+                  visible: ".*(?i)CAGlobal.*"
+                commands:
+                  - tapOn: ".*(?i)CAGlobal.*"
+                  - waitForAnimationToEnd:
+                      timeout: 2000
+            - runFlow:
+                when:
+                  visible: ".*(?i)(password|Password|Enter the password).*"
+                commands:
+                  - inputText: ${WIFI_PASSWORD}
+                  - tapOn:
+                      text: ".*(?i)^(Next|Continue|Join|Connect)$"
+                      optional: true
+                  - waitForAnimationToEnd:
+                      timeout: 5000
+
+      - runFlow:
+          when:
+            visible: ".*(?i)^(Next|Continue|Done|Finish|Finish Setup|Finish Connection)$"
+            notVisible: ".*(?i)(password|Couldn't Connect).*"
+          commands:
+            - tapOn: ".*(?i)^(Next|Continue|Done|Finish|Finish Setup|Finish Connection)$"
+            - waitForAnimationToEnd:
+                timeout: 4000
+- extendedWaitUntil:
+    visible: ".*(?i)(Studio Plus|Sprocket Studio|Your Printers|HP Sprocket Studio Plus|Couldn't Connect|Pre-?Cut|Create).*"
+    timeout: 90000
+    optional: true
+# If still stuck on failure after retries, Cancel so Printer tab can show a partial listing.
+- runFlow:
+    when:
+      visible: ".*(?i)(Couldn't Connect|Could not connect).*"
+    commands:
+      - tapOn: ".*(?i)^Cancel$"
+      - waitForAnimationToEnd:
+          timeout: 2500

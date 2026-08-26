@@ -1,0 +1,29 @@
+# ATP: QUICK PRINT_13 (b) | Facebook Gallery - Invalid Tag Search
+# Invalid tag Abc → No Tagged Photos.
+# See: https://docs.maestro.dev/reference/commands-available/inputtext
+# See: https://docs.maestro.dev/reference/commands-available/erasetext
+appId: com.hp.impulse.sprocket
+name: "QP_013b - Invalid tag No Tagged Photos"
+tags:
+  - quick-print
+  - atp-excel
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_first_folder.yaml
+- runFlow: subflows/open_tag_search_input.yaml
+- tapOn: ".*(?i)Enter tag#.*"
+- inputText: "Abc"
+- runFlow:
+    when:
+      visible: "Done"
+    commands:
+      - tapOn: "Done"
+- pressKey: enter
+- extendedWaitUntil:
+    visible: ".*(?i)(No Tagged Photos|Please try searching another tag).*"
+    timeout: 15000
+- assertVisible: ".*(?i)No Tagged Photos.*"
+- assertVisible: ".*(?i)Please try searching another tag.*"

@@ -1,9 +1,7 @@
 # Fill Select Mode to "10 Photos Selected" without keeping videos (they count toward the cap).
-# See: https://docs.maestro.dev/reference/commands-available/evalscript
+# First-page lattice only. Do not Maestro-swipe here: video thumbnails never settle.
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-# See: https://docs.maestro.dev/reference/commands-available/swipe
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-# See: https://docs.maestro.dev/maestro-flows/javascript/manage-data-and-states
 appId: com.hp.impulse.sprocket
 ---
 - runFlow:
@@ -12,55 +10,26 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn:
           point: "18%,24%"
-      - waitForAnimationToEnd:
-          timeout: 600
-- evalScript: ${output.qpPoint = '50%,24%'}
+          waitToSettleTimeoutMs: 0
+- evalScript: ${output.qpPoint = '50%,26%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,24%'}
+- evalScript: ${output.qpPoint = '83%,26%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '18%,38%'}
+- evalScript: ${output.qpPoint = '17%,40%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '50%,38%'}
+- evalScript: ${output.qpPoint = '50%,40%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,38%'}
+- evalScript: ${output.qpPoint = '83%,40%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '18%,52%'}
+- evalScript: ${output.qpPoint = '17%,54%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '50%,52%'}
+- evalScript: ${output.qpPoint = '50%,54%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,52%'}
+- evalScript: ${output.qpPoint = '83%,54%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '18%,64%'}
+- evalScript: ${output.qpPoint = '17%,66%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '50%,64%'}
+- evalScript: ${output.qpPoint = '50%,66%'}
 - runFlow: tap_photo_cell.yaml
-- evalScript: ${output.qpPoint = '82%,64%'}
+- evalScript: ${output.qpPoint = '83%,66%'}
 - runFlow: tap_photo_cell.yaml
-- runFlow:
-    when:
-      notVisible: ".*(?i)10 Photos Selected.*"
-    commands:
-      - swipe:
-          start: "50%, 58%"
-          end: "50%, 40%"
-          duration: 350
-      - waitForAnimationToEnd:
-          timeout: 600
-      - evalScript: ${output.qpPoint = '18%,40%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '50%,40%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '82%,40%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '18%,54%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '50%,54%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '82%,54%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '18%,68%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '50%,68%'}
-      - runFlow: tap_photo_cell.yaml
-      - evalScript: ${output.qpPoint = '82%,68%'}
-      - runFlow: tap_photo_cell.yaml

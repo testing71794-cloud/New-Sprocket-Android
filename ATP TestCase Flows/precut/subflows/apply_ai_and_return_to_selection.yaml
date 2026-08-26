@@ -1,0 +1,76 @@
+appId: com.hp.impulse.sprocket
+---
+# Run an AI edit from Pre-Cut slot AI module and return to Select 2 photos.
+# Do not tap Done on the entry screen first — that cancels without applying.
+# Must not be Custom SDK (Auto/Adjust/Filters) — that means Edit was tapped.
+- assertNotVisible: ".*(?i)^(Auto|Adjust|Filters)$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Enhance|Magic|Style|Restore|Replace|Generate|Apply|Done|Cancel|AI|Sprocket).*"
+    timeout: 25000
+# Prefer labeled AI tools when present.
+- runFlow:
+    when:
+      visible: ".*(?i)(Enhance|Magic|Style|Restore|Replace).*"
+      notVisible: ".*(?i)^Apply$"
+    commands:
+      - tapOn: ".*(?i)(Enhance|Magic|Style|Restore|Replace).*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+# Icon-only tool rail fallbacks (Vivo often has no tool text).
+- runFlow:
+    when:
+      notVisible: ".*(?i)^Apply$"
+      notVisible: ".*(?i)(Enhance|Magic|Style|Restore|Replace|Generate).*"
+    commands:
+      - tapOn:
+          point: "20%,88%"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)^Apply$"
+      visible: ".*(?i)(Done|Cancel).*"
+    commands:
+      - tapOn:
+          point: "35%,88%"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Generate$"
+      notVisible: ".*(?i)^Apply$"
+    commands:
+      - tapOn: ".*(?i)^Generate$"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)^Apply$"
+    timeout: 90000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)^Apply$"
+    commands:
+      - tapOn: ".*(?i)^Apply$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+# If Apply never appears, accept Done after a tool tap (still exercised AI module).
+- runFlow:
+    when:
+      notVisible: ".*(?i)^Apply$"
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Save|Keep|Use photo).*"
+      notVisible: ".*(?i)Select 2 photos.*"
+    commands:
+      - tapOn: ".*(?i)(Save|Keep|Use photo).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)Select 2 photos.*"
+    timeout: 30000

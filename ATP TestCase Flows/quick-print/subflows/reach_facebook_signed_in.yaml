@@ -1,7 +1,10 @@
-# Gallery → Select Gallery → Facebook OAuth → folder list.
+# Gallery → Select Gallery → Facebook OAuth → Facebook album list (Photos).
+# After login the app often stays on Select Gallery; tap the Facebook row (not ⋮) to enter albums.
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/loops
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/tapon
 appId: com.hp.impulse.sprocket
 ---
 - runFlow: ensure_internet_on.yaml
@@ -9,7 +12,7 @@ appId: com.hp.impulse.sprocket
 - runFlow: open_select_gallery.yaml
 - tapOn: ".*Facebook.*"
 - waitForAnimationToEnd:
-    timeout: 2000
+    timeout: 800
 - runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
 - repeat:
     times: 3
@@ -18,8 +21,21 @@ appId: com.hp.impulse.sprocket
     commands:
       - runFlow: ../../login/subflows/advance_facebook_after_credentials.yaml
       - waitForAnimationToEnd:
-          timeout: 1500
+          timeout: 800
 - extendedWaitUntil:
     notVisible: "m.facebook.com"
     timeout: 20000
+- runFlow:
+    when:
+      visible: ".*(?i)Recent.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Facebook.*"
+          point: "40%,50%"
+      - waitForAnimationToEnd:
+          timeout: 800
+- extendedWaitUntil:
+    visible: "^Photos.*"
+    timeout: 15000
 - assertVisible: ".*(?i)Facebook.*"
+- assertVisible: "^Photos.*"

@@ -20,7 +20,7 @@ tags:
     timeout: 15000
 - runFlow: subflows/deny_photos_permission.yaml
 - waitForAnimationToEnd:
-    timeout: 4000
+    timeout: 800
 - assertVisible: ".*(?i)Open Settings.*"
 - runFlow: subflows/grant_photos_from_open_settings.yaml
 - runFlow:
@@ -29,9 +29,9 @@ tags:
     commands:
       - tapOn: "(?i)Quick Print.*"
       - waitForAnimationToEnd:
-          timeout: 3000
+          timeout: 800
       - runFlow: subflows/allow_photos_all_and_os.yaml
 - extendedWaitUntil:
-    visible: ".*(?i)(Recent|Open Settings|photos and videos).*"
+    visible: ".*(?i)(Recent|^All$|Open Settings|photos and videos).*"
     timeout: 15000
-- assertVisible: ".*(?i)(Recent|Open Settings|photos and videos).*"
+- assertVisible: ".*(?i)(Recent|^All$|Open Settings|photos and videos).*"

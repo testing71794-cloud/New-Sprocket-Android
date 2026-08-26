@@ -1,0 +1,73 @@
+# Select HP Sprocket 200 on "Select Your Device" (not Sense).
+# Use direction swipes (same pattern as onboarding carousel) + chip tap.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Select Your Device.*"
+    timeout: 15000
+# Finger right → previous model (200 sits left of Sense on the chip strip).
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - swipe:
+          direction: RIGHT
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - swipe:
+          direction: RIGHT
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - longPressOn: "200"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - tapOn:
+          text: "200"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+# Overshot → step back
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - swipe:
+          direction: LEFT
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - swipe:
+          direction: LEFT
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)HP Sprocket 200.*"
+    commands:
+      - swipe:
+          direction: LEFT
+      - waitForAnimationToEnd:
+          timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)HP Sprocket 200.*"
+    timeout: 8000
+- assertVisible: ".*(?i)HP Sprocket 200.*"
+- tapOn: ".*(?i)Continue with this Printer.*"
+- waitForAnimationToEnd:
+    timeout: 4000

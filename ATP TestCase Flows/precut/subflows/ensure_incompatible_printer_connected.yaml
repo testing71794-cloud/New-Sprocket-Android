@@ -1,0 +1,235 @@
+appId: com.hp.impulse.sprocket
+---
+# Activate incompatible printer for Pre-Cut ATP (PC_13 / PC_13a incompatible path).
+# Lab: HP Sprocket 3×4 MAC ending 00FE (UI: "HP Sprocket 3x4 (00:FE)").
+# Pre-Cut must NOT print on this printer — Incompatible Printer message required.
+# Vivo tabs ~90% y (96% hits system nav). Prefer Skip to Connection when offered.
+- runFlow:
+    when:
+      visible: ".*(?i)No Thanks.*"
+    commands:
+      - tapOn: ".*(?i)No Thanks.*"
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+- runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Tap to Connect|Add a new Printer|Your Printers|No Printers|HP Sprocket|Sprocket|00FE|00:FE|Get Connected|Printer Settings|Skip to Connection).*"
+    timeout: 20000
+
+# Already listed 00FE — select/activate it (even if another printer also listed).
+- runFlow:
+    when:
+      visible: ".*(?i)(00FE|00:FE|00-FE).*"
+    commands:
+      - tapOn: ".*(?i)(00FE|00:FE|00-FE).*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+      - runFlow:
+          when:
+            visible: "Pair"
+          commands:
+            - tapOn: "Pair"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - runFlow:
+          when:
+            visible: ".*(?i)Finish Connection.*"
+          commands:
+            - tapOn: ".*(?i)Finish Connection.*"
+            - waitForAnimationToEnd:
+                timeout: 4000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Printer Settings|Mac Address).*"
+          commands:
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Done$"
+                commands:
+                  - tapOn: ".*(?i)^Done$"
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 1500
+
+# Named 3×4 without MAC text.
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      notVisible: ".*(?i)(00FE|00:FE|00-FE|Connected).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+
+# Add / Skip to Connection / setup when 00FE not present yet.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(00FE|00:FE|00-FE).*"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)Add a new Printer.*"
+          commands:
+            - tapOn: ".*(?i)Add a new Printer.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      # Prefer Skip to Connection (ATP connection path) over full setup wizard.
+      - runFlow:
+          when:
+            visible: ".*(?i)Skip to Connection.*"
+          commands:
+            - tapOn: ".*(?i)Skip to Connection.*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)Set Up My Printer.*"
+            notVisible: ".*(?i)(Searching for Printers|00FE|00:FE|Enable Bluetooth|Enable the full Sprocket).*"
+          commands:
+            - tapOn: ".*(?i)Set Up My Printer.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - runFlow:
+          when:
+            visible: ".*(?i)Select Your Device.*"
+          commands:
+            - runFlow: ../../tile-print/subflows/select_sprocket_3x4_on_carousel.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)Skip to Connection.*"
+          commands:
+            - tapOn: ".*(?i)Skip to Connection.*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)Enable Bluetooth.*"
+          commands:
+            - tapOn: ".*(?i)Enable Bluetooth.*"
+            - waitForAnimationToEnd:
+                timeout: 4000
+      - runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+      - runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+      - repeat:
+          times: 8
+          commands:
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Next$"
+                commands:
+                  - tapOn: ".*(?i)^Next$"
+                  - waitForAnimationToEnd:
+                      timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Finish Setup|Skip to Connection).*"
+          commands:
+            - tapOn:
+                text: ".*(?i)Skip to Connection.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)Finish Setup.*"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 4000
+      - runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+      - runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+      - extendedWaitUntil:
+          visible: ".*(?i)(00FE|00:FE|00-FE|HP Sprocket 3x4|Sprocket 3x4|Searching for Printers|Try Again|Your Printers|Tap to Connect).*"
+          timeout: 60000
+      - runFlow:
+          when:
+            visible: ".*(?i)Try Again.*"
+          commands:
+            - tapOn: ".*(?i)Try Again.*"
+            - waitForAnimationToEnd:
+                timeout: 10000
+      - runFlow:
+          when:
+            visible: ".*(?i)(00FE|00:FE|00-FE).*"
+          commands:
+            - tapOn: ".*(?i)(00FE|00:FE|00-FE).*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+            notVisible: ".*(?i)(00FE|00:FE|00-FE).*"
+          commands:
+            - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: "Pair"
+          commands:
+            - tapOn: "Pair"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - runFlow:
+          when:
+            visible: ".*(?i)Finish Connection.*"
+          commands:
+            - tapOn: ".*(?i)Finish Connection.*"
+            - waitForAnimationToEnd:
+                timeout: 4000
+
+# Leave printer settings / nickname keyboard if opened.
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+- runFlow:
+    when:
+      visible: ".*(?i)(Printer Settings|Mac Address).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)(Printer Settings|Mac Address).*"
+          commands:
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 1500
+
+# Confirm 00FE / 3×4 is present before Pre-Cut.
+- extendedWaitUntil:
+    visible: ".*(?i)(00FE|00:FE|00-FE|HP Sprocket 3x4|Sprocket 3x4|Connected|Your Printers|Create|Collage Maker).*"
+    timeout: 20000
+
+- tapOn:
+    text: ".*(?i)Create.*"
+    optional: true
+- tapOn:
+    point: "50%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1000
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Photobooth).*"
+    timeout: 20000

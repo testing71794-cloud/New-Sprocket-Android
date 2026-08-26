@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# ATP Precut_13 — Pre-Cut only works with Sprocket / Sprocket 2-in-1 (2×3).
+# All other printers (3×4 00FE, Studio, Select, Plus, Sense, etc.) must show
+# Incompatible Printer popup (or equivalent toast) — not start printing.
+- extendedWaitUntil:
+    visible: ".*(?i)(Incompatible Printer|exclusively with the Sprocket|not compatible|unsupported printer|Got It).*"
+    timeout: 25000
+- assertVisible: ".*(?i)(Incompatible Printer|not compatible|unsupported printer).*"
+- assertVisible: ".*(?i)(work exclusively with the Sprocket|Sprocket 2-in-1|Sprocket|Got It).*"

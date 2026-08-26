@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: zoom / move a selected photo in its slot (upper Pre-Cut paper).
+- swipe:
+    start: "42%,28%"
+    end: "62%,34%"
+    duration: 500

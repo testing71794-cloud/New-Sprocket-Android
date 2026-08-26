@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: If camera permission appears, tap Don't allow.
+- extendedWaitUntil:
+    visible: ".*(?i)(take pictures|record video|Don't allow|Don.t allow).*"
+    timeout: 15000
+- tapOn: "(?i)Don.t allow"
+- waitForAnimationToEnd:
+    timeout: 3000

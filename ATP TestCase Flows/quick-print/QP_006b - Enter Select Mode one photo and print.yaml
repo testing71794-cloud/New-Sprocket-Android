@@ -1,0 +1,26 @@
+# ATP: QUICK PRINT_006 (b) | Gallery - Select Mode
+# Long-press one photo → Select Mode, then Print Preview → connect if needed → Print Complete.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_006b - Enter Select Mode one photo and print"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+  - print-success
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Tap and hold an image to enter select mode.*"
+    commands:
+      - extendedWaitUntil:
+          notVisible: ".*(?i)Tap and hold an image to enter select mode.*"
+          timeout: 10000
+- runFlow: subflows/enter_select_mode.yaml
+- assertVisible: "Cancel"
+- assertVisible: ".*(?i)(1 Photo Selected|1.*Selected).*"
+- assertVisible: "Print Preview"
+- runFlow: subflows/open_print_preview_connect_and_print.yaml

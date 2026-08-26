@@ -1,0 +1,80 @@
+# ATP: QUICK PRINT_15 | Gallery - No Photos Found
+# Select Gallery → a folder with no photos → "No photos found."
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+appId: com.hp.impulse.sprocket
+name: "QP_015 - No Photos Found empty folder"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runScript:
+    file: subflows/ensure_empty_album.js
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- swipe:
+    direction: UP
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)MaestroEmpty.*"
+    commands:
+      - tapOn: ".*(?i)MaestroEmpty.*"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)0 photos.*"
+    commands:
+      - tapOn: ".*(?i)0 photos.*"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)(Movies|Notifications|Bluetooth|Ringtones|Alarms|Audio).*"
+    commands:
+      - tapOn: ".*(?i)(Movies|Notifications|Bluetooth|Ringtones|Alarms|Audio).*"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: "Select Gallery"
+      notVisible: ".*(?i)No photos found.*"
+    commands:
+      - swipe:
+          direction: UP
+      - waitForAnimationToEnd:
+          timeout: 800
+      - tapOn:
+          text: ".*(?i)MaestroEmpty.*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)0 photos.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: "Select Gallery"
+      notVisible: ".*(?i)(No photos found|MaestroEmpty).*"
+    commands:
+      - tapOn:
+          point: "50%,78%"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      notVisible: ".*(?i)No photos found.*"
+    commands:
+      - tapOn:
+          point: "50%,85%"
+      - waitForAnimationToEnd:
+          timeout: 800
+- extendedWaitUntil:
+    visible: ".*(?i)No photos found.*"
+    timeout: 12000
+- assertVisible: ".*(?i)No photos found.*"

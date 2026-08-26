@@ -1,0 +1,23 @@
+appId: com.hp.impulse.sprocket
+---
+# After the 4th photo the OS may ask for photos access before Print Preview.
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+- extendedWaitUntil:
+    visible: ".*(?i)(Print|Copies|Save to Gallery|Share).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+- assertVisible:
+    text: ".*(?i)(Print|Copies|Save to Gallery|Share).*"

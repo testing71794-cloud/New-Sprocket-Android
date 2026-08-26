@@ -1,0 +1,54 @@
+# ATP: QUICK PRINT_10 | Facebook Gallery - Open Settings
+# Offline Facebook → Open Settings → restore internet → Facebook folders.
+# See: https://docs.maestro.dev/reference/commands-available/runflow
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/back
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+appId: com.hp.impulse.sprocket
+name: "QP_010 - Open Settings Wi-Fi restore Facebook"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- runFlow: subflows/disable_internet.yaml
+- tapOn: ".*Facebook.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Unable to connect|No Internet|reconnect|internet|Open Settings).*"
+    timeout: 12000
+- tapOn: ".*(?i)Open Settings.*"
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow: subflows/ensure_internet_on.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)^Wi-Fi$"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)^Off$"
+          commands:
+            - tapOn:
+                id: "android:id/switch_widget"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 1500
+- back
+- launchApp:
+    clearState: false
+    stopApp: false
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: "Select Gallery"
+    commands:
+      - tapOn: ".*Facebook.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: subflows/complete_facebook_oauth.yaml
+- assertVisible: ".*(?i)(Facebook|Select Gallery).*"

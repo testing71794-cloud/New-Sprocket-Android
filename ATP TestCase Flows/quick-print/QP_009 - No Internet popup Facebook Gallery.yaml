@@ -1,0 +1,40 @@
+# ATP: QUICK PRINT_09 | Facebook Gallery - No Internet
+# Airplane + wifi/data off → Facebook → Unable to connect; Back → Select Gallery.
+# See: https://docs.maestro.dev/reference/commands-available/setairplanemode
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+name: "QP_009 - No Internet popup Facebook Gallery"
+tags:
+  - quick-print
+  - atp-excel
+  - negative
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/open_select_gallery.yaml
+- runFlow: subflows/disable_internet.yaml
+- tapOn: ".*Facebook.*"
+- waitForAnimationToEnd:
+    timeout: 800
+- extendedWaitUntil:
+    visible: ".*(?i)(Unable to connect|No Internet|reconnect|internet).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Unable to connect|No Internet|reconnect|internet).*"
+- assertVisible: ".*(?i)(Open Settings|Back|OK).*"
+- runFlow:
+    when:
+      visible: ".*(?i)^Back$"
+    commands:
+      - tapOn: ".*(?i)^Back$"
+- runFlow:
+    when:
+      visible: ".*(?i)^Back$"
+      notVisible: ".*(?i)(Select Gallery|Gallery).*"
+    commands:
+      - tapOn: ".*(?i)^Back$"
+- runFlow: subflows/ensure_internet_on.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Select Gallery|Gallery|Facebook).*"
+    timeout: 12000
+- assertVisible: ".*(?i)(Select Gallery|Gallery).*"

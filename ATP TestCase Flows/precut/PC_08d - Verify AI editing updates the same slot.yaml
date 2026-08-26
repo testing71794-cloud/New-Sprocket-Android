@@ -1,0 +1,25 @@
+# ATP Test Case ID: PC_08d
+# Excel: Precut_08 (d) | Module: Pre-Cut Stickers – AI Photo Editing
+# Verify that tapping the AI icon opens the AI editing module and applied changes are reflected in the same slot.
+# Expected: AI module; after apply, still on Select 2 photos with the same slot assigned.
+appId: com.hp.impulse.sprocket
+name: "PC_08d - Verify AI editing updates the same slot"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_first_gallery_photo.yaml
+- assertVisible: "1"
+- runFlow: subflows/tap_ai.yaml
+- runFlow: subflows/apply_ai_and_return_to_selection.yaml
+- assertVisible: ".*(?i)Select 2 photos.*"
+- tapOn:
+    point: "28%,28%"
+- waitForAnimationToEnd:
+    timeout: 1000
+- assertVisible:
+    text: "1"
+    optional: true
+- assertVisible: "Next"

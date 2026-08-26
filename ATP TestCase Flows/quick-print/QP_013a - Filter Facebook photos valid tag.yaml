@@ -1,0 +1,30 @@
+# ATP: QUICK PRINT_13 (a) | Facebook Tag Filter
+# Enter valid tag #HPSPROCKET (ATP example) → filtered results.
+# See: https://docs.maestro.dev/reference/commands-available/inputtext
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+name: "QP_013a - Filter Facebook photos valid tag"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_first_folder.yaml
+- runFlow: subflows/open_tag_search_input.yaml
+- tapOn: ".*(?i)Enter tag#.*"
+- inputText: "HPSPROCKET"
+- runFlow:
+    when:
+      visible: "Done"
+    commands:
+      - tapOn: "Done"
+- pressKey: enter
+- extendedWaitUntil:
+    visible: ".*(?i)(HPSPROCKET|#HPSPROCKET).*"
+    timeout: 12000
+- assertVisible: ".*(?i)(HPSPROCKET|#HPSPROCKET).*"

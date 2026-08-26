@@ -1,7 +1,6 @@
 # ATP Test Case ID: PC_05
 # Excel: Precut_05 | Module: Selection Logic
-# Verify 2-photo selection, duplicate prevention, and next state.
-# Expected: Unique images are accepted, duplicate selection is prevented, and Next remains enabled only for valid selection.
+# Two unique photos, then re-tap first gallery cell.
 appId: com.hp.impulse.sprocket
 name: "PC_05 - Verify 2-photo selection duplicate prevention and next state"
 tags:
@@ -9,6 +8,11 @@ tags:
   - atp-excel
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Next"
-    optional: true
+- runFlow: subflows/select_two_unique_precut_photos.yaml
+- assertVisible: "Next"
+- tapOn:
+    point: "19%,75%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: ".*(?i)Select 2 [Pp]hotos.*"
+- assertVisible: "Next"

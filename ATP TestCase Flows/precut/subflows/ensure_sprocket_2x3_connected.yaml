@@ -1,0 +1,222 @@
+appId: com.hp.impulse.sprocket
+---
+# Connect HP Sprocket 2×3 class printer via Printer tab.
+# Compatible examples: BT ending 84:0C, or HP Sprocket 200 ending DC:A8.
+# Pre-Cut ATP: ONLY this printer class may print; 3×4/others must show Incompatible message.
+# App tabs ~90% y on Vivo (96% hits system nav).
+- runFlow:
+    when:
+      visible: ".*(?i)No Thanks.*"
+    commands:
+      - tapOn: ".*(?i)No Thanks.*"
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 4000
+# Prefer already-listed 2×3 MAC / name (do not activate 3×4 00FE).
+- runFlow:
+    when:
+      visible: ".*(?i)(DC:A8|DC-A8).*"
+    commands:
+      - tapOn: ".*(?i)(DC:A8|DC-A8).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(84:0C|84-0C).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|Connected).*"
+    commands:
+      - tapOn: ".*(?i)(84:0C|84-0C).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 200|Sprocket 200).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|Connected).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 200|Sprocket 200).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 2-in-1|Sprocket 2-in-1).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Connected).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 2-in-1|Sprocket 2-in-1).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)Tap to Connect.*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C).*"
+    commands:
+      - tapOn: ".*(?i)Tap to Connect.*"
+      - waitForAnimationToEnd:
+          timeout: 12000
+- runFlow:
+    when:
+      visible: ".*(?i)Add a new Printer.*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|HP Sprocket 2|Sprocket 2-in-1|Sprocket 200).*"
+    commands:
+      - tapOn: ".*(?i)Add a new Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+# Prefer Skip to Connection (ATP connection path) over full setup wizard.
+- runFlow:
+    when:
+      visible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Skip to Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)Set Up My Printer.*"
+      notVisible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Set Up My Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Add Printer.*"
+      notVisible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Add Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Select Your Device.*"
+    commands:
+      - swipe:
+          start: "75%,50%"
+          end: "25%,50%"
+          duration: 600
+      - tapOn:
+          text: ".*(?i)(HP Sprocket 200|Sprocket 200|DC:A8|DC-A8).*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)(HP Sprocket 2-in-1|Sprocket 2-in-1).*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)Continue with this Printer.*"
+          optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Skip to Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|HP Sprocket 2|Sprocket 2-in-1|Sprocket 200|Finish Setup|Finish Connection|Skip to Connection|Your Printers|Tap to Connect).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Skip to Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(DC:A8|DC-A8).*"
+    commands:
+      - tapOn: ".*(?i)(DC:A8|DC-A8).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(84:0C|84-0C).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8).*"
+    commands:
+      - tapOn: ".*(?i)(84:0C|84-0C).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 200|Sprocket 200).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 200|Sprocket 200).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 2-in-1|Sprocket 2-in-1).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Sprocket 200).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 2-in-1|Sprocket 2-in-1).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 8000
+- repeat:
+    times: 6
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)Skip to Connection.*"
+          commands:
+            - tapOn: ".*(?i)Skip to Connection.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - runFlow:
+          when:
+            visible: ".*(?i)^Next$"
+            notVisible: ".*(?i)Skip to Connection.*"
+          commands:
+            - tapOn: ".*(?i)^Next$"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Finish Setup|Finish Connection).*"
+          commands:
+            - tapOn:
+                text: ".*(?i)Skip to Connection.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)(Finish Setup|Finish Connection).*"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- tapOn:
+    text: ".*(?i)Create.*"
+    optional: true
+- tapOn:
+    point: "50%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000

@@ -1,5 +1,6 @@
-# QP TCs — optional carousel → Sign up. Wait for the screen, not a fixed delay.
+# QP TCs — carousel → Sign up. Fail here if still on Welcome (do not continue).
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 appId: com.hp.impulse.sprocket
 ---
 - runFlow: wait_after_cold_launch_fast.yaml
@@ -7,7 +8,23 @@ appId: com.hp.impulse.sprocket
     visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Get Started!|Welcome to the new Sprocket).*"
     timeout: 20000
 - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- runFlow:
+    when:
+      visible: "Swipe to continue."
+    commands:
+      - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Get Started!?.*"
+    commands:
+      - tapOn: ".*(?i)Get Started!?.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)explore sprocket.*"
+    commands:
+      - tapOn: ".*(?i)explore sprocket.*"
 - extendedWaitUntil:
-    visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later).*"
+    visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Explore Sprocket).*"
     timeout: 20000
-- assertVisible: ".*(?i)(I.ll do it later|Sign Up Later|I already have (an )?account).*"

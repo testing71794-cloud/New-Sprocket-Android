@@ -1,0 +1,13 @@
+appId: com.hp.impulse.sprocket
+---
+# Allow Photos & Videos when Pre-Cut / gallery prompts (optional).
+- runFlow:
+    when:
+      visible: ".*(?i)(access (more )?photos and videos|photos and videos on this device|allow limited access|allow all).*"
+    commands:
+      - tapOn: "Allow all"
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - extendedWaitUntil:
+          notVisible: ".*(?i)(allow limited access|allow all).*"
+          timeout: 10000

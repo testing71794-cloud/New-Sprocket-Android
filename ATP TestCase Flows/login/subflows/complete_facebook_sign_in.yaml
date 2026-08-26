@@ -16,7 +16,7 @@ appId: com.hp.impulse.sprocket
           timeout: 1000
 
 - waitForAnimationToEnd:
-    timeout: 1500
+    timeout: 800
 
 - runFlow: dismiss_facebook_language_picker.yaml
 

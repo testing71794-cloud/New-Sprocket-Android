@@ -1,0 +1,138 @@
+# Excel QUICK PRINT_11: Printer tab → Skip to Connection → HP 600 Wi-Fi Direct.
+# Then return to Create. Caller opens Quick Print → Facebook.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)^Printer$"
+    commands:
+      - tapOn: ".*(?i)^Printer$"
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Add a new Printer|Skip to Connection|No Printers).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Printer.*"
+          optional: true
+      - tapOn:
+          point: "78%,96%"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Add a new Printer.*"
+    commands:
+      - tapOn: ".*(?i)Add a new Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Skip to Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+- extendedWaitUntil:
+    visible: ".*(?i)(HP.?600|Sprocket 600|Searching for Printers|No Printers Found).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP.?600|Sprocket 600).*"
+    commands:
+      - tapOn: ".*(?i)(HP.?600|Sprocket 600).*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+- runFlow:
+    when:
+      visible: ".*(?i)This printer uses Wi-Fi.*"
+    commands:
+      - tapOn: ".*(?i)Tap here.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)No Wi-fi available.*"
+    commands:
+      - tapOn: ".*(?i)Open settings.*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)(Finish Connection|Finish Setup).*"
+    commands:
+      - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)^Create$"
+    commands:
+      - tapOn: ".*(?i)^Create$"
+- runFlow:
+    when:
+      notVisible: "(?i)Quick Print.*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Create$"
+      notVisible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: ".*(?i)^Create$"
+- runFlow:
+    when:
+      notVisible: "(?i)Quick Print.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Set Up My Printer|Skip to Connection).*"
+    commands:
+      - tapOn:
+          point: "8%,7%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- repeat:
+    times: 4
+    commands:
+      - runFlow:
+          when:
+            notVisible: "(?i)(Quick Print|Create).*"
+          commands:
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)^Create$"
+      notVisible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: ".*(?i)^Create$"
+- extendedWaitUntil:
+    visible: "(?i)(Quick Print|Create).*"
+    timeout: 15000

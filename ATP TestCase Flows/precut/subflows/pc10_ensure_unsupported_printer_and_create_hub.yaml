@@ -1,0 +1,111 @@
+appId: com.hp.impulse.sprocket
+---
+# Ensure a non-2x3 printer is listed/connected, then Create hub at Pre-Cut tile.
+# Prefer already-listed unsupported. Else Add a new Printer → Skip to Connection
+# → tap nearby Studio Plus / 3x4 / Plus → complete Wi-Fi with WIFI_PASSWORD.
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: dismiss_printer_setup_chrome.yaml
+- runFlow: ../../tile-print/subflows/exit_module_screen_if_needed.yaml
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,96%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: dismiss_printer_setup_chrome.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(No Printers Added|Add a new Printer|Your Printers|Tap to Connect|HP Sprocket|Sprocket|Set Up My Printer|Skip to Connection|Studio Plus).*"
+    timeout: 15000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus|Sprocket 600|HP600|Studio Plus|Sprocket Studio).*"
+    commands:
+      - tapOn:
+          text: "Add a new Printer"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)Skip to Connection.*"
+          commands:
+            - tapOn: ".*(?i)Skip to Connection.*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - extendedWaitUntil:
+          visible: ".*(?i)(Searching for Printers|HP Sprocket Studio Plus|Studio Plus|HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus).*"
+          timeout: 60000
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket Studio Plus|Studio Plus).*"
+          commands:
+            - tapOn: ".*(?i)(HP Sprocket Studio Plus|Studio Plus).*"
+            - waitForAnimationToEnd:
+                timeout: 6000
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+            notVisible: ".*(?i)Studio Plus.*"
+          commands:
+            - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+            - waitForAnimationToEnd:
+                timeout: 6000
+      - runFlow:
+          when:
+            visible: ".*(?i)HP Sprocket Plus.*"
+            notVisible: ".*(?i)Studio Plus.*"
+          commands:
+            - tapOn: ".*(?i)HP Sprocket Plus.*"
+            - waitForAnimationToEnd:
+                timeout: 6000
+      # Studio Plus needs Wi-Fi credentials (WIFI_PASSWORD env).
+      - runFlow:
+          when:
+            visible: ".*(?i)(password|Password|CAGlobal|This printer uses Wi-Fi|Couldn't Connect|Next|Wi-?Fi).*"
+          commands:
+            - runFlow: connect_unsupported_printer_wifi.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(password|Password|CAGlobal|Couldn't Connect|This printer uses Wi-Fi).*"
+    commands:
+      - runFlow: connect_unsupported_printer_wifi.yaml
+- runFlow: dismiss_printer_setup_chrome.yaml
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,96%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: dismiss_printer_setup_chrome.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus|Sprocket 600|HP600|Studio Plus|Sprocket Studio).*"
+    timeout: 60000
+- assertVisible:
+    text: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus|Sprocket 600|HP600|Studio Plus|Sprocket Studio).*"
+    label: "Need a non-2x3 printer listed (3x4 / Plus / 600 / Studio Plus) before PC_10/PC_11."
+- runFlow: dismiss_printer_setup_chrome.yaml
+- tapOn:
+    text: ".*(?i)Create.*"
+    optional: true
+- tapOn:
+    point: "50%,96%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: dismiss_printer_setup_chrome.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?Cut Stickers|Pre-?Cut|Tile Print).*"
+    timeout: 20000
+- scrollUntilVisible:
+    element: ".*(?i)(Pre-?Cut Stickers|Pre-?Cut|Precut).*"
+    direction: DOWN
+    timeout: 20000
+    centerElement: true
+- assertVisible: ".*(?i)(Pre-?Cut Stickers|Pre-?Cut|Precut).*"

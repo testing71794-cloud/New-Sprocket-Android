@@ -9,4 +9,4 @@ appId: com.hp.impulse.sprocket
     env:
       NET_STATE: on
 - waitForAnimationToEnd:
-    timeout: 2500
+    timeout: 800

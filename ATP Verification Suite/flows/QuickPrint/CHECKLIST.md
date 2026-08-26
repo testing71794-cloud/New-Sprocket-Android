@@ -1,31 +1,33 @@
-# QuickPrint — 29 ATP cases
+# QuickPrint — 31 Excel ATP cases (aligned with ATP TestCase Flows/quick-print)
 
-- [ ] QUICK PRINT _001 | Quick Print - Gallery Permission | Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
-- [ ] QUICK PRINT_002 | Gallery Permission | Verify the Allow all option opens the Gallery screen.
-- [ ] QUICK PRINT _003 | Gallery Screen | Verify the Gallery screen user interface.
-- [ ] QUICK PRINT_004 | Select Mode Tip | Verify the Select Mode toast message on the Gallery screen.
-- [ ] QUICK PRINT_005 | Gallery Permission | Verify the Don't allow option on the Gallery permission popup.
-- [ ] QUICK PRINT_006 | Gallery Permission | Verify the Allow limited access option.
-- [ ] QUICK PRINT_007 | Gallery - Select Mode | Verify the Gallery screen enters Select Mode after selecting one photo.
-- [ ] QUICK PRINT_008 | Gallery - Multiple Selection | Verify selecting both photos and videos in Select Mode.
-- [ ] QUICK PRINT_009 | Gallery - Unselect Photos | Verify unselecting all selected photos and videos.
-- [ ] QUICK PRINGT_010 | Gallery - Maximum Selection Limit | Verify the maximum selection limit of 10 photos.
-- [ ] QUICK PRIN_011 | Gallery - Select Mode User Interface | Verify the Select Mode user interface.
-- [ ] QUICK PRINT_012 | Select Gallery - Facebook | Verify that the user can open the Select Gallery screen and the Facebook option is displayed.
-- [ ] QUICK PRINT 13 | Facebook Gallery | Verify that the Facebook Gallery opens successfully.
-- [ ] QUICK PRINT 14 | Facebook Overflow Menu | Verify the Unlink option in the overflow menu.
-- [ ] QUICK PRINT 15 | Facebook Unlink Popup | Verify the Unlink confirmation popup user interface.
-- [ ] QUICK PRINT 16 | Facebook Sign Out | Verify that the user can sign out from Facebook successfully.
-- [ ] QUICK PRINT 17 | Facebook Cancel Unlink | Verify the Cancel button on the Unlink popup.
-- [ ] QUICK PRINT 18 | Facebook Gallery - No Internet | Verify the No Internet popup when opening Facebook Gallery without internet.
-- [ ] QUICK PRINT 19 | Facebook Gallery - Open Settings | Verify that the Open Settings button redirects to Wi-Fi Settings.
-- [ ] QUICK PRINT 20 | Facebook Gallery - Wi-Fi Direct | Verify the Wi-Fi Direct No Internet popup.
-- [ ] QUICK PRINT 21 | Facebook Gallery Refresh | Verify refreshing the Facebook Gallery after the internet connection is restored.
-- [ ] QUICK PRINT 22 | Facebook Folder | Verify opening a Facebook folder and displaying images.
-- [ ] QUICK PRINT 23 | Facebook Tag Search | Verify the Tag Search screen.
-- [ ] QUICK PRINT 24 | Facebook Tag Filter | Verify filtering Facebook photos using a valid tag.
-- [ ] QUICK PRINT 25 | Facebook Gallery - Invalid Tag Search | Verify the application displays the "No Tagged Photos" message when the user searches with an invali
-- [ ] QUICK PRINT 26 | Facebook Gallery - Valid Tag Search | Verify the application displays Facebook photos when the user searches with a valid Facebook tag.
-- [ ] QUICK PRINT 27 | Facebook Gallery - No Internet Tag Search | Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags 
-- [ ] QUICK PRINT 28 | Gallery - Sort Menu | Verify that the user can sort gallery photos using the Newest and Oldest options.
-- [ ] QUICK PRINT 29 | Gallery - No Photos Found | Verify the No Photos Found screen when the selected gallery folder does not contain any photos.
+- [ ] QUICK PRINT _001 | Quick Print- Gallery Screen | Verify the navigation flow to Gallery screen via Quick Print
+- [ ] QUICK PRINT _002 | Quick Print - Gallery Permission | Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
+- [ ] QUICK PRINT_003 (a) | Gallery Permission | Verify the Allow all option opens the Gallery screen.
+- [ ] QUICK PRINT_003 (b) | Gallery Permission | Verify the Allow limited access option display the selected photos on the Gallery screen.
+- [ ] QUICK PRINT_003 (c) | Gallery Permission | Verify the Don't allow option restrict the user to display the photos on the Gallery screen.
+- [ ] QUICK PRINT_003 (d) | Gallery Permission | Verify the Open Settings button click functionality and grant permission flow
+- [ ] QUICK PRINT_004 | Quick Print- Gallery Screen | Verify the Gallery screen user interface.
+- [ ] QUICK PRINT_005 (a) | Select Mode Tip | Verify the Select Mode toast message on the Gallery screen.
+- [ ] QUICK PRINT_005 (b) | Select Mode Tip | Verify that the Select Mode toast does not appear on the second attempt.
+- [ ] QUICK PRINT_006 (a) | Select Mode User Interface | Verify the Select Mode user interface.
+- [ ] QUICK PRINT_006 (b) | Select Mode | Enter Select Mode after one photo, then Print Preview and Print Complete.
+- [ ] QUICK PRINT_006 (c) | Multiple Selection | Verify selecting both photos and videos in Select Mode.
+- [ ] QUICK PRINT_006 (d) | Unselect Photos | Verify unselecting all selected photos and videos.
+- [ ] QUICK PRINT_006 (e) | Maximum Selection Limit | Verify the maximum selection limit of 10 photos.
+- [ ] QUICK PRINT_07 | Select Gallery - Facebook | Verify the Facebook option is displayed at Select Gallery screen
+- [ ] QUICK PRINT_07 (a) | Facebook Gallery | Verify the Facebook Gallery folders after successfully logged in
+- [ ] QUICK PRINT_07 (b) | Facebook Folder | Verify opening a Facebook folder and displaying images.
+- [ ] QUICK PRINT_08 | Facebook Overflow Menu | Verify the Unlink option in the overflow menu.
+- [ ] QUICK PRINT_08 (a) | Facebook Unlink Popup | Verify the Unlink confirmation popup user interface.
+- [ ] QUICK PRINT_08 (b) | Facebook Sign Out | Verify that the user can sign out from Facebook successfully.
+- [ ] QUICK PRINT_08 (c) | Facebook Cancel Unlink | Verify the Cancel button on the Unlink popup.
+- [ ] QUICK PRINT_09 | Facebook Gallery - No Internet | Verify the No Internet popup when opening Facebook Gallery without internet.
+- [ ] QUICK PRINT_10 | Facebook Gallery - Open Settings | Verify Open Settings redirects to Wi-Fi Settings and Facebook after restore.
+- [ ] QUICK PRINT_11 | Facebook Gallery - Wi-Fi Direct | Verify the No Internet popup in case of HP600 via direct mode connection
+- [ ] QUICK PRINT_12 | Facebook Tag Search | Verify the Facebook Tag icon UI
+- [ ] QUICK PRINT_13 (a) | Facebook Tag Filter | Verify filtering Facebook photos using a valid tag.
+- [ ] QUICK PRINT_13 (b) | Invalid Tag Search | Verify No Tagged Photos for an invalid Facebook tag.
+- [ ] QUICK PRINT_13 (c) | No Internet Tag Search | Verify No Internet when searching tags offline.
+- [ ] QUICK PRINT_13 (d) | No Internet Tag Search | Verify tag filter screen after internet is restored.
+- [ ] QUICK PRINT_14 | Gallery - Sort Menu | Verify Newest and Oldest sort options.
+- [ ] QUICK PRINT_15 | Gallery - No Photos Found | Verify No Photos Found when the selected folder is empty.

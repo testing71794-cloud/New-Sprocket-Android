@@ -1,0 +1,26 @@
+appId: com.hp.impulse.sprocket
+---
+# Error on Print with unsupported printer — or Incompatible Printer already shown after Next.
+- runFlow:
+    when:
+      visible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - runFlow: assert_precut_incompatible_dialog.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)Incompatible Printer.*"
+      visible: ".*(?i)^Print$"
+    commands:
+      - tapOn: ".*(?i)^Print$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      notVisible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - tapOn:
+          text: "Print"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: assert_precut_incompatible_dialog.yaml

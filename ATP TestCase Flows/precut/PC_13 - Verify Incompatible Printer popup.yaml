@@ -1,0 +1,35 @@
+# ATP Test Case ID: PC_13
+# Excel: Precut_13 | Module: Pre-Cut Stickers – Incompatible Printer
+# Pre-Cut print works ONLY with compatible Sprocket / Sprocket 2-in-1 (2×3).
+# With HP Sprocket 3×4 (00FE) or any other unsupported printer → Incompatible Printer popup/toast.
+# Observed on device: popup can appear as soon as Pre-Cut is opened (not only after Print).
+appId: com.hp.impulse.sprocket
+name: "PC_13 - Verify Incompatible Printer popup"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it_with_incompatible_printer.yaml
+# If popup already asserted during reach (early on Pre-Cut entry), skip print path.
+- runFlow:
+    when:
+      visible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - runFlow: subflows/assert_incompatible_printer_message.yaml
+      - assertVisible: "(?i)Got It.*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)Incompatible Printer.*"
+      visible: ".*(?i)(Select|Next|photo).*"
+    commands:
+      - runFlow: subflows/select_two_photos.yaml
+      - runFlow: subflows/tap_next.yaml
+      - runFlow: subflows/wait_print_preview.yaml
+      - runFlow:
+          when:
+            notVisible: ".*(?i)(Incompatible Printer|not compatible|unsupported printer).*"
+          commands:
+            - runFlow: subflows/tap_print.yaml
+      - runFlow: subflows/assert_incompatible_printer_message.yaml
+      - assertVisible: "(?i)Got It.*"

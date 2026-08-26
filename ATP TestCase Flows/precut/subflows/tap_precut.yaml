@@ -1,0 +1,34 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Tap the Pre-cut option (tile may be below the fold on Create hub).
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Photo ID|Sprocket AI).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- repeat:
+    times: 8
+    commands:
+      - runFlow:
+          when:
+            notVisible: ".*(?i)Pre-?cut.*"
+          commands:
+            - swipe:
+                start: "50%,72%"
+                end: "50%,38%"
+                duration: 650
+            - waitForAnimationToEnd:
+                timeout: 900
+- scrollUntilVisible:
+    element: ".*(?i)Pre-?cut.*"
+    direction: DOWN
+    timeout: 20000
+    centerElement: true
+- tapOn: ".*(?i)Pre-?cut.*"

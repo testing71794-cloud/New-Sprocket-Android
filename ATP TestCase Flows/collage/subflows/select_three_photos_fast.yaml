@@ -1,9 +1,23 @@
 appId: com.hp.impulse.sprocket
 ---
-# Select 3 photos from collage grid.
 - tapOn:
     point: "18%,56%"
 - tapOn:
     point: "50%,56%"
 - tapOn:
     point: "82%,56%"
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow:
+    when:
+      visible: "Select 2 to 4 photos"
+    commands:
+      - tapOn:
+          point: "18%,72%"
+          optional: true
+      - tapOn:
+          point: "50%,72%"
+          optional: true
+      - tapOn:
+          point: "82%,72%"
+          optional: true

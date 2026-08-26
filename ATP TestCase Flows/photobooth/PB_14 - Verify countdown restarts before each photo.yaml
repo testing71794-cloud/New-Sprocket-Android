@@ -1,0 +1,24 @@
+# ATP Test Case ID: PB_14
+# Excel: Photobooth 14 | Module: Photobooth – Capture Countdown
+# Verify the countdown timer restarts before each subsequent photo capture.
+# Expected: 3 → 2 → 1 before 1st, 2nd, 3rd, and 4th photos.
+appId: com.hp.impulse.sprocket
+name: "PB_14 - Verify countdown restarts before each photo"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_capture.yaml
+- extendedWaitUntil:
+    visible: "3"
+    timeout: 8000
+- extendedWaitUntil:
+    visible: "1"
+    timeout: 5000
+- extendedWaitUntil:
+    visible: "3"
+    timeout: 8000
+- runFlow: subflows/wait_print_preview.yaml

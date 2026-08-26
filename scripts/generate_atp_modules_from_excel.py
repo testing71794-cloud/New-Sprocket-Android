@@ -53,7 +53,8 @@ HAND_TUNED_FOLDERS = frozenset(
     {"splash", "onboarding", "quick-print", "collage", "connection", "signup", "login", "signup-later", "permission", "gallery"}
 )
 
-SKIP_STAGES: set[str] = set()
+# Quick Print is hand-aligned to the Excel sheet (QP_001–QP_015). Do not regenerate QPX stubs.
+SKIP_STAGES: set[str] = {"QuickPrint"}
 
 # Soft cap so huge stages stay maintainable (still one module folder each)
 MAX_FLOWS_PER_STAGE = {

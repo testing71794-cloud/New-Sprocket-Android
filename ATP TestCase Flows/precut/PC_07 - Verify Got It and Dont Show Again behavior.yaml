@@ -1,20 +1,33 @@
 # ATP Test Case ID: PC_07
 # Excel: Precut_07 | Module: Warning Pop-up
-# Verify "Got It" and "Don't Show Again" behavior.
-# Expected: Popup behaves correctly and user preference is maintained.
+# Verify Got It / Don't Show Again on Pre-Cut entry.
 appId: com.hp.impulse.sprocket
 name: "PC_07 - Verify Got It and Dont Show Again behavior"
 tags:
   - precut
   - atp-excel
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Got It"
-    optional: true
-- assertVisible:
-    text: "Don"
-    optional: true
-- assertVisible:
-    text: "Don't Show Again"
-    optional: true
+- runFlow: subflows/reach_create_hub_for_precut.yaml
+- scrollUntilVisible:
+    element: ".*(?i)(Pre-?Cut Stickers|Pre-?Cut|Precut).*"
+    direction: DOWN
+    timeout: 15000
+- tapOn:
+    text: ".*(?i)(Pre-?Cut Stickers|Pre-?Cut|Precut).*"
+    retryTapIfNoChange: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: subflows/allow_gallery_if_prompted.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Got It|Don't Show Again|Select 2 Photos).*"
+    timeout: 15000
+- runFlow:
+    when:
+      visible: "Got It"
+    commands:
+      - assertVisible: "Got It"
+      - assertVisible: ".*(?i)Don't Show Again.*"
+      - tapOn: "Got It"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: subflows/assert_precut_selection_screen.yaml

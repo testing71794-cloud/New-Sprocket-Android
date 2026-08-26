@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Precut_02 expected popup UI.
+- assertVisible: "(?i)Pre-Cut Stickers.*"
+- assertVisible: ".*(?i)work exclusively with the Sprocket.*"
+- assertVisible: "(?i)Got It.*"
+- assertVisible: "(?i)Don't Show Again.*"

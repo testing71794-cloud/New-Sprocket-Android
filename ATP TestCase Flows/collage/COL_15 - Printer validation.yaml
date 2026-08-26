@@ -27,10 +27,11 @@ tags:
     when:
       notVisible: "Copies"
     commands:
-      - back
+      - pressKey: back
       - waitForAnimationToEnd:
           timeout: 2000
       - assertVisible:
           text: ".*(?i)(Copies|Add Printer|No Printers Added|No Printer Added).*"
           optional: true
-# Printer name after connect is environment-dependent; assert empty state was shown above.
+# Connected printer name is environment-dependent; empty-state asserts above cover Collage_15 offline path.
+

@@ -1,0 +1,98 @@
+# Skip to Connection → select HP Sprocket 200 (DC:A8).
+# After preview "Add Printer": screen shows Set Up My Printer + Skip to Connection.
+# Do NOT tap Set Up My Printer / Add a new Printer (that opens the model carousel).
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Skip to Connection.*"
+    timeout: 15000
+- tapOn: ".*(?i)Skip to Connection.*"
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 200 \\(DC:A8\\)|HP Sprocket 200|Searching for Printers|No Printers Found).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)HP Sprocket 200 \\(DC:A8\\).*"
+    commands:
+      - tapOn: ".*(?i)HP Sprocket 200 \\(DC:A8\\).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)HP Sprocket 200.*"
+      notVisible: ".*(?i)HP Sprocket 200 \\(DC:A8\\).*"
+    commands:
+      - tapOn: ".*(?i)HP Sprocket 200.*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow: ../../connection/subflows/pairing_optional.yaml
+- runFlow:
+    when:
+      visible: "Pair"
+    commands:
+      - tapOn: "Pair"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- repeat:
+    times: 6
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)^Next$"
+          commands:
+            - tapOn: ".*(?i)^Next$"
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow:
+          when:
+            visible: ".*(?i)(Finish Connection|Finish Setup).*"
+          commands:
+            - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- repeat:
+    times: 5
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(No Printers Found|Searching for Printers|Skip to Connection|Set Up My Printer).*"
+            notVisible: ".*(?i)(^Print$|Copies|Print Complete).*"
+          commands:
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 2000
+# Connected preview shows Print, not Add Printer.
+- extendedWaitUntil:
+    visible: ".*(?i)(^Print$|Copies|Printing|Print Complete).*"
+    timeout: 60000

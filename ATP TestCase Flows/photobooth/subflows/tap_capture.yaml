@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Capture / Stop is an unlabeled ImageView at bottom-center.
+- runFlow:
+    when:
+      visible: "(?i)(Capture|Shutter).*"
+    commands:
+      - tapOn: "(?i)(Capture|Shutter).*"
+- runFlow:
+    when:
+      notVisible: "(?i)(Capture|Shutter).*"
+    commands:
+      - tapOn:
+          point: "50%,90%"

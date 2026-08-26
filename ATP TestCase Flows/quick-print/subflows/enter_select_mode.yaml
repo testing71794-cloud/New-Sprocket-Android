@@ -1,10 +1,24 @@
 appId: com.hp.impulse.sprocket
 ---
-# Enter Select Mode via long-press on first grid thumbnail.
-- longPressOn:
-    point: "15%,28%"
-- waitForAnimationToEnd:
-    timeout: 2000
+# Enter Select Mode via Select (3.0.2871+) or long-press on first thumbnail.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/longpresson
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- runFlow:
+    when:
+      visible: ".*(?i)^Select$"
+    commands:
+      - tapOn: ".*(?i)^Select$"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      notVisible: "Cancel"
+    commands:
+      - longPressOn:
+          point: "18%,24%"
+      - waitForAnimationToEnd:
+          timeout: 800
 - assertVisible: "Cancel"
 - assertVisible: "Print Preview"
 - assertVisible: ".*Selected.*"

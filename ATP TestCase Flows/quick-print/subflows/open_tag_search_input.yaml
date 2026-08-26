@@ -1,0 +1,22 @@
+# First tap shows the tip; second tap on that tip opens Enter a #tag.
+# Offline, the same taps show No Internet instead.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- runFlow: open_tag_search_screen.yaml
+- tapOn:
+    text: ".*(?i)Tap to search for photos using tags.*"
+    optional: true
+    waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Enter a #tag|#tag to start|Enter tag#|No Internet|Unable to connect).*"
+    commands:
+      - tapOn:
+          point: "89%,82%"
+          waitToSettleTimeoutMs: 0
+- extendedWaitUntil:
+    visible: ".*(?i)(Enter a #tag|#tag to start|Enter tag#|No Internet|Unable to connect).*"
+    timeout: 8000

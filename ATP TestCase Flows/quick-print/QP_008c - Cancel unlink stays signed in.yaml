@@ -18,6 +18,6 @@ tags:
     timeout: 8000
 - tapOn: "Cancel"
 - waitForAnimationToEnd:
-    timeout: 2000
+    timeout: 800
 - assertNotVisible: ".*(?i)Are you sure you want to sign out.*"
 - assertVisible: ".*(?i)Facebook.*"

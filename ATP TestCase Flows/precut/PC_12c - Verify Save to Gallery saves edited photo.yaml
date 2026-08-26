@@ -1,0 +1,21 @@
+# ATP Test Case ID: PC_12c
+# Excel: Precut_12 (c) | Module: Pre-Cut Stickers – Save Changes Popup
+# Verify that tapping “Save to Gallery” saves the edited photo as a new photo in the device gallery.
+# Expected: Edited photo saved; original unchanged; user can leave Pre-Cut.
+appId: com.hp.impulse.sprocket
+name: "PC_12c - Verify Save to Gallery saves edited photo"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/gesture_edit_slot.yaml
+- runFlow: subflows/tap_in_app_back.yaml
+- runFlow: subflows/wait_save_popup.yaml
+- tapOn: "(?i)Save to Gallery.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Select 2 photos).*"
+    timeout: 20000
+- assertNotVisible: "(?i)Save as new photo.*"

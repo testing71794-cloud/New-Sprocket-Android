@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Precut_01 selection-screen UI.
+# Next is visually disabled on empty slots but Compose still reports enabled=true.
+- assertVisible: ".*(?i)Select 2 photos.*"
+- assertVisible: "Next"
+- assertVisible: "(?i)Recent.*"

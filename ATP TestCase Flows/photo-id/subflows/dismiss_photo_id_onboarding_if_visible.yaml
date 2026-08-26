@@ -1,0 +1,11 @@
+appId: com.hp.impulse.sprocket
+---
+# Photo ID first-run coachmark blocks the OS camera permission dialog until dismissed.
+- runFlow:
+    when:
+      visible: ".*(?i)Photo ID Mode.*"
+    commands:
+      - assertVisible: "OK"
+      - tapOn: "OK"
+      - waitForAnimationToEnd:
+          timeout: 2000

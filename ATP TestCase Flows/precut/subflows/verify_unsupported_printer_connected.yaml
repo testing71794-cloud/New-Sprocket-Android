@@ -1,0 +1,17 @@
+appId: com.hp.impulse.sprocket
+---
+# Read-only helper: assert unsupported printer is visible on Printer tab (no pairing).
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,96%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 4000
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus|Sprocket 600|HP600|Studio Plus|Sprocket Studio).*"
+    timeout: 20000
+- assertVisible:
+    text: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|HP Sprocket Plus|Sprocket 600|HP600|Studio Plus|Sprocket Studio).*"
+    label: "Unsupported Pre-Cut printer must be connected (3x4 / Plus / 600 / Studio Plus)."

@@ -1,0 +1,6 @@
+appId: com.hp.impulse.sprocket
+---
+# In-app Back on Select 2 photos is an unlabeled ImageView at top-left.
+# Do not tap text "Back" — that matches Android system nav.
+- tapOn:
+    point: "7%,10%"

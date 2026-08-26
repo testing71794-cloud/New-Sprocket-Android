@@ -1,0 +1,30 @@
+# ATP: QUICK PRINT_14 | Gallery - Sort Menu
+# Newest / Oldest on Facebook folder; tap outside to dismiss.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_014 - Sort Newest and Oldest"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_first_folder.yaml
+- runFlow: subflows/open_sort_menu.yaml
+- assertVisible: ".*(?i)Newest.*"
+- assertVisible: ".*(?i)Oldest.*"
+- runFlow: subflows/tap_sort_oldest.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: subflows/open_sort_menu.yaml
+- runFlow: subflows/tap_sort_newest.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: subflows/open_sort_menu.yaml
+- tapOn:
+    point: "20%,50%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: ".*(?i)Facebook.*"

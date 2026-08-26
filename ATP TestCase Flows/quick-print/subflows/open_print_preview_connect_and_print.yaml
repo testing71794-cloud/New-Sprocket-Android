@@ -1,0 +1,23 @@
+# Select Mode → Print Preview → connect Sprocket 200 if needed → Print Complete.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+---
+- assertVisible: "Print Preview"
+- tapOn: "Print Preview"
+- waitForAnimationToEnd:
+    timeout: 800
+- extendedWaitUntil:
+    visible: ".*(?i)(^Print$|Add Printer|Copies|Print Preview).*"
+    timeout: 20000
+- runFlow: ensure_printer_on_print_preview.yaml
+# If connect UI was dismissed back to Select Mode, re-open preview.
+- runFlow:
+    when:
+      visible: "Print Preview"
+      notVisible: ".*(?i)(^Print$|Copies|Add Printer).*"
+    commands:
+      - tapOn: "Print Preview"
+      - waitForAnimationToEnd:
+          timeout: 800
+      - runFlow: ensure_printer_on_print_preview.yaml
+- runFlow: tap_print_and_assert_complete.yaml

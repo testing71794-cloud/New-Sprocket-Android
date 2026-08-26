@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Create hub → Pre-Cut Stickers (positive path; requires 2x3-compatible or no printer).
+- scrollUntilVisible:
+    element: ".*(?i)(Pre-?Cut Stickers|Pre-?Cut|Precut).*"
+    direction: DOWN
+    timeout: 15000
+- tapOn:
+    text: ".*(?i)(Pre-?Cut Stickers|Pre-?Cut|Precut).*"
+    retryTapIfNoChange: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: allow_gallery_if_prompted.yaml
+- runFlow: dismiss_precut_info_popup_if_visible.yaml

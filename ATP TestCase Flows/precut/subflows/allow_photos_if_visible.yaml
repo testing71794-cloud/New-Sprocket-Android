@@ -1,0 +1,18 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: If Gallery permission popup is displayed, tap Allow all / ALLOW.
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|photos and media|Allow all|ALLOW).*"
+    commands:
+      - tapOn:
+          text: "Allow all"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^ALLOW$"
+          optional: true
+      - tapOn:
+          text: ".*(?i)Allow.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000

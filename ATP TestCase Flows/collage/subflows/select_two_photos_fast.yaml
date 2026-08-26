@@ -1,7 +1,24 @@
 appId: com.hp.impulse.sprocket
 ---
-# Select 2 photos from collage grid (row with real thumbnails).
+# Select 2 photos from collage grid (thumbnail row). Retry lower row if Next stays blocked.
 - tapOn:
     point: "18%,56%"
+- waitForAnimationToEnd:
+    timeout: 800
 - tapOn:
     point: "50%,56%"
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow:
+    when:
+      visible: "Select 2 to 4 photos"
+      notVisible: ".*(?i)Drag & Drop.*"
+    commands:
+      - tapOn:
+          point: "18%,72%"
+          optional: true
+      - tapOn:
+          point: "50%,72%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 800

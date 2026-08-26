@@ -1,0 +1,18 @@
+# ATP Test Case ID: PC_09
+# Excel: Precut_09 | Module: Pre-Cut Stickers – Gallery Sheet Expanded View
+# Verify that the gallery sheet can be moved down to display a larger view of the Pre-Cut paper and selected images.
+# Expected: Sheet moves down; both selected photos remain in Slot 1 and Slot 2.
+appId: com.hp.impulse.sprocket
+name: "PC_09 - Verify gallery sheet down for larger paper view"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- assertVisible: "1"
+- assertVisible: "2"
+- runFlow: subflows/drag_gallery_down.yaml
+- assertVisible: ".*(?i)Select 2 photos.*"
+- runFlow: subflows/assert_both_slots_filled.yaml

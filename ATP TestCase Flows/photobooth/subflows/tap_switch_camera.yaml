@@ -1,0 +1,16 @@
+appId: com.hp.impulse.sprocket
+---
+# Switch Camera is an unlabeled ImageView at bottom-right.
+- runFlow:
+    when:
+      visible: "(?i)(Switch Camera|Flip).*"
+    commands:
+      - tapOn: "(?i)(Switch Camera|Flip).*"
+- runFlow:
+    when:
+      notVisible: "(?i)(Switch Camera|Flip).*"
+    commands:
+      - tapOn:
+          point: "92%,90%"
+- waitForAnimationToEnd:
+    timeout: 2500

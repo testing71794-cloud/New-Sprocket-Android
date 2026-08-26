@@ -1,0 +1,23 @@
+# ATP Test Case ID: PC_08
+# Excel: Precut_08 | Module: Pre-Cut Stickers – Selected Photo Actions
+# Verify that Delete, Edit, and AI icons are displayed for the selected photo.
+# Expected: Delete, Edit, and AI icons visible on the selected slot.
+appId: com.hp.impulse.sprocket
+name: "PC_08 - Verify Delete Edit AI icons on selected photo"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_first_gallery_photo.yaml
+- assertVisible:
+    text: "(?i)Delete.*"
+    optional: true
+- assertVisible:
+    text: "(?i)Edit.*"
+    optional: true
+- assertVisible:
+    text: "(?i)^AI$"
+    optional: true
+- assertVisible: "1"

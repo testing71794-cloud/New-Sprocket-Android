@@ -1,0 +1,17 @@
+# ATP Test Case ID: PB_05
+# Excel: Photobooth 05 | Module: Photobooth – Flash functionality for Front Camera
+# Verify that the device screen acts as a flash when capturing photos using the front-facing camera.
+# Expected: Flash off by default; after enabling, capture sequence runs without crash.
+appId: com.hp.impulse.sprocket
+name: "PB_05 - Verify front camera screen flash during capture"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_switch_camera.yaml
+- runFlow: subflows/tap_flash.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_print_preview.yaml

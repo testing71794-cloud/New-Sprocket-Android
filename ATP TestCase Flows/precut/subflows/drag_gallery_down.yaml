@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Drag gallery sheet downward from the drag handle.
+- swipe:
+    start: "50%,58%"
+    end: "50%,92%"
+    duration: 700

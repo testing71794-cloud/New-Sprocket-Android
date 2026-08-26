@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Pre-Cut incompatible dialog (not the Got It / Don't Show Again info popup).
+# Title: "Incompatible Printer"
+# Body: exclusively with Sprocket / 2-in-1. Actions: Got It and/or Dismiss (not Don't Show Again alone).
+- extendedWaitUntil:
+    visible: ".*(?i)Incompatible Printer.*"
+    timeout: 12000
+- assertVisible:
+    text: ".*(?i)Incompatible Printer.*"
+    label: "Pre-Cut must show Incompatible Printer for non-2x3 models."
+- assertVisible:
+    text: ".*(?i)(exclusively with the Sprocket|Pre-?Cut Stickers.*2.?x.?3).*"
+    label: "Pre-Cut incompatible body must mention 2x3 / Sprocket exclusivity."

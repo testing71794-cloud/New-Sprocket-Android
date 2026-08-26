@@ -1,0 +1,18 @@
+# Chrome Custom Tab Facebook login. Paths are relative to this subflows/ folder.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/loops
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+---
+- runFlow: ../../login/subflows/complete_facebook_sign_in.yaml
+- repeat:
+    times: 3
+    while:
+      visible: "m.facebook.com"
+    commands:
+      - runFlow: ../../login/subflows/advance_facebook_after_credentials.yaml
+      - waitForAnimationToEnd:
+          timeout: 1500
+- extendedWaitUntil:
+    notVisible: "m.facebook.com"
+    timeout: 20000

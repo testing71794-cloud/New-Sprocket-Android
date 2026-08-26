@@ -78,5 +78,13 @@ $maestroUser = Join-Path $env:USERPROFILE ".maestro"
 Write-SizeLine "User .maestro" $maestroUser
 
 Write-SizeLine "User TEMP" $env:TEMP
+$tempApks = Get-ChildItem -LiteralPath $env:TEMP -File -Force -ErrorAction SilentlyContinue |
+    Where-Object { $_.Name -match '^(tmp|maestro-app|maestro-server).*\.apk$' }
+if ($tempApks) {
+    $apkMb = [math]::Round((($tempApks | Measure-Object Length -Sum).Sum / 1MB), 2)
+    Write-Host ("[size] Maestro leftover APKs in TEMP ~ {0} MB ({1} files)" -f $apkMb, $tempApks.Count)
+} else {
+    Write-Host "[size] Maestro leftover APKs in TEMP = 0 files"
+}
 
 Write-Host "=== end disk usage report ==="

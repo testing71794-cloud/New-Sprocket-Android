@@ -1,0 +1,41 @@
+appId: com.hp.impulse.sprocket
+---
+# Cold launch to Create hub only (no Pre-Cut open) — for permission / popup cases.
+- launchApp:
+    clearState: true
+- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Sign up|I.ll do it later|Sign Up Later|Get Started!).*"
+    timeout: 25000
+- runFlow:
+    when:
+      visible: "Get Started!"
+    commands:
+      - tapOn: "Get Started!"
+      - waitForAnimationToEnd:
+          timeout: 4000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+- runFlow: ../../permission/subflows/allow_notification_permission.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?Cut|Photobooth|Create).*"
+    timeout: 25000
+- assertVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?Cut).*"
+- runFlow: ../../common/subflows/require_precut_supported_printer.yaml

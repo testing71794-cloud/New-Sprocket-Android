@@ -1,0 +1,20 @@
+# ATP Test Case ID: PC_09b
+# Excel: Precut_09 (b) | Module: Pre-Cut Stickers – Gallery Sheet Expand
+# Verify that tapping the collapsed gallery sheet expands it to the default half-page state with animation.
+# Expected: Gallery thumbnails visible again; selections intact.
+appId: com.hp.impulse.sprocket
+name: "PC_09b - Verify tap collapsed gallery expands to half-page"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/collapse_gallery_sheet.yaml
+- runFlow: subflows/tap_collapsed_gallery.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Recents|Select 2 photos).*"
+    timeout: 12000
+- runFlow: subflows/assert_both_slots_filled.yaml
+- assertVisible: ".*(?i)Select 2 photos.*"

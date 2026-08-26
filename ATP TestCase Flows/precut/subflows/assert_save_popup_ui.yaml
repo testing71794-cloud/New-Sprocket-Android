@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Precut_12 (a) Save as new photo? UI.
+- assertVisible: "(?i)Save as new photo.*"
+- assertVisible: ".*(?i)If you do not save.*"
+- assertVisible: "(?i)Save to Gallery.*"
+- assertVisible: "(?i)Do Not Save.*"

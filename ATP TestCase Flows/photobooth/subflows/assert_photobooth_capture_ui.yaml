@@ -1,0 +1,5 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Photobooth 02 — Capture screen UI.
+# Flash / Capture / Switch are unlabeled ImageViews on this build.
+- assertVisible: "(?i)Photobooth.*"

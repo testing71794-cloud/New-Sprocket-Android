@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+- tapOn:
+    text: "Next"

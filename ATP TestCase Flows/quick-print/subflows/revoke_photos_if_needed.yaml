@@ -11,5 +11,3 @@ appId: com.hp.impulse.sprocket
       android.permission.READ_MEDIA_VIDEO: deny
       android.permission.READ_MEDIA_VISUAL_USER_SELECTED: deny
       android.permission.READ_EXTERNAL_STORAGE: deny
-- waitForAnimationToEnd:
-    timeout: 1000

@@ -1,0 +1,16 @@
+# Create-hub Quick Print tile, or new home that already is Gallery (All/Select).
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- extendedWaitUntil:
+    visible: "(?i)(Quick Print|Gallery|^All$|^Select$|Allow all|Open Settings).*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: "(?i)Quick Print.*"
+      - waitForAnimationToEnd:
+          timeout: 800

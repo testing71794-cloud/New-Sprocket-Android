@@ -1,0 +1,29 @@
+# ATP Test Case ID: PC_12d
+# Excel: Precut_12 (d) | Module: Pre-Cut Stickers – Save Changes Popup
+# Verify that tapping the Close (X) button closes the “Save as new photo?” popup.
+# Expected: Popup closes; user remains on Pre-Cut selection; changes retained.
+appId: com.hp.impulse.sprocket
+name: "PC_12d - Verify Close X dismisses Save popup and stays on Pre-Cut"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/gesture_edit_slot.yaml
+- runFlow: subflows/tap_in_app_back.yaml
+- runFlow: subflows/wait_save_popup.yaml
+- runFlow: subflows/tap_save_popup_close.yaml
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertNotVisible: "(?i)Save as new photo.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Select 2 photos|Pre-Cut Stickers).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Select 2 photos|Pre-Cut Stickers).*"
+- runFlow:
+    when:
+      visible: ".*(?i)Select 2 photos.*"
+    commands:
+      - runFlow: subflows/assert_both_slots_filled.yaml

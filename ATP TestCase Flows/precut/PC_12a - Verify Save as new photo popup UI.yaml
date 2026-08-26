@@ -1,0 +1,17 @@
+# ATP Test Case ID: PC_12a
+# Excel: Precut_12 (a) | Module: Pre-Cut Stickers – Save Changes Popup
+# Verify the UI elements of the “Save as new photo?” popup.
+# Expected: Close X, title, unsaved-edits message, Save to Gallery, Do Not Save.
+appId: com.hp.impulse.sprocket
+name: "PC_12a - Verify Save as new photo popup UI"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/gesture_edit_slot.yaml
+- runFlow: subflows/tap_in_app_back.yaml
+- runFlow: subflows/wait_save_popup.yaml
+- runFlow: subflows/assert_save_popup_ui.yaml

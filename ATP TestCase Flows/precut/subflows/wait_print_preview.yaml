@@ -1,0 +1,29 @@
+appId: com.hp.impulse.sprocket
+---
+# Print Preview after filling both Pre-Cut slots.
+# Avoid Create-hub "Quick Print" / "Print stickers" false matches.
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)(Incompatible Printer|Connect.*printer|No printer|Copies|Save to Gallery|Share).*"
+    timeout: 90000
+    optional: true
+- extendedWaitUntil:
+    visible: "^Print$"
+    timeout: 30000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - assertVisible: ".*(?i)Incompatible Printer.*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - assertVisible: ".*(?i)(Copies|Save to Gallery|Share)|^Print$"

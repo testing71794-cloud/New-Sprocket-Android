@@ -17,8 +17,6 @@ appId: com.hp.impulse.sprocket
     optional: true
 - longPressOn:
     point: "15%,28%"
-- waitForAnimationToEnd:
-    timeout: 2000
 - assertVisible: "Cancel"
 - assertVisible: ".*(?i)(1 Photo Selected|2 Photos Selected|1.*Selected|2.*Selected).*"
 - assertVisible: "Print Preview"

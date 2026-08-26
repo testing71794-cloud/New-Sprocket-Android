@@ -1,6 +1,7 @@
 appId: com.hp.impulse.sprocket
 ---
 # Deny stacked runtime dialogs after Sign Up Later (notification often blocks Create hub).
+# Button copy varies by Android version: "Don't allow" / "Don't Allow" / "Deny".
 - repeat:
     times: 6
     commands:
@@ -8,28 +9,48 @@ appId: com.hp.impulse.sprocket
           when:
             visible: ".*(?i)send you notifications.*"
           commands:
-            - tapOn: "Don't allow"
+            - tapOn:
+                text: ".*(?i)Don.?t [Aa]llow.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)^Deny$"
+                optional: true
             - waitForAnimationToEnd:
                 timeout: 1500
       - runFlow:
           when:
             visible: ".*(?i)access this device.*location.*"
           commands:
-            - tapOn: "Don't allow"
+            - tapOn:
+                text: ".*(?i)Don.?t [Aa]llow.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)^Deny$"
+                optional: true
             - waitForAnimationToEnd:
                 timeout: 1500
       - runFlow:
           when:
             visible: ".*(?i)nearby devices.*"
           commands:
-            - tapOn: "Don't allow"
+            - tapOn:
+                text: ".*(?i)Don.?t [Aa]llow.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)^Deny$"
+                optional: true
             - waitForAnimationToEnd:
                 timeout: 1500
       - runFlow:
           when:
             visible: ".*(?i)photos and videos.*"
           commands:
-            - tapOn: "Don't allow"
+            - tapOn:
+                text: ".*(?i)Don.?t [Aa]llow.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)^Deny$"
+                optional: true
             - waitForAnimationToEnd:
                 timeout: 1500
       - waitForAnimationToEnd:

@@ -29,9 +29,9 @@ tags:
 - assertNotVisible: ".*(?i)^Recent$"
 - runFlow: subflows/grant_photos_from_open_settings.yaml
 - extendedWaitUntil:
-    visible: "Recent"
+    visible: ".*(?i)(Recent|Photos|^All$|Select).*"
     timeout: 12000
-- assertVisible: "Recent"
+- assertVisible: ".*(?i)(Recent|Photos|^All$|Select).*"
 - assertVisible: ".*Create.*"
 - assertNotVisible: ".*(?i)No photos found.*"
 - assertNotVisible: ".*(?i)Open Settings.*"

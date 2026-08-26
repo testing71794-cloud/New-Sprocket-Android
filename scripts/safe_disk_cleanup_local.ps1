@@ -50,22 +50,19 @@ $cFreeBefore = (Get-PSDrive C).Free
 Write-Host ("C: free before: {0}" -f (GB $cFreeBefore))
 $freed = 0L
 
-# --- Temp leftovers ---
+# --- Temp leftovers (Maestro copies ~200MB APK per launchApp as tmp*.apk) ---
 $temp = $env:TEMP
-$patterns = @('maestro*', '*.apk', 'adb-*', 'adb_out_*', 'adb_devices_*', '*instrument*', 'hsperfdata*', 'jna*', 'jansi*', 'Maestro*')
+$patterns = @('maestro*', 'tmp*.apk', 'adb-*', 'adb_out_*', 'adb_devices_*', '*instrument*', 'hsperfdata*', 'jna*', 'jansi*', 'Maestro*')
 foreach ($pat in $patterns) {
     Get-ChildItem -LiteralPath $temp -Force -ErrorAction SilentlyContinue -Filter $pat | ForEach-Object {
         $freed += Remove-PathSafe $_.FullName ("Temp\" + $_.Name)
     }
 }
 
-# --- Maestro debug/tests older than 3 days (keep recent) ---
+# --- Maestro debug/tests (always wipe; they refill C: in a day of ATP runs) ---
 $maestroTests = Join-Path $env:USERPROFILE ".maestro\tests"
 if (Test-Path $maestroTests) {
-    $cutoff = (Get-Date).AddDays(-3)
-    Get-ChildItem $maestroTests -Directory -ErrorAction SilentlyContinue |
-        Where-Object { $_.LastWriteTime -lt $cutoff } |
-        ForEach-Object { $freed += Remove-PathSafe $_.FullName (".maestro\tests\" + $_.Name) }
+    $freed += Remove-PathSafe $maestroTests ".maestro\tests"
 }
 
 # --- Maestro apps cache (large APK copies; Maestro will re-fetch) ---

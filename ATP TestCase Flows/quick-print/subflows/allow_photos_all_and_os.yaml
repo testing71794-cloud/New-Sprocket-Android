@@ -9,9 +9,9 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: "Allow all"
       - waitForAnimationToEnd:
-          timeout: 2000
+          timeout: 800
 - tapOn:
     text: ".*(?i)^Allow$"
     optional: true
 - waitForAnimationToEnd:
-    timeout: 3000
+    timeout: 800

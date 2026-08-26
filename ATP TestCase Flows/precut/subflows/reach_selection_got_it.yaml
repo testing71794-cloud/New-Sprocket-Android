@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel positive path: launch → Pre-cut → Allow all photos → Got It → Select 2 photos.
+- runFlow: excel_launch_to_home.yaml
+- runFlow: tap_precut.yaml
+- runFlow: allow_photos_if_visible.yaml
+- runFlow: wait_warning_popup.yaml
+- runFlow: tap_got_it.yaml
+- runFlow: wait_selection_screen.yaml

@@ -8,6 +8,7 @@ Flows are pulled from a shared queue (dynamic parallel), one worker per phone.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import os
 import queue
@@ -24,12 +25,54 @@ REPO = Path(__file__).resolve().parents[1]
 ATP = REPO / "ATP TestCase Flows"
 OUT = REPO / "reports" / "module_runs"
 APP_ID = "com.hp.impulse.sprocket"
+# Maestro copies the app APK into %TEMP% on every launchApp (~200MB each). Keep that
+# on D: so C: cannot fill during a suite. See https://docs.maestro.dev/maestro-cli/maestro-cli-commands-and-options
+MAESTRO_TMP = REPO / "temp" / "maestro-java"
+DEBUG_OUT = OUT / "_maestro_debug"
+
+
+def _ensure_maestro_tmp() -> Path:
+    MAESTRO_TMP.mkdir(parents=True, exist_ok=True)
+    return MAESTRO_TMP
+
+
+def _scrub_maestro_temp_copies(*dirs: Path) -> None:
+    """Remove Maestro leftover APKs/videos that otherwise pile up in TEMP."""
+    pats = (
+        "tmp*.apk",
+        "maestro-app*.apk",
+        "maestro-server*.apk",
+        "maestro_flow_*.mp4",
+        "maestro_screenshot*.png",
+    )
+    for d in dirs:
+        if not d or not d.is_dir():
+            continue
+        for pat in pats:
+            for p in d.glob(pat):
+                try:
+                    p.unlink()
+                except OSError:
+                    pass
 
 
 def discover_flows(module: str) -> list[Path]:
     root = ATP / module
     if not root.is_dir():
         return []
+    mapping = root / f"atp_{module.replace('-', '_')}_mapping.csv"
+    if mapping.is_file():
+        paths: list[Path] = []
+        with mapping.open(encoding="utf-8-sig", newline="") as fh:
+            for row in csv.DictReader(fh):
+                rel = (row.get("FlowFile") or "").strip().replace("/", os.sep)
+                if not rel:
+                    continue
+                p = ATP / rel
+                if p.is_file() and p not in paths:
+                    paths.append(p)
+        if paths:
+            return paths
     return sorted(root.glob("*.yaml"))
 
 
@@ -92,15 +135,26 @@ def run_flow(
     cmd = [maestro, "--no-ansi", "--device", serial, "test"]
     if reinstall:
         cmd.append("--reinstall-driver")
+    # Official test option (space-separated): https://docs.maestro.dev/maestro-cli/maestro-cli-commands-and-options
+    DEBUG_OUT.mkdir(parents=True, exist_ok=True)
+    cmd.extend(["--debug-output", str(DEBUG_OUT)])
     cmd.append(str(flow))
     env = os.environ.copy()
     env["ANDROID_SERIAL"] = serial
+    tmp = _ensure_maestro_tmp()
+    env["TEMP"] = str(tmp)
+    env["TMP"] = str(tmp)
+    env["TMPDIR"] = str(tmp)
     env["MAESTRO_CLI_NO_ANSI"] = "1"
     env["NO_COLOR"] = "1"
-    env["JANSI_MODE"] = "force"
     env["TERM"] = "dumb"
     # Disable Jansi native isatty (common Windows crash when stdout is not a console).
-    jansi_opts = "-Dorg.fusesource.jansi.Ansi.disable=true -Djansi.passthrough=true"
+    # preferIPv4Stack avoids Maestro connecting to [::1]:7001 while the driver binds IPv4.
+    jansi_opts = (
+        "-Djava.net.preferIPv4Stack=true "
+        "-Dorg.fusesource.jansi.Ansi.disable=true "
+        "-Djansi.passthrough=true"
+    )
     prev = env.get("JAVA_TOOL_OPTIONS", "").strip()
     env["JAVA_TOOL_OPTIONS"] = f"{prev} {jansi_opts}".strip() if prev else jansi_opts
     out_dir = REPO / "reports" / "module_runs" / "_maestro_out"
@@ -124,6 +178,7 @@ def run_flow(
             pass
         ok = p.returncode == 0
         reason = "" if ok else _fail_reason(out)
+        _scrub_maestro_temp_copies(MAESTRO_TMP, Path(os.environ.get("TEMP", "")))
         return {
             "flow": flow.name,
             "path": str(flow.relative_to(REPO)),
@@ -139,6 +194,7 @@ def run_flow(
             out_path.unlink(missing_ok=True)
         except OSError:
             pass
+        _scrub_maestro_temp_copies(MAESTRO_TMP, Path(os.environ.get("TEMP", "")))
         return {
             "flow": flow.name,
             "path": str(flow.relative_to(REPO)),
@@ -154,6 +210,7 @@ def run_flow(
             out_path.unlink(missing_ok=True)
         except OSError:
             pass
+        _scrub_maestro_temp_copies(MAESTRO_TMP, Path(os.environ.get("TEMP", "")))
         return {
             "flow": flow.name,
             "path": str(flow.relative_to(REPO)),
@@ -167,10 +224,26 @@ def run_flow(
 
 
 def _fail_reason(out: str) -> str:
-    lines = [ln.strip() for ln in (out or "").splitlines() if ln.strip()]
-    for ln in reversed(lines[-40:]):
+    def _is_box(ln: str) -> bool:
+        # Maestro pretty-errors use box drawing; Windows often renders them as "?".
+        if ln.count("?") >= 20:
+            return True
+        letters = sum(c.isalpha() for c in ln)
+        return letters < 8 and sum(c in "─│┌┐└┘├┤┬┴┼╔╗╚╝║═╭╮╰╯" for c in ln) > 8
+
+    lines = [ln.strip() for ln in (out or "").splitlines() if ln.strip() and not _is_box(ln)]
+    needles = (
+        "assertion",
+        "not found",
+        "does not exist",
+        "invalid file",
+        "failed",
+        "error",
+        "timeout",
+    )
+    for ln in reversed(lines[-80:]):
         low = ln.lower()
-        if "assertion" in low or "not found" in low or "failed" in low or "error" in low:
+        if any(x in low for x in needles):
             return ln[:300]
     return (lines[-1] if lines else "maestro non-zero exit")[:300]
 
@@ -326,7 +399,7 @@ def run_sequential(maestro: str, serial: str, flows: list[Path], timeout: int) -
             serial,
             flow,
             timeout,
-            reinstall_first=False,
+            reinstall_first=(i == 1),
             parallel=False,
         )
         rows.append(rec)
@@ -486,6 +559,7 @@ def main() -> int:
     print(json.dumps({k: summary[k] for k in summary if k != "rows"}, indent=2))
     print(f"report: {xlsx}")
     print(f"summary: {js}")
+    _scrub_maestro_temp_copies(MAESTRO_TMP, Path(os.environ.get("TEMP", "")))
     return 0 if failed == 0 else 1
 
 

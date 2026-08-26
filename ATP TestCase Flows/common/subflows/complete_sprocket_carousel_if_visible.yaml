@@ -1,40 +1,51 @@
 appId: com.hp.impulse.sprocket
 ---
-# Many builds skip the welcome carousel and open Sign up directly after splash.
-# Only drive carousel steps that are actually visible (no hard AI Editing assert).
+# First-launch carousel. Same LEFT swipe as ON_02 / ON_04 (90%→10% at 50%).
+# Footer-hint swipes and short mid-card swipes do not move this pager.
+# See: https://docs.maestro.dev/reference/commands-available/swipe
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 - runFlow:
     when:
-      visible: "Get Started!"
+      visible: ".*(?i)Get Started!?.*"
     commands:
-      - tapOn: "Get Started!"
+      - tapOn: ".*(?i)Get Started!?.*"
       - waitForAnimationToEnd:
           timeout: 2000
 - runFlow:
     when:
       visible: "Welcome to the new Sprocket!"
     commands:
-      - runFlow:
-          when:
-            visible: "Swipe to continue."
-          commands:
-            - swipe:
-                direction: LEFT
-            - runFlow:
-                when:
-                  visible: "AI Editing & Generation"
-                commands:
-                  - swipe:
-                      direction: LEFT
-            - runFlow:
-                when:
-                  visible: "Inkless & Seamless"
-                commands:
-                  - swipe:
-                      direction: LEFT
-            - runFlow:
-                when:
-                  visible: "Get Started!"
-                commands:
-                  - tapOn: "Get Started!"
-                  - waitForAnimationToEnd:
-                      timeout: 2000
+      - swipe:
+          direction: LEFT
+          duration: 800
+      - extendedWaitUntil:
+          visible: ".*(?i)(AI Editing|Inkless|Get Started|Unleash).*"
+          timeout: 8000
+- runFlow:
+    when:
+      visible: "AI Editing & Generation"
+    commands:
+      - swipe:
+          direction: LEFT
+          duration: 800
+      - extendedWaitUntil:
+          visible: ".*(?i)(Inkless|Get Started|Unleash).*"
+          timeout: 8000
+- runFlow:
+    when:
+      visible: "Inkless & Seamless"
+    commands:
+      - swipe:
+          direction: LEFT
+          duration: 800
+      - extendedWaitUntil:
+          visible: ".*(?i)(Get Started|Unleash Your Creativity).*"
+          timeout: 8000
+- runFlow:
+    when:
+      visible: ".*(?i)Get Started!?.*"
+    commands:
+      - tapOn: ".*(?i)Get Started!?.*"
+      - waitForAnimationToEnd:
+          timeout: 2000

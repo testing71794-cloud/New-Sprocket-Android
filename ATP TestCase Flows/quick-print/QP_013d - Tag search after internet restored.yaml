@@ -1,0 +1,26 @@
+# ATP: QUICK PRINT_13 (d) | Facebook Gallery - No Internet Tag Search
+# After No Internet, restore network → Enter a #tag screen.
+# See: https://docs.maestro.dev/reference/commands-available/setairplanemode
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.hp.impulse.sprocket
+name: "QP_013d - Tag search after internet restored"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_first_folder.yaml
+- runFlow: subflows/disable_internet.yaml
+- runFlow: subflows/open_tag_search_input.yaml
+- runFlow: subflows/ensure_internet_on.yaml
+- swipe:
+    direction: DOWN
+- waitForAnimationToEnd:
+    timeout: 1500
+- extendedWaitUntil:
+    visible: ".*(?i)(Enter a #tag|#tag to start).*"
+    timeout: 12000
+- assertVisible: ".*(?i)(Enter a #tag|#tag to start).*"

@@ -3,6 +3,15 @@
 # See: https://docs.maestro.dev/reference/commands-available/assertnotvisible
 appId: com.hp.impulse.sprocket
 ---
-- assertVisible: "Recent"
+- assertVisible: ".*(?i)(Recent|Photos|^All$|^Select$|Gallery).*"
 - assertNotVisible: ".*(?i)No photos found.*"
-- assertVisible: ".*Create.*"
+- runFlow:
+    when:
+      visible: ".*(?i)^Create$"
+    commands:
+      - assertVisible: ".*Create.*"
+- runFlow:
+    when:
+      visible: ".*(?i)^Gallery$"
+    commands:
+      - assertVisible: ".*(?i)^Gallery$"

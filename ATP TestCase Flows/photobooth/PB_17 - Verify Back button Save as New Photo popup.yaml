@@ -1,0 +1,27 @@
+# ATP Test Case ID: PB_17
+# Excel: Photobooth 17 | Module: Photobooth – Result Screen
+# Verify the functionality of the Back button on the Photobooth Result screen.
+# Expected: Save as New Photo? popup with Save to Gallery, Do Not Save, Close.
+appId: com.hp.impulse.sprocket
+name: "PB_17 - Verify Back button Save as New Photo popup"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_print_preview.yaml
+- runFlow: subflows/tap_in_app_back.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "(?i)Save as new photo.*"
+    timeout: 10000
+- assertVisible: "(?i)Save as new photo.*"
+- assertVisible:
+    text: ".*(?i)(If you do not save).*"
+    optional: true
+- assertVisible: "(?i)Save to Gallery.*"
+- assertVisible: "(?i)Do Not Save.*"

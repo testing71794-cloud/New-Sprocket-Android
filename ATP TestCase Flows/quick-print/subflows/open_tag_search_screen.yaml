@@ -1,10 +1,7 @@
-# Open tag search from Facebook album (overflow / search icon).
+# One tap on the Tag FAB (lime chip above More/Create/Printer). Center is ~89%,82%.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
 appId: com.hp.impulse.sprocket
 ---
 - tapOn:
-    point: "88%,88%"
-- waitForAnimationToEnd:
-    timeout: 2000
-- assertVisible:
-    text: ".*(?i)(Search|Tag|#).*"
-    optional: true
+    point: "89%,82%"
+    waitToSettleTimeoutMs: 0

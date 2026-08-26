@@ -1,0 +1,15 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Precut_09 (b): tap collapsed sheet drag handle to expand to half-page.
+- tapOn:
+    point: "50%,58%"
+    optional: true
+- tapOn:
+    point: "50%,90%"
+    optional: true
+- swipe:
+    start: "50%,92%"
+    end: "50%,65%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 2500

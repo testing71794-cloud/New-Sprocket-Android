@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+- runFlow: select_first_gallery_photo.yaml
+- runFlow: select_second_gallery_photo.yaml

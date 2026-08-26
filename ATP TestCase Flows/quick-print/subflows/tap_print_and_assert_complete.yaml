@@ -1,0 +1,90 @@
+# Print Preview → if disconnected: Add Printer → Skip to Connection →
+# HP Sprocket 200 (DC:A8) → Print → Printing → Print Complete.
+# When connected, green CTA is labeled Print.
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+# Disconnected: green CTA is "Add Printer" (opens connection / Skip to Connection).
+- runFlow:
+    when:
+      visible: ".*(?i)^Add Printer$"
+    commands:
+      - tapOn: ".*(?i)^Add Printer$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: connect_sprocket_200_via_skip_to_connection.yaml
+# Connected (or after connect): tap Print
+- runFlow:
+    when:
+      visible: ".*(?i)^Print$"
+      notVisible: ".*(?i)(Printing|Print Complete).*"
+    commands:
+      - tapOn: ".*(?i)^Print$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 2000
+# Print may open connection UI again
+- runFlow:
+    when:
+      visible: ".*(?i)(Skip to Connection|Add a new Printer|Searching for Printers|Select Your Device).*"
+    commands:
+      - runFlow: connect_sprocket_200_via_skip_to_connection.yaml
+      - tapOn:
+          text: ".*(?i)^Print$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Print$"
+      notVisible: ".*(?i)(Printing|Print Complete).*"
+    commands:
+      - tapOn: ".*(?i)^Print$"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(1 Copy|Copies).*"
+      notVisible: ".*(?i)(Printing|Print Complete|Add Printer).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)1 Copy.*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^Print$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)You are out of paper.*"
+    commands:
+      - tapOn: ".*(?i)(Ok|OK|Dismiss).*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Printing|Print Complete|Sending|Outstanding).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)Printing.*"
+      notVisible: ".*(?i)Print Complete.*"
+    commands:
+      - extendedWaitUntil:
+          visible: ".*(?i)(Print Complete|Done).*"
+          timeout: 420000
+- extendedWaitUntil:
+    visible: ".*(?i)(Print Complete|Done).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+      - waitForAnimationToEnd:
+          timeout: 3000

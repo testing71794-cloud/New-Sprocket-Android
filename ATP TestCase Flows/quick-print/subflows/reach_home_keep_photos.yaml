@@ -3,6 +3,7 @@
 appId: com.hp.impulse.sprocket
 ---
 - runFlow: complete_onboarding_to_signup.yaml
+- runFlow: complete_guest_welcome.yaml
 - runFlow: guest_to_create_home_deny_runtime.yaml
 - runFlow:
     when:

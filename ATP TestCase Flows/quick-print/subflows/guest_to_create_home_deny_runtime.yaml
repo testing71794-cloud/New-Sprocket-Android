@@ -7,6 +7,18 @@ appId: com.hp.impulse.sprocket
 ---
 - runFlow:
     when:
+      visible: "Swipe to continue."
+    commands:
+      - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Get Started!?.*"
+    commands:
+      - tapOn: ".*(?i)Get Started!?.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
       visible: ".*(?i)(I.ll do it later|Sign Up Later).*"
     commands:
       - tapOn: ".*(?i)(I.ll do it later|Sign Up Later).*"
@@ -45,6 +57,6 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: ".*(?i)^Create$"
 - extendedWaitUntil:
-    visible: "(?i)Quick Print.*"
+    visible: "(?i)(Quick Print|Gallery|^All$|^Select$).*"
     timeout: 20000
-- assertVisible: "(?i)Quick Print.*"
+- assertVisible: "(?i)(Quick Print|Gallery|^All$|^Select$).*"

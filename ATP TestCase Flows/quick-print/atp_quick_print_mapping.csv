@@ -1,21 +1,32 @@
-# Mapped from Quick Print ATP test cases (QP_01–QP_19)
-TestCaseID,Module,Type,Screen,FlowFile
-QP_01,quick-print,positive,Onboarding to Quick Print gallery,quick-print/QP_01 - Onboarding to Quick Print gallery.yaml
-QP_02,quick-print,mixed,Quick Print Gallery functionality,quick-print/QP_02 - Quick Print Gallery functionality.yaml
-QP_03,quick-print,positive,Select Mode Tip toast,quick-print/QP_03 - Select Mode Tip toast.yaml
-QP_04,quick-print,positive,Select Mode selection and Print Preview,quick-print/QP_04 - Select Mode selection and Print Preview.yaml
-QP_05,quick-print,positive,Onboarding to Quick Print with tip toast,quick-print/QP_05 - Onboarding to Quick Print with tip toast.yaml
-QP_06,quick-print,mixed,Selection limits and unselection,quick-print/QP_06 - Selection limits and unselection.yaml
-QP_07,quick-print,negative,Device permission limited and denied,quick-print/QP_07 - Device permission limited and denied.yaml
-QP_08,quick-print,positive,Launch to Select Gallery,quick-print/QP_08 - Launch to Select Gallery.yaml
-QP_09,quick-print,positive,Gallery folder navigation,quick-print/QP_09 - Gallery folder navigation.yaml
-QP_10,quick-print,negative,Facebook sign-in failure,quick-print/QP_10 - Facebook sign-in failure.yaml
-QP_11,quick-print,positive,Social media refresh,quick-print/QP_11 - Social media refresh.yaml
-QP_12,quick-print,positive,Social media unlink,quick-print/QP_12 - Social media unlink.yaml
-QP_13,quick-print,positive,No internet open settings,quick-print/QP_13 - No internet open settings.yaml
-QP_14,quick-print,mixed,Wi-Fi Direct no data modal,quick-print/QP_14 - Wi-Fi Direct no data modal.yaml
-QP_15,quick-print,positive,Tag search success,quick-print/QP_15 - Tag search success.yaml
-QP_16,quick-print,negative,Tag search no internet,quick-print/QP_16 - Tag search no internet.yaml
-QP_17,quick-print,mixed,Sorting and interaction constraints,quick-print/QP_17 - Sorting and interaction constraints.yaml
-QP_18,quick-print,positive,Fast scroll mechanism,quick-print/QP_18 - Fast scroll mechanism.yaml
-QP_19,quick-print,negative,Empty state handling,quick-print/QP_19 - Empty state handling.yaml
+TestCaseID,ExcelID,Module,Type,Screen,FlowFile
+QP_001,QUICK PRINT _001,quick-print,positive,Gallery navigation,quick-print/QP_001 - Navigate to Gallery via Quick Print.yaml
+QP_002,QUICK PRINT _002,quick-print,positive,Gallery permission popup,quick-print/QP_002 - Gallery permission popup first open.yaml
+QP_003a,QUICK PRINT_003 (a),quick-print,positive,Allow all,quick-print/QP_003a - Allow all opens Gallery.yaml
+QP_003b,QUICK PRINT_003 (b),quick-print,positive,Allow limited access,quick-print/QP_003b - Allow limited access selected photos.yaml
+QP_003c,QUICK PRINT_003 (c),quick-print,positive,Don't allow,quick-print/QP_003c - Dont allow restricts Gallery.yaml
+QP_003d,QUICK PRINT_003 (d),quick-print,negative,Open Settings grant,quick-print/QP_003d - Open Settings grant permission.yaml
+QP_004,QUICK PRINT_004,quick-print,positive,Gallery UI,quick-print/QP_004 - Gallery screen user interface.yaml
+QP_005a,QUICK PRINT_005 (a),quick-print,positive,Select Mode toast,quick-print/QP_005a - Select Mode toast first visit.yaml
+QP_005b,QUICK PRINT_005 (b),quick-print,positive,Toast second visit,quick-print/QP_005b - Select Mode toast not on second visit.yaml
+QP_006a,QUICK PRINT_006 (a),quick-print,positive,Select Mode UI and print,quick-print/QP_006a - Select Mode user interface.yaml
+QP_006b,QUICK PRINT_006 (b),quick-print,positive,Select Mode and print,quick-print/QP_006b - Enter Select Mode one photo and print.yaml
+QP_006c,QUICK PRINT_006 (c),quick-print,positive,Multi select and print,quick-print/QP_006c - Select photos and videos.yaml
+QP_006d,QUICK PRINT_006 (d),quick-print,positive,Unselect all,quick-print/QP_006d - Unselect all photos and videos.yaml
+QP_006e,QUICK PRINT_006 (e),quick-print,negative,Max 10 photos and print,quick-print/QP_006e - Maximum selection limit of 10.yaml
+QP_007,QUICK PRINT_07,quick-print,positive,Select Gallery Facebook,quick-print/QP_007 - Facebook option on Select Gallery.yaml
+QP_007a,QUICK PRINT_07 (a),quick-print,positive,Facebook folders,quick-print/QP_007a - Facebook Gallery folders after login.yaml
+QP_007b,QUICK PRINT_07 (b),quick-print,positive,Facebook folder images,quick-print/QP_007b - Open Facebook folder images.yaml
+QP_008,QUICK PRINT_08,quick-print,positive,Unlink menu,quick-print/QP_008 - Unlink option in overflow menu.yaml
+QP_008a,QUICK PRINT_08 (a),quick-print,positive,Unlink popup UI,quick-print/QP_008a - Unlink confirmation popup UI.yaml
+QP_008b,QUICK PRINT_08 (b),quick-print,positive,Facebook sign out,quick-print/QP_008b - Sign out from Facebook.yaml
+QP_008c,QUICK PRINT_08 (c),quick-print,negative,Cancel unlink,quick-print/QP_008c - Cancel unlink stays signed in.yaml
+QP_009,QUICK PRINT_09,quick-print,negative,Facebook no internet,quick-print/QP_009 - No Internet popup Facebook Gallery.yaml
+QP_010,QUICK PRINT_10,quick-print,positive,Open Settings Wi-Fi,quick-print/QP_010 - Open Settings Wi-Fi restore Facebook.yaml
+QP_011,QUICK PRINT_11,quick-print,negative,HP600 Wi-Fi Direct,quick-print/QP_011 - Wi-Fi Direct No Internet HP600.yaml
+QP_012,QUICK PRINT_12,quick-print,positive,Tag icon UI,quick-print/QP_012 - Facebook Tag icon UI.yaml
+QP_013a,QUICK PRINT_13 (a),quick-print,positive,Valid tag filter,quick-print/QP_013a - Filter Facebook photos valid tag.yaml
+QP_013b,QUICK PRINT_13 (b),quick-print,negative,Invalid tag,quick-print/QP_013b - Invalid tag No Tagged Photos.yaml
+QP_013c,QUICK PRINT_13 (c),quick-print,negative,Tag search offline,quick-print/QP_013c - No Internet tag search.yaml
+QP_013d,QUICK PRINT_13 (d),quick-print,positive,Tag search after restore,quick-print/QP_013d - Tag search after internet restored.yaml
+QP_014,QUICK PRINT_14,quick-print,positive,Sort Newest Oldest,quick-print/QP_014 - Sort Newest and Oldest.yaml
+QP_015,QUICK PRINT_15,quick-print,positive,No Photos Found,quick-print/QP_015 - No Photos Found empty folder.yaml

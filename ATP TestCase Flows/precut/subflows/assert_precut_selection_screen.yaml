@@ -1,0 +1,11 @@
+appId: com.hp.impulse.sprocket
+---
+# Assert Pre-Cut selection screen after entry (Next may be disabled until 2 photos).
+- extendedWaitUntil:
+    visible: ".*(?i)Select 2 Photos.*"
+    timeout: 20000
+- assertVisible: ".*(?i)Select 2 Photos.*"
+- assertVisible: "Next"
+- assertVisible:
+    text: ".*(?i)(Recent|All Photos|Gallery).*"
+    optional: true

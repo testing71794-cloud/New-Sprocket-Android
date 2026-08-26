@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Wait to load Pre-Cut Stickers popup.
+- extendedWaitUntil:
+    visible: "(?i)Pre-Cut Stickers.*"
+    timeout: 20000
+- extendedWaitUntil:
+    visible: "(?i)Got It.*"
+    timeout: 8000

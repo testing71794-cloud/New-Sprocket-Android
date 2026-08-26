@@ -3,7 +3,14 @@
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 appId: com.hp.impulse.sprocket
 ---
-- extendedWaitUntil:
-    visible: "(?i)Quick Print.*"
-    timeout: 15000
-- tapOn: "(?i)Quick Print.*"
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+    commands:
+      - tapOn: "(?i)Quick Print.*"
+- runFlow:
+    when:
+      notVisible: "(?i)Quick Print.*"
+      visible: ".*(?i)(Allow all|Allow limited access|Open Settings|photos and videos).*"
+    commands:
+      - assertVisible: ".*(?i)(Allow all|Open Settings|photos and videos).*"

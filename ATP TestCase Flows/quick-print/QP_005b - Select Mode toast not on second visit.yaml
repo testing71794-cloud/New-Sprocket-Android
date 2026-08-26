@@ -18,10 +18,10 @@ tags:
       all: deny
 - runFlow: subflows/open_gallery_catch_tip_toast.yaml
 - waitForAnimationToEnd:
-    timeout: 7000
+    timeout: 2500
 - pressKey: home
 - waitForAnimationToEnd:
-    timeout: 2000
+    timeout: 800
 - launchApp:
     clearState: false
     stopApp: false

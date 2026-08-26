@@ -1,0 +1,7 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Drag more than halfway downward so the sheet snaps collapsed.
+- swipe:
+    start: "50%,58%"
+    end: "50%,95%"
+    duration: 800

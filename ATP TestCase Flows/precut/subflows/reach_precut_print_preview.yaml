@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# From Create hub (unsupported printer already connected): open Pre-Cut through Print Preview.
+# Used by PC_11 — entry may still allow selection on current builds.
+- runFlow: open_precut_from_create_hub.yaml
+- runFlow: select_two_unique_precut_photos.yaml
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow: assert_precut_print_preview.yaml

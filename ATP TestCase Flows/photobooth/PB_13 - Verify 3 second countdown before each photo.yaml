@@ -1,0 +1,24 @@
+# ATP Test Case ID: PB_13
+# Excel: Photobooth 13 | Module: Photobooth – Capture Countdown
+# Verify the 3-second countdown is displayed correctly before each photo capture.
+# Expected: Countdown 3 → 2 → 1 before each photo; after fourth photo, Print Preview.
+appId: com.hp.impulse.sprocket
+name: "PB_13 - Verify 3 second countdown before each photo"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_capture.yaml
+- extendedWaitUntil:
+    visible: "3"
+    timeout: 10000
+- extendedWaitUntil:
+    visible: "2"
+    timeout: 6000
+- extendedWaitUntil:
+    visible: "1"
+    timeout: 6000
+- runFlow: subflows/wait_print_preview.yaml

@@ -1,19 +1,23 @@
-# Photobooth / photobooth — 17 Excel-generated flows
+# Photobooth / photobooth — 21 Excel-aligned flows
 
-- [ ] PB_01 | Photobooth 01 | Verify onboarding popup, camera access and photo capture
-- [ ] PB_02 | Photobooth 02 | Verify behavior when camera permission is denied
-- [ ] PB_03 | Photobooth 03 | Verify shutter to stop button transformation and countdown
-- [ ] PB_04 | Photobooth 04 | Verify cancel photo session during countdown
-- [ ] PB_05 | Photobooth  05 | Verify countdown hides during photo capture
-- [ ] PB_06 | Photobooth 06 | Verify progress indicator updates after each photo
-- [ ] PB_07 | Photobooth 07 | Verify session cancellation while photo is processing
-- [ ] PB_08 | Photobooth  08 | Verify progress bar increment logic
-- [ ] PB_09 | Photobooth 09 | Verify countdown timer returns for next photos
-- [ ] PB_10 | Photobooth 10 | Verify Stop button works during intermediate countdown
-- [ ] PB_11 | Photobooth 11 | Verify Photobooth Result screen layout
-- [ ] PB_12 | Photobooth 12 | Verify merged image auto-save
-- [ ] PB_13 | Photobooth 13 | Verify Back button and Saving popup
-- [ ] PB_14 | Photobooth 14 | Verify print options and negative behavior
-- [ ] PB_15 | Photobooth 15 | Verify default flash status
-- [ ] PB_16 | Photobooth 16 | Verify front flash simulation
-- [ ] PB_17 | Photobooth 17 | Verify no flash when disabled
+- [ ] PB_01 | Photobooth 01 | Verify that the user can navigate to the Photobooth module.
+- [ ] PB_02 | Photobooth 02 | Verify the UI of the Photobooth Capture screen.
+- [ ] PB_03 | Photobooth 03 | Verify the functionality of the Back button on the Photobooth screen.
+- [ ] PB_04 | Photobooth 04 | Verify the functionality of the Flash On/Off button on the Photobooth screen.
+- [ ] PB_05 | Photobooth 05 | Verify that the device screen acts as a flash when capturing photos using the front-facing camera.
+- [ ] PB_06 | Photobooth 06 | Verify the flash functionality while capturing photos using the rear camera.
+- [ ] PB_07 | Photobooth 07 | Verify that the user can switch from the rear camera to the front camera.
+- [ ] PB_08 | Photobooth 08 | Verify switch from front camera back to rear camera.
+- [ ] PB_09 | Photobooth 09 | Verify that tapping the Capture button starts the Photobooth capture sequence.
+- [ ] PB_10 | Photobooth 10 | Verify that the Capture button changes to a Stop button after the capture process starts.
+- [ ] PB_11 | Photobooth 11 | Verify that tapping the Stop button cancels the ongoing Photobooth capture process.
+- [ ] PB_12 | Photobooth 12 | Verify that the progress indicator updates correctly while capturing photos.
+- [ ] PB_13 | Photobooth 13 | Verify the 3-second countdown is displayed correctly before each photo capture in Photobooth mode.
+- [ ] PB_14 | Photobooth 14 | Verify the countdown timer restarts before each subsequent photo capture.
+- [ ] PB_15 | Photobooth 15 | Verify that the application navigates to the Print Preview screen after successfully completing the Photobooth capture sequence.
+- [ ] PB_16 | Photobooth 16 | Verify the Print Preview screen UI for Photobooth mode.
+- [ ] PB_17 | Photobooth 17 | Verify the functionality of the Back button on the Photobooth Result screen.
+- [ ] PB_18 | Photobooth 18 | Verify that tapping Save to Gallery saves the photobooth result as a single image.
+- [ ] PB_19 | Photobooth 19 | Verify behavior when camera permission is denied.
+- [ ] PB_20 | Photobooth 20 | Verify Open Settings Button Functionality.
+- [ ] PB_21 | Photobooth 21 | Verify the application behavior after granting Camera permission from the device settings.

@@ -1,0 +1,16 @@
+appId: com.hp.impulse.sprocket
+---
+# Flash control is an unlabeled ImageView at bottom-left.
+- runFlow:
+    when:
+      visible: "(?i)Flash.*"
+    commands:
+      - tapOn: "(?i)Flash.*"
+- runFlow:
+    when:
+      notVisible: "(?i)Flash.*"
+    commands:
+      - tapOn:
+          point: "8%,90%"
+- waitForAnimationToEnd:
+    timeout: 1500

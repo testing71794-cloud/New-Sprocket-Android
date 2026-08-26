@@ -1,0 +1,42 @@
+appId: com.hp.impulse.sprocket
+---
+# Select two different gallery thumbnails.
+# Grid sits under Recent (~y 70–82%). Avoid mid-screen slot badges "1"/"2".
+# Retry alternate columns if Next does not enable (Pixel vs Edge layout drift).
+- assertVisible: ".*(?i)Select 2 [Pp]hotos.*"
+- tapOn:
+    point: "19%,75%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    point: "50%,75%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      notVisible: "Next"
+    commands:
+      - tapOn:
+          point: "19%,78%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          point: "50%,78%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      notVisible: "Next"
+    commands:
+      - tapOn:
+          point: "22%,72%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - tapOn:
+          point: "55%,72%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- extendedWaitUntil:
+    visible: "Next"
+    timeout: 12000
+- assertVisible: "Next"

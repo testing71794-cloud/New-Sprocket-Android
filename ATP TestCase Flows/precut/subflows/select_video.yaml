@@ -1,0 +1,35 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Precut_08 (a): select a video from the gallery (duration overlay e.g. 0:12).
+- runFlow: ../../video/subflows/open_videos_album_if_visible.yaml
+- swipe:
+    start: "50%,82%"
+    end: "50%,55%"
+    duration: 500
+- runFlow:
+    when:
+      visible: ".*\\d:\\d{2}.*"
+    commands:
+      - tapOn: ".*\\d:\\d{2}.*"
+- runFlow:
+    when:
+      notVisible: ".*\\d:\\d{2}.*"
+    commands:
+      - swipe:
+          start: "50%,82%"
+          end: "50%,45%"
+          duration: 500
+      - tapOn:
+          text: ".*\\d:\\d{2}.*"
+          optional: true
+      - tapOn:
+          point: "82%,68%"
+          optional: true
+      - tapOn:
+          point: "50%,72%"
+          optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible:
+    text: "1"
+    optional: true

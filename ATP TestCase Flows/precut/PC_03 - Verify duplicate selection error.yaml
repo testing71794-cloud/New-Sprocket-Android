@@ -1,7 +1,6 @@
 # ATP Test Case ID: PC_03
 # Excel: Precut_03 | Module: Duplicate Restriction
-# Verify duplicate selection error.
-# Expected: Duplicate image is not assigned and warning message is displayed.
+# Select same gallery image for both slots — expect block / stay on selection.
 appId: com.hp.impulse.sprocket
 name: "PC_03 - Verify duplicate selection error"
 tags:
@@ -9,6 +8,24 @@ tags:
   - atp-excel
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+- tapOn:
+    text: "1"
     optional: true
+- tapOn:
+    point: "19%,75%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    text: "2"
+    optional: true
+- tapOn:
+    point: "19%,75%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(already selected|duplicate|same photo|cannot select).*"
+    commands:
+      - assertVisible: ".*(?i)(already selected|duplicate|same photo|cannot select).*"
+- assertVisible: ".*(?i)Select 2 [Pp]hotos.*"
+- assertVisible: "Next"

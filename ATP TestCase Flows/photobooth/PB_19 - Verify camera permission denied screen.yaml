@@ -1,0 +1,23 @@
+# ATP Test Case ID: PB_19
+# Excel: Photobooth 19 | Module: Photobooth- camera permission deny
+# Verify behavior when camera permission is denied.
+# Expected: Capture screen does not open. Denied UI with Open Settings.
+appId: com.hp.impulse.sprocket
+name: "PB_19 - Verify camera permission denied screen"
+tags:
+  - photobooth
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photobooth.yaml
+- runFlow: subflows/deny_camera.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Open Settings|grant camera permission|Photobooth).*"
+    timeout: 15000
+- assertVisible: "(?i)Photobooth.*"
+- assertVisible:
+    text: ".*(?i)(Back|Navigate up).*"
+    optional: true
+- assertVisible: ".*(?i)(Go to device settings to grant camera permission|grant camera permission).*"
+- assertVisible: ".*(?i)Open Settings.*"

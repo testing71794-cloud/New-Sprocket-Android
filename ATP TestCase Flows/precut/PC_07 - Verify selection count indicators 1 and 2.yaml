@@ -1,0 +1,15 @@
+# ATP Test Case ID: PC_07
+# Excel: Precut_07 | Module: Pre-Cut Stickers – Photo Selection
+# Verify that selected photos display the correct selection count indicators “1” and “2”.
+# Expected: First photo shows 1, second photo shows 2.
+appId: com.hp.impulse.sprocket
+name: "PC_07 - Verify selection count indicators 1 and 2"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- assertVisible: "1"
+- assertVisible: "2"

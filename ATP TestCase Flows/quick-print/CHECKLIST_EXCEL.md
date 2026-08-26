@@ -1,31 +1,73 @@
-# QuickPrint / quick-print — 29 Excel-generated flows
+# Quick Print — Excel ATP (31 cases)
 
-- [ ] QPX_01 | QUICK PRINT _001 | Verify the Gallery permission popup is displayed when the user opens Quick Print for the first time.
-- [ ] QPX_02 | QUICK PRINT_002 | Verify the Allow all option opens the Gallery screen.
-- [ ] QPX_03 | QUICK PRINT _003 | Verify the Gallery screen user interface.
-- [ ] QPX_04 | QUICK PRINT_004 | Verify the Select Mode toast message on the Gallery screen.
-- [ ] QPX_05 | QUICK PRINT_005 | Verify the Don't allow option on the Gallery permission popup.
-- [ ] QPX_06 | QUICK PRINT_006 | Verify the Allow limited access option.
-- [ ] QPX_07 | QUICK PRINT_007 | Verify the Gallery screen enters Select Mode after selecting one photo.
-- [ ] QPX_08 | QUICK PRINT_008 | Verify selecting both photos and videos in Select Mode.
-- [ ] QPX_09 | QUICK PRINT_009 | Verify unselecting all selected photos and videos.
-- [ ] QPX_10 | QUICK PRINGT_010 | Verify the maximum selection limit of 10 photos.
-- [ ] QPX_11 | QUICK PRIN_011 | Verify the Select Mode user interface.
-- [ ] QPX_12 | QUICK PRINT_012 | Verify that the user can open the Select Gallery screen and the Facebook option is displayed.
-- [ ] QPX_13 | QUICK PRINT 13 | Verify that the Facebook Gallery opens successfully.
-- [ ] QPX_14 | QUICK PRINT 14 | Verify the Unlink option in the overflow menu.
-- [ ] QPX_15 | QUICK PRINT 15 | Verify the Unlink confirmation popup user interface.
-- [ ] QPX_16 | QUICK PRINT 16 | Verify that the user can sign out from Facebook successfully.
-- [ ] QPX_17 | QUICK PRINT 17 | Verify the Cancel button on the Unlink popup.
-- [ ] QPX_18 | QUICK PRINT 18 | Verify the No Internet popup when opening Facebook Gallery without internet.
-- [ ] QPX_19 | QUICK PRINT 19 | Verify that the Open Settings button redirects to Wi-Fi Settings.
-- [ ] QPX_20 | QUICK PRINT 20 | Verify the Wi-Fi Direct No Internet popup.
-- [ ] QPX_21 | QUICK PRINT 21 | Verify refreshing the Facebook Gallery after the internet connection is restored.
-- [ ] QPX_22 | QUICK PRINT 22 | Verify opening a Facebook folder and displaying images.
-- [ ] QPX_23 | QUICK PRINT 23 | Verify the Tag Search screen.
-- [ ] QPX_24 | QUICK PRINT 24 | Verify filtering Facebook photos using a valid tag.
-- [ ] QPX_25 | QUICK PRINT 25 | Verify the application displays the "No Tagged Photos" message when the user searches with an invalid Facebook tag.
-- [ ] QPX_26 | QUICK PRINT 26 | Verify the application displays Facebook photos when the user searches with a valid Facebook tag.
-- [ ] QPX_27 | QUICK PRINT 27 | Verify the No Internet screen is displayed when the user tries to search Facebook photos using tags without an internet 
-- [ ] QPX_28 | QUICK PRINT 28 | Verify that the user can sort gallery photos using the Newest and Oldest options.
-- [ ] QPX_29 | QUICK PRINT 29 | Verify the No Photos Found screen when the selected gallery folder does not contain any photos.
+Suite is **only** these Excel rows. Extra QP_/QPX_/matrix flows were removed.
+
+**Print:** Any case that opens the Print Preview screen (`QP_006a`, `QP_006b`, `QP_006c`) connects HP Sprocket 200 if needed (Add Printer → Skip to Connection), taps Print, and asserts Print Complete. `QP_006d` does not print — Preview is disabled at 0 selected. `QP_006e` stops at the max-10 toast.
+
+**Runner:** Jenkins `RUN_ATP_QUICK_PRINT` or `python scripts/run_atp_module_verify.py --module quick-print`
+
+| ID | Excel | Flow |
+|----|-------|------|
+| QP_001 | QUICK PRINT _001 | Navigate to Gallery via Quick Print |
+| QP_002 | QUICK PRINT _002 | Gallery permission popup first open |
+| QP_003a | QUICK PRINT_003 (a) | Allow all opens Gallery |
+| QP_003b | QUICK PRINT_003 (b) | Allow limited access selected photos |
+| QP_003c | QUICK PRINT_003 (c) | Don't allow restricts Gallery |
+| QP_003d | QUICK PRINT_003 (d) | Open Settings grant permission |
+| QP_004 | QUICK PRINT_004 | Gallery screen user interface |
+| QP_005a | QUICK PRINT_005 (a) | Select Mode toast first visit |
+| QP_005b | QUICK PRINT_005 (b) | Select Mode toast not on second visit |
+| QP_006a | QUICK PRINT_006 (a) | Select Mode user interface **and print** |
+| QP_006b | QUICK PRINT_006 (b) | Enter Select Mode one photo **and print** |
+| QP_006c | QUICK PRINT_006 (c) | Select photos and videos **and print** |
+| QP_006d | QUICK PRINT_006 (d) | Unselect all photos and videos |
+| QP_006e | QUICK PRINT_006 (e) | Maximum selection limit of 10 |
+| QP_007 | QUICK PRINT_07 | Facebook option on Select Gallery |
+| QP_007a | QUICK PRINT_07 (a) | Facebook Gallery folders after login |
+| QP_007b | QUICK PRINT_07 (b) | Open Facebook folder images |
+| QP_008 | QUICK PRINT_08 | Unlink option in overflow menu |
+| QP_008a | QUICK PRINT_08 (a) | Unlink confirmation popup UI |
+| QP_008b | QUICK PRINT_08 (b) | Sign out from Facebook |
+| QP_008c | QUICK PRINT_08 (c) | Cancel unlink stays signed in |
+| QP_009 | QUICK PRINT_09 | No Internet popup Facebook Gallery |
+| QP_010 | QUICK PRINT_10 | Open Settings Wi-Fi restore Facebook |
+| QP_011 | QUICK PRINT_11 | Wi-Fi Direct No Internet HP600 |
+| QP_012 | QUICK PRINT_12 | Facebook Tag icon UI |
+| QP_013a | QUICK PRINT_13 (a) | Filter Facebook photos valid tag |
+| QP_013b | QUICK PRINT_13 (b) | Invalid tag No Tagged Photos |
+| QP_013c | QUICK PRINT_13 (c) | No Internet tag search |
+| QP_013d | QUICK PRINT_13 (d) | Tag search after internet restored |
+| QP_014 | QUICK PRINT_14 | Sort Newest and Oldest |
+| QP_015 | QUICK PRINT_15 | No Photos Found empty folder |
+
+- [ ] QP_001
+- [ ] QP_002
+- [ ] QP_003a
+- [ ] QP_003b
+- [ ] QP_003c
+- [ ] QP_003d
+- [ ] QP_004
+- [ ] QP_005a
+- [ ] QP_005b
+- [ ] QP_006a
+- [ ] QP_006b
+- [ ] QP_006c
+- [ ] QP_006d
+- [ ] QP_006e
+- [ ] QP_007
+- [ ] QP_007a
+- [ ] QP_007b
+- [ ] QP_008
+- [ ] QP_008a
+- [ ] QP_008b
+- [ ] QP_008c
+- [ ] QP_009
+- [ ] QP_010
+- [ ] QP_011
+- [ ] QP_012
+- [ ] QP_013a
+- [ ] QP_013b
+- [ ] QP_013c
+- [ ] QP_013d
+- [ ] QP_014
+- [ ] QP_015

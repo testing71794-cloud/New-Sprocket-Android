@@ -1,7 +1,6 @@
 # ATP Test Case ID: PC_04
 # Excel: Precut_04 | Module: Navigation & Init
-# Verify app launch, onboarding, and Pre-Cut entry.
-# Expected: User successfully enters the Pre-Cut screen with default UI.
+# Verify app launch, onboarding, and Pre-Cut entry UI.
 appId: com.hp.impulse.sprocket
 name: "PC_04 - Verify app launch onboarding and Pre-Cut entry"
 tags:
@@ -9,6 +8,8 @@ tags:
   - atp-excel
 ---
 - runFlow: subflows/reach_module_screen.yaml
+- assertVisible: ".*(?i)Select 2 Photos.*"
+- assertVisible: "Next"
 - assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
+    text: ".*(?i)(Recent|All Photos).*"
     optional: true

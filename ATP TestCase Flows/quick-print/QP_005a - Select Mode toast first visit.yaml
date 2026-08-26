@@ -17,8 +17,6 @@ tags:
     permissions:
       all: deny
 - runFlow: subflows/open_gallery_catch_tip_toast.yaml
-- waitForAnimationToEnd:
-    timeout: 6000
 - assertNotVisible:
     text: ".*(?i)Tap and hold an image to enter select mode.*"
     optional: true

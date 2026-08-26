@@ -1,0 +1,16 @@
+# ATP Test Case ID: PC_10
+# Excel: Precut_10 | Module: Pre-Cut Stickers – Fast Scroll Bar
+# Verify that the fast scroll bar is hidden when the gallery sheet is collapsed.
+# Expected: Collapsed sheet; gallery content hidden; selections intact.
+appId: com.hp.impulse.sprocket
+name: "PC_10 - Verify fast scroll bar hidden when gallery collapsed"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/collapse_gallery_sheet.yaml
+- assertVisible: ".*(?i)Select 2 photos.*"
+- runFlow: subflows/assert_both_slots_filled.yaml

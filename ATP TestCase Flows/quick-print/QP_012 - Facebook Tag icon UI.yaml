@@ -1,0 +1,50 @@
+# ATP: QUICK PRINT_12 | Facebook Tag Search
+# One tap on Tag → floating "Tap to search for photos using tags." (auto-dismisses).
+# See: https://docs.maestro.dev/reference/commands-available/evalscript
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+# See: https://docs.maestro.dev/reference/commands-available/asserttrue
+# See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+name: "QP_012 - Facebook Tag icon UI"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- evalScript: ${output.qp012TipOk = '0'}
+- evalScript: ${output.qpOcrOk = '0'}
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_first_folder.yaml
+- runScript:
+    file: subflows/assert_ocr_contains.js
+    env:
+      OCR_NEEDLE: "Tap to search for photos using tags,using tags,Tap to search"
+      OCR_SECONDS: "3"
+      OCR_ACTION: arm
+- runFlow: subflows/open_tag_search_screen.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(Tap to search|using tags).*"
+    commands:
+      - evalScript: ${output.qp012TipOk = '1'}
+- runFlow:
+    when:
+      true: ${output.qp012TipOk != '1'}
+    commands:
+      - runScript:
+          file: subflows/assert_ocr_contains.js
+          env:
+            OCR_NEEDLE: "Tap to search for photos using tags,using tags,Tap to search"
+            OCR_SECONDS: "3"
+            OCR_ACTION: result
+      - runFlow:
+          when:
+            true: ${output.qpOcrOk == '1'}
+          commands:
+            - evalScript: ${output.qp012TipOk = '1'}
+- assertTrue:
+    condition: ${output.qp012TipOk == '1'}
+    label: Tag icon floating tip

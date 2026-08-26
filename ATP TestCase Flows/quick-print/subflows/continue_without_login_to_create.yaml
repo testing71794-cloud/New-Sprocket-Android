@@ -6,13 +6,13 @@ appId: com.hp.impulse.sprocket
 # retry (same flake as Jenkins #87 QP_04 / skip_onboarding_to_gallery).
 - tapOn: ".*(?i)I already have (an )?account.*"
 - waitForAnimationToEnd:
-    timeout: 3000
+    timeout: 800
 - extendedWaitUntil:
     visible: ".*(?i)Continue without Logging In.*"
     timeout: 15000
 - tapOn: ".*(?i)Continue without Logging In.*"
 - waitForAnimationToEnd:
-    timeout: 5000
+    timeout: 800
 - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
 - runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
 - runFlow:
@@ -21,18 +21,18 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: "Skip"
       - waitForAnimationToEnd:
-          timeout: 2000
+          timeout: 800
 - runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
 - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
 - waitForAnimationToEnd:
-    timeout: 4000
+    timeout: 800
 - runFlow:
     when:
       visible: ".*(?i)Create.*"
     commands:
       - tapOn: ".*(?i)Create.*"
       - waitForAnimationToEnd:
-          timeout: 2500
+          timeout: 800
 - extendedWaitUntil:
     visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
     timeout: 25000
@@ -44,7 +44,7 @@ appId: com.hp.impulse.sprocket
           text: ".*(?i)Create.*"
           optional: true
       - waitForAnimationToEnd:
-          timeout: 3000
+          timeout: 800
 - extendedWaitUntil:
     visible: "(?i)Quick Print.*"
     timeout: 20000

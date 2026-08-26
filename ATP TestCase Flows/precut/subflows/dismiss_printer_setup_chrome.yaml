@@ -1,0 +1,64 @@
+appId: com.hp.impulse.sprocket
+---
+# Leave printer Wi-Fi / discovery / setup overlays so bottom tabs work again.
+# Prefer Cancel / Exit / X over Back (Back often opens "Exit Setup?").
+- runFlow:
+    when:
+      visible: ".*(?i)Exit Setup.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Exit$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)(Couldn't Connect|Could not connect).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Cancel$"
+          optional: true
+      - tapOn:
+          point: "8%,6%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)(This printer uses Wi-Fi|Open Settings|No Wi-Fi Available).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Cancel$"
+          optional: true
+      - tapOn:
+          point: "8%,6%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)Exit Setup.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Exit$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)(Searching for Printers|Select Your Device|Skip to Connection).*"
+      notVisible: ".*(?i)(HP Sprocket Studio Plus|Studio Plus|HP Sprocket 3x4).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Exit Setup.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Exit$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml

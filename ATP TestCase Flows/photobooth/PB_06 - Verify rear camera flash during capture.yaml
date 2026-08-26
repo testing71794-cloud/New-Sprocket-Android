@@ -1,0 +1,16 @@
+# ATP Test Case ID: PB_06
+# Excel: Photobooth 06 | Module: Photobooth – flash functionality for Rear Camera
+# Verify the flash functionality while capturing photos using the rear camera.
+# Expected: Flash enabled; capture succeeds without crash.
+appId: com.hp.impulse.sprocket
+name: "PB_06 - Verify rear camera flash during capture"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_flash.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_print_preview.yaml

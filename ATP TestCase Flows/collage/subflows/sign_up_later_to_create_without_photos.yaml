@@ -9,7 +9,7 @@ appId: com.hp.impulse.sprocket
       visible: "Skip"
     commands:
       - tapOn: "Skip"
-- runFlow: ../../permission/subflows/allow_camera_permission.yaml
+- runFlow: ../../permission/subflows/allow_camera_permission_if_visible.yaml
 - runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
 - runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
 - runFlow: ../../permission/subflows/allow_notification_permission.yaml

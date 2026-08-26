@@ -1,14 +1,10 @@
 # ATP Test Case ID: COLX_04
 # Excel: Collage_04 | Module: Folder Navigation
-# Verify folder selection
-# Expected: Selected folder images are displayed successfully.
+# Verify folder selection — delegates to COL_04.
 appId: com.hp.impulse.sprocket
 name: "COLX_04 - Verify folder selection"
 tags:
   - collage
   - atp-excel
 ---
-- runFlow: subflows/reach_excel_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: "COL_04 - Folder navigation.yaml"

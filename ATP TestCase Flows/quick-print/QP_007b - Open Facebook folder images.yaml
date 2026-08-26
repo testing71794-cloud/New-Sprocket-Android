@@ -1,0 +1,15 @@
+# ATP: QUICK PRINT_07 (b) | Facebook Folder
+# Open a Facebook folder and show images.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_007b - Open Facebook folder images"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_facebook_signed_in.yaml
+- runFlow: subflows/open_facebook_first_folder.yaml
+- assertVisible: ".*(?i)Facebook.*"

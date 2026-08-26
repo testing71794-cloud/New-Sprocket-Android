@@ -1,0 +1,19 @@
+# ATP Test Case ID: PC_06a
+# Excel: Precut_06 (a) | Module: Pre-Cut Stickers – Next Button
+# Verify that tapping the “Next” button redirects to Print Preview without displaying the Tiles option.
+# Expected: Print Preview; Tiles not displayed.
+appId: com.hp.impulse.sprocket
+name: "PC_06a - Verify Next opens Print Preview without Tiles"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- assertVisible:
+    text: "Next"
+    enabled: true
+- runFlow: subflows/tap_next.yaml
+- runFlow: subflows/wait_print_preview.yaml
+- assertNotVisible: "(?i)^Tiles$"

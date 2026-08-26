@@ -1,10 +1,15 @@
 # ATP: QUICK PRINT_006 (e) | Gallery - Maximum Selection Limit
+# Verify the maximum selection limit of 10 photos.
 # 11th tap → "Maximum of 10 photos allowed."; count stays 10.
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/waitforanimationtoend
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/asserttrue
 # See: https://docs.maestro.dev/reference/commands-available/runscript
-# See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
 appId: com.hp.impulse.sprocket
 name: "QP_006e - Maximum selection limit of 10"
 tags:
@@ -13,36 +18,37 @@ tags:
   - negative
 ---
 - launchApp:
-    clearState: true
-- evalScript: ${output.qpOcrOk = '0'}
-- runFlow: subflows/reach_gallery_allow_all.yaml
+    clearState: false
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow: ../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow:
+    when:
+      notVisible: "(?i)Quick Print.*"
+      visible: ".*(?i)^Create$"
+    commands:
+      - tapOn: ".*(?i)^Create$"
+      - waitForAnimationToEnd:
+          timeout: 800
+- extendedWaitUntil:
+    visible: "(?i)Quick Print.*"
+    timeout: 15000
+- tapOn: "(?i)Quick Print.*"
+- waitForAnimationToEnd:
+    timeout: 800
 - runFlow: subflows/enter_select_mode.yaml
-- runFlow: subflows/select_ten_photos.yaml
+- runScript:
+    file: subflows/select_until.js
 - assertVisible: ".*(?i)10 Photos Selected.*"
-- assertVisible: "Print Preview"
+- evalScript: ${output.qpOcrOk = '0'}
 - runScript:
     file: subflows/tap_max_limit.js
     env:
       OCR_NEEDLE: "maximum of 10 photos allowed,maximum of 10,10 photos allowed"
-      OCR_SECONDS: "6"
-- runFlow:
-    when:
-      true: ${output.qpMaxTapOk != '1'}
-    commands:
-      - swipe:
-          start: "50%, 58%"
-          end: "50%, 40%"
-          duration: 280
-      - tapOn:
-          point: "82%,40%"
-          waitToSettleTimeoutMs: 0
-- runFlow:
-    when:
-      visible: ".*(?i)Maximum of 10 photos allowed.*"
-    commands:
-      - evalScript: ${output.qpOcrOk = '1'}
+      OCR_SECONDS: "3.5"
 - assertTrue:
     condition: ${output.qpOcrOk == '1'}
     label: Maximum of 10 photos allowed toast
 - assertVisible: ".*(?i)10 Photos Selected.*"
 - assertVisible: "Print Preview"
+

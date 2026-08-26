@@ -19,3 +19,5 @@ COL_17,COL_17 - Two image collage and layouts.yaml,Collage,Two-image collage —
 COL_18,COL_18 - Three image collage and layouts.yaml,Collage,Three-image collage — layouts then print preview,com.hp.impulse.sprocket
 COL_19,COL_19 - Four image collage and layouts.yaml,Collage,Four-image collage — layouts then print preview,com.hp.impulse.sprocket
 COL_20,COL_20 - More than four photos limit.yaml,Collage,More than four photos — selection capped no 5th slot,com.hp.impulse.sprocket
+COL_21,COL_21 - Printer listed on print preview.yaml,Collage,Supplementary — printer already listed then collage print preview,com.hp.impulse.sprocket
+

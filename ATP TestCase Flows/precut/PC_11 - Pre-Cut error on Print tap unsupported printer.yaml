@@ -1,0 +1,19 @@
+# ATP Test Case ID: PC_11
+# Unsupported printer → Pre-Cut selection → error on Print tap.
+# Checks Printer tab first; connects Sprocket 3x4 only when nothing unsupported is listed.
+appId: com.hp.impulse.sprocket
+name: "PC_11 - Pre-Cut error on Print tap unsupported printer"
+tags:
+  - precut
+  - precut-unsupported-printer
+  - precut-print-error
+  - atp-supplementary
+---
+- launchApp:
+    clearState: false
+- runFlow: ../common/subflows/wait_after_cold_launch.yaml
+- runFlow: ../common/subflows/ensure_sprocket_foreground.yaml
+- runFlow: ../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: subflows/pc10_ensure_unsupported_printer_and_create_hub.yaml
+- runFlow: subflows/reach_precut_print_preview.yaml
+- runFlow: subflows/assert_precut_incompatible_on_print_tap.yaml

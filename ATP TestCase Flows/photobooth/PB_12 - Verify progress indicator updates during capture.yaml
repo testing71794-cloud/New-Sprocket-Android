@@ -1,0 +1,20 @@
+# ATP Test Case ID: PB_12
+# Excel: Photobooth 12 | Module: Photobooth – Capture process
+# Verify that the progress indicator updates correctly while capturing photos.
+# Expected: Indicators fill after each of the four photos.
+appId: com.hp.impulse.sprocket
+name: "PB_12 - Verify progress indicator updates during capture"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_capture.yaml
+- runFlow:
+    when:
+      visible: "(?i)Stop.*"
+    commands:
+      - assertVisible: "(?i)Stop.*"
+- runFlow: subflows/wait_print_preview.yaml

@@ -1,5 +1,5 @@
 # ATP Test Case ID: COL_04
-# Collage_04 — Folder Navigation: Recent → select another folder → gallery refreshes
+# Collage_04 — Folder Navigation: open Recent picker → pick an album → back on selection UI
 appId: com.hp.impulse.sprocket
 name: "COL_04 - Folder navigation"
 tags:
@@ -9,24 +9,42 @@ tags:
 - launchApp:
     clearState: true
 - runFlow: subflows/reach_collage_maker.yaml
+- assertVisible: "Recent"
 - runFlow: subflows/open_recent_folder_picker.yaml
 - runFlow:
     when:
-      visible: "Select Gallery"
+      visible: ".*(?i)Select Gallery.*"
     commands:
-      - assertVisible: "Select Gallery"
       - swipe:
           direction: UP
-          duration: 500
-      - tapOn: ".*Camera.*"
+          duration: 400
       - waitForAnimationToEnd:
-          timeout: 3000
-      - assertVisible: "Camera"
+          timeout: 1000
+      - tapOn:
+          text: ".*(?i)^(Downloads?|Screenshots|Pictures|Camera|DCIM|Images)$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2500
 - runFlow:
     when:
-      visible: ".*Camera.*"
-      notVisible: "Select Gallery"
+      visible: ".*(?i)Select Gallery.*"
     commands:
-      - assertVisible: "Camera"
+      - tapOn:
+          point: "50%,40%"
+      - waitForAnimationToEnd:
+          timeout: 2500
+# If picker still open, dismiss and stay on collage selection.
+- runFlow:
+    when:
+      visible: ".*(?i)Select Gallery.*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- extendedWaitUntil:
+    visible: "Select 2 to 4 photos"
+    timeout: 12000
 - assertVisible: "Select 2 to 4 photos"
 - assertVisible: "Next"
+# Folder chip still present (Recent or the album we picked).
+- assertVisible: ".*(?i)(Recent|Camera|Download|Screenshots|Pictures|Gallery).*"

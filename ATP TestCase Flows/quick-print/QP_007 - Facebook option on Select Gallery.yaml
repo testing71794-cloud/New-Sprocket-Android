@@ -1,0 +1,23 @@
+# ATP: QUICK PRINT_07 | Select Gallery - Facebook
+# Recent → Select Gallery shows Facebook.
+# See: https://docs.maestro.dev/
+appId: com.hp.impulse.sprocket
+name: "QP_007 - Facebook option on Select Gallery"
+tags:
+  - quick-print
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Tap and hold an image to enter select mode.*"
+    commands:
+      - extendedWaitUntil:
+          notVisible: ".*(?i)Tap and hold an image to enter select mode.*"
+          timeout: 10000
+- runFlow: subflows/open_select_gallery.yaml
+- assertVisible: ".*(?i)(Select Gallery|Gallery).*"
+- assertVisible: ".*Facebook.*"

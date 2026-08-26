@@ -16,6 +16,7 @@ demo_intelligence_workspace/build-summary/
 .maestro-locks/
 .device_name_cache.json
 temp-runners/
+/temp/
 *.flag
 *.failed
 *.log

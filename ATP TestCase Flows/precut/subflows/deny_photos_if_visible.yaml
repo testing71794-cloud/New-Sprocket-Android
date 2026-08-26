@@ -1,0 +1,26 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: When Gallery permission popup is displayed, tap Don't Allow.
+# Pixel: "photos and videos" + Don't allow / Allow all.
+# Vivo / some OEMs: "photos and media" + ALLOW / DON'T ALLOW.
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|photos & videos|photos and media|Allow all|Allow limited access|ALLOW).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Don.?t allow.*"
+          optional: true
+      - tapOn:
+          text: ".*(?i)DON.?T ALLOW.*"
+          optional: true
+      - tapOn:
+          text: "Don't allow"
+          optional: true
+      - tapOn:
+          text: "DON'T ALLOW"
+          optional: true
+      - tapOn:
+          point: "50%,62%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000

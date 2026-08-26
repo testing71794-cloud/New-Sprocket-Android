@@ -1,0 +1,16 @@
+appId: com.hp.impulse.sprocket
+---
+# Stop replaces Capture at the same unlabeled bottom-center ImageView.
+- runFlow:
+    when:
+      visible: "(?i)Stop.*"
+    commands:
+      - tapOn: "(?i)Stop.*"
+- runFlow:
+    when:
+      notVisible: "(?i)Stop.*"
+    commands:
+      - tapOn:
+          point: "50%,90%"
+- waitForAnimationToEnd:
+    timeout: 2000

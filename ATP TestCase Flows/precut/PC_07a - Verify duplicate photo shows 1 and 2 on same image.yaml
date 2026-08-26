@@ -1,0 +1,17 @@
+# ATP Test Case ID: PC_07a
+# Excel: Precut_07 (a) | Module: Pre-Cut Stickers – Duplicate Photo Selection
+# Verify that selecting the same photo for both slots displays selection indicators “1” and “2” on the same photo.
+# Expected: Same photo assigned to both slots with 1 and 2 indicators.
+appId: com.hp.impulse.sprocket
+name: "PC_07a - Verify duplicate photo shows 1 and 2 on same image"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_same_photo_twice.yaml
+- runFlow: subflows/assert_both_slots_filled.yaml
+- assertVisible:
+    text: "Next"
+    enabled: true

@@ -1,0 +1,44 @@
+# ATP Test Case ID: COL_21
+# Supplementary (Excel Collage_15 connected path): printer already listed → collage print preview.
+# clearState: false — keep already-connected / listed printer.
+appId: com.hp.impulse.sprocket
+name: "COL_21 - Printer listed on print preview"
+tags:
+  - collage
+  - collage-printer
+  - atp-supplementary
+---
+- launchApp:
+    clearState: false
+- runFlow: ../common/subflows/wait_after_cold_launch.yaml
+- runFlow: ../common/subflows/ensure_sprocket_foreground.yaml
+- runFlow: ../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../tile-print/subflows/exit_module_screen_if_needed.yaml
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,96%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket|Sprocket|Studio|Your Printers|Tap to Connect).*"
+    timeout: 20000
+- assertVisible:
+    text: ".*(?i)(HP Sprocket|Sprocket|Studio|Your Printers|Tap to Connect).*"
+    label: "COL_21 needs a printer already listed on the Printer tab."
+- tapOn:
+    text: ".*(?i)Create.*"
+    optional: true
+- tapOn:
+    point: "50%,96%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow: subflows/open_collage_maker.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: subflows/advance_to_print_preview.yaml
+- assertVisible: ".*(?i)(Copies|Print|Add Printer).*"
+- assertVisible:
+    text: ".*(?i)(HP Sprocket|Sprocket|Studio|Add Printer|No Printers Added).*"

@@ -1,0 +1,16 @@
+# ATP Test Case ID: PB_04
+# Excel: Photobooth 04 | Module: Photobooth – Flash functionality for Front Camera
+# Verify the functionality of the Flash On/Off button on the Photobooth screen.
+# Expected: Flash is OFF by default; tap enables; tap again disables.
+appId: com.hp.impulse.sprocket
+name: "PB_04 - Verify Flash On Off on Photobooth screen"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_flash.yaml
+- runFlow: subflows/tap_flash.yaml
+- assertVisible: "(?i)Photobooth.*"

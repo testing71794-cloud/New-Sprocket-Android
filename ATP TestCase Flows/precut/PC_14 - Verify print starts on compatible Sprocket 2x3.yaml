@@ -1,0 +1,17 @@
+# ATP Test Case ID: PC_14
+# Excel: Precut_14 | Module: Pre-Cut Stickers – Printing
+# Pre-Cut print works ONLY with compatible HP Sprocket 2×3 (e.g. 84:0C or Sprocket 200 DC:A8).
+# Expected: Incompatible Printer popup/toast is NOT displayed; print flow proceeds.
+appId: com.hp.impulse.sprocket
+name: "PC_14 - Verify print starts on compatible Sprocket 2x3"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it_with_printer.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/tap_next.yaml
+- runFlow: subflows/wait_print_preview.yaml
+- runFlow: subflows/tap_print.yaml
+- assertNotVisible: ".*(?i)(Incompatible Printer|not compatible|unsupported printer).*"

@@ -1,0 +1,10 @@
+appId: com.hp.impulse.sprocket
+---
+# Launch → optional 2×3 printer (84:0C or Sprocket 200 DC:A8) → Pre-Cut selection with Got It dismissed.
+- runFlow: excel_launch_to_home.yaml
+- runFlow: ensure_sprocket_2x3_connected.yaml
+- runFlow: tap_precut.yaml
+- runFlow: allow_photos_if_visible.yaml
+- runFlow: wait_warning_popup.yaml
+- runFlow: tap_got_it.yaml
+- runFlow: wait_selection_screen.yaml

@@ -1,0 +1,25 @@
+appId: com.hp.impulse.sprocket
+---
+# Dismiss Pre-Cut intro / paper-size info popup (Got It / Don't Show Again).
+# Do not dismiss the Incompatible Printer dialog (also has Got It + Dismiss).
+- runFlow:
+    when:
+      visible: ".*(?i)Don't Show Again.*"
+      notVisible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - tapOn:
+          text: "Got It"
+          optional: true
+      - tapOn:
+          text: ".*(?i)Don't Show Again.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "Got It"
+      notVisible: ".*(?i)(Incompatible Printer|Don't Show Again).*"
+    commands:
+      - tapOn: "Got It"
+      - waitForAnimationToEnd:
+          timeout: 2000

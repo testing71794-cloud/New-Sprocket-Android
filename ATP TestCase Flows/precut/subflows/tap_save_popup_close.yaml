@@ -1,0 +1,46 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Close (X) on Save as new photo? — unlabeled ImageView, top-right of dialog.
+- tapOn:
+    text: ".*(?i)^Close$"
+    optional: true
+- tapOn:
+    id: ".*(?i)close.*"
+    optional: true
+- tapOn:
+    point: "88%,32%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn:
+          point: "90%,30%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn:
+          point: "86%,28%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn:
+          point: "92%,34%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn:
+          point: "88%,38%"
+      - waitForAnimationToEnd:
+          timeout: 1500

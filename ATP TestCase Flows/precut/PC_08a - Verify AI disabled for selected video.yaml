@@ -1,0 +1,25 @@
+# ATP Test Case ID: PC_08a
+# Excel: Precut_08 (a) | Module: Pre-Cut Stickers – AI Editing for Video
+# Verify that the AI icon is disabled for a selected video and displays the appropriate toast when tapped.
+# Expected: Toast “AI Edit is not available for video.”
+appId: com.hp.impulse.sprocket
+name: "PC_08a - Verify AI disabled for selected video"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_video.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)^Recent$"
+    commands:
+      - swipe:
+          start: "50%,58%"
+          end: "50%,92%"
+          duration: 600
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow: subflows/tap_ai.yaml
+- runFlow: subflows/assert_ai_unavailable_for_video.yaml

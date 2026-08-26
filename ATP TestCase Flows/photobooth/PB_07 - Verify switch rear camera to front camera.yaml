@@ -1,0 +1,15 @@
+# ATP Test Case ID: PB_07
+# Excel: Photobooth 07 | Module: Photobooth – Camera Switch
+# Verify that the user can switch from the rear camera to the front camera.
+# Expected: Camera switches to front; preview remains; no crash.
+appId: com.hp.impulse.sprocket
+name: "PB_07 - Verify switch rear camera to front camera"
+tags:
+  - photobooth
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photobooth.*"
+- runFlow: subflows/tap_switch_camera.yaml
+- assertVisible: "(?i)Photobooth.*"

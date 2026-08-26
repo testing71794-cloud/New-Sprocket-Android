@@ -32,6 +32,7 @@ if /I not "%MODE%"=="PRE" if /I not "%MODE%"=="POST" (
 )
 
 if /I "%MODE%"=="PRE" call :maestro_pre_clean
+if /I "%MODE%"=="POST" call :maestro_pre_clean
 if not exist "%WS%" goto :done
 
 if defined WS if exist "%WS%" call :print_size "Workspace - before %MODE%" "%WS%"
@@ -106,6 +107,15 @@ set "M=%USERPROFILE%\.maestro\tests"
 if exist "%M%" ( echo [cleanup] Removing: "%M%" & rmdir /s /q "%M%" 2>nul )
 set "M=%USERPROFILE%\.maestro\screenshots"
 if exist "%M%" ( echo [cleanup] Removing: "%M%" & rmdir /s /q "%M%" 2>nul )
+REM Maestro launchApp copies the APK into %TEMP% as tmp*.apk (~200MB each). 400 leftovers filled C:.
+if defined TEMP (
+  echo [cleanup] Removing Maestro APK copies from "%TEMP%"
+  del /q "%TEMP%\tmp*.apk" 2>nul
+  del /q "%TEMP%\maestro-app*.apk" 2>nul
+  del /q "%TEMP%\maestro-server*.apk" 2>nul
+  del /q "%TEMP%\maestro_flow_*.mp4" 2>nul
+  del /q "%TEMP%\maestro_screenshot*.png" 2>nul
+)
 if not exist "C:\Windows\System32\config\systemprofile\.maestro" exit /b 0
 call :print_size "Maestro LocalSystem .maestro" "C:\Windows\System32\config\systemprofile\.maestro"
 set "M=C:\Windows\System32\config\systemprofile\.maestro\tests"

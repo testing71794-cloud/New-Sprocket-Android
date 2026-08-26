@@ -10,13 +10,11 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn:
           point: "${output.qpPoint}"
-      - waitForAnimationToEnd:
-          timeout: 400
+          waitToSettleTimeoutMs: 0
       - runFlow:
           when:
             visible: ".*(?i)\\d+\\s*Videos? Selected.*"
           commands:
             - tapOn:
                 point: "${output.qpPoint}"
-            - waitForAnimationToEnd:
-                timeout: 400
+                waitToSettleTimeoutMs: 0

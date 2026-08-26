@@ -1,0 +1,4 @@
+appId: com.hp.impulse.sprocket
+---
+# Create hub: tap Pre-Cut Stickers and assert immediate incompatible toast (unsupported printer).
+- runFlow: assert_precut_incompatible_on_entry_tap.yaml

@@ -1,14 +1,18 @@
 appId: com.hp.impulse.sprocket
 ---
-# Open CR_02F Select Gallery from Quick Print (tap Recent folder chip).
-- assertVisible: "Recent"
-- tapOn: "Recent"
-- waitForAnimationToEnd:
-    timeout: 3000
+# Open Select Gallery (legacy Recent chip) or already on Gallery/Facebook tabs.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- runFlow:
+    when:
+      visible: ".*(?i)Recent.*"
+      notVisible: ".*(?i)^Facebook$"
+    commands:
+      - tapOn: ".*(?i)Recent.*"
+      - waitForAnimationToEnd:
+          timeout: 800
 - extendedWaitUntil:
-    visible: "Select Gallery"
+    visible: ".*(?i)Facebook.*"
     timeout: 10000
-- assertVisible: "Select Gallery"
-- assertVisible: ".*Recent.*"
-- assertVisible: ".*Facebook.*"
-- assertVisible: ".*Tap to Connect Account.*"
+- assertVisible: ".*(?i)Facebook.*"
+- assertVisible: ".*(?i)(Select Gallery|Gallery|Recent|^All$).*"

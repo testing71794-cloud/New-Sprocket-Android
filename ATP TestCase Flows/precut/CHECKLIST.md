@@ -1,11 +1,33 @@
-# PreCut / precut — 9 Excel-generated flows
+# PreCut / precut — 31 Excel-aligned flows
 
-- [ ] PC_01 | Precut_01 | Verify complete flow from launch to selection.
-- [ ] PC_02 | Precut_02 | Verify selecting two unique images.
-- [ ] PC_03 | Precut_03 | Verify duplicate selection error.
-- [ ] PC_04 | Precut_04 | Verify app launch, onboarding, and Pre-Cut entry.
-- [ ] PC_05 | Precut_05 | Verify 2-photo selection, duplicate prevention, and next state.
-- [ ] PC_06 | Precut_06 | Verify gallery expansion, collapse, and auto-snap.
-- [ ] PC_07 | Precut_07 | Verify "Got It" and "Don't Show Again" behavior.
-- [ ] PC_08 | Precut_08 | Verify UI when gallery permission is denied.
-- [ ] PC_09 | Precut_09 | Verify exit flow after editing selection.
+- [ ] PC_01 | Precut_01 | Verify the Pre-Cut Stickers navigation flow from launch to selection and UI verification of the screen
+- [ ] PC_02 | Precut_02 | Verify that the Pre-Cut Stickers warning popup is displayed when entering the Pre-Cut flow
+- [ ] PC_02a | Precut_02 (a) | Verify that tapping “Got It” closes the warning popup and displays it again when re-entering Pre-Cut
+- [ ] PC_02b | Precut_02 (b) | Verify that tapping “Don’t Show Again” prevents the warning popup from appearing when re-entering Pre-Cut
+- [ ] PC_03 | Precut_03 | Verify that the header remains fixed while scrolling through photos
+- [ ] PC_04 | Precut_04 | Verify Gallery window drag and drop functionality
+- [ ] PC_05 | Precut_05 | Verify that the user can select an image for the Pre-Cut slot
+- [ ] PC_06 | Precut_06 | Verify that the “Next” button becomes enabled when both photo slots are selected
+- [ ] PC_06a | Precut_06 (a) | Verify that tapping the “Next” button redirects to Print Preview without displaying the Tiles option
+- [ ] PC_07 | Precut_07 | Verify that selected photos display the correct selection count indicators “1” and “2”
+- [ ] PC_07a | Precut_07 (a) | Verify that selecting the same photo for both slots displays selection indicators “1” and “2” on the same photo
+- [ ] PC_08 | Precut_08 | Verify that Delete, Edit, and AI icons are displayed for the selected photo
+- [ ] PC_08a | Precut_08 (a) | Verify that the AI icon is disabled for a selected video and displays the appropriate toast message when tapped
+- [ ] PC_08b | Precut_08 (b) | Verify that the user can delete a selected photo from the Pre-Cut photo slot
+- [ ] PC_08c | Precut_08 (c) | Verify that tapping the Edit icon opens the Custom SDK editor and the edited image is updated in the same selected slot
+- [ ] PC_08d | Precut_08 (d) | Verify that tapping the AI icon opens the AI editing module and the applied changes are reflected in the same selected photo slot
+- [ ] PC_09 | Precut_09 | Verify that the gallery sheet can be moved down to display a larger view of the Pre-Cut paper and selected images
+- [ ] PC_09a | Precut_09 (a) | Verify that the gallery sheet snaps to the collapsed position when dragged more than halfway downward
+- [ ] PC_09b | Precut_09 (b) | Verify that tapping the collapsed gallery sheet expands it to the default half-page state with animation
+- [ ] PC_09c | Precut_09 (c) | Verify that the gallery sheet can be expanded upward to browse more photos and the Pre-Cut image slots resize smoothly
+- [ ] PC_10 | Precut_10 | Verify that the fast scroll bar is hidden when the gallery sheet is collapsed
+- [ ] PC_11 | Precut_11 | Verify that the photo permission screen is displayed when Gallery permission is denied
+- [ ] PC_11a | Precut_11 (a) | Verify that granting photo permission from device settings automatically returns the user to the Pre-Cut photo selection screen
+- [ ] PC_12 | Precut_12 | Verify that the “Save as new photo?” popup is displayed when changes are made to a Pre-Cut photo using gestures
+- [ ] PC_12a | Precut_12 (a) | Verify the UI elements of the “Save as new photo?” popup
+- [ ] PC_12b | Precut_12 (b) | Verify that tapping “Do Not Save” discards the Pre-Cut photo changes
+- [ ] PC_12c | Precut_12 (c) | Verify that tapping “Save to Gallery” saves the edited photo as a new photo in the device gallery
+- [ ] PC_12d | Precut_12 (d) | Verify that tapping the Close (X) button closes the “Save as new photo?” popup
+- [ ] PC_13 | Precut_13 | Verify that the Incompatible Printer popup is displayed when printing Pre-Cut Stickers with an unsupported printer
+- [ ] PC_13a | Precut_13 (a) | Verify Pre-Cut Sticker printing behavior based on printer compatibility
+- [ ] PC_14 | Precut_14 | Verify that printing starts successfully when a compatible HP Sprocket 2×3 printer is connected

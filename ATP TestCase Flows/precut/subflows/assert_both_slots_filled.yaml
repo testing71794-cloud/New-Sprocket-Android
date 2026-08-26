@@ -1,0 +1,22 @@
+appId: com.hp.impulse.sprocket
+---
+# Both Pre-Cut slots remain filled (badges "1"/"2" hide when gallery sheet moves).
+- runFlow:
+    when:
+      visible: "1"
+    commands:
+      - assertVisible: "1"
+      - assertVisible: "2"
+- runFlow:
+    when:
+      notVisible: "1"
+    commands:
+      - tapOn:
+          point: "28%,30%"
+      - waitForAnimationToEnd:
+          timeout: 1000
+      - tapOn:
+          point: "72%,30%"
+      - waitForAnimationToEnd:
+          timeout: 1000
+      - assertVisible: ".*(?i)Select 2 photos.*"

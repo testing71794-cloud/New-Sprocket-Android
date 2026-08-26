@@ -1,0 +1,12 @@
+# Airplane + wifi/data off. Maestro setAirplaneMode plus adb helper.
+# See: https://docs.maestro.dev/reference/commands-available/setairplanemode
+# See: https://docs.maestro.dev/reference/commands-available/runscript
+appId: com.hp.impulse.sprocket
+---
+- setAirplaneMode: enabled
+- runScript:
+    file: set_device_network.js
+    env:
+      NET_STATE: off
+- waitForAnimationToEnd:
+    timeout: 800

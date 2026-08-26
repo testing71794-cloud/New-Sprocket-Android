@@ -1,0 +1,81 @@
+appId: com.hp.impulse.sprocket
+---
+# Reach Create home WITHOUT granting photos (PC_11 / PC_11a).
+# Same proven launch as excel_launch_to_home, but photos stay denied/unset.
+- launchApp:
+    clearState: true
+    permissions:
+      camera: unset
+      storage: deny
+      medialibrary: deny
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Sign up|Sign Up Later|I.ll do it later).*"
+    timeout: 30000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../../common/subflows/dismiss_privacy_consent_if_visible.yaml
+- runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+- runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+- runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+- runFlow: ../../permission/subflows/allow_notification_permission.yaml
+# Intentionally skip photos — deny if system still prompts.
+- runFlow: deny_photos_if_visible.yaml
+- runFlow: ../../common/subflows/dismiss_privacy_consent_if_visible.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- waitForAnimationToEnd:
+    timeout: 4000
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow: deny_photos_if_visible.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - tapOn:
+          point: "50%,96%"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: deny_photos_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 25000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+      - tapOn:
+          point: "50%,96%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: deny_photos_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Photobooth).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Photobooth).*"

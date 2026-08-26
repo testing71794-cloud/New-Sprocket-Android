@@ -1,14 +1,10 @@
 # ATP Test Case ID: COLX_05
 # Excel: Collage_05 | Module: Image Selection
-# Verify minimum photo selection
-# Expected: Two images are selected and Next button becomes active.
+# Verify minimum photo selection — delegates to COL_05.
 appId: com.hp.impulse.sprocket
 name: "COLX_05 - Verify minimum photo selection"
 tags:
   - collage
   - atp-excel
 ---
-- runFlow: subflows/reach_excel_screen.yaml
-- assertVisible:
-    text: "Next"
-    optional: true
+- runFlow: "COL_05 - Image selection minimum.yaml"

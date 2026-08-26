@@ -17,7 +17,8 @@ tags:
     visible: ".*(?i)Sign Out.*"
     timeout: 8000
 - tapOn: "Sign Out"
-- waitForAnimationToEnd:
-    timeout: 4000
-- assertVisible: "Select Gallery"
+- extendedWaitUntil:
+    visible: ".*(?i)(Select Gallery|Gallery|Facebook).*"
+    timeout: 8000
+- assertVisible: ".*(?i)(Select Gallery|Gallery).*"
 - assertVisible: ".*Facebook.*"

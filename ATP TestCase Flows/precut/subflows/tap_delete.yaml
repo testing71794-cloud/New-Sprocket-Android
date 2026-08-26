@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Delete control sits on the selected upper slot (slot 1 ~34–66% x, 21–36% y).
+- runFlow:
+    when:
+      visible: "(?i)Delete.*"
+    commands:
+      - tapOn: "(?i)Delete.*"
+- runFlow:
+    when:
+      notVisible: "(?i)Delete.*"
+    commands:
+      - tapOn:
+          point: "64%,24%"

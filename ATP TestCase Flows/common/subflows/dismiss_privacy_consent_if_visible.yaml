@@ -1,0 +1,14 @@
+appId: com.hp.impulse.sprocket
+---
+# Optional HP privacy / data-collection screens after Sign Up Later (3.0.2871+).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- runFlow:
+    when:
+      visible: ".*(?i)(Help us improve|Automatically collect).*"
+    commands:
+      - tapOn: ".*(?i)^Continue$"
+- runFlow:
+    when:
+      visible: ".*(?i)Yes, I.?m Sure.*"
+    commands:
+      - tapOn: ".*(?i)Yes, I.?m Sure.*"

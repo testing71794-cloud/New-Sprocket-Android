@@ -7,6 +7,18 @@ appId: com.hp.impulse.sprocket
 ---
 - runFlow:
     when:
+      visible: "Swipe to continue."
+    commands:
+      - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Get Started!?.*"
+    commands:
+      - tapOn: ".*(?i)Get Started!?.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
       visible: ".*(?i)(I.ll do it later|Sign Up Later).*"
     commands:
       - tapOn: ".*(?i)(I.ll do it later|Sign Up Later).*"
@@ -16,7 +28,7 @@ appId: com.hp.impulse.sprocket
 - runFlow:
     when:
       visible: ".*(?i)I already have (an )?account.*"
-      notVisible: "(?i)(Quick Print|Collage Maker).*"
+      notVisible: "(?i)(Quick Print|Collage Maker|explore sprocket).*"
     commands:
       - tapOn: ".*(?i)I already have (an )?account.*"
 - runFlow:
@@ -44,7 +56,16 @@ appId: com.hp.impulse.sprocket
       visible: ".*(?i)^Create$"
     commands:
       - tapOn: ".*(?i)^Create$"
+- runFlow:
+    when:
+      visible: ".*(?i)explore sprocket.*"
+    commands:
+      - tapOn: ".*(?i)explore sprocket.*"
 - extendedWaitUntil:
-    visible: "(?i)Quick Print.*"
+    visible: "(?i)(Quick Print|Recent|^Select$|^All$|Enable the full sprocket|Gallery|Create|Collage Maker|Pre-?cut|Photobooth|Printer|More).*"
     timeout: 20000
-- assertVisible: "(?i)Quick Print.*"
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+    commands:
+      - assertVisible: "(?i)Quick Print.*"

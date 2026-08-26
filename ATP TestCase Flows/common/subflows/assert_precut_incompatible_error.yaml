@@ -1,0 +1,9 @@
+appId: com.hp.impulse.sprocket
+---
+# Dialog when Pre-Cut is used with a non-2x3 printer.
+# Use title "Incompatible Printer" — the Got It info popup also mentions "exclusively with the Sprocket".
+- extendedWaitUntil:
+    visible: ".*(?i)Incompatible Printer.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)Incompatible Printer.*"

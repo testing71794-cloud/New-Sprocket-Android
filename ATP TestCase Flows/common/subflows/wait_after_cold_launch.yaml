@@ -1,5 +1,7 @@
 appId: com.hp.impulse.sprocket
 ---
 # Brief settle after cold launch before first-screen asserts.
+- runFlow: ensure_sprocket_foreground.yaml
 - waitForAnimationToEnd:
     timeout: 3000
+- runFlow: dismiss_usb_charging_popup_if_visible.yaml

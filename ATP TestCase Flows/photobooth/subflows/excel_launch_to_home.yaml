@@ -1,0 +1,60 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel Photobooth steps 1–8: launch → splash → onboarding → Get Started → Sign Up Later → Home.
+# Camera is left unset so Photobooth can show "While using the app" / "Don't allow".
+- launchApp:
+    clearState: true
+    permissions:
+      camera: unset
+      storage: allow
+      medialibrary: allow
+# No waitForAnimationToEnd after launch (screenshot loop kills the Android driver).
+# Coordinate swipes do not dump hierarchy; they let splash finish, then Excel carousel.
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 20000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+- runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+- runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+- runFlow: ../../permission/subflows/allow_notification_permission.yaml
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 25000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Collage Maker|Quick Print).*"

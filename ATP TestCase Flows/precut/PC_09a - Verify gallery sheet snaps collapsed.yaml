@@ -1,0 +1,17 @@
+# ATP Test Case ID: PC_09a
+# Excel: Precut_09 (a) | Module: Pre-Cut Stickers – Gallery Sheet Collapse
+# Verify that the gallery sheet snaps to the collapsed position when dragged more than halfway downward.
+# Expected: Collapsed sheet; gallery/fast scroll hidden; selections intact.
+appId: com.hp.impulse.sprocket
+name: "PC_09a - Verify gallery sheet snaps collapsed"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_photos.yaml
+- runFlow: subflows/collapse_gallery_sheet.yaml
+- assertVisible: ".*(?i)Select 2 photos.*"
+- runFlow: subflows/assert_both_slots_filled.yaml
+- assertVisible: "Next"

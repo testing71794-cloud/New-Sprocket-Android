@@ -1,0 +1,5 @@
+appId: com.hp.impulse.sprocket
+---
+# Phase A — launch + connect 3×4 only (separate Maestro process; ADB-stable).
+- runFlow: excel_launch_to_home.yaml
+- runFlow: ensure_incompatible_printer_connected.yaml

@@ -1,0 +1,8 @@
+appId: com.hp.impulse.sprocket
+---
+# Excel: Wait to load Pre-cut selection screen (Select 2 photos).
+- extendedWaitUntil:
+    visible: ".*(?i)Select 2 photos.*"
+    timeout: 20000
+- assertVisible: ".*(?i)Select 2 photos.*"
+- assertVisible: "Next"

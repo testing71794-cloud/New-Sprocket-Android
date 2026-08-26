@@ -1,7 +1,6 @@
 # ATP Test Case ID: PC_06
 # Excel: Precut_06 | Module: Gallery Interaction
-# Verify gallery expansion, collapse, and auto-snap.
-# Expected: Gallery expands, collapses, and snaps correctly.
+# Gallery drawer swipe expand/collapse (best-effort on Compose).
 appId: com.hp.impulse.sprocket
 name: "PC_06 - Verify gallery expansion collapse and auto-snap"
 tags:
@@ -9,6 +8,18 @@ tags:
   - atp-excel
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- assertVisible: ".*(?i)Select 2 Photos.*"
+- swipe:
+    start: "50%,85%"
+    end: "50%,55%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: ".*(?i)(Recent|Select 2 [Pp]hotos|All Photos).*"
+- swipe:
+    start: "50%,55%"
+    end: "50%,85%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: ".*(?i)Select 2 [Pp]hotos.*"
