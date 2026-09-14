@@ -75,12 +75,30 @@ def flag(String name) {
     }
 }
 
-/** Folders from RUN_ATP_* checkboxes, or ATP_MODULES override if that text is non-empty. */
+/** Folders from RUN_ATP_* checkboxes, or ATP_MODULES override if that text is non-empty.
+ *  ATP_MODULES=all selects every known ATP folder. Does not change parallel execution.
+ */
 def selectedAtpFolders() {
+    def known = [
+        'splash', 'onboarding', 'signup', 'login', 'signup-later', 'connection',
+        'permission', 'gallery', 'quick-print', 'collage', 'home', 'camera', 'editor',
+        'printing', 'precut', 'video', 'tile-print', 'settings', 'firmware', 'ai',
+        'alerts', 'general', 'photo-id', 'photobooth', 'custom-sdk', 'onboarding-splash',
+    ]
     def raw = p('ATP_MODULES', '')
     if (raw) {
         echo "[atp] using ATP_MODULES override: ${raw}"
-        return raw.toLowerCase().split(/[,;\s]+/).findAll { it }
+        def toks = raw.toLowerCase().split(/[,;\s]+/).findAll { it }
+        if (toks.contains('all') || toks.contains('*')) {
+            echo "[atp] ATP_MODULES=all -> ${known}"
+            return known
+        }
+        def unknown = toks.findAll { !known.contains(it) }
+        if (unknown) {
+            error "ERROR: Unknown module '${unknown.join(', ')}'\nAvailable modules:\n  ${known.join('\n  ')}"
+        }
+        echo "[atp] ATP_MODULES folders: ${toks}"
+        return toks
     }
     def legacy = [
         'RUN_ATP_SPLASH': 'splash',
@@ -425,7 +443,7 @@ def stageArchive() {
     stage('Archive Reports & Artifacts') {
         withOrch {
             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                archiveArtifacts artifacts: 'build-summary/final_execution_report.xlsx, build-summary/execution_logs.zip, .maestro/screenshots/**, detected_devices.txt', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'build-summary/final_execution_report.xlsx, build-summary/execution_logs.zip, .maestro/screenshots/**, reports/videos/**, detected_devices.txt', allowEmptyArchive: true
             }
         }
     }

@@ -79,14 +79,42 @@ def atpModuleDefs() {
     ]
 }
 
-/** True when any ATP TestCase Flows module checkbox is enabled. */
+/** True when any ATP TestCase Flows module checkbox is enabled or ATP_MODULES is set. */
 def anyAtpModuleEnabled = {
+    def raw = params.ATP_MODULES ? params.ATP_MODULES.toString().trim() : ''
+    if (raw) {
+        return true
+    }
     for (def m in atpModuleDefs()) {
         if (params[m.p]) {
             return true
         }
     }
     return false
+}
+
+/** Folder list: ATP_MODULES override (all / csv) or RUN_ATP_* checkboxes. */
+def selectedAtpFoldersFromParams() {
+    def raw = params.ATP_MODULES ? params.ATP_MODULES.toString().trim() : ''
+    if (raw) {
+        def toks = raw.toLowerCase().split(/[,;\s]+/).findAll { it }
+        if (toks.contains('all') || toks.contains('*')) {
+            return atpModuleDefs().collect { it.f }
+        }
+        def known = atpModuleDefs().collect { it.f } as Set
+        def unknown = toks.findAll { !known.contains(it) }
+        if (unknown) {
+            error "ERROR: Unknown module '${unknown.join(', ')}'\nAvailable modules:\n  ${known.join('\n  ')}"
+        }
+        return toks
+    }
+    def out = []
+    for (def m in atpModuleDefs()) {
+        if (params[m.p]) {
+            out << m.f
+        }
+    }
+    return out
 }
 
 /** Suite ids for finalize flag checks (must match jenkins_atp_stage.py folder_to_suite_id). */
@@ -214,6 +242,7 @@ pipeline {
         booleanParam(name: 'RUN_ATP_PHOTOBOOTH', defaultValue: false, description: 'ATP TestCase Flows/photobooth')
         booleanParam(name: 'RUN_ATP_CUSTOM_SDK', defaultValue: false, description: 'ATP TestCase Flows/custom-sdk')
         booleanParam(name: 'RUN_ATP_ONBOARDING_SPLASH', defaultValue: false, description: 'ATP TestCase Flows/onboarding-splash (Excel ONBOARDING SPLASH SCREEN)')
+        text(name: 'ATP_MODULES', defaultValue: '', description: 'Optional override: all  OR  signup,precut,gallery. Leave EMPTY to use RUN_ATP_* checkboxes. Parallel device execution is unchanged.')
         booleanParam(name: 'RUN_AI_ANALYSIS', defaultValue: true, description: 'Test OpenRouter + run intelligent_platform failure analysis')
         booleanParam(name: 'SEND_FINAL_EMAIL', defaultValue: false, description: 'Send final summary email')
         booleanParam(name: 'CLEAR_STATE', defaultValue: true, description: 'Clear app state in suite runners')
@@ -325,14 +354,11 @@ exit 0
             agent { label params.DEVICES_AGENT }
             steps {
                 script {
-                    for (def m in atpModuleDefs()) {
-                        if (!params[m.p]) {
-                            continue
-                        }
-                        stage(m.n) {
+                    for (def folder in selectedAtpFoldersFromParams()) {
+                        stage(folder) {
                             catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                                 withEnv(maestroEnvList()) {
-                                    bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all ${m.f} "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
+                                    bat """cd /d "${env.WORKSPACE}" && python scripts/jenkins_atp_stage.py all ${folder} "${params.APP_PACKAGE}" "${params.CLEAR_STATE.toString()}" "${params.MAESTRO_CMD}" """
                                 }
                             }
                         }
@@ -422,7 +448,7 @@ exit 0
             agent { label params.DEVICES_AGENT }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
-                    archiveArtifacts artifacts: 'build-summary/final_execution_report.xlsx, build-summary/execution_logs.zip, .maestro/screenshots/**, detected_devices.txt', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'build-summary/final_execution_report.xlsx, build-summary/execution_logs.zip, .maestro/screenshots/**, reports/videos/**, detected_devices.txt', allowEmptyArchive: true
                 }
             }
         }

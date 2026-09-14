@@ -44,7 +44,7 @@ properties([
         booleanParam(name: 'RUN_ATP_CUSTOM_SDK', defaultValue: false, description: 'ATP: custom-sdk'),
         booleanParam(name: 'RUN_ATP_ONBOARDING_SPLASH', defaultValue: false, description: 'ATP: onboarding-splash'),
 
-        text(name: 'ATP_MODULES', defaultValue: '', description: 'Optional override list (comma-separated). Leave EMPTY to use the RUN_ATP_* checkboxes above.'),
+        text(name: 'ATP_MODULES', defaultValue: '', description: 'Optional override: all  OR  signup,precut,gallery  (comma-separated). Leave EMPTY to use the RUN_ATP_* checkboxes. Does not change parallel device execution.'),
 
         booleanParam(name: 'RUN_AI_ANALYSIS', defaultValue: true, description: 'OpenRouter probe + analysis'),
         booleanParam(name: 'SEND_FINAL_EMAIL', defaultValue: false, description: 'Send final email'),

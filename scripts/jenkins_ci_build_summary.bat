@@ -20,6 +20,10 @@ echo [DEBUG] "%PYTHON_EXE%" "%~dp0generate_build_summary.py" status build-summar
   popd
   exit /b 1
 )
+if exist "%WS_ROOT%\build-summary\atp_suite_labels.json" (
+  echo [DEBUG] final ATP excel merge after all modules
+  "%PYTHON_EXE%" "%~dp0generate_atp_excel_reports.py" "%WS_ROOT%" || echo 1> "%WS_ROOT%\atp_report_failed.flag"
+)
 if exist "%~dp0generate_final_report.py" (
   "%PYTHON_EXE%" "%~dp0generate_final_report.py" "%WS_ROOT%" status "%WS_ROOT%\build-summary\final_execution_report.xlsx"
 ) else if exist "%WS_ROOT%\build-summary\final_execution_report.xlsx" (

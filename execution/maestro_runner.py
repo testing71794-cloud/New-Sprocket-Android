@@ -842,6 +842,19 @@ def run_run_one_flow_device_bat(
                     startup_succeeded = True
 
                 assert child is not None
+                rec_session = None
+                try:
+                    from .testcase_screenrecord import start_screenrecord
+
+                    rec_session = start_screenrecord(
+                        repo=repo,
+                        device_id=device_id,
+                        suite_id=suite_id,
+                        case_id=flow_path.stem.split(" - ", 1)[0].strip() or flow_path.stem,
+                    )
+                except Exception as rec_exc:  # noqa: BLE001
+                    print(f"[ATP] screenrecord_wrapper_error error={rec_exc}", flush=True)
+                    rec_session = None
                 try:
                     child.wait(timeout=timeout_sec)
                 except subprocess.TimeoutExpired:
@@ -857,8 +870,32 @@ def run_run_one_flow_device_bat(
                     )
                     unregister_owned_child_pid(child.pid)
                     code = 124
+                    try:
+                        from .testcase_screenrecord import append_video_to_status, stop_screenrecord
+
+                        kept = stop_screenrecord(rec_session, keep=True)
+                        if kept:
+                            append_video_to_status(
+                                _status_file_path(repo, suite_id, flow_path, device_id),
+                                kept,
+                                repo,
+                            )
+                    except Exception:  # noqa: BLE001
+                        pass
                     break
                 code = int(child.returncode or 0)
+                try:
+                    from .testcase_screenrecord import append_video_to_status, stop_screenrecord
+
+                    kept = stop_screenrecord(rec_session, keep=code != 0)
+                    if kept:
+                        append_video_to_status(
+                            _status_file_path(repo, suite_id, flow_path, device_id),
+                            kept,
+                            repo,
+                        )
+                except Exception as rec_exc:  # noqa: BLE001
+                    print(f"[ATP] screenrecord_stop_wrapper_error error={rec_exc}", flush=True)
                 unregister_owned_child_pid(child.pid)
                 if os.environ.get("ATP_MAESTRO_POST_RUN_FORWARD_CLEANUP", "1").strip().lower() not in (
                     "0",

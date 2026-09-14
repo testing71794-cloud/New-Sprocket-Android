@@ -240,9 +240,12 @@ def cmd_run(folder: str, app: str, clear_state: str, maestro_cmd: str) -> int:
         resolved or folder,
     ]
     if not discover_atp_yaml_files(REPO, resolved or folder, exclude_subflows=True):
-        print("[jenkins_atp_stage] ERROR: no yaml test files — aborting stage", flush=True)
-        touch_flag(f"{sid}_no_results.flag")
-        return 1
+        print(
+            f"[jenkins_atp_stage] SKIP folder={folder!r} — no top-level YAML "
+            "(subflows-only stubs such as camera/editor)",
+            flush=True,
+        )
+        return 0
     print(f"[jenkins_atp_stage] maestro_command={' '.join(maestro_argv)!r}", flush=True)
     # Stack A: blocking Python orchestrator (no detached PowerShell Start-Process chain).
     p = subprocess.run(maestro_argv, cwd=str(REPO))
@@ -289,6 +292,7 @@ def cmd_excel(folder: str) -> int:
             str(out_dir),
             sid,
             label,
+            "--no-merge-final",
         ],
         cwd=str(REPO),
     )
@@ -309,6 +313,9 @@ def cmd_all(folder: str, app: str, clear_state: str, maestro_cmd: str) -> int:
         flush=True,
     )
     rc_run = cmd_run(folder, app, clear_state, maestro_cmd)
+    if not discover_atp_yaml_files(REPO, resolved or folder, exclude_subflows=True):
+        print(f"[jenkins_atp_stage] stage_status=SKIPPED suite={sid!r} (empty folder)", flush=True)
+        return 0
     cmd_validate(sid)
     cmd_excel(resolved or folder)
     if rc_run != 0:

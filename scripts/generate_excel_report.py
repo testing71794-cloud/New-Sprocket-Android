@@ -56,6 +56,7 @@ COLS = [
     "Analysis Source",
     "Log Path",
     "Screenshot Path",
+    "Failure Video",
     "Timestamp",
     "AI Analysis",
 ]
@@ -71,6 +72,7 @@ FLOW_REPORT_HEADERS: tuple[str, ...] = (
     "Status",
     "Exit Code",
     "AI Analysis",
+    "Failure Video",
 )
 
 
@@ -86,6 +88,39 @@ def _augment_merged_row(rowd: dict) -> None:
         or "—"
     )
     rowd["AI Analysis"] = ai
+
+
+def _video_rel(rowd: dict) -> str:
+    raw = str(
+        rowd.get("Failure Video")
+        or rowd.get("video_path")
+        or rowd.get("failure_video")
+        or ""
+    ).strip()
+    if not raw or raw in ("-", "—"):
+        return ""
+    return raw.replace("\\", "/")
+
+
+def _video_display(rowd: dict) -> str:
+    st = str(rowd.get("Status") or "").upper()
+    rel = _video_rel(rowd)
+    if st == "PASS" or not rel:
+        return "-"
+    return rel
+
+
+def _maybe_link_video_cell(ws, row_idx: int, col_idx: int, rowd: dict) -> None:
+    rel = _video_rel(rowd)
+    if not rel or str(rowd.get("Status") or "").upper() == "PASS":
+        return
+    dest = (REPO / rel).resolve()
+    if not dest.is_file():
+        return
+    cell = ws.cell(row_idx, col_idx)
+    cell.value = "Open Video"
+    cell.hyperlink = dest.as_uri()
+    cell.font = Font(color="0563C1", underline="single")
 
 
 def _write_flow_report_sheet(wb: Workbook, all_rows: list[dict]) -> None:
@@ -111,7 +146,9 @@ def _write_flow_report_sheet(wb: Workbook, all_rows: list[dict]) -> None:
             or str(r.get("AI Failure Summary", "") or "").strip()
             or "—"
         )
-        w.append([suite_s, flow, dev, did, st, ex, ai])
+        vid = _video_display(r)
+        w.append([suite_s, flow, dev, did, st, ex, ai, vid])
+        _maybe_link_video_cell(w, w.max_row, len(FLOW_REPORT_HEADERS), r)
     _autosize(w, 60)
 
 
@@ -363,6 +400,12 @@ def _rows_to_raw_dicts(
                 )[:60],
                 "Log Path": logp,
                 "Screenshot Path": _SCREEN_DEFAULT,
+                "Failure Video": _video_display(
+                    {
+                        "Status": st,
+                        "video_path": (row.get("video_path") or row.get("failure_video") or ""),
+                    }
+                ),
                 "Timestamp": (row.get("timestamp") or datetime.now().strftime("%Y-%m-%d %H:%M:%S"))[
                     :32
                 ],
@@ -377,8 +420,10 @@ def _fill_raw(ws, rows: list[dict]) -> None:
     for c in ws[1]:
         c.fill = HEADER_FILL
         c.font = Font(bold=True)
+    vid_col = COLS.index("Failure Video") + 1
     for r in rows:
         ws.append([r.get(c, "") for c in COLS])
+        _maybe_link_video_cell(ws, ws.max_row, vid_col, r)
     for i in range(2, ws.max_row + 1):
         st = str(ws.cell(i, 5).value or "").upper()
         cell = ws.cell(i, 5)
@@ -597,10 +642,11 @@ def write_csv(path: Path, rows: list[dict], only_status: str | None = None):
 def main() -> int:
     argv = [a for a in sys.argv[1:] if a]
     skip_if_empty = "--skip-if-empty" in argv
-    argv = [a for a in argv if a != "--skip-if-empty"]
+    no_merge_final = "--no-merge-final" in argv
+    argv = [a for a in argv if a not in ("--skip-if-empty", "--no-merge-final")]
     if len(argv) < 3:
         print(
-            "Usage: python scripts/generate_excel_report.py <status_dir> <output_dir> <suite_name> [suite_label] [--skip-if-empty]",
+            "Usage: python scripts/generate_excel_report.py <status_dir> <output_dir> <suite_name> [suite_label] [--skip-if-empty] [--no-merge-final]",
         )
         return 1
 
@@ -641,8 +687,11 @@ def main() -> int:
     write_csv(output_dir / "failed_results.csv", results, only_status="FAIL")
     write_csv(output_dir / "passed_results.csv", results, only_status="PASS")
     (REPO / "build-summary").mkdir(parents=True, exist_ok=True)
-    _merge_build_summary(suite_name, raw, REPO / "build-summary", suite_label)
-    print(f"Report: {output_dir / 'summary.xlsx'} | merged: build-summary/final_execution_report.xlsx | rows={len(raw)}")
+    if no_merge_final:
+        print(f"Report: {output_dir / 'summary.xlsx'} | final merge deferred | rows={len(raw)}")
+    else:
+        _merge_build_summary(suite_name, raw, REPO / "build-summary", suite_label)
+        print(f"Report: {output_dir / 'summary.xlsx'} | merged: build-summary/final_execution_report.xlsx | rows={len(raw)}")
     return 0
 
 

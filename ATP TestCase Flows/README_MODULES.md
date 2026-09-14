@@ -20,7 +20,7 @@ python scripts\generate_atp_modules_from_excel.py --remaining-only
 | permission | PM_ | Runtime permissions |
 | gallery | GA_ | Gallery home |
 | quick-print | QP_ | Quick Print gallery |
-| collage | COL_ | Collage Maker |
+| collage | COL_ | Collage Maker (Excel Collage_01–16) |
 
 ## Excel-generated modules (new folders)
 
@@ -29,13 +29,13 @@ python scripts\generate_atp_modules_from_excel.py --remaining-only
 | home | HM_ | Home | 5 |
 | camera | CA_ | Camera | 28 |
 | editor | ED_ | Editor | 24 |
-| printing | PR_ | Printing | 75 |
+| printing | PR_ | Print Preview (25 supplied rows; duplicate 06 preserved) | 25 |
 | precut | PC_ | PreCut | 6 |
 | video | VD_ | Video | 8 |
 | tile-print | TP_ | TilePrint | 8 |
 | settings | SE_ | Settings | 25 |
 | firmware | FW_ | Firmware | 51 |
-| ai | AI_ | AI | 81 |
+| ai | AI_ | Supplied AI Tools 02–100 (112 cases + 8 dependency splits) | 120 |
 | alerts | AL_ | Alerts | 49 |
 | general | GN_ | General | 166 |
 
@@ -48,7 +48,7 @@ These **add** flows next to hand-tuned ones (do not overwrite SP_/ON_/QP_/COL_/C
 | splash | SPX_ | Splash | 1 |
 | onboarding | ONX_ | Onboarding | 18 |
 | quick-print | QP_ | QuickPrint (Excel 001–015, 31 flows) | 31 |
-| collage | COLX_ | Collage | 11 |
+| collage | COL_ | Collage (Excel Collage_01–16, lettered rows) | 52 |
 | connection | COX_ | Connection | 256 |
 
 Setup helper for these: `subflows/reach_excel_screen.yaml`  
@@ -72,3 +72,10 @@ AI TOOLS SDK · PHOTO ID · PHOTOBOOTH · TILES MODULES · PRINT PREVIEWS SCREEN
 | video | VD_ | VIDEO FRAMES | 7 |
 
 Jenkins: `RUN_ATP_PHOTO_ID`, `RUN_ATP_PHOTOBOOTH`, `RUN_ATP_CUSTOM_SDK` (default false).
+
+**Module selection (local + Jenkins):** see [docs/MODULE_SELECTION_AND_FAILURE_VIDEOS.md](../docs/MODULE_SELECTION_AND_FAILURE_VIDEOS.md).
+
+```bat
+python scripts/run_tests.py --module signup,precut
+python scripts/run_tests.py --module all
+```
