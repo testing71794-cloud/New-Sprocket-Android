@@ -9,13 +9,17 @@ name: "SG_02 - Sign up with Google"
 - tapOn: "Sign up with Google"
 - waitForAnimationToEnd:
     timeout: 5000
-- assertVisible:
-    text: "Choose an account"
-    optional: true
-- tapOn:
-    point: 20%,49%
-- assertVisible:
-    text: ".*[Gg]oogle.*"
-    optional: true
-
-- assertNotVisible: "Log in"
+- runFlow: ../login/subflows/complete_google_sign_in.yaml
+- runFlow:
+    when:
+      visible: "I agree"
+    commands:
+      - tapOn: "I agree"
+- runFlow:
+    when:
+      visible: "Google services: Back up your device"
+    commands:
+      - tapOn: "Don't back up"
+- extendedWaitUntil:
+    visible: "Welcome,\nC Plus A Dev :)"
+    timeout: 20000

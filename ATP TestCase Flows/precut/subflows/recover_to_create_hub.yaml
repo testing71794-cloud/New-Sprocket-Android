@@ -1,0 +1,52 @@
+appId: com.hp.impulse.sprocket
+---
+# Return to the Create hub without relaunching. Used between nested checkpoints.
+# Single ordered pass from the deepest screen outward. A polling loop here issues
+# enough rapid view-hierarchy queries to drop the device driver connection.
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn: "(?i)Do Not Save.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: "(?i)Got It.*"
+      notVisible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - tapOn: "(?i)Got It.*"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(Crop|Filters|Adjust|Retouch|Frames).*"
+      notVisible: ".*(?i)Select 2 photos.*"
+    commands:
+      - pressKey: BACK
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)(Copies|Share|Print Preview).*"
+      notVisible: ".*(?i)Select 2 photos.*"
+    commands:
+      - pressKey: BACK
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)Open [Ss]ettings.*"
+    commands:
+      - pressKey: BACK
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Select 2 photos.*"
+    commands:
+      - runFlow: tap_in_app_back.yaml
+      - waitForAnimationToEnd:
+          timeout: 2500

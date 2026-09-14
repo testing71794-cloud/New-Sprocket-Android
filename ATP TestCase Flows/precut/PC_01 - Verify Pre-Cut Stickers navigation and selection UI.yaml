@@ -1,13 +1,10 @@
-# ATP Test Case ID: PC_01
-# Excel: Precut_01 | Module: Pre-Cut Stickers- navigation
-# Verify the Pre-Cut Stickers navigation flow from launch to selection and UI verification of the screen.
-# Expected: Pre-Cut selection with empty slots and disabled Next; header Back, Select 2 photos, gallery sheet.
+# Canonical merged PC_01. Consolidates the two duplicate PC_01 source flows.
+# Full coverage: cold launch/onboarding/Create/Pre-Cut navigation + selection UI.
 appId: com.hp.impulse.sprocket
-name: "PC_01 - Verify Pre-Cut Stickers navigation and selection UI"
-tags:
-  - precut
-  - atp-excel
-  - positive
+name: "PC_01 - Pre-Cut navigation and selection UI"
+tags: [precut, atp-excel, optimized]
 ---
 - runFlow: subflows/reach_selection_got_it.yaml
 - runFlow: subflows/assert_selection_ui.yaml
+- assertVisible: ".*(?i)Select 2 Photos.*"
+- assertVisible: "Next"

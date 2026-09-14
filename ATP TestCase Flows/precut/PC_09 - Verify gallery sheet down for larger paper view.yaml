@@ -1,14 +1,38 @@
-# ATP Test Case ID: PC_09
-# Excel: Precut_09 | Module: Pre-Cut Stickers – Gallery Sheet Expanded View
-# Verify that the gallery sheet can be moved down to display a larger view of the Pre-Cut paper and selected images.
-# Expected: Sheet moves down; both selected photos remain in Slot 1 and Slot 2.
+# Canonical merged PC_09. Full coverage: gallery sheet down + both selections retained
+# + print-preview edit/back exit path from the duplicate PC_09 source.
 appId: com.hp.impulse.sprocket
-name: "PC_09 - Verify gallery sheet down for larger paper view"
-tags:
-  - precut
-  - atp-excel
-  - positive
+name: "PC_09 - Gallery sheet and exit flow"
+tags: [precut, atp-excel, optimized]
 ---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_two_unique_precut_photos.yaml
+- runFlow: subflows/tap_next.yaml
+- runFlow: subflows/wait_print_preview.yaml
+- runFlow: subflows/assert_precut_print_preview.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)^Edit$"
+    commands:
+      - tapOn: ".*(?i)^Edit$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- pressKey: BACK
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(Save as new photo|Do Not Save|Save to Gallery).*"
+    commands:
+      - assertVisible: ".*(?i)Do Not Save.*"
+      - tapOn: ".*(?i)Do Not Save.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)(Select 2 [Pp]hotos|Pre-?Cut|Collage Maker|Quick Print|Copies|Print|Share).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Select 2 [Pp]hotos|Pre-?Cut|Collage Maker|Quick Print|Copies|Print|Share).*"
+# Reset state once, then execute the gallery-sheet coverage independently so the
+# exit scenario cannot contaminate the selected-photo state of the gallery scenario.
 - runFlow: subflows/reach_selection_got_it.yaml
 - runFlow: subflows/select_two_photos.yaml
 - assertVisible: "1"

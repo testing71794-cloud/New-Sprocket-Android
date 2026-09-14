@@ -1,19 +1,21 @@
-# ATP Test Case ID: PC_06a
-# Excel: Precut_06 (a) | Module: Pre-Cut Stickers – Next Button
-# Verify that tapping the “Next” button redirects to Print Preview without displaying the Tiles option.
-# Expected: Print Preview; Tiles not displayed.
+# Canonical merged PC_06a. Full coverage includes the previously mislabeled
+# "PC_02 - selecting two unique images" flow plus Next -> Print Preview.
 appId: com.hp.impulse.sprocket
-name: "PC_06a - Verify Next opens Print Preview without Tiles"
-tags:
-  - precut
-  - atp-excel
-  - positive
+name: "PC_06a - Next opens Print Preview without Tiles"
+tags: [precut, atp-excel, optimized]
 ---
 - runFlow: subflows/reach_selection_got_it.yaml
-- runFlow: subflows/select_two_photos.yaml
-- assertVisible:
-    text: "Next"
-    enabled: true
+- runFlow: subflows/select_two_unique_precut_photos.yaml
+- assertVisible: "Next"
+# Preserve the former duplicate-prevention coverage: selecting the first
+# thumbnail again must keep the user on Pre-Cut with Next available.
+- tapOn:
+    point: "19%,75%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: ".*(?i)Select 2 [Pp]hotos.*"
+- assertVisible: "Next"
 - runFlow: subflows/tap_next.yaml
 - runFlow: subflows/wait_print_preview.yaml
+- runFlow: subflows/assert_precut_print_preview.yaml
 - assertNotVisible: "(?i)^Tiles$"

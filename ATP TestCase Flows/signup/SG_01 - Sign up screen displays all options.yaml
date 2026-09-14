@@ -6,3 +6,9 @@ name: "SG_01 - Sign up screen displays all options"
 - launchApp:
     clearState: true
 - runFlow: subflows/open_signup_screen.yaml
+- assertVisible: "Sign up"
+- assertVisible: "Sign up with Google"
+- assertVisible: "Sign up with Facebook"
+- assertVisible: "Sign up with Email"
+- assertVisible: ".*(?i)(I.ll do it later|Sign Up Later).*"
+- assertVisible: ".*(?i)I already have (an )?account.*"

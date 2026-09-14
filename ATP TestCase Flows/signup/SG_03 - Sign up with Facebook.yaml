@@ -10,8 +10,7 @@ name: "SG_03 - Sign up with Facebook"
 - tapOn: "Sign up with Facebook"
 - waitForAnimationToEnd:
     timeout: 5000
-- assertVisible:
-    text: ".*[Ff]acebook.*"
-    optional: true
 - runFlow: ../login/subflows/complete_facebook_sign_in.yaml
-- assertNotVisible: "Log in"
+- extendedWaitUntil:
+    visible: "Welcome,\nMarc Eting :)"
+    timeout: 20000
