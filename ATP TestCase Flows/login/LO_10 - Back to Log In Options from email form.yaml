@@ -3,9 +3,7 @@
 appId: com.hp.impulse.sprocket
 name: "LO_10 - Back to Log In Options from email form"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/reach_login_email_form.yaml
+- runFlow: subflows/ensure_email_login_form.yaml
 - tapOn: "Back to Log In Options"
 - waitForAnimationToEnd:
     timeout: 3000

@@ -1,0 +1,92 @@
+# Land on Log In options.
+# If that screen is already open, do not launch the app again.
+# Wipe app data only when this launch is not already on a logged-out login path.
+# https://docs.maestro.dev/reference/commands-available/launchapp
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: "Back to Log In Options"
+    commands:
+      - tapOn: "Back to Log In Options"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: "I already have an account"
+      notVisible: "Continue with Google"
+    commands:
+      - tapOn: "I already have an account"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: "Continue with Google"
+    commands:
+      - launchApp:
+          clearState: false
+      - runFlow: ../../common/subflows/wait_after_cold_launch.yaml
+      - extendedWaitUntil:
+          visible: ".*(?i)(Continue with Google|I already have an account|Log In with Email|Welcome to the new Sprocket|Get Started!|Collage Maker|Quick Print|Sign up|Welcome,).*"
+          timeout: 20000
+          optional: true
+      - runFlow:
+          when:
+            visible: "Back to Log In Options"
+          commands:
+            - tapOn: "Back to Log In Options"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: "I already have an account"
+            notVisible: "Continue with Google"
+          commands:
+            - tapOn: "I already have an account"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Welcome to the new Sprocket|Get Started!|AI Editing).*"
+            notVisible: "Continue with Google"
+          commands:
+            - runFlow: ../../common/subflows/reach_signup_screen.yaml
+            - tapOn: "I already have an account"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: "Welcome,"
+            notVisible: "Continue with Google"
+          commands:
+            - launchApp:
+                clearState: true
+            - runFlow: open_login_screen.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)(Collage Maker|Quick Print).*"
+            notVisible: "Continue with Google"
+          commands:
+            - runFlow: ../../settings/subflows/open_hamburger_menu.yaml
+            - runFlow:
+                when:
+                  visible: ".*(?i)Log In.*"
+                commands:
+                  - tapOn: ".*(?i)Log In.*"
+                  - waitForAnimationToEnd:
+                      timeout: 2000
+                  - extendedWaitUntil:
+                      visible: "Continue with Google"
+                      timeout: 15000
+      - runFlow:
+          when:
+            notVisible: "Continue with Google"
+          commands:
+            - launchApp:
+                clearState: true
+            - runFlow: open_login_screen.yaml
+- extendedWaitUntil:
+    visible: "Continue with Google"
+    timeout: 20000
+- runFlow: ../../common/subflows/assert_login_options_screen.yaml

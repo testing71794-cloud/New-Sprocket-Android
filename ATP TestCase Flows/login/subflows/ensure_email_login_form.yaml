@@ -1,0 +1,39 @@
+# Log In with Email form. Skips option navigation when that form is already open.
+# A filled field hides the "Email" label, so reopen the form before the same asserts.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.hp.impulse.sprocket
+---
+- runFlow:
+    when:
+      visible: "Log In with Email"
+      notVisible: "Email"
+    commands:
+      - runFlow:
+          when:
+            notVisible: "Back to Log In Options"
+          commands:
+            - hideKeyboard
+            - runFlow:
+                when:
+                  visible: "OK"
+                commands:
+                  - tapOn: "OK"
+      - runFlow:
+          when:
+            visible: "Back to Log In Options"
+          commands:
+            - tapOn: "Back to Log In Options"
+            - waitForAnimationToEnd:
+                timeout: 2000
+- runFlow:
+    when:
+      notVisible: "Log In with Email"
+    commands:
+      - runFlow: ensure_login_options.yaml
+      - tapOn: "Continue with Email"
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - extendedWaitUntil:
+          visible: "Log In with Email"
+          timeout: 10000
+- runFlow: ../../common/subflows/assert_login_email_form.yaml

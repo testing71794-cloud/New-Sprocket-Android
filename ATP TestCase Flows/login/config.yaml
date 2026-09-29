@@ -1,0 +1,8 @@
+# Login workspace. One Maestro session runs every LO_* flow.
+# A failed flow does not stop the later flows.
+# https://docs.maestro.dev/maestro-flows/workspace-management/config
+appId: com.hp.impulse.sprocket
+flows:
+  - "LO_*.yaml"
+executionOrder:
+  continueOnFailure: true

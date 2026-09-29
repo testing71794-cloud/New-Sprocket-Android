@@ -6,9 +6,7 @@ tags:
   - login
   - positive
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_login_screen.yaml
+- runFlow: subflows/ensure_login_options.yaml
 - tapOn: "I don't have an account"
 - waitForAnimationToEnd:
     timeout: 3000

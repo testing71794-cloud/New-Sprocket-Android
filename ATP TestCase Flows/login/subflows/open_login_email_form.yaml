@@ -1,5 +1,3 @@
 appId: com.hp.impulse.sprocket
 ---
-- launchApp:
-    clearState: true
-- runFlow: reach_login_email_form.yaml
+- runFlow: ensure_email_login_form.yaml
