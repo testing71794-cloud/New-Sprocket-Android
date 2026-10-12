@@ -1,0 +1,16 @@
+# Probe select_sprocket_sense then dump what remains on screen.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: false
+    permissions:
+      all: allow
+- runFlow: dismiss_rate_app_if_visible.yaml
+- takeScreenshot: before_sense
+- runFlow: select_sprocket_sense_printer.yaml
+- takeScreenshot: after_sense
+- extendedWaitUntil:
+    visible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth|Printer|Add Printer|Your Printers|Log in).*"
+    timeout: 10000
+    optional: true

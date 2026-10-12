@@ -2,7 +2,7 @@
 # Excel: Photobooth 03 | Module: Photobooth
 # Verify the functionality of the Back button on the Photobooth screen.
 # Expected: User is navigated back to the Home/Dashboard screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_03 - Verify Back button on Photobooth screen"
 tags:
   - photobooth

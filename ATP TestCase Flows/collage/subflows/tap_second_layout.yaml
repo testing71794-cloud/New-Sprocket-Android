@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+# Second layout chip under Layout (unlabeled ImageViews).
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+- tapOn:
+    point: "30%,78%"
+- waitForAnimationToEnd:
+    timeout: 400
+- assertVisible: "Drag & Drop to Reorder"

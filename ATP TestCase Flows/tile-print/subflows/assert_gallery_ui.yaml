@@ -1,0 +1,16 @@
+appId: com.caglobal.hp.sprocket
+---
+# Tile Print always opens the Recents gallery in single-photo mode.
+- assertVisible: "Recent"
+# This build exposes the Back and Sort ImageViews without accessibility text or ids.
+# Assert their observed header coordinates from the device hierarchy.
+- assertVisible:
+    point: "7%,8%"
+    enabled: true
+- assertVisible:
+    point: "93%,8%"
+    enabled: true
+- assertVisible:
+    text: ".*(?i)(Today|Yesterday|Mon|Tue|Wed|Thu|Fri|Sat|Sun|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|[0-9]{1,2}/[0-9]{1,2}/[0-9]{2,4}).*"
+- runFlow: assert_bottom_navigation.yaml
+- takeScreenshot: tile_print_gallery_ui

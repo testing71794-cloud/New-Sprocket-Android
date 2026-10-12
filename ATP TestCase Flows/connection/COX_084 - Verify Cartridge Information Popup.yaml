@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_009 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Cartridge Information Popup
 # Expected: 1. Cartridge compatibility popup should be displayed. 2. Cartridge instructions "Make sure to use HP Sprocket Studio Plus 4 x 6" Photo Paper and Cartridges for your HP Sprocket Studio.  The cartridge and paper (sold together) are specifical
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_084 - Verify Cartridge Information Popup"
 tags:
   - connection

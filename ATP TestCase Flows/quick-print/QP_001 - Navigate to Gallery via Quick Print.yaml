@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT _001 | Quick Print- Gallery Screen
 # Verify the navigation flow to Gallery screen via Quick Print.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_001 - Navigate to Gallery via Quick Print"
 tags:
   - quick-print

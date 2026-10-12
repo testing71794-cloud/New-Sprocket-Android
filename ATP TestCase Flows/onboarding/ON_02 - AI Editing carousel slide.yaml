@@ -1,24 +1,32 @@
 # ATP Test Case ID: ON_02
-# AI Editing carousel slide — skipped when build opens Sign up directly.
-appId: com.hp.impulse.sprocket
+# Excel: Sp_04 | AI Editing & Generation — Sense carousel.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
 name: "ON_02 - AI Editing carousel slide"
+tags:
+  - onboarding
+  - atp-excel
 ---
 - launchApp:
     clearState: true
 - runFlow: ../common/subflows/wait_after_cold_launch.yaml
 - runFlow:
     when:
-      visible: "Welcome to the new Sprocket!"
+      visible: ".*(?i)(Welcome to Sprocket Sense!|Welcome to the new Sprocket!).*"
     commands:
       - swipe:
-          direction: LEFT
+          start: "90%,45%"
+          end: "10%,45%"
+          duration: 900
       - extendedWaitUntil:
-          visible: "AI Editing & Generation"
-          timeout: 8000
-      - assertVisible: "With powerful AI tools, what you can create and print is only limited by your imagination."
-      - assertVisible: "Swipe to continue."
+          visible: ".*(?i)AI Editing & Generation.*"
+          timeout: 10000
+      - assertVisible: ".*(?i)AI Editing & Generation.*"
+      - assertVisible: ".*(?i)With powerful AI tools, what you can create and print is only limited by your imagination\\.?.*"
+      - assertVisible: ".*(?i)Swipe to continue\\.?.*"
 - runFlow:
     when:
-      visible: "Sign up"
+      visible: ".*(?i)^Sign up$"
+      notVisible: ".*(?i)(Welcome to Sprocket Sense|Welcome to the new Sprocket|AI Editing).*"
     commands:
-      - assertVisible: "Sign up"
+      - assertVisible: ".*(?i)^Sign up$"

@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  02 | Module: UI/Layout
 # Verify Logged Out Hamburger Menu UI
 # Expected: Menu displays App Logo, Log In > header, App Settings, Printer Help, Order Photo Paper, Visit Support Website and Legal & Privacy options.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_02 - Verify Logged Out Hamburger Menu UI"
 tags:
   - settings

@@ -1,6 +1,6 @@
 # ATP Stage Flow: Onboarding
 # One module flow — setup to Sign up options. Detailed checks run via run_module.py --stage Onboarding
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Onboarding"
 tags:
   - atp-verification

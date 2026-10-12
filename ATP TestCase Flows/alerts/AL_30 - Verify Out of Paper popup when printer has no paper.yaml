@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 09 | Module: iOS_23_Out of Paper
 # Verify Out of Paper popup when printer has no paper
 # Expected: Title: Out of Paper.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_30 - Verify Out of Paper popup when printer has no paper"
 tags:
   - alerts

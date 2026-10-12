@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC060 | Module: Wi-Fi Connection Failure
 # Verify reconnect after Try Again
 # Expected: Set Up Complete' screen is displayed and connection succeeds.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_222 - Verify reconnect after Try Again"
 tags:
   - connection

@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC033 | Module: Wi-Fi
 # Verify Change option
 # Expected: Wi-Fi list opens.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_195 - Verify Change option"
 tags:
   - connection

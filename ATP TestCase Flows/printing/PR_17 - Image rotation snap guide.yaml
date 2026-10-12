@@ -1,0 +1,19 @@
+# ATP Test Case ID: PR_17
+# Excel: Print Preview_17
+# Image rotation snap guide
+# Expected: The image remains correctly displayed at a supported rotation snap position.
+appId: com.caglobal.hp.sprocket
+name: "PR_17 - Image rotation snap guide"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - gesture
+  - multitouch-manual
+  - visual-check
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+# Two-finger rotation and guide-line color require manual execution/visual inspection.
+- runFlow: subflows/assert_print_preview_ui.yaml
+- takeScreenshot: PR_17_rotation_snap_precondition

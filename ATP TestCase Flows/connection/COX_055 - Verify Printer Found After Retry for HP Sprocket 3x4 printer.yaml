@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_018 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify Printer Found After Retry for HP Sprocket 3x4 printer
 # Expected: 1. The Searching for Printers screen should be displayed. 2. The available printer should be discovered. 3. The printer should appear in the printer list.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_055 - Verify Printer Found After Retry for HP Sprocket 3x4 printer"
 tags:
   - connection

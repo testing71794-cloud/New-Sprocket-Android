@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios   17 | Module: Memory
 # Verify "Memory Error" popup
 # Expected: "Memory Error" popup is displayed . The popup displays the bold title "Memory Error", followed by the message "Restart your Sprocket and try printing again." It includes an "OK" button at the bottom and a Close (X) icon in the top-right cor
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_38 - Verify Memory Error popup"
 tags:
   - alerts

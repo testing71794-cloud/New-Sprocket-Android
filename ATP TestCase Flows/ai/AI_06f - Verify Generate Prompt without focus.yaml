@@ -1,0 +1,20 @@
+# ATP Test Case ID: AI_06f
+# Excel: AI Tools 06 (f) | Module: Text-to-Image
+# Verify Generate Prompt works without focusing the prompt field.
+appId: com.caglobal.hp.sprocket
+name: "AI_06f - Verify Generate Prompt without focus"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/open_text_to_image.yaml
+- tapOn:
+    point: "87%,28%"
+- extendedWaitUntil:
+    notVisible:
+      text: "Tap here to enter a prompt..."
+    timeout: 5000
+- assertNotVisible:
+    text: ".*"
+    focused: true
+- takeScreenshot: "AI_06f_random_prompt_no_keyboard"

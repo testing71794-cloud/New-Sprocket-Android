@@ -2,7 +2,7 @@
 # Excel: PCF_Sprocket_004 | Module: Pre Connection Flow for HP Sprocket
 # Verify 'Load Paper' Info Popup for the HP Sprocket  printer.
 # Expected: 1. Instruction popup should be displayed. 2. Blue card illustration should be displayed. 3. Instruction text "For your selected printer, make sure to buy HP Sprocket 2 x 3” (5.1 x 7.6 cm) Photo Paper!  Tip: HP Sprocket is not compatible wit
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_094 - Verify Load Paper Info Popup for the HP Sprocket printer"
 tags:
   - connection

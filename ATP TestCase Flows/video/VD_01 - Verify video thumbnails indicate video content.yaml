@@ -3,14 +3,12 @@
 # Verify video thumbnails indicate video content.
 # Expected: Video thumbnails display a play icon at the bottom-right indicating video content.
 # Note: Play icon is visual-only; automation verifies a video cell enters Select Mode.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "VD_01 - Verify video thumbnails indicate video content"
 tags:
   - video
   - atp-excel
 ---
-- launchApp:
-    clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - assertVisible: "Recent"
 - runFlow: subflows/long_press_video_thumbnail.yaml

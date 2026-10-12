@@ -1,0 +1,19 @@
+# ATP Test Case ID: PR_21
+# Excel: Print Preview_21
+# Save as new photo popup after editing
+# Expected: Leaving a modified preview offers Save to Gallery, Do Not Save, and close.
+appId: com.caglobal.hp.sprocket
+name: "PR_21 - Save as new photo popup after editing"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- runFlow: subflows/open_save_popup.yaml
+- tapOn:
+    point: "88%,35%"
+- assertNotVisible: ".*(?i)Save as (a )?new photo.*"
+- assertVisible: "Copies"
+- assertVisible: "Tiles"

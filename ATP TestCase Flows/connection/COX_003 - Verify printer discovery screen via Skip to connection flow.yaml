@@ -2,7 +2,7 @@
 # Excel: PCF-003 | Module: Pre Connection Flow
 # Verify printer discovery screen via 'Skip to connection' flow
 # Expected: Searching for Printers…' screen should display
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_003 - Verify printer discovery screen via Skip to connection flow"
 tags:
   - connection

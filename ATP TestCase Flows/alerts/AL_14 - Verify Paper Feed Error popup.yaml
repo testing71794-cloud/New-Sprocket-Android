@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   14 | Module: Paper
 # Verify "Paper Feed Error" popup
 # Expected: "Paper Feed Error" popup is displayed on the Print Preview screen. The popup displays the bold title "Paper Feed Error", followed by the message "Open the paper cover and reload the paper. Try printing again after resolving the issue." The 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_14 - Verify Paper Feed Error popup"
 tags:
   - alerts

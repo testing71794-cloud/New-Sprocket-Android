@@ -1,0 +1,15 @@
+# Open Collage picker assuming a large printer is already lab pre-connected.
+# Do NOT Add Printer / Skip to Connection / Searching for Printers.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: recover_to_create_home.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Collage Maker.*"
+    commands:
+      - runFlow: open_collage_maker.yaml
+- extendedWaitUntil:
+    visible: ".*Select 2 to 8 photos.*"
+    timeout: 20000
+- assertVisible: "Next"

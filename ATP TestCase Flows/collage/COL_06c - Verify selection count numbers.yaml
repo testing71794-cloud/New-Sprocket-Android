@@ -1,0 +1,19 @@
+# ATP Test Case ID: COL_06c
+# Excel: Collage_06 (c) | Module: Collage maker- photo selection
+# Verify that the selected photo displays the correct selection count number.
+appId: com.caglobal.hp.sprocket
+name: "COL_06c - Verify selection count numbers"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_one_photo_fast.yaml
+- assertVisible: "1"
+- tapOn:
+    point: "50%,58%"
+- waitForAnimationToEnd:
+    timeout: 600
+- assertVisible: "1"
+- assertVisible: "2"

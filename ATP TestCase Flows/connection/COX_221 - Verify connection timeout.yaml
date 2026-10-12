@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC059 | Module: Wi-Fi Connection Failure
 # Verify connection timeout
 # Expected: Loading transitions to 'Couldn't Connect' screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_221 - Verify connection timeout"
 tags:
   - connection

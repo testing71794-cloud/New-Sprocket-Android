@@ -1,0 +1,17 @@
+# Compose Print Preview: pencil chip right of Add Printer (no preview_txt_edit id).
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible:
+        id: ".*preview_txt_edit.*"
+    commands:
+      - tapOn:
+          id: ".*preview_txt_edit.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*preview_txt_edit.*"
+    commands:
+      - tapOn:
+          point: "85%,85%"

@@ -2,14 +2,12 @@
 # Excel: Video frame 02 | Module: CR_05B_Select Mode with Videos
 # Verify mixed media selection.
 # Expected: Selected items show sequence numbers and bottom counter displays photos and videos.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "VD_02 - Verify mixed media selection"
 tags:
   - video
   - atp-excel
 ---
-- launchApp:
-    clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/select_mixed_photo_and_video.yaml
 - tapOn: "Cancel"

@@ -1,0 +1,37 @@
+appId: com.caglobal.hp.sprocket
+---
+# Exactly two photos so the collage is a two-column layout (needed for divider + Edit).
+# Do not use select_two_photos_fast extras — those fill 3–4 slots while Next is still on screen.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- swipe:
+    start: "50%,80%"
+    end: "50%,52%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 500
+- tapOn:
+    point: "18%,58%"
+- waitForAnimationToEnd:
+    timeout: 600
+- tapOn:
+    point: "50%,72%"
+- waitForAnimationToEnd:
+    timeout: 600
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1200
+- runFlow:
+    when:
+      visible: "Select 2 to 4 photos"
+    commands:
+      - tapOn:
+          point: "82%,72%"
+      - waitForAnimationToEnd:
+          timeout: 400
+      - tapOn: "Next"
+      - waitForAnimationToEnd:
+          timeout: 1200
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 12000
+- assertVisible: "Layout"

@@ -1,0 +1,58 @@
+# Create hub → Quick Print gallery → one photo → Print Preview (fast).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: dismiss_optional_firmware_update.yaml
+- runFlow:
+    when:
+      visible: "Quick Print\nPrint photos from your gallery"
+    commands:
+      - tapOn: "Quick Print\nPrint photos from your gallery"
+- runFlow:
+    when:
+      visible: ".*(?i)Quick Print.*"
+      notVisible: ".*(?i)(Recent|^Select$|^All$|Cancel).*"
+    commands:
+      - tapOn: ".*(?i)Quick Print.*"
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+- runFlow: ../../quick-print/subflows/allow_photos_all_and_os.yaml
+- runFlow: ../../quick-print/subflows/allow_runtime_optional.yaml
+# Permission / gallery entry (content-desc friendly)
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^Select$|^All$|Allow all|photos and videos|Allow|While using|Cancel|Print Preview).*"
+    timeout: 15000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)(Allow all|photos and videos).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Allow all$"
+          optional: true
+      - tapOn:
+          text: ".*(?i)Allow$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1000
+- runFlow:
+    when:
+      visible: ".*(?i)^Allow$"
+      notVisible: ".*(?i)(Recent|Cancel|Print Preview).*"
+    commands:
+      - tapOn: ".*(?i)^Allow$"
+      - waitForAnimationToEnd:
+          timeout: 1000
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^Select$|^All$|Cancel|Print Preview).*"
+    timeout: 15000
+- tapOn:
+    point: "50%,45%"
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$|Reconnect Printer|^Add Printer$).*"
+    timeout: 20000
+- runFlow: assert_print_preview_ui.yaml
+# Resolve CTA to Print when Sense is connected
+- runFlow: ../../quick-print/subflows/ensure_printer_on_print_preview.yaml

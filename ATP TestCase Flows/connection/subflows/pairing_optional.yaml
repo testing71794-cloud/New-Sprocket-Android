@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # System / OEM pairing sheets differ; keep taps optional where wording varies.
 - tapOn:

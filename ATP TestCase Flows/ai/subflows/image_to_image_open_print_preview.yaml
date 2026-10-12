@@ -1,0 +1,12 @@
+# Generate an Image-to-Image result and import it into Print Preview.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: image_to_image_generate_results.yaml
+- tapOn:
+    point: "50%,72%"
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: ../../printing/subflows/assert_print_preview_ui.yaml

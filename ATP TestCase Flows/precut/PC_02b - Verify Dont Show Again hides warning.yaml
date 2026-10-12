@@ -2,7 +2,7 @@
 # Excel: Precut_02 (b) | Module: Pre-Cut Stickers- “Don’t Show Again” Button Functionality
 # Verify that tapping “Don’t Show Again” prevents the warning popup from appearing when re-entering Pre-Cut.
 # Expected: Selection screen after Don't Show Again; warning not shown on second Pre-cut entry.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_02b - Verify Dont Show Again hides warning"
 tags:
   - precut

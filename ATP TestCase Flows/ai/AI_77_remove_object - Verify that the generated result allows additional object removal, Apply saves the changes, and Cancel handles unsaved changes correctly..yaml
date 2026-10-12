@@ -1,0 +1,58 @@
+# ATP Test Case ID: AI_77_remove_object
+# Supplied Excel ID:
+# AI Tools 77
+# Supplied module:
+# AI Tools >Remove Object – Generated Result
+# Supplied description:
+# Verify that the generated result allows additional object removal, Apply saves the changes, and Cancel handles unsaved changes correctly.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Remove Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Select an object by tapping or painting over it.
+# 4. Tap Generate.
+# 5. Wait until the generated result is displayed.
+# 6. Verify that the user remains on the Remove Object editing screen with the generated result.
+# 7. Select or paint another object for additional touch-up.
+# 8. Tap Generate.
+# 9. Wait until the updated generated result is displayed.
+# 10. Tap Apply.
+# 11. Verify that the Print Preview screen is displayed with the generated image and changes saved.
+# 12. Navigate back to Remove Object and make a new object selection.
+# 13. Tap Cancel.
+# 14. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.
+# 15. Tap Stay.
+# 16. Verify that the popup closes and the user remains on the Remove Object screen.
+# 17. Tap Cancel again.
+# 18. Tap Exit without Saving.
+# 19. Verify that the user is redirected to the AI Tools selection screen.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Generated result is displayed and the user can perform additional object-removal touch-ups.
+# Apply becomes available after generation and redirects to Print Preview with changes saved.
+# Cancel displays the Unsaved Changes popup.
+# Stay closes the popup and keeps the user on the current screen.
+# Exit without Saving redirects the user to the AI Tools selection screen.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_77_remove_object - Verify that the generated result allows additional object removal, Apply saves the changes, and Cancel handles unsaved changes correctly."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_selection.yaml
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- runFlow: subflows/object_paint_selection.yaml
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- runFlow: subflows/object_apply_preview.yaml
+- pressKey: back
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_selection.yaml
+- runFlow: subflows/object_assert_unsaved_stay_exit.yaml

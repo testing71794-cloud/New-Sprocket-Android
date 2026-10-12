@@ -2,7 +2,7 @@
 # Excel: LI_W _E TC_E2E_001 | Module: App Launch & Auth
 # Verify full journey from launch to Login
 # Expected: App transitions smoothly through all screens ending at the Login interface.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_14 - Verify full journey from launch to Login"
 tags:
   - onboarding-splash

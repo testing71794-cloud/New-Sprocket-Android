@@ -1,6 +1,6 @@
 # ATP Stage Flow: Collage
 # Smoke: Create hub → Collage Maker → selection screen (real asserts).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Collage"
 tags:
   - atp-verification

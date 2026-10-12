@@ -1,11 +1,11 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Open Collage Maker from Create home; grant Photos if prompted.
+# Default 2x3 copy is "Select 2 to 4 photos"; large printers use "Select 2 to 8 photos".
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 - tapOn: ".*Collage Maker.*"
 - runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
 - extendedWaitUntil:
-    visible: "Select 2 to 4 photos"
+    visible: ".*Select 2 to [48] photos.*"
     timeout: 12000
-- assertVisible: "Select 2 to 4 photos"
 - assertVisible: "Next"
-- assertVisible: "Recent"

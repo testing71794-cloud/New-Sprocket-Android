@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_12i
+# Excel: Collage_12 (i) | Module: Collage maker- Resize Tiles by Dragging Divider
+# Verify that the user can resize tiles by tapping and dragging the border between the tiles.
+appId: com.caglobal.hp.sprocket
+name: "COL_12i - Verify resize tiles by divider"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- swipe:
+    start: "50%,40%"
+    end: "65%,40%"
+    duration: 800
+- assertVisible: "Drag & Drop to Reorder"

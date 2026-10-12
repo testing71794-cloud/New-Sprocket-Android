@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC009 | Module: Discovery
 # Verify Close exits discovery
 # Expected: Discovery should close and the previous screen should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_171 - Verify Close exits discovery"
 tags:
   - connection

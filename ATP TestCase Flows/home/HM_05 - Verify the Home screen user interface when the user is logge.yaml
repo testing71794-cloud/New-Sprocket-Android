@@ -2,7 +2,7 @@
 # Excel: HOME SCREEN_005 | Module: Home Screen - Logged In
 # Verify the Home screen user interface when the user is logged in.
 # Expected: The logged-in user's name and all Home screen elements are displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "HM_05 - Verify the Home screen user interface when the user is logge"
 tags:
   - home

@@ -1,0 +1,32 @@
+appId: com.caglobal.hp.sprocket
+---
+# Stop replaces Capture at the same unlabeled bottom-center ImageView during countdown.
+- runFlow:
+    when:
+      visible: "(?i)Stop.*"
+    commands:
+      - tapOn: "(?i)Stop.*"
+- runFlow:
+    when:
+      notVisible: "(?i)Stop.*"
+    commands:
+      - tapOn:
+          point: "50%,88%"
+- waitForAnimationToEnd:
+    timeout: 1500
+# If capture completed to Print Preview, go back (may trigger save dialog).
+- runFlow:
+    when:
+      visible: ".*(?i)(Print|Copies|Add Printer).*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 3000
+# Dismiss unsaved-photo prompt after Stop / back from preview.
+- runFlow:
+    when:
+      visible: ".*(?i)(Save as new photo|Save to Gallery|Do Not Save).*"
+    commands:
+      - tapOn: ".*(?i)Do Not Save.*"
+      - waitForAnimationToEnd:
+          timeout: 2000

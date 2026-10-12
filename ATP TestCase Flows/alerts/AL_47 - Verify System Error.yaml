@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios  26 | Module: System
 # Verify "System Error"
 # Expected: "System Error " popup is displayed on the Print Preview screen. The popup displays the bold title "System Error", followed by the message "Restart your printer and try printing again." The popup includes an "OK" button at the bottom and a C
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_47 - Verify System Error"
 tags:
   - alerts

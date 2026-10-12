@@ -1,0 +1,16 @@
+# Supplied JSON row: AI Tools 70 | Replace Background
+# Lab setup: printer is pre-connected — verify Print CTA (no Add Printer / search).
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "AI_70 - Replace Background Printer Connection - Verify Print with pre-connected printer"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - printer-manual
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- assertVisible: "Copies"
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"

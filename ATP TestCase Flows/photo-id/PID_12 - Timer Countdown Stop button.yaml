@@ -1,0 +1,22 @@
+﻿# ATP Test Case ID: PID_12
+# Excel: Photo ID_12 | Module: Photo_ID- Timer Countdown
+# Verify Stop button while capturing the photo.
+# Expected: Countdown stops and Photo ID screen is restored with all controls visible.
+appId: com.caglobal.hp.sprocket
+name: "PID_12 - Timer Countdown Stop button"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/select_timer_10s.yaml
+- runFlow: subflows/select_size_2x2.yaml
+- runFlow: subflows/tap_capture.yaml
+- waitForAnimationToEnd:
+    timeout: 1200
+- runFlow: subflows/tap_stop.yaml
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: subflows/wait_capture_screen.yaml

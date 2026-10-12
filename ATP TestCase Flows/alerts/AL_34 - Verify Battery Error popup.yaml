@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 13 | Module: Print Error
 # Verify Battery Error popup
 # Expected: Title: Battery Error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_34 - Verify Battery Error popup"
 tags:
   - alerts

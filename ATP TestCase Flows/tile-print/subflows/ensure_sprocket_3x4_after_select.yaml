@@ -1,5 +1,5 @@
 # Steps after Sprocket 3x4 is chosen on Select Your Device (Continue tapped).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # HP Sprocket — carousel onboarding then Sign up options screen.
 - runFlow: wait_after_cold_launch.yaml
@@ -7,7 +7,7 @@ appId: com.hp.impulse.sprocket
     commands:
       - runFlow:
           when:
-            notVisible: ".*(?i)(Welcome to the new Sprocket|Get Started!|Sign up|I.ll do it later|Sign Up Later|Agree Terms).*"
+            notVisible: ".*(?i)(Welcome to Sprocket Sense|Welcome to the new Sprocket|Get Started!|Sign up|I.ll do it later|Sign Up Later|Agree Terms).*"
           commands:
             - launchApp
             - waitForAnimationToEnd:

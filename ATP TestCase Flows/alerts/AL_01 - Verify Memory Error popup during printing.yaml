@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   01 | Module: Memory Error
 # Verify "Memory Error" popup during printing
 # Expected: A "Memory Error" popup is displayed on the Print Preview screen. The popup displays the bold title "Memory Error", followed by the message "Restart your Sprocket and try printing again." It includes an "OK" button at the bottom and a Close 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_01 - Verify Memory Error popup during printing"
 tags:
   - alerts

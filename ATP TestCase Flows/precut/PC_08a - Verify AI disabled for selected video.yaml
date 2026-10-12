@@ -2,7 +2,7 @@
 # Excel: Precut_08 (a) | Module: Pre-Cut Stickers – AI Editing for Video
 # Verify that the AI icon is disabled for a selected video and displays the appropriate toast when tapped.
 # Expected: Toast “AI Edit is not available for video.”
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_08a - Verify AI disabled for selected video"
 tags:
   - precut

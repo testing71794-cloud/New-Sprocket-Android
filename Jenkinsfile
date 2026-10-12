@@ -211,7 +211,7 @@ pipeline {
             defaultValue: 'devices',
             description: 'Jenkins agent LABEL for the USB-phone machine (examples: devices, my-pc-devices). Set to the label of whichever PC is running this build.'
         )
-        string(name: 'APP_PACKAGE', defaultValue: 'com.hp.impulse.sprocket', description: 'App package id for Maestro/app launch checks')
+        string(name: 'APP_PACKAGE', defaultValue: 'com.caglobal.hp.sprocket', description: 'App package id for Maestro/app launch checks')
         string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher (e.g. maestro.bat).')
         string(name: 'MAESTRO_HOME', defaultValue: '', description: 'Optional. Folder with maestro.bat. Leave empty to auto-detect on the agent (%%USERPROFILE%%\\maestro\\... or PATH). Stale paths from another PC are ignored.')
         string(name: 'ANDROID_HOME', defaultValue: '', description: 'Optional. Android SDK root. Leave empty to use agent ANDROID_HOME or %%LOCALAPPDATA%%\\Android\\Sdk.')

@@ -2,14 +2,12 @@
 # Excel: Video frame 07 | Module: CR_05E_Video Frames Tile Print
 # Verify UI restrictions during playback in Tiles mode.
 # Expected: Tiles/Copies changes restricted while playing; play hidden in Tiles; scrub still works.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "VD_07 - Verify UI restrictions during playback in Tiles mode"
 tags:
   - video
   - atp-excel
 ---
-- launchApp:
-    clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/reach_video_frames_print_preview.yaml
 - runFlow: subflows/toggle_video_playback.yaml

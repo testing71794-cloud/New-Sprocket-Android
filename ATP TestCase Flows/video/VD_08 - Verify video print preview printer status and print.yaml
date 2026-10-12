@@ -1,0 +1,25 @@
+# ATP Test Case ID: VD_08
+# Excel: Video frame 08 | Module: Printer & Print
+# Navigate to video Print Preview and validate printer status / Add Printer / Print.
+# Expected: No printer → Add Printer; connected → Print available.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "VD_08 - Verify video print preview printer status and print"
+tags:
+  - video
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/reach_video_frames_print_preview.yaml
+- assertVisible: ".*(?i)(Copies|Tiles|Print|Add Printer|No Printers).*"
+- runFlow:
+    when:
+      visible: ".*(?i)(No Printers Added|Add Printer).*"
+    commands:
+      - assertVisible: ".*(?i)Add Printer.*"
+- runFlow:
+    when:
+      visible: ".*(?i)^Print$"
+    commands:
+      - assertVisible: ".*(?i)^Print$"

@@ -1,0 +1,76 @@
+# ATP Test Case ID: AI_80_replace_object
+# Supplied Excel ID:
+# AI Tools 80
+# Supplied module:
+# AI Tools >Replace Object – Image Generation
+# Supplied description:
+# Verify Generate button validation and generation behavior for valid input, no internet, and API failure.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Replace Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Verify that the Generate button is disabled.
+# 4. Select or paint an object in the image.
+# 5. Verify that the Generate button remains disabled until replacement description text is entered.
+# 6. Tap the description text box.
+# 7. Enter valid replacement object description text.
+# 8. Verify that the Generate button becomes enabled.
+# 9. Tap Generate.
+# 10. Verify that the Generating Loader is displayed.
+# 11. Repeat the flow with the device internet connection disabled.
+# 12. Tap Generate.
+# 13. Verify that the No Internet popup is displayed with an OK button.
+# 14. Enable the internet connection.
+# 15. Repeat the generation flow and simulate an API generation failure.
+# 16. Verify that the Generation Failed screen displays “Something went wrong. Please try again.”
+# 17. Tap Try Again.
+# 18. Verify that image generation starts again and the Generating Loader is displayed.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Generate remains disabled until both an object is selected/painted and replacement description text is entered.
+# Valid input enables Generate.
+# Generate starts the Generating Loader.
+# Without internet, the No Internet popup with OK is displayed.
+# API failure displays the Generation Failed screen with the specified message.
+# Try Again retries image generation.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_80_replace_object - Verify Generate button validation and generation behavior for valid input, no internet, and API failure."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - api-fault-injection
+---
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- takeScreenshot: AI_80_generate_disabled_before_selection
+- runFlow: subflows/object_paint_replace.yaml
+- takeScreenshot: AI_80_generate_disabled_before_prompt
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_network_on.yaml
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_replace.yaml
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"
+- runFlow: subflows/object_network_off.yaml
+- tapOn:
+    text: "Generate"
+    enabled: true
+- runFlow: subflows/object_assert_no_internet.yaml
+- runFlow: subflows/object_network_on.yaml
+- runFlow:
+    when:
+      true: ${typeof API_FAILURE_INJECTED !== 'undefined' && API_FAILURE_INJECTED == 'true'}
+    commands:
+      - tapOn:
+          text: "Generate"
+          enabled: true
+      - runFlow: subflows/object_assert_generation_failed_retry.yaml

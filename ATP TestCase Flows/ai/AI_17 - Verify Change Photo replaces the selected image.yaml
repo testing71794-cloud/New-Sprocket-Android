@@ -1,0 +1,54 @@
+# ATP Test Case ID: AI_17
+# Excel: AI Tools 17
+# Module: AI- Image-to-Image – Verify that the user can replace the selected image using the Change Photo option.
+# Description:
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Tap Change Photo.
+# Wait for the Gallery Listing screen to load.
+# Select a different image.
+# Expected:
+# User is redirected to the Gallery Listing screen.
+# Newly selected image replaces the previous image.
+# Updated thumbnail is displayed in the Base Image section.
+appId: com.caglobal.hp.sprocket
+name: "AI_17 - Verify Change Photo replaces the selected image"
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- takeScreenshot: AI_17_original_base_image
+- tapOn: "Change Photo"
+- extendedWaitUntil:
+    visible: "Please select an image to generate with."
+    timeout: 15000
+- tapOn:
+    point: "50%,25%"
+- waitForAnimationToEnd:
+    timeout: 3000
+# Some builds show a confirmation screen; others replace the base image directly.
+- runFlow:
+    when:
+      visible: "Use This Image"
+    commands:
+      - tapOn: "Use This Image"
+- extendedWaitUntil:
+    visible: "Base Image"
+    timeout: 20000
+- assertVisible: "Change Photo"
+- takeScreenshot: AI_17_replaced_base_image

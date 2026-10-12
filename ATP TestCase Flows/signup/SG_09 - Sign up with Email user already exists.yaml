@@ -1,11 +1,9 @@
 # ATP Test Case ID: SG_09
 # HP Sprocket — email sign-up duplicate user alert
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SG_09 - Sign up with Email user already exists"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_signup_email_form.yaml
+- runFlow: subflows/ensure_signup_email_form.yaml
 - tapOn: "Full Name*"
 - inputText: Nitesh Mehra
 - tapOn: "Email*"

@@ -1,6 +1,6 @@
 # ATP Test Case ID: PM_02
 # Negative: deny all runtime permissions; verify gallery and camera stay blocked.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PM_02 - All permissions deny"
 ---
 - launchApp:

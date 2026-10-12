@@ -1,18 +1,23 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-# Video onboarding carousel — HP Sprocket first-launch slides (also after Get Started path).
+# Video onboarding carousel — Sense + legacy copy (content-desc on newer builds).
+# Docs: https://docs.maestro.dev/api-reference/commands/swipe
+# Docs: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
 - extendedWaitUntil:
-    visible: "Welcome to the new Sprocket!"
-    timeout: 15000
-- assertVisible: "Swipe to continue."
+    visible: ".*(?i)(Welcome to Sprocket Sense!|Welcome to the new Sprocket!).*"
+    timeout: 20000
+- assertVisible: ".*(?i)Swipe to continue\\.?.*"
 - swipe:
-    direction: LEFT
+    start: "90%,45%"
+    end: "10%,45%"
+    duration: 900
 - extendedWaitUntil:
-    visible: "AI Editing & Generation"
-    timeout: 8000
+    visible: ".*(?i)AI Editing & Generation.*"
+    timeout: 10000
 - swipe:
-    direction: LEFT
+    start: "90%,45%"
+    end: "10%,45%"
+    duration: 900
 - extendedWaitUntil:
-    visible: "Inkless & Seamless"
-    timeout: 8000
-
+    visible: ".*(?i)Inkless & Seamless.*"
+    timeout: 10000

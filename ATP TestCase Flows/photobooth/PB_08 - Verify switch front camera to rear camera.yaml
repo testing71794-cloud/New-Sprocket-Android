@@ -2,7 +2,7 @@
 # Excel: Photobooth 08 | Module: Photobooth – Camera Switch
 # Verify switch from front camera back to rear camera.
 # Expected: Camera switches to rear; preview remains; no crash.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_08 - Verify switch front camera to rear camera"
 tags:
   - photobooth

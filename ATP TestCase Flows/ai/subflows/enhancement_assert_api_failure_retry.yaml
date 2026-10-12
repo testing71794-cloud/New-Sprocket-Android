@@ -1,0 +1,15 @@
+appId: com.caglobal.hp.sprocket
+---
+# Precondition: external API fault injection is active for the generation request.
+- tapOn: "Generate"
+- extendedWaitUntil:
+    visible: "Generation Failed"
+    timeout: 180000
+- assertVisible: "Generation Failed"
+- assertVisible: "Something went wrong. Please try again."
+- assertVisible: "Try Again"
+- tapOn: "Try Again"
+- extendedWaitUntil:
+    visible: ".*(?i)Generating.*"
+    timeout: 15000
+- assertVisible: ".*(?i)Generating.*"

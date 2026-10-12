@@ -1,0 +1,25 @@
+# ATP Test Case ID: PS_24
+# Excel: Print_State_24
+# Print Sent popup for paused queue
+# Expected: A paused queue shows the exact "Print Sent!" prompt; "Yes, Resume" closes it and resumes in queue order.
+appId: com.caglobal.hp.sprocket
+name: "PS_24 - Print Sent popup for paused queue"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/pause_queue.yaml
+- pressKey: BACK
+- runFlow: subflows/submit_new_print_while_paused.yaml
+- assertVisible: "Print Sent!"
+- assertVisible: "Your print queue is currently paused. Would you like to resume printing?"
+- assertVisible: "Yes, Resume"
+- assertVisible: "No, Keep Paused"
+- tapOn: "Yes, Resume"
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing).*"
+    timeout: 120000

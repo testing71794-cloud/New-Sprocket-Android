@@ -2,7 +2,7 @@
 # Excel: Photo ID 22 | Module: Edit Button
 # Verify Edit button disabled
 # Expected: Edit button is greyed out and disabled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_22 - Verify Edit button disabled"
 tags:
   - photo-id

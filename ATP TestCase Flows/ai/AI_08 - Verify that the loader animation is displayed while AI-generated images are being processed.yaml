@@ -1,0 +1,44 @@
+# ATP Test Case ID: AI_08
+# Excel: AI Tools 08
+# Module: AI Text to image- Verify Text-to-Image Loader State
+# Description:
+# Verify that the loader animation is displayed while AI-generated images are being processed.
+# Steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Tap the Create tab from the bottom navigation bar.
+# 10. Tap Text-to-Image.
+# 11. Tap the prompt text box.
+# 12. Enter a valid prompt.
+# 13. Select an orientation.
+# 14. Select an image quantity.
+# 15. Tap the Generate Image(s) button.
+# 16. Wait for the Text-to-Image loader state to appear.
+# Expected:
+# The Text-to-Image loader state is displayed while the AI-generated images are being processed.
+# The text “Generating...” is displayed.
+# The message “This may take a few seconds” is displayed below the generating text.
+# The loader remains visible until the image-generation process is completed.
+appId: com.caglobal.hp.sprocket
+name: "AI_08 - Verify that the loader animation is displayed while AI-generated images are being processed."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/text_to_image_configure_three.yaml
+- tapOn: "Generate Image\\(s\\)"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- assertVisible: "This may take a few seconds"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000

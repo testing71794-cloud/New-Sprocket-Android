@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Switch Facebook WebView to English so later OAuth screens match SG_03 labels.
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions

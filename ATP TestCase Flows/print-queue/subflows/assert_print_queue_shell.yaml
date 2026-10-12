@@ -1,0 +1,7 @@
+# UI common to non-empty Print Queue states.
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible: ".*(?i)(Currently Printing|In Queue).*"
+- assertVisible: ".*(?i)(Pause Queue|Resume Queue).*"
+- assertVisible: ".*(?i)(More|Create).*"
+- assertVisible: ".*(?i)Printer.*"

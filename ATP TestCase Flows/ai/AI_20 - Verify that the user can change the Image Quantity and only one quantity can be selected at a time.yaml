@@ -1,0 +1,43 @@
+# ATP Test Case ID: AI_20
+# Excel: AI Tools 20
+# Module: AI- Image-to-Image – Verify Image Quantity Selection
+# Description:
+# Verify that the user can change the Image Quantity and only one quantity can be selected at a time.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select quantity 1.
+# Select quantity 2.
+# Select quantity 4.
+# Expected:
+# Selected quantity is highlighted.
+# Previously selected quantity is deselected.
+# Only one quantity option is selected at a time.
+appId: com.caglobal.hp.sprocket
+name: "AI_20 - Verify that the user can change the Image Quantity and only one quantity can be selected at a time."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- tapOn:
+    text: "^1$"
+- tapOn:
+    text: "^2$"
+- tapOn:
+    text: "^4$"
+- assertVisible: "Generate Image(\\(s\\)|s)"
+- takeScreenshot: AI_20_quantity_four_selected

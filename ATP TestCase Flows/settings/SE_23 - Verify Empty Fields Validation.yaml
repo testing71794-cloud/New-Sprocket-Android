@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 24 | Module: Validation
 # Verify Empty Fields Validation
 # Expected: Required field validation message is displayed or Save button remains disabled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_23 - Verify Empty Fields Validation"
 tags:
   - settings

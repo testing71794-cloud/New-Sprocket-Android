@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Mid-flow camera deny so Photobooth shows the OS permission dialog (no launchApp / adb).
 - setPermissions:

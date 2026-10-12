@@ -2,7 +2,7 @@
 # Excel: Photobooth 13 | Module: Photobooth – Capture Countdown
 # Verify the 3-second countdown is displayed correctly before each photo capture.
 # Expected: Countdown 3 → 2 → 1 before each photo; after fourth photo, Print Preview.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_13 - Verify 3 second countdown before each photo"
 tags:
   - photobooth

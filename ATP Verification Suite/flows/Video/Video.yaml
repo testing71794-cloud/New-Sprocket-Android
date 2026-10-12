@@ -1,6 +1,6 @@
 # ATP Stage Flow: Video
 # Auto-generated checklist. Navigation reuses QuickPrint setup; assertions via run_module.py.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Video"
 tags:
   - atp-verification

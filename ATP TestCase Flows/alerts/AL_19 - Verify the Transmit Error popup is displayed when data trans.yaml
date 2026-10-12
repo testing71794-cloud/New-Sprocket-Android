@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Android 19 | Module: AD_04A_Transmit Error
 # Verify the Transmit Error popup is displayed when data transmission is interrupted during printing.
 # Expected: The Transmit Error popup is displayed with the message "Data transmission error! Your print will restart automatically. TIP: Make sure to keep app open during printing." The OK button and Close icon are displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_19 - Verify the Transmit Error popup is displayed when data trans"
 tags:
   - alerts

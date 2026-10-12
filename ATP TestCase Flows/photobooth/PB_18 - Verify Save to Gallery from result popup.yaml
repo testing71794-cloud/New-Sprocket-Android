@@ -2,14 +2,14 @@
 # Excel: Photobooth 18 | Module: Photobooth – Result Screen
 # Verify that tapping Save to Gallery saves the photobooth result as a single image.
 # Expected: Popup closes; collage saved; returns to Photobooth camera screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_18 - Verify Save to Gallery from result popup"
 tags:
   - photobooth
   - atp-excel
   - positive
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/ensure_photobooth_with_printer.yaml
 - assertVisible: "(?i)Photobooth.*"
 - runFlow: subflows/tap_capture.yaml
 - runFlow: subflows/wait_print_preview.yaml

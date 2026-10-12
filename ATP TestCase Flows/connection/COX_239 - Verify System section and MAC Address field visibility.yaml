@@ -2,7 +2,7 @@
 # Excel: PS-007 | Module: Printer Settings
 # Verify System section and MAC Address field visibility
 # Expected: System section and MAC Address field are displayed with valid values.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_239 - Verify System section and MAC Address field visibility"
 tags:
   - connection

@@ -1,0 +1,39 @@
+# Excel: AI Tools 86
+# Module: AI Tools > Enhance Photo Gallery and Photo Selection
+# Description: Verify navigation to Enhance Photo, photo selection, Generate button, and back navigation.
+# Steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Navigate to AI Tools.
+# 10. Tap Enhance Photo.
+# 11. Verify the Gallery Listing screen is displayed.
+# 12. Select any available photo.
+# 13. Verify the selected photo screen is displayed with the Generate button.
+# 14. Tap the Back button.
+# 15. Verify that the previous screen is displayed.
+# Type: Positive
+# Expected:
+# Enhance Photo opens the Gallery Listing screen.
+# User can select a photo.
+# Selected photo screen displays the Generate button.
+# Back navigation returns to the previous screen.
+appId: com.caglobal.hp.sprocket
+name: "AI_86_enhance - Enhance Photo gallery selection"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - enhance
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Enhance Photo" 
+- back
+- assertVisible: ".*(?i)(Recent|Gallery|Photos).*"

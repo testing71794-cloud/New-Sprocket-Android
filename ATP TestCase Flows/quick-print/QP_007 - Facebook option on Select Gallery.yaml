@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_07 | Select Gallery - Facebook
 # Recent → Select Gallery shows Facebook.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_007 - Facebook option on Select Gallery"
 tags:
   - quick-print

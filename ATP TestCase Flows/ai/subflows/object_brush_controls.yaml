@@ -1,0 +1,15 @@
+appId: com.caglobal.hp.sprocket
+---
+# Brush radii are unlabeled circles in this build (spec names 8px/16px/24px).
+- tapOn: ".*(?i)Brush Size.*"
+- takeScreenshot: object_brush_size_menu
+- tapOn:
+    point: "18%,82%"
+- tapOn:
+    point: "28%,82%"
+- tapOn:
+    point: "38%,82%"
+- takeScreenshot: object_brush_size_menu_persists
+- tapOn:
+    point: "90%,45%"
+- takeScreenshot: object_brush_size_menu_closed

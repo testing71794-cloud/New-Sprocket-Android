@@ -2,7 +2,7 @@
 # Excel: Photo ID 23 | Module: Photo ID Print Preview
 # Verify disabled Edit button and Print Preview UI
 # Expected: Print Preview screen displays all UI elements correctly. AI and Edit buttons are disabled. Tooltip message appears for 5 seconds and disappears automatically. Copies counter works correctly and Create tab is highlighted by defualt.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_23 - Verify disabled Edit button and Print Preview UI"
 tags:
   - photo-id

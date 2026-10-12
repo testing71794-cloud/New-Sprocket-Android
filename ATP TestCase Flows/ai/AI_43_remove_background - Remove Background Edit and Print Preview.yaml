@@ -1,0 +1,31 @@
+# Supplied JSON row: AI Tools 43 | Remove Background
+# Verify edit and Print Preview
+appId: com.caglobal.hp.sprocket
+name: "AI_43_remove_background - Remove Background Edit and Print Preview"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/background_reach_remove_result.yaml
+- tapOn:
+    text: ".*(?i)^Apply$"
+    enabled: true
+- runFlow:
+    when:
+      visible: "Allow Sprocket to send you notifications?"
+    commands:
+      - tapOn: "Don't allow"
+- extendedWaitUntil:
+    visible: ".*(?i)(Crop|Frame|Done|Edit|Copies).*"
+    timeout: 30000
+- runFlow:
+    when:
+      visible: ".*(?i)Done.*"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- assertVisible: "Copies"

@@ -1,0 +1,17 @@
+# ATP Test Case ID: AI_06d
+# Excel: AI Tools 06 (d) | Module: Text-to-Image
+# Verify Generate Prompt populates a random prompt.
+appId: com.caglobal.hp.sprocket
+name: "AI_06d - Verify Generate Prompt populates random prompt"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/open_text_to_image.yaml
+- tapOn:
+    point: "87%,28%"
+- extendedWaitUntil:
+    notVisible:
+      text: "Tap here to enter a prompt..."
+    timeout: 5000
+- takeScreenshot: "AI_06d_random_prompt"

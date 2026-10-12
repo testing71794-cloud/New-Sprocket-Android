@@ -1,0 +1,19 @@
+# ATP Test Case ID: PR_04
+# Excel: Print Preview_04
+# Lab: original HP Sprocket pre-connected — no Add Printer / search.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PR_04 - Original HP Sprocket 2 x 3 preview canvas"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - hardware
+  - paper-size-2x3
+  - printer-preconnect
+---
+- runFlow: subflows/launch_to_create_keep_state.yaml
+- runFlow: subflows/open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- takeScreenshot: PR_04_original_sprocket_2x3_canvas

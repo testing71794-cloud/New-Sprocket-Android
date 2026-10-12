@@ -1,0 +1,18 @@
+# ATP Test Case ID: PQ_13
+# Excel: Print_Queue13
+# Verify Try Again retries after recovery and redisplays the error if unresolved.
+appId: com.caglobal.hp.sprocket
+name: "PQ_13 - Try Again retries queue error"
+tags: [print-queue, atp-excel, positive, physical-printer, manual-error]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+# Manual hardware action: trigger a blocking error, then resolve it before Try Again.
+- extendedWaitUntil:
+    visible: "Try Again"
+    timeout: 120000
+- tapOn: "Try Again"
+- extendedWaitUntil:
+    visible: ".*(?i)(Currently Printing|In Queue|Printing).*"
+    timeout: 120000
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_13_retry_processed

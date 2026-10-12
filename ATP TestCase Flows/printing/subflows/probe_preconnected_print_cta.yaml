@@ -1,0 +1,12 @@
+# Quick lab check: Create → Quick Print → one photo → Print CTA must be ready.
+# Fails if Add Printer / Reconnect Printer is shown (printer not connected).
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "probe_preconnected_print_cta"
+---
+- runFlow: launch_to_create_keep_state.yaml
+- runFlow: open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"
+- assertNotVisible: ".*(?i)Reconnect Printer.*"
+- takeScreenshot: probe_preconnected_print_cta

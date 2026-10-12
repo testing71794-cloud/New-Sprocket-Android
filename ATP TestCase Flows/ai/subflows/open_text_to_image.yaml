@@ -1,0 +1,13 @@
+# Open Text-to-Image from the supplied Sprocket AI tools screen.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- tapOn: ".*Text-to-Image.*"
+- extendedWaitUntil:
+    visible: "Text-to-Image"
+    timeout: 10000
+- assertVisible: "Orientation"
+- assertVisible: "Image Quantity"
+- assertVisible: "Generate Image\\(s\\)"

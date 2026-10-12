@@ -1,0 +1,27 @@
+# ATP Test Case ID: COL_12g
+# Excel: Collage_12 (g) | Module: Collage maker- Reset Photo Properties After Swapping Photos
+# Verify that photo editing properties reset to default when photos are swapped between tiles.
+appId: com.caglobal.hp.sprocket
+name: "COL_12g - Verify reset properties after swap"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- doubleTapOn:
+    point: "30%,40%"
+- swipe:
+    start: "28%,38%"
+    end: "45%,52%"
+    duration: 400
+- longPressOn:
+    point: "30%,40%"
+- swipe:
+    start: "30%,40%"
+    end: "70%,40%"
+    duration: 1200
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Drag & Drop to Reorder"

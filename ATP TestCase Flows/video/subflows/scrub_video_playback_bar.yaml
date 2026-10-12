@@ -1,5 +1,5 @@
 # Scrub video playback bar under main preview (CR_05D).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - swipe:
     start: "25%,72%"

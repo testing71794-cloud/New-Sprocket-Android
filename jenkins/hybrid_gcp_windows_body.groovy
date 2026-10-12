@@ -309,7 +309,7 @@ def stagePrecheck() {
         withDevices {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 withEnv(maestroEnvList()) {
-                    bat "call scripts\\jenkins_ci_precheck.bat \"${env.WORKSPACE}\" \"${p('MAESTRO_CMD', 'maestro.bat')}\" \"${p('APP_PACKAGE', 'com.hp.impulse.sprocket')}\""
+                    bat "call scripts\\jenkins_ci_precheck.bat \"${env.WORKSPACE}\" \"${p('MAESTRO_CMD', 'maestro.bat')}\" \"${p('APP_PACKAGE', 'com.caglobal.hp.sprocket')}\""
                 }
             }
         }
@@ -340,7 +340,7 @@ def stageAtpModules() {
                 stage(folder) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                         withEnv(maestroEnvList()) {
-                            bat "cd /d \"${env.WORKSPACE}\" && python scripts/jenkins_atp_stage.py all ${folder} \"${p('APP_PACKAGE', 'com.hp.impulse.sprocket')}\" \"${flag('CLEAR_STATE')}\" \"${p('MAESTRO_CMD', 'maestro.bat')}\""
+                            bat "cd /d \"${env.WORKSPACE}\" && python scripts/jenkins_atp_stage.py all ${folder} \"${p('APP_PACKAGE', 'com.caglobal.hp.sprocket')}\" \"${flag('CLEAR_STATE')}\" \"${p('MAESTRO_CMD', 'maestro.bat')}\""
                         }
                     }
                 }

@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC007 | Module: Discovery
 # Verify searching spinner is displayed during discovery
 # Expected: Searching spinner should remain visible until printer discovery completes.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_169 - Verify searching spinner is displayed during discovery"
 tags:
   - connection

@@ -55,7 +55,7 @@ def main() -> None:
                     "TestCaseID": tid,
                     "Module": module,
                     "FlowFile": f"{module}/{p.name}",
-                    "App": "com.hp.impulse.sprocket",
+                    "App": "com.caglobal.hp.sprocket",
                 }
             )
     with OUT.open("w", encoding="utf-8", newline="") as f:

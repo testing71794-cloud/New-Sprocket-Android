@@ -1,0 +1,32 @@
+# ATP Test Case ID: PR_13
+# Excel: Print Preview_13
+# Apply a Frame from Edit Options
+# Expected: The editor opens, applies a frame, and returns the edited image to Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "PR_13 - Apply a Frame from Edit Options"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- runFlow: subflows/tap_preview_edit.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Edit Photo|Frame|Crop).*"
+    timeout: 15000
+- tapOn:
+    text: ".*(?i)Edit Photo.*"
+    optional: true
+- tapOn: ".*(?i)Frame.*"
+- runFlow: subflows/scroll_to_summer_frame.yaml
+- tapOn:
+    point: "34%,90%"
+- tapOn:
+    id: ".*saveRecentEditImageView.*"
+- tapOn:
+    id: ".*btnDone.*"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- assertVisible: "Tiles"

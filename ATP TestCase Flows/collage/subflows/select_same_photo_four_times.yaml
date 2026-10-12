@@ -1,19 +1,25 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Select the same gallery thumbnail four times (duplicate fill).
-- tapOn:
-    point: "18%,56%"
+- swipe:
+    start: "50%,80%"
+    end: "50%,52%"
+    duration: 400
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 500
 - tapOn:
-    point: "18%,56%"
+    point: "18%,58%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 500
 - tapOn:
-    point: "18%,56%"
+    point: "18%,58%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 500
 - tapOn:
-    point: "18%,56%"
+    point: "18%,58%"
+- waitForAnimationToEnd:
+    timeout: 500
+- tapOn:
+    point: "18%,58%"
 - waitForAnimationToEnd:
     timeout: 800

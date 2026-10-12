@@ -1,0 +1,16 @@
+# ATP Test Case ID: PID_04a
+# Excel: Photo ID_04 (a) | Module: Photo ID – Camera Switch
+# Verify that the user can switch from the front camera to the rear camera.
+# Expected: Camera switches front to rear without crash.
+appId: com.caglobal.hp.sprocket
+name: "PID_04a - Switch front camera to rear camera"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/tap_switch_camera.yaml
+- assertVisible: "(?i)Photo ID.*"
+- runFlow: subflows/tap_switch_camera.yaml
+- assertVisible: "(?i)Photo ID.*"

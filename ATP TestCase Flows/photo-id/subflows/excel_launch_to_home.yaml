@@ -1,0 +1,60 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel Photo ID steps 1–9: launch → splash → onboarding → Get Started → Sign Up Later → Home.
+# Camera left unset so Photo ID can show "While using the app" / "Don't allow".
+- launchApp:
+    clearState: true
+    permissions:
+      camera: unset
+      storage: allow
+      medialibrary: allow
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- swipe:
+    start: "90%,50%"
+    end: "10%,50%"
+    duration: 800
+- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+- extendedWaitUntil:
+    visible: "Sign up"
+    timeout: 20000
+- runFlow: ../../common/subflows/tap_sign_up_later.yaml
+- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+- runFlow: ../../common/subflows/reach_kodak_coachmark_onboarding.yaml
+- runFlow:
+    when:
+      visible: "Skip"
+    commands:
+      - tapOn: "Skip"
+- runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+- runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+- runFlow: ../../permission/subflows/allow_notification_permission.yaml
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn: ".*(?i)Create.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 25000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photo ID|No Thanks).*"
+    timeout: 20000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- assertVisible: ".*(?i)(Collage Maker|Quick Print|Photo ID).*"

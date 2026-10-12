@@ -1,14 +1,25 @@
-# ATP Test Case ID: TP_10
-# Excel: Tiles modules 10 | Module: Gestures
-# Verify zoom and rotation persistence
-# Expected: The printed image matches the zoom level and rotation shown in the preview screen.
-appId: com.hp.impulse.sprocket
+# Source: Tiles modules 10 | Tiles > Gestures | Positive
+# Maestro has no multi-touch pinch/rotate command. Supported drags and Fit/Fill are
+# automated; pinch angle and physical-output matching remain device-lab checks.
+appId: com.caglobal.hp.sprocket
 name: "TP_10 - Verify zoom and rotation persistence"
 tags:
   - tile-print
   - atp-excel
+  - positive
+  - physical-printer
+  - multitouch-manual
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: subflows/open_tile_print_preview.yaml
+- swipe:
+    start: "42%,40%"
+    end: "62%,40%"
+    duration: 700
+- swipe:
+    start: "62%,40%"
+    end: "42%,40%"
+    duration: 700
+- doubleTapOn:
+    point: "50%,40%"
+- takeScreenshot: tile_print_gesture_preview_before_print
+- runFlow: ../quick-print/subflows/tap_print_and_assert_complete.yaml

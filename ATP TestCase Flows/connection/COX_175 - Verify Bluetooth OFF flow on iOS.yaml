@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC013 | Module: Bluetooth
 # Verify Bluetooth OFF flow on iOS
 # Expected: Bluetooth OFF message should be displayed according to iOS flow.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_175 - Verify Bluetooth OFF flow on iOS"
 tags:
   - connection

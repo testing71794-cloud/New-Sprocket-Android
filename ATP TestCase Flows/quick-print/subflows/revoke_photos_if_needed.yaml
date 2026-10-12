@@ -1,7 +1,7 @@
 # Deny media while staying on Create home. No relaunch (USB Settings steals focus).
 # See: https://docs.maestro.dev/reference/commands-available/setpermissions
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/permissions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - setPermissions:
     permissions:

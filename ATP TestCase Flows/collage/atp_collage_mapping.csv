@@ -1,23 +1,53 @@
-atp_id,flow_file,feature,description,app
-COL_01,COL_01 - Launch and navigation.yaml,Collage,Launch & Navigation — splash onboarding Sign Up Later to Home,com.hp.impulse.sprocket
-COL_02,COL_02 - Photo permission.yaml,Collage,Photo Permission — Photos & Videos popup Allow all,com.hp.impulse.sprocket
-COL_03,COL_03 - Collage selection screen.yaml,Collage,Collage Selection Screen — default UI,com.hp.impulse.sprocket
-COL_04,COL_04 - Folder navigation.yaml,Collage,Folder Navigation — Recent and other folders,com.hp.impulse.sprocket
-COL_05,COL_05 - Image selection minimum.yaml,Collage,Image Selection — minimum two photos enables Next,com.hp.impulse.sprocket
-COL_06,COL_06 - Multiple selection four photos.yaml,Collage,Multiple Selection — up to four photos,com.hp.impulse.sprocket
-COL_07,COL_07 - Duplicate selection.yaml,Collage,Duplicate Selection — same image in all slots,com.hp.impulse.sprocket
-COL_08,COL_08 - Remove selection.yaml,Collage,Remove Selection — deselect selected image,com.hp.impulse.sprocket
-COL_09,COL_09 - Next button validation.yaml,Collage,Next Button Validation — enable after two photos,com.hp.impulse.sprocket
-COL_10,COL_10 - Drag and drop screen.yaml,Collage,Drag & Drop Screen — reorder UI,com.hp.impulse.sprocket
-COL_11,COL_11 - Layout selection.yaml,Collage,Layout Selection — tap all layout options,com.hp.impulse.sprocket
-COL_12,COL_12 - Image reordering.yaml,Collage,Image Reordering — drag and drop tiles,com.hp.impulse.sprocket
-COL_13,COL_13 - Edit image.yaml,Collage,Edit Image — tile edit then Done,com.hp.impulse.sprocket
-COL_14,COL_14 - Print preview UI.yaml,Collage,Print Preview UI — copies printer nav,com.hp.impulse.sprocket
-COL_15,COL_15 - Printer validation.yaml,Collage,Printer Validation — No Printer Added then Add Printer,com.hp.impulse.sprocket
-COL_16,COL_16 - One image collage blocked.yaml,Collage,One-image collage blocked — Next stays on selection,com.hp.impulse.sprocket
-COL_17,COL_17 - Two image collage and layouts.yaml,Collage,Two-image collage — layouts then print preview,com.hp.impulse.sprocket
-COL_18,COL_18 - Three image collage and layouts.yaml,Collage,Three-image collage — layouts then print preview,com.hp.impulse.sprocket
-COL_19,COL_19 - Four image collage and layouts.yaml,Collage,Four-image collage — layouts then print preview,com.hp.impulse.sprocket
-COL_20,COL_20 - More than four photos limit.yaml,Collage,More than four photos — selection capped no 5th slot,com.hp.impulse.sprocket
-COL_21,COL_21 - Printer listed on print preview.yaml,Collage,Supplementary — printer already listed then collage print preview,com.hp.impulse.sprocket
-
+TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
+COL_01,Collage_01,collage,Collage Maker- Launch & Navigation,Verify the Collage navigation flow from launch to selection,collage/COL_01 - Verify collage navigation from launch to selection.yaml,com.caglobal.hp.sprocket
+COL_02,Collage_02,collage,Collage Maker- UI,Verify the UI elements and default state of the Collage photo selection screen,collage/COL_02 - Verify default Collage photo selection UI.yaml,com.caglobal.hp.sprocket
+COL_03,Collage_03,collage,Collage Maker- Back Button,Verify the Back button functionality on the Collage photo selection screen,collage/COL_03 - Verify Back button on Collage selection.yaml,com.caglobal.hp.sprocket
+COL_04,Collage_04,collage,Collage Maker- Folder Selection,Verify that selecting a different folder displays photos from the selected folder,collage/COL_04 - Verify folder selection.yaml,com.caglobal.hp.sprocket
+COL_05a,Collage_05 (a),collage,Collage Maker-Scroll feature,Verify the scroll functionality of the photo gallery,collage/COL_05a - Verify gallery scroll.yaml,com.caglobal.hp.sprocket
+COL_05b,Collage_05 (b),collage,Collage Maker-Scroll feature,Verify top bar drop shadow when gallery is scrolled,collage/COL_05b - Verify top bar drop shadow on scroll.yaml,com.caglobal.hp.sprocket
+COL_06a,Collage_06 (a),collage,Collage maker- photo selection,Verify selected photo is displayed in the corresponding slot,collage/COL_06a - Verify selected photo in slot.yaml,com.caglobal.hp.sprocket
+COL_06b,Collage_06 (b),collage,Collage maker- photo selection,Verify slot focus advances after each photo tap,collage/COL_06b - Verify slot focus advances.yaml,com.caglobal.hp.sprocket
+COL_06c,Collage_06 (c),collage,Collage maker- photo selection,Verify selection count numbers on gallery photos,collage/COL_06c - Verify selection count numbers.yaml,com.caglobal.hp.sprocket
+COL_06d,Collage_06 (d),collage,Collage maker- photo selection,Verify duplicate photo shows counts 1 to 4,collage/COL_06d - Verify duplicate photo counts.yaml,com.caglobal.hp.sprocket
+COL_06e,Collage_06 (e),collage,Collage maker- photo selection,Verify count markers skip empty slots,collage/COL_06e - Verify count markers skip empty slots.yaml,com.caglobal.hp.sprocket
+COL_06f,Collage_06 (f),collage,Collage maker- photo selection,Verify fifth photo replaces slot 4,collage/COL_06f - Verify fifth photo replaces slot 4.yaml,com.caglobal.hp.sprocket
+COL_06g,Collage_06 (g),collage,Collage maker- photo selection,Verify large collage carousel snap,collage/COL_06g - Verify large collage carousel snap.yaml,com.caglobal.hp.sprocket
+COL_07,Collage_07,collage,Collage maker- photo selection,Verify Next becomes enabled at two photos,collage/COL_07 - Verify Next enables at two photos.yaml,com.caglobal.hp.sprocket
+COL_08,Collage_08,collage,Collage maker- photo selection,Verify deselect shifts remaining photos left,collage/COL_08 - Verify deselect shifts remaining photos.yaml,com.caglobal.hp.sprocket
+COL_09a,Collage_09 (a),collage,Collage maker- photo selection,Verify Next with 4 photos opens Drag and Drop,collage/COL_09a - Verify Next with 4 photos opens Drag Drop.yaml,com.caglobal.hp.sprocket
+COL_09b,Collage_9 (b),collage,Collage maker- photo selection,Verify Next with 2 photos opens Drag and Drop,collage/COL_09b - Verify Next with 2 photos opens Drag Drop.yaml,com.caglobal.hp.sprocket
+COL_09b_3x4,Collage_9 (b),collage,Collage maker- photo selection for HP 3*4/Studio Printer,Verify 2 to 8 photos with 3x4 or Studio,collage/COL_09b_3x4 - Verify 2 to 8 photos with 3x4 or Studio.yaml,com.caglobal.hp.sprocket
+COL_09c,Collage_9 (c),collage,Collage maker- photo selection for Studio Plus Printer,Verify 2 to 8 photos with Studio Plus,collage/COL_09c - Verify 2 to 8 photos with Studio Plus.yaml,com.caglobal.hp.sprocket
+COL_10,Collage_10,collage,Collage maker- Layout screen for 2 photo selection,Verify 2-photo layout change,collage/COL_10 - Verify 2-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_10b,Collage_10 (b),collage,Collage maker- layout screen for 3 photo selection,Verify 3-photo layout change,collage/COL_10b - Verify 3-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_10c,Collage_10 (c),collage,Collage maker- layout screen for 4 photo selection,Verify 4-photo layout change,collage/COL_10c - Verify 4-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_10d,Collage_10 (d),collage,Collage maker- layout screen for 5 photo selection,Verify 5-photo layout change,collage/COL_10d - Verify 5-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_10e,Collage_10 (e),collage,Collage maker- layout screen for 6 photo selection,Verify 6-photo layout change,collage/COL_10e - Verify 6-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_10f,Collage_10 (f),collage,Collage maker- layout screen for 7 photo selection,Verify 7-photo layout change,collage/COL_10f - Verify 7-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_10g,Collage_10 (g),collage,Collage maker- layout screen for 8 photo selection,Verify 8-photo layout change,collage/COL_10g - Verify 8-photo layout change.yaml,com.caglobal.hp.sprocket
+COL_11,Collage_11,collage,Collage maker- photo selection,Verify photo tile grabbed state,collage/COL_11 - Verify photo tile grabbed state.yaml,com.caglobal.hp.sprocket
+COL_12a,Collage_12 (a),collage,Collage maker- Drag and Drop Photo Between Tiles,Verify drag swap between tiles,collage/COL_12a - Verify drag swap between tiles.yaml,com.caglobal.hp.sprocket
+COL_12b,Collage_12 (b),collage,Collage maker- Cancel Drag by Moving Photo Outside the Frame,Verify cancel drag outside frame,collage/COL_12b - Verify cancel drag outside frame.yaml,com.caglobal.hp.sprocket
+COL_12c,Collage_12 (c),collage,Collage maker- Cancel Drag by Returning Photo to Original Tile,Verify cancel drag return to original,collage/COL_12c - Verify cancel drag return to original.yaml,com.caglobal.hp.sprocket
+COL_12d,Collage_12 (d),collage,Collage maker- Android Zoom Minimum and Maximum Limits,Verify Android zoom range,collage/COL_12d - Verify Android zoom range.yaml,com.caglobal.hp.sprocket
+COL_12e_ios,Collage_12 (e),collage,Collage maker- iOS Zoom Minimum and Maximum Limits,Verify iOS zoom range (skipped on Android),collage/COL_12e_ios - Verify iOS zoom range.yaml,com.caglobal.hp.sprocket
+COL_12e_pinch,Collage_12 (e),collage,Collage maker- Pinch to Zoom In/Out,Verify pinch zoom in grid slot,collage/COL_12e_pinch - Verify pinch zoom in grid slot.yaml,com.caglobal.hp.sprocket
+COL_12e_fitfill,Collage_12 (e),collage,Collage maker- Double Tap to Toggle Fit/Fill,Verify double tap Fit Fill,collage/COL_12e_fitfill - Verify double tap Fit Fill.yaml,com.caglobal.hp.sprocket
+COL_12f,Collage_12 (f),collage,Collage maker- Pinch and Rotate Photo Within Grid,Verify pinch and rotate,collage/COL_12f - Verify pinch and rotate.yaml,com.caglobal.hp.sprocket
+COL_12g,Collage_12 (g),collage,Collage maker- Reset Photo Properties After Swapping Photos,Verify reset properties after swap,collage/COL_12g - Verify reset properties after swap.yaml,com.caglobal.hp.sprocket
+COL_12h,Collage_12 (h),collage,Collage maker- Reset Photo Properties When Layout Is Changed,Verify reset properties on layout change,collage/COL_12h - Verify reset properties on layout change.yaml,com.caglobal.hp.sprocket
+COL_12i,Collage_12 (i),collage,Collage maker- Resize Tiles by Dragging Divider,Verify resize tiles by divider,collage/COL_12i - Verify resize tiles by divider.yaml,com.caglobal.hp.sprocket
+COL_12j,Collage_12 (j),collage,Collage maker- Minimum Tile Height,Verify minimum tile height,collage/COL_12j - Verify minimum tile height.yaml,com.caglobal.hp.sprocket
+COL_12k,Collage_12 (k),collage,Collage maker- Divider Adjustment Does Not Affect Unrelated Tiles,Verify divider does not affect unrelated tiles,collage/COL_12k - Verify divider does not affect unrelated tiles.yaml,com.caglobal.hp.sprocket
+COL_12l,Collage_12 (l),collage,Collage maker- Full-Length Divider Controls All Applicable Tiles,Verify full-length divider,collage/COL_12l - Verify full-length divider.yaml,com.caglobal.hp.sprocket
+COL_12m,Collage_12 (m),collage,Collage maker- Partial Divider Lines Are Controlled Separately,Verify partial dividers independent,collage/COL_12m - Verify partial dividers independent.yaml,com.caglobal.hp.sprocket
+COL_12n,Collage_12 (n),collage,Collage maker- border adjustment,Verify Edit button follows tile,collage/COL_12n - Verify Edit button follows tile.yaml,com.caglobal.hp.sprocket
+COL_13,Collage_13,collage,Collage maker- photo editing,Verify Edit icon opens custom SDK,collage/COL_13 - Verify Edit icon opens custom SDK.yaml,com.caglobal.hp.sprocket
+COL_14,Collage_14,collage,Collage maker- Large Collage Availability for Compatible Printers,Verify large collage with listed printer,collage/COL_14 - Verify large collage with listed printer.yaml,com.caglobal.hp.sprocket
+COL_14a,Collage_14 (a),collage,Collage maker- Minimum Photo Selection for Large Collage,Verify large collage minimum 2 photos,collage/COL_14a - Verify large collage minimum 2 photos.yaml,com.caglobal.hp.sprocket
+COL_14b,Collage_14 (b),collage,Collage maker- Maximum Photo Selection for Large Collage,Verify large collage max 8 photos,collage/COL_14b - Verify large collage max 8 photos.yaml,com.caglobal.hp.sprocket
+COL_14c,Collage_14 (c),collage,Collage maker- 8-Photo Selection Tip Toast,Verify 8-photo tip toast,collage/COL_14c - Verify 8-photo tip toast.yaml,com.caglobal.hp.sprocket
+COL_14d,Collage_14 (d),collage,Collage maker- Dismiss Tip Toast by Tapping the Screen,Verify tap dismisses tip toast,collage/COL_14d - Verify tap dismisses tip toast.yaml,com.caglobal.hp.sprocket
+COL_14e,Collage_14 (e),collage,Collage maker- photo selection,Verify ninth photo replaces slot 8,collage/COL_14e - Verify ninth photo replaces slot 8.yaml,com.caglobal.hp.sprocket
+COL_15,Collage_15,collage,Collage maker – Print Preview / Print Output,Verify collage retained in Print Preview,collage/COL_15 - Verify collage retained in Print Preview.yaml,com.caglobal.hp.sprocket
+COL_16,Collage_16,collage,Collage maker – Print Preview / Print Output,Verify Save as new photo popup,collage/COL_16 - Verify Save as new photo popup.yaml,com.caglobal.hp.sprocket

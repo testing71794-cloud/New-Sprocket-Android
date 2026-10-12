@@ -2,7 +2,7 @@
 # Excel: Firmware Update 23 | Module: Firmware Installation
 # Verify installation screen appears
 # Expected: Firmware installation screen is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_23 - Verify installation screen appears"
 tags:
   - firmware

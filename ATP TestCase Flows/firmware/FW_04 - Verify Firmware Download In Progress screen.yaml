@@ -2,7 +2,7 @@
 # Excel: Firmware Update 004 | Module: Firmware Download
 # Verify Firmware Download In Progress screen
 # Expected: Firmware Download In Progress message and loader are displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_04 - Verify Firmware Download In Progress screen"
 tags:
   - firmware

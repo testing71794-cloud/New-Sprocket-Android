@@ -2,19 +2,15 @@
 # Excel: AI Tools 05 | Module: Navigation
 # Verify Bottom Tab persistence
 # Expected: Bottom bar always visible with "More", "Create", and "Printer"; Create tab remains highlighted when active.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AI_05 - Verify Bottom Tab persistence"
 tags:
   - ai
-  - atp-excel
+  - atp-supplied
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "More"
-    optional: true
-- assertVisible:
-    text: "Create"
-    optional: true
-- assertVisible:
-    text: "Printer"
-    optional: true
+- assertVisible: "More.*Tab 1 of 3"
+- assertVisible: "Create.*Tab 2 of 3"
+- assertVisible: "Printer.*Tab 3 of 3"
+- assertVisible: "Create with AI Tools"
+- takeScreenshot: "AI_05_create_tab_selected"

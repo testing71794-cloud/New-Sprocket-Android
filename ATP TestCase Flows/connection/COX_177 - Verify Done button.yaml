@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC015 | Module: Already Added pop up
 # Verify Done button
 # Expected: User should return to the 'Your Printers' screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_177 - Verify Done button"
 tags:
   - connection

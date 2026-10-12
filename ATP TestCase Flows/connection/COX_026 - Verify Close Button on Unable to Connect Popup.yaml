@@ -2,7 +2,7 @@
 # Excel: PCF_HP200_008 | Module: Pre Connection Flow for HP 200
 # Verify Close Button on Unable to Connect Popup
 # Expected: Unable to connect? popup should close and user should remain on the Get Connected screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_026 - Verify Close Button on Unable to Connect Popup"
 tags:
   - connection

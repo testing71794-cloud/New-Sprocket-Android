@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_014 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify that the Previous button navigates to the previous setup screen.
 # Expected: User should able to back to 'HP Sprocket Studio Plus' screen from 'Ready for wi-fi connection ' screen by tapping 'Prev' buttons
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_144 - Verify that the Previous button navigates to the previous se"
 tags:
   - connection

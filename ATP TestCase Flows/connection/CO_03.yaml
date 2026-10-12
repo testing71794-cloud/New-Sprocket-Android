@@ -1,5 +1,5 @@
 # ATP Test Case ID: CO_03
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: CO_03_Print_Preview_Window
 ---
 # ATP CO_03 – Open image → print (preview) → device list → pair.

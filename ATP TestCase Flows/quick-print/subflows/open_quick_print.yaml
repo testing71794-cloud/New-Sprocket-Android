@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Open Quick Print from Create home; allow photo access when prompted.
 # Prefer reach_gallery_allow_all.yaml for Excel-aligned tests.

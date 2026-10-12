@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Quick Print → Allow all; fallback Collage Maker if photos prompt did not appear.
 - tapOn: ".*Quick Print.*"

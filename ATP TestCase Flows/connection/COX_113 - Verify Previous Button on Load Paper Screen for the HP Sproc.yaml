@@ -2,7 +2,7 @@
 # Excel: PCF_Sprocket Plus_003 | Module: Pre Connection Flow for Sprocket Plus
 # Verify Previous Button on Load Paper Screen for the HP Sprocket Plus printer.
 # Expected: User should be redirected to the Charge + Power On screen along with 'Next' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_113 - Verify Previous Button on Load Paper Screen for the HP Sproc"
 tags:
   - connection

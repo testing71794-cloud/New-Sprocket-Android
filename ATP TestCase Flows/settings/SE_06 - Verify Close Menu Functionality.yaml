@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  06 | Module: Navigation
 # Verify Close Menu Functionality
 # Expected: Hamburger Menu closes and user returns to previous screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_06 - Verify Close Menu Functionality"
 tags:
   - settings

@@ -1,0 +1,18 @@
+# ATP Test Case ID: PS_01
+# Excel: Print_State_01
+# Print State UI entry animation
+# Expected: Preview canvas shrinks and slightly rotates while supporting UI enters smoothly without overlap, clipping, flicker, or distortion.
+appId: com.caglobal.hp.sprocket
+name: "PS_01 - Print State UI entry animation"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - animation-manual
+  - visual-check
+---
+- runFlow: subflows/open_single_print_state.yaml
+- assertVisible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+# Manual visual checkpoint: canvas decreases in size, rotates slightly, and side UI reaches final positions.
+- takeScreenshot: PS_01_print_state_entry_animation

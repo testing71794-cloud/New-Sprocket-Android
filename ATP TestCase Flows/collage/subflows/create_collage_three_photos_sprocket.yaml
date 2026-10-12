@@ -1,11 +1,16 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Select 3 photos → Next → reorder.
 - runFlow: select_three_photos_fast.yaml
-- tapOn: "Next"
+- runFlow:
+    when:
+      visible: "Select 2 to 4 photos"
+    commands:
+      - tapOn:
+          point: "18%,84%"
+          optional: true
+- runFlow: leave_photo_selection.yaml
 - extendedWaitUntil:
     visible: "Drag & Drop to Reorder"
-    timeout: 8000
-- assertVisible: "Drag & Drop to Reorder"
+    timeout: 12000
 - assertVisible: "Layout"
-- assertVisible: "Next"

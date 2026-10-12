@@ -1,0 +1,16 @@
+# ATP Test Case ID: PID_02
+# Excel: PhotoID_02 | Module: Photo ID – Mode Information Popup UI
+# Verify the UI elements and default selection state of the Photo ID Mode information popup.
+# Expected: Title Photo ID Mode; description about formal photo tips; OK; Don't Show Again.
+appId: com.caglobal.hp.sprocket
+name: "PID_02 - Mode Information Popup UI"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/allow_camera_while_using.yaml
+- runFlow: subflows/wait_mode_popup.yaml
+- runFlow: subflows/assert_mode_popup.yaml

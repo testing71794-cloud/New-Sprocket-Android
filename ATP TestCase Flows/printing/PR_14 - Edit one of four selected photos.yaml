@@ -1,0 +1,39 @@
+# ATP Test Case ID: PR_14
+# Excel: Print Preview_14
+# Edit one of four selected photos
+# Expected: Four photos remain available while a frame persists only on the edited photo.
+appId: com.caglobal.hp.sprocket
+name: "PR_14 - Edit one of four selected photos"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_preview_four_photos.yaml
+- swipe:
+    start: "82%,42%"
+    end: "18%,42%"
+    duration: 500
+- assertVisible: ".*(?i)Photo 2 of 4.*"
+- runFlow: subflows/tap_preview_edit.yaml
+- tapOn:
+    text: ".*(?i)Edit Photo.*"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Frame|Crop).*"
+    timeout: 15000
+- tapOn: ".*(?i)Frame.*"
+- runFlow: subflows/scroll_to_summer_frame.yaml
+- tapOn:
+    point: "34%,90%"
+- tapOn:
+    id: ".*saveRecentEditImageView.*"
+- tapOn:
+    id: ".*btnDone.*"
+- assertVisible: ".*(?i)Photo 2 of 4.*"
+- swipe:
+    start: "18%,42%"
+    end: "82%,42%"
+    duration: 500
+- assertVisible: ".*(?i)Photo 1 of 4.*"

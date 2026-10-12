@@ -1,6 +1,6 @@
 # Canonical merged PC_06a. Full coverage includes the previously mislabeled
 # "PC_02 - selecting two unique images" flow plus Next -> Print Preview.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_06a - Next opens Print Preview without Tiles"
 tags: [precut, atp-excel, optimized]
 ---

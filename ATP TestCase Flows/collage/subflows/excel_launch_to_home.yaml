@@ -1,0 +1,14 @@
+appId: com.caglobal.hp.sprocket
+---
+# Shortest path: launch → onboarding → Sign Up Later → Create home (Collage Maker).
+# Reuses the Quick Print cold-launch path (no extra splash swipes, no 3s animation wait).
+# See: https://docs.maestro.dev/reference/commands-available/launchapp
+# See: https://docs.maestro.dev/reference/commands-available/runflow
+- launchApp:
+    clearState: true
+    permissions:
+      storage: allow
+      medialibrary: allow
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: reach_create_home_for_collage.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml

@@ -2,7 +2,7 @@
 # Excel: General_PCF-005 | Module: Pre Connection Flow
 # Navigate to 'No Printers Found' screen
 # Expected: After time out the discovery progress spinner 'No Printers Found' screen should display along with the 'Try Again' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_153 - Navigate to No Printers Found screen"
 tags:
   - connection

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # PERM_016/038: Deny Photos twice → Permission Required; gallery stays blocked.
 - runFlow: ensure_create_hub_visible.yaml

@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 07 | Module: iOS_19_Paper Not Match
 # Verify Paper Error popup when incorrect paper size is inserted
 # Expected: Title: Paper Error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_28 - Verify Paper Error popup when incorrect paper size is insert"
 tags:
   - alerts

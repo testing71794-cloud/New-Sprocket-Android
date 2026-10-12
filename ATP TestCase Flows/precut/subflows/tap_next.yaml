@@ -1,4 +1,11 @@
-appId: com.hp.impulse.sprocket
+# Tap Next after two Pre-Cut photos are selected.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
 ---
-- tapOn:
-    text: "Next"
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)^Next$"
+    timeout: 20000
+- tapOn: ".*(?i)^Next$"
+- waitForAnimationToEnd:
+    timeout: 3000

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Drag & Drop reorder UI (Collage_10).
 - assertVisible: "Drag & Drop to Reorder"

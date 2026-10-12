@@ -1,5 +1,5 @@
 # Navigate to Create hub when session preserved (no launch — caller launches first).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: ../../common/subflows/wait_after_cold_launch.yaml
 - runFlow: exit_module_screen_if_needed.yaml

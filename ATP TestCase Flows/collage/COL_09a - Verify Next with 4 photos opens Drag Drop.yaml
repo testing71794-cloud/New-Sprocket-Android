@@ -1,0 +1,12 @@
+# ATP Test Case ID: COL_09a
+# Excel: Collage_09 (a) | Module: Collage maker- photo selection
+# Verify that the user is redirected to Drag & Drop to Reorder after tapping Next with 4 photos selected.
+appId: com.caglobal.hp.sprocket
+name: "COL_09a - Verify Next with 4 photos opens Drag Drop"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_four_photos_sprocket.yaml

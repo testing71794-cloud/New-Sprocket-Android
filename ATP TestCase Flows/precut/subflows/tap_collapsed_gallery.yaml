@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel Precut_09 (b): tap collapsed sheet drag handle to expand to half-page.
 - tapOn:

@@ -1,8 +1,8 @@
 # Bring Sprocket to foreground without clearing session (printer connection preserved).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - launchApp:
-    appId: com.hp.impulse.sprocket
+    appId: com.caglobal.hp.sprocket
     clearState: false
     stopApp: false
 - waitForAnimationToEnd:

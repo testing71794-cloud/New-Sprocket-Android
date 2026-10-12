@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC050 | Module: Connection
 # Verify no duplicate printer entry
 # Expected: Only one entry for the connected printer should exist.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_212 - Verify no duplicate printer entry"
 tags:
   - connection

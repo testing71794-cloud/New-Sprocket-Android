@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC053 | Module: Wi-Fi Connection Failure
 # Verify Try Again
 # Expected: Connection attempt restarts and loading indicator is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_215 - Verify Try Again"
 tags:
   - connection

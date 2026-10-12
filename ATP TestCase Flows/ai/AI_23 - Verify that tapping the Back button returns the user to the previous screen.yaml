@@ -1,0 +1,34 @@
+# ATP Test Case ID: AI_23
+# Excel: AI Tools 23
+# Module: AI- Image-to-Image – Verify Back Navigation
+# Description:
+# Verify that tapping the Back button returns the user to the previous screen.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Tap the Back button.
+# Expected:
+# User is navigated to the previous screen.
+appId: com.caglobal.hp.sprocket
+name: "AI_23 - Verify that tapping the Back button returns the user to the previous screen."
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- pressKey: back
+- extendedWaitUntil:
+    visible: ".*(?i)(Please select an image to generate with|Use This Image|Create with AI Tools).*"
+    timeout: 15000

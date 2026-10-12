@@ -1,0 +1,13 @@
+appId: com.caglobal.hp.sprocket
+---
+- swipe:
+    start: "42%,40%"
+    end: "55%,48%"
+    duration: 700
+- swipe:
+    start: "60%,48%"
+    end: "68%,55%"
+    duration: 500
+- assertVisible:
+    text: "Generate"
+    enabled: true

@@ -1,5 +1,5 @@
 # Privacy Policy — in-app browser / web view.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Privacy Policy.*"

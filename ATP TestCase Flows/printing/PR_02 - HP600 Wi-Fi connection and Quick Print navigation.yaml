@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_02
+# Excel: Print Preview_02
+# Lab: printer pre-connected (HP600 / Studio Plus if required) — no Wi-Fi search flow.
+# Verify Quick Print opens Print Preview with Print CTA.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PR_02 - HP600 Wi-Fi connection and Quick Print navigation"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - hardware
+  - wifi
+  - printer-preconnect
+---
+- runFlow: subflows/launch_to_create_keep_state.yaml
+- runFlow: subflows/open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"

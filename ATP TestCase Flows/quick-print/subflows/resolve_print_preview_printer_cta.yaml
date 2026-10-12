@@ -1,0 +1,93 @@
+# Print Preview CTA has three states only:
+# 1) Print            → ready (no action)
+# 2) Reconnect Printer → Printer tab → tap HP Sprocket Sense (5D:6C) → reopen preview
+# 3) Add Printer      → Add Printer → Skip to Connection → Sense (5D:6C)
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../printing/subflows/dismiss_optional_firmware_update.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(^Print$|Reconnect Printer|^Add Printer$).*"
+    timeout: 30000
+
+# --- State: Reconnect Printer ---
+- runFlow:
+    when:
+      visible: ".*(?i)Reconnect Printer.*"
+    commands:
+      - runFlow: ../../common/subflows/select_sprocket_sense_printer.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)Quick Print.*"
+            notVisible: ".*(?i)(Copies|^Print$|Reconnect Printer).*"
+          commands:
+            - runFlow:
+                when:
+                  visible: "Quick Print\nPrint photos from your gallery"
+                commands:
+                  - tapOn: "Quick Print\nPrint photos from your gallery"
+            - runFlow:
+                when:
+                  visible: ".*(?i)Quick Print.*"
+                  notVisible: ".*(?i)(Recent|^Select$|^All$).*"
+                commands:
+                  - tapOn: ".*(?i)Quick Print.*"
+            - runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+            - runFlow: allow_photos_all_and_os.yaml
+            - extendedWaitUntil:
+                visible: ".*(?i)(Recent|^Select$|^All$).*"
+                timeout: 20000
+            - tapOn:
+                point: "50%,45%"
+            - extendedWaitUntil:
+                visible: ".*(?i)(Copies|Tiles|^Print$|Reconnect Printer|^Add Printer$).*"
+                timeout: 20000
+
+# --- State: Add Printer ---
+- runFlow:
+    when:
+      visible: ".*(?i)^Add Printer$"
+      notVisible: ".*(?i)^Print$"
+    commands:
+      - tapOn: ".*(?i)^Add Printer$"
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: connect_sprocket_sense_via_add_printer.yaml
+      - repeat:
+          times: 4
+          commands:
+            - runFlow:
+                when:
+                  notVisible: ".*(?i)(^Print$|Copies).*"
+                  visible: ".*(?i)Quick Print.*"
+                commands:
+                  - runFlow:
+                      when:
+                        visible: "Quick Print\nPrint photos from your gallery"
+                      commands:
+                        - tapOn: "Quick Print\nPrint photos from your gallery"
+                  - runFlow:
+                      when:
+                        visible: ".*(?i)Quick Print.*"
+                        notVisible: ".*(?i)(Recent|^Select$|^All$).*"
+                      commands:
+                        - tapOn: ".*(?i)Quick Print.*"
+                  - extendedWaitUntil:
+                      visible: ".*(?i)(Recent|^Select$|^All$).*"
+                      timeout: 20000
+                  - tapOn:
+                      point: "50%,45%"
+                  - waitForAnimationToEnd:
+                      timeout: 2000
+
+# --- State: Print (connection ready) — parent will tap Print ---
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../printing/subflows/dismiss_optional_firmware_update.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)^Print$"
+    timeout: 60000
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"
+- assertNotVisible: ".*(?i)Reconnect Printer.*"
+

@@ -1,6 +1,6 @@
 # Camera / location / nearby / notification only. Do not tap Allow all (photos).
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     text: ".*(?i)While using the app.*"

@@ -1,0 +1,24 @@
+# Supplied JSON row: AI Tools 64 | Replace Background
+# Verify Save popup closes
+appId: com.caglobal.hp.sprocket
+name: "AI_64 - Replace Background Close Save Popup - Verify Save popup closes"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: subflows/background_open_save_popup.yaml
+- runFlow:
+    when:
+      visible: "Stay"
+    commands:
+      - tapOn: "Stay"
+- runFlow:
+    when:
+      visible: "Save to Gallery"
+    commands:
+      - tapOn:
+          point: "88%,34%"
+- assertNotVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: ".*(?i)(Copies|Replace Background).*"

@@ -2,7 +2,7 @@
 # Excel: Firmware Update 002 | Module: Firmware Update
 # Verify Firmware Update Available popup
 # Expected: Firmware Update Available popup is displayed with Update Now and Not Right Now buttons.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_02 - Verify Firmware Update Available popup"
 tags:
   - firmware

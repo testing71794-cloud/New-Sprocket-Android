@@ -1,11 +1,9 @@
 # ATP Test Case ID: SG_06
 # HP Sprocket — email sign-up valid credentials → Terms
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SG_06 - Sign up with Email valid"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_signup_email_form.yaml
+- runFlow: subflows/ensure_signup_email_form.yaml
 - tapOn: "Full Name*"
 - inputText: Maestro ATP User
 - runScript: scripts/gen_unique_email.js

@@ -1,0 +1,40 @@
+# ATP Test Case ID: AI_19
+# Excel: AI Tools 19
+# Module: AI- Image-to-Image – Verify Image Style Selection
+# Description:
+# Verify that only one Image Style can be selected at a time.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select an Image Style.
+# Select another Image Style.
+# Expected:
+# First selected style is highlighted.
+# Second selected style becomes highlighted when selected.
+# Previously selected style is deselected.
+# Only one style remains selected at a time.
+appId: com.caglobal.hp.sprocket
+name: "AI_19 - Verify that only one Image Style can be selected at a time."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- tapOn: "Modern Art"
+- takeScreenshot: AI_19_first_style
+- tapOn: "Anime"
+- assertVisible: "Generate Image(\\(s\\)|s)"
+- takeScreenshot: AI_19_second_style

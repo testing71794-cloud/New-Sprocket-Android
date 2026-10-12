@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios  25 | Module: Cover
 # Verify "Top Cover Open" error
 # Expected: "Top Cover Open" popup is displayed . The popup displays the bold title "Top Cover Open", followed by the message "Close the cover and try printing again." The popup includes an "OK" button at the bottom and a Close (X) icon in the top-righ
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_46 - Verify Top Cover Open error"
 tags:
   - alerts

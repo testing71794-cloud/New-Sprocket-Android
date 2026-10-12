@@ -1,0 +1,75 @@
+# Reuse the Tile Print gallery when Recent is already open.
+# Cold launch only when back navigation cannot reach it.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/presskey
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|Studio Plus|Sprocket Studio|Sorry.*Tiles feature is not compatible).*"
+    commands:
+      - runFlow: reach_create_hub.yaml
+      - runFlow: open_tile_print_gallery.yaml
+- repeat:
+    times: 5
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(Print Complete|Printing|No Prints in Progress).*"
+            notVisible: "Recent"
+          commands:
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)(^Copies$|^Tiles$).*"
+            notVisible: "Recent"
+          commands:
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: "(?i)Save as new photo.*"
+          commands:
+            - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)Tile Print.*"
+      notVisible: "Recent"
+    commands:
+      - runFlow: tap_tile_print_open_gallery.yaml
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - launchApp:
+          clearState: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow:
+          when:
+            visible: ".*(?i)Tile Print.*"
+            notVisible: "Recent"
+          commands:
+            - runFlow: tap_tile_print_open_gallery.yaml
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - runFlow: reach_create_hub.yaml
+      - runFlow: open_tile_print_gallery.yaml
+- extendedWaitUntil:
+    visible: "Recent"
+    timeout: 20000
+- assertVisible: "Recent"

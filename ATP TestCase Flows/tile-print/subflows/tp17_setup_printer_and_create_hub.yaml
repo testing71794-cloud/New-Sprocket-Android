@@ -1,10 +1,10 @@
 # Connect Sprocket 3x4 only when needed, then reach Create hub (gallery home).
 # Always opens Printer tab first — Create hub alone does not prove 3x4 is connected.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: exit_module_screen_if_needed.yaml
 - tapOn:
-    point: "83%,96%"
+    point: "83%,90%"
 - waitForAnimationToEnd:
     timeout: 2000
 # Not connected — pair Sprocket 3x4 from Printer tab.
@@ -22,7 +22,6 @@ appId: com.hp.impulse.sprocket
 - runFlow:
     when:
       visible: ".*(?i)Set Up My Printer.*"
-      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
     commands:
       - back
       - waitForAnimationToEnd:
@@ -35,7 +34,7 @@ appId: com.hp.impulse.sprocket
       - waitForAnimationToEnd:
           timeout: 2000
 - tapOn:
-    point: "50%,96%"
+    point: "50%,90%"
 - waitForAnimationToEnd:
     timeout: 2500
 - scrollUntilVisible:

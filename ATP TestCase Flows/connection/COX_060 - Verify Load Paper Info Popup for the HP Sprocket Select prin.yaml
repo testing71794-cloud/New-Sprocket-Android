@@ -2,7 +2,7 @@
 # Excel: PCF_HPSelect_004 | Module: Pre Connection Flow for Sprocket Select
 # Verify 'Load Paper' Info Popup for the HP Sprocket Select printer.
 # Expected: 1. Instruction popup should be displayed. 2. Orange card illustration should be displayed. 3. Instruction text "Use the orange card with each pack of photo paper. It improves print quality and will eject after it cleans and calibrates the p
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_060 - Verify Load Paper Info Popup for the HP Sprocket Select prin"
 tags:
   - connection

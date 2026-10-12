@@ -1,0 +1,9 @@
+# Source: Tiles modules 02 | Navigation | Positive
+appId: com.caglobal.hp.sprocket
+name: "TP_02 - Verify landing on Tiles module"
+tags:
+  - tile-print
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_tile_print_preview.yaml

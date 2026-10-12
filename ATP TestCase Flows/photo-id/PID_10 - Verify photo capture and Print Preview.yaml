@@ -2,7 +2,7 @@
 # Excel: Photo ID  10 | Module: Capture
 # Verify photo capture and Print Preview
 # Expected: Photo is captured successfully and Print Preview screen opens with all controls displaye
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_10 - Verify photo capture and Print Preview"
 tags:
   - photo-id

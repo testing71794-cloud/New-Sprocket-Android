@@ -1,7 +1,7 @@
 # Canonical merged PC_13. Full incompatible-printer coverage: error on entry when
 # possible, otherwise selection -> preview -> print error. Includes both legacy PC_10/PC_11
 # printer-error flows that used conflicting IDs.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_13 - Incompatible Printer behavior"
 tags: [precut, atp-excel, optimized, negative]
 ---

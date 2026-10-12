@@ -2,7 +2,7 @@
 # Excel: Photo ID 11 | Module: Timer Submenu
 # Verify Timer submenu UI
 # Expected: Timer submenu opens successfully and all timer options are displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_11 - Verify Timer submenu UI"
 tags:
   - photo-id

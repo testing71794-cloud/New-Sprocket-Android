@@ -1,0 +1,7 @@
+# Leave Print State using Done and verify Gallery context is restored.
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: ".*(?i)^Done$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^Select$|^All$).*"
+    timeout: 15000

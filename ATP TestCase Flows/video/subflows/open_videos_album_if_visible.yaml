@@ -1,5 +1,5 @@
 # Open the Videos album chip when the gallery exposes it (all items then are videos).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

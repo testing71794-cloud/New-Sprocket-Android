@@ -1,0 +1,10 @@
+# Supplied JSON row: AI Tools 43 | Replace Background
+# Verify Replace Background navigation
+appId: com.caglobal.hp.sprocket
+name: "AI_43_replace_background - Replace Background Navigation"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/background_open_replace_gallery.yaml
+- assertVisible: "Please select an image to start.?"

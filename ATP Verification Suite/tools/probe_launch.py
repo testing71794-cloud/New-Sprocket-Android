@@ -10,7 +10,7 @@ from lib.hierarchy import Hierarchy
 
 ADB = Path.home() / "AppData/Local/Android/Sdk/platform-tools/adb.exe"
 SERIAL = sys.argv[1] if len(sys.argv) > 1 else "ZA222RFQ75"
-APP = "com.hp.impulse.sprocket"
+APP = "com.caglobal.hp.sprocket"
 
 
 def adb(*args):

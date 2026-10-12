@@ -1,0 +1,46 @@
+# ATP Test Case ID: AI_25
+# Excel: AI Tools 25
+# Module: AI- Image-to-Image – Verify Generate New Button is Enabled Upon Image Style Selection
+# Description:
+# Verify that the Generate New (or Generate Images) button remains disabled until an Image Style is selected and becomes enabled after the user selects an Image Style.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load.
+# Observe the state of the Generate New/Generate Images button without selecting an Image Style.
+# Select any Image Style by tapping its thumbnail or text.
+# Observe the state of the Generate New/Generate Images button.
+# Expected:
+# The Generate New/Generate Images button is disabled before an Image Style is selected.
+# The button becomes enabled immediately after an Image Style is selected.
+# The selected Image Style is visually highlighted.
+# The user can proceed with image generation after the button becomes enabled.
+appId: com.caglobal.hp.sprocket
+name: "AI_25 - Verify that the Generate New (or Generate Images) button remains disabled until an Image Style is selected and becomes enabled after the user selects an Image Style."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- tapOn:
+    point: "50%,94%"
+- assertVisible: "Base Image"
+- tapOn: "Modern Art"
+- takeScreenshot: AI_25_selected_style
+- tapOn:
+    point: "50%,94%"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000

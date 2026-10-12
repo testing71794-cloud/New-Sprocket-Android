@@ -2,7 +2,7 @@
 # Excel: Custom SDK  09 | Module: Image Editor
 # Verify applying edit options
 # Expected: Edit is applied successfully and user is redirected to Print Preview screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_09 - Verify applying edit options"
 tags:
   - custom-sdk

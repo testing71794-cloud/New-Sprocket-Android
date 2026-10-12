@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_017 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify that tapping on 'Exit' button close the set up flow
 # Expected: Exit setup?' pop up should close Set up flow process should close
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_147 - Verify that tapping on Exit button close the set up flow"
 tags:
   - connection

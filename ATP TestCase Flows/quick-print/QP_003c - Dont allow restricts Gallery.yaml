@@ -4,7 +4,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/assertvisible
 # See: https://docs.maestro.dev/reference/commands-available/assertnotvisible
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_003c - Dont allow restricts Gallery"
 tags:
   - quick-print

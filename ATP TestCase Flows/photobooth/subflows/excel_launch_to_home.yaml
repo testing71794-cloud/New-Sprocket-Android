@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel Photobooth steps 1–8: launch → splash → onboarding → Get Started → Sign Up Later → Home.
 # Camera is left unset so Photobooth can show "While using the app" / "Don't allow".
@@ -54,7 +54,9 @@ appId: com.hp.impulse.sprocket
       - tapOn:
           text: ".*(?i)Create.*"
           optional: true
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - extendedWaitUntil:
-    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    visible: ".*(?i)(Collage Maker|Quick Print|No Thanks).*"
     timeout: 20000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - assertVisible: ".*(?i)(Collage Maker|Quick Print).*"

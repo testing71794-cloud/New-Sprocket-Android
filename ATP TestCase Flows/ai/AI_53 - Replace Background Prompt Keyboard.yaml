@@ -1,0 +1,14 @@
+# Supplied JSON row: AI Tools 53 | Replace Background
+# Verify custom prompt focus and keyboard
+appId: com.caglobal.hp.sprocket
+name: "AI_53 - Replace Background Prompt Keyboard - Verify custom prompt focus and keyboard"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- tapOn:
+    point: "50%,45%"
+- takeScreenshot: AI_53_prompt_focused_keyboard

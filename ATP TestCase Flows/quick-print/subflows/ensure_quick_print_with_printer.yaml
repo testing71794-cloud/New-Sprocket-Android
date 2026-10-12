@@ -1,0 +1,8 @@
+# Lab: select HP Sprocket Sense (5D:6C) from Printer tab, then open Quick Print.
+# Do NOT tap Add Printer / Skip to Connection / Searching for Printers.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../printing/subflows/launch_to_create_keep_state.yaml
+- runFlow: ensure_quick_print_gallery.yaml
+

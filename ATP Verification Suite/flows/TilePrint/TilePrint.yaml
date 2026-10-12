@@ -1,26 +1,26 @@
 # ATP Stage Flow: TilePrint
-# Auto-generated checklist. Navigation reuses Printing setup; assertions via run_module.py.
-appId: com.hp.impulse.sprocket
+# Runs the supplied Tile module cases directly.
+appId: com.caglobal.hp.sprocket
 name: "Stage - TilePrint"
 tags:
   - atp-verification
   - tileprint
 ---
 # Cases in this stage (16):
-#   - Tiles modules 01: Verify Gallery screen UI and Tile Print navigation
-#   - Tiles modules 02: Verify folder selection and Tile Print restrictions
-#   - Tiles modules 03: Verify blocked toast message, UI elements and bottom navigation
-#   - Tiles modules 04: Verify multi-select restriction and error handling
-#   - Tiles modules 05: Verify Tiles 2×2 screen UI and default layout
-#   - Tiles modules 06: Verify print restriction when no tile is selected
-#   - Tiles modules 07: Verify landing on Tiles module
-#   - Tiles modules 08: Verify bottom navigation bar presence
-#   - Tiles modules 09: Verify unselecting 1×1 tile
-#   - Tiles modules 10: Verify zoom and rotation persistence
-#   - Tiles modules 11: Verify 3×3 grid UI, selection and print functionality
-#   - Tiles modules 12: Verify tile deselection restriction and error handling
-#   - Tiles modules 13: Verify tile selection and print
-#   - Tiles modules 14: Verify Print button when all tiles are unselected
-#   - Tiles modules 15: Verify Copies screen and printing
-#   - Tiles modules 16: Verify copy count retention and navigation
-- runFlow: ../Printing/Printing.yaml
+# Source has two "Tiles modules 06" rows, represented by TP_06A and TP_06B.
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_01 - Verify Gallery screen UI and Tile Print navigation.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_02 - Verify landing on Tiles module.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_03 - Verify bottom navigation bar presence.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_04 - Verify folder selection and Tile Print restrictions.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_05 - Verify blocked toast message UI elements and bottom navigation.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_06A - Verify multi-select restriction and error handling.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_07 - Verify Tiles 2x2 screen UI and default layout.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_06B - Verify print restriction when no tile is selected.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_10 - Verify zoom and rotation persistence.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_11 - Verify 3x3 grid UI selection and print functionality.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_12 - Verify tile deselection restriction and error handling.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_13 - Verify tile selection and print.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_15 - Verify Copies screen and printing.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_16 - Verify copy count retention and navigation.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_17 - Verify Tile Print unavailable for unsupported printers.yaml"
+- runFlow: "../../../ATP TestCase Flows/tile-print/TP_18 - Verify Tile Print compatibility for supported printers.yaml"

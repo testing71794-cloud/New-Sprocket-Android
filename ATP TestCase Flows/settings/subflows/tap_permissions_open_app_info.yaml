@@ -1,5 +1,5 @@
 # App Settings → Permissions → Android App info screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn: ".*(?i)Permissions.*"
 - waitForAnimationToEnd:

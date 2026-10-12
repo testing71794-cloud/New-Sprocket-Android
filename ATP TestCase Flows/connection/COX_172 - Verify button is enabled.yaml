@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC010 | Module: Discovery
 # Verify '+' button is enabled
 # Expected: The connection process should start for the selected printer.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_172 - Verify button is enabled"
 tags:
   - connection

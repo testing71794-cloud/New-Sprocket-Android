@@ -1,0 +1,31 @@
+# Scroll the Custom SDK's horizontal frame rail until Summer is visible.
+appId: com.caglobal.hp.sprocket
+---
+- repeat:
+    times: 14
+    commands:
+      - runFlow:
+          when:
+            notVisible: ".*(?i)Summer.*"
+          commands:
+            - swipe:
+                start: "85%,92%"
+                end: "15%,92%"
+                duration: 500
+            - waitForAnimationToEnd:
+                timeout: 700
+- extendedWaitUntil:
+    visible: ".*(?i)Summer.*"
+    timeout: 10000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)Summer.*"
+    commands:
+      - tapOn: ".*(?i)Summer.*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)Summer.*"
+      visible: ".*(?i)Solid.*"
+    commands:
+      - tapOn: ".*(?i)Solid.*"

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # COL_01 steps 1–4: Create home → Collage Maker picker.
 - runFlow: reach_collage_maker.yaml

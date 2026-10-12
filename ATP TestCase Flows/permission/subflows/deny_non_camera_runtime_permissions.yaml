@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Deny onboarding runtime prompts except Camera (repeat — dialogs can stack after Sign Up Later).
 - repeat:

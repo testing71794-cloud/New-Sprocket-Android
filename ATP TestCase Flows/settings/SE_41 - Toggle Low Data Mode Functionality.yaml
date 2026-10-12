@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 46 | Module: Data
 # Toggle Low Data Mode Functionality
 # Expected: Low Data Mode toggle enables and disables reduced data usage correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_41 - Toggle Low Data Mode Functionality"
 tags:
   - settings

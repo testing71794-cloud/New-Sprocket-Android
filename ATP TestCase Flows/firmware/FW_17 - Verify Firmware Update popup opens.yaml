@@ -2,7 +2,7 @@
 # Excel: Firmware Update 17 | Module: Firmware Update Popup
 # Verify Firmware Update popup opens
 # Expected: The "Firmware Update Available" popup is displayed with the bold title "Firmware Update Available", the message "We've made some improvements and want you to get the full Sprocket experience. We highly recommend updating to the latest versi
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_17 - Verify Firmware Update popup opens"
 tags:
   - firmware

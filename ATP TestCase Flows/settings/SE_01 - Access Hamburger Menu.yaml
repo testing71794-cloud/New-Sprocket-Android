@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 01 | Module: Navigation
 # Access Hamburger Menu
 # Expected: Hamburger menu slides out from left side and background scrim fades in.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_01 - Access Hamburger Menu"
 tags:
   - settings

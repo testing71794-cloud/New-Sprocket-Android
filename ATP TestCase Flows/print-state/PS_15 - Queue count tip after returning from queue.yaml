@@ -1,0 +1,28 @@
+# ATP Test Case ID: PS_15
+# Excel: Print_State_15
+# Queue count tip after returning from queue
+# Expected: Returning from Print Queue shows the correct queue count tip; one item reads exactly "You have 1 print in queue."
+appId: com.caglobal.hp.sprocket
+name: "PS_15 - Queue count tip after returning from queue"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-error-injection
+  - queue
+---
+- runFlow: subflows/open_multi_print_state.yaml
+# Manually induce a stopper error, then close its popup while unresolved.
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+# After manually closing the popup, open Print Queue and return.
+- extendedWaitUntil:
+    notVisible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 60000
+- runFlow: subflows/open_print_queue.yaml
+- pressKey: BACK
+- extendedWaitUntil:
+    visible: ".*(?i)You have ([0-9]+ prints|1 print) in (the )?queue.*"
+    timeout: 30000

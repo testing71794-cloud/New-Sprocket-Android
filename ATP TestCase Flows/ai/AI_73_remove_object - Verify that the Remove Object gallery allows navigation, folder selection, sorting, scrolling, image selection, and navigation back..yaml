@@ -1,0 +1,65 @@
+# ATP Test Case ID: AI_73_remove_object
+# Supplied Excel ID:
+# AI Tools 73
+# Supplied module:
+# AI Tools >Remove Object – Gallery Listing> Verify Remove Object Gallery Listing, Folder Selection, Sorting and Image
+# Supplied description:
+# Verify that the Remove Object gallery allows navigation, folder selection, sorting, scrolling, image selection, and navigation back.
+# Supplied steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Navigate to AI Tools.
+# 10. Tap Remove Object.
+# 11. Verify the Gallery Listing screen is displayed.
+# 12. Tap the Back button.
+# 13. Verify the previous AI Tools screen is displayed.
+# 14. Tap Remove Object again.
+# 15. Tap the Folder dropdown.
+# 16. Select any available folder.
+# 17. Verify that the photo list is updated according to the selected folder.
+# 18. Tap the Sort option.
+# 19. Select Newest.
+# 20. Verify that the gallery photos are sorted from newest to oldest.
+# 21. Tap the Sort option again.
+# 22. Select Oldest.
+# 23. Verify that the gallery photos are sorted from oldest to newest.
+# 24. Scroll through the gallery photos.
+# 25. Select any available photo.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Gallery Listing screen is displayed with Back, Folder and Sort controls.
+# Selecting a folder updates the displayed photos.
+# Newest and Oldest sorting options are available and sort photos accordingly.
+# Gallery photos can be scrolled.
+# Selecting a photo opens the image selection/preview screen with the Use This Image option.
+# Tapping Back from the Gallery Listing screen returns to the previous AI Tools screen.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_73_remove_object - Verify that the Remove Object gallery allows navigation, folder selection, sorting, scrolling, image selection, and navigation back."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_assert_gallery.yaml
+- pressKey: back
+- extendedWaitUntil:
+    visible: ".*(?i)Create with AI Tools.*"
+    timeout: 10000
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_change_folder_and_sort.yaml
+- tapOn:
+    point: "20%,22%"
+- extendedWaitUntil:
+    visible: "Use This Image"
+    timeout: 15000
+- assertVisible: "Use This Image"

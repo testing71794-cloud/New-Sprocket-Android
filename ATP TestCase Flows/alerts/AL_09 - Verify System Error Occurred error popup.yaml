@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android    09 | Module: System
 # Verify "System Error Occurred" error popup
 # Expected: "System Error Occurred" popup is displayed on the Print Preview screen. The popup displays the bold title "System Error Occurred", followed by the message "Restart your printer and try printing again." The popup includes an "OK" button at t
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_09 - Verify System Error Occurred error popup"
 tags:
   - alerts

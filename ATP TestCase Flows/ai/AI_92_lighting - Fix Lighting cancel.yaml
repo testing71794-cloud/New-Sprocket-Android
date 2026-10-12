@@ -1,0 +1,35 @@
+# Excel: AI Tools 92
+# Module: AI Tools > Fix Lighting – Cancel flow
+# Description: Verify handling saved and unsaved changes through Cancel.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Fix Lighting.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Wait for the lighting-corrected photo to be displayed.
+# 5. Tap Cancel.
+# 6. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.
+# 6. Tap Stay.
+# 7. Verify that the popup closes and the user remains on the Fix Lighting result screen.
+# 8. Tap Cancel again.
+# 9. Tap Exit without Saving.
+# 10. Verify that the user is redirected to the AI Tools selection screen.
+# Type: Positive
+# Expected:
+# Apply redirects the user to Print Preview with the lighting-corrected photo.
+# Cancel displays the Unsaved Changes popup.
+# Stay closes the popup and keeps the user on the Fix Lighting result screen.
+# Exit without Saving redirects the user to the AI Tools selection screen.
+appId: com.caglobal.hp.sprocket
+name: "AI_92_lighting - Fix Lighting cancel"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - lighting
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Fix Lighting" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_cancel_unsaved.yaml

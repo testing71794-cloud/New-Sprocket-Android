@@ -1,6 +1,6 @@
 # ATP Test Case ID: GA_02
 # Video ~00:20–00:22 — dismiss coachmark / swipe toward camera
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "GA_02 - Swipe from gallery coachmark"
 ---
 - launchApp:

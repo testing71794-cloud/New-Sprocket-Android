@@ -2,7 +2,7 @@
 # Invalid tag Abc → No Tagged Photos.
 # See: https://docs.maestro.dev/reference/commands-available/inputtext
 # See: https://docs.maestro.dev/reference/commands-available/erasetext
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_013b - Invalid tag No Tagged Photos"
 tags:
   - quick-print

@@ -1,0 +1,25 @@
+# ATP Test Case ID: PR_22
+# Excel: Print Preview_22
+# Save or discard edited image
+# Expected: Save creates a gallery copy while Do Not Save discards edits and both return to Gallery.
+appId: com.caglobal.hp.sprocket
+name: "PR_22 - Save or discard edited image"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- runFlow: subflows/open_save_popup.yaml
+- tapOn: "Save to Gallery"
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^Select$|^All$).*"
+    timeout: 20000
+- tapOn:
+    point: "18%,25%"
+- runFlow: subflows/open_save_popup.yaml
+- tapOn: "Do Not Save"
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^Select$|^All$).*"
+    timeout: 20000

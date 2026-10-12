@@ -1,0 +1,15 @@
+# ATP Test Case ID: PQ_09
+# Excel: Print_Queue09
+# Verify a row dropped outside In Queue returns to its original position.
+appId: com.caglobal.hp.sprocket
+name: "PQ_09 - Invalid drop restores original position"
+tags: [print-queue, atp-excel, positive, physical-printer, drag-and-drop-manual, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- assertVisible: ".*(?i)Currently Printing.*"
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_09_before_invalid_drop
+# Manual gesture: drag a pending row outside the valid In Queue list and release.
+- takeScreenshot: PQ_09_after_slide_back
+- assertVisible: ".*(?i)Currently Printing.*"
+- assertVisible: ".*(?i)In Queue.*"

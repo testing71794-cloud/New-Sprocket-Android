@@ -1,0 +1,15 @@
+# Supplied JSON row: AI Tools 65 | Replace Background
+# Verify generated photo saves to gallery
+appId: com.caglobal.hp.sprocket
+name: "AI_65 - Replace Background Save to Gallery - Verify generated photo saves to gallery"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: subflows/background_open_save_popup.yaml
+- tapOn: "Save to Gallery"
+- assertNotVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: "Replace Background"

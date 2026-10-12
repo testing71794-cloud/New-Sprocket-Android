@@ -1,0 +1,13 @@
+# Source: Tiles modules 06 | Tiles > 2x2 grid | Negative
+# The B suffix preserves the duplicate source ID without creating duplicate Flow names.
+appId: com.caglobal.hp.sprocket
+name: "TP_06B - Verify print restriction when no tile is selected"
+tags:
+  - tile-print
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/open_tile_print_preview.yaml
+- runFlow: subflows/assert_default_2x2.yaml
+- runFlow: subflows/deselect_all_2x2_tiles.yaml
+- runFlow: subflows/assert_print_disabled.yaml

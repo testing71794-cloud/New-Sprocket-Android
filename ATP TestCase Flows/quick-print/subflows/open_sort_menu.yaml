@@ -1,6 +1,6 @@
 # Open Newest / Oldest sort menu (top-right icon). Do not require "Dismiss menu".
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     point: "93%,10%"

@@ -1,0 +1,30 @@
+# ATP Test Case ID: PH_05
+# Excel: Print_History05
+# Verify Print History Items Cannot Be Manually Deleted
+appId: com.caglobal.hp.sprocket
+name: "PH_05 - No manual delete option"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - gesture
+---
+- runFlow: subflows/open_recent_prints.yaml
+- assertVisible: "^Reprint$"
+- assertNotVisible: "^Delete$"
+- swipe:
+    start: "85%,35%"
+    end: "15%,35%"
+    duration: 600
+- assertNotVisible: "^Delete$"
+- swipe:
+    start: "15%,35%"
+    end: "85%,35%"
+    duration: 600
+- assertNotVisible: "^Delete$"
+- longPressOn:
+    point: "50%,35%"
+- assertNotVisible: "^Delete$"
+- assertVisible: "^Reprint$"

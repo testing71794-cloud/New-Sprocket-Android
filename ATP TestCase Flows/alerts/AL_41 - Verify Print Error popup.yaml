@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios   20 | Module: Print
 # Verify "Print Error" popup
 # Expected: "Print Error" popup is displayed . The popup displays the bold title "Print Error", followed by the message "Restart your Sprocket and try printing again." The popup includes an "OK" button at the bottom and a Close (X) icon in the top-righ
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_41 - Verify Print Error popup"
 tags:
   - alerts

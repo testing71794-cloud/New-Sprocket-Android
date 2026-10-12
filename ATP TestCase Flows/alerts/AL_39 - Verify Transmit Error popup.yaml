@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios    18 | Module: Transmit
 # Verify "Transmit Error" popup
 # Expected: "Transmit Error" popup is displayed with the bold title "Transmit Error", followed by the message "Data transmission error! Please try printing again." A TIP is displayed: "Make sure to keep the app open during printing." The popup includes
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_39 - Verify Transmit Error popup"
 tags:
   - alerts

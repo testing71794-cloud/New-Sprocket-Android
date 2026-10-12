@@ -2,7 +2,7 @@
 # Excel: Photo ID  03 | Module: UI Verification
 # Verify Photo ID default UI layout
 # Expected: All Photo ID UI elements are displayed correctly and Front camera opens by default.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_03 - Verify Photo ID default UI layout"
 tags:
   - photo-id

@@ -2,7 +2,7 @@
 # Excel: Photobooth 14 | Module: Photobooth – Capture Countdown
 # Verify the countdown timer restarts before each subsequent photo capture.
 # Expected: 3 → 2 → 1 before 1st, 2nd, 3rd, and 4th photos.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_14 - Verify countdown restarts before each photo"
 tags:
   - photobooth

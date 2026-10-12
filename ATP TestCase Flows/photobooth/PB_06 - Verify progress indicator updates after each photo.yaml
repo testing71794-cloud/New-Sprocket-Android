@@ -2,7 +2,7 @@
 # Excel: Photobooth 06 | Module: Progress
 # Verify progress indicator updates after each photo
 # Expected: Progress indicator updates correctly and shows captured photos count out of 4.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_06 - Verify progress indicator updates after each photo"
 tags:
   - photobooth

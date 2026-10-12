@@ -2,7 +2,7 @@
 # Excel: Custom SDK   14 | Module: Video Editing
 # Verify edit functionality and discard changes
 # Expected: Changes are discarded successfully. Popup closes and edited image is not saved to Gallery. Application remains stable without crash.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_14 - Verify edit functionality and discard changes"
 tags:
   - custom-sdk

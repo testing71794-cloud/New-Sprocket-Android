@@ -2,7 +2,7 @@
 # Excel: Photo ID 12 | Module: Timer On
 # Verify Timer ON state
 # Expected: Timer icon changes to active state and selected timer is highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_12 - Verify Timer ON state"
 tags:
   - photo-id

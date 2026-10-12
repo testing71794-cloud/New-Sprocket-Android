@@ -1,26 +1,37 @@
 # ATP Test Case ID: ON_04
-# Complete carousel via Get Started — or Sign up when carousel is skipped.
-appId: com.hp.impulse.sprocket
+# Excel: Sp_06 | Onboarding – Unleash Your Creativity Screen
+# New Sense UI: last carousel slide shows Unleash + Get Started! (content-desc).
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
 name: "ON_04 - Complete onboarding via Get Started"
+tags:
+  - onboarding
+  - atp-excel
 ---
 - launchApp:
     clearState: true
 - runFlow: ../common/subflows/wait_after_cold_launch.yaml
 - runFlow:
     when:
-      visible: "Welcome to the new Sprocket!"
+      visible: ".*(?i)(Welcome to Sprocket Sense!|Welcome to the new Sprocket!).*"
     commands:
       - runFlow: ../common/subflows/advance_sprocket_carousel.yaml
       - swipe:
-          direction: LEFT
+          start: "90%,45%"
+          end: "10%,45%"
+          duration: 900
       - extendedWaitUntil:
-          visible: "Get Started!"
-          timeout: 8000
-      - assertVisible: "Unleash Your Creativity"
-      - tapOn: "Get Started!"
+          visible: ".*(?i)(Unleash Your Creativity|Get Started!?).*"
+          timeout: 10000
+      - assertVisible: ".*(?i)Unleash Your Creativity.*"
+      - assertVisible: ".*(?i)Relive your memories by creating collages, stickers, and more!.*"
+      - assertVisible: ".*(?i)(Privacy Policy|Terms).*"
+      - assertVisible: ".*(?i)Get Started!?.*"
+      - tapOn: ".*(?i)Get Started!?.*"
       - waitForAnimationToEnd:
           timeout: 5000
+# Post Get Started: Sign up options (Sense builds use content-desc / I'll do it later)
 - extendedWaitUntil:
-    visible: "Sign up"
-    timeout: 15000
-- assertVisible: "Sign up"
+    visible: ".*(?i)(Sign up|Sign Up|I.ll do it later|Sign Up Later|I already have (an )?account|Log in).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Sign up|Sign Up|I.ll do it later|Sign Up Later|I already have (an )?account).*"

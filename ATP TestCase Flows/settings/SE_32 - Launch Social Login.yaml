@@ -3,7 +3,7 @@
 # Launch & Social Login
 # Expected: User successfully logs in and is redirected to Home screen.
 # Uses email login path (social login covered in LO_02/LO_03).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_32 - Launch Social Login"
 tags:
   - settings

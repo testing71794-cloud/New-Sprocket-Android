@@ -2,17 +2,13 @@
 # Gallery UI: back, folder dropdown, images, More / Create / Printer.
 # See: https://docs.maestro.dev/reference/commands-available/launchapp
 # See: https://docs.maestro.dev/reference/commands-available/assertvisible
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_004 - Gallery screen user interface"
 tags:
   - quick-print
   - atp-excel
   - positive
 ---
-- launchApp:
-    clearState: true
-    permissions:
-      all: deny
-- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/ensure_quick_print_gallery.yaml
 - runFlow: subflows/assert_quick_print_gallery.yaml
 - runFlow: subflows/assert_gallery_screen_ui.yaml

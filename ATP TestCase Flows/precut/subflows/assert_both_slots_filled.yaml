@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Both Pre-Cut slots remain filled (badges "1"/"2" hide when gallery sheet moves).
 - runFlow:

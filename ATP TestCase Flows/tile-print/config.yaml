@@ -1,0 +1,7 @@
+# Workspace config for local Tile Print runs.
+# See: https://docs.maestro.dev/maestro-cli/maestro-cli-commands-and-options
+appId: com.caglobal.hp.sprocket
+flows:
+  - "TP_*.yaml"
+executionOrder:
+  continueOnFailure: true

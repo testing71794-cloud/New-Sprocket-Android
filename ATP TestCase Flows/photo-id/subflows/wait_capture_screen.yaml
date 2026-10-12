@@ -1,0 +1,44 @@
+appId: com.caglobal.hp.sprocket
+---
+# Photo ID capture screen: size chips must be present (title alone also appears on the deny screen).
+- runFlow:
+    when:
+      visible: ".*(?i)(Open Settings|grant camera permission).*"
+    commands:
+      - setPermissions:
+          permissions:
+            camera: allow
+      - back
+      - launchApp:
+          stopApp: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: open_photo_id.yaml
+      - runFlow: allow_camera_while_using.yaml
+      - runFlow: dismiss_mode_popup_ok.yaml
+# If title is up but chips are missing, re-enter Photo ID after granting camera.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(2x2|1x1|1\\.4x|1\\.3x).*"
+    commands:
+      - setPermissions:
+          permissions:
+            camera: allow
+      - runFlow:
+          when:
+            visible: ".*(?i)(Open Settings|grant camera permission|Navigate up|Back).*"
+          commands:
+            - back
+      - launchApp:
+          stopApp: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: open_photo_id.yaml
+      - runFlow: allow_camera_while_using.yaml
+      - runFlow: dismiss_mode_popup_ok.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(2x2|1x1|1\\.4x|1\\.3x).*"
+    timeout: 25000
+- assertVisible: ".*(?i)Photo ID.*"
+- assertVisible: ".*(?i)(2x2|1x1|1\\.4x|1\\.3x).*"
+- assertNotVisible: ".*(?i)Open Settings.*"

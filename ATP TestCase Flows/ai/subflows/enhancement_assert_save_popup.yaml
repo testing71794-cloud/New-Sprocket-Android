@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+- back
+- extendedWaitUntil:
+    visible: "(?i)Save as new photo.*"
+    timeout: 15000
+- assertVisible: "(?i)Save as new photo.*"
+- assertVisible: "(?i)Save to Gallery.*"
+- assertVisible: ".*(?i)(Don.?t Save|Do Not Save).*"

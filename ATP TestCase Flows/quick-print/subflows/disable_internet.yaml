@@ -1,7 +1,7 @@
 # Airplane + wifi/data off. Maestro setAirplaneMode plus adb helper.
 # See: https://docs.maestro.dev/reference/commands-available/setairplanemode
 # See: https://docs.maestro.dev/reference/commands-available/runscript
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - setAirplaneMode: enabled
 - runScript:

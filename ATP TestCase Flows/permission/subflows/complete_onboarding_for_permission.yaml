@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Sign Up Later → optional terms → optional coachmark Skip — stop before granting runtime permissions.
 - runFlow: ../../common/subflows/reach_signup_screen.yaml

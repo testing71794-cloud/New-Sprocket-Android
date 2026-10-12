@@ -1,0 +1,52 @@
+# This device blocks adb/Maestro pm grant — tap Allow dialogs when present.
+# Keep this short: each when-check scans hierarchy and was making runs ~14 min.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(photos and videos|Allow all|Allow limited access).*"
+          commands:
+            - tapOn: ".*(?i)^Allow all$"
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow:
+          when:
+            visible: ".*(?i)(send you notifications|post notifications).*"
+          commands:
+            - tapOn: ".*(?i)^Allow$"
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow:
+          when:
+            visible: ".*(?i)(While using the app|access this device.*location|nearby devices).*"
+          commands:
+            - tapOn:
+                text: "Precise"
+                optional: true
+            - tapOn:
+                text: ".*(?i)While using the app.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)^Allow$"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow:
+          when:
+            visible: ".*(?i)^Allow$"
+            notVisible: ".*(?i)(Quick Print|Don't allow|Don.?t allow|Allow all).*"
+          commands:
+            - tapOn: ".*(?i)^Allow$"
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow:
+          when:
+            visible: ".*(?i)No Thanks.*"
+          commands:
+            - tapOn: ".*(?i)No Thanks.*"
+            - waitForAnimationToEnd:
+                timeout: 800

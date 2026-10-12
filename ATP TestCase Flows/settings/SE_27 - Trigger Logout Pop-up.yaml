@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 28 | Module: Logout
 # Trigger Logout Pop-up
 # Expected: "Log Out?" pop-up appears displaying confirmation, "Cancel" button, and "Log Out" button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_27 - Trigger Logout Pop-up"
 tags:
   - settings

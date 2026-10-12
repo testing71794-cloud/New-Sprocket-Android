@@ -1,0 +1,12 @@
+# Supplied JSON row: AI Tools 56 | Replace Background
+# Verify custom background result
+appId: com.caglobal.hp.sprocket
+name: "AI_56 - Replace Background Custom Result - Verify custom background result"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_custom_result.yaml
+- assertVisible: "Replace Background"
+- assertVisible: '.*(?i)\+?\s*Generate New'

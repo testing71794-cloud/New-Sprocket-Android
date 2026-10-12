@@ -1,0 +1,37 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel: Deny camera — revoke OS grant first (suite order), re-enter Photo ID, tap Don't allow if dialog shows.
+- setPermissions:
+    permissions:
+      camera: deny
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(Photo ID Mode|2x2|1x1|1\\.4x|1\\.3x).*"
+    commands:
+      - back
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - runFlow: open_photo_id.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(take pictures|record video|Don't allow|Don.t allow|DON.T ALLOW|Open Settings|grant camera permission).*"
+    timeout: 15000
+- runFlow:
+    when:
+      visible: ".*(?i)(take pictures|record video|Don't allow|Don.t allow|DON'T ALLOW).*"
+    commands:
+      - tapOn:
+          text: "(?i)Don.t allow"
+          optional: true
+      - tapOn:
+          text: "(?i)DON.T ALLOW"
+          optional: true
+      - tapOn:
+          text: "(?i)Don't allow"
+          optional: true
+      - tapOn:
+          id: ".*permission_deny_button.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 3000

@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_001 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Plug In + Power On Screen for the HP Sprocket Studio
 # Expected: The Plug In + Power On screen should be displayed. The Sprocket Studio printer image should be displayed. The following text should be displayed:  Connect the power cord to the printer and plug it in. Press and hold the power button on the 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_076 - Verify Plug In Power On Screen for the HP Sprocket Studio"
 tags:
   - connection

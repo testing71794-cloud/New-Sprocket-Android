@@ -2,7 +2,7 @@
 # Excel: General_PCF-011 | Module: Pre Connection Flow
 # Verify successful connection
 # Expected: Your Printer is Connected' screen should display along with 'Finish Connection' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_159 - Verify successful connection"
 tags:
   - connection

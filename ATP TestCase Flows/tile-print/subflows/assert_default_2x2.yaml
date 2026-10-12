@@ -1,0 +1,12 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: "Tiles"
+- runFlow:
+    when:
+      visible:
+        id: ".*tiles_four.*"
+    commands:
+      - assertVisible:
+          id: ".*tiles_four.*"
+- assertVisible: "Tiles"
+- takeScreenshot: tile_print_default_2x2_four_selected

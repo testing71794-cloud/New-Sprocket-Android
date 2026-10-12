@@ -1,0 +1,25 @@
+# ATP Test Case ID: PS_12
+# Excel: Print_State_12
+# Stopper error pauses queue and shows count tip
+# Expected: The affected print returns to queue, the queue pauses, and closing the error shows "You have # prints in the queue" or "You have 1 print in queue."
+appId: com.caglobal.hp.sprocket
+name: "PS_12 - Stopper error pauses queue and shows count tip"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-error-injection
+  - queue
+  - known-failure
+---
+- runFlow: subflows/open_multi_print_state.yaml
+# Manually induce a stopper error (for example Out Of Paper) while Printing.
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+- takeScreenshot: PS_12_stopper_error_popup
+# Manually close the popup with its X control while leaving the error unresolved.
+- extendedWaitUntil:
+    visible: ".*(?i)You have ([0-9]+ prints|1 print) in (the )?queue.*"
+    timeout: 60000

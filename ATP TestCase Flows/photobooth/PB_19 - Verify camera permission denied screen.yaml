@@ -2,7 +2,7 @@
 # Excel: Photobooth 19 | Module: Photobooth- camera permission deny
 # Verify behavior when camera permission is denied.
 # Expected: Capture screen does not open. Denied UI with Open Settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_19 - Verify camera permission denied screen"
 tags:
   - photobooth

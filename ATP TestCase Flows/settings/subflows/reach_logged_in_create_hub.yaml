@@ -1,4 +1,4 @@
 # Cold launch → Create hub → More → Log In → email login (same path as SE_15).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: login_from_hamburger_email_valid.yaml

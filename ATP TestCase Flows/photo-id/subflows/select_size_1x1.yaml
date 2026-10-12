@@ -1,0 +1,24 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      notVisible: ".*(?i)1.?x.?1.*"
+    commands:
+      - tapOn:
+          point: "20%,40%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)1.?x.?1.*"
+    commands:
+      - tapOn: ".*(?i)1.?x.?1.*"
+# Fallback: second size chip from left on Photo ID capture (Vivo).
+- runFlow:
+    when:
+      notVisible: ".*(?i)1.?x.?1.*"
+    commands:
+      - tapOn:
+          point: "28%,78%"
+- waitForAnimationToEnd:
+    timeout: 1500

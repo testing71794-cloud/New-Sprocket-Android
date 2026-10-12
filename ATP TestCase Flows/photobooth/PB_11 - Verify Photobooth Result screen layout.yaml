@@ -2,7 +2,7 @@
 # Excel: Photobooth 11 | Module: UI Layout
 # Verify Photobooth Result screen layout
 # Expected: Top: Back arrow, Printer name (HP Sprocket Studio Plus), Share icon visible. Middle: 4 photos displayed in grid layout. Bottom: Copies control (- / 1 / +), Print button, and bottom navigation (More, Create, Printer) are visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_11 - Verify Photobooth Result screen layout"
 tags:
   - photobooth

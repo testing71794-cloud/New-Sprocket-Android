@@ -1,0 +1,46 @@
+# Reuse Photo ID capture when the size chips are already on screen.
+# Cold launch only when Create hub cannot be reached.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/presskey
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(Print|Copies|Save to Gallery).*"
+            notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+          commands:
+            - tapOn:
+                point: "7%,10%"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: "(?i)Save as new photo.*"
+          commands:
+            - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - runFlow: open_photo_id.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(2x2|1x1|1\\.4x|1\\.3x|WHILE USING|While using the app|Photo ID Mode).*"
+    commands:
+      - runFlow: excel_launch_to_home.yaml
+      - runFlow: open_photo_id.yaml
+- runFlow: allow_camera_while_using.yaml
+- runFlow: dismiss_mode_popup_ok.yaml
+- runFlow: wait_capture_screen.yaml

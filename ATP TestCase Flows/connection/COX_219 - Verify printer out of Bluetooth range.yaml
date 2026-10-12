@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC057 | Module: Wi-Fi Connection Failure
 # Verify printer out of Bluetooth range
 # Expected: Connection fails and 'Couldn't Connect' screen is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_219 - Verify printer out of Bluetooth range"
 tags:
   - connection

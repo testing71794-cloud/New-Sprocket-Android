@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Collage_01 path: I'll do it later / Sign Up Later → Create home (Collage Maker visible).
 - runFlow: ../../common/subflows/tap_sign_up_later.yaml
@@ -16,4 +16,4 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: ".*Create.*"
 - waitForAnimationToEnd:
-    timeout: 3000
+    timeout: 800

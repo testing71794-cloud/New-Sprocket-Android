@@ -1,0 +1,21 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: background_reach_replace_options.yaml
+- tapOn:
+    point: "50%,45%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- inputText: "sunset beach"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    point: "50%,59%"
+- runFlow: background_assert_loader.yaml
+- extendedWaitUntil:
+    visible: '.*(?i)\+?\s*Generate New'
+    timeout: 180000
+- assertVisible: "Replace Background"
+- assertVisible: '.*(?i)\+?\s*Generate New'
+- assertVisible:
+    text: ".*(?i)^Apply$"
+    enabled: true

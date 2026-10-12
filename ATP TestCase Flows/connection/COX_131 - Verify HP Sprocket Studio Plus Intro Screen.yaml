@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_001 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify HP Sprocket Studio Plus Intro Screen
 # Expected: The HP Sprocket Studio Plus introductory screen should be displayed. The HP Sprocket Studio Plus printer image should be displayed. The printer name "HP Sprocket Studio Plus" should be displayed.  The following description should be display
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_131 - Verify HP Sprocket Studio Plus Intro Screen"
 tags:
   - connection

@@ -1,0 +1,27 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: ".*(?i)(Recent|Gallery).*"
+- extendedWaitUntil:
+    visible: ".*(?i)Select Gallery.*"
+    timeout: 8000
+- tapOn: ".*(?i)(Camera|Pictures|Screenshots|Downloads?|DCIM|Images).*"
+- extendedWaitUntil:
+    notVisible: ".*(?i)Select Gallery.*"
+    timeout: 8000
+- tapOn:
+    point: "92%,8%"
+- takeScreenshot: object_gallery_sort_options
+- tapOn:
+    point: "70%,10%"
+- tapOn:
+    point: "92%,8%"
+- tapOn:
+    point: "70%,16%"
+- swipe:
+    start: "50%,80%"
+    end: "50%,40%"
+    duration: 500
+- swipe:
+    start: "50%,40%"
+    end: "50%,80%"
+    duration: 500

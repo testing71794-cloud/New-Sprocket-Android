@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Open a local album from Select Gallery.
 # Many devices have no "Camera" album — prefer Camera, else Pictures, else Movies.

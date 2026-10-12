@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios 23 | Module: Paper
 # Verify "Paper Jam" error
 # Expected: "Paper Jam Error" popup is displayed . The popup displays the bold title "Paper Jam Error", followed by the message "Paper jam. Clear the paper jam and restart the printer by pressing and holding the power button." The popup includes an "OK
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_44 - Verify Paper Jam error"
 tags:
   - alerts

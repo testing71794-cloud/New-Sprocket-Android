@@ -2,7 +2,7 @@
 # Excel: Custom SDK 11 | Module: Save Photo
 # Verify "Save to Gallery"
 # Expected: Image is saved successfully to the device Gallery and popup closes.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_11 - Verify Save to Gallery"
 tags:
   - custom-sdk

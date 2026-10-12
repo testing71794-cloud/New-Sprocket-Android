@@ -1,0 +1,34 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel: Tap Photo ID (tile is below Photobooth; labels live in content-desc).
+# Prefer Create hub, then swipe the ScrollView before scrollUntilVisible (Vivo ScrollView).
+- runFlow:
+    when:
+      visible: ".*(?i)Create.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            notVisible: ".*(?i)Photo ID.*"
+          commands:
+            - swipe:
+                start: "50%,72%"
+                end: "50%,28%"
+                duration: 400
+            - waitForAnimationToEnd:
+                timeout: 800
+- scrollUntilVisible:
+    element: ".*(?i)Photo ID.*"
+    direction: DOWN
+    timeout: 20000
+    visibilityPercentage: 40
+    centerElement: true
+- tapOn: ".*(?i)Photo ID.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Photo ID|WHILE USING THE APP|While using the app|Don't allow|Don.t allow|take pictures|Photo ID Mode).*"
+    timeout: 15000

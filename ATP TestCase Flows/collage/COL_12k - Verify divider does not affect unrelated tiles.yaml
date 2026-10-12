@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_12k
+# Excel: Collage_12 (k) | Module: Collage maker- Divider Adjustment Does Not Affect Unrelated Tiles
+# Verify that adjusting the divider between the top tiles does not affect an unrelated bottom tile.
+appId: com.caglobal.hp.sprocket
+name: "COL_12k - Verify divider does not affect unrelated tiles"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_three_photos_sprocket.yaml
+- swipe:
+    start: "50%,32%"
+    end: "70%,32%"
+    duration: 800
+- assertVisible: "Drag & Drop to Reorder"

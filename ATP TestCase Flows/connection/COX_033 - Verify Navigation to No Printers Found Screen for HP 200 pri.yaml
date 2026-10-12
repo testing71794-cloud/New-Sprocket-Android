@@ -2,7 +2,7 @@
 # Excel: PCF_HP200_015 | Module: Pre Connection Flow for HP 200
 # Verify Navigation to 'No Printers Found' Screen for HP 200 printer
 # Expected: The 'No Printers Found' screen should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_033 - Verify Navigation to No Printers Found Screen for HP 200 pri"
 tags:
   - connection

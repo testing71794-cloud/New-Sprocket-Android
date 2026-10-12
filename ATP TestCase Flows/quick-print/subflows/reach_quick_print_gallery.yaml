@@ -1,5 +1,5 @@
-# Cold launch → Create → Quick Print gallery (Allow all photos).
-# See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+# Stay on Quick Print when the gallery is already open.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
 ---
-- runFlow: reach_gallery_allow_all.yaml
+- runFlow: ensure_quick_print_gallery.yaml

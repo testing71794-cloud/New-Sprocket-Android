@@ -1,6 +1,6 @@
 # Photos permission — Don't allow / Deny (straight + curly apostrophe).
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     text: ".*(?i)Don.?t [Aa]llow.*"

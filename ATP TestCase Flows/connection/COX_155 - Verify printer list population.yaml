@@ -2,7 +2,7 @@
 # Excel: General_PCF-007 | Module: Pre Connection Flow
 # Verify printer list population
 # Expected: Available printer should start appearing in the list
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_155 - Verify printer list population"
 tags:
   - connection

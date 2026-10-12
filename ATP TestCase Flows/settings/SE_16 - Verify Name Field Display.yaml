@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 16 | Module: Personal
 # Verify Name Field Display
 # Expected: Name field is displayed correctly. If editing is restricted, user cannot modify the name. If editable, changes should be saved successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_16 - Verify Name Field Display"
 tags:
   - settings

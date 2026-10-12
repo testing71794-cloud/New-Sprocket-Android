@@ -2,7 +2,7 @@
 # Excel: Photobooth 10 | Module: Photobooth – Capture process
 # Verify that the Capture button changes to a Stop button after capture starts.
 # Expected: Capture changes to Stop (square); Stop remains during sequence.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_10 - Verify Capture button changes to Stop"
 tags:
   - photobooth

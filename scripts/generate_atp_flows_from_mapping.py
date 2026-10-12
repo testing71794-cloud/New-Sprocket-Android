@@ -18,7 +18,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 ATP_ROOT = REPO / "ATP TestCase Flows"
 MAPPING_CSV = REPO / "ATP_TestCase_Maestro_Mapping.csv"
-APP_ID = "com.hp.impulse.sprocket"
+APP_ID = "com.caglobal.hp.sprocket"
 
 MODULE_FOLDER = {
     "SignUp_Login": "signup-login",

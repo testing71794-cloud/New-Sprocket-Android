@@ -1,0 +1,7 @@
+# Print Preview shell — CTA may be Print / Reconnect / Add Printer until resolved.
+# See: https://docs.maestro.dev/reference/selectors
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible: "Copies"
+- assertVisible: "Tiles"
+- assertVisible: ".*(?i)(^Print$|Reconnect Printer|^Add Printer$).*"

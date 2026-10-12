@@ -1,0 +1,14 @@
+# Supplied JSON row: AI Tools 66 | Replace Background
+# Verify Do Not Save discards generated photo
+appId: com.caglobal.hp.sprocket
+name: "AI_66 - Replace Background Do Not Save - Verify Do Not Save discards generated photo"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: subflows/background_open_save_popup.yaml
+- tapOn: ".*(?i)(Do Not Save|Don.?t Save|Exit [Ww]ithout [Ss]aving).*"
+- assertNotVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: "Replace Background"

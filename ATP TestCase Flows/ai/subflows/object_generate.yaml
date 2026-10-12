@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    text: "Generate"
+    enabled: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Generating|Please wait|Loading|Apply|Generate New).*"
+    timeout: 15000
+- takeScreenshot: object_generation_started

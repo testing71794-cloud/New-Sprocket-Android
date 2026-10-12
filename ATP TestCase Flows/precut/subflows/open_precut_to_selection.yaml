@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # From Create hub: open Pre-Cut selection. Warning is dismissed only if it appears.
 - runFlow: tap_precut.yaml

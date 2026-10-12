@@ -2,7 +2,7 @@
 # Excel: Precut_08 (d) | Module: Pre-Cut Stickers – AI Photo Editing
 # Verify that tapping the AI icon opens the AI editing module and applied changes are reflected in the same slot.
 # Expected: AI module; after apply, still on Select 2 photos with the same slot assigned.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_08d - Verify AI editing updates the same slot"
 tags:
   - precut

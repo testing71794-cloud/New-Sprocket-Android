@@ -1,5 +1,5 @@
 # Open Tile Print from Create hub and land on the gallery picker.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: "Recent"

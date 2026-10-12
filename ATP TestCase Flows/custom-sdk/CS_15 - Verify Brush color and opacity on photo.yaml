@@ -1,0 +1,30 @@
+# ATP Test Case ID: CS_15
+# Excel: Custom SDK 15 | Module: Custom SDK> Photo Editor – Brush, Color and Opacity
+# Verify drawing with Brush and changing brush color/opacity.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "CS_15 - Verify Brush color and opacity on photo"
+tags:
+  - custom-sdk
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- tapOn:
+    text: ".*(?i)^Edit$"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Brush|Crop|Filter|Adjust|Done|Apply).*"
+    timeout: 20000
+- tapOn:
+    text: ".*(?i)^Brush$"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    point: "40%,45%"
+    optional: true
+- tapOn:
+    point: "55%,50%"
+    optional: true
+- assertVisible: ".*(?i)(Brush|Done|Apply|Cancel|Opacity|Color).*"

@@ -1,0 +1,21 @@
+# ATP Test Case ID: PH_11
+# Excel: Print_History11
+# Verify Print History Is Deleted After Reinstalling the Application
+# Manual setup: create print history, uninstall the application through Android,
+# reinstall it, complete onboarding, and reconnect the same printer. launchApp
+# clearState is intentionally not used as a substitute for the reinstall step.
+appId: com.caglobal.hp.sprocket
+name: "PH_11 - History cleared after app reinstallation"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - reinstall-manual
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertNotVisible: "^Reprint$"
+- assertNotVisible: "^Add to Queue$"
+- takeScreenshot: PH_11_empty_history_after_reinstall

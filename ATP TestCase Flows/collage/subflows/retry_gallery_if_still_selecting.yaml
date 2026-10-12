@@ -1,0 +1,39 @@
+appId: com.caglobal.hp.sprocket
+---
+# Date headers / videos make the first gallery row sparse. Scroll, then tap a denser grid.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/swipe
+- runFlow:
+    when:
+      visible: ".*Select 2 to [48] photos.*"
+    commands:
+      - swipe:
+          start: "50%,82%"
+          end: "50%,40%"
+          duration: 400
+      - waitForAnimationToEnd:
+          timeout: 500
+      - tapOn:
+          point: "18%,56%"
+      - tapOn:
+          point: "50%,56%"
+      - tapOn:
+          point: "82%,56%"
+      - waitForAnimationToEnd:
+          timeout: 400
+      - tapOn:
+          point: "18%,68%"
+      - tapOn:
+          point: "50%,68%"
+      - tapOn:
+          point: "82%,68%"
+      - waitForAnimationToEnd:
+          timeout: 400
+      - tapOn:
+          point: "18%,80%"
+      - tapOn:
+          point: "50%,80%"
+      - tapOn:
+          point: "82%,80%"
+      - waitForAnimationToEnd:
+          timeout: 800

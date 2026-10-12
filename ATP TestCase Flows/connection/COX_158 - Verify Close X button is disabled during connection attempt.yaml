@@ -2,7 +2,7 @@
 # Excel: General_PCF-010 | Module: Pre Connection Flow
 # Verify Close (X) button is disabled during connection attempt
 # Expected: The X button should be disabled and the screen should remain unchanged.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_158 - Verify Close X button is disabled during connection attempt"
 tags:
   - connection

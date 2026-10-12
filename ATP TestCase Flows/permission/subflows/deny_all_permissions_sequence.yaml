@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Deny every runtime permission dialog — handles adaptive order (Camera, Location, Nearby, Notification, Photos).
 - repeat:

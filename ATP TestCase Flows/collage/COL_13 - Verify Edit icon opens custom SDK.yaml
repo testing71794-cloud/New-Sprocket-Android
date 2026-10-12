@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_13
+# Excel: Collage_13 | Module: Collage maker- photo editing
+# Verify that tapping the Edit icon on a collage tile opens the original source image in the custom SDK.
+appId: com.caglobal.hp.sprocket
+name: "COL_13 - Verify Edit icon opens custom SDK"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: subflows/open_tile_edit.yaml
+- tapOn: "Done"
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Drag & Drop to Reorder"

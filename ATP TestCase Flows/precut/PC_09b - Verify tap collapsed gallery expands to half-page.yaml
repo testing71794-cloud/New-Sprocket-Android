@@ -2,7 +2,7 @@
 # Excel: Precut_09 (b) | Module: Pre-Cut Stickers – Gallery Sheet Expand
 # Verify that tapping the collapsed gallery sheet expands it to the default half-page state with animation.
 # Expected: Gallery thumbnails visible again; selections intact.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_09b - Verify tap collapsed gallery expands to half-page"
 tags:
   - precut

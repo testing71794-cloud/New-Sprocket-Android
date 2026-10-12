@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Assert Pre-Cut print preview after Next (no printer is OK).
 # Do not match the substring "Print" inside "Incompatible Printer".

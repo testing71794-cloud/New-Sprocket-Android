@@ -2,7 +2,7 @@
 # First-page lattice only. Do not Maestro-swipe here: video thumbnails never settle.
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

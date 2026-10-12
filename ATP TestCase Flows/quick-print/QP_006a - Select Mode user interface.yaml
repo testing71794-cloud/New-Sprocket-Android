@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_006 (a) | Gallery - Select Mode User Interface
 # Cancel, Recent, sort, checkmark, count, Print Preview, then print successfully.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_006a - Select Mode user interface"
 tags:
   - quick-print
@@ -9,9 +9,7 @@ tags:
   - positive
   - print-success
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/ensure_quick_print_with_printer.yaml
 - runFlow: subflows/enter_select_mode.yaml
 - assertVisible: "Cancel"
 - assertVisible: ".*(?i)(Recent|^All$).*"

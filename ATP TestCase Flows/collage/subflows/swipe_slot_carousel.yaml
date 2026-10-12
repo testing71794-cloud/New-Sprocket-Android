@@ -1,0 +1,16 @@
+appId: com.caglobal.hp.sprocket
+---
+# Horizontal swipe on the photo-slot carousel (top of selection screen).
+# See: https://docs.maestro.dev/reference/commands-available/swipe
+- swipe:
+    start: "80%,22%"
+    end: "20%,22%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 800
+- swipe:
+    start: "20%,22%"
+    end: "80%,22%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 800

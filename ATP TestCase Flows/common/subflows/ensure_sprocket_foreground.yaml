@@ -1,6 +1,8 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Recover when Settings or USB picker steals focus during launch.
+# Also dismiss Rate App (No Thanks) whenever it covers the hub.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 - runFlow:
     when:
       visible: ".*(?i)(Device details|Use USB for|USB controlled by|File transfer|Search settings).*"
@@ -14,3 +16,4 @@ appId: com.hp.impulse.sprocket
       - launchApp:
           clearState: false
 - runFlow: dismiss_usb_charging_popup_if_visible.yaml
+- runFlow: dismiss_rate_app_if_visible.yaml

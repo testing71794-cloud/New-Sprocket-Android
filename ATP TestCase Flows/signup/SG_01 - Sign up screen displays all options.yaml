@@ -1,11 +1,9 @@
 # ATP Test Case ID: SG_01
 # HP Sprocket — Sign up screen after onboarding (all options visible)
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SG_01 - Sign up screen displays all options"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_signup_screen.yaml
+- runFlow: subflows/ensure_signup_screen.yaml
 - assertVisible: "Sign up"
 - assertVisible: "Sign up with Google"
 - assertVisible: "Sign up with Facebook"

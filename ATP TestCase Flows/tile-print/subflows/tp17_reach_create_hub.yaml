@@ -1,5 +1,5 @@
 # Reach Create hub only — printer must already be connected before running TP_17.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: exit_module_screen_if_needed.yaml
 - runFlow:

@@ -1,6 +1,6 @@
 # Canonical merged PC_01. Consolidates the two duplicate PC_01 source flows.
 # Full coverage: cold launch/onboarding/Create/Pre-Cut navigation + selection UI.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_01 - Pre-Cut navigation and selection UI"
 tags: [precut, atp-excel, optimized]
 ---

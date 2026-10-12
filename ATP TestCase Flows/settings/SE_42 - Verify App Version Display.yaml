@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 47 | Module: Version
 # Verify App Version Display
 # Expected: App version is displayed correctly as static text and is non-interactive.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_42 - Verify App Version Display"
 tags:
   - settings

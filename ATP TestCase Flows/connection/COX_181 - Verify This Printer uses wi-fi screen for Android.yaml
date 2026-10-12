@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC019 | Module: This Printer uses wi-fi pop up
 # Verify 'This Printer uses wi-fi screen' for Android
 # Expected: Verify that the following UI elements are displayed correctly:  1. Close (X) button is displayed and enabled. 2. Wi-Fi illustration/icon is displayed. 3. Title "This printer uses Wi-Fi" is displayed. 4. Description text "Your phone is not c
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_181 - Verify This Printer uses wi-fi screen for Android"
 tags:
   - connection

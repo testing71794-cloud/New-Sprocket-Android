@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  11 | Module: Navigation
 # Verify Visit Support Website
 # Expected: Support website opens successfully in browser/WebView.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_11 - Verify Visit Support Website"
 tags:
   - settings

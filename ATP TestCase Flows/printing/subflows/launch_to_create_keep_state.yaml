@@ -1,0 +1,72 @@
+# Fast keep-state launch to Create hub. Sense select is suite setup (SKIP_SENSE=1).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/api-reference/commands/launchapp
+# See: https://docs.maestro.dev/api-reference/commands/setpermissions
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: false
+    permissions:
+      all: allow
+- setPermissions:
+    permissions:
+      all: allow
+- runFlow: ../../common/subflows/ensure_sprocket_foreground.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+# Onboarding only if needed
+- runFlow:
+    when:
+      visible: ".*(?i)(Welcome to Sprocket Sense|Swipe to continue|Welcome to the new Sprocket).*"
+      notVisible: ".*(?i)Quick Print.*"
+    commands:
+      - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+      - runFlow: ../../quick-print/subflows/complete_guest_welcome.yaml
+      - runFlow: ../../quick-print/subflows/guest_to_create_home.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later).*"
+      notVisible: ".*(?i)Quick Print.*"
+    commands:
+      - runFlow: ../../quick-print/subflows/complete_guest_welcome.yaml
+      - runFlow: ../../quick-print/subflows/guest_to_create_home.yaml
+# Navigate to Create hub quickly
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            notVisible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth).*"
+          commands:
+            - runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+            - tapOn:
+                text: "Create\nTab 2 of 3"
+                optional: true
+            - tapOn:
+                text: ".*(?i)^Create$"
+                optional: true
+            - tapOn:
+                point: "50%,90%"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 800
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth).*"
+    timeout: 25000
+# Optional Sense (only when SKIP_SENSE!=1)
+- runFlow:
+    when:
+      true: ${SKIP_SENSE != '1'}
+    commands:
+      - runFlow: ../../common/subflows/select_sprocket_sense_printer.yaml
+      - tapOn:
+          text: "Create\nTab 2 of 3"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - extendedWaitUntil:
+          visible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth).*"
+          timeout: 12000
+          optional: true

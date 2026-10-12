@@ -1,0 +1,15 @@
+# Supplied JSON row: AI Tools 72 | Replace Background
+# Lab setup: printer is pre-connected — Add Printer is not expected.
+# Verifies Print is shown instead of Add Printer (same connected-state check as AI_73).
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "AI_72 - Replace Background Add Printer State - Verify Print when printer is pre-connected"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - printer-manual
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"

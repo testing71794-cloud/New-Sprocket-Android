@@ -1,0 +1,6 @@
+# Lab: printer is pre-connected. Open Photobooth capture only.
+# Do NOT tap Add Printer / Skip to Connection / Searching for Printers.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ensure_photobooth_capture.yaml

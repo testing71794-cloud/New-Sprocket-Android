@@ -1,0 +1,29 @@
+# ATP Test Case ID: PH_12
+# Excel: trailing unnumbered Recent Prints - Add to Queue
+# Verify Add to Queue Removes the Recent Item and Adds It to Print Queue
+# Expected UI text: "Added to Queue", "In Queue".
+# Manual setup: create at least two Recent Prints items, pause the queue if
+# needed, and keep the applicable printer connected.
+appId: com.caglobal.hp.sprocket
+name: "PH_12 - Add recent print to queue"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+---
+- runFlow: subflows/open_recent_prints.yaml
+- assertVisible: "^Add to Queue$"
+- tapOn:
+    text: "^Add to Queue$"
+    index: 0
+- extendedWaitUntil:
+    visible: "^Added to Queue$"
+    timeout: 10000
+- back
+- extendedWaitUntil:
+    visible: ".*(?i)In Queue.*"
+    timeout: 15000
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PH_12_recent_print_added_to_queue

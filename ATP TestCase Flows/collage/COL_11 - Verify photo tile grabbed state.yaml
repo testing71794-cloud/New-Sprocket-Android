@@ -1,0 +1,18 @@
+# ATP Test Case ID: COL_11
+# Excel: Collage_11 | Module: Collage maker- photo selection
+# Verify that a photo tile enters the grabbed state after the user taps and holds it for 0.5 seconds.
+appId: com.caglobal.hp.sprocket
+name: "COL_11 - Verify photo tile grabbed state"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- swipe:
+    start: "50%,80%"
+    end: "50%,52%"
+    duration: 400
+- longPressOn:
+    point: "18%,58%"
+- assertVisible: "Select 2 to 4 photos"

@@ -2,7 +2,7 @@
 # Excel: Custom SDK 01 | Module: Gallery - Edit Screen Navigation
 # Verify user is redirected to Custom SDK screen after tapping Edit icon.
 # Expected: User is redirected to the Custom SDK editing screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_01 - Verify user is redirected to Custom SDK screen after tapping"
 tags:
   - custom-sdk

@@ -1,0 +1,40 @@
+# ATP Test Case ID: AI_32
+# Excel: AI Tools 32
+# Module: AI Tools > Image-to-Image > Print Preview – Verify Back Navigation Displays Save Confirmation Popup
+# Description:
+# Verify that tapping the Back button on the Print Preview screen displays the Save as a New Photo confirmation popup with the correct options.
+# Steps:
+# Install and launch the application.
+# Complete onboarding and navigate to the Home screen.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Select any image from the gallery.
+# Select an Image Style.
+# Tap Generate Images.
+# Wait for the generated results screen to load.
+# Tap Next.
+# Wait for the Print Preview screen to load.
+# Tap the Back button.
+# Expected:
+# A confirmation popup is displayed.
+# Popup title displays "Save as a New Photo".
+# Save to Gallery button is displayed.
+# Don't Save button is displayed.
+# User remains on the popup until an option is selected.
+appId: com.caglobal.hp.sprocket
+name: "AI_32 - Verify that tapping the Back button on the Print Preview screen displays the Save as a New Photo confirmation popup with the correct options."
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/image_to_image_open_save_popup.yaml
+- assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: ".*(?i)(Save to Gallery|Stay).*"
+- assertVisible: ".*(?i)(Don.?t Save|Do Not Save|Exit [Ww]ithout [Ss]aving).*"
+- takeScreenshot: AI_32_save_confirmation
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: ".*(?i)(Save to Gallery|Stay).*"
+- assertVisible: ".*(?i)(Don.?t Save|Do Not Save|Exit [Ww]ithout [Ss]aving).*"

@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 29 | Module: Logout
 # Cancel Logout
 # Expected: Pop-up closes; user remains on the HM_02A_Account Settings screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_28 - Cancel Logout"
 tags:
   - settings

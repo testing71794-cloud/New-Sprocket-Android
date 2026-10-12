@@ -1,7 +1,7 @@
 # Assert Quick Print gallery grid is open (not empty / deny).
 # See: https://docs.maestro.dev/reference/commands-available/assertvisible
 # See: https://docs.maestro.dev/reference/commands-available/assertnotvisible
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - assertVisible: ".*(?i)(Recent|Photos|^All$|^Select$|Gallery).*"
 - assertNotVisible: ".*(?i)No photos found.*"

@@ -1,6 +1,6 @@
 # ATP Test Case ID: LO_09
 # Figma CR_01B — Continue without Logging In → not-logged-in Create home
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "LO_09 - Continue without Logging In"
 ---
 - runFlow: subflows/ensure_login_options.yaml

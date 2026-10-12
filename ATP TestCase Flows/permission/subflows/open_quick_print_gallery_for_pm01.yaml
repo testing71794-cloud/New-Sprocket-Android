@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Quick Print from Create hub (expects photos dialog after tap when permissions denied).
 - tapOn: ".*Quick Print.*"

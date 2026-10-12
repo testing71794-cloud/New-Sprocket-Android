@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_01
+# Excel: Print Preview_01
+# Lab: printer pre-connected — no Add Printer / Skip to Connection / search.
+# Verify Quick Print opens Print Preview with Print CTA.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PR_01 - BLE printer connection and Quick Print navigation"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - hardware
+  - ble
+  - printer-preconnect
+---
+- runFlow: subflows/launch_to_create_keep_state.yaml
+- runFlow: subflows/open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"

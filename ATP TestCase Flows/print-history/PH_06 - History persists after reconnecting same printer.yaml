@@ -1,0 +1,19 @@
+# ATP Test Case ID: PH_06
+# Excel: Print_History06
+# Verify Print History Persists After Disconnecting and Reconnecting the Same Printer
+# Manual setup: print multiple photos, disconnect the printer, then reconnect the
+# same physical printer before running this flow.
+appId: com.caglobal.hp.sprocket
+name: "PH_06 - History persists after reconnecting same printer"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - printer-reconnection
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_06_same_printer_history_retained

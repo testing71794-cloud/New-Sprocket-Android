@@ -1,0 +1,49 @@
+# ATP Test Case ID: AI_28
+# Excel: AI Tools 28
+# Module: AI- Image-to-Image – Verify Thumbnail Selection Updates Main Preview Image
+# Description:
+# Verify that tapping a generated image thumbnail updates the main preview image.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with ""sprocket"" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select any image style
+# Select any image quantity
+# Wait to enable the 'Generate Images(s)'button and tap on it.
+# Wait to finish the generating photo process.
+# Verify the Newly generated image screen with thumbnails.
+# Observe the currently selected main preview image.
+# Tap the second generated image thumbnail.
+# Observe the main preview image.
+# Tap the third generated image thumbnail.
+# Observe the main preview image.
+# Expected:
+# The tapped thumbnail becomes selected.
+# The main preview image updates to match the selected thumbnail.
+# The displayed image changes immediately without errors.
+# The selected thumbnail is visually highlighted according to design.
+appId: com.caglobal.hp.sprocket
+name: "AI_28 - Verify that tapping a generated image thumbnail updates the main preview image."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_generate_results.yaml
+- takeScreenshot: AI_28_original_main_preview
+- tapOn:
+    point: "50%,72%"
+- assertVisible: "Next"
+- takeScreenshot: AI_28_second_thumbnail_preview

@@ -1,0 +1,58 @@
+# Clean launch → Select Mode → four photos → Print Preview.
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../quick-print/subflows/reach_gallery_allow_all.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)^Select$"
+    commands:
+      - tapOn: ".*(?i)^Select$"
+      - waitForAnimationToEnd:
+          timeout: 800
+      - tapOn:
+          point: "50%,45%"
+- runFlow:
+    when:
+      notVisible: "Cancel"
+    commands:
+      - longPressOn:
+          point: "50%,45%"
+      - waitForAnimationToEnd:
+          timeout: 800
+- assertVisible: "Cancel"
+# Skip the first Recent cell. On this device it is a video, so the photo grid
+# begins on the next row.
+- tapOn:
+    point: "82%,45%"
+    waitToSettleTimeoutMs: 0
+- tapOn:
+    point: "19%,60%"
+    waitToSettleTimeoutMs: 0
+- tapOn:
+    point: "50%,60%"
+    waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      visible: ".*(?i)Video Selected.*"
+    commands:
+      - tapOn:
+          point: "18%,28%"
+          waitToSettleTimeoutMs: 0
+      - tapOn:
+          point: "82%,60%"
+          waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      visible: ".*(?i)(3 Photos Selected|3.*Selected).*"
+    commands:
+      - tapOn:
+          point: "82%,60%"
+          waitToSettleTimeoutMs: 0
+- assertVisible: ".*(?i)(4 Photos Selected|4.*Selected).*"
+- tapOn: ".*(?i)Print Preview.*"
+- extendedWaitUntil:
+    visible: ".*(?i)Photo 1 of 4.*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Add (New )?Printer|No Printers Added|HP Sprocket).*"

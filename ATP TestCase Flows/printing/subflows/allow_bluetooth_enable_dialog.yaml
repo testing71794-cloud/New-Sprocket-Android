@@ -1,0 +1,11 @@
+# Accept Android's Bluetooth-enable confirmation after tapping Enable Bluetooth.
+# The system dialog belongs to Settings, but Maestro can match its visible text.
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)wants to turn on Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)^Allow$"
+      - waitForAnimationToEnd:
+          timeout: 3000

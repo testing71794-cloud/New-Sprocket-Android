@@ -1,0 +1,53 @@
+# ATP Test Case ID: AI_79_replace_object
+# Supplied Excel ID:
+# AI Tools 79
+# Supplied module:
+# AI Tools >Replace Object – Object Selection
+# Supplied description:
+# Verify object selection, cumulative painting, brush size controls, description input, and Generate button enablement.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Replace Object.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Use This Image.
+# 4. Verify the Replace Object editing screen is displayed.
+# 5. Tap on an object in the image.
+# 6. Verify that the object is automatically selected and the selected area is displayed with a 50% opacity #B654F5 overlay.
+# 7. Paint over another area of the image.
+# 8. Verify that the new selection is added to the existing selection.
+# 9. Tap the Brush Size button.
+# 10. Verify that 8px, 16px, and 24px brush size options are displayed.
+# 11. Select any brush size.
+# 12. Verify that the selected brush size is applied and the brush size menu remains open.
+# 13. Tap outside the brush size menu.
+# 14. Verify that the brush size menu closes without performing any action on the image.
+# 15. Tap the description text box.
+# 16. Enter valid replacement object description text.
+# 17. Verify that the native keyboard is displayed and the image preview adjusts to keep the text box visible.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Objects can be selected by tapping or painting.
+# Multiple selections are cumulative.
+# Selected areas display the specified purple overlay.
+# Brush sizes 8px, 16px, and 24px are available.
+# Selecting a brush size applies the size while keeping the menu open.
+# Tapping outside the menu closes it without triggering another action.
+# Tapping the description box opens the native keyboard and the preview adjusts accordingly.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_79_replace_object - Verify object selection, cumulative painting, brush size controls, description input, and Generate button enablement."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_replace.yaml
+- takeScreenshot: AI_79_replace_object_selection_overlay
+- runFlow: subflows/object_brush_controls.yaml
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"

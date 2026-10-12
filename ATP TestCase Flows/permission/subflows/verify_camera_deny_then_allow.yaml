@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # PERM_003/030: Deny Camera once, allow on retry, then capture works.
 - runFlow: ensure_create_hub_visible.yaml

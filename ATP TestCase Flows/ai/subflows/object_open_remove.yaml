@@ -1,0 +1,6 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    file: object_open_tool.yaml
+    env:
+      TOOL: "Remove Object"

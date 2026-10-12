@@ -2,7 +2,7 @@
 # Excel: Photobooth  08 | Module: Progress Bar
 # Verify progress bar increment logic
 # Expected: Progress bar moves forward by one slot after each photo capture.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_08 - Verify progress bar increment logic"
 tags:
   - photobooth

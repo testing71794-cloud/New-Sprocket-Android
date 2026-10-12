@@ -1,5 +1,5 @@
 # Tap AI tool on Print Preview (icon-only on some builds — coordinate fallback).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     text: ".*(?i)AI.*"

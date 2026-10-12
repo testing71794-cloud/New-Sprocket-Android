@@ -2,7 +2,7 @@
 # Excel: Precut_02 | Module: Pre-Cut Stickers – Warning Popup
 # Verify that the Pre-Cut Stickers warning popup is displayed when entering the Pre-Cut flow.
 # Expected: Title Pre-Cut Stickers, exclusive printer description, Got It, Don't Show Again.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_02 - Verify Pre-Cut Stickers warning popup"
 tags:
   - precut

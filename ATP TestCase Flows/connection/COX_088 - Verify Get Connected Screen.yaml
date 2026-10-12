@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_013 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Get Connected Screen
 # Expected: 1. The Get Connected screen should be displayed. 2. Printer illustration should be displayed. 3. Bluetooth connection instructions "Bluetooth® and printer turned on? Connect your mobile device to the printer." should be displayed. 4. Previo
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_088 - Verify Get Connected Screen"
 tags:
   - connection

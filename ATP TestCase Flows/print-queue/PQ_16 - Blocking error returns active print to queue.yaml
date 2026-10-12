@@ -1,0 +1,24 @@
+# ATP Test Case ID: PQ_16
+# Excel: Print_Queue16
+# Verify an interrupted active print returns to In Queue and retries from the beginning.
+appId: com.caglobal.hp.sprocket
+name: "PQ_16 - Blocking error returns active print to queue"
+tags: [print-queue, atp-excel, positive, physical-printer, manual-error, long-running, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- assertVisible: ".*(?i)Currently Printing.*"
+# Manual hardware action: trigger a blocking error during active printing.
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Error).*"
+    timeout: 120000
+- tapOn:
+    point: "92%,19%"
+- assertNotVisible: ".*(?i)Currently Printing.*"
+- assertVisible: ".*(?i)In Queue.*"
+- assertVisible: ".*(?i)Resume Queue.*"
+- takeScreenshot: PQ_16_interrupted_print_in_queue
+# Resolve the physical error; verify the interrupted print starts again.
+- extendedWaitUntil:
+    visible: ".*(?i)Currently Printing.*"
+    timeout: 180000
+- takeScreenshot: PQ_16_interrupted_print_restarted

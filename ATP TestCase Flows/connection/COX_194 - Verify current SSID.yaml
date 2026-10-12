@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC032 | Module: Wi-Fi
 # Verify current SSID
 # Expected: Connected Wi-Fi SSID displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_194 - Verify current SSID"
 tags:
   - connection

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Connect HP Sprocket 2×3 class printer via Printer tab.
 # Compatible examples: BT ending 84:0C, or HP Sprocket 200 ending DC:A8.

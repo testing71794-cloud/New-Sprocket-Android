@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC006 | Module: Discovery
 # Verify 'Try Again' restarts printer discovery
 # Expected: Searching for Printers' screen should reopen with the loading spinner and a new discovery scan should start.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_168 - Verify Try Again restarts printer discovery"
 tags:
   - connection

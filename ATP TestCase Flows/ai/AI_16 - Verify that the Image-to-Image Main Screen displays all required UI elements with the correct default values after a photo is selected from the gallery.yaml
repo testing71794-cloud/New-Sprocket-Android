@@ -1,0 +1,39 @@
+# ATP Test Case ID: AI_16
+# Excel: AI Tools 16
+# Module: AI- Image-to-Image – Verify Image-to-Image Main Screen UI Elements and Default Values
+# Description:
+# Verify that the Image-to-Image Main Screen displays all required UI elements with the correct default values after a photo is selected from the gallery.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Expected:
+# Selected image thumbnail is displayed in the Base Image section.
+# Thumbnail is displayed within a 108x108 px square area.
+# Change Photo button is displayed.
+# Crop Photo button is displayed.
+# Image Style section is displayed with no style selected by default.
+# Image Quantity section is displayed with quantity 3 selected by default.
+# Generate Images button is displayed.
+appId: com.caglobal.hp.sprocket
+name: "AI_16 - Verify that the Image-to-Image Main Screen displays all required UI elements with the correct default values after a photo is selected from the gallery."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- assertVisible:
+    text: "^3$"
+- takeScreenshot: AI_16_image_to_image_defaults

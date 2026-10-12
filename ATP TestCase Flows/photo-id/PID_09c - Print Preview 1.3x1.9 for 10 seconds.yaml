@@ -1,0 +1,18 @@
+﻿# ATP Test Case ID: PID_09c
+# Excel: Photo ID_9 (c) | Module: Photo ID â€“ 1.3Ã—1.9
+# Verify Photo ID 1.3Ã—1.9 camera screen UI, 10-second timer, capture flow, and Print Preview.
+# Expected: Single 1.3Ã—1.9 image after 10â†’1 countdown; Print Preview UI.
+appId: com.caglobal.hp.sprocket
+name: "PID_09c - Print Preview 1.3x1.9 for 10 seconds"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/ensure_photo_id_with_printer.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/select_timer_10s.yaml
+- runFlow: subflows/select_size_1_3x1_9.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_countdown_then_preview.yaml
+- runFlow: subflows/assert_print_preview_ui.yaml

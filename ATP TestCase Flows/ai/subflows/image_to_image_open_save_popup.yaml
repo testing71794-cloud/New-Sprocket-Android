@@ -1,0 +1,21 @@
+# Open the leave-confirmation popup from an AI-generated Print Preview.
+# This build shows Unsaved Changes; older copy was Save as a New Photo.
+# Print Preview back is an unlabeled header icon; system Back skips the popup.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: image_to_image_open_print_preview.yaml
+- retry:
+    maxRetries: 3
+    commands:
+      - tapOn:
+          point: "9%,7%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+    timeout: 5000
+- assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: ".*(?i)(Save to Gallery|Stay).*"
+- assertVisible: ".*(?i)(Don.?t Save|Do Not Save|Exit [Ww]ithout [Ss]aving).*"

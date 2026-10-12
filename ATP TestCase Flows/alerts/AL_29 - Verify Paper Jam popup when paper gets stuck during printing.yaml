@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 08 | Module: iOS_22_Paper Jam
 # Verify Paper Jam popup when paper gets stuck during printing
 # Expected: Title: Paper Jam.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_29 - Verify Paper Jam popup when paper gets stuck during printing"
 tags:
   - alerts

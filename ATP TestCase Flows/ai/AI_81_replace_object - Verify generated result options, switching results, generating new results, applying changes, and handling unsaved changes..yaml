@@ -1,0 +1,85 @@
+# ATP Test Case ID: AI_81_replace_object
+# Supplied Excel ID:
+# AI Tools 81
+# Supplied module:
+# AI Tools >Replace Object – Generated Results
+# Supplied description:
+# Verify generated result options, switching results, generating new results, applying changes, and handling unsaved changes.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Replace Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Select or paint an object.
+# 4. Enter valid replacement object description text.
+# 5. Tap Generate.
+# 6. Wait for image generation to complete.
+# 7. Verify that 2 image results are displayed with Option 1 selected by default.
+# 8. Tap the second result thumbnail.
+# 9. Verify that the selected thumbnail becomes the main preview.
+# 10. Tap Generate New.
+# 11. Verify that the Generating Loader is displayed.
+# 12. Verify that 2 new image options are displayed after generation.
+# 13. Tap Cancel.
+# 14. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.
+# 15. Tap Stay.
+# 16. Verify that the popup closes and the user remains on the result screen.
+# 17. Tap Cancel again.
+# 18. Tap Exit without Saving.
+# 19. Verify that the user is redirected to the AI Tools selection screen.
+# 20.Select replace object option and select any photo and tap Use This Image.
+# 21.Select or paint an object.
+# 22. Enter valid replacement object description text.
+# 23. Tap Generate.
+# 24. Wait for image generation to complete.
+# 25. Verify that 2 image results are displayed with Option 1 selected by default.
+# 26. Tap Apply
+# 27. Verify that user is redirect to the Print Preview screen
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Two generated image options are displayed.
+# Option 1 is selected by default.
+# Tapping a thumbnail changes the main preview.
+# Generate New produces two new options after displaying the loader.
+# Apply redirects to Print Preview with changes saved.
+# Cancel displays the Unsaved Changes popup.
+# Stay keeps the user on the current screen.
+# Exit without Saving redirects to the AI Tools selection screen.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_81_replace_object - Verify generated result options, switching results, generating new results, applying changes, and handling unsaved changes."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_replace.yaml
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- takeScreenshot: AI_81_two_results_option_one_selected
+- tapOn:
+    point: "31%,79%"
+- takeScreenshot: AI_81_second_result_selected
+- tapOn: ".*(?i)Generate New.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Generating|Please wait|Loading|Apply|Generate New).*"
+    timeout: 15000
+- takeScreenshot: AI_81_generate_new_started
+- runFlow: subflows/object_wait_result.yaml
+- runFlow: subflows/object_assert_unsaved_stay_exit.yaml
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_replace.yaml
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- runFlow: subflows/object_apply_preview.yaml

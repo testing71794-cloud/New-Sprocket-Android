@@ -2,7 +2,7 @@
 # Excel: General_PCF-008 | Module: Pre Connection Flow
 # Verify loading spinner is displayed for selected printer
 # Expected: A loading spinner should be displayed in place of the selected printer's "+" button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_156 - Verify loading spinner is displayed for selected printer"
 tags:
   - connection

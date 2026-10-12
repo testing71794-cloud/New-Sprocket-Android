@@ -1,5 +1,5 @@
 # Return from a Printer Help sub-screen back to Printer Help landing.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - back
 - waitForAnimationToEnd:

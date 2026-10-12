@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_003 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Shop Here Button
 # Expected: Device default browser should open. Sprocket Studio Power Bank webpage should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_078 - Verify Shop Here Button"
 tags:
   - connection

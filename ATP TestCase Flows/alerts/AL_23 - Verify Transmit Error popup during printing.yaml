@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 002 | Module: iOS_12_Transmit Error
 # Verify Transmit Error popup during printing
 # Expected: Title: Transmit Error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_23 - Verify Transmit Error popup during printing"
 tags:
   - alerts

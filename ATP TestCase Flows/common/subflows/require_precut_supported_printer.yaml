@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Pre-Cut requires 2x3 paper. Fail when a non-2x3 printer is connected or the incompatible toast appears.
 # Supported: HP Sprocket 200 / 200D, 2-in-1 (2x1), Original Sprocket, Foxconn 200D (2x3 family).

@@ -1,5 +1,5 @@
 # ATP Stage Flow: Settings
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Settings"
 tags:
   - atp-verification

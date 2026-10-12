@@ -2,7 +2,7 @@
 # Excel: Firmware Update 26 | Module: Firmware UI
 # Verify status section
 # Expected: Printer Status and Paper Status are visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_26 - Verify status section"
 tags:
   - firmware

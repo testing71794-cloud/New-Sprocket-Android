@@ -2,7 +2,7 @@
 # Excel: PCF-004 | Module: Pre Connection Flow
 # Verify default HP200 printer selection at 'Select Your Device' screen
 # Expected: At 'Select Your Device' screen HP200 printer should be selected by default and highlighted in the carousel.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_004 - Verify default HP200 printer selection at Select Your Device"
 tags:
   - connection

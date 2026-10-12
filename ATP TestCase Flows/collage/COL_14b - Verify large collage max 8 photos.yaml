@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_14b
+# Excel: Collage_14 (b) | Module: Collage maker- Maximum Photo Selection for Large Collage
+# Verify that the user cannot select more than 8 photos for a large collage.
+appId: com.caglobal.hp.sprocket
+name: "COL_14b - Verify large collage max 8 photos"
+tags:
+  - collage
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/select_eight_photos_fast.yaml
+- tapOn:
+    point: "82%,84%"
+- waitForAnimationToEnd:
+    timeout: 400
+- assertVisible: "Select 2 to 8 photos"

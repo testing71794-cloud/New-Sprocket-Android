@@ -1,5 +1,5 @@
 # Confirm Select Mode reflects a video item, not a photo-only selection.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - assertVisible: "Print Preview"
 - assertVisible: "Cancel"

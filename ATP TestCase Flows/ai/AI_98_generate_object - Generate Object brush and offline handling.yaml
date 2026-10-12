@@ -1,0 +1,66 @@
+# Excel: AI Tools 98
+# Module: AI Tools >Generate Object – Selection and Generation Handling
+# Description: Verify cumulative area selection, brush size behavior, No Internet handling, API failure and retry.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Generate Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Tap or paint one area of the image.
+# 4. Paint an additional area of the image.
+# 5. Verify that the second selection is added to the existing selection.
+# 6. Tap the Brush Size button.
+# 7. Verify that 8px, 16px, and 24px brush size options are displayed.
+# 8. Select any brush size.
+# 9. Verify that the selected brush size is applied and the brush size menu remains open.
+# 10. Tap outside the brush size menu.
+# 11. Verify that the menu closes without activating another control or drawing on the image.
+# 12. Enter a valid prompt in the description text box.
+# 13. Tap Generate.
+# 14. Verify that the Generating Loader is displayed.
+# 15. Repeat the generation flow with the device internet connection disabled.
+# 16. Tap Generate.
+# 17. Verify that the No Internet popup is displayed with an OK button.
+# 18. Tap OK.
+# 19. Enable the internet connection.
+# 20. Repeat the generation flow and simulate an API generation failure.
+# 21. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”
+# 22. Tap Try Again.
+# 23. Verify that generation starts again and the Generating Loader is displayed.
+# Type: Positive
+# Expected:
+# Multiple taps/brush strokes are cumulative.
+# Brush sizes 8px, 16px, and 24px are available.
+# Selecting a brush size applies it while keeping the menu open.
+# Tapping outside the menu closes it without performing another action.
+# Generate displays the Generating Loader.
+# No Internet displays the No Internet popup with OK.
+# API failure displays the Generation Failed screen with the specified message.
+# Try Again starts generation again.
+appId: com.caglobal.hp.sprocket
+name: "AI_98_generate_object - Generate Object brush and offline handling"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - generate-object
+  - visual
+---
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- swipe:
+    start: "35%,40%"
+    end: "45%,48%"
+    duration: 700
+- swipe:
+    start: "55%,42%"
+    end: "65%,50%"
+    duration: 700
+- runFlow: subflows/object_brush_controls.yaml
+- tapOn:
+    point: "50%,85%"
+- inputText: "Add a flower vase"
+- hideKeyboard
+- runFlow: subflows/generate_object_generate_result.yaml
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- runFlow: subflows/generate_object_paint_and_prompt.yaml
+- runFlow: subflows/enhancement_disable_internet.yaml
+- runFlow: subflows/enhancement_assert_no_internet.yaml
+- runFlow: subflows/enhancement_enable_internet.yaml

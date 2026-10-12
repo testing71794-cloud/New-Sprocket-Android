@@ -1,0 +1,13 @@
+# ATP Test Case ID: COL_09b_3x4
+# Excel: Collage_9 (b) | Module: Collage maker- photo selection for HP 3*4/Studio Printer
+# Verify User Can Select 2 to 8 Photos and navigate to Drag & Drop when connected to HP 3x4 or Studio.
+# Empty slot "8" is not in the a11y tree; Select 2 to 8 is already asserted by launch.
+appId: com.caglobal.hp.sprocket
+name: "COL_09b_3x4 - Verify 2 to 8 photos with 3x4 or Studio"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/create_collage_eight_photos_large.yaml

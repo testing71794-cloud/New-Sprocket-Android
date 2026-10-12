@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC008 | Module: Discovery
 # Verify HP600 printer details are displayed
 # Expected: Discovered HP600 printer name and '+' action should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_170 - Verify HP600 printer details are displayed"
 tags:
   - connection

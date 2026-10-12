@@ -1,0 +1,3 @@
+appId: com.caglobal.hp.sprocket
+---
+- setAirplaneMode: disabled

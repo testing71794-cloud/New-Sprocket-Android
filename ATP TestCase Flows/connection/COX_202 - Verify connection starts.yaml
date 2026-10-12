@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC040 | Module: Wi-Fi
 # Verify connection starts
 # Expected: Connection process proceeds.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_202 - Verify connection starts"
 tags:
   - connection

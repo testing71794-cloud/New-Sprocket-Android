@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 50 | Module: Data
 # Data Collection Settings Navigation
 # Expected: User is redirected to Data Collection Settings screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_45 - Data Collection Settings Navigation"
 tags:
   - settings

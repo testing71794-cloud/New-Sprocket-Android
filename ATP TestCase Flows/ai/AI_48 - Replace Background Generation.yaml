@@ -1,0 +1,15 @@
+# Supplied JSON row: AI Tools 48 | Replace Background
+# Verify background generation loader
+appId: com.caglobal.hp.sprocket
+name: "AI_48 - Replace Background Generation - Verify background generation loader"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_open_replace_gallery.yaml
+- runFlow: subflows/background_select_photo.yaml
+- tapOn:
+    text: ".*(?i)^Generate$"
+    enabled: true
+- runFlow: subflows/background_assert_loader.yaml

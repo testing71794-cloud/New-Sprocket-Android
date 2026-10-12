@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Android 18 | Module: AD_08A_Memory Error
 # Verify the Memory Error popup is displayed when the printer encounters a memory-related issue during printing.
 # Expected: The Memory Error popup is displayed with the message "Restart your printer and your print will restart automatically." The OK button and Close icon are displayed correctly in top right side.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_18 - Verify the Memory Error popup is displayed when the printer "
 tags:
   - alerts

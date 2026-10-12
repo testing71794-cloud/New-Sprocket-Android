@@ -2,7 +2,7 @@
 # Excel: Photo ID  04 | Module: UI Verification
 # Verify Photo ID UI after camera permission denied
 # Expected: Photo ID camera preview is not displayed and user receives camera permission message.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_04 - Verify Photo ID UI after camera permission denied"
 tags:
   - photo-id

@@ -2,7 +2,7 @@
 # Excel: PS-001 | Module: Printer Settings
 # Verify complete Printer Settings screen preview
 # Expected: All Printer Settings sections, fields, and controls are displayed correctly and accessible through scrolling up to the Remove Printer button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_233 - Verify complete Printer Settings screen preview"
 tags:
   - connection

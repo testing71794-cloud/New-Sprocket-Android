@@ -1,0 +1,21 @@
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible:
+    point: "7%,8%"
+    enabled: true
+- assertVisible:
+    point: "93%,8%"
+    enabled: true
+- assertVisible: "Copies"
+- assertVisible: "Tiles"
+# AI and Edit are unlabeled ImageViews in the current Compose hierarchy.
+- assertVisible:
+    point: "17%,84%"
+    enabled: true
+- assertVisible:
+    point: "85%,84%"
+    enabled: true
+- assertVisible: ".*(?i)(^Print$|^Add Printer$)"
+- assertVisible: ".*(?i)(HP Sprocket|Sprocket 2-in-1|No Printers Added|Add Printer|Ready|Disconnected|Connected).*"
+- runFlow: assert_bottom_navigation.yaml
+- takeScreenshot: tile_print_preview_ui

@@ -1,0 +1,18 @@
+# Supplied JSON row: AI Tools 62 | Replace Background
+# Verify Apply opens Print Preview
+appId: com.caglobal.hp.sprocket
+name: "AI_62 - Replace Background Apply Result - Verify Apply opens Print Preview"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_custom_result.yaml
+- tapOn:
+    text: ".*(?i)^Apply$"
+    enabled: true
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- assertVisible: "Copies"
+- assertVisible: ".*(?i)^(Print|Add Printer)$"

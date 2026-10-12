@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Full carousel: welcome → AI Editing → Inkless → final slide → Get Started!
 - runFlow: advance_sprocket_carousel.yaml

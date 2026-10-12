@@ -2,7 +2,7 @@
 # Excel: General_PCF-004 | Module: Pre Connection Flow
 # Verify loading state spinner timing during Printers discovery
 # Expected: Discovery progress spinner should be visible for 20 seconds at 'searching for Printers…' screen
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_152 - Verify loading state spinner timing during Printers discover"
 tags:
   - connection

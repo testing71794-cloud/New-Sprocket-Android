@@ -1,0 +1,19 @@
+# ATP Test Case ID: PQ_03
+# Excel: Print_Queue03
+# Verify the next queued photo automatically becomes Currently Printing.
+appId: com.caglobal.hp.sprocket
+name: "PQ_03 - Next queued photo becomes current"
+tags: [print-queue, atp-excel, positive, physical-printer, long-running, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Currently Printing.*"
+    timeout: 120000
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_03_before_current_completes
+# Keep the queue active and compare thumbnails before/after physical completion.
+- extendedWaitUntil:
+    visible: ".*(?i)Currently Printing.*"
+    timeout: 420000
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_03_next_photo_current

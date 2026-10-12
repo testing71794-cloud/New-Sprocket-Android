@@ -2,7 +2,7 @@
 # Excel: Photobooth 11 | Module: Photobooth – Capture process
 # Verify that tapping the Stop button cancels the ongoing Photobooth capture process.
 # Expected: Capture stops; Capture button returns; preview ready for a new session.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_11 - Verify Stop cancels Photobooth capture"
 tags:
   - photobooth

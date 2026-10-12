@@ -1,0 +1,24 @@
+# ATP Test Case ID: PS_11
+# Excel: Print_State_11
+# Pause during active multi-print job
+# Expected: The active print finishes, then the next print remains "In Queue (Paused)" and no later job starts.
+appId: com.caglobal.hp.sprocket
+name: "PS_11 - Pause during active multi-print job"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+  - multi-photo
+  - timing-manual
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- extendedWaitUntil:
+    visible: "Printing"
+    timeout: 120000
+- runFlow: subflows/pause_queue.yaml
+# Active physical print cannot be paused; verify it finishes before the next job remains paused.
+- extendedWaitUntil:
+    visible: '.*(?i)(In Queue \(Paused\)|Resume Queue).*'
+    timeout: 420000

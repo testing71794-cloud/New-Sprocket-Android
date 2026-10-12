@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC004 | Module: Discovery
 # Verify tap + starts connection
 # Expected: Connection flow starts.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_166 - Verify tap starts connection"
 tags:
   - connection

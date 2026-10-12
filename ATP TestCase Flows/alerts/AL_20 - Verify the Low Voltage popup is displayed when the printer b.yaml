@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Android 20 | Module: AD_07A_Low Voltage
 # Verify the Low Voltage popup is displayed when the printer battery voltage is too low.
 # Expected: The Low Voltage popup is displayed with the message "Low Voltage Occurred. Your print will restart automatically." The OK button in bottom and Close icon top right corner  are displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_20 - Verify the Low Voltage popup is displayed when the printer b"
 tags:
   - alerts

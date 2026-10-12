@@ -2,7 +2,7 @@
 # Excel: Custom SDK  13 | Module: Video Print Preview
 # Verify Video Print Preview screen and all UI elements
 # Expected: Video Print Preview screen opens successfully. All UI elements are displayed correctly and function as expected.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_13 - Verify Video Print Preview screen and all UI elements"
 tags:
   - custom-sdk

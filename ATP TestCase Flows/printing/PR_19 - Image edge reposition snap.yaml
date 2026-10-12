@@ -1,0 +1,26 @@
+# ATP Test Case ID: PR_19
+# Excel: Print Preview_19
+# Image edge reposition snap
+# Expected: The image snaps consistently to supported canvas edges without leaving the preview.
+appId: com.caglobal.hp.sprocket
+name: "PR_19 - Image edge reposition snap"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - gesture
+  - visual-check
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- swipe:
+    start: "50%,43%"
+    end: "50%,29%"
+    duration: 1200
+- runFlow: subflows/assert_print_preview_ui.yaml
+- swipe:
+    start: "50%,29%"
+    end: "32%,43%"
+    duration: 1200
+- runFlow: subflows/assert_print_preview_ui.yaml
+- takeScreenshot: PR_19_edge_snap

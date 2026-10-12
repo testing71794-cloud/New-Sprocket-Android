@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC044 | Module: Connection
 # Verify Set Up Complete screen contents
 # Expected: Printer image, success message and Finish Connection button should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_206 - Verify Set Up Complete screen contents"
 tags:
   - connection

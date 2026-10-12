@@ -2,7 +2,7 @@
 # Excel: Firmware Update 30 | Module: Firmware Negative
 # Verify update blocked when battery low
 # Expected: Update is blocked with warning message.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_30 - Verify update blocked when battery low"
 tags:
   - firmware

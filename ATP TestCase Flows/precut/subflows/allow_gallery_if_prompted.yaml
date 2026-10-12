@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Allow Photos & Videos when Pre-Cut / gallery prompts (optional).
 - runFlow:

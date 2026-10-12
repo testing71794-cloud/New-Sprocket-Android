@@ -2,7 +2,7 @@
 # Excel: Photobooth 09 | Module: Countdown
 # Verify countdown timer returns for next photos
 # Expected: Countdown timer reappears and shows 3 → 2 → 1 before the next photo is captured.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_09 - Verify countdown timer returns for next photos"
 tags:
   - photobooth

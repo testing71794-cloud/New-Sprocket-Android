@@ -2,7 +2,7 @@
 # Excel: Firmware Update 15 | Module: Firmware Validation
 # Verify navigation restriction during firmware installation
 # Expected: Installation continues and critical update process is protected.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_15 - Verify navigation restriction during firmware installation"
 tags:
   - firmware

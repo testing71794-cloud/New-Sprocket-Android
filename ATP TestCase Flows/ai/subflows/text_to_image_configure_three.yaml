@@ -1,0 +1,12 @@
+# Enter a stable prompt and explicitly select Landscape and quantity 3.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: text_to_image_open.yaml
+- tapOn: "Tap here to enter a prompt..."
+- inputText: "A bright purple bicycle beside a calm lake"
+- hideKeyboard
+- tapOn: "Landscape"
+- tapOn:
+    text: "^3$"
+- assertVisible: "Generate Image\\(s\\)"

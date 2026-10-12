@@ -1,14 +1,20 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-# Fill all 4 collage slots (Sprocket UI: Select 2 to 4 photos).
+# Fill all 4 collage slots. Swipe past the top video/date row first.
+- swipe:
+    start: "50%,80%"
+    end: "50%,52%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 500
 - tapOn:
-    point: "18%,56%"
+    point: "18%,58%"
 - tapOn:
-    point: "50%,56%"
+    point: "50%,58%"
 - tapOn:
-    point: "82%,56%"
+    point: "82%,58%"
 - tapOn:
-    point: "18%,70%"
+    point: "18%,72%"
 - waitForAnimationToEnd:
     timeout: 800
 - runFlow:
@@ -16,14 +22,13 @@ appId: com.hp.impulse.sprocket
       visible: "Select 2 to 4 photos"
     commands:
       - tapOn:
-          point: "18%,72%"
-          optional: true
-      - tapOn:
           point: "50%,72%"
           optional: true
       - tapOn:
           point: "82%,72%"
           optional: true
       - tapOn:
-          point: "18%,82%"
+          point: "18%,84%"
           optional: true
+      - waitForAnimationToEnd:
+          timeout: 800

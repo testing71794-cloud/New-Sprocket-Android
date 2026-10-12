@@ -1,0 +1,30 @@
+appId: com.caglobal.hp.sprocket
+---
+# Capture / Stop is typically an unlabeled ImageView at bottom-center.
+# Ensure we are not on the camera-permission deny screen before tapping.
+- runFlow:
+    when:
+      visible: ".*(?i)(Open Settings|grant camera permission).*"
+    commands:
+      - setPermissions:
+          permissions:
+            camera: allow
+      - launchApp:
+          stopApp: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: allow_camera_while_using.yaml
+      - runFlow: dismiss_mode_popup_ok.yaml
+- runFlow:
+    when:
+      visible: "(?i)(Capture|Shutter).*"
+    commands:
+      - tapOn: "(?i)(Capture|Shutter).*"
+- runFlow:
+    when:
+      notVisible: "(?i)(Capture|Shutter).*"
+    commands:
+      - tapOn:
+          point: "50%,88%"
+- waitForAnimationToEnd:
+    timeout: 1500

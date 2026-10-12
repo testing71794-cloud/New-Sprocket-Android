@@ -10,7 +10,7 @@ properties([
     parameters([
         string(name: 'GCP_ORCHESTRATOR_AGENT', defaultValue: 'built-in', description: 'Linux controller label for sh/GCP stages (usually built-in).'),
         string(name: 'DEVICES_AGENT', defaultValue: 'devices', description: 'Windows USB-phone agent label (devices, my-pc-devices, …). Agent must be Online.'),
-        string(name: 'APP_PACKAGE', defaultValue: 'com.hp.impulse.sprocket', description: 'App package id'),
+        string(name: 'APP_PACKAGE', defaultValue: 'com.caglobal.hp.sprocket', description: 'App package id'),
         string(name: 'MAESTRO_CMD', defaultValue: 'maestro.bat', description: 'Maestro launcher'),
         string(name: 'MAESTRO_HOME', defaultValue: '', description: 'Optional; empty = auto-detect'),
         string(name: 'ANDROID_HOME', defaultValue: '', description: 'Optional; empty = auto-detect'),

@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_007 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Next Navigation from Load Paper
 # Expected: 1. The Install Ink Cartridge screen should be displayed. 2. Step 3 should be highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_082 - Verify Next Navigation from Load Paper"
 tags:
   - connection

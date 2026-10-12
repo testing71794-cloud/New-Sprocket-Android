@@ -1,0 +1,15 @@
+# ATP Test Case ID: PID_05c
+# Excel: Photo ID_05 | Module: Photo ID- Timer selection
+# NOTE: Excel reuses Photo ID_05 for Timer after permission cases; file ID is PID_05c to stay unique.
+# Verify Timer submenu accessible; Timer Off default; 3s, 5s, 10s displayed and tappable.
+# Expected: Timer submenu shows Timer Off (default), 3s, 5s, 10s.
+appId: com.caglobal.hp.sprocket
+name: "PID_05c - Timer selection"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/assert_timer_submenu.yaml

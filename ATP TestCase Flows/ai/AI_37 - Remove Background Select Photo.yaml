@@ -1,0 +1,13 @@
+# Supplied JSON row: AI Tools 37 | Remove Background
+# Verify selected photo and Generate button
+appId: com.caglobal.hp.sprocket
+name: "AI_37 - Remove Background Select Photo - Verify selected photo and Generate button"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/background_open_remove_gallery.yaml
+- runFlow: subflows/background_select_photo.yaml
+- assertVisible:
+    text: ".*(?i)^Generate$"
+    enabled: true

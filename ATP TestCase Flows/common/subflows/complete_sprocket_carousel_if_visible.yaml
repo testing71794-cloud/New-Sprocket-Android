@@ -1,10 +1,11 @@
-appId: com.hp.impulse.sprocket
----
-# First-launch carousel. Same LEFT swipe as ON_02 / ON_04 (90%→10% at 50%).
-# Footer-hint swipes and short mid-card swipes do not move this pager.
-# See: https://docs.maestro.dev/reference/commands-available/swipe
+# First-launch carousel. Copy uses content-desc on newer builds
+# ("Welcome to Sprocket Sense!" / "Swipe to continue.").
+# Full-width LEFT swipe moves the pager (footer-only swipes do not).
+# See: https://docs.maestro.dev/api-reference/commands/swipe
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# See: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
 - runFlow:
     when:
       visible: ".*(?i)Get Started!?.*"
@@ -12,36 +13,21 @@ appId: com.hp.impulse.sprocket
       - tapOn: ".*(?i)Get Started!?.*"
       - waitForAnimationToEnd:
           timeout: 2000
-- runFlow:
-    when:
-      visible: "Welcome to the new Sprocket!"
+# Advance through carousel pages (Sense + legacy copy)
+- repeat:
+    times: 6
     commands:
-      - swipe:
-          direction: LEFT
-          duration: 800
-      - extendedWaitUntil:
-          visible: ".*(?i)(AI Editing|Inkless|Get Started|Unleash).*"
-          timeout: 8000
-- runFlow:
-    when:
-      visible: "AI Editing & Generation"
-    commands:
-      - swipe:
-          direction: LEFT
-          duration: 800
-      - extendedWaitUntil:
-          visible: ".*(?i)(Inkless|Get Started|Unleash).*"
-          timeout: 8000
-- runFlow:
-    when:
-      visible: "Inkless & Seamless"
-    commands:
-      - swipe:
-          direction: LEFT
-          duration: 800
-      - extendedWaitUntil:
-          visible: ".*(?i)(Get Started|Unleash Your Creativity).*"
-          timeout: 8000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Welcome to the new Sprocket|Welcome to Sprocket Sense|Swipe to continue|AI Editing|Inkless|Unleash Your Creativity).*"
+            notVisible: ".*(?i)(Get Started!?|Sign up|I already have|I.ll do it later|Sign Up Later|Quick Print).*"
+          commands:
+            - swipe:
+                start: "90%,50%"
+                end: "10%,50%"
+                duration: 800
+            - waitForAnimationToEnd:
+                timeout: 1200
 - runFlow:
     when:
       visible: ".*(?i)Get Started!?.*"

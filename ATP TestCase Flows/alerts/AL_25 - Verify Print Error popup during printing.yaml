@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 004 | Module: iOS_15_Print Error
 # Verify Print Error popup during printing
 # Expected: Title: Print Error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_25 - Verify Print Error popup during printing"
 tags:
   - alerts

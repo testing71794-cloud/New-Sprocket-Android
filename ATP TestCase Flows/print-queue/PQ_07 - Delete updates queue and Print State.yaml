@@ -1,0 +1,17 @@
+# ATP Test Case ID: PQ_07
+# Excel: Print_Queue07
+# Verify deleting a pending print updates Print Queue and Print State.
+appId: com.caglobal.hp.sprocket
+name: "PQ_07 - Delete updates queue and Print State"
+tags: [print-queue, atp-excel, positive, physical-printer, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- takeScreenshot: PQ_07_before_delete
+- tapOn:
+    point: "92%,72%"
+- tapOn: "Delete"
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_07_after_delete
+- pressKey: BACK
+- assertVisible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+- takeScreenshot: PQ_07_print_state_after_delete

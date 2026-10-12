@@ -2,7 +2,7 @@
 # Excel: ON_02F_SU - S P / ON_02G_P P  TC_ON02G_02 | Module: ON_02G_Privacy Policy
 # Verify Privacy Policy behavior without internet connection
 # Expected: Privacy Policy page does not load and an error message "Web page not available" is displayed. User remains on the web view or can navigate back to the Sign Up screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_09 - Verify Privacy Policy behavior without internet connection"
 tags:
   - onboarding-splash

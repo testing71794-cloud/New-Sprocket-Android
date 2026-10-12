@@ -2,7 +2,7 @@
 # Excel: Photo ID 16 | Module: Print Preview 1×1
 # Verify Print Preview UI
 # Expected: 1×1 Print Preview is displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_16 - Verify Print Preview UI"
 tags:
   - photo-id

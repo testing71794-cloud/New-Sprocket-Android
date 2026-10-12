@@ -1,0 +1,50 @@
+﻿# ATP Test Case ID: PID_10
+# Excel: Photo ID_10 | Module: Photo ID – Edit toast message at Print Preview
+# Verify Edit Disabled Toast Message in Photo ID Mode.
+# Expected: Toast "Edit is not available for Photo ID." appears then disappears.
+# Note: toast text is often missing from the a11y tree on some devices (same pattern as Precut AI toast).
+appId: com.caglobal.hp.sprocket
+name: "PID_10 - Edit toast message at Print Preview"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/ensure_photo_id_with_printer.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/select_timer_3s.yaml
+- runFlow: subflows/select_size_2x2.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_countdown_then_preview.yaml
+- runFlow:
+    when:
+      visible: "(?i)Edit.*"
+    commands:
+      - tapOn: "(?i)Edit.*"
+- runFlow:
+    when:
+      notVisible: "(?i)Edit.*"
+    commands:
+      - tapOn:
+          point: "92%,90%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- extendedWaitUntil:
+    visible: ".*(?i)(Edit is not available|not available for Photo ID).*"
+    timeout: 6000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)(Edit is not available|not available for Photo ID).*"
+    commands:
+      - assertVisible: ".*(?i)(Edit is not available|not available for Photo ID).*"
+      - extendedWaitUntil:
+          notVisible: ".*(?i)(Edit is not available|not available for Photo ID).*"
+          timeout: 10000
+# Fallback: remain on Print Preview; Edit must not open the AI/editor flow.
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Edit is not available|not available for Photo ID).*"
+    commands:
+      - assertVisible: ".*(?i)(Print|Copies).*"
+      - assertNotVisible: ".*(?i)(Enhance|Magic|Change Photo|Crop Photo).*"

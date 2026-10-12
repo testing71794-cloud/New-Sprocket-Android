@@ -6,7 +6,7 @@ param(
 )
 
 $adb = "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe"
-$pkg = "com.hp.impulse.sprocket"
+$pkg = "com.caglobal.hp.sprocket"
 $adbArgs = @()
 if ($Device) { $adbArgs = @("-s", $Device) }
 

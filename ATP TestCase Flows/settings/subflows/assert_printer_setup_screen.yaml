@@ -1,5 +1,5 @@
 # Printer Setup (screen 3) — Charge + Power On onboarding step.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Charge \\+ Power On.*"

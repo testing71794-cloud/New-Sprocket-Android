@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC061 | Module: Wi-Fi Direct
 # Verify No Wi-Fi Available screen
 # Expected: No Wi-Fi Available' screen is displayed with appropriate guidance.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_223 - Verify No Wi-Fi Available screen"
 tags:
   - connection

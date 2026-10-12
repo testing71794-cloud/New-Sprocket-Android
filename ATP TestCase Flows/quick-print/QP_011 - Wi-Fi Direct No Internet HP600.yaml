@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_11 | Facebook Gallery - Wi-Fi Direct
 # HP600 via Wi-Fi Direct → Facebook → No Internet (mobile data) popup → OK.
 # Requires HP 600 nearby. See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_011 - Wi-Fi Direct No Internet HP600"
 tags:
   - quick-print

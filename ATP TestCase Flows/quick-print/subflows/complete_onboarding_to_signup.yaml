@@ -1,30 +1,40 @@
-# QP TCs — carousel → Sign up. Fail here if still on Welcome (do not continue).
-# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# QP TCs — carousel → Sign up. Soft-wait so keep-state launches do not hard-fail
+# when the app is already past onboarding (or briefly on a transition screen).
+# See: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: wait_after_cold_launch_fast.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
 - extendedWaitUntil:
-    visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Get Started!|Welcome to the new Sprocket).*"
+    visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Get Started!|Welcome to the new Sprocket|Welcome to Sprocket Sense|Swipe to continue|Quick Print).*"
     timeout: 20000
-- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+    optional: true
 - runFlow:
     when:
-      visible: "Swipe to continue."
+      notVisible: ".*(?i)Quick Print.*"
     commands:
       - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
-- runFlow:
-    when:
-      visible: ".*(?i)Get Started!?.*"
-    commands:
-      - tapOn: ".*(?i)Get Started!?.*"
-      - waitForAnimationToEnd:
-          timeout: 2000
-- runFlow:
-    when:
-      visible: ".*(?i)explore sprocket.*"
-    commands:
-      - tapOn: ".*(?i)explore sprocket.*"
-- extendedWaitUntil:
-    visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Explore Sprocket).*"
-    timeout: 20000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Swipe to continue|Welcome to Sprocket Sense).*"
+          commands:
+            - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)Get Started!?.*"
+          commands:
+            - tapOn: ".*(?i)Get Started!?.*"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: ".*(?i)explore sprocket.*"
+          commands:
+            - tapOn: ".*(?i)explore sprocket.*"
+      - extendedWaitUntil:
+          visible: ".*(?i)(Sign up|I already have (an )?account|I.ll do it later|Sign Up Later|Explore Sprocket|Quick Print).*"
+          timeout: 20000
+          optional: true
+

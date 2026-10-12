@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC062 | Module: Wi-Fi Direct
 # Verify Cancel on No Wi-Fi Available
 # Expected: Connection flow closes and previous screen is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_224 - Verify Cancel on No Wi-Fi Available"
 tags:
   - connection

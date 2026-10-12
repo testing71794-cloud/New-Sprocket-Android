@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # ON_03 / CR_01B — after "Continue without Logging In": terms → coachmark → permissions → Create home.
 - runFlow: ../../common/subflows/accept_terms_if_visible.yaml

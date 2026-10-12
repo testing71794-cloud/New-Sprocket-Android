@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 006 | Module: iOS_17_High Battery Temperature
 # Verify High Battery Temperature popup when battery overheats
 # Expected: Title: High Battery Temperature.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_27 - Verify High Battery Temperature popup when battery overheats"
 tags:
   - alerts

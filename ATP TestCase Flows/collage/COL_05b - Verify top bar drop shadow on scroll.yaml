@@ -1,0 +1,16 @@
+# ATP Test Case ID: COL_05b
+# Excel: Collage_05 (b) | Module: Collage Maker-Scroll feature
+# Verify that the top bar displays the specified drop shadow when the gallery is scrolled below the top bar.
+appId: com.caglobal.hp.sprocket
+name: "COL_05b - Verify top bar drop shadow on scroll"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- swipe:
+    start: "50%,80%"
+    end: "50%,40%"
+    duration: 600
+- assertVisible: "Select 2 to 4 photos"

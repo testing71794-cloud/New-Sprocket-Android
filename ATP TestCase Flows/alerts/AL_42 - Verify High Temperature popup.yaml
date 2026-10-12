@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios  21 | Module: Temperature
 # Verify "High Temperature" popup
 # Expected: "High Temperature" popup is displayed. The popup displays the bold title "High Temperature", followed by the message "Printer overheated! Please wait a few minutes for the printer to cool down." Below the message, the text "Once cooled down
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_42 - Verify High Temperature popup"
 tags:
   - alerts

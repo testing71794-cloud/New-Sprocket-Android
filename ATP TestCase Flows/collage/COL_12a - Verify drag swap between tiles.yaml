@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_12a
+# Excel: Collage_12 (a) | Module: Collage maker- Drag and Drop Photo Between Tiles
+# Verify that dragging a photo from its original tile to another tile swaps the photo previews.
+appId: com.caglobal.hp.sprocket
+name: "COL_12a - Verify drag swap between tiles"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- longPressOn:
+    point: "30%,40%"
+- swipe:
+    start: "30%,40%"
+    end: "70%,40%"
+    duration: 1200
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Drag & Drop to Reorder"

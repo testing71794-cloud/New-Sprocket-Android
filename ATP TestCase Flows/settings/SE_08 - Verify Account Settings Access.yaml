@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  08 | Module: Navigation
 # Verify Account Settings Access
 # Expected: User navigates to Account Settings screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_08 - Verify Account Settings Access"
 tags:
   - settings

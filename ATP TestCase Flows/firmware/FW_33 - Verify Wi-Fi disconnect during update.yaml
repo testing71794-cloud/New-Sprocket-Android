@@ -2,7 +2,7 @@
 # Excel: Firmware Update 33 | Module: Firmware Negative
 # Verify Wi-Fi disconnect during update
 # Expected: Update fails safely with error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_33 - Verify Wi-Fi disconnect during update"
 tags:
   - firmware

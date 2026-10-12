@@ -1,0 +1,25 @@
+appId: com.caglobal.hp.sprocket
+---
+# Prefer labeled 3s; else tap first timer option below Off on right sheet (Vivo icon-only).
+- runFlow:
+    when:
+      visible: ".*(?i)(3s|3 sec).*"
+    commands:
+      - tapOn: ".*(?i)(3s|3 sec).*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)(3s|3 sec).*"
+    commands:
+      - tapOn:
+          point: "85%,30%"
+- waitForAnimationToEnd:
+    timeout: 2000
+# Dismiss residual sheet without tapping capture/preview (left-mid of viewfinder).
+- runFlow:
+    when:
+      notVisible: ".*(?i)2.?x.?2.*"
+    commands:
+      - tapOn:
+          point: "20%,40%"
+      - waitForAnimationToEnd:
+          timeout: 1500

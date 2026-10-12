@@ -1,0 +1,25 @@
+# ATP Test Case ID: PQ_19
+# Excel: Print_Queue19
+# Verify the Print Queue empty-state UI with a connected printer.
+appId: com.caglobal.hp.sprocket
+name: "PQ_19 - Empty Print Queue state"
+tags: [print-queue, atp-excel, positive, physical-printer, manual-precondition, visual-check]
+---
+# Precondition: a printer is connected and no active or pending print jobs exist.
+- launchApp:
+    clearState: false
+- tapOn:
+    point: "83%,95%"
+- tapOn:
+    point: "91%,9%"
+- extendedWaitUntil:
+    visible: "No Prints in Progress"
+    timeout: 30000
+- assertVisible: "No Prints in Progress"
+- assertNotVisible: ".*(?i)Currently Printing.*"
+- assertNotVisible: ".*(?i)In Queue.*"
+- assertNotVisible: ".*(?i)Pause Queue.*"
+- assertNotVisible: ".*(?i)Resume Queue.*"
+- assertVisible: ".*(?i)(More|Create).*"
+- assertVisible: ".*(?i)Printer.*"
+- takeScreenshot: PQ_19_empty_queue

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Complete Studio Plus (or other Wi-Fi) pairing after selecting it from Searching.
 # Requires env WIFI_PASSWORD (passed by run_precut_suite.ps1 for PC_10/PC_11).

@@ -2,7 +2,7 @@
 # Excel: Photobooth  05 | Module: Capture View
 # Verify countdown hides during photo capture
 # Expected: Countdown number disappears immediately when the photo is captured and the photo is saved successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_05 - Verify countdown hides during photo capture"
 tags:
   - photobooth

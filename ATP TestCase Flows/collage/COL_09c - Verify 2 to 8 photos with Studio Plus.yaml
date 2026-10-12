@@ -1,0 +1,12 @@
+# ATP Test Case ID: COL_09c
+# Excel: Collage_9 (c) | Module: Collage maker- photo selection for Studio Plus Printer
+# Verify User Can Select 2 to 8 Photos and navigate to Drag & Drop when connected to Studio Plus.
+appId: com.caglobal.hp.sprocket
+name: "COL_09c - Verify 2 to 8 photos with Studio Plus"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/create_collage_eight_photos_large.yaml

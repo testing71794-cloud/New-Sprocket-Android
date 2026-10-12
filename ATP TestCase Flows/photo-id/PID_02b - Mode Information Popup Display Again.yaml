@@ -1,0 +1,25 @@
+# ATP Test Case ID: PID_02b
+# Excel: PhotoID_02 (b) | Module: Photo ID – Mode Information Popup Display Again
+# Verify that the Photo ID Mode information popup is displayed again when the user re-enters Photo ID after dismissing it with OK.
+# Expected: Photo ID Mode popup displayed again on re-entry.
+appId: com.caglobal.hp.sprocket
+name: "PID_02b - Mode Information Popup Display Again"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/allow_camera_while_using.yaml
+- runFlow: subflows/wait_mode_popup.yaml
+- runFlow: subflows/dismiss_mode_popup_ok.yaml
+- runFlow: subflows/wait_capture_screen.yaml
+- runFlow: subflows/tap_in_app_back.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photo ID).*"
+    timeout: 15000
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/allow_camera_while_using.yaml
+- runFlow: subflows/wait_mode_popup.yaml
+- runFlow: subflows/assert_mode_popup.yaml

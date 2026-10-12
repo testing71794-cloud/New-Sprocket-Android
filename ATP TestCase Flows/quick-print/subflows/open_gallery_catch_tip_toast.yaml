@@ -8,7 +8,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/runscript
 # See: https://docs.maestro.dev/reference/commands-available/asserttrue
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - evalScript: ${output.qp005ToastOk = '0'}
 - runFlow: complete_onboarding_to_signup.yaml

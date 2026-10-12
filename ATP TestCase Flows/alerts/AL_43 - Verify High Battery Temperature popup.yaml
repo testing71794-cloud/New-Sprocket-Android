@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios  22 | Module: Battery
 # Verify "High Battery Temperature" popup
 # Expected: "High Battery Temperature" popup is displayed on the Print Preview screen. The popup displays the bold title "High Battery Temperature", followed by the message "Battery overheated! Please power off and wait a few minutes for the battery to
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_43 - Verify High Battery Temperature popup"
 tags:
   - alerts

@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_12d
+# Excel: Collage_12 (d) | Module: Collage maker- Android Zoom Minimum and Maximum Limits
+# Verify that the photo zoom functionality on Android supports the defined zoom range from 0.5x to 4x.
+appId: com.caglobal.hp.sprocket
+name: "COL_12d - Verify Android zoom range"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- swipe:
+    start: "28%,38%"
+    end: "45%,52%"
+    duration: 400
+- swipe:
+    start: "45%,52%"
+    end: "28%,38%"
+    duration: 400
+- assertVisible: "Drag & Drop to Reorder"

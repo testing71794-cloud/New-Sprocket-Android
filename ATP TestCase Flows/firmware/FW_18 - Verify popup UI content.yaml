@@ -2,7 +2,7 @@
 # Excel: Firmware Update 18 | Module: Firmware Update Popup
 # Verify popup UI content
 # Expected: Popup displays correct title, description, and buttons.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_18 - Verify popup UI content"
 tags:
   - firmware

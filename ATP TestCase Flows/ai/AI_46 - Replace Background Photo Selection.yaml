@@ -1,0 +1,10 @@
+# Supplied JSON row: AI Tools 46 | Replace Background
+# Verify photo selection and Generate button
+appId: com.caglobal.hp.sprocket
+name: "AI_46 - Replace Background Photo Selection - Verify photo selection and Generate button"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/background_open_replace_gallery.yaml
+- runFlow: subflows/background_select_photo.yaml

@@ -2,7 +2,7 @@
 # Select Gallery → a folder with no photos → "No photos found."
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_015 - No Photos Found empty folder"
 tags:
   - quick-print

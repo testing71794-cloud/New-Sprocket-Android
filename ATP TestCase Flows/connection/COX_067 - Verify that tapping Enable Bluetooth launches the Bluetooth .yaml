@@ -2,7 +2,7 @@
 # Excel: PCF_HPSelect_011 | Module: Pre Connection Flow for Sprocket Select
 # Verify that tapping 'Enable Bluetooth' launches the Bluetooth permission flow for HP Sprocket Select printer
 # Expected: Bluetooth permission prompt or Bluetooth enable dialog should be displayed
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_067 - Verify that tapping Enable Bluetooth launches the Bluetooth "
 tags:
   - connection

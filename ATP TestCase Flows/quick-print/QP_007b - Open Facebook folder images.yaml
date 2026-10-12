@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_07 (b) | Facebook Folder
 # Open a Facebook folder and show images.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_007b - Open Facebook folder images"
 tags:
   - quick-print

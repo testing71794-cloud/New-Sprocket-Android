@@ -1,0 +1,14 @@
+appId: com.caglobal.hp.sprocket
+---
+# Layout chip tap is not always treated as an edit. Pinch/pan a tile so Back shows Save.
+# See: https://docs.maestro.dev/reference/commands-available/swipe
+- swipe:
+    start: "28%,38%"
+    end: "48%,55%"
+    duration: 400
+- swipe:
+    start: "48%,55%"
+    end: "28%,38%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 400

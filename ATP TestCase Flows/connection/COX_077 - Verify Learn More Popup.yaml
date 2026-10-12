@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_002 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Learn More Popup
 # Expected: The Use the Sprocket Studio Power Bank popup should be displayed. Power bank instructions should be displayed. Shop Here button should be displayed. OK button should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_077 - Verify Learn More Popup"
 tags:
   - connection

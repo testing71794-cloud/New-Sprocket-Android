@@ -2,7 +2,7 @@
 # Excel: Precut_11 | Module: Pre-Cut Stickers – Gallery Permission Denied
 # Verify that the photo permission screen is displayed when Gallery permission is denied.
 # Expected: Grant photo permissions message, Open settings, Next disabled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_11 - Verify photo permission denied screen"
 tags:
   - precut

@@ -2,16 +2,11 @@
 # Excel: AI Tools 02 | Module: Sprocket AI
 # Verify navigation to AI tools
 # Expected: Redirects to "Create with AI Tools" screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AI_02 - Verify navigation to AI tools"
 tags:
   - ai
-  - atp-excel
+  - atp-supplied
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Create with AI Tools"
-    optional: true
-- assertVisible:
-    text: "Create"
-    optional: true
+- assertVisible: "Create with AI Tools"

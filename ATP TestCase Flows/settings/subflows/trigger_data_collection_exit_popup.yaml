@@ -1,5 +1,5 @@
 # Toggle a Data Collection checkbox and dismiss the confirmation pop-up.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     point: "8%,38%"

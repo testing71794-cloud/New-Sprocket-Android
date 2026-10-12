@@ -2,7 +2,7 @@
 # Excel: SU (iOS) _01 | Module: ON_02A_Sign Up Options (iOS)
 # Verify Sign Up Options screen UI and navigation
 # Expected: User is redirected to ON_02A_Sign Up Options (iOS). All UI elements are visible. Tapping I already have an account opens ON_03A_Log In Options (iOS). Tapping Sign Up Later opens CR_01B_Home - Not Logged In.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_03 - Verify Sign Up Options screen UI and navigation"
 tags:
   - onboarding-splash

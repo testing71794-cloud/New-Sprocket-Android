@@ -2,7 +2,7 @@
 # Excel: Custom SDK 10 | Module: Image Editor
 # Verify cancelling edit
 # Expected: Changes are discarded and original image is displayed on Print Preview screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_10 - Verify cancelling edit"
 tags:
   - custom-sdk

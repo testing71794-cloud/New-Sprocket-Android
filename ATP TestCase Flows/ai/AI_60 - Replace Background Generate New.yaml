@@ -1,0 +1,17 @@
+# Supplied JSON row: AI Tools 60 | Replace Background
+# Verify Generate New creates another background
+appId: com.caglobal.hp.sprocket
+name: "AI_60 - Replace Background Generate New - Verify Generate New creates another background"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/background_reach_custom_result.yaml
+- tapOn: '.*(?i)\+?\s*Generate New'
+- runFlow: subflows/background_assert_loader.yaml
+- extendedWaitUntil:
+    visible: '.*(?i)\+?\s*Generate New'
+    timeout: 180000
+- assertVisible: '.*(?i)\+?\s*Generate New'

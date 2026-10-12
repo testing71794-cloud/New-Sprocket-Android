@@ -1,0 +1,51 @@
+# ATP Test Case ID: AI_30
+# Excel: AI Tools 30
+# Module: AI Tools > Image-to-Image > Print Preview – Verify Selected Thumbnail is Passed to Print Preview
+# Description:
+# Verify that the image selected from the thumbnail list is the image displayed in Print Preview.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with """"sprocket"""" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select any image style
+# Select any image quantity
+# Wait to enable the 'Generate Images(s)'button and tap on it.
+# Wait to finish the generating photo process.
+# Verify the Newly generated image screen with thumbnails.
+# Observe the currently selected main preview image.
+# Tap the second generated image thumbnail.
+# Observe the main preview image.
+# Tap Next button
+# Expected:
+# The selected thumbnail becomes the active preview image.
+# The same selected image is displayed in the Print Preview screen.
+# No other generated image is imported instead of the selected image.
+appId: com.caglobal.hp.sprocket
+name: "AI_30 - Verify that the image selected from the thumbnail list is the image displayed in Print Preview."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_generate_results.yaml
+- tapOn:
+    point: "50%,72%"
+- takeScreenshot: AI_30_selected_thumbnail
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: ../printing/subflows/assert_print_preview_ui.yaml
+- takeScreenshot: AI_30_selected_image_preview

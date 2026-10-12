@@ -1,6 +1,6 @@
 # ATP Test Case ID: SP_01
 # Cold launch — splash may be brief; first durable screen is Sign up (carousel optional).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SP_01 - Cold launch splash screen"
 ---
 - launchApp:

@@ -1,0 +1,29 @@
+# ATP Test Case ID: PQ_20
+# Excel: Print_Queue20
+# Verify Device B waits while Device A is printing, then resumes automatically.
+appId: com.caglobal.hp.sprocket
+name: "PQ_20 - Printer busy with another device"
+tags: [print-queue, atp-excel, positive, physical-printer, multi-device-manual, long-running, visual-check]
+---
+# Manual precondition on Device B: Device A is actively printing on the same
+# printer, and Device B has submitted one or more pending photos.
+- launchApp:
+    clearState: false
+- tapOn:
+    point: "83%,95%"
+- tapOn:
+    point: "91%,9%"
+- extendedWaitUntil:
+    visible: "Printer busy with another device"
+    timeout: 120000
+- assertVisible: "Printer busy with another device"
+- assertVisible: "Your prints in queue will resume once your printer is available."
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_20_printer_busy
+# Complete Device A's print; Device B should automatically begin its first job.
+- extendedWaitUntil:
+    notVisible: "Printer busy with another device"
+    timeout: 420000
+- assertVisible: ".*(?i)Currently Printing.*"
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_20_device_b_resumed

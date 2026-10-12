@@ -1,0 +1,62 @@
+# ATP Test Case ID: AI_76_remove_object
+# Supplied Excel ID:
+# AI Tools 76
+# Supplied module:
+# AI Tools >Remove Object – Image Generation
+# Supplied description:
+# Verify image generation, loading state, no-internet handling, API generation failure and retry.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Remove Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Tap or paint over an object to select the area for removal.
+# 4. Tap Generate.
+# 5. Verify that the Generating Loader is displayed while the image is being generated.
+# 6. Repeat the flow with the device internet connection disabled before tapping Generate.
+# 7. Tap Generate.
+# 8. Verify that the No Internet popup is displayed.
+# 9. Tap OK on the No Internet popup.
+# 10. Enable the internet connection.
+# 11. Select an object again and tap Generate.
+# 12. Simulate an API generation failure.
+# 13. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”
+# 14. Tap Try Again.
+# 15. Verify that image generation is started again and the Generating Loader is displayed.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Generate starts image generation and displays the Generating Loader.
+# Without internet, the No Internet popup with an OK button is displayed.
+# On API generation failure, the Generation Failed screen displays the specified error message.
+# Tapping Try Again retries image generation.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_76_remove_object - Verify image generation, loading state, no-internet handling, API generation failure and retry."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - api-fault-injection
+---
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_selection.yaml
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_network_on.yaml
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_selection.yaml
+- runFlow: subflows/object_network_off.yaml
+- tapOn:
+    text: "Generate"
+    enabled: true
+- runFlow: subflows/object_assert_no_internet.yaml
+- runFlow: subflows/object_network_on.yaml
+- runFlow:
+    when:
+      true: ${typeof API_FAILURE_INJECTED !== 'undefined' && API_FAILURE_INJECTED == 'true'}
+    commands:
+      - runFlow: subflows/object_paint_selection.yaml
+      - tapOn:
+          text: "Generate"
+          enabled: true
+      - runFlow: subflows/object_assert_generation_failed_retry.yaml

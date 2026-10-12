@@ -1,0 +1,8 @@
+appId: com.caglobal.hp.sprocket
+---
+# Six photos on large collage → Drag & Drop.
+- runFlow: select_six_photos_fast.yaml
+- runFlow: leave_photo_selection.yaml
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 10000

@@ -1,0 +1,9 @@
+# Pause pending prints. An already active physical print is expected to finish.
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: open_print_queue.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Pause Queue.*"
+    timeout: 15000
+- tapOn: ".*(?i)Pause Queue.*"
+- assertVisible: ".*(?i)Resume Queue.*"

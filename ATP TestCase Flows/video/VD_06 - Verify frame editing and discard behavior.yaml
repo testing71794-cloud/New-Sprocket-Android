@@ -2,14 +2,12 @@
 # Excel: Video frame 06 | Module: CR_05D_Video Frames Print Preview
 # Verify frame editing and discard behavior.
 # Expected: Edits on a frame are discarded when user scrubs to another frame (Apr 1 2026 Figma).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "VD_06 - Verify frame editing and discard behavior"
 tags:
   - video
   - atp-excel
 ---
-- launchApp:
-    clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/reach_video_frames_print_preview.yaml
 - tapOn:

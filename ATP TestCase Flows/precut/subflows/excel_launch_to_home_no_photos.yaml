@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Reach Create home WITHOUT granting photos (PC_11 / PC_11a).
 # Same proven launch as excel_launch_to_home, but photos stay denied/unset.

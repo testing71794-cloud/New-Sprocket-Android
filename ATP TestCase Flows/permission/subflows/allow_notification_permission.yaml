@@ -1,10 +1,12 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Video ~00:17–00:19 — Notification permission.
 - runFlow:
     when:
-      visible: ".*notifications.*"
+      visible: ".*(?i)(send you notifications|post notifications).*"
     commands:
-      - tapOn: "Allow"
+      - tapOn:
+          text: "Allow"
+          optional: true
       - waitForAnimationToEnd:
           timeout: 2000

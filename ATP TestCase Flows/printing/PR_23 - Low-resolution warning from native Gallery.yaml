@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_23
+# Excel: Print Preview_23
+# Low-resolution warning from native Gallery
+# Expected: A native low-resolution fixture displays the blurry-photo warning on Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "PR_23 - Low-resolution warning from native Gallery"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - low-resolution-fixture
+---
+# Seed a new 64x64 image so it is the first Recent cell.
+- addMedia:
+    - "assets/low_resolution_64x64.png"
+- runFlow: subflows/open_preview_one_photo.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(blurry|low.?resolution|higher quality|may print).*"
+    timeout: 15000

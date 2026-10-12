@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_013 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify Ready for Wi-Fi Connection Screen
 # Expected: 1. The Ready for Wi-Fi Connection screen should be displayed. 2. Printer and mobile device illustration should be displayed. 3. Wi-Fi connection instructions "Press Finish Setup and follow instructions to set up your printer's Wi-Fi connect
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_143 - Verify Ready for Wi-Fi Connection Screen"
 tags:
   - connection

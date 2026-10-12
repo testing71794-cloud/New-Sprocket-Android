@@ -1,7 +1,7 @@
 # Select HP Sprocket 200 on "Select Your Device" (not Sense).
 # Use direction swipes (same pattern as onboarding carousel) + chip tap.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Select Your Device.*"

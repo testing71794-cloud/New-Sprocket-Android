@@ -4,23 +4,24 @@ from __future__ import annotations
 
 PROJECT_DISPLAY_NAME = "HP Sprocket Android"
 PROJECT_SHORT_NAME = "Sprocket Android"
-APP_PACKAGE_DEFAULT = "com.hp.impulse.sprocket"
+APP_PACKAGE_DEFAULT = "com.caglobal.hp.sprocket"
 GITHUB_REPO_URL = "https://github.com/testing71794-cloud/New-Sprocket-Android"
 OPENROUTER_APP_TITLE_DEFAULT = f"{PROJECT_SHORT_NAME} Automation"
 EXECUTION_SUMMARY_TITLE = f"{PROJECT_DISPLAY_NAME} Execution Summary"
 
-# Legacy Jenkins job parameters / old app ids (Smile + Step Print)
+# Legacy Jenkins job parameters / old app ids
 LEGACY_APP_PACKAGES = frozenset(
     {
         "com.kodaksmile",
         "com.kodaksmile.dev",
         "com.kodak.steptouch",
+        "com.hp.impulse.sprocket",
     }
 )
 
 
 def normalize_app_package(app_id: str) -> str:
-    """Map legacy Smile / Step Print package ids to HP Sprocket Android default."""
+    """Map legacy Smile / Step Print / old Sprocket package ids to the current app id."""
     raw = (app_id or "").strip()
     if not raw or raw in LEGACY_APP_PACKAGES:
         return APP_PACKAGE_DEFAULT

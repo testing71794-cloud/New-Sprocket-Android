@@ -1,11 +1,9 @@
 # ATP Test Case ID: SG_07
 # HP Sprocket — email sign-up invalid email validation
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SG_07 - Sign up with Email invalid email"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_signup_email_form.yaml
+- runFlow: subflows/ensure_signup_email_form.yaml
 - tapOn: "Full Name*"
 - inputText: Maestro ATP User
 - tapOn: "Email*"

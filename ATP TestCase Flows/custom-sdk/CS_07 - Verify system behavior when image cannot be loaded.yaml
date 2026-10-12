@@ -2,7 +2,7 @@
 # Excel: Custom SDK   07 | Module: Gallery - Invalid Image Selection
 # Verify system behavior when image cannot be loaded.
 # Expected: Appropriate error message is displayed and the image editor is not opened.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_07 - Verify system behavior when image cannot be loaded"
 tags:
   - custom-sdk

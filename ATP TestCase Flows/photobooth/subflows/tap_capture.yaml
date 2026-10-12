@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Capture / Stop is an unlabeled ImageView at bottom-center.
 - runFlow:

@@ -1,6 +1,6 @@
 # ATP Test Case ID: ON_06
 # Sign Up Later path — land on Create home after permissions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "ON_06 - Skip onboarding land on gallery"
 tags:
   - onboarding

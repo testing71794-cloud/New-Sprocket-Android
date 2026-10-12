@@ -2,7 +2,7 @@
 # Excel: Firmware Update 16 | Module: Firmware Update
 # Verify Update Available button is displayed
 # Expected: Update Available button is displayed when firmware update exists.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_16 - Verify Update Available button is displayed"
 tags:
   - firmware

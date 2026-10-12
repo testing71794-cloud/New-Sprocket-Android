@@ -1,0 +1,109 @@
+# PR_01: verify supported BLE models on discovery, then connect HP200.
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    text: "Printer\nTab 3 of 3"
+    optional: true
+- tapOn:
+    point: "84%,90%"
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)Add (a )?New Printer.*"
+    commands:
+      - tapOn: ".*(?i)Add (a )?New Printer.*"
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+- runFlow: allow_bluetooth_enable_dialog.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Skip to Connection.*"
+    timeout: 15000
+- tapOn: ".*(?i)Skip to Connection.*"
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+- runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: allow_bluetooth_enable_dialog.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Add (a )?New Printer.*"
+    commands:
+      - tapOn: ".*(?i)Add (a )?New Printer.*"
+      - waitForAnimationToEnd:
+          timeout: 2500
+- runFlow:
+    when:
+      visible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: ".*(?i)Skip to Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+- repeat:
+    times: 4
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)No Printers Found.*"
+          commands:
+            - tapOn: ".*(?i)Try Again.*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+- extendedWaitUntil:
+    visible: ".*(?i)(DC:A8|DC-A8).*"
+    timeout: 120000
+- assertVisible: ".*(?i)HP Sprocket.*"
+- assertVisible: ".*(?i)(DC:A8|DC-A8).*"
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(DC:A8|DC-A8).*"
+          commands:
+            - tapOn: ".*(?i)(DC:A8|DC-A8).*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+            - runFlow: ../../connection/subflows/pairing_optional.yaml
+- runFlow: ../../connection/subflows/pairing_optional.yaml
+- runFlow: dismiss_optional_firmware_update.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Next|Finish Connection|Finish Setup|Done|Your Printers).*"
+    timeout: 120000
+- repeat:
+    times: 8
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)^(Next|Finish Connection|Finish Setup|Done)$"
+          commands:
+            - tapOn: ".*(?i)^(Next|Finish Connection|Finish Setup|Done)$"
+            - waitForAnimationToEnd:
+                timeout: 2500
+- extendedWaitUntil:
+    visible: ".*(?i)(Your Printers|Quick Print|Create).*"
+    timeout: 60000
+- tapOn:
+    text: ".*(?i)^Create$"
+    optional: true
+- runFlow:
+    when:
+      notVisible: ".*(?i)Quick Print.*"
+    commands:
+      - tapOn:
+          point: "50%,90%"
+- waitForAnimationToEnd:
+    timeout: 2500

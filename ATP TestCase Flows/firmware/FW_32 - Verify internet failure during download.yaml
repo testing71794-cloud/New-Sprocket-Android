@@ -2,7 +2,7 @@
 # Excel: Firmware Update 32 | Module: Firmware Negative
 # Verify internet failure during download
 # Expected: Download fails with error message.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_32 - Verify internet failure during download"
 tags:
   - firmware

@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_08 (a) | Facebook Unlink Popup
 # After Unlink tap, menu item is gone — assert the dialog body and buttons.
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_008a - Unlink confirmation popup UI"
 tags:
   - quick-print

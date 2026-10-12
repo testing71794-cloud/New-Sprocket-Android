@@ -5,7 +5,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/asserttrue
 # See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_012 - Facebook Tag icon UI"
 tags:
   - quick-print

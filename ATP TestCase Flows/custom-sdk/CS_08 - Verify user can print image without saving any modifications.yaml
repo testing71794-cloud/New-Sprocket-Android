@@ -2,7 +2,7 @@
 # Excel: Custom SDK  08 | Module: Gallery - Print Without Saving Edit
 # Verify user can print image without saving any modifications.
 # Expected: System follows defined behavior (warning message is displayed or original image is printed as per requirement).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_08 - Verify user can print image without saving any modifications"
 tags:
   - custom-sdk

@@ -1,21 +1,24 @@
-# TilePrint / tile-print — 16 Excel-generated flows + 1 supplementary limitation flow
+# Tile Print — supplied ATP cases
 
-**Printer limitation:** Tiles / Tile Print does not work on **Sprocket 3x4**, **HP Sprocket Studio**, or **HP Sprocket Studio Plus**. Positive cases (TP_01–TP_16) require a tiles-compatible printer. Run **TP_17** on an unsupported printer to verify the incompatible toast when entering Tile Print or attempting to print tiles.
+The source data contains two cases labeled **Tiles modules 06**. Automation uses
+`TP_06A` and `TP_06B` to keep Flow names unique while preserving that source ID.
 
-- [ ] TP_01 | Tiles modules 01 | Verify Gallery screen UI and Tile Print navigation
-- [ ] TP_02 | Tiles modules 02 | Verify folder selection and Tile Print restrictions
-- [ ] TP_03 | Tiles modules 03 | Verify blocked toast message, UI elements and bottom navigation
-- [ ] TP_04 | Tiles modules 04 | Verify multi-select restriction and error handling
-- [ ] TP_05 | Tiles modules 05 | Verify Tiles 2×2 screen UI and default layout
-- [ ] TP_06 | Tiles modules 06 | Verify print restriction when no tile is selected
-- [ ] TP_07 | Tiles modules 07 | Verify landing on Tiles module
-- [ ] TP_08 | Tiles modules 08 | Verify bottom navigation bar presence
-- [ ] TP_09 | Tiles modules 09 | Verify unselecting 1×1 tile
-- [ ] TP_10 | Tiles modules 10 | Verify zoom and rotation persistence
-- [ ] TP_11 | Tiles modules 11 | Verify 3×3 grid UI, selection and print functionality
-- [ ] TP_12 | Tiles modules 12 | Verify tile deselection restriction and error handling
-- [ ] TP_13 | Tiles modules 13 | Verify tile selection and print
-- [ ] TP_14 | Tiles modules 14 | Verify Print button when all tiles are unselected
-- [ ] TP_15 | Tiles modules 15 | Verify Copies screen and printing
-- [ ] TP_16 | Tiles modules 16 | Verify copy count retention and navigation
-- [ ] TP_17 | Supplementary | Verify Tile Print unavailable for unsupported printers (3x4 / Studio / Studio Plus)
+- [ ] TP_01 | Tiles modules 01 | Gallery UI and Tile Print navigation
+- [ ] TP_02 | Tiles modules 02 | Landing on Tiles Print Preview
+- [ ] TP_03 | Tiles modules 03 | Bottom navigation presence
+- [ ] TP_04 | Tiles modules 04 | Folder selection and Tile Print restrictions
+- [ ] TP_05 | Tiles modules 05 | Blocked toast UI, close action and bottom navigation
+- [ ] TP_06A | Tiles modules 06 | Multi-select restriction and error handling
+- [ ] TP_07 | Tiles modules 07 | Default 2x2 layout
+- [ ] TP_06B | Tiles modules 06 | Print disabled with no 2x2 tile selected
+- [ ] TP_10 | Tiles modules 10 | Zoom and rotation persistence
+- [ ] TP_11 | Tiles modules 11 | 3x3 selection and six-tile print
+- [ ] TP_12 | Tiles modules 12 | Print disabled with no 3x3 tile selected
+- [ ] TP_13 | Tiles modules 13 | Tile selection and print
+- [ ] TP_15 | Tiles modules 15 | Copies controls and printing
+- [ ] TP_16 | Tiles modules 16 | Copy count retention
+- [ ] TP_17 | Tiles modules 17 | Unsupported-printer restriction
+- [ ] TP_18 | Tiles modules 18 | Supported-printer compatibility
+
+Cases that physically print require an HP200-class compatible printer. TP_17
+requires Sprocket 3x4, Studio, or Studio Plus; its automated route uses 3x4.

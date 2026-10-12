@@ -1,0 +1,82 @@
+# ATP Test Case ID: PR_10
+# Excel: Print Preview_10
+# Copies controls from 1 to 10
+# Expected: Copies is selected by default and its count is bounded from 1 through 10.
+appId: com.caglobal.hp.sprocket
+name: "PR_10 - Copies controls from 1 to 10"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- assertVisible: "Copies"
+- assertVisible: "Tiles"
+- assertVisible: "0?1"
+- extendedWaitUntil:
+    notVisible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+    timeout: 7000
+- tapOn: "Copies"
+# Motorola Compose Print Preview: plus is [650,1828]-[730,1908] (~64%,78%).
+- runFlow:
+    when:
+      visible:
+        id: ".*add_copies.*"
+    commands:
+      - tapOn:
+          id: ".*add_copies.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*add_copies.*"
+    commands:
+      - tapOn:
+          point: "64%,78%"
+- assertVisible: "0?2"
+- runFlow:
+    when:
+      visible:
+        id: ".*add_copies.*"
+    commands:
+      - repeat:
+          times: 8
+          commands:
+            - tapOn:
+                id: ".*add_copies.*"
+                waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      notVisible:
+        id: ".*add_copies.*"
+    commands:
+      - repeat:
+          times: 8
+          commands:
+            - tapOn:
+                point: "64%,78%"
+                waitToSettleTimeoutMs: 0
+- assertVisible: "10"
+- runFlow:
+    when:
+      visible:
+        id: ".*remove_copies.*"
+    commands:
+      - repeat:
+          times: 9
+          commands:
+            - tapOn:
+                id: ".*remove_copies.*"
+                waitToSettleTimeoutMs: 0
+- runFlow:
+    when:
+      notVisible:
+        id: ".*remove_copies.*"
+    commands:
+      - repeat:
+          times: 9
+          commands:
+            - tapOn:
+                point: "36%,78%"
+                waitToSettleTimeoutMs: 0
+- assertVisible: "0?1"

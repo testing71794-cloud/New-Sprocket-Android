@@ -1,0 +1,11 @@
+# Source: Tiles modules 07 | Tiles 2x2 | Positive
+appId: com.caglobal.hp.sprocket
+name: "TP_07 - Verify Tiles 2x2 screen UI and default layout"
+tags:
+  - tile-print
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_tile_print_preview.yaml
+- runFlow: subflows/assert_default_2x2.yaml
+- runFlow: subflows/assert_tile_print_preview_ui.yaml

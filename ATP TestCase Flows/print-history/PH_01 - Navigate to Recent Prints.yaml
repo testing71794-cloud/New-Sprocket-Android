@@ -1,0 +1,18 @@
+# ATP Test Case ID: PH_01
+# Excel: Print_History01
+# Verify Navigation to the Recent Prints Screen from Print Queue
+# Expected: Recent Prints opens with Back, history items, Reprint controls,
+# and the Printer bottom tab selected.
+appId: com.caglobal.hp.sprocket
+name: "PH_01 - Navigate to Recent Prints"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_01_recent_prints

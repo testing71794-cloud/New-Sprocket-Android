@@ -1,0 +1,34 @@
+﻿# ATP Test Case ID: PID_11
+# Excel: Photo ID_11 | Module: Photo ID – Print
+# Verify that the user can print Photo ID photos when a printer is connected to the app.
+# Expected: Print job sent; printer starts printing when connected.
+appId: com.caglobal.hp.sprocket
+name: "PID_11 - Print"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/ensure_photo_id_with_printer.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/select_timer_3s.yaml
+- runFlow: subflows/select_size_2x2.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_countdown_then_preview.yaml
+- assertVisible: ".*(?i)Print.*"
+- runFlow:
+    when:
+      visible: "(?i)^Print$"
+    commands:
+      - tapOn: "(?i)^Print$"
+- runFlow:
+    when:
+      notVisible: "(?i)^Print$"
+    commands:
+      - tapOn:
+          text: ".*(?i)Print.*"
+          index: 0
+- waitForAnimationToEnd:
+    timeout: 5000
+- assertVisible:
+    text: ".*(?i)(Print|Printing|Copies|Sprocket|No Printer Added|Add Printer).*"

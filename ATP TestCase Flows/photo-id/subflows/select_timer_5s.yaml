@@ -1,0 +1,23 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)(5s|5 sec).*"
+    commands:
+      - tapOn: ".*(?i)(5s|5 sec).*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)(5s|5 sec).*"
+    commands:
+      - tapOn:
+          point: "85%,38%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      notVisible: ".*(?i)2.?x.?2.*"
+    commands:
+      - tapOn:
+          point: "20%,40%"
+      - waitForAnimationToEnd:
+          timeout: 1500

@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 53 | Module: Legal
 # Verify End User License Agreement
 # Expected: EULA opens successfully in in-app browser.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_48 - Verify End User License Agreement"
 tags:
   - settings

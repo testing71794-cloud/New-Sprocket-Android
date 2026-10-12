@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 48 | Module: Navigation
 # Verify Back Navigation
 # Expected: User is redirected back to previous menu screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_43 - Verify Back Navigation"
 tags:
   - settings

@@ -3,7 +3,7 @@
 # Compatible: HP Sprocket 2×3 only → print proceeds (no Incompatible message).
 # Incompatible: 3×4 / Studio / Studio Plus / Select / Plus → Incompatible Printer popup/toast.
 # This flow uses the compatible 2×3 path; PC_13 covers incompatible 3×4 (00FE).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_13a - Verify Pre-Cut printer compatibility behavior"
 tags:
   - precut

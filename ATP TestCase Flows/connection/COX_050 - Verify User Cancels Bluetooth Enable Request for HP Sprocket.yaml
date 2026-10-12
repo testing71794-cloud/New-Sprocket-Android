@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_013 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify User Cancels Bluetooth Enable Request for HP Sprocket 3x4 printer
 # Expected: Bluetooth should remain disabled and user should remain on the Bluetooth enable screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_050 - Verify User Cancels Bluetooth Enable Request for HP Sprocket"
 tags:
   - connection

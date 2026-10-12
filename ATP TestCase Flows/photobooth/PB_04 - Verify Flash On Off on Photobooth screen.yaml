@@ -2,7 +2,7 @@
 # Excel: Photobooth 04 | Module: Photobooth – Flash functionality for Front Camera
 # Verify the functionality of the Flash On/Off button on the Photobooth screen.
 # Expected: Flash is OFF by default; tap enables; tap again disables.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_04 - Verify Flash On Off on Photobooth screen"
 tags:
   - photobooth

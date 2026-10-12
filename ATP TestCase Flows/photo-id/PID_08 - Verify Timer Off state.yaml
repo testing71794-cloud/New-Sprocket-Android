@@ -2,7 +2,7 @@
 # Excel: Photo ID 08 | Module: Timer
 # Verify Timer Off state
 # Expected: Timer icon returns to inactive state and no countdown is applied.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_08 - Verify Timer Off state"
 tags:
   - photo-id

@@ -1,0 +1,25 @@
+# ATP Test Case ID: PS_17
+# Excel: Print_State_17
+# Printer disconnected popup navigation
+# Expected: Print State becomes "Paused"; OK closes "Printer Disconnected" and redirects to Dashboard/Home.
+appId: com.caglobal.hp.sprocket
+name: "PS_17 - Printer disconnected popup navigation"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-disconnect
+  - negative
+---
+- runFlow: subflows/open_single_print_state.yaml
+# Manually power off or disconnect the connected printer.
+- extendedWaitUntil:
+    visible: "Printer Disconnected"
+    timeout: 180000
+- assertVisible: "Your printer has been disconnected. Any photos you add to the queue will be printed the next time you connect a printer."
+- assertVisible: "OK"
+- tapOn: "OK"
+- extendedWaitUntil:
+    visible: ".*(?i)(Home|Quick Print|Create).*"
+    timeout: 15000

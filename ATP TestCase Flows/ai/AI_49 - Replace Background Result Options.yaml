@@ -1,0 +1,18 @@
+# Supplied JSON row: AI Tools 49 | Replace Background
+# Verify generated result and background options
+appId: com.caglobal.hp.sprocket
+name: "AI_49 - Replace Background Result Options - Verify generated result and background options"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- assertVisible: "Cancel"
+- swipe:
+    start: "50%,82%"
+    end: "50%,45%"
+    duration: 500
+- assertVisible: ".*(?i)(Gradient|Generate Background).*"
+- assertVisible: "Cancel"

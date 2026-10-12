@@ -2,7 +2,7 @@
 # Excel: Custom SDK   06 | Module: Gallery - No Printer Connected
 # Verify application behavior when no printer is selected.
 # Expected: Appropriate printer connection message is displayed and printing is not initiated.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_06 - Verify application behavior when no printer is selected"
 tags:
   - custom-sdk

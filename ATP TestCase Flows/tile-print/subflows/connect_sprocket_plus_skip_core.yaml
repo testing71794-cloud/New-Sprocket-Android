@@ -1,0 +1,126 @@
+# Printer tab → Skip to Connection → HP Sprocket Plus (82:57) → Create tab.
+# If Plus (82:57) is already paired, return to Create and do not open setup again.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Create|Printer|Tile Print|Pre-?Cut|Collage Maker|Quick Print|Photobooth).*"
+    commands:
+      - launchApp:
+          clearState: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(HP Sprocket Plus.*(82:57|82-57)|(82:57|82-57)).*"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)Add a new Printer.*"
+            notVisible: ".*(?i)Skip (to )?Connection.*"
+          commands:
+            - tapOn: ".*(?i)Add a new Printer.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - extendedWaitUntil:
+          visible: ".*(?i)Skip (to )?Connection.*"
+          timeout: 20000
+      - tapOn: ".*(?i)Skip (to )?Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)Enable Bluetooth.*"
+          commands:
+            - tapOn: ".*(?i)Enable Bluetooth.*"
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+      - runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+      - runFlow:
+          when:
+            visible: "Allow"
+          commands:
+            - tapOn: "Allow"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - scrollUntilVisible:
+          element: ".*(?i)(HP Sprocket Plus.*(82:57|82-57)|(82:57|82-57)).*"
+          direction: DOWN
+          timeout: 120000
+          visibilityPercentage: 40
+          centerElement: true
+      - tapOn: ".*(?i)(HP Sprocket Plus.*(82:57|82-57)|(82:57|82-57)).*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+      - runFlow: ../../connection/subflows/pairing_optional.yaml
+      - runFlow:
+          when:
+            visible: "Pair"
+          commands:
+            - tapOn: "Pair"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Low Battery|Very Low Battery).*"
+          commands:
+            - tapOn: ".*(?i)^OK$"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - repeat:
+          times: 6
+          commands:
+            - runFlow:
+                when:
+                  visible: ".*(?i)(Finish Connection|Finish Setup).*"
+                commands:
+                  - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+                  - waitForAnimationToEnd:
+                      timeout: 5000
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Done$"
+                commands:
+                  - tapOn: ".*(?i)^Done$"
+                  - waitForAnimationToEnd:
+                      timeout: 3000
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Next$"
+                commands:
+                  - tapOn: ".*(?i)^Next$"
+                  - waitForAnimationToEnd:
+                      timeout: 2000
+      - tapOn:
+          text: ".*(?i)^Create$"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket Plus.*(82:57|82-57)|(82:57|82-57)).*"
+      notVisible: ".*(?i)(Skip (to )?Connection|No Printers Found|Searching).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Create$"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500

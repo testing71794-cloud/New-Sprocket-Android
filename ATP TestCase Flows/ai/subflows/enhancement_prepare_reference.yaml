@@ -1,0 +1,7 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    file: enhancement_open_tool.yaml
+    env:
+      TOOL_NAME: "${TOOL_NAME}"
+- runFlow: enhancement_select_photo.yaml

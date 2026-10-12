@@ -1,37 +1,18 @@
-# Shared Excel-generated setup for AI ATP module
-appId: com.hp.impulse.sprocket
+# Launch through onboarding, open Create, and enter Sprocket AI.
+# The Sprocket AI banner is visual but has no accessibility semantics on the
+# current Compose screen, so use its stable top-card position.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.caglobal.hp.sprocket
 ---
-- launchApp:
-    clearState: true
-- runFlow: ../../common/subflows/wait_after_cold_launch.yaml
-- runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
+# Keep app state so a lab pre-connected printer is preserved.
+- runFlow: ../../printing/subflows/launch_to_create_keep_state.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- assertVisible: ".*(?i)Quick Print.*"
+- tapOn:
+    point: "50%,17%"
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - extendedWaitUntil:
-    visible: "Sign up"
-    timeout: 15000
-- runFlow: ../../common/subflows/tap_sign_up_later.yaml
-- runFlow: ../../common/subflows/accept_terms_if_visible.yaml
-- runFlow:
-    when:
-      visible: "Skip"
-    commands:
-      - tapOn: "Skip"
-- runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
-- runFlow: ../../permission/subflows/allow_notification_permission.yaml
-- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
-- runFlow:
-    when:
-      visible: ".*Create.*"
-    commands:
-      - tapOn: ".*Create.*"
-- waitForAnimationToEnd:
-    timeout: 4000
-- assertVisible:
-    text: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
-    optional: true
-- runFlow:
-    when:
-      visible: ".*(?i)(Sprocket AI|AI|Text-to-Image).*"
-    commands:
-      - tapOn: ".*(?i)(Sprocket AI|AI|Text-to-Image).*"
-- waitForAnimationToEnd:
-    timeout: 3000
+    visible: "Create with AI Tools"
+    timeout: 10000
+- assertVisible: "Create with AI Tools"

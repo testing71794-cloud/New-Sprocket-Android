@@ -1,9 +1,19 @@
-# Skip to Connection → select HP Sprocket 200 (DC:A8).
-# After preview "Add Printer": screen shows Set Up My Printer + Skip to Connection.
+# Skip to Connection → lab BLE printer only:
+# HP Sprocket 200 (DC:A8), HP Sprocket 200 (D1:DF), or HP Sprocket Plus (82:57).
+# Never tap a Sprocket 200 / Plus row that does not show that suffix.
+# After preview "Add Printer": Set Up My Printer + Skip to Connection.
 # Do NOT tap Set Up My Printer / Add a new Printer (that opens the model carousel).
-# See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.caglobal.hp.sprocket
 ---
+- runFlow:
+    when:
+      visible: "Allow Sprocket to send you notifications?"
+    commands:
+      - tapOn: "Don't allow"
+      - waitForAnimationToEnd:
+          timeout: 1000
 - extendedWaitUntil:
     visible: ".*(?i)Skip to Connection.*"
     timeout: 15000
@@ -24,22 +34,42 @@ appId: com.hp.impulse.sprocket
       - tapOn: "Allow"
       - waitForAnimationToEnd:
           timeout: 3000
-- extendedWaitUntil:
-    visible: ".*(?i)(HP Sprocket 200 \\(DC:A8\\)|HP Sprocket 200|Searching for Printers|No Printers Found).*"
+- repeat:
+    times: 4
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)No Printers Found.*"
+          commands:
+            - tapOn: ".*(?i)Try Again.*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+- scrollUntilVisible:
+    element: ".*(?i)(DC:A8|DC-A8|D1:DF|D1-DF|82:57|82-57).*"
+    direction: DOWN
     timeout: 120000
+    visibilityPercentage: 40
+    centerElement: true
 - runFlow:
     when:
-      visible: ".*(?i)HP Sprocket 200 \\(DC:A8\\).*"
+      visible: ".*(?i)(DC:A8|DC-A8).*"
     commands:
-      - tapOn: ".*(?i)HP Sprocket 200 \\(DC:A8\\).*"
+      - tapOn: ".*(?i)(DC:A8|DC-A8).*"
       - waitForAnimationToEnd:
           timeout: 1500
 - runFlow:
     when:
-      visible: ".*(?i)HP Sprocket 200.*"
-      notVisible: ".*(?i)HP Sprocket 200 \\(DC:A8\\).*"
+      visible: ".*(?i)(82:57|82-57).*"
+      notVisible: ".*(?i)(DC:A8|DC-A8|Finish Connection|Finish Setup|Pair|^Print$).*"
     commands:
-      - tapOn: ".*(?i)HP Sprocket 200.*"
+      - tapOn: ".*(?i)(82:57|82-57).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(D1:DF|D1-DF).*"
+    commands:
+      - tapOn: ".*(?i)(D1:DF|D1-DF).*"
       - waitForAnimationToEnd:
           timeout: 1500
 - runFlow: ../../connection/subflows/pairing_optional.yaml
@@ -74,6 +104,20 @@ appId: com.hp.impulse.sprocket
             - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
             - waitForAnimationToEnd:
                 timeout: 1500
+- extendedWaitUntil:
+    visible: ".*(?i)(Finish Connection|Finish Setup|^Print$|Copies|Firmware Update Available).*"
+    timeout: 90000
+- repeat:
+    times: 2
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)Finish Connection.*"
+          commands:
+            - tapOn:
+                point: "50%,89%"
+            - waitForAnimationToEnd:
+                timeout: 3000
 - runFlow:
     when:
       visible: ".*(?i)^Done$"
@@ -90,6 +134,48 @@ appId: com.hp.impulse.sprocket
             notVisible: ".*(?i)(^Print$|Copies|Print Complete).*"
           commands:
             - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 2000
+- runFlow: ../../printing/subflows/dismiss_optional_firmware_update.yaml
+# Current builds can finish connection on the empty Print Queue screen instead
+# of returning to the originating Print Preview. Recover the pending Gallery
+# selection, then reopen its preview.
+- runFlow:
+    when:
+      visible: ".*(?i)No Prints in Progress.*"
+      notVisible: ".*(?i)(^Print$|Copies|Print Complete).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Print Preview$"
+      notVisible: ".*(?i)(^Print$|Copies|Print Complete).*"
+    commands:
+      - tapOn: ".*(?i)^Print Preview$"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(Recent|^Select$|^All$).*"
+      notVisible: ".*(?i)(^Print$|Copies|Print Complete|^Print Preview$).*"
+    commands:
+      - tapOn:
+          point: "50%,45%"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow: ../../printing/subflows/dismiss_optional_firmware_update.yaml
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            visible: "Finish Connection"
+          commands:
+            - tapOn: "Finish Connection"
+            - tapOn:
+                point: "50%,89%"
             - waitForAnimationToEnd:
                 timeout: 2000
 # Connected preview shows Print, not Add Printer.

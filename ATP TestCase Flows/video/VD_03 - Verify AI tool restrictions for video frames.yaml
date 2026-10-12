@@ -2,14 +2,12 @@
 # Excel: Video frame 03 | Module: CR_05C_Print Preview of Photos & Videos
 # Verify AI tool restrictions for video frames.
 # Expected: AI disabled on video; tooltip "AI Edit is not available for Video." (~5s).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "VD_03 - Verify AI tool restrictions for video frames"
 tags:
   - video
   - atp-excel
 ---
-- launchApp:
-    clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/reach_video_frames_print_preview.yaml
 - runFlow: subflows/assert_ai_unavailable_for_video.yaml

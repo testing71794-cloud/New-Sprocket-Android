@@ -1,0 +1,19 @@
+# ATP Test Case ID: PQ_12
+# Excel: Print_Queue12
+# Verify unresolved Out Of Paper remains as the queue error state.
+appId: com.caglobal.hp.sprocket
+name: "PQ_12 - Error state after dismissing unresolved popup"
+tags: [print-queue, atp-excel, positive, physical-printer, manual-error, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+# Manual hardware action: trigger Out Of Paper and leave it unresolved.
+- extendedWaitUntil:
+    visible: "Out Of Paper"
+    timeout: 120000
+- tapOn:
+    point: "92%,19%"
+- assertVisible: "Out Of Paper"
+- assertVisible: ".*(?i)Resume Queue.*"
+- assertVisible: ".*(?i)In Queue.*"
+- assertNotVisible: ".*(?i)Currently Printing.*"
+- takeScreenshot: PQ_12_unresolved_error_state

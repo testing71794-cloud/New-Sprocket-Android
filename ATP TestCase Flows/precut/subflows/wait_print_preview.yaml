@@ -1,7 +1,10 @@
-appId: com.hp.impulse.sprocket
----
 # Print Preview after filling both Pre-Cut slots.
 # Avoid Create-hub "Quick Print" / "Print stickers" false matches.
+# Resolve Reconnect / Add Printer CTAs when Sense is pre-connected.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
 - runFlow:
     when:
       visible: ".*(?i)(photos and videos|Allow all).*"
@@ -9,13 +12,20 @@ appId: com.hp.impulse.sprocket
       - tapOn: "Allow all"
       - waitForAnimationToEnd:
           timeout: 2000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - extendedWaitUntil:
-    visible: ".*(?i)(Incompatible Printer|Connect.*printer|No printer|Copies|Save to Gallery|Share).*"
+    visible: ".*(?i)(Incompatible Printer|Connect.*printer|No printer|Copies|Save to Gallery|Share|^Print$|Reconnect Printer|^Add Printer$).*"
     timeout: 90000
     optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)(Reconnect Printer|^Add Printer$).*"
+      notVisible: ".*(?i)Incompatible Printer.*"
+    commands:
+      - runFlow: ../../quick-print/subflows/resolve_print_preview_printer_cta.yaml
 - extendedWaitUntil:
-    visible: "^Print$"
-    timeout: 30000
+    visible: ".*(?i)(^Print$|Copies|Save to Gallery|Share|Incompatible Printer).*"
+    timeout: 45000
     optional: true
 - runFlow:
     when:
@@ -25,5 +35,29 @@ appId: com.hp.impulse.sprocket
 - runFlow:
     when:
       notVisible: ".*(?i)Incompatible Printer.*"
+      visible: ".*(?i)(Copies|Save to Gallery|Share|^Print$|Reconnect Printer|^Add Printer$).*"
     commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(Reconnect Printer|^Add Printer$).*"
+          commands:
+            - runFlow: ../../quick-print/subflows/resolve_print_preview_printer_cta.yaml
       - assertVisible: ".*(?i)(Copies|Save to Gallery|Share)|^Print$"
+# Last resort: still on selection — tap Next again once
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Copies|Save to Gallery|Share|^Print$|Incompatible Printer).*"
+      visible: ".*(?i)^Next$"
+    commands:
+      - tapOn: ".*(?i)^Next$"
+      - waitForAnimationToEnd:
+          timeout: 4000
+      - extendedWaitUntil:
+          visible: ".*(?i)(Copies|Save to Gallery|Share|^Print$|Reconnect Printer|Incompatible Printer).*"
+          timeout: 60000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Reconnect Printer|^Add Printer$).*"
+          commands:
+            - runFlow: ../../quick-print/subflows/resolve_print_preview_printer_cta.yaml
+      - assertVisible: ".*(?i)(Copies|Save to Gallery|Share|Incompatible Printer)|^Print$"

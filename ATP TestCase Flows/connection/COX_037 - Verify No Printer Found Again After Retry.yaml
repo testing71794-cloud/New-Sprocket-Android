@@ -2,7 +2,7 @@
 # Excel: PCF_HP200_019 | Module: Pre Connection Flow for HP 200
 # Verify No Printer Found Again After Retry
 # Expected: 1. Printer search should restart. 2. After timeout, the No Printers Found screen should be displayed again.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_037 - Verify No Printer Found Again After Retry"
 tags:
   - connection

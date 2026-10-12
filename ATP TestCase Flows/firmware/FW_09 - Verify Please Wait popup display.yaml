@@ -2,7 +2,7 @@
 # Excel: Firmware Update 009 | Module: Printer Switching
 # Verify Please Wait popup display
 # Expected: Please Wait popup is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_09 - Verify Please Wait popup display"
 tags:
   - firmware

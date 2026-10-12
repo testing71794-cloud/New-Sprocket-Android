@@ -1,0 +1,10 @@
+# Open Print Queue from the Print State top-right queue icon.
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../print-queue/subflows/dismiss_printer_error_popup.yaml
+- tapOn:
+    point: "91%,9%"
+- runFlow: ../../print-queue/subflows/dismiss_printer_error_popup.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Currently Printing|In Queue|No Prints in Progress|Pause Queue|Resume Queue).*"
+    timeout: 30000

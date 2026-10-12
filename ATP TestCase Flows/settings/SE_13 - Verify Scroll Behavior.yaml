@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  13 | Module: UI/UX
 # Verify Scroll Behavior
 # Expected: Menu scrolls smoothly and all menu items remain accessible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_13 - Verify Scroll Behavior"
 tags:
   - settings

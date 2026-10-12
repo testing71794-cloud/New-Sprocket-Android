@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_009 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify 'Finish Setup' Button for the HP Sprocket 3x4 printer.
 # Expected: User should be redirected to the printer discovery/connection flow.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_046 - Verify Finish Setup Button for the HP Sprocket 3x4 printer"
 tags:
   - connection

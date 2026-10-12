@@ -1,6 +1,6 @@
 # Long-press a video thumbnail using relational layout (not x/y coordinates).
 # Video sits in the column right of the first photo thumbnail below Recent.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: scroll_to_gallery_video_cell.yaml
 - longPressOn:

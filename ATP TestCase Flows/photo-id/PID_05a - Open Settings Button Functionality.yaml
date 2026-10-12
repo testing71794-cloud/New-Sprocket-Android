@@ -1,0 +1,24 @@
+# ATP Test Case ID: PID_05a
+# Excel: Photo ID_05 (a) | Module: Photo ID- camera permission deny
+# Verify Open Settings Button Functionality.
+# Expected: Device App Settings page opens for the application.
+appId: com.caglobal.hp.sprocket
+name: "PID_05a - Open Settings Button Functionality"
+tags:
+  - photo-id
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/deny_camera.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Open Settings.*"
+    timeout: 15000
+- tapOn: ".*(?i)Open Settings.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- extendedWaitUntil:
+    visible: ".*(?i)(Permissions|App info|Sprocket|Notifications).*"
+    timeout: 10000
+- assertVisible: ".*(?i)(Permissions|App info|Sprocket|Notifications).*"

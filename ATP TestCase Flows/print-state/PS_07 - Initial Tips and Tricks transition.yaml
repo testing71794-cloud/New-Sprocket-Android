@@ -1,0 +1,23 @@
+# ATP Test Case ID: PS_07
+# Excel: Print_State_07
+# Initial Tips and Tricks transition
+# Expected: After about 5 seconds, initial text slides left and Tips & Tricks content slides in from the right smoothly.
+appId: com.caglobal.hp.sprocket
+name: "PS_07 - Initial Tips and Tricks transition"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - timing-manual
+  - animation-manual
+  - visual-check
+  - known-failure
+---
+- runFlow: subflows/open_single_print_state.yaml
+- takeScreenshot: PS_07_initial_print_state_text
+# Manual timing checkpoint at approximately 5 seconds: initial text exits left while Tips & Tricks enters right.
+- extendedWaitUntil:
+    visible: ".*(?i)(Tips|Tricks).*"
+    timeout: 15000
+- takeScreenshot: PS_07_tips_and_tricks_after_five_seconds

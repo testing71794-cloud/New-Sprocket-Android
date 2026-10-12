@@ -1,5 +1,5 @@
 # App Settings screen (screen 3) — opened from Hamburger → App Settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)App Settings.*"

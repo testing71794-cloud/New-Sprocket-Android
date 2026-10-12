@@ -1,0 +1,38 @@
+# ATP Test Case ID: PS_20
+# Excel: Print_State_20
+# Multi-copy stacked print preview
+# Expected: Multiple copies form an updating offset stack with the specified drop shadow and correct image aspect ratio.
+appId: com.caglobal.hp.sprocket
+name: "PS_20 - Multi-copy stacked print preview"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - multi-copy
+  - visual-check
+---
+- runFlow: ../printing/subflows/open_preview_one_photo.yaml
+- tapOn: "Copies"
+- runFlow:
+    when:
+      visible:
+        id: ".*add_copies.*"
+    commands:
+      - tapOn:
+          id: ".*add_copies.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*add_copies.*"
+    commands:
+      - tapOn:
+          point: "64%,78%"
+- assertVisible: "0?2"
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing).*"
+    timeout: 120000
+# Visual checkpoint: top copy is active; remaining copies are offset with #000000/25%, y=7, blur=20 shadow.
+- takeScreenshot: PS_20_multi_copy_stack

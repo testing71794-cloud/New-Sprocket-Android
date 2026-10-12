@@ -1,0 +1,11 @@
+# Supplied JSON row: AI Tools 63 | Replace Background
+# Verify Save as New Photo popup
+appId: com.caglobal.hp.sprocket
+name: "AI_63 - Replace Background Save Popup - Verify Save as New Photo popup"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: subflows/background_open_save_popup.yaml

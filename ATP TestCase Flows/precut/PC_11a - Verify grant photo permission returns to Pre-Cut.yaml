@@ -2,7 +2,7 @@
 # Excel: Precut_11 (a) | Module: Pre-Cut Stickers – Gallery Permission Recovery
 # Verify that granting photo permission from device settings returns the user to the Pre-Cut photo selection screen.
 # Expected: Permission screen gone; gallery available for selection.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_11a - Verify grant photo permission returns to Pre-Cut"
 tags:
   - precut

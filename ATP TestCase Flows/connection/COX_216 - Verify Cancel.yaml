@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC054 | Module: Wi-Fi Connection Failure
 # Verify Cancel
 # Expected: Connection flow closes and previous printer screen is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_216 - Verify Cancel"
 tags:
   - connection

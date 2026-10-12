@@ -1,0 +1,17 @@
+# ATP Test Case ID: PQ_05
+# Excel: Print_Queue05
+# Verify Send to Top is absent only for the topmost pending print.
+appId: com.caglobal.hp.sprocket
+name: "PQ_05 - Topmost overflow omits Send to Top"
+tags: [print-queue, atp-excel, positive, physical-printer, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- tapOn:
+    point: "92%,55%"
+- assertVisible: "Delete"
+- assertNotVisible: "Send to Top"
+- pressKey: BACK
+- tapOn:
+    point: "92%,72%"
+- assertVisible: "Send to Top"
+- assertVisible: "Delete"

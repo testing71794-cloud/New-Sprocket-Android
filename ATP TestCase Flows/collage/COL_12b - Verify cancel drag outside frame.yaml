@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_12b
+# Excel: Collage_12 (b) | Module: Collage maker- Cancel Drag by Moving Photo Outside the Frame
+# Verify that dragging a photo outside the collage frame cancels the drag-and-drop action.
+appId: com.caglobal.hp.sprocket
+name: "COL_12b - Verify cancel drag outside frame"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- longPressOn:
+    point: "30%,40%"
+- swipe:
+    start: "30%,40%"
+    end: "30%,8%"
+    duration: 1000
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Drag & Drop to Reorder"

@@ -1,6 +1,6 @@
 # ATP Test Case ID: LO_11
 # Figma ON_03C — Log In button does not submit until both Email and Password are filled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "LO_11 - Log In button disabled until fields filled"
 ---
 - runFlow: subflows/ensure_email_login_form.yaml

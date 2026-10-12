@@ -1,0 +1,12 @@
+# ATP Test Case ID: COL_09b
+# Excel: Collage_9 (b) | Module: Collage maker- photo selection
+# Verify User Can Proceed to Drag & Drop Screen After Selecting Only 2 Photos.
+appId: com.caglobal.hp.sprocket
+name: "COL_09b - Verify Next with 2 photos opens Drag Drop"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml

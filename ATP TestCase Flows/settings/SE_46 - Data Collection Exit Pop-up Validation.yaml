@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 51 | Module: Data
 # Data Collection Exit Pop-up Validation
 # Expected: Pop-up appears and prevents accidental exit without saving changes.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_46 - Data Collection Exit Pop-up Validation"
 tags:
   - settings

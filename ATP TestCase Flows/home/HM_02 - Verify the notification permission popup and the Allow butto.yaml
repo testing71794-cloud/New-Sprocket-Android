@@ -2,7 +2,7 @@
 # Excel: HOME SCREEN_002 | Module: Notification Permission Popup
 # Verify the notification permission popup and the Allow button functionality.
 # Expected: The popup is dismissed after tapping Allow, and the Home screen remains visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "HM_02 - Verify the notification permission popup and the Allow butto"
 tags:
   - home

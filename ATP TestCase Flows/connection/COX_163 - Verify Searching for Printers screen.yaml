@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC001 | Module: Discovery
 # Verify Searching for Printers screen
 # Expected: Searching screen with spinner and HP600 scan.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_163 - Verify Searching for Printers screen"
 tags:
   - connection

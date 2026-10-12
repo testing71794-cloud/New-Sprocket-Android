@@ -1,0 +1,12 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    point: "20%,22%"
+- extendedWaitUntil:
+    visible: "Use This Image"
+    timeout: 15000
+- assertVisible: "Use This Image"
+- tapOn: "Use This Image"
+- extendedWaitUntil:
+    visible: "Generate"
+    timeout: 15000

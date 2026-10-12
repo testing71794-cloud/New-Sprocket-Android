@@ -56,7 +56,7 @@ def main() -> None:
             alias = SETUP_ALIAS.get(stage, "Home")
             body = f"""# ATP Stage Flow: {stage}
 # Auto-generated checklist. Navigation reuses {alias} setup; assertions via run_module.py.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - {stage}"
 tags:
   - atp-verification
@@ -68,7 +68,7 @@ tags:
 """
             (out_dir / f"{stage}.yaml").write_text(body, encoding="utf-8")
             (out_dir / "setup.yaml").write_text(
-                f"appId: com.hp.impulse.sprocket\n---\n- runFlow: {stage}.yaml\n",
+                f"appId: com.caglobal.hp.sprocket\n---\n- runFlow: {stage}.yaml\n",
                 encoding="utf-8",
             )
 

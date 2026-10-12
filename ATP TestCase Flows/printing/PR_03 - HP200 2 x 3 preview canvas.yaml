@@ -1,0 +1,19 @@
+# ATP Test Case ID: PR_03
+# Excel: Print Preview_03
+# Lab: HP200 (or compatible 2x3) pre-connected — no Add Printer / search.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PR_03 - HP200 2 x 3 preview canvas"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - hardware
+  - paper-size-2x3
+  - printer-preconnect
+---
+- runFlow: subflows/launch_to_create_keep_state.yaml
+- runFlow: subflows/open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- takeScreenshot: PR_03_HP200_2x3_canvas

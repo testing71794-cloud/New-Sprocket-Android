@@ -1,0 +1,21 @@
+# ATP Test Case ID: PR_18
+# Excel: Print Preview_18
+# Image center reposition snap
+# Expected: Horizontal and vertical guides assist an accurate center snap.
+appId: com.caglobal.hp.sprocket
+name: "PR_18 - Image center reposition snap"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - gesture
+  - visual-check
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- swipe:
+    start: "42%,39%"
+    end: "50%,43%"
+    duration: 1200
+- runFlow: subflows/assert_print_preview_ui.yaml
+- takeScreenshot: PR_18_center_snap

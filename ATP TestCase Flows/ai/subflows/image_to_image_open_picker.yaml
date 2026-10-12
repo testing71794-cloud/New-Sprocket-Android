@@ -1,0 +1,12 @@
+# Open Image-to-Image and verify the required gallery listing controls.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- tapOn: ".*Image-to-Image.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Gallery|Photos).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Recent|Gallery|Photos).*"
+- assertVisible: ".*(?i)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).*20[0-9]{2}.*"
+- assertVisible: "Please select an image to generate with."

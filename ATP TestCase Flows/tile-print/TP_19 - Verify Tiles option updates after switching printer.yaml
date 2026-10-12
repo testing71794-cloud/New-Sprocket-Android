@@ -1,0 +1,28 @@
+# ATP Test Case ID: TP_19
+# Excel: Tiles modules 19 | Module: Tiles > Switch Printer > View Print Preview
+# After switching between incompatible and compatible printers, Print Preview
+# refreshes and Tiles enablement matches the connected printer.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "TP_19 - Verify Tiles option updates after switching printer"
+tags:
+  - tile-print
+  - atp-excel
+  - positive
+  - physical-printer
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/open_tile_print_preview.yaml
+- assertVisible: ".*(?i)(Tiles|Copies|Print).*"
+# Soft check: incompatible printers hide/disable Tiles; compatible keep it.
+- runFlow:
+    when:
+      visible: ".*(?i)not compatible with this printer.*"
+    commands:
+      - assertVisible: ".*(?i)not compatible.*"
+- runFlow:
+    when:
+      notVisible: ".*(?i)not compatible with this printer.*"
+    commands:
+      - assertVisible: ".*(?i)Tiles.*"
+- takeScreenshot: TP_19_tiles_after_printer_switch

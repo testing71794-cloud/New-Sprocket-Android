@@ -2,7 +2,7 @@
 # Excel: Firmware Update 007 | Module: Firmware Installation
 # Verify firmware installation completion
 # Expected: Firmware update completes successfully and printer reconnects automatically.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_07 - Verify firmware installation completion"
 tags:
   - firmware

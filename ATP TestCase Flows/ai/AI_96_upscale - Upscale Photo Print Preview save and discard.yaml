@@ -1,0 +1,65 @@
+# Excel: AI Tools 96
+# Module: AI Tools >Upscale Photo – Print Preview
+# Description: Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the upscaled photo.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Upscale Photo.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Wait for the upscaled and denoised photo to be displayed.
+# 5. Tap Apply.
+# 6. Verify that the Print Preview screen is displayed with the upscaled and denoised photo.
+# 7. Tap the Back button.
+# 8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Don't Save options.
+# 9. Tap the Cross icon on the popup.
+# 10. Verify that the popup closes and the user remains on the Print Preview screen.
+# 11. Tap the Back button again.
+# 12. Tap Save to Gallery.
+# 13. Verify that the upscaled photo is saved to the gallery and the user returns to the previous screen.
+# 14. Repeat the Upscale Photo flow until the Save as new photo? popup is displayed.
+# 15. Tap Don't Save.
+# 16. Verify that the upscaled photo is not saved to the gallery and the user returns to the previous screen.
+# 17. Generate another upscaled photo and tap Apply.
+# 18. Send the print command while the printer is connected.
+# 19. Verify that the printed output matches the photo displayed in Print Preview.
+# Type: Positive
+# Expected:
+# Apply redirects to Print Preview with the upscaled and denoised photo.
+# Back displays the Save as new photo? popup with Save to Gallery and Don't Save options.
+# Cross closes the popup and keeps the user on Print Preview.
+# Save to Gallery saves the upscaled photo and returns to the previous screen.
+# Don't Save does not save the upscaled photo and returns to the previous screen.
+# Printed output matches the upscaled image displayed in Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "AI_96_upscale - Upscale Photo Print Preview save and discard"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - upscale
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Upscale Photo" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_apply_print_preview.yaml
+- runFlow: subflows/enhancement_assert_save_popup.yaml
+- runFlow: subflows/enhancement_close_save_popup.yaml
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Upscale Photo" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_apply_print_preview.yaml
+- runFlow: subflows/enhancement_assert_save_popup.yaml
+- tapOn: "(?i)Save to Gallery.*"
+- assertNotVisible: "(?i)Save as new photo.*"
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Upscale Photo" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_apply_print_preview.yaml
+- runFlow: subflows/enhancement_assert_save_popup.yaml
+- tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+- assertNotVisible: "(?i)Save as new photo.*"

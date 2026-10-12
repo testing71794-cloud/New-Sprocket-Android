@@ -1,0 +1,18 @@
+# ATP Test Case ID: PQ_06
+# Excel: Print_Queue06
+# Verify Send to Top reorders pending prints and Print State reflects the order.
+appId: com.caglobal.hp.sprocket
+name: "PQ_06 - Send to Top updates queue and Print State"
+tags: [print-queue, atp-excel, positive, physical-printer, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- takeScreenshot: PQ_06_before_send_to_top
+- tapOn:
+    point: "92%,72%"
+- tapOn: "Send to Top"
+- assertVisible: ".*(?i)Currently Printing.*"
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_06_after_send_to_top
+- pressKey: BACK
+- assertVisible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+- takeScreenshot: PQ_06_print_state_reordered

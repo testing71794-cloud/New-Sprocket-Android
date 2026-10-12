@@ -2,7 +2,7 @@
 # Excel: PS-002 | Module: Printer Settings
 # Verify Nickname update and persistence
 # Expected: Updated nickname is saved successfully and persists after reopening Printer Settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_234 - Verify Nickname update and persistence"
 tags:
   - connection

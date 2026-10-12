@@ -1,14 +1,16 @@
-# ATP Test Case ID: TP_16
-# Excel: Tiles modules 16 | Module: Create > Copies
-# Verify copy count retention and navigation
-# Expected: Previously selected copy count is retained. Tile layout remains unchanged. All navigation controls work correctly. No error message, UI issue or app crash is observed.
-appId: com.hp.impulse.sprocket
+# Source: Tiles modules 16 | Create > Copies | Negative
+appId: com.caglobal.hp.sprocket
 name: "TP_16 - Verify copy count retention and navigation"
 tags:
   - tile-print
   - atp-excel
+  - negative
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- runFlow: subflows/open_tile_print_preview.yaml
+- runFlow: subflows/assert_default_2x2.yaml
+- runFlow: subflows/increase_copy_count_to_two.yaml
+- tapOn: "Tiles"
+- takeScreenshot: tile_print_2x2_after_copy_change
+- tapOn: "Copies"
+- assertVisible: "0?2"
+- runFlow: subflows/assert_tile_print_preview_ui.yaml

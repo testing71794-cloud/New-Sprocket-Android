@@ -3,7 +3,7 @@
 # Field Constraint Validation
 # Expected: Username edit and password change options are unavailable for API authenticated users.
 # Email-auth account: Change Password remains available (API-only constraint — verify option exists).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_35 - Field Constraint Validation"
 tags:
   - settings

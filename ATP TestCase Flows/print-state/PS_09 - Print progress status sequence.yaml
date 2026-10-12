@@ -1,0 +1,19 @@
+# ATP Test Case ID: PS_09
+# Excel: Print_State_09
+# Print progress status sequence
+# Expected: Status follows Sending to Print -> In Queue -> Printing -> Print Complete and the progress indicator tracks the physical job.
+appId: com.caglobal.hp.sprocket
+name: "PS_09 - Print progress status sequence"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - timing-sensitive
+---
+- runFlow: subflows/open_single_print_state.yaml
+# These exact statuses are transient and must be observed against the physical printer lifecycle.
+- extendedWaitUntil:
+    visible: ".*(?i)^(Sending to Print|In Queue|Printing|Print Complete)$.*"
+    timeout: 120000
+- takeScreenshot: PS_09_print_progress_status

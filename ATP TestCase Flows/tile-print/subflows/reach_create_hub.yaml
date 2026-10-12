@@ -1,8 +1,10 @@
 # Shared setup: cold launch through Create hub (does not open Tile Print).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - launchApp:
     clearState: true
+- assertVisible: ".*(?i)sprocket.*"
+- takeScreenshot: tile_print_cold_launch_sprocket
 - runFlow: ../../common/subflows/wait_after_cold_launch.yaml
 - runFlow: ../../common/subflows/complete_sprocket_carousel_if_visible.yaml
 - extendedWaitUntil:
@@ -25,6 +27,30 @@ appId: com.hp.impulse.sprocket
       - tapOn: ".*Create.*"
 - waitForAnimationToEnd:
     timeout: 4000
-- assertVisible:
-    text: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
-    optional: true
+# Retry guest entry if still on Sign up / Log In after the first pass.
+- runFlow:
+    when:
+      visible: ".*(?i)(I.ll do it later|Sign Up Later|Continue without Logging In).*"
+    commands:
+      - runFlow: ../../common/subflows/tap_sign_up_later.yaml
+      - runFlow: ../../common/subflows/accept_terms_if_visible.yaml
+      - runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
+      - runFlow: ../../permission/subflows/allow_notification_permission.yaml
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Create|Printer|More).*"
+    timeout: 25000
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Collage Maker|Quick Print).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Create.*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print).*"
+    timeout: 20000

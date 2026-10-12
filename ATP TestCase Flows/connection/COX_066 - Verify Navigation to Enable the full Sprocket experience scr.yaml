@@ -2,7 +2,7 @@
 # Excel: PCF_HPSelect_010 | Module: Pre Connection Flow for Sprocket Select
 # Verify Navigation to 'Enable the full Sprocket experience' screen for HP Sprocket Select printer
 # Expected: 1. The Enable the Full Sprocket Experience screen should be displayed along with the text description "Allow the app to connect to your sprocket printer using Bluetooth". 2. The Bluetooth icon should be displayed. 3. The Enable Bluetooth bu
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_066 - Verify Navigation to Enable the full Sprocket experience scr"
 tags:
   - connection

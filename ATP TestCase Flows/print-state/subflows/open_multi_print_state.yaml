@@ -1,0 +1,10 @@
+# Open four Quick Print photos, ensure a physical printer is connected, and submit them.
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../printing/subflows/open_preview_four_photos.yaml
+- runFlow: ../../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete|Done|Paper Feed Error|Out Of Paper).*"
+    timeout: 120000
+- runFlow: ../../print-queue/subflows/dismiss_printer_error_popup.yaml

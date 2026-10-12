@@ -2,7 +2,7 @@
 # Excel: Firmware Update 40 | Module: Firmware Error Handling
 # Verify Paper Empty Error during firmware update
 # Expected: Bottom side Try Again
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_40 - Verify Paper Empty Error during firmware update"
 tags:
   - firmware

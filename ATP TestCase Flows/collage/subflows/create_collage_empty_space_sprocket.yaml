@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Select one photo only — Next should stay disabled / toast if forced.
 - runFlow: select_one_photo_fast.yaml

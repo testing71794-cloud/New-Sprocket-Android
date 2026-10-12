@@ -1,0 +1,19 @@
+# ATP Test Case ID: PH_03
+# Excel: Print_History03
+# Verify Only the Five Most Recent Prints Are Displayed in Print History
+# Manual setup: print at least ten distinguishable photos sequentially. Validate
+# visually that only the latest five remain and are ordered newest to oldest.
+appId: com.caglobal.hp.sprocket
+name: "PH_03 - Maximum five recent prints"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - visual-manual
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_03_maximum_five_items

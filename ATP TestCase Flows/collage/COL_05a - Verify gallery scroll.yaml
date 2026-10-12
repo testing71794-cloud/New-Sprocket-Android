@@ -1,0 +1,24 @@
+# ATP Test Case ID: COL_05a
+# Excel: Collage_05 (a) | Module: Collage Maker-Scroll feature
+# Verify the scroll functionality of the photo gallery on the Collage selection screen.
+appId: com.caglobal.hp.sprocket
+name: "COL_05a - Verify gallery scroll"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- swipe:
+    start: "50%,80%"
+    end: "50%,45%"
+    duration: 500
+- swipe:
+    start: "50%,80%"
+    end: "50%,45%"
+    duration: 500
+- swipe:
+    start: "50%,45%"
+    end: "50%,80%"
+    duration: 500
+- assertVisible: "Select 2 to 4 photos"

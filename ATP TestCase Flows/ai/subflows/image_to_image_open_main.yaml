@@ -1,0 +1,23 @@
+# Select the first seeded gallery photo and verify Image-to-Image main controls.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: image_to_image_open_picker.yaml
+- tapOn:
+    point: "18%,25%"
+- waitForAnimationToEnd:
+    timeout: 3000
+# Some builds show a confirm CTA; others open Image-to-Image immediately.
+- runFlow:
+    when:
+      visible: "Use This Image"
+    commands:
+      - tapOn: "Use This Image"
+- extendedWaitUntil:
+    visible: "Base Image"
+    timeout: 60000
+- assertVisible: "Change Photo"
+- assertVisible: "Crop Photo"
+- assertVisible: "Image Style"
+- assertVisible: "Image Quantity"
+- assertVisible: "Generate Image(\\(s\\)|s)"

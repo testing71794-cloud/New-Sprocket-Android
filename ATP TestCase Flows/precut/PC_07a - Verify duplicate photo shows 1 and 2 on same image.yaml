@@ -1,5 +1,5 @@
 # Canonical merged PC_07a. Full coverage: same image in both slots and duplicate restriction.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_07a - Duplicate photo selection and indicators"
 tags: [precut, atp-excel, optimized]
 ---

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel Precut_01 selection-screen UI.
 # Next is visually disabled on empty slots but Compose still reports enabled=true.

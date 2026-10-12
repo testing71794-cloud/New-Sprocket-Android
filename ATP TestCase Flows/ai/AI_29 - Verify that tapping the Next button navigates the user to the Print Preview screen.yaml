@@ -1,0 +1,40 @@
+# ATP Test Case ID: AI_29
+# Excel: AI Tools 29
+# Module: AI- Image-to-Image – Verify Next Button Navigation to Print Preview
+# Description:
+# Verify that tapping the Next button navigates the user to the Print Preview screen.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with ""sprocket"" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select any image style
+# Select any image quantity
+# Wait to enable the 'Generate Images(s)'button and tap on it.
+# Wait to finish the generating photo process.
+# Verify the Newly generated image screen with thumbnails.
+# Select any generated image thumbnail.
+# Tap Next.
+# Expected:
+# User is navigated to Print Preview - Image-to-Image screen.
+# The selected generated image is imported into Print Preview.
+# Print Preview screen loads successfully without errors.
+appId: com.caglobal.hp.sprocket
+name: "AI_29 - Verify that tapping the Next button navigates the user to the Print Preview screen."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_print_preview.yaml

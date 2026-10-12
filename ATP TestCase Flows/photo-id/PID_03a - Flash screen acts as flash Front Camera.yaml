@@ -1,0 +1,18 @@
+﻿# ATP Test Case ID: PID_03a
+# Excel: Photo ID_03 (a) | Module: Photo ID â€“ Flash functionality for Front Camera
+# Verify that the device screen acts as a flash when capturing photos using the front-facing camera.
+# Expected: Flash off by default; after enabling, capture proceeds without crash.
+appId: com.caglobal.hp.sprocket
+name: "PID_03a - Flash screen acts as flash Front Camera"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/tap_flash.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/select_timer_3s.yaml
+- runFlow: subflows/select_size_2x2.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_countdown_then_preview.yaml

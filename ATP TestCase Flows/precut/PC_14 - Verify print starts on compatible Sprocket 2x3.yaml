@@ -2,7 +2,7 @@
 # Excel: Precut_14 | Module: Pre-Cut Stickers – Printing
 # Pre-Cut print works ONLY with compatible HP Sprocket 2×3 (e.g. 84:0C or Sprocket 200 DC:A8).
 # Expected: Incompatible Printer popup/toast is NOT displayed; print flow proceeds.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_14 - Verify print starts on compatible Sprocket 2x3"
 tags:
   - precut

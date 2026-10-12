@@ -3,7 +3,7 @@
 # Verify that the “Next” button becomes enabled when both photo slots are selected.
 # Expected: Next does not leave the screen until both slots are filled.
 # Compose reports Next as enabled=true even when visually disabled, so this is behavioral.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_06 - Verify Next button enables when both slots filled"
 tags:
   - precut

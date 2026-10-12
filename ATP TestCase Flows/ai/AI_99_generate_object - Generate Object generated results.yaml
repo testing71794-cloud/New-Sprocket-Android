@@ -1,0 +1,66 @@
+# Excel: AI Tools 99
+# Module: AI Tools >Generate Object – Generated Results
+# Description: Verify generated result options, result switching, Generate New and Cancel behavior.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Generate Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Paint an area where the object should be generated.
+# 4. Enter a valid object generation prompt.
+# 5. Tap Generate.
+# 6. Wait for the generation to complete.
+# 7. Verify that 2 generated image results are displayed.
+# 8. Verify that Option 1 is selected by default.
+# 9. Tap the second result thumbnail.
+# 10. Verify that the selected result is displayed as the main preview.
+# 11. Tap Generate New.
+# 12. Verify that the Generating Loader is displayed.
+# 13. Wait for generation to complete.
+# 14. Verify that 2 new generated image options are displayed.
+# 15. Tap Cancel.
+# 16. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.
+# 17. Tap Stay.
+# 18. Verify that the popup closes and the user remains on the result screen.
+# 19. Tap Cancel again.
+# 20. Tap Exit without Saving.
+# 21. Verify that the user is redirected to the AI Tools selection screen.
+# Type: Positive
+# Expected:
+# Two generated image results are displayed.
+# Option 1 is selected by default.
+# Tapping a thumbnail switches the main preview to that result.
+# Generate New displays the Generating Loader and produces two new options.
+# Cancel displays the Unsaved Changes popup.
+# Stay keeps the user on the result screen.
+# Exit without Saving redirects to the AI Tools selection screen.
+appId: com.caglobal.hp.sprocket
+name: "AI_99_generate_object - Generate Object generated results"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - generate-object
+  - visual
+---
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- runFlow: subflows/generate_object_paint_and_prompt.yaml
+- runFlow: subflows/generate_object_generate_result.yaml
+- assertVisible: "Option 1"
+- assertVisible: "Option 2"
+- assertVisible:
+    text: "Option 1"
+    selected: true
+- tapOn: "Option 2"
+- assertVisible:
+    text: "Option 2"
+    selected: true
+- tapOn: "Generate New"
+- extendedWaitUntil:
+    visible: ".*(?i)Generating.*"
+    timeout: 15000
+- assertVisible: ".*(?i)Generating.*"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 180000
+- assertVisible: "Option 1"
+- assertVisible: "Option 2"
+- runFlow: subflows/generate_object_cancel_unsaved.yaml

@@ -1,5 +1,5 @@
 # ATP Test Case ID: CO_02
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: CO_02_Thumbnail_Quick_Print
 ---
 # ATP CO_02 – Thumbnail overflow → printer → Connect → pick device → pair.

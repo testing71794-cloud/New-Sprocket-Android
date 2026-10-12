@@ -1,0 +1,18 @@
+# Supplied JSON row: AI Tools 59 | Replace Background
+# Verify Exit Without Saving returns to AI Tools
+appId: com.caglobal.hp.sprocket
+name: "AI_59 - Replace Background Exit Without Saving - Verify Exit Without Saving returns to AI Tools"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- tapOn: "Cancel"
+- runFlow: subflows/background_assert_unsaved_popup.yaml
+- tapOn: ".*(?i)Exit [Ww]ithout [Ss]aving"
+- extendedWaitUntil:
+    visible: "Create with AI Tools"
+    timeout: 15000
+- assertVisible: "Remove Background"
+- assertVisible: "Replace Background"

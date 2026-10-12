@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 55 | Module: Legal
 # Open Source Licenses Navigation
 # Expected: Open Source Licenses screen displays all dependencies correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_50 - Open Source Licenses Navigation"
 tags:
   - settings

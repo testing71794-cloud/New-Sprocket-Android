@@ -1,0 +1,25 @@
+# ATP Test Case ID: AI_06b
+# Excel: AI Tools 06 (b) | Module: Text-to-Image
+# Verify supplied UI elements and default settings.
+appId: com.caglobal.hp.sprocket
+name: "AI_06b - Verify Text-to-Image Screen UI"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/open_text_to_image.yaml
+- assertVisible:
+    text: "Tap here to enter a prompt..."
+- assertVisible: "Orientation"
+- assertVisible: "Portrait"
+- assertVisible: "Landscape"
+- assertVisible: "Image Quantity"
+- assertVisible: "1"
+- assertVisible: "2"
+- assertVisible: "3"
+- assertVisible: "4"
+- tapOn: "Generate Image\\(s\\)"
+- assertVisible: "Text-to-Image"
+- assertVisible:
+    text: "Tap here to enter a prompt..."
+- takeScreenshot: "AI_06b_default_portrait_quantity_3"

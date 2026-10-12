@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC038 | Module: Wi-Fi
 # Verify Next enabled
 # Expected: Next button enabled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_200 - Verify Next enabled"
 tags:
   - connection

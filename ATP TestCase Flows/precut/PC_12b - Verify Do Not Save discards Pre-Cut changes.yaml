@@ -2,7 +2,7 @@
 # Excel: Precut_12 (b) | Module: Pre-Cut Stickers – Save Changes Popup
 # Verify that tapping “Do Not Save” discards the Pre-Cut photo changes.
 # Expected: Popup closes; user exits Pre-Cut without saving.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_12b - Verify Do Not Save discards Pre-Cut changes"
 tags:
   - precut

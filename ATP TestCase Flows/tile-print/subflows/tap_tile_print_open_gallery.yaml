@@ -1,5 +1,5 @@
 # From Create hub: tap Tile Print and land on the photo picker (Recent).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - scrollUntilVisible:

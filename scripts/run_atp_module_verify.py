@@ -18,9 +18,9 @@ resolve relative to each flow file.
 
 Multi-device: comma-separated --device (or repeat the flag). One worker per phone.
 
-Login on one device runs every LO_* flow in a single Maestro process
-(login/config.yaml continueOnFailure). The app is not force-stopped between
-those flows, so a case skips launch when Log In is already open.
+Login, signup, precut, collage, video, tile-print, photobooth, photo-id, and quick-print on one device each run in a single Maestro process
+(module config.yaml continueOnFailure). The app is not force-stopped between
+those flows, so a case skips launch when its screen is already open.
 """
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ if str(REPO) not in sys.path:
 
 ATP = REPO / "ATP TestCase Flows"
 OUT = REPO / "reports" / "module_runs"
-APP_ID = "com.hp.impulse.sprocket"
+APP_ID = "com.caglobal.hp.sprocket"
 # Maestro copies the app APK into %TEMP% on every launchApp (~200MB each). Keep that
 # on D: so C: cannot fill during a suite. See https://docs.maestro.dev/maestro-cli/maestro-cli-commands-and-options
 MAESTRO_TMP = REPO / "temp" / "maestro-java"
@@ -569,17 +569,17 @@ def _rows_from_junit(flows: list[Path], junit_path: Path, serial: str) -> list[d
     return rows
 
 
-def run_login_session(maestro: str, serial: str, flows: list[Path], timeout: int) -> list[dict]:
-    """One Maestro process for the login folder.
+def run_module_session(maestro: str, serial: str, flows: list[Path], timeout: int, module: str) -> list[dict]:
+    """One Maestro process for an optimized stateful module.
 
-    The app stays open between LO_* flows, so a later case can skip launch when
-    Log In is already on screen. continueOnFailure is set in login/config.yaml.
-    Other modules keep one process per flow.
+    The app stays open between flows, so a later case can skip launch when the
+    screen it needs is already open. continueOnFailure is set in that module's
+    config.yaml. Other modules keep one process per flow.
     """
     prepare(serial, parallel=False)
     DEBUG_OUT.mkdir(parents=True, exist_ok=True)
-    junit = OUT / f"login_{serial}_junit.xml"
-    config = ATP / "login" / "config.yaml"
+    junit = OUT / f"{module}_{serial}_junit.xml"
+    config = ATP / module / "config.yaml"
     cmd = [
         maestro,
         "--no-ansi",
@@ -598,13 +598,13 @@ def run_login_session(maestro: str, serial: str, flows: list[Path], timeout: int
     ]
     cmd.extend(str(flow) for flow in flows)
     print(
-        f"[login] one session, {len(flows)} flows, continue on failure",
+        f"[{module}] one session, {len(flows)} flows, continue on failure",
         flush=True,
     )
     env = _maestro_env(serial)
     out_dir = OUT / "_maestro_out"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{serial}_login_session.log"
+    out_path = out_dir / f"{serial}_{module}_session.log"
     session_timeout = max(timeout, timeout * len(flows))
     try:
         with out_path.open("w", encoding="utf-8", errors="replace") as out_f:
@@ -628,7 +628,7 @@ def run_login_session(maestro: str, serial: str, flows: list[Path], timeout: int
                     "path": str(flow.relative_to(REPO)),
                     "status": "FAIL",
                     "exit_code": -1,
-                    "failure_reason": f"login session timeout after {session_timeout}s",
+                    "failure_reason": f"{module} session timeout after {session_timeout}s",
                     "execution_time_sec": 0.0,
                     "timestamp": now,
                     "device": serial,
@@ -663,7 +663,7 @@ def run_login_session(maestro: str, serial: str, flows: list[Path], timeout: int
     failed = [flow for flow, rec in zip(flows, rows) if rec["status"] != "PASS"]
     if not failed:
         return rows
-    print(f"[login] retrying {len(failed)} failed flow(s) one at a time", flush=True)
+    print(f"[{module}] retrying {len(failed)} failed flow(s) one at a time", flush=True)
     by_name = {rec["flow"]: rec for rec in rows}
     for flow in failed:
         prepare(serial, parallel=False)
@@ -676,6 +676,25 @@ def run_login_session(maestro: str, serial: str, flows: list[Path], timeout: int
             flush=True,
         )
     return [by_name[flow.name] for flow in flows]
+
+
+def run_collage_batches(
+    maestro: str,
+    serial: str,
+    flows: list[Path],
+    timeout: int,
+    batch_size: int = 8,
+) -> list[dict]:
+    """Bound Collage session length so the Android driver remains stable."""
+    rows: list[dict] = []
+    batches = [flows[i : i + batch_size] for i in range(0, len(flows), batch_size)]
+    for index, batch in enumerate(batches, 1):
+        print(
+            f"[collage] batch {index}/{len(batches)} flows={len(batch)}",
+            flush=True,
+        )
+        rows.extend(run_module_session(maestro, serial, batch, timeout, "collage"))
+    return rows
 
 
 def run_sequential(maestro: str, serial: str, flows: list[Path], timeout: int) -> list[dict]:
@@ -803,8 +822,10 @@ def main() -> int:
     try:
         if len(devices) > 1:
             rows = run_parallel(args.maestro, devices, flows, args.timeout)
-        elif args.module == "login":
-            rows = run_login_session(args.maestro, devices[0], flows, args.timeout)
+        elif args.module == "collage":
+            rows = run_collage_batches(args.maestro, devices[0], flows, args.timeout)
+        elif args.module in {"login", "signup", "precut", "video", "tile-print", "photobooth", "photo-id", "quick-print"}:
+            rows = run_module_session(args.maestro, devices[0], flows, args.timeout, args.module)
         else:
             rows = run_sequential(args.maestro, devices[0], flows, args.timeout)
     finally:

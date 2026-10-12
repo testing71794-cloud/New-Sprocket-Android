@@ -1,0 +1,168 @@
+appId: com.caglobal.hp.sprocket
+---
+# Printer tab → Skip to Connection (never Set Up My Printer / Select Your Device carousel).
+# Then pick Sprocket 3x4, Studio, or Studio Plus from the search list and return to Create.
+# App tabs are ~90% y; 96% hits the Android nav bar on Pixel 5.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)Add a new Printer.*"
+      notVisible: ".*(?i)Skip to Connection.*"
+    commands:
+      - tapOn: "Add a new Printer"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- extendedWaitUntil:
+    visible: ".*(?i)Skip to Connection.*"
+    timeout: 15000
+- tapOn: ".*(?i)Skip to Connection.*"
+- waitForAnimationToEnd:
+    timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)Enable Bluetooth.*"
+    commands:
+      - tapOn: ".*(?i)Enable Bluetooth.*"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+- runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd:
+          timeout: 3000
+# Do not treat "Searching for Printers" as success — wait until a large printer,
+# the lab printer ending 82:57, or an empty result appears.
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|Studio Plus|Sprocket Studio|82:57|82-57|No Printers Found).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket Studio Plus|Studio Plus).*"
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket Studio Plus|Studio Plus).*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+- runFlow:
+    when:
+      visible: ".*(?i)Sprocket Studio.*"
+      notVisible: ".*(?i)(Studio Plus|3x4).*"
+    commands:
+      - tapOn: ".*(?i)Sprocket Studio.*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+# 3x4 / Studio still not selected. Scroll to the end of the list and pick 82:57.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- runFlow:
+    when:
+      visible: ".*(?i)(82:57|82-57|No Printers Found).*"
+      notVisible: ".*(?i)(Finish Connection|Your printer is connected|Pair|Couldn't Connect|Load Paper|Get Connected).*"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)No Printers Found.*"
+          commands:
+            - tapOn: ".*(?i)Try Again.*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - scrollUntilVisible:
+          element: ".*(?i)(82:57|82-57).*"
+          direction: DOWN
+          timeout: 20000
+          visibilityPercentage: 50
+          centerElement: true
+      - tapOn: ".*(?i)(82:57|82-57).*"
+      - waitForAnimationToEnd:
+          timeout: 8000
+- runFlow: ../../connection/subflows/pairing_optional.yaml
+# After Skip to Connection + 3x4: dismiss Low Battery if it covers Finish Connection.
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+- extendedWaitUntil:
+    visible: ".*(?i)(Finish Connection|Your printer is connected|Low Battery|Very Low Battery|Pair|Couldn't Connect|^Create$|Your Printers|Collage Maker).*"
+    timeout: 30000
+- runFlow:
+    when:
+      visible: ".*(?i)(Low Battery|Very Low Battery).*"
+    commands:
+      - tapOn: ".*(?i)^OK$"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- repeat:
+    times: 6
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(Low Battery|Very Low Battery).*"
+          commands:
+            - tapOn: ".*(?i)^OK$"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - runFlow:
+          when:
+            visible: "Pair"
+          commands:
+            - tapOn: "Pair"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Finish Connection|Finish Setup).*"
+          commands:
+            - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)^Done$"
+          commands:
+            - tapOn: ".*(?i)^Done$"
+            - waitForAnimationToEnd:
+                timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(This printer uses Wi-Fi|Open Settings|No Wi-Fi Available|Enter the password).*"
+    commands:
+      - runFlow: ../../precut/subflows/connect_unsupported_printer_wifi.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Searching for Printers.*"
+    commands:
+      - tapOn:
+          point: "8%,6%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- extendedWaitUntil:
+    visible: ".*(?i)(^Create$|Your Printers|Collage Maker).*"
+    timeout: 15000
+- tapOn:
+    text: ".*(?i)^Create$"
+    optional: true
+- tapOn:
+    point: "50%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 800
+- extendedWaitUntil:
+    visible: ".*(?i)Collage Maker.*"
+    timeout: 20000
+- assertVisible: ".*(?i)Collage Maker.*"

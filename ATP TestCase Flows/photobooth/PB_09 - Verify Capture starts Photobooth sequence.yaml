@@ -2,7 +2,7 @@
 # Excel: Photobooth 09 | Module: Photobooth – Capture process
 # Verify that tapping the Capture button starts the Photobooth capture sequence.
 # Expected: Capture starts; four photos; 3-second countdown; progress updates.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_09 - Verify Capture starts Photobooth sequence"
 tags:
   - photobooth

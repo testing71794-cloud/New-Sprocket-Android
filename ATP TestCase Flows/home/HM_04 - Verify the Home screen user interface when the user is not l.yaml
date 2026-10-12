@@ -2,7 +2,7 @@
 # Excel: HOME SCREEN_004 | Module: Home Screen - Not Logged In
 # Verify the Home screen user interface when the user is not logged in.
 # Expected: All Home screen elements are displayed correctly for a user who is not logged in.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "HM_04 - Verify the Home screen user interface when the user is not l"
 tags:
   - home

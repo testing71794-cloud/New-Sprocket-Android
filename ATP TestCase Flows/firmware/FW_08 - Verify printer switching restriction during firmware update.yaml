@@ -2,7 +2,7 @@
 # Excel: Firmware Update 008 | Module: Printer Switching
 # Verify printer switching restriction during firmware update
 # Expected: Printer switching is blocked during firmware update.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_08 - Verify printer switching restriction during firmware update"
 tags:
   - firmware

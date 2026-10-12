@@ -2,7 +2,7 @@
 # Excel: ON_02F_C / ON_02G_PP TC_ON02G_01 | Module: ON_02G_Privacy Policy
 # Verify Privacy Policy navigation and back action
 # Expected: Privacy Policy page opens in the in-app web browser. Tapping Back returns to ON_02C_Sign Up with Email and previously entered data is retained.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_08 - Verify Privacy Policy navigation and back action"
 tags:
   - onboarding-splash

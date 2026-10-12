@@ -1,0 +1,9 @@
+# Select the first visible image style and quantity 3.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: image_to_image_open_main.yaml
+- tapOn: "Modern Art"
+- tapOn:
+    text: "^3$"
+- assertVisible: "Generate Image(\\(s\\)|s)"

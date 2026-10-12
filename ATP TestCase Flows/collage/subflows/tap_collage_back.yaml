@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+# Collage toolbar Back is an unlabeled ImageView at top-left.
+# Do not tap text "Back" — that matches the Android system nav label.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+- tapOn:
+    point: "7%,10%"
+- waitForAnimationToEnd:
+    timeout: 800

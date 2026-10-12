@@ -1,0 +1,19 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: ".*(?i)^Cancel$"
+- extendedWaitUntil:
+    visible: ".*(?i)Unsaved Changes.*"
+    timeout: 10000
+- assertVisible: ".*(?i)Unsaved Changes.*"
+- assertVisible: ".*(?i)^Stay$"
+- assertVisible: ".*(?i)Exit without Saving.*"
+- tapOn: ".*(?i)^Stay$"
+- assertNotVisible: ".*(?i)Unsaved Changes.*"
+- tapOn: ".*(?i)^Cancel$"
+- extendedWaitUntil:
+    visible: ".*(?i)Unsaved Changes.*"
+    timeout: 10000
+- tapOn: ".*(?i)Exit without Saving.*"
+- extendedWaitUntil:
+    visible: ".*(?i)Create with AI Tools.*"
+    timeout: 15000

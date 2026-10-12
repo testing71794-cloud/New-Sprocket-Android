@@ -2,7 +2,7 @@
 # Excel: Custom SDK   04 | Module: Gallery - Print Edited Image
 # Verify user can print an edited image successfully.
 # Expected: Edited image is sent to the printer and printing starts successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_04 - Verify user can print an edited image successfully"
 tags:
   - custom-sdk

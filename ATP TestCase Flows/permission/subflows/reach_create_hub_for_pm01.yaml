@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # PM_01 part 1 — reach Create hub (invoked by scripts/run_pm01.ps1).
 - launchApp

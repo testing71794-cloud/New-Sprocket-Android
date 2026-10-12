@@ -1,0 +1,19 @@
+# ATP Test Case ID: PS_03
+# Excel: Print_State_03
+# Multi-photo preview sequence
+# Expected: Photos appear and print in the Print Preview carousel order, advancing only after each successful physical print.
+appId: com.caglobal.hp.sprocket
+name: "PS_03 - Multi-photo preview sequence"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - multi-photo
+  - timing-manual
+  - visual-check
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- assertVisible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+# Physical timing checkpoint: after each completed print, confirm the next carousel photo is shown in selection order.
+- takeScreenshot: PS_03_multi_photo_first_state

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # After Camera re-prompt was allowed, Photobooth capture succeeds.
 - runFlow: ensure_create_hub_visible.yaml

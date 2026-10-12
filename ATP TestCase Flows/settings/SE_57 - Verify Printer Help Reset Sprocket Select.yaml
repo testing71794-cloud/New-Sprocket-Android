@@ -1,5 +1,5 @@
 # Printer Help screen 6 — Reset Sprocket Select instructions.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_57 - Verify Printer Help Reset Sprocket Select"
 tags:
   - settings

@@ -1,0 +1,35 @@
+# ATP Test Case ID: PR_24
+# Excel: Print Preview_24
+# Low-resolution warning from social media Gallery
+# Expected: A social-media low-resolution fixture displays the blurry-photo warning on Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "PR_24 - Low-resolution warning from social media Gallery"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - social-media
+  - requires-facebook-auth
+  - low-resolution-fixture
+---
+# Requires configured Facebook credentials and a low-resolution first still photo
+# (the second grid cell; the first cell in this account is a video).
+- launchApp:
+    clearState: true
+- runFlow: ../quick-print/subflows/reach_facebook_album.yaml
+# The first Facebook cell is a video; select the first still photo instead.
+- tapOn:
+    point: "50%,24%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- longPressOn:
+    point: "50%,24%"
+- assertVisible: ".*(?i)1 Photo Selected.*"
+- tapOn: ".*(?i)Print Preview.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(blurry|low.?resolution|higher quality|may print).*"
+    timeout: 15000
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$|Add Printer|No Printers Added).*"
+    timeout: 30000

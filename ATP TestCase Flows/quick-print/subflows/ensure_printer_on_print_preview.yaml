@@ -1,23 +1,6 @@
-# Optional pre-Print connect from preview header (No Printer / Add Printer).
-# Prefer Skip to Connection → HP Sprocket 200 (DC:A8). Same helper as post-Print path.
-# See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+# Resolve Print Preview CTA to Print:
+# Print → ok | Reconnect → Printer tab + Sense | Add Printer → Skip to Connection + Sense.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
 ---
-# Header "No Printers Added" is not tappable — only the green Add Printer CTA.
-- runFlow:
-    when:
-      visible: ".*(?i)^Add Printer$"
-    commands:
-      - tapOn: ".*(?i)^Add Printer$"
-      - waitForAnimationToEnd:
-          timeout: 3000
-      - runFlow: connect_sprocket_200_via_skip_to_connection.yaml
-- runFlow:
-    when:
-      visible: ".*(?i)(Tap to Connect|Reconnect).*"
-      notVisible: ".*(?i)^Add Printer$"
-    commands:
-      - tapOn: ".*(?i)(Tap to Connect|Reconnect).*"
-      - waitForAnimationToEnd:
-          timeout: 3000
-      - runFlow: connect_sprocket_200_via_skip_to_connection.yaml
+- runFlow: resolve_print_preview_printer_cta.yaml

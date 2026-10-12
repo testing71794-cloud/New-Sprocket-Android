@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Facebook sometimes shows Google reCAPTCHA after login (same pattern as complete_google_sign_in).
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions

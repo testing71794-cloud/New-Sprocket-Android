@@ -2,7 +2,7 @@
 # Excel: Custom SDK  05 | Module: Gallery - Back Navigation from Custom SDK
 # Verify user can return from Custom SDK screen.
 # Expected: User is returned to the Print Preview screen and edited image is saved successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_05 - Verify user can return from Custom SDK screen"
 tags:
   - custom-sdk

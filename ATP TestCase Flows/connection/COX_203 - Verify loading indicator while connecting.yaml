@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC041 | Module: Connection
 # Verify loading indicator while connecting
 # Expected: Loading indicator should be displayed until the connection attempt completes.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_203 - Verify loading indicator while connecting"
 tags:
   - connection

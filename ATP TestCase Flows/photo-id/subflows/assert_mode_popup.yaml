@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel PhotoID_02 — Mode Information Popup UI (UI uses curly apostrophes).
+- assertVisible: "(?i)Photo ID Mode.*"
+- assertVisible: ".*(?i)Sprocket Photo ID mode provides tips.*"
+- assertVisible: ".*(?i)We don.t guarantee.*"
+- assertVisible: ".*(?i)confirm that the photo meets.*"
+- assertVisible: "(?i)^OK$"
+- assertVisible: "(?i)Don.t Show Again"

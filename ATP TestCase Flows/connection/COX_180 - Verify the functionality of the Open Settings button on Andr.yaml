@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC018 | Module: This Printer uses wi-fi pop up
 # Verify the functionality of the Open Settings button on Android.
 # Expected: On Android, the “Open Settings” button will open the native Wi-Fi settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_180 - Verify the functionality of the Open Settings button on Andr"
 tags:
   - connection

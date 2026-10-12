@@ -1,0 +1,20 @@
+# ATP Test Case ID: PH_10
+# Excel: Print_History10
+# Verify Switching User Accounts Does Not Clear Existing Print History
+# Manual setup: create history as account A, sign out, sign in as account B,
+# and connect the same printer or another printer of the same model.
+appId: com.caglobal.hp.sprocket
+name: "PH_10 - History persists across user accounts"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - account-switch
+  - printer-model
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_10_history_retained_for_account_b

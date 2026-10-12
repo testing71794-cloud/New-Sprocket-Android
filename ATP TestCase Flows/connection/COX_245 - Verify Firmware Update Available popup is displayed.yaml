@@ -2,7 +2,7 @@
 # Excel: PS-013 | Module: Firmware Update
 # Verify Firmware Update Available popup is displayed
 # Expected: Firmware Update Available popup is displayed with update details, Update Now button, and Not Right Now button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_245 - Verify Firmware Update Available popup is displayed"
 tags:
   - connection

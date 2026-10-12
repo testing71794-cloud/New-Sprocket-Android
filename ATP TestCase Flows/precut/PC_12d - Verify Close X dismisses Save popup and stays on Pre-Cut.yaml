@@ -2,7 +2,7 @@
 # Excel: Precut_12 (d) | Module: Pre-Cut Stickers – Save Changes Popup
 # Verify that tapping the Close (X) button closes the “Save as new photo?” popup.
 # Expected: Popup closes; user remains on Pre-Cut selection; changes retained.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_12d - Verify Close X dismisses Save popup and stays on Pre-Cut"
 tags:
   - precut

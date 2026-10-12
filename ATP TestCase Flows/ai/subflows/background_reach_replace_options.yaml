@@ -1,0 +1,5 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: background_open_replace_gallery.yaml
+- runFlow: background_select_photo.yaml
+- runFlow: background_generate_replace_options.yaml

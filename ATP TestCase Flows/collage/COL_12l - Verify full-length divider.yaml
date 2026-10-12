@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_12l
+# Excel: Collage_12 (l) | Module: Collage maker- Full-Length Divider Controls All Applicable Tiles
+# Verify that a line extending across the entire layout is treated as a single divider.
+appId: com.caglobal.hp.sprocket
+name: "COL_12l - Verify full-length divider"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_three_photos_sprocket.yaml
+- swipe:
+    start: "50%,45%"
+    end: "50%,30%"
+    duration: 800
+- assertVisible: "Drag & Drop to Reorder"

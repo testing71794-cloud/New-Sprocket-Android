@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 12 | Module: Print Error
 # Verify Low Battery popup
 # Expected: Title: Low Battery.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_33 - Verify Low Battery popup"
 tags:
   - alerts

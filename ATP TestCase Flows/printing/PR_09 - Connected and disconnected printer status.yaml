@@ -1,0 +1,26 @@
+# ATP Test Case ID: PR_09
+# Excel: Print Preview_09
+# Start from pre-connected Print CTA, then manual power-off shows Add Printer.
+# Do NOT run Add Printer / Skip to Connection / search at the start.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PR_09 - Connected and disconnected printer status"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - negative
+  - hardware
+  - manual-power-off
+  - printer-preconnect
+---
+- runFlow: subflows/launch_to_create_keep_state.yaml
+- runFlow: subflows/open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- assertVisible: ".*(?i)^Printer$"
+# Manual hardware action: switch the connected printer off while this wait is active.
+- extendedWaitUntil:
+    visible: "No Printers Added"
+    timeout: 120000
+- assertVisible: "Add Printer"

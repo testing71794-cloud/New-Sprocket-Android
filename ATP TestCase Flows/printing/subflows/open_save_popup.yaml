@@ -1,0 +1,28 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: tap_preview_edit.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Frame|Crop).*"
+    timeout: 15000
+- tapOn: ".*(?i)Frame.*"
+- runFlow: scroll_to_summer_frame.yaml
+- tapOn:
+    point: "34%,90%"
+- tapOn:
+    id: ".*saveRecentEditImageView.*"
+- tapOn:
+    id: ".*btnDone.*"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: modify_preview_image.yaml
+- tapOn:
+    point: "9%,8%"
+- extendedWaitUntil:
+    visible: ".*(?i)Save as (a )?new photo.*"
+    timeout: 10000
+- assertVisible:
+    text: ".*(?i)(If you do not save|new edits).*"
+    optional: true
+- assertVisible: "Save to Gallery"
+- assertVisible: "Do Not Save"

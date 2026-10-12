@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC069 | Module: Wi-Fi Direct
 # Verify successful Wi-Fi Direct setup
 # Expected: Set Up Complete screen is displayed with Finish Connection button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_231 - Verify successful Wi-Fi Direct setup"
 tags:
   - connection

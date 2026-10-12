@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Yellow coachmark overlay: "Switch Between Camera and Gallery" / "Swipe to take photo".
 - runFlow:

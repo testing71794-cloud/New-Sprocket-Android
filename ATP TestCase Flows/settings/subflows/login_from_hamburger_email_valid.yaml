@@ -1,5 +1,5 @@
 # Cold launch → Create hub → More → Log In → email login → Create hub (logged in).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: reach_create_hub.yaml
 - runFlow: open_hamburger_menu.yaml

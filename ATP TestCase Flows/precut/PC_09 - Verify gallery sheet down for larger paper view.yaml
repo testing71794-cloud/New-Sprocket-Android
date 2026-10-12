@@ -1,6 +1,6 @@
 # Canonical merged PC_09. Full coverage: gallery sheet down + both selections retained
 # + print-preview edit/back exit path from the duplicate PC_09 source.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_09 - Gallery sheet and exit flow"
 tags: [precut, atp-excel, optimized]
 ---

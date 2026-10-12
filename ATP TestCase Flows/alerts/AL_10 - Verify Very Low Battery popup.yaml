@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   10 | Module: Battery
 # Verify "Very Low Battery" popup
 # Expected: "Very Low Battery" popup is displayed on the Print Preview screen. The popup displays the bold title "Very Low Battery", followed by the message "Your printer battery is too low. Charge your printer and try printing again." The popup includ
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_10 - Verify Very Low Battery popup"
 tags:
   - alerts

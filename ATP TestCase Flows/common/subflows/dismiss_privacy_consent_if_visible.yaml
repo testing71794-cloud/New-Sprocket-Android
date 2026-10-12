@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Optional HP privacy / data-collection screens after Sign Up Later (3.0.2871+).
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions

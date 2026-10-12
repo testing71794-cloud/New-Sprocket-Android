@@ -1,7 +1,7 @@
 # Cold launch: clears app data/cache (Android clearState) then opens Sprocket.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - launchApp:
-    appId: com.hp.impulse.sprocket
+    appId: com.caglobal.hp.sprocket
     clearState: true
 - runFlow: wait_after_cold_launch.yaml

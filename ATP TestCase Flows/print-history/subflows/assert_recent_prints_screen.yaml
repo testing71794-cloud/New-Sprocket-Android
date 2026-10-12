@@ -1,0 +1,9 @@
+# Common Recent Prints screen assertions.
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible: "^Recent Prints$"
+- assertVisible:
+    text: ".*(?i)Printer.*"
+    selected: true
+- assertVisible: ".*(?i)More.*"
+- assertVisible: ".*(?i)Create.*"

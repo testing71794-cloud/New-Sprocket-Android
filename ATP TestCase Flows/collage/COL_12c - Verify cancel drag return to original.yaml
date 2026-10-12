@@ -1,0 +1,25 @@
+# ATP Test Case ID: COL_12c
+# Excel: Collage_12 (c) | Module: Collage maker- Cancel Drag by Returning Photo to Original Tile
+# Verify that dragging a photo back to its original tile cancels the drag-and-drop action.
+appId: com.caglobal.hp.sprocket
+name: "COL_12c - Verify cancel drag return to original"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- longPressOn:
+    point: "30%,40%"
+- swipe:
+    start: "30%,40%"
+    end: "55%,40%"
+    duration: 500
+- swipe:
+    start: "55%,40%"
+    end: "30%,40%"
+    duration: 500
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Drag & Drop to Reorder"

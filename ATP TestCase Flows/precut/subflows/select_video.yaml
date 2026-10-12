@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel Precut_08 (a): select a video from the gallery (duration overlay e.g. 0:12).
 - runFlow: ../../video/subflows/open_videos_album_if_visible.yaml

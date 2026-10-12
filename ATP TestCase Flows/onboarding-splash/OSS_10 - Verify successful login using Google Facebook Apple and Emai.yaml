@@ -2,7 +2,7 @@
 # Excel: TC_LI_IOS_13 | Module: Log In Options (iOS)
 # Verify successful login using Google, Facebook, Apple, and Email
 # Expected: User logs in successfully and is redirected to the Home screen without errors.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_10 - Verify successful login using Google Facebook Apple and Emai"
 tags:
   - onboarding-splash

@@ -1,0 +1,53 @@
+# ATP Test Case ID: AI_10
+# Excel: AI Tools 10
+# Module: AI Text to image- Verify Generate New Functionality
+# Description:
+# Verify that tapping Generate New displays the Text-to-Image loader and generates a new set of image options based on the originally selected image quantity and orientation.
+# Steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Tap the Create tab from the bottom navigation bar.
+# 10. Tap Text-to-Image.
+# 11. Tap the prompt text box.
+# 12. Enter a valid prompt.
+# 13. Select an orientation.
+# 14. Select an image quantity.
+# 15. Tap the Generate Image(s) button.
+# 16. Wait for the generated image results screen to appear.
+# 17. Tap the Generate New button.
+# 18. Wait for the Text-to-Image loader to appear.
+# 19. Wait for the image generation process to complete.
+# Expected:
+# Tapping Generate New displays the Text-to-Image Generating Loader.
+# The loader animation and “Generating...” message are displayed while new images are being generated.
+# After generation is complete, the generated image results screen is displayed again.
+# A new set of generated image options is displayed.
+# The number of newly generated image options matches the Image Quantity, orientation originally selected by the user on the Text-to-Image screen.
+# Option 1 is selected by default and displayed in the main preview.
+# The remaining generated images are displayed as thumbnails below the main preview.
+appId: com.caglobal.hp.sprocket
+name: "AI_10 - Verify that tapping Generate New displays the Text-to-Image loader and generates a new set of image options based on the originally selected image quantity and orientation."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/text_to_image_generate_results.yaml
+- tapOn: "Generate New"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- assertVisible: "This may take a few seconds"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000
+- assertVisible: "Cancel"
+- assertVisible: "Apply"
+- takeScreenshot: AI_10_regenerated_results

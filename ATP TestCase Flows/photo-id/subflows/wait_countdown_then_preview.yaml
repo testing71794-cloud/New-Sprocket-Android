@@ -1,0 +1,23 @@
+appId: com.caglobal.hp.sprocket
+---
+# After Capture: handle media permission; recover if still on camera-deny UI; then Print Preview.
+- runFlow:
+    when:
+      visible: ".*(?i)(Open Settings|grant camera permission).*"
+    commands:
+      - setPermissions:
+          permissions:
+            camera: allow
+      - launchApp:
+          stopApp: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: allow_camera_while_using.yaml
+      - runFlow: dismiss_mode_popup_ok.yaml
+      - runFlow: tap_capture.yaml
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(^[0-9]$|Print|Copies|Share|No Printer Added|Add Printer|Allow all|photos and videos|WHILE USING).*"
+    timeout: 90000
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- runFlow: wait_print_preview.yaml

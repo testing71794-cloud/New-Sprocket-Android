@@ -1,0 +1,14 @@
+# ATP Test Case ID: COL_06g
+# Excel: Collage_06 (g) | Module: Collage maker- photo selection
+# Verify that the image carousel can be freely scrolled horizontally and automatically snaps after selecting a photo.
+appId: com.caglobal.hp.sprocket
+name: "COL_06g - Verify large collage carousel snap"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/swipe_slot_carousel.yaml
+- runFlow: subflows/select_four_photos_fast.yaml
+- assertVisible: "5"

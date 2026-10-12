@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  09 | Module: Navigation
 # Verify Printer Help
 # Expected: User navigates to Printer Help screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_09 - Verify Printer Help"
 tags:
   - settings

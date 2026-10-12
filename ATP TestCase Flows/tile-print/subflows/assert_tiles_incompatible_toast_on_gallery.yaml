@@ -1,5 +1,5 @@
 # Incompatible toast on the Tile Print photo picker (Recent), checked immediately after it opens.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: "Recent"

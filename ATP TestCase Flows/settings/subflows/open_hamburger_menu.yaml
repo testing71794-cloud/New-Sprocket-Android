@@ -1,5 +1,5 @@
 # Open Hamburger menu from Create hub via bottom-nav More tab.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: ../../gallery/subflows/assert_gallery_home.yaml
 - runFlow:

@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 11 | Module: Print Error
 # Verify System Error popup
 # Expected: Title: System Error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_32 - Verify System Error popup"
 tags:
   - alerts

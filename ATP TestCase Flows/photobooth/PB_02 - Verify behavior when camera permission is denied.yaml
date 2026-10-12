@@ -2,7 +2,7 @@
 # Excel: Photobooth 02 | Module: Photobooth
 # Verify behavior when camera permission is denied
 # Expected: Camera permission is denied and the Photobooth Camera screen does not open. An appropriate permission/error message is displayed. User cannot capture photos or use camera controls until permission is granted. The app remains stable without 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_02 - Verify behavior when camera permission is denied"
 tags:
   - photobooth

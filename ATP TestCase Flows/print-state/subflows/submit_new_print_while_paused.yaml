@@ -1,0 +1,10 @@
+# Precondition: Print Queue is paused and Print State is visible.
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: return_to_gallery_from_state.yaml
+- tapOn:
+    point: "50%,45%"
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$|Add Printer).*"
+    timeout: 20000
+- tapOn: ".*(?i)^Print$"

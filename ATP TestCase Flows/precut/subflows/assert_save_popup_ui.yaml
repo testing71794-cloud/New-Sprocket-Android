@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel Precut_12 (a) Save as new photo? UI.
 - assertVisible: "(?i)Save as new photo.*"

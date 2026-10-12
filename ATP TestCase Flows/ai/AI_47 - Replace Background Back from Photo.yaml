@@ -1,0 +1,12 @@
+# Supplied JSON row: AI Tools 47 | Replace Background
+# Verify Back returns to gallery
+appId: com.caglobal.hp.sprocket
+name: "AI_47 - Replace Background Back from Photo - Verify Back returns to gallery"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/background_open_replace_gallery.yaml
+- runFlow: subflows/background_select_photo.yaml
+- runFlow: subflows/background_tap_back.yaml
+- assertVisible: "Please select an image to start.?"

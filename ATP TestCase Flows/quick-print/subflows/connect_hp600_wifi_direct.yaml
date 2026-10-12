@@ -1,7 +1,7 @@
 # Excel QUICK PRINT_11: Printer tab → Skip to Connection → HP 600 Wi-Fi Direct.
 # Then return to Create. Caller opens Quick Print → Facebook.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

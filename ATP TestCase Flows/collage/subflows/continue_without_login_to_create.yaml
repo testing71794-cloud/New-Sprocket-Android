@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Continue without Logging In → Create home (Collage Maker visible).
 - tapOn: "I already have an account"

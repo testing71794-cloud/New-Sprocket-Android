@@ -1,0 +1,23 @@
+appId: com.caglobal.hp.sprocket
+---
+# After capture, OS may ask for photos access before Print Preview.
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+- extendedWaitUntil:
+    visible: ".*(?i)(Print|Copies|Share|No Printer Added|Add Printer).*"
+    timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)(photos and videos|Allow all).*"
+    commands:
+      - tapOn: "Allow all"
+- assertVisible:
+    text: ".*(?i)(Print|Copies|Share|No Printer Added|Add Printer).*"

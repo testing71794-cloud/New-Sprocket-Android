@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC045 | Module: Connection
 # Verify Finish Connection button
 # Expected: Button should be enabled and navigate to Your Printers screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_207 - Verify Finish Connection button"
 tags:
   - connection

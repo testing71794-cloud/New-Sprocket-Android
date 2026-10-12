@@ -2,7 +2,7 @@
 # Excel: Precut_12 | Module: Pre-Cut Stickers – Save Changes Popup
 # Verify that the “Save as new photo?” popup is displayed when changes are made using gestures.
 # Expected: Save as new photo? with Save to Gallery and Do Not Save.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_12 - Verify Save as new photo popup after gesture edit"
 tags:
   - precut

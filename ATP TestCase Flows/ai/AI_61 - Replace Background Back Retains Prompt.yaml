@@ -1,0 +1,13 @@
+# Supplied JSON row: AI Tools 61 | Replace Background
+# Verify Back retains custom prompt
+appId: com.caglobal.hp.sprocket
+name: "AI_61 - Replace Background Back Retains Prompt - Verify Back retains custom prompt"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_custom_result.yaml
+- runFlow: subflows/background_tap_back.yaml
+- assertVisible: "sunset beach"
+- assertVisible: ".*(?i)(Generate Background|Color Picker|Gradient).*"

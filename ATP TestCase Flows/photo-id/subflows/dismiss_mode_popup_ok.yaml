@@ -1,0 +1,10 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel: Tap OK on Photo ID Mode information popup when present.
+- runFlow:
+    when:
+      visible: "(?i)Photo ID Mode.*"
+    commands:
+      - tapOn: "(?i)^OK$"
+      - waitForAnimationToEnd:
+          timeout: 2000

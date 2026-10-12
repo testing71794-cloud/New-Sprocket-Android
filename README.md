@@ -1,6 +1,6 @@
 # HP Sprocket Android — Maestro + Jenkins + Python (ready-to-test)
 
-Automation for the **HP Sprocket Android** app (`com.hp.impulse.sprocket`): **Maestro** flows, **parallel multi-device** runs, **Python** reports and **OpenRouter**-backed analysis, **Jenkins** pipeline.
+Automation for the **HP Sprocket Android** app (`com.caglobal.hp.sprocket`): **Maestro** flows, **parallel multi-device** runs, **Python** reports and **OpenRouter**-backed analysis, **Jenkins** pipeline.
 
 ## What you need installed
 
@@ -32,7 +32,7 @@ scripts\ready_to_test.bat -WithDeviceSmoke
 Optional (PowerShell):
 
 ```powershell
-powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke -AppPackage com.hp.impulse.sprocket
+powershell -File scripts\ready_to_test.ps1 -WithDeviceSmoke -AppPackage com.caglobal.hp.sprocket
 ```
 
 ## OpenRouter (optional)
@@ -46,13 +46,13 @@ Copy `.env.example` to `.env` and set `OPENROUTER_API_KEY`, or set the variable 
 Non-printing:
 
 ```bat
-call scripts\run_suite_parallel_same_machine.bat nonprinting "Non printing flows" "" com.hp.impulse.sprocket true maestro.bat
+call scripts\run_suite_parallel_same_machine.bat nonprinting "Non printing flows" "" com.caglobal.hp.sprocket true maestro.bat
 ```
 
 Printing:
 
 ```bat
-call scripts\run_suite_parallel_same_machine.bat printing "Printing Flow" "" com.hp.impulse.sprocket true maestro.bat
+call scripts\run_suite_parallel_same_machine.bat printing "Printing Flow" "" com.caglobal.hp.sprocket true maestro.bat
 ```
 
 ## New: per-device parallel orchestration (AI + incremental Excel)

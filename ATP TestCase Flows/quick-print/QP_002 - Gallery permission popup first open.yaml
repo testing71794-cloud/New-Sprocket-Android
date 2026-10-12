@@ -3,7 +3,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/launchapp
 # See: https://docs.maestro.dev/reference/commands-available/setpermissions
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_002 - Gallery permission popup first open"
 tags:
   - quick-print

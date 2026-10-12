@@ -1,0 +1,13 @@
+appId: com.caglobal.hp.sprocket
+---
+- retry:
+    maxRetries: 3
+    commands:
+      - runFlow: background_tap_back.yaml
+      - assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+    timeout: 5000
+- assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: ".*(?i)(Save to Gallery|Stay).*"
+- assertVisible: ".*(?i)(Do Not Save|Don.?t Save|Exit [Ww]ithout [Ss]aving).*"

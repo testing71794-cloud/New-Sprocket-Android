@@ -1,0 +1,41 @@
+# ATP Test Case ID: PR_20
+# Excel: Print Preview_20
+# Back navigation without changes
+# Expected: Back returns directly to Gallery without a save popup and preserves the gallery session.
+appId: com.caglobal.hp.sprocket
+name: "PR_20 - Back navigation without changes"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- launchApp:
+    clearState: true
+- runFlow: ../quick-print/subflows/reach_gallery_allow_all.yaml
+- swipe:
+    start: "50%,80%"
+    end: "50%,30%"
+    duration: 900
+- tapOn:
+    point: "18%,42%"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 15000
+- runFlow:
+    when:
+      visible:
+        id: ".*preview_img_back.*"
+    commands:
+      - tapOn:
+          id: ".*preview_img_back.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*preview_img_back.*"
+    commands:
+      - tapOn:
+          point: "9%,8%"
+- assertNotVisible: ".*(?i)Save as (a )?new photo.*"
+- assertVisible: ".*(?i)(Recent|^Select$|^All$).*"
+- takeScreenshot: PR_20_gallery_scroll_position

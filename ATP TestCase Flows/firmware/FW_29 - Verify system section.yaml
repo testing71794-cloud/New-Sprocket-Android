@@ -2,7 +2,7 @@
 # Excel: Firmware Update 29 | Module: Firmware UI
 # Verify system section
 # Expected: MAC Address is displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_29 - Verify system section"
 tags:
   - firmware

@@ -1,5 +1,5 @@
 # Logged-out Hamburger menu (screen 2) — More tab → slide-out menu.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - assertVisible:
     text: ".*(?i)Log In.*"

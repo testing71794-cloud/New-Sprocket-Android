@@ -2,7 +2,7 @@
 # Excel: Photobooth 12 | Module: Photobooth – Capture process
 # Verify that the progress indicator updates correctly while capturing photos.
 # Expected: Indicators fill after each of the four photos.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_12 - Verify progress indicator updates during capture"
 tags:
   - photobooth

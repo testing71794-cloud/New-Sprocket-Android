@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Advance collage creation (Next / Create / Done — whichever is shown).
 - runFlow:

@@ -2,7 +2,7 @@
 # Airplane + wifi/data off → Facebook → Unable to connect; Back → Select Gallery.
 # See: https://docs.maestro.dev/reference/commands-available/setairplanemode
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_009 - No Internet popup Facebook Gallery"
 tags:
   - quick-print

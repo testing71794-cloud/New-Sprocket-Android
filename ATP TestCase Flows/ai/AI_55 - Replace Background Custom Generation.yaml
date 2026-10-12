@@ -1,0 +1,21 @@
+# Supplied JSON row: AI Tools 55 | Replace Background
+# Verify custom background generation starts
+appId: com.caglobal.hp.sprocket
+name: "AI_55 - Replace Background Custom Generation - Verify custom background generation starts"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- tapOn:
+    point: "50%,45%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- inputText: "sunset beach"
+- waitForAnimationToEnd:
+    timeout: 2000
+- takeScreenshot: AI_55_custom_prompt_entered
+- tapOn:
+    point: "50%,59%"
+- runFlow: subflows/background_assert_loader.yaml

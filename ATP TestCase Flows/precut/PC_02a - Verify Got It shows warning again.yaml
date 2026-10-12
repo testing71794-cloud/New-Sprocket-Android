@@ -2,7 +2,7 @@
 # Excel: Precut_02 (a) | Module: Pre-Cut Stickers – “Got It” Button Functionality
 # Verify that tapping “Got It” closes the warning popup and displays it again when re-entering Pre-Cut.
 # Expected: Selection screen after Got It; warning shown again on second Pre-cut entry.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_02a - Verify Got It shows warning again"
 tags:
   - precut

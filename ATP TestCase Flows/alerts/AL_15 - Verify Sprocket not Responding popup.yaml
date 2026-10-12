@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   15 | Module: Printer
 # Verify "Sprocket not Responding" popup
 # Expected: "Sprocket not Responding" popup is displayed on the Print Preview screen. The popup displays the bold title "Sprocket not Responding", followed by the message "Your printer might have automatically restarted. If issues continue, remove the 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_15 - Verify Sprocket not Responding popup"
 tags:
   - alerts

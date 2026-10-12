@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC064 | Module: Wi-Fi Direct
 # Verify iOS No Wi-Fi flow
 # Expected: iOS-specific guidance is displayed without Android-only button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_226 - Verify iOS No Wi-Fi flow"
 tags:
   - connection

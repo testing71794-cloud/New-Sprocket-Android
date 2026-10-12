@@ -1,0 +1,16 @@
+# ATP Test Case ID: PS_05
+# Excel: Print_State_05
+# Done restores album and scroll position
+# Expected: Done returns to the previously opened Gallery album and its prior scroll position.
+appId: com.caglobal.hp.sprocket
+name: "PS_05 - Done restores album and scroll position"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - gallery-state
+---
+- runFlow: subflows/open_single_print_state.yaml
+- runFlow: subflows/return_to_gallery_from_state.yaml
+- takeScreenshot: PS_05_gallery_restored_after_done

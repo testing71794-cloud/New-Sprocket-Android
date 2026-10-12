@@ -2,7 +2,7 @@
 # Excel: Photobooth 14 | Module: Print Logic
 # Verify print options and negative behavior
 # Expected: Only Copies control is displayed. Copy count increases/decreases correctly. Tiles/Grid options are not available on Photobooth Result screen. No unexpected options or error messages are shown.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_14 - Verify print options and negative behavior"
 tags:
   - photobooth

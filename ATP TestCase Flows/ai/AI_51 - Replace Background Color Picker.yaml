@@ -1,0 +1,18 @@
+# Supplied JSON row: AI Tools 51 | Replace Background
+# Verify Color Picker applies a background color
+appId: com.caglobal.hp.sprocket
+name: "AI_51 - Replace Background Color Picker - Verify Color Picker applies a background color"
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- tapOn: "Color Picker"
+- takeScreenshot: AI_51_color_picker_controls
+- tapOn:
+    point: "72%,48%"
+- tapOn:
+    point: "90%,9%"
+- assertVisible: "Replace Background"
+- takeScreenshot: AI_51_selected_color_background

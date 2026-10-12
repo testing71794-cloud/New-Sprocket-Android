@@ -1,6 +1,6 @@
 # ATP Stage Flow: Firmware
 # Auto-generated checklist. Navigation reuses Connection setup; assertions via run_module.py.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Firmware"
 tags:
   - atp-verification

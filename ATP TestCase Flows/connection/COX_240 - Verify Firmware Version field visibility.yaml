@@ -2,7 +2,7 @@
 # Excel: PS-008 | Module: Printer Settings
 # Verify Firmware Version field visibility
 # Expected: Firmware Version field is displayed with a valid firmware version value.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_240 - Verify Firmware Version field visibility"
 tags:
   - connection

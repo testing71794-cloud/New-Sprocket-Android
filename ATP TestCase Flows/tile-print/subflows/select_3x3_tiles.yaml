@@ -1,0 +1,22 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: "Tiles"
+- runFlow:
+    when:
+      visible:
+        id: ".*tiles_nine.*"
+    commands:
+      - tapOn:
+          id: ".*tiles_nine.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*tiles_nine.*"
+    commands:
+      # Compose exposes these choices as unlabeled image nodes.
+      - tapOn:
+          point: "68%,78%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- assertVisible: "Tiles"
+- takeScreenshot: tile_print_3x3_all_nine_selected

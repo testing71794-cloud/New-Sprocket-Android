@@ -1,0 +1,19 @@
+# ATP Test Case ID: PID_01
+# Excel: PhotoID_01 | Module: Photo ID – Navigation Flow
+# Verify that the user can navigate from the Home screen to the Photo ID section and access the Photo ID camera screen.
+# Expected: Navigates to Photo ID screen with front camera by default; camera permission popup uses While using the app.
+appId: com.caglobal.hp.sprocket
+name: "PID_01 - Navigation Flow"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- assertVisible: ".*(?i)(Collage Maker|Quick Print|Photo ID).*"
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/allow_camera_while_using.yaml
+- runFlow: subflows/wait_mode_popup.yaml
+- assertVisible: "(?i)Photo ID Mode.*"
+- runFlow: subflows/dismiss_mode_popup_ok.yaml
+- runFlow: subflows/wait_capture_screen.yaml

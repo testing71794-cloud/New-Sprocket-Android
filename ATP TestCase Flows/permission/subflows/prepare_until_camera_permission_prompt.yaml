@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Sign Up Later → Create hub → deny non-camera prompts → trigger camera dialog.
 - runFlow: complete_onboarding_for_permission.yaml

@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC035 | Module: Wi-Fi
 # Verify selecting another network
 # Expected: Selected SSID updated.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_197 - Verify selecting another network"
 tags:
   - connection

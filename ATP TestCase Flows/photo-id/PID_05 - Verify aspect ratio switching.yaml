@@ -2,7 +2,7 @@
 # Excel: Photo ID 05 | Module: Aspect Ratio
 # Verify aspect ratio switching
 # Expected: Selected aspect ratio is highlighted and preview guide changes according to selected size.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_05 - Verify aspect ratio switching"
 tags:
   - photo-id

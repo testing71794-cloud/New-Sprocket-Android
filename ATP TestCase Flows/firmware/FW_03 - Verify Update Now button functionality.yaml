@@ -2,7 +2,7 @@
 # Excel: Firmware Update 003 | Module: Firmware Update
 # Verify Update Now button functionality
 # Expected: Firmware download process starts successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_03 - Verify Update Now button functionality"
 tags:
   - firmware

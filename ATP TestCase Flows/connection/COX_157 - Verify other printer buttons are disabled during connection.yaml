@@ -2,7 +2,7 @@
 # Excel: General_PCF-009 | Module: Pre Connection Flow
 # Verify other printer buttons are disabled during connection
 # Expected: Other printer "+" buttons should be disabled and should not respond to user interaction.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_157 - Verify other printer buttons are disabled during connection"
 tags:
   - connection

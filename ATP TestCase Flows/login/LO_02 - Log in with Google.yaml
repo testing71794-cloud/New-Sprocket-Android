@@ -1,6 +1,6 @@
 # ATP Test Case ID: LO_02
 # HP Sprocket — Continue with Google → full Google OAuth sign-in
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "LO_02 - Log in with Google"
 ---
 - runFlow: subflows/ensure_login_options.yaml

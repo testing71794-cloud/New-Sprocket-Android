@@ -1,0 +1,22 @@
+# ATP Test Case ID: PS_22
+# Excel: Print_State_22
+# Reorder synchronization with Print Queue
+# Expected: Print State reflects the latest manually reordered Print Queue, and subsequent photos print in that updated order.
+appId: com.caglobal.hp.sprocket
+name: "PS_22 - Reorder synchronization with Print Queue"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+  - multi-photo
+  - drag-drop-manual
+  - visual-check
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/open_print_queue.yaml
+# Queue row coordinates vary by device; perform and verify drag-and-drop manually within In Queue.
+- takeScreenshot: PS_22_queue_before_manual_reorder
+- pressKey: BACK
+- takeScreenshot: PS_22_print_state_after_manual_reorder

@@ -1,0 +1,6 @@
+appId: com.caglobal.hp.sprocket
+---
+# Switch layouts then go to Print Preview.
+# See: https://docs.maestro.dev/reference/commands-available/runflow
+- runFlow: tap_all_layout_options.yaml
+- runFlow: advance_to_print_preview.yaml

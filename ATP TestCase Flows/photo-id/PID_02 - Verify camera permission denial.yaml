@@ -2,7 +2,7 @@
 # Excel: Photo ID 02 | Module: Permission
 # Verify camera permission denial
 # Expected: Camera screen does not open. Permission error/message is displayed and app remains stable.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_02 - Verify camera permission denial"
 tags:
   - photo-id

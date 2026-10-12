@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_012 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Next Navigation from Check Behind the Printer
 # Expected: The Get Connected screen should be displayed. Step 5 should be highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_087 - Verify Next Navigation from Check Behind the Printer"
 tags:
   - connection

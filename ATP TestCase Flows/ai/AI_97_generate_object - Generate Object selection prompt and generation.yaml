@@ -1,0 +1,41 @@
+# Excel: AI Tools 97
+# Module: AI Tools >Generate Object – Selection, Prompt Input and Generate Object Functionality
+# Description: Verify that the user can select an area, enter a prompt, and generate an object in the selected area.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Generate Object.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Use This Image.
+# 4. Verify that the Generate Object editing screen is displayed.
+# 5. Verify that the Generate button is disabled.
+# 6. Tap or paint a specific area of the image where the object should be generated.
+# 7. Verify that the selected area is displayed with a 50% opacity #B654F5 overlay.
+# 8. Verify that the Generate button remains disabled until a prompt is entered.
+# 9. Tap the description text box.
+# 10. Enter a valid object generation prompt, such as “Add a flower vase”.
+# 11. Verify that the native keyboard is displayed and the image preview adjusts to keep the text box visible.
+# 12. Verify that the Generate button becomes enabled after both the area and prompt are provided.
+# 13. Tap Generate.
+# 14. Verify that the Generating Loader is displayed.
+# 15. Wait for the generation to complete.
+# 16. Verify that the generated object is displayed within the selected area according to the entered prompt.
+# 17. Verify that the unselected areas of the original image remain unchanged.
+# Type: Positive
+# Expected:
+# Generate remains disabled until both an area is painted/selected and a prompt is entered.
+# The selected area is displayed using the specified 50% opacity #B654F5 overlay.
+# Prompt input opens the native keyboard and adjusts the image preview.
+# Generate starts the generation process and displays the Generating Loader.
+# The generated object is created within the selected area according to the entered prompt.
+# Unselected areas remain unchanged.
+appId: com.caglobal.hp.sprocket
+name: "AI_97_generate_object - Generate Object selection prompt and generation"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - generate-object
+  - visual
+---
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- runFlow: subflows/generate_object_paint_and_prompt.yaml
+- runFlow: subflows/generate_object_generate_result.yaml

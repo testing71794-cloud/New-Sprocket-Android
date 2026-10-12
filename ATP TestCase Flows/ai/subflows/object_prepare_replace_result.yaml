@@ -1,0 +1,12 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: object_open_replace.yaml
+- runFlow: object_select_photo.yaml
+- runFlow: object_paint_replace.yaml
+- runFlow:
+    file: object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"
+- runFlow: object_generate.yaml
+- runFlow: object_wait_result.yaml
+- runFlow: object_apply_preview.yaml

@@ -2,7 +2,7 @@
 # Excel: PCF-002 | Module: Pre Connection Flow
 # Verify to navigate to 'Enable the full Sprocket experience' screen via 'Skip to Connection' flow
 # Expected: Enable the full Sprocket experience' screen should display. Heading should be 'Enable the full Sprocket experience'. Test description should be 'Allow the app to connect to your Sprocket printer using Bluetooth'. A button should display 'En
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_002 - Verify to navigate to Enable the full Sprocket experience sc"
 tags:
   - connection

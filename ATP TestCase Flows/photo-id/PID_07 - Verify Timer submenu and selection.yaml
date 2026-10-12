@@ -2,7 +2,7 @@
 # Excel: Photo ID  07 | Module: Timer
 # Verify Timer submenu and selection
 # Expected: Timer submenu opens successfully and selected timer becomes active.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_07 - Verify Timer submenu and selection"
 tags:
   - photo-id

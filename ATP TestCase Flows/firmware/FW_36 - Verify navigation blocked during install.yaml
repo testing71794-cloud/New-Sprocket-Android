@@ -2,7 +2,7 @@
 # Excel: Firmware Update 36 | Module: Firmware Negative
 # Verify navigation blocked during install
 # Expected: Navigation is blocked.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_36 - Verify navigation blocked during install"
 tags:
   - firmware

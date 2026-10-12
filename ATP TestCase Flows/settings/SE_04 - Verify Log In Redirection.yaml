@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  04 | Module: Navigation
 # Verify Log In Redirection
 # Expected: User is redirected to Log In Options screen (ON_03A/B).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_04 - Verify Log In Redirection"
 tags:
   - settings

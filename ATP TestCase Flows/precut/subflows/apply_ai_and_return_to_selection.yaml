@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Run an AI edit from Pre-Cut slot AI module and return to Select 2 photos.
 # Do not tap Done on the entry screen first — that cancels without applying.

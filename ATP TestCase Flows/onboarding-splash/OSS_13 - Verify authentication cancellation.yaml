@@ -2,7 +2,7 @@
 # Excel: TC_LI_AND_14 | Module: Log In Options (Android)
 # Verify authentication cancellation
 # Expected: Authentication is cancelled. User remains on the Log In screen and no crash or unexpected behavior occurs.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_13 - Verify authentication cancellation"
 tags:
   - onboarding-splash

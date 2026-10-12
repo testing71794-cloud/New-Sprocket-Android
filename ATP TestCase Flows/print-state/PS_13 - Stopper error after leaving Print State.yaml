@@ -1,0 +1,20 @@
+# ATP Test Case ID: PS_13
+# Excel: Print_State_13
+# Stopper error after leaving Print State
+# Expected: After Done, a later stopper error does not navigate back to Print State; the affected job returns to the paused queue.
+appId: com.caglobal.hp.sprocket
+name: "PS_13 - Stopper error after leaving Print State"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-error-injection
+  - queue
+---
+- runFlow: subflows/open_single_print_state.yaml
+- runFlow: subflows/return_to_gallery_from_state.yaml
+# Manually induce a stopper error while the submitted job is still processing.
+- assertVisible: ".*(?i)(Recent|^Select$|^All$).*"
+- assertNotVisible: ".*(?i)^Print State$"
+- takeScreenshot: PS_13_remains_on_gallery_after_stopper

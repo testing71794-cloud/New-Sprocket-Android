@@ -1,0 +1,8 @@
+# Lab: select HP Sprocket Sense (5D:6C) from Printer tab, then open Photo ID.
+# Do NOT tap Add Printer / Skip to Connection / Searching for Printers.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../common/subflows/select_sprocket_sense_printer.yaml
+- runFlow: ensure_photo_id_capture.yaml
+

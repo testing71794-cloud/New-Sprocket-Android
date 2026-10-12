@@ -2,7 +2,7 @@
 # Excel: Photobooth 20 | Module: Photobooth- camera permission deny
 # Verify Open Settings Button Functionality.
 # Expected: App Settings page opens for the application.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_20 - Verify Open Settings from camera permission denied"
 tags:
   - photobooth

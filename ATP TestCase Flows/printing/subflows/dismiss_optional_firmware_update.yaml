@@ -1,0 +1,29 @@
+# Firmware Available / In Progress popups can block Printer tab and Create hub.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)Firmware Update Available.*"
+    commands:
+      - tapOn: ".*(?i)Not Right Now.*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)Firmware Update in Progress.*"
+    commands:
+      - tapOn: ".*(?i)^OK$"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Firmware installation in progress.*"
+      notVisible: ".*(?i)Quick Print.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^OK$"
+          optional: true
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000

@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+# Eight distinct gallery tiles (large-collage grid).
+- runFlow: select_seven_photos_fast.yaml
+- tapOn:
+    point: "50%,84%"
+- waitForAnimationToEnd:
+    timeout: 800
+- runFlow: retry_gallery_if_still_selecting.yaml

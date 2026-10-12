@@ -1,7 +1,7 @@
 # Tap Quick Print from Create home. Does not handle the photos popup.
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

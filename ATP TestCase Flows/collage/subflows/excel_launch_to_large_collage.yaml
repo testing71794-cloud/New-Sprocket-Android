@@ -1,0 +1,4 @@
+appId: com.caglobal.hp.sprocket
+---
+# Reuse completed onboarding and an existing large-printer connection.
+- runFlow: ensure_large_collage_selection.yaml

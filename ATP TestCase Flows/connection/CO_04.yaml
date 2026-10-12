@@ -1,5 +1,5 @@
 # ATP Test Case ID: CO_04
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: CO_04_Auto_Connect
 ---
 # ATP CO_04 – Printer already bonded & powered on; opening app should auto-connect.

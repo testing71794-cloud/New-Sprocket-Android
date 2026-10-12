@@ -1,0 +1,19 @@
+# ATP Test Case ID: PS_02
+# Excel: Print_State_02
+# Supported-printer preview animation
+# Expected: The preview shrinks and rotates less than HP500 while preserving image content and aspect ratio for every supported printer.
+appId: com.caglobal.hp.sprocket
+name: "PS_02 - Supported-printer preview animation"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - animation-manual
+  - printer-matrix-manual
+  - visual-check
+---
+- runFlow: subflows/open_single_print_state.yaml
+# Repeat manually for HP200, 250, Original, 2-in-1, Plus, and Studio Plus.
+# Compare visually with HP500: this rotation must be smaller.
+- takeScreenshot: PS_02_supported_printer_preview_animation

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Sprocket Create hub after onboarding (not Kodak MY GALLERY).
 # Tiles are often content-desc with newlines; wait for hub chrome then tiles.

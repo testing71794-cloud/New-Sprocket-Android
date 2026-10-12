@@ -1,0 +1,16 @@
+# ATP Test Case ID: AI_06a
+# Excel: AI Tools 06 (a) | Module: Text-to-Image
+# Verify navigation to Text-to-Image.
+appId: com.caglobal.hp.sprocket
+name: "AI_06a - Navigate to Text-to-Image Screen"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/open_text_to_image.yaml
+- assertVisible: "Text-to-Image"
+- assertVisible:
+    text: "Tap here to enter a prompt..."
+- assertVisible: "Orientation"
+- assertVisible: "Image Quantity"
+- assertVisible: "Generate Image\\(s\\)"

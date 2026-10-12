@@ -2,7 +2,7 @@
 # Excel: General_PCF-013 | Module: 
 # Verify Finish Connection behavior after Bluetooth OFF
 # Expected: User should navigate to 'Your Printers' list screen, and the connected printer should display as offline along with 'Tap to Connect' option.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_161 - Verify Finish Connection behavior after Bluetooth OFF"
 tags:
   - connection

@@ -2,7 +2,7 @@
 # Excel: HOME SCREEN_001 | Module: Application Launch and Home Screen
 # Verify the complete application flow from the Splash Screen to the Home Screen using the Sign Up Later option.
 # Expected: The application successfully navigates from the Splash Screen to the Home Screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "HM_01 - Verify the complete application flow from the Splash Screen "
 tags:
   - home

@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC048 | Module: Connection
 # Verify connected printer status
 # Expected: Printer should display Connected/Ready status if supported.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_210 - Verify connected printer status"
 tags:
   - connection

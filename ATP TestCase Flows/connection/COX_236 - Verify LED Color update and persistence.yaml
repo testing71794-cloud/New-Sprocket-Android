@@ -2,7 +2,7 @@
 # Excel: PS-004 | Module: Printer Settings
 # Verify LED Color update and persistence
 # Expected: Selected LED Color value is saved successfully and persists after reopening Printer Settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_236 - Verify LED Color update and persistence"
 tags:
   - connection

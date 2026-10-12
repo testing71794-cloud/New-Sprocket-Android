@@ -1,0 +1,41 @@
+# ATP Test Case ID: AI_74_remove_object
+# Supplied Excel ID:
+# AI Tools 74
+# Supplied module:
+# AI Tools >Remove Object – Object Selection
+# Supplied description:
+# Verify that the user can select objects by tapping/painting, selections are cumulative, the selection overlay is displayed correctly, and Generate becomes enabled.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Remove Object.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Use This Image.
+# 4. Verify the Remove Object editing screen is displayed.
+# 5. Tap on an object in the image.
+# 6. Verify that the object is automatically selected.
+# 7. Verify that the selected area is displayed with a 50% opacity #B654F5 overlay.
+# 8. Perform an additional brush stroke on another part of the image.
+# 9. Verify that the new selection is added to the existing selection.
+# 10. Tap on another object or perform another brush stroke.
+# 11. Verify that all previous selections remain selected.
+# 12. Verify that the Generate button becomes enabled after an image area is selected.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# User can tap an object to automatically paint/select it.
+# Selected areas are represented using the specified semi-transparent overlay.
+# Each additional tap or brush stroke is cumulative and does not clear previous selections.
+# Generate remains disabled until at least part of the image is selected and becomes enabled after selection.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_74_remove_object - Verify that the user can select objects by tapping/painting, selections are cumulative, the selection overlay is displayed correctly, and Generate becomes enabled."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- takeScreenshot: AI_74_generate_disabled_before_selection
+- runFlow: subflows/object_paint_selection.yaml
+- takeScreenshot: AI_74_remove_object_selection_overlay

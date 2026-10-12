@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_010 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Next Navigation from Install Ink Cartridge
 # Expected: The Check Behind the Printer screen should be displayed. Step 4 should be highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_085 - Verify Next Navigation from Install Ink Cartridge"
 tags:
   - connection

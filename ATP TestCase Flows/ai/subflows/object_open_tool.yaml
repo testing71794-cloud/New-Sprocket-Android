@@ -1,0 +1,15 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- scrollUntilVisible:
+    element: "${TOOL}"
+    direction: DOWN
+    timeout: 30000
+    visibilityPercentage: 40
+    centerElement: true
+- tapOn: "${TOOL}"
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Gallery).*"
+    timeout: 15000

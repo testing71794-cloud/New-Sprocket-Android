@@ -1,7 +1,7 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Open Recent folder picker from Collage Selection.
 - assertVisible: "Recent"
 - tapOn: "Recent"
 - waitForAnimationToEnd:
-    timeout: 3000
+    timeout: 800

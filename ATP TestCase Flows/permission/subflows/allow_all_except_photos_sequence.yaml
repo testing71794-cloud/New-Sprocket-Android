@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Allow Camera, Location, Nearby, Notification — deny Photos when prompted.
 - repeat:

@@ -1,0 +1,23 @@
+# ATP Test Case ID: PS_08
+# Excel: Print_State_08
+# Tips and Tricks ten-second rotation
+# Expected: Tips & Tricks items rotate sequentially at about 10-second intervals without clipping, overlap, flicker, or distortion.
+appId: com.caglobal.hp.sprocket
+name: "PS_08 - Tips and Tricks ten-second rotation"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - timing-manual
+  - animation-manual
+  - visual-check
+  - known-failure
+---
+- runFlow: subflows/open_single_print_state.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Tips|Tricks).*"
+    timeout: 15000
+- takeScreenshot: PS_08_first_tip
+# Manual timing checkpoint: each tip remains about 10 seconds, exits left, and the next tip enters right.
+- takeScreenshot: PS_08_tip_rotation_checkpoint

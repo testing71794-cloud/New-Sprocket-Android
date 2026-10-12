@@ -2,7 +2,7 @@
 # Excel: Firmware Update 39 | Module: Firmware Error Handling
 # Verify No Paper Tray Error during firmware update
 # Expected: Error message is displayed: A "No Paper Tray" error popup is displayed with the message "Please attach the paper tray (loaded with paper) to complete the firmware update." The popup includes a "Try Again" button at the bottom and a Close (X
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_39 - Verify No Paper Tray Error during firmware update"
 tags:
   - firmware

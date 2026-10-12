@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC047 | Module: Connection
 # Verify newly connected printer in list
 # Expected: Connected HP Sprocket Studio Plus printer should appear in the list.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_209 - Verify newly connected printer in list"
 tags:
   - connection

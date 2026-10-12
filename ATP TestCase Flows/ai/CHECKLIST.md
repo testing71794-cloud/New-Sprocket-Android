@@ -1,198 +1,127 @@
-# AI / ai — 196 Excel-generated flows
+# AI — supplied AI Tools 02–100 suite
 
-- [ ] AI_01 | AI Tool 01 | Verify UI layout of "Create" screen
+112 supplied cases. Duplicate spreadsheet IDs use feature suffixes.
+
 - [ ] AI_02 | AI Tools 02 | Verify navigation to AI tools
 - [ ] AI_03 | AI Tools 03 | Verify UI layout of AI Tools screen
 - [ ] AI_04 | AI Tools 04 | Verify Tool accessibility
 - [ ] AI_05 | AI Tools 05 | Verify Bottom Tab persistence
-- [ ] AI_06 | AI Tools 06 | Verify rapid tab switching
-- [ ] AI_07 | AI Tools 07 | Verify Background Tools navigation
-- [ ] AI_08 | AI Tool 08 | Verify Object Tools navigation
-- [ ] AI_09 | AI Tools 09 | Verify Photo Enhancements navigation
-- [ ] AI_10 | AI Tools  10 | Verify Generate Tools navigation
-- [ ] AI_11 | AI Tools 11 | Verify visual layout and typography elements of the loader screen
-- [ ] AI_12 | AI Tools 12 | Verify selected image is used as loader backdrop
-- [ ] AI_13 | AI Tools 13 | Verify loading icon animation playback
-- [ ] AI_14 | AI Tools 14 | Verify loader remains active during long processing
-- [ ] AI_15 | AI Tools 15 | Verify transition after AI processing completes
-- [ ] AI_16 | AI Tools 16 | Verify behavior when app is minimized during loading
-- [ ] AI_17 | AI Tools 17 | Verify handling of network loss during loading
-- [ ] AI_18 | AI Tools 18 | Verify path to Prompt Entry
-- [ ] AI_19 | AI Tools 19 | Verify "Prompt Error" popup
-- [ ] AI_20 | AI Tools 20 | Verify error trigger logic
-- [ ] AI_21 | AI Tools 21 | Verify dismiss behavior
-- [ ] AI_22 | AI Tools 22 | Verify error consistency
-- [ ] AI_23 | AI Tools 23 | Verify background occlusion
-- [ ] AI_24 | AI Tools 24 | Verify UI, text, and styling
-- [ ] AI_25 | AI Tools 25 | Verify popup appears on cancel
-- [ ] AI_26 | AI Tools 26 | Verify "Stay" functionality
-- [ ] AI_27 | AI Tools 27 | Verify "Exit" functionality
-- [ ] AI_28 | AI Tools 28 | Verify universal scope
-- [ ] AI_29 | AI Tools 29 | Verify background modality
-- [ ] AI_30 | AI Tools 30 | Verify app launch and Collage creation
-- [ ] AI_31 | AI Tools 31 | Verify visual state of disabled AI button
-- [ ] AI_32 | AI Tools 32 | Verify disabled AI button behavior
-- [ ] AI_33 | AI Tools 33 | Verify specific toast text for Collage
-- [ ] AI_34 | AITools 34 | Verify full screen layout elements
-- [ ] AI_35 | AI Tools 35 | Verify toast text across modes
-- [ ] AI_36 | AI Tools  36 | Verify layout and content
-- [ ] AI_37 | AI Tools 37 | Verify trigger on AI generation
-- [ ] AI_38 | AI Tools 38 | Verify popup priority
-- [ ] AI_39 | AI Tools 39 | Verify dismissal behavior
-- [ ] AI_40 | AI Tools 40 | Verify background modality
-- [ ] AI_41 | AI Tools 41 | Verify initial tool flow and loader
-- [ ] AI_42 | AI Tools 42 | Verify processed image presentation
-- [ ] AI_43 | AI Tools 43 | Verify toggle functionality
-- [ ] AI_44 | AI Tools 44 | Verify cancellation behavior
-- [ ] AI_45 | AI Tools 45 | Verify apply with background removed
-- [ ] AI_46 | AI Tools 46 | Verify apply while Show Original is ON
-- [ ] AI_47 | AI Tools 47 | Verify initial tool flow and prompt
-- [ ] AI_48 | AI Tools 48 | Verify generation loader
-- [ ] AI_49 | AI Tools 49 | Verify UI layout of background options
-- [ ] AI_50 | AI Tools 50 | Verify background replacement
-- [ ] AI_51 | AI Tools 51 | Verify save and print navigation
-- [ ] AI_52 | AI Tools 52 | Verify discard functionality
-- [ ] AI_53 | AI Tools 53 | Verify UI elements of CR_12C.5_Replace Background – Result (Prompt)
-- [ ] AI_54 | AI Tools 66 | Verify selection via Tap
-- [ ] AI_55 | AI Tools 71 | Verify "Apply" functionality
-- [ ] AI_56 | AI Tools 73 | Verify selection (Tap/Paint)
-- [ ] AI_57 | AI Tools 76 | Verify generation processing
-- [ ] AI_58 | AI Tools 77 | Verify result screen UI
-- [ ] AI_59 | AI Tools 78 | Verify thumbnail swapping
-- [ ] AI_60 | AI Tools 79 | Verify "Generate New" flow
-- [ ] AI_61 | AI Tools 80 | Verify "Apply" functionality
-- [ ] AI_62 | AI Tools 81 | Verify failure state UI
-- [ ] AI_63 | AI Tools 82 | Verify failure exit
-- [ ] AI_64 | AI Tools 83 | Verify "Grab Object" entry
-- [ ] AI_65 | AI Tools 84 | Verify selection & Brush Size
-- [ ] AI_66 | AI Tools 85 | Verify generation
-- [ ] AI_67 | AI Tools 86 | Verify sticker limit pop-up
-- [ ] AI_68 | AI Tools 87 | Verify "Save New Sticker"
-- [ ] AI_69 | AI Tools 88 | Verify "Cancel" navigation
-- [ ] AI_70 | AI Tools 89 | Verify print settings
-- [ ] AI_71 | AI Tools 90 | Verify Tool Entry
-- [ ] AI_72 | AI Tools 91 | Verify Generation
-- [ ] AI_73 | AI Tools 92 | Verify Result State
-- [ ] AI_74 | AI Tools 93 | Verify "Show Original"
-- [ ] AI_75 | AI Tools 94 | Verify "Apply" Action
-- [ ] AI_76 | AI Tools 95 | Verify "Cancel" Action
-- [ ] AI_77 | AI Tools 96 | Verify Printing
-- [ ] AI_78 | AI Tools 97 | Verify workflow entry
-- [ ] AI_79 | AI Tools 98 | Verify processing & loader
-- [ ] AI_80 | AI Tools 99 | Verify Result UI (CR_14B.1)
-- [ ] AI_81 | AI Tools 100 | Verify "Show Original" toggle
-- [ ] AI_82 | AI Tools 101 | Verify "Generate New"
-- [ ] AI_83 | AI Tools 102 | Verify Apply & Save
-- [ ] AI_84 | AI Tools 103 | Verify Back button
-- [ ] AI_85 | AI Tools 104 | Verify Print functionality
-- [ ] AI_86 | AI Tools 105 | Verify Copies/Tiles adjustment
-- [ ] AI_87 | AI Tools 106 | Verify workflow entry
-- [ ] AI_88 | AI Tools 107 | Verify loader & processing
-- [ ] AI_89 | AI Tools 108 | Verify UI (CR_14C.1)
-- [ ] AI_90 | AI Tools 109 | Verify "Show Original"
-- [ ] AI_91 | AI Tools 110 | Verify "Generate New"
-- [ ] AI_92 | AI Tools 111 | Verify "Apply"
-- [ ] AI_93 | AI Tools 112 | Verify "Cancel"/Back
-- [ ] AI_94 | AI Tools 113 | Verify UI elements and functionality of the print preview screen.
-- [ ] AI_95 | AI Tools 114 | Workflow Entry & UI
-- [ ] AI_96 | AI Tools 115 | "Show Original" Toggle
-- [ ] AI_97 | AI Tools 116 | "Generate New"
-- [ ] AI_98 | AI Tools 117 | "Apply" & Final State
-- [ ] AI_99 | AI Tools 118 | Copies/Tiles/Print
-- [ ] AI_100 | AI tools 119 | Back/Discard
-- [ ] AI_101 | Ai Tools 120 | Verify workflow entry
-- [ ] AI_102 | Ai Tools 121 | Verify image resize and reposition
-- [ ] AI_103 | Ai Tools 122 | Verify blank area warning
-- [ ] AI_104 | AI Tools 123 | Verify Generate button and loader
-- [ ] AI_105 | AI Tools 124 | Verify result screen UI
-- [ ] AI_106 | AI Tools 125 | Verify Show Original toggle
-- [ ] AI_107 | AI Tools 126 | Verify Apply functionality
-- [ ] AI_108 | AI Tools 127 | Verify top and bottom navigation
-- [ ] AI_109 | AI Tools 128 | Verify Copies/Tiles and Print
-- [ ] AI_110 | AI Tools 129 | Verify Back button
-- [ ] AI_111 | AI Toolw 130 | Verify "No Blank Areas" warning pop-up
-- [ ] AI_112 | AI Tools 131 | Workflow Entry
-- [ ] AI_113 | AI Tools 132 | Painting Area
-- [ ] AI_114 | AI Tools 133 | Text Entry & State
-- [ ] AI_115 | AI Tools 134 | Processing
-- [ ] AI_116 | AI Tools 135 | Thumbnail Selection
-- [ ] AI_117 | AI Tools 136 | Apply & Print Preview
-- [ ] AI_118 | AI Tools 137 | Verify scroll & UI layout
-- [ ] AI_119 | AI Tools 138 | Verify Back Navigation
-- [ ] AI_120 | AI Tool 139 | Verify Tool Navigation
-- [ ] AI_121 | AI Tool 140 | Verify Image Selection Flow
-- [ ] AI_122 | AI Tool 141 | Verify Temporary Updates
-- [ ] AI_123 | AI Tool 142 | Verify Offline Behavior
-- [ ] AI_124 | AI tools 143 | Verify Header Elements
-- [ ] AI_125 | AI tools 144 | Verify Folder Dropdown
-- [ ] AI_126 | AI tools 145 | Verify Date-based Grouping
-- [ ] AI_127 | AI tools 146 | Verify Sticky Footer
-- [ ] AI_128 | AI tools 147 | Verify Group 1 Redirection
-- [ ] AI_129 | AI tools 148 | Verify Group 2 Redirection
-- [ ] AI_130 | AI tools 149 | Verify Back Button Logic
-- [ ] AI_131 | AI tools 150 | Verify Group 1 (Ready to Generate) Redirection
-- [ ] AI_132 | AI Tools 151 | Verify dynamic header tool name display
-- [ ] AI_133 | AI Tools 152 | Verify back navigation from preview
-- [ ] AI_134 | AI Tools 153 | Verify Generate button triggers loader
-- [ ] AI_135 | AI Tools 154 | Verify Remove Background routing
-- [ ] AI_136 | AI Tools 155 | Verify Replace Background routing
-- [ ] AI_137 | AI Tools 156 | Verify Restore Photo routing
-- [ ] AI_138 | AI Tools 157 | Verify Enhance Photo routing
-- [ ] AI_139 | AI Tools 158 | Verify Fix Lighting routing
-- [ ] AI_140 | AI Tools 159 | Verify Upscale Photo routing
-- [ ] AI_141 | AI Tools 160 | Verify full UI layout
-- [ ] AI_142 | AI Tools 161 | Verify header displays selected tool name
-- [ ] AI_143 | AI Tools 162 | Verify primary CTA button label
-- [ ] AI_144 | AI tools 163 | Verify Remove Object routing
-- [ ] AI_145 | AI Tools 164 | Verify Replace Object routing
-- [ ] AI_146 | AI tools 165 | Verify Grab Object routing
-- [ ] AI_147 | AI tools 166 | Verify Extend Image routing
-- [ ] AI_148 | AI  Tools 167 | Verify Generate Object routing
-- [ ] AI_149 | AI Tools 168 | Verify Back Arrow navigation
-- [ ] AI_150 | AI Tools 169 | Verify routing to Ready-to-Generate workflow
-- [ ] AI_151 | AI Tools 170 | Verify routing to Next Step workflow
-- [ ] AI_152 | AI Gtools 171 | Verify automatic rotation of landscape image
-- [ ] AI_153 | AI tools 172 | Verify proper fitting without cropping
-- [ ] AI_154 | AI tools 173 | Verify dynamic tool name in header
-- [ ] AI_155 | AI tools 174 | Verify Generate button execution
-- [ ] AI_156 | AI Toola 175 | Verify back navigation to gallery
-- [ ] AI_157 | AI Toola 176 | Verify Text-to-Image screen UI and default values
-- [ ] AI_158 | AI tools 177 | Verify prompt text box placeholder
-- [ ] AI_159 | AI tools 178 | Verify prompt text box focus and keyboard
-- [ ] AI_160 | AI tools 179 | Verify random prompt button
-- [ ] AI_161 | AI Tools 180 | Verify random prompt when text box is focused
-- [ ] AI_162 | AI Tools 181 | Verify Orientation selection
-- [ ] AI_163 | AI Tools 182 | Verify Image Quantity selection
-- [ ] AI_164 | AI Tools 183 | Verify Generate Image(s) button disabled state
-- [ ] AI_165 | AI TOOls 184 | Verify Generate Image(s) button enabled state
-- [ ] AI_166 | AI Tools 185 | Verify image generation with Portrait mode
-- [ ] AI_167 | AI Tools 186 | Verify image generation with Landscape mode
-- [ ] AI_168 | AI Tools 187 | Verify generation with different image quantities
-- [ ] AI_169 | AI Tools 188 | Verify empty/space-only prompt
-- [ ] AI_170 | AI Tools 189 | Verify long prompt input
-- [ ] AI_171 | AI Tools 190 | Verify special characters in prompt
-- [ ] AI_172 | AI Tools 191 | Verify network error while generating images
-- [ ] AI_173 | AI Tools 192 | Verify Back button navigation
-- [ ] AI_174 | AI Tools 193 | Verify Text-to-Image generation flow
-- [ ] AI_175 | AI TOOls 194 | Verify Portrait image generation
-- [ ] AI_176 | AI TOOls 195 | Verify Landscape image generation
-- [ ] AI_177 | AI Tools 196 | Verify thumbnail selection
-- [ ] AI_178 | AI Tools 197 | Verify Cancel button and Unsaved popup
-- [ ] AI_179 | AI tools 198 | Verify Unsaved popup - Cancel option
-- [ ] AI_180 | AI Tools 199 | Verify Unsaved popup - Leave option
-- [ ] AI_181 | AI Tools 200 | Verify Next button navigation
-- [ ] AI_182 | AI Tools 201 | Verify Print Preview UI
-- [ ] AI_183 | AI Tools 202 | Verify Back Arrow
-- [ ] AI_184 | AI Tools 203 | Verify Share button
-- [ ] AI_185 | AI Tools 204 | Verify Edit icon
-- [ ] AI_186 | AI Tools 205 | Verify Copies option
-- [ ] AI_187 | AI Tools 206 | Verify Tiles option
-- [ ] AI_188 | AI Tools 207 | Verify Generate Image(s) with empty prompt
-- [ ] AI_189 | AI Tools 208 | Verify image generation without internet
-- [ ] AI_190 | AI Tools 209 | Verify user can access Image-to-Image screen
-- [ ] AI_191 | AI Tools 210 | Verify Crop Photo functionality
-- [ ] AI_192 | AI Tools 211 | Verify default quantity selection
-- [ ] AI_193 | AI Tools 211 | Verify Generate button enabled after style selection
-- [ ] AI_194 | AI Tools 211 | Verify generated image count matches quantity
-- [ ] AI_195 | AI Tools 211 | Launch & Navigate
-- [ ] AI_196 | AI Tools 211 | Base Image Setup
+- [ ] AI_05a | AI Tools 05 (a) | Verify rapid tab switching
+- [ ] AI_06a | AI Tools 06 (a) | Verify that the Text-to-Image screen opens when the user selects the Text-to-Image option.
+- [ ] AI_06b | AI Tools 06 (b) | Verify the UI elements and default settings displayed on the Text-to-Image screen.
+- [ ] AI_06c | AI Tools 06 (c) | Verify that tapping the prompt text box focuses the field and opens the native keyboard.
+- [ ] AI_06d | AI Tools 06 (d) | Verify that tapping the Generate Prompt button populates the prompt text box with a random prompt.
+- [ ] AI_06e | AI Tools 06 (e) | Verify that tapping Generate Prompt clears the existing prompt and replaces it with a new random prompt.
+- [ ] AI_06f | AI Tools 06 (f) | Verify that the Generate Prompt button can be interacted with without focusing the prompt text box.
+- [ ] AI_07 | AI Tools 07 | Verify that the Generate Image(s) button becomes activated after entering a prompt and selecting the required orientation and image quantity, and tapping it navigates to the loader state.
+- [ ] AI_08 | AI Tools 08 | Verify that the loader animation is displayed while AI-generated images are being processed.
+- [ ] AI_09 | AI Tools 09 | Verify that the generated image results screen is displayed after image generation and that the generated image options can be selected.
+- [ ] AI_10 | AI Tools 10 | Verify that tapping Generate New displays the Text-to-Image loader and generates a new set of image options based on the originally selected image quantity and orientation.
+- [ ] AI_11 | AI Tools 11 | Verify that the Apply button saves the changes and navigates to Print Preview, while the Cancel button discards the changes and returns to the Text-to-Image screen.
+- [ ] AI_12 | AI Tools 12 | Verify that landscape images are rotated 90° clockwise when imported into Print Preview, and that preview thumbnails are displayed in a 2×2 grid.
+- [ ] AI_13 | AI Tools 13 | Verify that an image generated through Text-to-Image and sent to Print Preview is automatically reused when the user opens the AI tools from Print Preview.
+- [ ] AI_14 | AI Tools 14 | Verify that the printed output is generated successfully and matches the image, layout, and selected settings displayed in the Print Preview screen.
+- [ ] AI_15 | AI Tools 15 | Verify that tapping the Image-to-Image AI tool opens the gallery screen for selecting an image.
+- [ ] AI_16 | AI Tools 16 | Verify that the Image-to-Image Main Screen displays all required UI elements with the correct default values after a photo is selected from the gallery.
+- [ ] AI_17 | AI Tools 17 | Verify that the user can replace the selected image using the Change Photo option.
+- [ ] AI_18 | AI Tools 18 | Verify that the user can crop, rotate, and zoom the selected image and return to the Main Screen with the applied changes.
+- [ ] AI_19 | AI Tools 19 | Verify that only one Image Style can be selected at a time.
+- [ ] AI_20 | AI Tools 20 | Verify that the user can change the Image Quantity and only one quantity can be selected at a time.
+- [ ] AI_21 | AI Tools 21 | Verify that selected Image Style and Image Quantity are retained after returning from the Crop screen.
+- [ ] AI_22 | AI Tools 22 | Verify that image generation starts successfully and generates the selected number of images.
+- [ ] AI_23 | AI Tools 23 | Verify that tapping the Back button returns the user to the previous screen.
+- [ ] AI_24 | AI Tools 24 | Verify that the previously selected image remains unchanged when the user exits the gallery without selecting a new image.
+- [ ] AI_25 | AI Tools 25 | Verify that the Generate New (or Generate Images) button remains disabled until an Image Style is selected and becomes enabled after the user selects an Image Style.
+- [ ] AI_26 | AI Tools 26 | Verify that when a user selects a landscape image from the gallery, the image is displayed with the expected orientation in the Base Image section and is rotated 90 degrees clockwise when imported into Print Preview.
+- [ ] AI_27 | AI Tools 27 | Verify that tapping the Generate New button displays the loader with the correct text and generates the different image with same number of images as originally selected in Image-to-Image settings.
+- [ ] AI_28 | AI Tools 28 | Verify that tapping a generated image thumbnail updates the main preview image.
+- [ ] AI_29 | AI Tools 29 | Verify that tapping the Next button navigates the user to the Print Preview screen.
+- [ ] AI_30 | AI Tools 30 | Verify that the image selected from the thumbnail list is the image displayed in Print Preview.
+- [ ] AI_31 | AI Tools 31 | Verify that Generate New maintains the originally configured image quantity.
+- [ ] AI_32 | AI Tools 32 | Verify that tapping the Back button on the Print Preview screen displays the Save as a New Photo confirmation popup with the correct options.
+- [ ] AI_33 | AI Tools 33 | Verify that tapping Save to Gallery saves the generated image to the device gallery and navigates the user to the previous screen.
+- [ ] AI_34 | AI Tools 34 | Verify that tapping Don't Save does not save the generated image to the device gallery and navigates the user to the previous screen.
+- [ ] AI_35 | AI Tools 35 | Verify that tapping the Print button on the Print Preview screen navigates the user to the Print State screen.
+- [ ] AI_36 | AI Tools 36 | Verify that tapping Remove Background opens the Gallery Listing screen.
+- [ ] AI_37 | AI Tools 37 | Verify that selecting a photo from the Gallery Listing displays the Generate button.
+- [ ] AI_38 | AI Tools 38 | Verify that tapping Generate starts the background removal generation process.
+- [ ] AI_39 | AI Tools 39 | Verify that the generated image screen displays the Show Original toggle and correctly switches between the original and generated images.
+- [ ] AI_40 | AI Tools 40 | Verify that tapping Cancel displays the Unsaved Changes popup and Stay keeps the user on the current screen.
+- [ ] AI_41 | AI Tools 41 | Verify that selecting Exit Without Saving returns the user to the Create with AI Tools screen.
+- [ ] AI_42 | AI Tools 42 | Verify that tapping Apply redirects the user to the Edit screen.
+- [ ] AI_43_remove_background | AI Tools 43 | Verify that the user can apply an edit and proceed to Print Preview.
+- [ ] AI_43_replace_background | AI Tools 43 | Verify that the user can navigate to the Replace Background feature.
+- [ ] AI_44 | AI Tools 44 | Verify that the Gallery Listing screen is displayed after opening Replace Background.
+- [ ] AI_45 | AI Tools 45 | Verify that the Gallery Listing screen displays the Sort option and that selecting Newest or Oldest sorts the gallery photos accordingly.
+- [ ] AI_46 | AI Tools 46 | Verify that selecting a photo displays the background replacement screen.
+- [ ] AI_47 | AI Tools 47 | Verify that the Back button returns the user to the previous screen.
+- [ ] AI_48 | AI Tools 48 | Verify that tapping Generate starts the background generation process.
+- [ ] AI_49 | AI Tools 49 | Verify the generated background result screen and background replacement options
+- [ ] AI_50 | AI Tools 50 | Verify that the background options section is scrollable.
+- [ ] AI_51 | AI Tools 51 | Verify that tapping Color Picker opens the color picker screen and applying a selected color updates the background of the selected image.
+- [ ] AI_52 | AI Tools 52 | Verify that selecting a background option opens the full-screen preview.
+- [ ] AI_53 | AI Tools 53 | Verify that tapping the prompt text box expands it and opens the native keyboard.
+- [ ] AI_54 | AI Tools 54 | Verify that Generate remains disabled when the prompt is empty.
+- [ ] AI_55 | AI Tools 55 | Verify that a custom prompt can be used to generate a background.
+- [ ] AI_56 | AI Tools 56 | Verify that the generated custom background is displayed after generation.
+- [ ] AI_57 | AI Tools 57 | Verify that tapping Cancel after generating an image displays the Unsaved Changes popup with Stay and Exit without saving options.
+- [ ] AI_58 | AI Tools 58 | Verify that tapping Stay closes the Unsaved Changes popup and keeps the user on the current screen.
+- [ ] AI_59 | AI Tools 59 | Verify that tapping Exit without saving closes the popup and redirects the user to the AI Tools screen.
+- [ ] AI_60 | AI Tools 60 | Verify that Generate New generates a different background.
+- [ ] AI_61 | AI Tools 61 | Verify that Back returns to the background options while retaining the entered prompt.
+- [ ] AI_62 | AI Tools 62 | Verify that applying the generated background redirects the user to Print Preview.
+- [ ] AI_63 | AI Tools 63 | Verify the Save as New Photo popup from Print Preview.
+- [ ] AI_64 | AI Tools 64 | Verify that the Save as New Photo popup can be closed.
+- [ ] AI_65 | AI Tools 65 | Verify that the generated photo is saved to the device gallery.
+- [ ] AI_66 | AI Tools 66 | Verify that selecting Do Not Save does not save the generated photo.
+- [ ] AI_67 | AI Tools 67 | Verify that the generated photo can be shared from Print Preview. Verify that the generated photo can be shared from Print Preview.
+- [ ] AI_68 | AI Tools 68 | Verify that a maximum of 10 copies can be selected.
+- [ ] AI_69 | AI Tools 69 | Verify that the Edit button redirects the user to the editing tool and Verify that editing changes are retained after applying edits.
+- [ ] AI_70 | AI Tools 70 | Verify that Print is displayed when the printer is pre-connected (no Add Printer / search).
+- [ ] AI_71 | AI Tools 71 | Verify that the generated photo is printed correctly with a connected printer.
+- [ ] AI_72 | AI Tools 72 | Verify that Print is displayed when the printer is pre-connected (Add Printer is not shown).
+- [ ] AI_73_replace_background | AI Tools 73 | Verify that Print is displayed when a printer is connected.
+- [ ] AI_73_remove_object | AI Tools 73 | Verify that the Remove Object gallery allows navigation, folder selection, sorting, scrolling, image selection, and navigation back.
+- [ ] AI_74_remove_object | AI Tools 74 | Verify that the user can select objects by tapping/painting, selections are cumulative, the selection overlay is displayed correctly, and Generate becomes enabled.
+- [ ] AI_75_remove_object | AI Tools 75 | Verify brush size options, selection behavior, menu persistence, and outside-menu interaction.
+- [ ] AI_76_remove_object | AI Tools 76 | Verify image generation, loading state, no-internet handling, API generation failure and retry.
+- [ ] AI_77_remove_object | AI Tools 77 | Verify that the generated result allows additional object removal, Apply saves the changes, and Cancel handles unsaved changes correctly.
+- [ ] AI_78_remove_object | AI Tools 78 | Verify Print Preview navigation and handling of the generated image when leaving without saving.
+- [ ] AI_78_replace_object | AI Tools 78 | Verify navigation to Replace Object, folder selection, sorting, scrolling, photo selection, and Use This Image flow.
+- [ ] AI_79_replace_object | AI Tools 79 | Verify object selection, cumulative painting, brush size controls, description input, and Generate button enablement.
+- [ ] AI_80_replace_object | AI Tools 80 | Verify Generate button validation and generation behavior for valid input, no internet, and API failure.
+- [ ] AI_81_replace_object | AI Tools 81 | Verify generated result options, switching results, generating new results, applying changes, and handling unsaved changes.
+- [ ] AI_82_replace_object | AI Tools 82 | Verify generated image in Print Preview, Save to Gallery, Do Not Save, popup dismissal, and print output.
+- [ ] AI_83_replace_object | AI Tools 83 | Verify that the object or multiple selected areas are replaced according to the replacement description provided by the user.
+- [ ] AI_83_restore | AI Tools 83 | Verify navigation to Restore Photo, photo selection, and back navigation.
+- [ ] AI_84_restore | AI Tools 84 | Verify that the selected photo can be restored and the restored result can be compared with the original photo.
+- [ ] AI_85_restore | AI Tools 85 | Verify applying restored changes and handling unsaved changes through Cancel.
+- [ ] AI_86_restore | AI Tools 86 | Verify Save to Gallery, Don't Save, popup dismissal, and print output after applying the restored photo.
+- [ ] AI_86_enhance | AI Tools 86 | Verify navigation to Enhance Photo, photo selection, Generate button, and back navigation.
+- [ ] AI_87_enhance | AI Tools 87 | Verify that the selected photo is enhanced automatically and can be compared with the original photo.
+- [ ] AI_88_enhance | AI Tools 88 | Verify handling saved and unsaved changes through Cancel.
+- [ ] AI_89_enhance | AI Tools 89 | Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the enhanced photo.
+- [ ] AI_90_lighting | AI Tools 90 | Verify navigation to Fix Lighting, photo selection, Generate button, and back navigation.
+- [ ] AI_91_lighting | AI Tools 91 | Verify that the selected photo is processed to fix lighting and validate generation behavior for no internet and API failure scenarios.
+- [ ] AI_92_lighting | AI Tools 92 | Verify handling saved and unsaved changes through Cancel.
+- [ ] AI_93_lighting | AI Tools 93 | Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the lighting correction.
+- [ ] AI_93_upscale | AI Tools 93 | Verify navigation to Upscale Photo, photo selection, Generate button, and back navigation.
+- [ ] AI_94_upscale | AI Tools 94 | Verify that the selected photo is denoised and increased in image size after generation, including No Internet and API failure scenarios.
+- [ ] AI_95_upscale | AI Tools 95 | Verify applying the upscaled photo and handling unsaved changes through Cancel.
+- [ ] AI_96_upscale | AI Tools 96 | Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the upscaled photo.
+- [ ] AI_96_generate_object | AI Tools 96 | Verify navigation to Generate Object, folder selection, sorting, scrolling, photo selection, and Use This Image flow.
+- [ ] AI_97_generate_object | AI Tools 97 | Verify that the user can select an area, enter a prompt, and generate an object in the selected area.
+- [ ] AI_98_generate_object | AI Tools 98 | Verify cumulative area selection, brush size behavior, No Internet handling, API failure and retry.
+- [ ] AI_99_generate_object | AI Tools 99 | Verify generated result options, result switching, Generate New and Cancel behavior.
+- [ ] AI_100_generate_object | AI Tools 100 | Verify Print Preview, Save to Gallery, Do Not Save, popup dismissal, and print output.
+
+## Dependency-gated split flows
+
+- [ ] AI_100_generate_object_physical_print | AI Tools 100 | AI_100_generate_object_physical_print - Generate Object physical print
+- [ ] AI_86_restore_physical_print | AI Tools 86 | AI_86_restore_physical_print - Restore Photo physical print
+- [ ] AI_89_enhance_physical_print | AI Tools 89 | AI_89_enhance_physical_print - Enhance Photo physical print
+- [ ] AI_91_lighting_api_fault | AI Tools 91 | AI_91_lighting_api_fault - Fix Lighting API failure retry
+- [ ] AI_93_lighting_physical_print | AI Tools 93 | AI_93_lighting_physical_print - Fix Lighting physical print
+- [ ] AI_94_upscale_api_fault | AI Tools 94 | AI_94_upscale_api_fault - Upscale Photo API failure retry
+- [ ] AI_96_upscale_physical_print | AI Tools 96 | AI_96_upscale_physical_print - Upscale Photo physical print
+- [ ] AI_98_generate_object_api_fault | AI Tools 98 | AI_98_generate_object_api_fault - Generate Object API failure retry

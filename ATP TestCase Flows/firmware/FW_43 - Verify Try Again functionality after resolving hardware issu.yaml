@@ -2,7 +2,7 @@
 # Excel: Firmware Update 43 | Module: Firmware Error Handling
 # Verify Try Again functionality after resolving hardware issue
 # Expected: System retries firmware update successfully after issue is resolved and continues installation flow.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_43 - Verify Try Again functionality after resolving hardware issu"
 tags:
   - firmware

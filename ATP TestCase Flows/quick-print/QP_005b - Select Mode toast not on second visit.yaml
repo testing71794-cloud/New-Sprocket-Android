@@ -4,7 +4,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/launchapp
 # See: https://docs.maestro.dev/reference/commands-available/runscript
 # See: https://docs.maestro.dev/reference/commands-available/asserttrue
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_005b - Select Mode toast not on second visit"
 tags:
   - quick-print

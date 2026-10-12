@@ -1,0 +1,7 @@
+appId: com.caglobal.hp.sprocket
+---
+# Timer icon is unlabeled ImageView at top-right on Photo ID capture (Vivo: icon-only sheet).
+- tapOn:
+    point: "93%,8%"
+- waitForAnimationToEnd:
+    timeout: 2500

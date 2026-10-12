@@ -1,0 +1,51 @@
+# ATP Test Case ID: PR_12
+# Excel: Print Preview_12
+# Apply an AI tool from Print Preview
+# Expected: AI Tools opens and an applied Remove Object edit is returned to Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "PR_12 - Apply an AI tool from Print Preview"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - ai
+  - network
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- runFlow: subflows/tap_preview_ai.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)AI Tools.*"
+    timeout: 15000
+- scrollUntilVisible:
+    element: ".*(?i)(Remove Object|Object Eraser|Erase Object|Replace Object).*"
+    direction: DOWN
+    timeout: 30000
+    visibilityPercentage: 40
+    centerElement: true
+- tapOn: ".*(?i)(Remove Object|Object Eraser|Erase Object|Replace Object).*"
+- swipe:
+    start: "45%,40%"
+    end: "55%,48%"
+    duration: 700
+- extendedWaitUntil:
+    visible: ".*(?i)^Generate$"
+    timeout: 10000
+- tapOn: ".*(?i)^Generate$"
+- extendedWaitUntil:
+    visible: ".*(?i)^(Apply|Done)$"
+    timeout: 90000
+- runFlow:
+    when:
+      visible: ".*(?i)^Apply$"
+    commands:
+      - tapOn: ".*(?i)^Apply$"
+- runFlow:
+    when:
+      notVisible: ".*(?i)^Apply$"
+      visible: ".*(?i)^Done$"
+    commands:
+      - tapOn: ".*(?i)^Done$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$|Add Printer).*"
+    timeout: 30000

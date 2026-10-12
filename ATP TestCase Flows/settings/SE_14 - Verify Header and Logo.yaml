@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  14 | Module: UI/Layout
 # Verify Header and Logo
 # Expected: HP Sprocket logo and close control are visible on the Hamburger menu header.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_14 - Verify Header and Logo"
 tags:
   - settings

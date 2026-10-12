@@ -2,7 +2,7 @@
 # Excel: Precut_05 | Module: Pre-Cut Stickers – Select an Image
 # Verify that the user can select an image for the Pre-Cut slot.
 # Expected: First image fills slot 1; next empty slot is highlighted; continue filling slots.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_05 - Verify select an image for Pre-Cut slot"
 tags:
   - precut

@@ -1,0 +1,15 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel Print Preview UI common to Photo ID sizes.
+- assertVisible: ".*(?i)(Print|Copies).*"
+- assertVisible:
+    text: ".*(?i)Copies.*"
+- assertVisible:
+    text: "1"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(No Printer Added|Add Printer|Sprocket|DC:|84:).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(More|Create|Printer).*"
+    optional: true

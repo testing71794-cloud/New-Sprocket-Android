@@ -1,5 +1,5 @@
 # Printer Help screen 3 — Printer Setup opens Charge + Power On flow.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_54 - Verify Printer Help Printer Setup"
 tags:
   - settings

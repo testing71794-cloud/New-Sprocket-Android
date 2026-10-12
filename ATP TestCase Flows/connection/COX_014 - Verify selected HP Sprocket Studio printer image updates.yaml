@@ -2,7 +2,7 @@
 # Excel: PCF-014 | Module: Pre Connection Flow
 # Verify selected 'HP Sprocket Studio' printer image updates
 # Expected: HP Sprocket Studio printer image should display with the printer name 'HP Sprocket Studio' at 'Select Your Device' screen along with 'Continue with this Printer' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_014 - Verify selected HP Sprocket Studio printer image updates"
 tags:
   - connection

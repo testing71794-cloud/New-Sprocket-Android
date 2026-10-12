@@ -36,19 +36,6 @@ CO_E01,Connection,Disconnect device,ATP TestCase Flows/Connection/TC_CO_E01_Disc
 CO_E02,Connection,Reconnect after disconnect,ATP TestCase Flows/Connection/TC_CO_E02_Reconnect after disconnect.yaml,4
 CO_E03,Connection,Connection - device out of range,ATP TestCase Flows/Connection/TC_CO_E03_Connection - device out of range.yaml,3
 CO_E04,Connection,Device powered off during use,ATP TestCase Flows/Connection/TC_CO_E04_Device powered off during use.yaml,3
-PR_01,Printing,Print single photo,ATP TestCase Flows/Printing/TC_PR_01_Print single photo.yaml,7
-PR_02,Printing,Print multiple copies,ATP TestCase Flows/Printing/TC_PR_02_Print multiple copies.yaml,8
-PR_03,Printing,Print multiple different photos,ATP TestCase Flows/Printing/TC_PR_03_Print multiple different photos.yaml,8
-PR_04,Printing,Print collage photo,ATP TestCase Flows/Printing/TC_PR_04_Print collage photo.yaml,14
-PR_05,Printing,Print precut - same photo,ATP TestCase Flows/Printing/TC_PR_05_Print precut - same photo.yaml,12
-PR_06,Printing,Print precut - different photos (select one),ATP TestCase Flows/Printing/TC_PR_06_Print precut - different photos (select one).yaml,11
-PR_07,Printing,Print precut - different photos (select two),ATP TestCase Flows/Printing/TC_PR_07_Print precut - different photos (select two).yaml,11
-PR_E01,Printing,Print with no paper,ATP TestCase Flows/Printing/TC_PR_E01_Print with no paper.yaml,5
-PR_E02,Printing,Print during active job,ATP TestCase Flows/Printing/TC_PR_E02_Print during active job.yaml,4
-PR_E03,Printing,Print with paper jam,ATP TestCase Flows/Printing/TC_PR_E03_Print with paper jam.yaml,2
-PR_E04,Printing,Print - printer overheated,ATP TestCase Flows/Printing/TC_PR_E04_Print - printer overheated.yaml,2
-PR_E05,Printing,Cancel print job,ATP TestCase Flows/Printing/TC_PR_E05_Cancel print job.yaml,4
-PR_E06,Printing,Printer disconnects during print,ATP TestCase Flows/Printing/TC_PR_E06_Printer disconnects during print.yaml,5
 ED_01,Editing,Enter edit photo mode,ATP TestCase Flows/Editing/TC_ED_01_Enter edit photo mode.yaml,4
 ED_02,Editing,Apply filter to photo,ATP TestCase Flows/Editing/TC_ED_02_Apply filter to photo.yaml,8
 ED_03,Editing,Edit photo fit/crop,ATP TestCase Flows/Editing/TC_ED_03_Edit photo fit crop.yaml,6
@@ -103,3 +90,28 @@ SE_20,Settings,Access Sign Up from Settings,ATP TestCase Flows/Settings/TC_SE_20
 SE_21,Settings,Display App Version,ATP TestCase Flows/Settings/TC_SE_21_Display App Version.yaml,2
 SE_E01,Settings,Settings - No network connection,ATP TestCase Flows/Settings/TC_SE_E01_Settings - No network connection.yaml,3
 SE_E02,Settings,Facebook login cancelled,ATP TestCase Flows/Settings/TC_SE_E02_Facebook login cancelled.yaml,4
+PR_01,Printing,BLE printer connection and Quick Print navigation,ATP TestCase Flows/printing/PR_01 - BLE printer connection and Quick Print navigation.yaml,4
+PR_02,Printing,HP600 Wi-Fi connection and Quick Print navigation,ATP TestCase Flows/printing/PR_02 - HP600 Wi-Fi connection and Quick Print navigation.yaml,4
+PR_03,Printing,HP200 2 x 3 preview canvas,ATP TestCase Flows/printing/PR_03 - HP200 2 x 3 preview canvas.yaml,5
+PR_04,Printing,Original HP Sprocket 2 x 3 preview canvas,ATP TestCase Flows/printing/PR_04 - Original HP Sprocket 2 x 3 preview canvas.yaml,5
+PR_05,Printing,HP Sprocket Studio 2 x 3 preview canvas,ATP TestCase Flows/printing/PR_05 - HP Sprocket Studio 2 x 3 preview canvas.yaml,5
+PR_06a,Printing,HP Sprocket Studio Plus 2 x 3 preview canvas,ATP TestCase Flows/printing/PR_06a - HP Sprocket Studio Plus 2 x 3 preview canvas.yaml,5
+PR_06b,Printing,HP Sprocket Select 2.3 x 3.4 preview canvas,ATP TestCase Flows/printing/PR_06b - HP Sprocket Select 2.3 x 3.4 preview canvas.yaml,5
+PR_07,Printing,HP Sprocket Plus 2.3 x 3.4 preview canvas,ATP TestCase Flows/printing/PR_07 - HP Sprocket Plus 2.3 x 3.4 preview canvas.yaml,5
+PR_08,Printing,HP Sprocket 3x4 3.5 x 4.25 preview canvas,ATP TestCase Flows/printing/PR_08 - HP Sprocket 3x4 3.5 x 4.25 preview canvas.yaml,5
+PR_09,Printing,Connected and disconnected printer status,ATP TestCase Flows/printing/PR_09 - Connected and disconnected printer status.yaml,7
+PR_10,Printing,Copies controls from 1 to 10,ATP TestCase Flows/printing/PR_10 - Copies controls from 1 to 10.yaml,10
+PR_11,Printing,Tiles options and default 2x2 grid,ATP TestCase Flows/printing/PR_11 - Tiles options and default 2x2 grid.yaml,6
+PR_12,Printing,Apply an AI tool from Print Preview,ATP TestCase Flows/printing/PR_12 - Apply an AI tool from Print Preview.yaml,10
+PR_13,Printing,Apply a Frame from Edit Options,ATP TestCase Flows/printing/PR_13 - Apply a Frame from Edit Options.yaml,9
+PR_14,Printing,Edit one of four selected photos,ATP TestCase Flows/printing/PR_14 - Edit one of four selected photos.yaml,13
+PR_15,Printing,Print Preview image gestures and Fit Fill,ATP TestCase Flows/printing/PR_15 - Print Preview image gestures and Fit Fill.yaml,8
+PR_16,Printing,Fit Fill toast session behavior,ATP TestCase Flows/printing/PR_16 - Fit Fill toast session behavior.yaml,10
+PR_17,Printing,Image rotation snap guide,ATP TestCase Flows/printing/PR_17 - Image rotation snap guide.yaml,3
+PR_18,Printing,Image center reposition snap,ATP TestCase Flows/printing/PR_18 - Image center reposition snap.yaml,4
+PR_19,Printing,Image edge reposition snap,ATP TestCase Flows/printing/PR_19 - Image edge reposition snap.yaml,6
+PR_20,Printing,Back navigation without changes,ATP TestCase Flows/printing/PR_20 - Back navigation without changes.yaml,9
+PR_21,Printing,Save as new photo popup after editing,ATP TestCase Flows/printing/PR_21 - Save as new photo popup after editing.yaml,5
+PR_22,Printing,Save or discard edited image,ATP TestCase Flows/printing/PR_22 - Save or discard edited image.yaml,8
+PR_23,Printing,Low-resolution warning from native Gallery,ATP TestCase Flows/printing/PR_23 - Low-resolution warning from native Gallery.yaml,2
+PR_24,Printing,Low-resolution warning from social media Gallery,ATP TestCase Flows/printing/PR_24 - Low-resolution warning from social media Gallery.yaml,5

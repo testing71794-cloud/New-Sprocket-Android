@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel Photobooth steps 1–8 — proven on Pixel 5; camera unset for Pre-Cut permission cases.
 - launchApp:
@@ -44,7 +44,7 @@ appId: com.hp.impulse.sprocket
       visible: ".*(?i)I already have account.*"
     commands:
       - tapOn:
-          id: "com.hp.impulse.sprocket:id/tv_login"
+          id: "com.caglobal.hp.sprocket:id/tv_login"
           optional: true
       - tapOn: ".*(?i)I already have account.*"
       - waitForAnimationToEnd:
@@ -69,7 +69,14 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: "Skip"
 - runFlow: ../../permission/subflows/allow_all_runtime_permissions.yaml
-- runFlow: ../../permission/subflows/allow_camera_permission.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Sharing .* (image|item).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow: ../../permission/subflows/allow_camera_permission_if_visible.yaml
 - runFlow: ../../common/subflows/dismiss_privacy_consent_if_visible.yaml
 - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
 - waitForAnimationToEnd:
@@ -101,7 +108,7 @@ appId: com.hp.impulse.sprocket
           when:
             notVisible: ".*(?i)(Collage Maker|Quick Print|Photobooth|Pre-?cut).*"
           commands:
-            - runFlow: ../../permission/subflows/allow_camera_permission.yaml
+            - runFlow: ../../permission/subflows/allow_camera_permission_if_visible.yaml
             - tapOn:
                 text: ".*(?i)^Create$"
                 optional: true
@@ -116,7 +123,9 @@ appId: com.hp.impulse.sprocket
                 optional: true
             - waitForAnimationToEnd:
                 timeout: 2500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - extendedWaitUntil:
-    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Photobooth|Photo ID).*"
+    visible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Photobooth|Photo ID|No Thanks).*"
     timeout: 20000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - assertVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut|Photobooth|Photo ID).*"

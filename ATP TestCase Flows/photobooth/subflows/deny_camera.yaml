@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel: If camera permission appears, tap Don't allow.
 - extendedWaitUntil:

@@ -3,7 +3,7 @@
 # Navigation to App Settings
 # Expected: User successfully navigates to App Settings screen.
 # Duplicate of SE_07 — kept for Excel ID mapping; same subflow coverage.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_36 - Navigation to App Settings"
 tags:
   - settings

@@ -1,5 +1,5 @@
 # User Guide (screen 2) — sprocketprinters.com support page in browser.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)(HP Sprocket Select Photo Printer series|Setup your printer|sprocketprinters|Back to support).*"

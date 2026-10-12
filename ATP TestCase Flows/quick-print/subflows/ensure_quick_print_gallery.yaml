@@ -1,0 +1,105 @@
+# Reuse Quick Print when Recent is already open.
+# Cold launch only when Create hub cannot be reached.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/presskey
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(Print|Copies|Print Complete|Printing).*"
+            notVisible: "Recent"
+          commands:
+            - pressKey: back
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: "(?i)Save as new photo.*"
+          commands:
+            - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: "Cancel"
+            notVisible: "Recent"
+          commands:
+            - tapOn: "Cancel"
+            - waitForAnimationToEnd:
+                timeout: 1500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+- runFlow:
+    when:
+      visible: "(?i)Quick Print.*"
+      notVisible: "Recent"
+    commands:
+      - tapOn: "(?i)Quick Print.*"
+      - runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+      - runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+      - runFlow: allow_photos_all_and_os.yaml
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - launchApp:
+          clearState: false
+          permissions:
+            all: allow
+      - setPermissions:
+          permissions:
+            all: allow
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+      - runFlow:
+          when:
+            visible: "(?i)Quick Print.*"
+            notVisible: "Recent"
+          commands:
+            - tapOn: "(?i)Quick Print.*"
+            - runFlow: allow_photos_all_and_os.yaml
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - runFlow: reach_gallery_allow_all.yaml
+- runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+# Second chance: Create → Quick Print → allow photos
+- runFlow:
+    when:
+      notVisible: "Recent"
+    commands:
+      - tapOn:
+          text: "Create\nTab 2 of 3"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^Create$"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - runFlow:
+          when:
+            visible: "(?i)Quick Print.*"
+          commands:
+            - tapOn: "(?i)Quick Print.*"
+            - runFlow: allow_photos_all_and_os.yaml
+      - runFlow: reach_gallery_allow_all.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^All$|^Select$).*"
+    timeout: 30000
+- assertVisible: ".*(?i)(Recent|^All$|^Select$).*"

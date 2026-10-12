@@ -1,0 +1,15 @@
+# ATP Test Case ID: VD_11
+# Excel: Video frame 11 | Module: Bottom Navigation
+# Validate More / Create / Printer bottom nav on video Print Preview; Create default.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "VD_11 - Verify video Print Preview bottom navigation"
+tags:
+  - video
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/reach_video_frames_print_preview.yaml
+- assertVisible: ".*(?i)Create.*"
+- assertVisible: ".*(?i)(More|Printer).*"

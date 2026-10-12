@@ -1,8 +1,13 @@
 TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
-VD_01,Video frame 01,video,CR_05A_Gallery with Videos,Verify video thumbnails indicate video content.,video/VD_01 - Verify video thumbnails indicate video content.yaml,com.hp.impulse.sprocket
-VD_02,Video frame 02,video,CR_05B_Select Mode with Videos,Verify mixed media selection.,video/VD_02 - Verify mixed media selection.yaml,com.hp.impulse.sprocket
-VD_03,Video frame 03,video,CR_05C_Print Preview of Photos & Videos,Verify AI tool restrictions for video frames.,video/VD_03 - Verify AI tool restrictions for video frames.yaml,com.hp.impulse.sprocket
-VD_04,Video frame 04,video,Video Frames & Selection Flow,"Verify full E2E flow: Multi-select (photos/videos), previewing, AI restrictions, playback, and editing.",video/VD_04 - Verify full E2E flow Multi-select photosvideos previewing AI.yaml,com.hp.impulse.sprocket
-VD_05,Video frame 05,video,CR_05D_Video Frames Print Preview,Verify video playback and scrubbing.,video/VD_05 - Verify video playback and scrubbing.yaml,com.hp.impulse.sprocket
-VD_06,Video frame 06,video,CR_05D_Video Frames Print Preview,Verify frame editing and discard behavior.,video/VD_06 - Verify frame editing and discard behavior.yaml,com.hp.impulse.sprocket
-VD_07,Video frame 07,video,CR_05E_Video Frames Tile Print,Verify UI restrictions during playback in Tiles mode.,video/VD_07 - Verify UI restrictions during playback in Tiles mode.yaml,com.hp.impulse.sprocket
+VD_01,Video frame 01,video,CR_05A_Gallery with Videos,Verify video thumbnails indicate video content.,video/VD_01 - Verify video thumbnails indicate video content.yaml,com.caglobal.hp.sprocket
+VD_02,Video frame 02,video,CR_05B_Select Mode with Videos,Verify mixed media selection.,video/VD_02 - Verify mixed media selection.yaml,com.caglobal.hp.sprocket
+VD_03,Video frame 03,video,CR_05C_Print Preview of Photos & Videos,Verify AI tool restrictions for video frames.,video/VD_03 - Verify AI tool restrictions for video frames.yaml,com.caglobal.hp.sprocket
+VD_04,Video frame 04,video,Video Frames & Selection Flow,"Verify full E2E flow: Multi-select (photos/videos), previewing, AI restrictions, playback, and editing.",video/VD_04 - Verify full E2E flow Multi-select photosvideos previewing AI.yaml,com.caglobal.hp.sprocket
+VD_05,Video frame 05,video,CR_05D_Video Frames Print Preview,Verify video playback and scrubbing.,video/VD_05 - Verify video playback and scrubbing.yaml,com.caglobal.hp.sprocket
+VD_06,Video frame 06,video,CR_05D_Video Frames Print Preview,Verify frame editing and discard behavior.,video/VD_06 - Verify frame editing and discard behavior.yaml,com.caglobal.hp.sprocket
+VD_07,Video frame 07,video,CR_05E_Video Frames Tile Print,Verify UI restrictions during playback in Tiles mode.,video/VD_07 - Verify UI restrictions during playback in Tiles mode.yaml,com.caglobal.hp.sprocket
+VD_08,Video frame 08,video,Printer & Print,Verify video print preview printer status,video/VD_08 - Verify video print preview printer status and print.yaml,com.caglobal.hp.sprocket
+VD_09,Video Frame 09,video,Print Preview – Video Tiles,Verify video tiles grid,video/VD_09 - Verify video print preview Tiles grid options.yaml,com.caglobal.hp.sprocket
+VD_10,Video Frame 10,video,Video / Edit Image,Verify video frame edit,video/VD_10 - Verify video frame edit applied to Print Preview.yaml,com.caglobal.hp.sprocket
+VD_11,Video frame 11,video,Bottom Navigation,Verify video bottom nav,video/VD_11 - Verify video Print Preview bottom navigation.yaml,com.caglobal.hp.sprocket
+VD_12,Video Frame 12,video,Video Frame – AI Edit,Verify AI Edit disabled for video,video/VD_12 - Verify AI Edit disabled for video.yaml,com.caglobal.hp.sprocket

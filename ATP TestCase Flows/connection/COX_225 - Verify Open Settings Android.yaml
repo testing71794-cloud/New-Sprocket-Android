@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC063 | Module: Wi-Fi Direct
 # Verify Open Settings (Android)
 # Expected: Android Wi-Fi Settings screen opens.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_225 - Verify Open Settings Android"
 tags:
   - connection

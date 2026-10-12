@@ -1,0 +1,41 @@
+# ATP Test Case ID: AI_05a
+# Excel: AI Tools 05 (a) | Module: AI bottom navigation bar
+# Verify rapid tab switching
+# Expected: More, Create, and Printer switch without lag, crash, or UI freeze.
+appId: com.caglobal.hp.sprocket
+name: "AI_05a - Verify rapid tab switching"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/reach_module_screen.yaml
+- repeat:
+    times: 3
+    commands:
+      - tapOn:
+          point: "17%,94%"
+      - waitForAnimationToEnd:
+          timeout: 1000
+      - back
+      - waitForAnimationToEnd:
+          timeout: 1000
+      - tapOn:
+          point: "50%,94%"
+      - waitForAnimationToEnd:
+          timeout: 700
+      - tapOn:
+          point: "83%,94%"
+      - waitForAnimationToEnd:
+          timeout: 700
+      - tapOn:
+          point: "50%,94%"
+      - waitForAnimationToEnd:
+          timeout: 700
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn:
+    point: "50%,94%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- assertVisible: ".*(?i)Quick Print.*"
+- assertVisible: "Create.*Tab 2 of 3"

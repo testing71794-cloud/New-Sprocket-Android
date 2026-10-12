@@ -2,7 +2,7 @@
 # Excel: PS-019 | Module: Printer 200
 # Verify Printer Detail screen UI elements after successful printer connection
 # Expected: Printer Detail screen is displayed successfully with printer image, printer information, status details, and below mention menu options.   Verify printer image is displayed. Verify printer name is displayed. Verify battery percentage is dis
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_251 - Verify Printer Detail screen UI elements after successful pr"
 tags:
   - connection

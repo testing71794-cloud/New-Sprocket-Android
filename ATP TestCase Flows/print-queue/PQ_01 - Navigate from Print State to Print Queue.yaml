@@ -1,0 +1,10 @@
+# ATP Test Case ID: PQ_01
+# Excel: Print_Queue01
+# Verify navigation from Print State to Print Queue with active and pending jobs.
+appId: com.caglobal.hp.sprocket
+name: "PQ_01 - Navigate from Print State to Print Queue"
+tags: [print-queue, atp-excel, positive, physical-printer]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- runFlow: subflows/assert_print_queue_shell.yaml
+- takeScreenshot: PQ_01_print_queue

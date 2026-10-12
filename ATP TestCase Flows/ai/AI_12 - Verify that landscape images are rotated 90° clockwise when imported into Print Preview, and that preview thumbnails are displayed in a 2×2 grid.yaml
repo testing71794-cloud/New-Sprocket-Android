@@ -1,0 +1,43 @@
+# ATP Test Case ID: AI_12
+# Excel: AI Tools 12
+# Module: AI Text to image- Generate Image – Landscape Image Rotation and Thumbnail Grid
+# Description:
+# Verify that landscape images are rotated 90° clockwise when imported into Print Preview, and that preview thumbnails are displayed in a 2×2 grid.
+# Steps:
+# 1. Install and launch the application.
+# 2. Complete the Splash Screen and onboarding flow.
+# 3. Tap Get Started.
+# 4. Tap Sign Up Later.
+# 5. Wait until the Home screen is displayed.
+# 6. If the notification permission popup appears, tap Allow.
+# 7. Tap the Create tab from the bottom navigation bar.
+# 8. Tap Text-to-Image.
+# 9. Tap the prompt text box.
+# 10. Enter a valid prompt.
+# 11. Select an landscape orientation.
+# 12. Select an image quantity.
+# 13. Tap the Generate Image(s) button.
+# 14. Wait for the generated image results screen to appear.
+# 15. Observe the main image preview and preview thumbnails.
+# 16. Continue to Print Preview and observe the imported image orientation.
+# Expected:
+# 1. Landscape images are rotated 90° clockwise when imported into Print Preview .
+# 2. The preview thumbnails are displayed in a 2×2 grid.
+# 3. The selected thumbnail is visually highlighted.
+# 4. The generated image preview is displayed correctly without using the obsolete screen/layout behavior.
+appId: com.caglobal.hp.sprocket
+name: "AI_12 - Verify that landscape images are rotated 90° clockwise when imported into Print Preview, and that preview thumbnails are displayed in a 2×2 grid."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/text_to_image_generate_results.yaml
+- takeScreenshot: AI_12_landscape_thumbnail_grid
+- tapOn: "Apply"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: ../printing/subflows/assert_print_preview_ui.yaml
+- takeScreenshot: AI_12_landscape_print_preview

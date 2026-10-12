@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Tap Oldest inside combined Newest/Oldest sort menu (lower half of "Newest\nOldest").
 - tapOn:

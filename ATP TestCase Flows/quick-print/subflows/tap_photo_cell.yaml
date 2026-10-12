@@ -2,7 +2,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 # See: https://docs.maestro.dev/maestro-flows/javascript/manage-data-and-states
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

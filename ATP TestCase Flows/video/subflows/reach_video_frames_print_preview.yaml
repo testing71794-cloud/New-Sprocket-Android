@@ -1,5 +1,5 @@
 # Single video → Video Frames Print Preview (CR_05D).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: select_video_only.yaml
 - runFlow: open_print_preview.yaml

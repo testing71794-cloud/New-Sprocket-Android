@@ -1,0 +1,35 @@
+# Open a fresh standard Collage picker while preserving completed onboarding.
+# Re-entering the picker clears selections left by the previous test.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: recover_to_create_home.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)Collage Maker.*"
+    commands:
+      - runFlow: open_collage_maker.yaml
+- runFlow:
+    when:
+      notVisible: ".*Select 2 to 4 photos.*"
+    commands:
+      - launchApp:
+          clearState: false
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - runFlow: recover_to_create_home.yaml
+      - runFlow:
+          when:
+            visible: ".*(?i)Collage Maker.*"
+          commands:
+            - runFlow: open_collage_maker.yaml
+- runFlow:
+    when:
+      notVisible: ".*Select 2 to 4 photos.*"
+    commands:
+      - runFlow: excel_launch_to_home.yaml
+      - runFlow: open_collage_maker.yaml
+- extendedWaitUntil:
+    visible: ".*Select 2 to 4 photos.*"
+    timeout: 15000
+- assertVisible: "Next"

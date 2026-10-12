@@ -2,7 +2,7 @@
 # Excel: Firmware Update 14 | Module: Firmware Validation
 # Verify internet interruption during firmware download
 # Expected: Download fails gracefully and an error message is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_14 - Verify internet interruption during firmware download"
 tags:
   - firmware

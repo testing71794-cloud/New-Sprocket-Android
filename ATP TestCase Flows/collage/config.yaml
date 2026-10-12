@@ -1,0 +1,8 @@
+# Collage workspace. One Maestro session runs every mapped COL_* flow.
+# A failed flow does not stop later flows.
+# https://docs.maestro.dev/maestro-flows/workspace-management/config
+appId: com.caglobal.hp.sprocket
+flows:
+  - "COL_*.yaml"
+executionOrder:
+  continueOnFailure: true

@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC051 | Module: Wi-Fi Connection Failure
 # Verify Couldn't Connect screen
 # Expected: 1. 'Couldn't Connect' screen is displayed. 2. Printer illustration is displayed. 3. Try Again and Cancel buttons are displayed and enabled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_213 - Verify Couldnt Connect screen"
 tags:
   - connection

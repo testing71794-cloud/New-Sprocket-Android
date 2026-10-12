@@ -1,14 +1,51 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-# Fresh Pre-Cut selection screen. Cold launch only when the Create hub is not already visible.
+# Fresh Pre-Cut selection screen.
+# If Select 2 photos is already open, do not launch again.
+# If Pre-Cut is open but the slots are not empty, step back and re-enter.
+# Cold launch only when Create hub / Pre-Cut cannot be reached.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/presskey
 - runFlow:
     when:
-      notVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut).*"
+      visible: ".*(?i)Sharing .* (image|item).*"
     commands:
-      - runFlow: recover_to_create_hub.yaml
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
 - runFlow:
     when:
-      notVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut).*"
+      visible: ".*(?i)Select 2 photos.*"
     commands:
-      - runFlow: excel_launch_to_home.yaml
-- runFlow: open_precut_to_selection.yaml
+      - runFlow: wait_selection_screen.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)Select 2 photos.*"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)(Next|Copies|Print Preview|Save as new photo|Got It).*"
+          commands:
+            - runFlow: recover_to_create_hub.yaml
+            - waitForAnimationToEnd:
+                timeout: 1500
+      - runFlow:
+          when:
+            visible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut).*"
+          commands:
+            - runFlow: open_precut_to_selection.yaml
+      - runFlow:
+          when:
+            notVisible: ".*(?i)Select 2 photos.*"
+          commands:
+            - runFlow:
+                when:
+                  notVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut).*"
+                commands:
+                  - runFlow: recover_to_create_hub.yaml
+            - runFlow:
+                when:
+                  notVisible: ".*(?i)(Collage Maker|Quick Print|Pre-?cut).*"
+                commands:
+                  - runFlow: excel_launch_to_home.yaml
+            - runFlow: open_precut_to_selection.yaml

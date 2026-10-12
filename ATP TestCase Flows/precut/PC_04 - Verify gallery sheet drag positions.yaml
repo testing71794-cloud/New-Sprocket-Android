@@ -2,7 +2,7 @@
 # Excel: Precut_04 | Module: Pre-Cut Stickers- drag drop window gallery
 # Verify Gallery window drag and drop functionality.
 # Expected: Sheet moves between half-page, expanded, and collapsed positions.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_04 - Verify gallery sheet drag positions"
 tags:
   - precut

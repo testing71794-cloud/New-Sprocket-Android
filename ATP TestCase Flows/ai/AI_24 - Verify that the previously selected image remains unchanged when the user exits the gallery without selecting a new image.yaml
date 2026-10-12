@@ -1,0 +1,47 @@
+# ATP Test Case ID: AI_24
+# Excel: AI Tools 24
+# Module: AI- Image-to-Image – Verify Change Photo Cancellation
+# Description:
+# Verify that the previously selected image remains unchanged when the user exits the gallery without selecting a new image.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Tap Change Photo.
+# Close the Gallery Listing screen without selecting a new image by tap on back button.
+# Expected:
+# User returns to the Image-to-Image Main Screen.
+# Previously selected image remains displayed in the Base Image section.
+appId: com.caglobal.hp.sprocket
+name: "AI_24 - Verify that the previously selected image remains unchanged when the user exits the gallery without selecting a new image."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- takeScreenshot: AI_24_original_base_image
+- tapOn: "Change Photo"
+- extendedWaitUntil:
+    visible: "Please select an image to generate with."
+    timeout: 15000
+- tapOn:
+    point: "7%,8%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Base Image"
+    timeout: 30000
+- assertVisible: "Change Photo"
+- takeScreenshot: AI_24_retained_base_image

@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 45 | Module: Data
 # Verify Default Low Data Mode State
 # Expected: Low Data Mode toggle is disabled (OFF) by default.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_40 - Verify Default Low Data Mode State"
 tags:
   - settings

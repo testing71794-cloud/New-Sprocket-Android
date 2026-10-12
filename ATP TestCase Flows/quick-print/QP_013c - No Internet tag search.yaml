@@ -2,7 +2,7 @@
 # Offline after Facebook folder → tag field shows No Internet.
 # See: https://docs.maestro.dev/reference/commands-available/setairplanemode
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_013c - No Internet tag search"
 tags:
   - quick-print

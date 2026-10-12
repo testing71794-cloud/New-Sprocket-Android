@@ -1,0 +1,27 @@
+# ATP Test Case ID: PS_14
+# Excel: Print_State_14
+# Automatic recovery from stopper error
+# Expected: Resolving the stopper closes the popup automatically, keeps the user on Print State, resumes the queue, and continues in queue order.
+appId: com.caglobal.hp.sprocket
+name: "PS_14 - Automatic recovery from stopper error"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-error-injection
+  - queue
+  - timing-manual
+---
+- runFlow: subflows/open_single_print_state.yaml
+# Manually induce a stopper error and leave its popup open.
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+# Resolve the physical condition without closing the popup.
+- extendedWaitUntil:
+    notVisible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+    timeout: 120000

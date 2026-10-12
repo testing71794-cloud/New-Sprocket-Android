@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_06d
+# Excel: Collage_06 (d) | Module: Collage maker- photo selection
+# Verify that the selection count is displayed on the same photo when the user selects the same photo for multiple collage slots.
+# Unique expected: four duplicate fills enable Next. Stacked 1–4 badges are not separate accessibility texts.
+appId: com.caglobal.hp.sprocket
+name: "COL_06d - Verify duplicate photo counts"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_same_photo_four_times.yaml
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible:
+    text: "Next"
+    enabled: true

@@ -1,5 +1,5 @@
 # ATP Test Case ID: CO_01
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: CO_01_My_Gallery_Bluetooth_Icon
 ---
 # Video ~00:20 — gallery toolbar printer/Bluetooth entry (top-right).

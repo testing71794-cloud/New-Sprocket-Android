@@ -3,16 +3,19 @@
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:
       visible: ".*(?i)(I.ll do it later|Sign Up Later).*"
     commands:
       - tapOn: ".*(?i)(I.ll do it later|Sign Up Later).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - runFlow: ../../common/subflows/ensure_sprocket_foreground.yaml
       - extendedWaitUntil:
           notVisible: ".*(?i)(I.ll do it later|Sign Up Later).*"
-          timeout: 10000
+          timeout: 15000
 - runFlow:
     when:
       visible: ".*(?i)explore sprocket.*"
@@ -33,4 +36,6 @@ appId: com.hp.impulse.sprocket
       visible: ".*(?i)Yes, I.?m Sure.*"
     commands:
       - tapOn: ".*(?i)Yes, I.?m Sure.*"
-- runFlow: dismiss_runtime_fast.yaml
+# This device blocks pm grant — auto-allow via UI taps (do not Don't allow).
+- runFlow: ../../common/subflows/grant_all_permissions_via_ui.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml

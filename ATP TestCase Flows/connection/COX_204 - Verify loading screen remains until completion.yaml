@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC042 | Module: Connection
 # Verify loading screen remains until completion
 # Expected: Loading screen should remain visible until success or failure response is received.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_204 - Verify loading screen remains until completion"
 tags:
   - connection

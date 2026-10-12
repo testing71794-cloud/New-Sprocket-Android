@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Delete control sits on the selected upper slot (slot 1 ~34–66% x, 21–36% y).
 - runFlow:

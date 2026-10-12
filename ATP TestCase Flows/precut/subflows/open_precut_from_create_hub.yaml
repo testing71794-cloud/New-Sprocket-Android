@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Create hub → Pre-Cut Stickers (positive path; requires 2x3-compatible or no printer).
 - scrollUntilVisible:

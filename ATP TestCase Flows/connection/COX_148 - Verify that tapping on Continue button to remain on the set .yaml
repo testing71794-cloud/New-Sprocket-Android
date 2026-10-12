@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_018 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify that tapping on 'Continue' button to remain on the set up flow
 # Expected: Should remain on the same 'Ready for wi-fi connections' screen
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_148 - Verify that tapping on Continue button to remain on the set "
 tags:
   - connection

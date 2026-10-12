@@ -2,7 +2,7 @@
 # Excel: EH TC_ERR_ALL_01 | Module: Sign Up & Log In Errors
 # Verify all input validation and system error states for Sign Up and Log In
 # Expected: All corresponding error messages (Inline text, bullets, or toasts) display as per image_fb16c1.png; action buttons disable when required.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_19 - Verify all input validation and system error states for Sign"
 tags:
   - onboarding-splash

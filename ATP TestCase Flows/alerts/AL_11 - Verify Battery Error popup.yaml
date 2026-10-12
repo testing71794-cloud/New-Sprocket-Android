@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   11 | Module: Battery
 # Verify "Battery Error" popup
 # Expected: "Battery Error" popup is displayed on the Print Preview screen. The popup displays the bold title "Battery Error", followed by the message "Restart your printer and try printing again." The popup includes an "OK" button at the bottom and a 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_11 - Verify Battery Error popup"
 tags:
   - alerts

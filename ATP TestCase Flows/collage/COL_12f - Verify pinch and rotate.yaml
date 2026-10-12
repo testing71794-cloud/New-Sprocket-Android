@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_12f
+# Excel: Collage_12 (f) | Module: Collage maker- Pinch and Rotate Photo Within Grid
+# Verify that the user can zoom and rotate a photo within its assigned grid slot.
+appId: com.caglobal.hp.sprocket
+name: "COL_12f - Verify pinch and rotate"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- swipe:
+    start: "28%,38%"
+    end: "50%,55%"
+    duration: 400
+- swipe:
+    start: "35%,35%"
+    end: "50%,50%"
+    duration: 400
+- assertVisible: "Drag & Drop to Reorder"

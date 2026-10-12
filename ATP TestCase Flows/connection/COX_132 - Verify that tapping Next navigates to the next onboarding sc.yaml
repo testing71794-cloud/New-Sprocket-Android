@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_002 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify that tapping Next navigates to the next onboarding screen.
 # Expected: The Load Paper screen should be displayed. Step 2 of the setup progress indicator should be highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_132 - Verify that tapping Next navigates to the next onboarding sc"
 tags:
   - connection

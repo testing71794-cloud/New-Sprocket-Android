@@ -10,13 +10,13 @@ cd /d "%REPO_ROOT%"
 
 if "%~1"=="" (
   echo Usage: %~nx0 ^<atp-folder^> [app_package]
-  echo Example: %~nx0 onboarding com.hp.impulse.sprocket
+  echo Example: %~nx0 onboarding com.caglobal.hp.sprocket
   exit /b 1
 )
 
 set "ATP_FOLDER=%~1"
 set "APP_PACKAGE=%~2"
-if "%APP_PACKAGE%"=="" set "APP_PACKAGE=com.hp.impulse.sprocket"
+if "%APP_PACKAGE%"=="" set "APP_PACKAGE=com.caglobal.hp.sprocket"
 
 set "SPROCKET_DEVICE=RZCWA2B05RB"
 if not "%SPROCKET_DEVICE_SERIAL%"=="" set "SPROCKET_DEVICE=%SPROCKET_DEVICE_SERIAL%"

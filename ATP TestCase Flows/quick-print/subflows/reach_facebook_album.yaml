@@ -1,6 +1,6 @@
 # Quick Print → Select Gallery → Facebook login → open first album/folder.
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: reach_facebook_signed_in.yaml
 - tapOn:

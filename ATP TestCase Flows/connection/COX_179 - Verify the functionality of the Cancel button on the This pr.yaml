@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC017 | Module: This Printer uses wi-fi pop up
 # Verify the functionality of the Cancel button on the This printer uses Wi-Fi screen.
 # Expected: Should redirect to back 'Searching for printers' screen
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_179 - Verify the functionality of the Cancel button on the This pr"
 tags:
   - connection

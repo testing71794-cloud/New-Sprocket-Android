@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 44 | Module: Display
 # Toggle App Hints ON/OFF
 # Expected: Display App Hints toggle enables and disables app hints correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_39 - Toggle App Hints ONOFF"
 tags:
   - settings

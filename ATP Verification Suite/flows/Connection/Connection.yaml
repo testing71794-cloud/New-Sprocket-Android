@@ -1,5 +1,5 @@
 # ATP Stage Flow: Connection
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Connection"
 tags:
   - atp-verification

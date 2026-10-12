@@ -2,7 +2,7 @@
 # Excel: Firmware Update 005 | Module: Firmware Installation
 # Verify Firmware Installation In Progress screen
 # Expected: Firmware Installation In Progress message is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_05 - Verify Firmware Installation In Progress screen"
 tags:
   - firmware

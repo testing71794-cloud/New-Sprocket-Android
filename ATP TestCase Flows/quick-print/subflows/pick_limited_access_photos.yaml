@@ -2,7 +2,7 @@
 # Favorites (empty). Switch to Photos, then select — confirm only if count > 0.
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)(Favorites|Favourites|Done|photos or videos selected).*"

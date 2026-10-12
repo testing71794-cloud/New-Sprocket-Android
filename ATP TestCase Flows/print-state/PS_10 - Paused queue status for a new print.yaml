@@ -1,0 +1,24 @@
+# ATP Test Case ID: PS_10
+# Excel: Print_State_10
+# Paused queue status for a new print
+# Expected: A newly submitted print is retained with exact status "In Queue (Paused)" and does not start while the queue is paused.
+appId: com.caglobal.hp.sprocket
+name: "PS_10 - Paused queue status for a new print"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+  - timing-manual
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/pause_queue.yaml
+- pressKey: BACK
+- runFlow: subflows/submit_new_print_while_paused.yaml
+- assertVisible: "Print Sent!"
+- assertVisible: "No, Keep Paused"
+- tapOn: "No, Keep Paused"
+- extendedWaitUntil:
+    visible: "In Queue (Paused)"
+    timeout: 15000

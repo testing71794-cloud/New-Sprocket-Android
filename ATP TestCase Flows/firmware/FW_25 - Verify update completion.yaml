@@ -2,7 +2,7 @@
 # Excel: Firmware Update 25 | Module: Firmware Installation
 # Verify update completion
 # Expected: Firmware update completes successfully and printer reconnects.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_25 - Verify update completion"
 tags:
   - firmware

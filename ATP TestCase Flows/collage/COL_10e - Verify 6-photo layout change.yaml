@@ -1,0 +1,13 @@
+# ATP Test Case ID: COL_10e
+# Excel: Collage_10 (e) | Module: Collage maker- layout screen for 6 photo selection
+# Verify User Can Change 6-Photo Layout on Drag & Drop to Reorder Screen.
+appId: com.caglobal.hp.sprocket
+name: "COL_10e - Verify 6-photo layout change"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/create_collage_six_photos_large.yaml
+- runFlow: subflows/layouts_then_print_preview.yaml

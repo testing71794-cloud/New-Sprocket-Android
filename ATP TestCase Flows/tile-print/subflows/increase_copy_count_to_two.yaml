@@ -1,0 +1,24 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: "Copies"
+- assertVisible: "0?1"
+- runFlow:
+    when:
+      visible:
+        id: ".*add_copies.*"
+    commands:
+      - tapOn:
+          id: ".*add_copies.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*add_copies.*"
+    commands:
+      - tapOn:
+          traits: square
+          width: 80
+          height: 80
+          tolerance: 20
+          rightOf: "^(?:[1-9]|10)$"
+          below: "Copies"
+- assertVisible: "0?2"

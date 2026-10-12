@@ -1,0 +1,33 @@
+# ATP Test Case ID: COL_07
+# Excel: Collage_07 | Module: Collage maker- photo selection
+# Verify that the Next button becomes enabled when at least 2 photos are selected.
+appId: com.caglobal.hp.sprocket
+name: "COL_07 - Verify Next enables at two photos"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_one_photo_fast.yaml
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Select 2 to 4 photos"
+# Same row as photo 1 is often a date header or a single tile. Use the next gallery row.
+- tapOn:
+    point: "18%,72%"
+- waitForAnimationToEnd:
+    timeout: 400
+- tapOn:
+    point: "50%,72%"
+- waitForAnimationToEnd:
+    timeout: 400
+- tapOn:
+    point: "82%,72%"
+- waitForAnimationToEnd:
+    timeout: 400
+- runFlow: subflows/leave_photo_selection.yaml
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 12000

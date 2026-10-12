@@ -2,7 +2,7 @@
 # Excel: Photo ID 13 | Module: Timer Countdown
 # Verify countdown UI
 # Expected: Countdown starts successfully and screen UI changes according to design.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_13 - Verify countdown UI"
 tags:
   - photo-id

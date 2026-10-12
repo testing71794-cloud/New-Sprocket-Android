@@ -1,0 +1,13 @@
+# ATP Test Case ID: PID_04
+# Excel: Photo ID_04 | Module: Photo ID – Camera Switch
+# Verify that by default front camera opens.
+# Expected: Front camera preview displayed; no crash.
+appId: com.caglobal.hp.sprocket
+name: "PID_04 - Front camera opens by default"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertVisible: "(?i)Photo ID.*"

@@ -2,7 +2,7 @@
 # Excel: Photobooth 17 | Module: Flash Logic
 # Verify no flash when disabled
 # Expected: Screen does not turn white. Photo is captured normally without any flash effect.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_17 - Verify no flash when disabled"
 tags:
   - photobooth

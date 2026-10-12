@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC070 | Module: Wi-Fi Direct
 # Verify failed Wi-Fi Direct setup
 # Expected: Couldn't Connect screen is displayed with Try Again and Cancel buttons.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_232 - Verify failed Wi-Fi Direct setup"
 tags:
   - connection

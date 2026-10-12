@@ -1,6 +1,6 @@
 # ATP Stage Flow: Camera
 # Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Camera"
 tags:
   - atp-verification

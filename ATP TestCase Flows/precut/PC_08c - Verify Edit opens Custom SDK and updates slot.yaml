@@ -2,7 +2,7 @@
 # Excel: Precut_08 (c) | Module: Pre-Cut Stickers – Edit Photo
 # Verify that tapping the Edit icon opens the Custom SDK editor and the edited image is updated in the same selected slot.
 # Expected: Custom SDK editor; after apply, still on Select 2 photos with the same slot assigned.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_08c - Verify Edit opens Custom SDK and updates slot"
 tags:
   - precut

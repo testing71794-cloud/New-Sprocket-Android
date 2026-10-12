@@ -1,0 +1,29 @@
+# ATP Test Case ID: PC_15
+# Excel: Precut_15 | Module: Pre-Cut – Photo Editing
+# Verify that images can be assigned to Pre-Cut slots and edited using the Edit icon.
+# Expected: Custom SDK opens; after apply, edited image shows in the Pre-Cut slot.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PC_15 - Verify Pre-Cut slot edit via Custom SDK"
+tags:
+  - precut
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_selection_got_it.yaml
+- runFlow: subflows/select_first_gallery_photo.yaml
+- assertVisible: "1"
+- runFlow: subflows/tap_edit.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Done|Crop|Filter|Filters|Adjust|Stickers|Auto|Frames|Retouch|Brush).*"
+    timeout: 30000
+- runFlow:
+    when:
+      visible: ".*(?i)(Done|Apply).*"
+    commands:
+      - tapOn: ".*(?i)(Done|Apply).*"
+- extendedWaitUntil:
+    visible: ".*(?i)Select 2 photos.*"
+    timeout: 20000
+- assertVisible: ".*(?i)Select 2 photos.*"
+- assertVisible: "Next"

@@ -1,0 +1,18 @@
+appId: com.caglobal.hp.sprocket
+---
+# Compose reports Next enabled=true even when it is visually greyed out.
+# Tap Next, and if we are still on the photo picker, select more tiles and retry.
+# See: https://docs.maestro.dev/reference/commands-available/repeat
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 1200
+- repeat:
+    times: 5
+    while:
+      visible: ".*Select 2 to [48] photos.*"
+    commands:
+      - runFlow: retry_gallery_if_still_selecting.yaml
+      - tapOn: "Next"
+      - waitForAnimationToEnd:
+          timeout: 1200

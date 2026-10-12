@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_02
+# Excel: Collage_02 | Module: Collage Maker- UI
+# Verify the UI elements and default state of the Collage photo selection screen when no photos are selected.
+appId: com.caglobal.hp.sprocket
+name: "COL_02 - Verify default Collage photo selection UI"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- assertVisible: "Select 2 to 4 photos"
+- assertVisible: "1"
+- assertVisible: "2"
+- assertVisible: "3"
+- assertVisible: "4"
+- assertVisible: "Recent"
+- tapOn: "Next"
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Select 2 to 4 photos"

@@ -1,5 +1,5 @@
 # Open Print Preview from Select Mode footer (CR_05B → CR_05C).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn: "Print Preview"
 - waitForAnimationToEnd:

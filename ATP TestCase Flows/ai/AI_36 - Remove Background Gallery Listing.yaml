@@ -1,0 +1,10 @@
+# Supplied JSON row: AI Tools 36 | Remove Background
+# Verify Remove Background gallery listing
+appId: com.caglobal.hp.sprocket
+name: "AI_36 - Remove Background Gallery Listing - Verify Remove Background gallery listing"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/background_open_remove_gallery.yaml
+- assertVisible: "Please select an image to start.?"

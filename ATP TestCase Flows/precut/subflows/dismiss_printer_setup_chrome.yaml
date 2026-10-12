@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Leave printer Wi-Fi / discovery / setup overlays so bottom tabs work again.
 # Prefer Cancel / Exit / X over Back (Back often opens "Exit Setup?").

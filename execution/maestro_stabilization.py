@@ -67,6 +67,52 @@ def maybe_startup_stagger_once(device_id: str, launch_index: int) -> None:
     log_startup_stagger(device_id, launch_index)
 
 
+DEFAULT_APP_ID = "com.caglobal.hp.sprocket"
+
+
+def _app_id() -> str:
+    return (
+        os.environ.get("APP_PACKAGE")
+        or os.environ.get("APP_ID")
+        or DEFAULT_APP_ID
+    ).strip() or DEFAULT_APP_ID
+
+
+def recover_device_after_flow(device_id: str, app_id: str | None = None) -> bool:
+    """Shared recovery after PASS/FAIL/CRASH: kill app + overlays, then Home.
+
+    Used by every ATP module. The next test reuses its existing launch/onboarding
+    subflow — do not add per-module recovery YAML.
+    """
+    exe = _adb_exe()
+    if not exe:
+        return False
+    pkg = (app_id or _app_id()).strip() or DEFAULT_APP_ID
+    ok = True
+    cmds: list[list[str]] = [
+        ["shell", "am", "force-stop", pkg],
+        ["shell", "am", "force-stop", "dev.mobile.maestro"],
+        ["shell", "am", "force-stop", "dev.mobile.maestro.test"],
+        ["shell", "am", "force-stop", "com.android.settings"],
+        ["shell", "cmd", "statusbar", "collapse"],
+        ["shell", "input", "keyevent", "KEYCODE_HOME"],
+    ]
+    for args in cmds:
+        try:
+            proc = subprocess.run(
+                [exe, "-s", device_id, *args],
+                capture_output=True,
+                text=True,
+                timeout=30,
+                check=False,
+            )
+            if proc.returncode not in (0, 1):
+                ok = False
+        except (OSError, subprocess.TimeoutExpired):
+            ok = False
+    return ok
+
+
 def aggressive_adb_device_cleanup(device_id: str) -> bool:
     """forward/reverse cleanup + stale UIAutomator kill before each Maestro launch."""
     print(f"[ATP] adb_cleanup_start device={_dev_log(device_id)}", flush=True)
@@ -99,6 +145,9 @@ def aggressive_adb_device_cleanup(device_id: str) -> bool:
         f"[ATP] adb_cleanup_end device={_dev_log(device_id)} success={str(ok).lower()}",
         flush=True,
     )
+    recover_ok = recover_device_after_flow(device_id)
+    if not recover_ok:
+        ok = False
     return ok
 
 

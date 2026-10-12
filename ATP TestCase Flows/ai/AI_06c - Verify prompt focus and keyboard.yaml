@@ -1,0 +1,15 @@
+# ATP Test Case ID: AI_06c
+# Excel: AI Tools 06 (c) | Module: Text-to-Image
+# Verify prompt focus and native keyboard input.
+appId: com.caglobal.hp.sprocket
+name: "AI_06c - Verify prompt focus and keyboard"
+tags:
+  - ai
+  - atp-supplied
+---
+- runFlow: subflows/open_text_to_image.yaml
+- tapOn:
+    text: "Tap here to enter a prompt..."
+- inputText: "a bright flower"
+- assertVisible: "a bright flower"
+- takeScreenshot: "AI_06c_prompt_keyboard"

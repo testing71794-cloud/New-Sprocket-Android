@@ -2,7 +2,7 @@
 # Excel: PS-003 | Module: Printer Settings
 # Verify Printer Status and Battery field visibility
 # Expected: Printer Status and Battery fields are displayed with valid values under the Status section.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_235 - Verify Printer Status and Battery field visibility"
 tags:
   - connection

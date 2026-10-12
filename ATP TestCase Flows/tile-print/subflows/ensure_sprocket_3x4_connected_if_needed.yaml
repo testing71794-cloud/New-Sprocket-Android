@@ -1,5 +1,5 @@
 # Use an already-connected Sprocket 3x4, or connect it from the Printer tab when needed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:
@@ -12,7 +12,7 @@ appId: com.hp.impulse.sprocket
       notVisible: ".*(?i)Select Your Device.*"
     commands:
       - tapOn:
-          point: "83%,96%"
+          point: "83%,90%"
       - waitForAnimationToEnd:
           timeout: 4000
 - runFlow:

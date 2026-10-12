@@ -1,0 +1,15 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: "Cancel"
+- assertVisible: "Unsaved Changes"
+- assertVisible: "Stay"
+- assertVisible: "Exit without Saving"
+- tapOn: "Stay"
+- assertVisible: "Generate New"
+- tapOn: "Cancel"
+- assertVisible: "Unsaved Changes"
+- tapOn: "Exit without Saving"
+- extendedWaitUntil:
+    visible: "Create with AI Tools"
+    timeout: 15000
+- assertVisible: "Create with AI Tools"

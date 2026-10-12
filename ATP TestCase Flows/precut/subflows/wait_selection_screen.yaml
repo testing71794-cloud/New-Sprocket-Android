@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel: Wait to load Pre-cut selection screen (Select 2 photos).
 - extendedWaitUntil:

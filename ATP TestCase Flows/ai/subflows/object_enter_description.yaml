@@ -1,0 +1,8 @@
+appId: com.caglobal.hp.sprocket
+---
+# Description field is an unlabeled EditText (placeholder not in accessibility).
+- tapOn:
+    point: "50%,85%"
+- inputText: "${OBJECT_PROMPT}"
+- hideKeyboard
+- takeScreenshot: object_description_entered

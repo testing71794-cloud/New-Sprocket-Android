@@ -3,7 +3,7 @@
 # Trigger Delete Account Pop-up
 # Expected: Delete Account confirmation pop-up with title, warning, checkbox, and Cancel/Delete options.
 # Note: Delete Account option not present on v3.0.202 email account — skip when unavailable.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_30 - Trigger Delete Account Pop-up"
 tags:
   - settings

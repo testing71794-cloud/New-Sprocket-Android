@@ -1,5 +1,5 @@
 # After entering Tile Print preview, Tiles tab or Print must show the incompatible toast.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

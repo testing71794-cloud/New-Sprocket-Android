@@ -1,0 +1,22 @@
+# Supplied JSON row: AI Tools 42 | Remove Background
+# Verify Apply opens Edit screen
+appId: com.caglobal.hp.sprocket
+name: "AI_42 - Remove Background Apply to Edit - Verify Apply opens Edit screen"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_remove_result.yaml
+- tapOn:
+    text: ".*(?i)^Apply$"
+    enabled: true
+- runFlow:
+    when:
+      visible: "Allow Sprocket to send you notifications?"
+    commands:
+      - tapOn: "Don't allow"
+- extendedWaitUntil:
+    visible: ".*(?i)(Crop|Frame|Done|Edit).*"
+    timeout: 30000
+- assertVisible: ".*(?i)(Crop|Frame|Done|Edit).*"

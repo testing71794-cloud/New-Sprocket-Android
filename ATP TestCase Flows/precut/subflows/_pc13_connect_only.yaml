@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Phase A — launch + connect 3×4 only (separate Maestro process; ADB-stable).
 - runFlow: excel_launch_to_home.yaml

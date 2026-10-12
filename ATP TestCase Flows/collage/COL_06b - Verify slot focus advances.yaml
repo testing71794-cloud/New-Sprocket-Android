@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_06b
+# Excel: Collage_06 (b) | Module: Collage maker- photo selection
+# Verify that tapping a photo populates the currently highlighted photo slot and automatically moves the selection focus to the next available slot.
+appId: com.caglobal.hp.sprocket
+name: "COL_06b - Verify slot focus advances"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_one_photo_fast.yaml
+- assertVisible: "1"
+- assertVisible: "2"
+- tapOn:
+    point: "50%,58%"
+- waitForAnimationToEnd:
+    timeout: 600
+- assertVisible: "1"
+- assertVisible: "2"
+- assertVisible: "3"

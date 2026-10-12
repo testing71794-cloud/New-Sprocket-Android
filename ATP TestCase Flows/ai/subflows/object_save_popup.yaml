@@ -1,0 +1,12 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    point: "9%,7%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- extendedWaitUntil:
+    visible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+    timeout: 10000
+- assertVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- assertVisible: ".*(?i)(Save to Gallery|Stay).*"
+- assertVisible: ".*(?i)(Do Not Save|Don.?t Save|Exit [Ww]ithout [Ss]aving).*"

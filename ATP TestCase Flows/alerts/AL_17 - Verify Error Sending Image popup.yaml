@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   17 | Module: Transmission
 # Verify "Error Sending Image" popup
 # Expected: "Error Sending Image" popup is displayed on the Print Preview screen. The popup displays the bold title "Error Sending Image", followed by the message "Something went wrong. Please try printing again." The popup includes an "OK" button at t
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_17 - Verify Error Sending Image popup"
 tags:
   - alerts

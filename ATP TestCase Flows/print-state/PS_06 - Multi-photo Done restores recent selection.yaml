@@ -1,0 +1,17 @@
+# ATP Test Case ID: PS_06
+# Excel: Print_State_06
+# Multi-photo Done restores recent selection
+# Expected: Done returns to the most recently opened album and the most recent photo-selection scroll position.
+appId: com.caglobal.hp.sprocket
+name: "PS_06 - Multi-photo Done restores recent selection"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - multi-photo
+  - gallery-state
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/return_to_gallery_from_state.yaml
+- takeScreenshot: PS_06_recent_album_position_restored

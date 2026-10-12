@@ -2,7 +2,7 @@
 # Excel: Precut_09 (c) | Module: Pre-Cut Stickers – Gallery Sheet Expanded View
 # Verify that the gallery sheet can be expanded upward to browse more photos and the Pre-Cut image slots resize smoothly.
 # Expected: Sheet snaps expanded; more photos visible; selections remain.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_09c - Verify gallery sheet expands upward"
 tags:
   - precut

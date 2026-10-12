@@ -1,0 +1,27 @@
+# ATP Test Case ID: VD_09
+# Excel: Video Frame 09 | Module: Print Preview – Video Tiles
+# Validate Tiles option and default 2x2 grid on video Print Preview.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "VD_09 - Verify video print preview Tiles grid options"
+tags:
+  - video
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/reach_video_frames_print_preview.yaml
+- tapOn: "Tiles"
+- waitForAnimationToEnd:
+    timeout: 2000
+- assertVisible: "Tiles"
+- runFlow:
+    when:
+      visible:
+        id: ".*tiles_none.*"
+    commands:
+      - assertVisible:
+          id: ".*tiles_four.*"
+      - assertVisible:
+          id: ".*tiles_nine.*"
+- takeScreenshot: VD_09_video_tiles_default

@@ -1,0 +1,18 @@
+﻿# ATP Test Case ID: PID_06b
+# Excel: Photo ID_06 (b) | Module: Photo ID â€“ Print Preview (2Ã—2) for 5 seconds
+# Verify the 2Ã—2 Photo ID layout with the 5-second timer selection and Print Preview UI.
+# Expected: 2Ã—2 layout after 5â†’1 countdown; Print Preview UI as specified.
+appId: com.caglobal.hp.sprocket
+name: "PID_06b - Print Preview 2x2 for 5 seconds"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/ensure_photo_id_with_printer.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/select_timer_5s.yaml
+- runFlow: subflows/select_size_2x2.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_countdown_then_preview.yaml
+- runFlow: subflows/assert_print_preview_ui.yaml

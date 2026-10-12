@@ -3,7 +3,7 @@
 # Access Account Settings
 # Expected: User is redirected to HM_02L_API Account Settings screen successfully.
 # Duplicate of SE_08 — kept for Excel ID mapping.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_33 - Access Account Settings"
 tags:
   - settings

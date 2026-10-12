@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_009 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify Power On Screen
 # Expected: 1. The Power On screen should be displayed. 2. Power adapter illustration should be displayed. 3. Power-on instructions "Attach the included AC power adapter to its power cord. Connect it to your printer and plug it into a wall outlet."  sh
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_139 - Verify Power On Screen"
 tags:
   - connection

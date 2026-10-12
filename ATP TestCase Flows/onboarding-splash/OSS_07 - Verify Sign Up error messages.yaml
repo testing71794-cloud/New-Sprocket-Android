@@ -2,7 +2,7 @@
 # Excel: ON_02D_SU - E F F TC_ON02DE_02 | Module: ON_02D_Sign Up - Entering Form Field / ON_02E_Sign Up - Form Fields Filled
 # Verify Sign Up error messages
 # Expected: Registered email shows ON_05B_Sign Up - Email already in use. Invalid form details show ON_05D_Sign Up - Error Toast Message. User remains on the same screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_07 - Verify Sign Up error messages"
 tags:
   - onboarding-splash

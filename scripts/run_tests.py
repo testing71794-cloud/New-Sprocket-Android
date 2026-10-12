@@ -39,7 +39,7 @@ def _parse() -> argparse.Namespace:
         default="all",
         help="ALL, one folder, or comma-separated folders (signup,precut,gallery)",
     )
-    ap.add_argument("--app", default=os.environ.get("APP_PACKAGE", "com.hp.impulse.sprocket"))
+    ap.add_argument("--app", default=os.environ.get("APP_PACKAGE", "com.caglobal.hp.sprocket"))
     ap.add_argument("--clear-state", default=os.environ.get("CLEAR_STATE", "true"))
     ap.add_argument("--maestro", default=os.environ.get("MAESTRO_CMD", "maestro.bat"))
     ap.add_argument("--plan-only", action="store_true", help="Validate modules and print plan; do not execute")

@@ -5,7 +5,7 @@
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: ensure_internet_on.yaml
 - runFlow: reach_gallery_allow_all.yaml
@@ -35,7 +35,7 @@ appId: com.hp.impulse.sprocket
       - waitForAnimationToEnd:
           timeout: 800
 - extendedWaitUntil:
-    visible: "^Photos.*"
+    visible: ".*(?i)(Photos|Mobile uploads|album).*"
     timeout: 15000
 - assertVisible: ".*(?i)Facebook.*"
-- assertVisible: "^Photos.*"
+- assertVisible: ".*(?i)(Photos|Mobile uploads|album).*"

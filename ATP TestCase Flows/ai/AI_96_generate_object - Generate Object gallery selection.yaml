@@ -1,0 +1,44 @@
+# Excel: AI Tools 96
+# Module: AI Tools >Generate Object – Gallery Selection
+# Description: Verify navigation to Generate Object, folder selection, sorting, scrolling, photo selection, and Use This Image flow.
+# Steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Navigate to AI Tools.
+# 10. Tap Generate Object.
+# 11. Verify the Gallery Listing screen is displayed.
+# 12. Tap the Folder option and select any available folder.
+# 13. Verify that the photo list is updated according to the selected folder.
+# 14. Tap the Sort option and select Newest.
+# 15. Verify that the photos are sorted from newest to oldest.
+# 16. Tap the Sort option and select Oldest.
+# 17. Verify that the photos are sorted from oldest to newest.
+# 18. Scroll the gallery using the image scroller.
+# 19. Select any available photo.
+# 20. Verify that the selected photo screen displays the Use This Image option.
+# 21. Tap Use This Image.
+# Type: Positive
+# Expected:
+# Generate Object opens the Gallery Listing screen.
+# Selecting a folder updates the photo list.
+# Newest and Oldest options sort the photos accordingly.
+# Gallery images can be scrolled using the scroller.
+# Selecting a photo displays Use This Image.
+# Tapping Use This Image opens the Generate Object editing screen.
+appId: com.caglobal.hp.sprocket
+name: "AI_96_generate_object - Generate Object gallery selection"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - generate-object
+---
+- runFlow: subflows/generate_object_open.yaml
+- runFlow: subflows/object_change_folder_and_sort.yaml
+- runFlow: subflows/generate_object_select_photo.yaml

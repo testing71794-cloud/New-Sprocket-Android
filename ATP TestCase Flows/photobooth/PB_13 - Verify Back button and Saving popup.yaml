@@ -2,7 +2,7 @@
 # Excel: Photobooth 13 | Module: Navigation
 # Verify Back button and Saving popup
 # Expected: A "Saving..." popup/loader appears. After saving completes, user is redirected back to the Photobooth Camera screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_13 - Verify Back button and Saving popup"
 tags:
   - photobooth

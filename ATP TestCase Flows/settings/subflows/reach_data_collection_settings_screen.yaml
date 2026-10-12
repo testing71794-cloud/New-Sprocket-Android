@@ -1,5 +1,5 @@
 # Legal & Privacy → Data Collection Settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: reach_legal_privacy_screen.yaml
 - tapOn: ".*(?i)Data Collection Settings.*"

@@ -2,7 +2,7 @@
 # Excel: Firmware Update 31 | Module: Firmware Negative
 # Verify update blocked when no paper
 # Expected: Error message for missing paper is shown.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_31 - Verify update blocked when no paper"
 tags:
   - firmware

@@ -2,7 +2,7 @@
 # Excel: SU (Android) _01b | Module: ON_02B_Sign Up Options (Android)
 # Verify Sign Up Options (Android) screen UI and navigation
 # Expected: User is successfully redirected to ON_02B_Sign Up Options (Android). All UI elements are displayed correctly. Google, Facebook, and Email sign-up options are visible and clickable. Apple sign-up option is not displayed on Android. Tapping I
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_04 - Verify Sign Up Options Android screen UI and navigation"
 tags:
   - onboarding-splash

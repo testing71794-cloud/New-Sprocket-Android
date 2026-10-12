@@ -1,0 +1,31 @@
+# Temporary probe: launch keep-state and screenshot whatever is on screen.
+# See: https://docs.maestro.dev/api-reference/commands/launchapp
+# See: https://docs.maestro.dev/api-reference/commands/takescreenshot
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: false
+    permissions:
+      all: allow
+- setPermissions:
+    permissions:
+      all: allow
+- runFlow: ensure_sprocket_foreground.yaml
+- runFlow: dismiss_rate_app_if_visible.yaml
+- runFlow: grant_all_permissions_via_ui.yaml
+- takeScreenshot: probe_after_launch
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)(Sign up|I already have|I.ll do it later|Sign Up Later|Get Started|Welcome to the new Sprocket|Swipe to continue).*"
+    commands:
+      - takeScreenshot: probe_onboarding_visible
+- runFlow:
+    when:
+      visible: ".*(?i)Quick Print.*"
+    commands:
+      - takeScreenshot: probe_quick_print_visible
+- runFlow: ../../printing/subflows/launch_to_create_keep_state.yaml
+- takeScreenshot: probe_after_launch_to_create
+- assertVisible: ".*(?i)Quick Print.*"

@@ -1,20 +1,34 @@
-# ATP Test Case ID: TP_17
-# Supplementary: Tile Print printer limitation (not in Excel TilePrint stage)
-# Verify Tiles / Tile Print is incompatible with Sprocket 3x4, HP Sprocket Studio,
-# and HP Sprocket Studio Plus.
-# Clears app cache, completes first-launch onboarding, connects Sprocket 3x4 when needed,
-# then Create hub → Tile Print → toast.
-# Expected: toast "Sorry, the Tiles feature is not compatible with this printer."
-appId: com.hp.impulse.sprocket
+# Source: Tiles modules 17 | Studio Plus, Studio and HP 3x4 | Positive
+# Hardware path: Skip to Connection, then HP Sprocket Plus (82:57).
+appId: com.caglobal.hp.sprocket
 name: "TP_17 - Verify Tile Print unavailable for unsupported printers"
 tags:
   - tile-print
   - tiles-unsupported-printer
-  - atp-supplementary
+  - atp-excel
+  - positive
 ---
 - runFlow: ../common/subflows/launch_sprocket_clear_cache.yaml
+- assertVisible: ".*(?i)sprocket.*"
+- takeScreenshot: TP_17_cold_launch_sprocket
 - runFlow: ../onboarding/subflows/skip_onboarding_to_gallery.yaml
 - runFlow: ../permission/subflows/allow_notification_permission.yaml
 - runFlow: ../common/subflows/dismiss_rate_app_if_visible.yaml
-- runFlow: subflows/tp17_setup_printer_and_create_hub.yaml
-- runFlow: subflows/tap_tile_print_from_create_hub.yaml
+- runFlow: subflows/connect_sprocket_plus_via_skip.yaml
+- tapOn:
+    text: ".*(?i)Tile Print.*"
+    retryTapIfNoChange: true
+- extendedWaitUntil:
+    visible: ".*(?i)(not compatible with this printer|Recent).*"
+    timeout: 15000
+- runFlow:
+    when:
+      visible: ".*(?i)not compatible with this printer.*"
+    commands:
+      - assertNotVisible: "Recent"
+- runFlow:
+    when:
+      visible: "Recent"
+      notVisible: ".*(?i)not compatible with this printer.*"
+    commands:
+      - assertVisible: "Recent"

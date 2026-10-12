@@ -2,7 +2,7 @@
 # Excel: PCF_HPSelect_001 | Module: Pre Connection Flow for Sprocket Select
 # Verify 'Charge + Power On' Screen UI for the HP Sprocket Select
 # Expected: The opened screen should display the following:  1. The 'Charge + Power On' screen should be displayed. 2. The printer image should be displayed. 3. The following instructional text should be displayed: "Plug in the USB cord to charge and a
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_057 - Verify Charge Power On Screen UI for the HP Sprocket Select"
 tags:
   - connection

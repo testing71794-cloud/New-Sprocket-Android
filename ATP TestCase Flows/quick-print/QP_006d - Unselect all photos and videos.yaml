@@ -1,16 +1,14 @@
 # ATP: QUICK PRINT_006 (d) | Gallery - Unselect Photos
 # Unselect all → 0 Photos Selected; Print Preview disabled (do not open preview / print).
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_006d - Unselect all photos and videos"
 tags:
   - quick-print
   - atp-excel
   - positive
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/ensure_quick_print_gallery.yaml
 - runFlow: subflows/enter_select_mode.yaml
 - tapOn:
     point: "50%,28%"

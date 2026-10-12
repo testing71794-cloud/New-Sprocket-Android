@@ -1,0 +1,16 @@
+# ATP Test Case ID: PQ_17
+# Excel: Print_Queue17
+# Verify In Queue is zero when the only print is currently printing.
+appId: com.caglobal.hp.sprocket
+name: "PQ_17 - In Queue empty during sole active print"
+tags: [print-queue, atp-excel, positive, physical-printer, visual-check]
+---
+- runFlow: subflows/open_print_queue_single.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Currently Printing.*"
+    timeout: 120000
+- assertVisible: ".*(?i)In Queue.*"
+- assertVisible: "0"
+- assertVisible: ".*(?i)Pause Queue.*"
+- assertNotVisible: ".*(?i)Resume Queue.*"
+- takeScreenshot: PQ_17_only_current_print

@@ -1,0 +1,19 @@
+﻿# ATP Test Case ID: PID_05e
+# Excel: Photo ID_05 (b) | Module: Photo ID- 5s Timer selection
+# NOTE: Excel reuses Photo ID_05 (b) for 5s Timer; file ID is PID_05e.
+# Verify the 5-second timer countdown and successful image capture.
+# Expected: 5 to 1 countdown; Allow all; captured image displayed.
+appId: com.caglobal.hp.sprocket
+name: "PID_05e - 5s Timer selection"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/ensure_photo_id_with_printer.yaml
+- runFlow: subflows/open_timer_submenu.yaml
+- runFlow: subflows/assert_timer_submenu.yaml
+- runFlow: subflows/select_timer_5s.yaml
+- runFlow: subflows/select_size_2x2.yaml
+- runFlow: subflows/tap_capture.yaml
+- runFlow: subflows/wait_countdown_then_preview.yaml

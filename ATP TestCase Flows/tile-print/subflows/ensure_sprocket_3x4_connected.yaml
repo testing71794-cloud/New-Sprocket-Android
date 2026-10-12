@@ -1,8 +1,8 @@
 # Navigate to Printer tab and connect Sprocket 3x4 when listed (session preserved).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
-    point: "83%,96%"
+    point: "83%,90%"
 - waitForAnimationToEnd:
     timeout: 4000
 # Reconnect an existing 3x4 entry first.
@@ -94,15 +94,38 @@ appId: com.hp.impulse.sprocket
       - tapOn: ".*(?i)^Done$"
       - waitForAnimationToEnd:
           timeout: 3000
-# Wait for Bluetooth discovery to find the physical Sprocket 3x4.
+# Wait for a 3x4, or the lab printer ending 82:57 when no 3x4 is listed.
+# https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 - extendedWaitUntil:
-    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|No Printers Found|Finish Connection|Your Printers|Tap to Connect).*"
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|82:57|82-57|No Printers Found|Finish Connection|Your Printers|Tap to Connect).*"
     timeout: 120000
+- runFlow:
+    when:
+      visible: ".*(?i)No Printers Found.*"
+    commands:
+      - tapOn: ".*(?i)Try Again.*"
+      - extendedWaitUntil:
+          visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|82:57|82-57|No Printers Found).*"
+          timeout: 60000
 - runFlow:
     when:
       visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
     commands:
       - tapOn: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+- runFlow:
+    when:
+      visible: ".*(?i)(82:57|82-57|No Printers Found|Searching for Printers).*"
+      notVisible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|Finish Connection|Finish Setup).*"
+    commands:
+      - scrollUntilVisible:
+          element: ".*(?i)(82:57|82-57).*"
+          direction: DOWN
+          timeout: 30000
+          visibilityPercentage: 50
+          centerElement: true
+      - tapOn: ".*(?i)(82:57|82-57).*"
       - waitForAnimationToEnd:
           timeout: 5000
 - runFlow:
@@ -120,6 +143,6 @@ appId: com.hp.impulse.sprocket
       - waitForAnimationToEnd:
           timeout: 5000
 - extendedWaitUntil:
-    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4).*"
+    visible: ".*(?i)(HP Sprocket 3x4|Sprocket 3x4|82:57|82-57|Your Printers|Finish Connection).*"
     timeout: 60000
     optional: true

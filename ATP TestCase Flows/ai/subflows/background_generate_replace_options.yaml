@@ -1,0 +1,14 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    text: ".*(?i)^Generate$"
+    enabled: true
+- runFlow: background_assert_loader.yaml
+- extendedWaitUntil:
+    notVisible: "Generating..."
+    timeout: 180000
+- extendedWaitUntil:
+    visible: ".*(?i)(Generate Background|Color Picker|Gradient).*"
+    timeout: 180000
+- assertVisible: "Cancel"
+- assertVisible: ".*(?i)(Generate Background|Color Picker|Gradient).*"

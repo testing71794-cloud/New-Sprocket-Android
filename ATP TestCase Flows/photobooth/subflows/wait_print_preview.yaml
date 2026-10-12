@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # After the 4th photo the OS may ask for photos access before Print Preview.
 - runFlow:

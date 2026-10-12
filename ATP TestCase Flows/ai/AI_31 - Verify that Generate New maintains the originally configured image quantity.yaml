@@ -1,0 +1,47 @@
+# ATP Test Case ID: AI_31
+# Excel: AI Tools 31
+# Module: AI Tools > Image-to-Image > Print Preview – Verify Selected Thumbnail is Passed to Print Preview
+# Description:
+# Verify that Generate New maintains the originally configured image quantity.
+# Steps:
+# "Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with """"sprocket"""" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select any image style
+# Select any image quantity
+# Wait to enable the 'Generate Images(s)'button and tap on it.
+# Wait to finish the generating photo process.
+# Wait to enable 'Generate New' button, tap Generate New.
+# Wait for generation to complete.
+# Expected:
+# A new set of generated images is returned.
+# Exactly same count of  images as per the previously selected quantity are displayed after generation completes.
+# Generated image count matches the quantity configured in Image-to-Image settings.
+appId: com.caglobal.hp.sprocket
+name: "AI_31 - Verify that Generate New maintains the originally configured image quantity."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_generate_results.yaml
+- tapOn: "Generate New"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000
+- takeScreenshot: AI_31_retained_quantity

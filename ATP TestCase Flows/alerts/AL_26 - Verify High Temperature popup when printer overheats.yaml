@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 005 | Module: iOS_16_High Temperature
 # Verify High Temperature popup when printer overheats
 # Expected: Title: High Temperature.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_26 - Verify High Temperature popup when printer overheats"
 tags:
   - alerts

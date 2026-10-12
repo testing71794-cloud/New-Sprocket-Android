@@ -1,0 +1,25 @@
+appId: com.caglobal.hp.sprocket
+---
+# Recover when Photo ID shows the camera-deny screen (permission dialog was missed).
+- setPermissions:
+    permissions:
+      camera: allow
+- back
+- waitForAnimationToEnd:
+    timeout: 2500
+- runFlow: open_photo_id.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(take pictures|record video|While using the app|WHILE USING THE APP|ONLY THIS TIME|Photo ID Mode|2x2|1x1).*"
+    timeout: 12000
+    optional: true
+- tapOn:
+    text: "(?i)WHILE USING THE APP"
+    optional: true
+- tapOn:
+    text: "(?i)While using the app"
+    optional: true
+- tapOn:
+    text: "(?i)ONLY THIS TIME"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000

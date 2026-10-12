@@ -1,5 +1,5 @@
 # Navigate back to Create hub from Printer tab or discovery screens.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: exit_module_screen_if_needed.yaml
 - runFlow:

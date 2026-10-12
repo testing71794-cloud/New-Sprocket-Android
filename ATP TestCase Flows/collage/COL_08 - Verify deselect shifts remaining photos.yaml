@@ -1,0 +1,22 @@
+# ATP Test Case ID: COL_08
+# Excel: Collage_08 | Module: Collage maker- photo selection
+# Verify that tapping a selected photo in the photo pile and then tapping it again removes it and shifts remaining photos left.
+appId: com.caglobal.hp.sprocket
+name: "COL_08 - Verify deselect shifts remaining photos"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_four_photos_fast.yaml
+- tapOn:
+    point: "40%,22%"
+- waitForAnimationToEnd:
+    timeout: 400
+- tapOn:
+    point: "40%,22%"
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Select 2 to 4 photos"
+- assertNotVisible: "Drag & Drop to Reorder"

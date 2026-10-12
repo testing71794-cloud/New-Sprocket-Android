@@ -1,0 +1,19 @@
+# ATP Test Case ID: COL_15
+# Excel: Collage_15 | Module: Collage maker – Print Preview / Print Output
+# Verify that all changes made to the collage are retained in Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "COL_15 - Verify collage retained in Print Preview"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: subflows/tap_second_layout.yaml
+- runFlow: subflows/advance_to_print_preview.yaml
+- runFlow:
+    when:
+      visible: ".*(?i)^Print$"
+    commands:
+      - tapOn: ".*(?i)^Print$"

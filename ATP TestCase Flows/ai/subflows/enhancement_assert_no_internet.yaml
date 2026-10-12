@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn: "Generate"
+- extendedWaitUntil:
+    visible: ".*(?i)No Internet.*"
+    timeout: 30000
+- assertVisible: ".*(?i)No Internet.*"
+- assertVisible: "OK"
+- tapOn: "OK"

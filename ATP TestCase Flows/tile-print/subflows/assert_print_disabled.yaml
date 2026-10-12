@@ -1,0 +1,24 @@
+# No tiles selected: a print job must not start.
+# Connected: the CTA is Print and it is disabled (Maestro enabled: false).
+# Disconnected: the CTA stays Add Printer (enabled); that is not a print.
+# See: https://docs.maestro.dev/reference/commands-available/assertvisible
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(^Print$)"
+      notVisible: ".*(?i)(^Add Printer$)"
+    commands:
+      - assertVisible:
+          text: ".*(?i)(^Print$)"
+          enabled: false
+- runFlow:
+    when:
+      visible: ".*(?i)(^Add Printer$)"
+    commands:
+      - assertVisible: ".*(?i)(^Add Printer$)"
+- assertNotVisible: ".*(?i)(Printing|Print Complete|Sending to printer|Outstanding).*"
+- runFlow: assert_tile_print_preview_ui.yaml

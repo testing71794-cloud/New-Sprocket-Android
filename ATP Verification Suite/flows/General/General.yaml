@@ -1,6 +1,6 @@
 # ATP Stage Flow: General
 # Auto-generated checklist. Navigation reuses Home setup; assertions via run_module.py.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - General"
 tags:
   - atp-verification

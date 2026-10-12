@@ -1,0 +1,15 @@
+# ATP Test Case ID: COL_03
+# Excel: Collage_03 | Module: Collage Maker- Back Button
+# Verify the Back button functionality on the Collage photo selection screen.
+appId: com.caglobal.hp.sprocket
+name: "COL_03 - Verify Back button on Collage selection"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/tap_collage_back.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Collage Maker.*"
+    timeout: 12000

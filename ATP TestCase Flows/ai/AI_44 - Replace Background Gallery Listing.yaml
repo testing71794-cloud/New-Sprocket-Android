@@ -1,0 +1,12 @@
+# Supplied JSON row: AI Tools 44 | Replace Background
+# Verify Replace Background gallery listing UI
+appId: com.caglobal.hp.sprocket
+name: "AI_44 - Replace Background Gallery Listing - Verify Replace Background gallery listing UI"
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/background_open_replace_gallery.yaml
+- assertVisible: "Please select an image to start.?"
+- takeScreenshot: AI_44_gallery_back_sort_and_footer

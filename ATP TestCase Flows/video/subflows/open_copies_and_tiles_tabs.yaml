@@ -1,5 +1,5 @@
 # CR_05D.1 / CR_05E — Copies and Tiles tabs (single-video Print Preview).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     text: "Copies"

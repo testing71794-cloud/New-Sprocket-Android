@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_004 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify 'Load Paper' Info Popup for the HP Sprocket 3x4 printer.
 # Expected: 1. Instruction popup should be displayed along with following content: 2. Blue card illustration should be displayed. 3. Instruction text "Use the blue card with each pack of photo paper. It improves print quality and will eject after it cl
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_041 - Verify Load Paper Info Popup for the HP Sprocket 3x4 printer"
 tags:
   - connection

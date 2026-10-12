@@ -1,0 +1,28 @@
+# ATP Test Case ID: PS_19
+# Excel: Print_State_19
+# Printer reconnection auto-resumes printing
+# Expected: Reconnection dismisses the popup, keeps Print State open, and automatically resumes pending jobs in order without manual action.
+appId: com.caglobal.hp.sprocket
+name: "PS_19 - Printer reconnection auto-resumes printing"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-disconnect
+  - manual-reconnect
+  - queue
+  - known-failure
+---
+- runFlow: subflows/open_multi_print_state.yaml
+# Manually disconnect the printer and keep the Printer Disconnected popup open.
+- extendedWaitUntil:
+    visible: "Printer Disconnected"
+    timeout: 180000
+# Reconnect the printer without dismissing the popup.
+- extendedWaitUntil:
+    notVisible: "Printer Disconnected"
+    timeout: 180000
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing).*"
+    timeout: 120000

@@ -1,0 +1,13 @@
+# ATP Test Case ID: COL_06a
+# Excel: Collage_06 (a) | Module: Collage maker- photo selection
+# Verify that the selected photo is displayed in the corresponding photo slot.
+appId: com.caglobal.hp.sprocket
+name: "COL_06a - Verify selected photo in slot"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_one_photo_fast.yaml
+- assertVisible: "1"

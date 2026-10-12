@@ -1,0 +1,53 @@
+# ATP Test Case ID: AI_21
+# Excel: AI Tools 21
+# Module: AI- Image-to-Image – Verify State Retention After Crop
+# Description:
+# Verify that selected Image Style and Image Quantity are retained after returning from the Crop screen.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select an Image Style.
+# Select quantity 4.
+# Tap Crop Photo.
+# Modify the image.
+# Tap Confirm Crop.
+# Expected:
+# User returns to the Image-to-Image Main Screen.
+# Cropped image is displayed.
+# Previously selected Image Style remains selected.
+# Previously selected Image Quantity remains selected.
+appId: com.caglobal.hp.sprocket
+name: "AI_21 - Verify that selected Image Style and Image Quantity are retained after returning from the Crop screen."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- tapOn: "Modern Art"
+- tapOn:
+    text: "^4$"
+- tapOn: "Crop Photo"
+- extendedWaitUntil:
+    visible: ".*(?i)(Crop|Confirm Crop).*"
+    timeout: 15000
+- takeScreenshot: AI_21_crop_before_manual_modification
+- tapOn: "Confirm Crop"
+- extendedWaitUntil:
+    visible: "Base Image"
+    timeout: 15000
+- assertVisible: "Image Style"
+- assertVisible: "Image Quantity"
+- takeScreenshot: AI_21_retained_style_quantity

@@ -1,0 +1,19 @@
+# ATP Test Case ID: PH_07
+# Excel: Print_History07
+# Verify Print History Persists Across Different Printers of Same Model
+# Manual setup: create history with printer A, disconnect it, and connect a
+# different physical printer B of the same model.
+appId: com.caglobal.hp.sprocket
+name: "PH_07 - History persists for same printer model"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - printer-model
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_07_same_model_history_retained

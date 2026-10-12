@@ -2,7 +2,7 @@
 # Excel: General_PCF-001 | Module: Pre Connection Flow
 # Verify selected printer remains highlighted
 # Expected: Selected printer should remain highlighted in the carousel.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_149 - Verify selected printer remains highlighted"
 tags:
   - connection

@@ -1,5 +1,5 @@
 # ATP Stage Flow: Home (Create / Collage Maker / Quick Print hub)
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Home"
 tags:
   - atp-verification

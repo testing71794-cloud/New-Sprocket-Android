@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_12j
+# Excel: Collage_12 (j) | Module: Collage maker- Minimum Tile Height
+# Verify that a tile cannot be resized below the minimum height of 48px.
+appId: com.caglobal.hp.sprocket
+name: "COL_12j - Verify minimum tile height"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- swipe:
+    start: "50%,42%"
+    end: "50%,18%"
+    duration: 800
+- assertVisible: "Drag & Drop to Reorder"

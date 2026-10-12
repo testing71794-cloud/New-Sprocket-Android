@@ -1,0 +1,5 @@
+appId: com.caglobal.hp.sprocket
+---
+# Sheet steps 1–11 remain covered. Reuse completed onboarding and only cold
+# launch when the Collage picker cannot be recovered from the current screen.
+- runFlow: ensure_collage_selection.yaml

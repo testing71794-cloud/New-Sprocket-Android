@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: background_open_ai_tools.yaml
+- tapOn: "${TOOL}"
+- runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
+- extendedWaitUntil:
+    visible: "Please select an image to start.?"
+    timeout: 15000
+- assertVisible: "Please select an image to start.?"

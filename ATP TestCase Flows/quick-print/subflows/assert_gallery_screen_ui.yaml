@@ -2,7 +2,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/assertvisible
 # See: https://docs.maestro.dev/reference/selectors/relational-selectors
 # See: https://docs.maestro.dev/reference/selectors/state-selectors
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - assertVisible:
     enabled: true

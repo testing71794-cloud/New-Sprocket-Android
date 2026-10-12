@@ -1,5 +1,5 @@
 # Excel Precut_08 (a) — AI disabled for video; toast is often missing from a11y tree.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - waitForAnimationToEnd:
     timeout: 1500

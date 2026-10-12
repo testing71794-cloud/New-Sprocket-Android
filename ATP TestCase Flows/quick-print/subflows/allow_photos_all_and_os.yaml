@@ -1,6 +1,7 @@
-# In-app Allow all; OS Photos "Allow" only if that exact dialog is up.
-# See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+# In-app Allow all; OS Photos Allow only when that dialog is visible.
+# Avoid bare optional taps (Vivo driver can return UNAVAILABLE and kill the flow).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: ../../permission/subflows/allow_photos_all_permission.yaml
 - runFlow:
@@ -10,8 +11,11 @@ appId: com.hp.impulse.sprocket
       - tapOn: "Allow all"
       - waitForAnimationToEnd:
           timeout: 800
-- tapOn:
-    text: ".*(?i)^Allow$"
-    optional: true
-- waitForAnimationToEnd:
-    timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)^Allow$"
+      notVisible: ".*(?i)(Recent|Cancel|Quick Print|Copies).*"
+    commands:
+      - tapOn: ".*(?i)^Allow$"
+      - waitForAnimationToEnd:
+          timeout: 800

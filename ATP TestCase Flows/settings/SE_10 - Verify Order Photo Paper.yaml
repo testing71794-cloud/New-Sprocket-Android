@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  10 | Module: Navigation
 # Verify Order Photo Paper
 # Expected: User navigates to Order Photo Paper page successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_10 - Verify Order Photo Paper"
 tags:
   - settings

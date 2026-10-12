@@ -1,0 +1,8 @@
+# Quick Print workspace. One Maestro session runs every mapped QP_* flow.
+# A failed flow does not stop later flows.
+# https://docs.maestro.dev/maestro-flows/workspace-management/config
+appId: com.caglobal.hp.sprocket
+flows:
+  - "QP_*.yaml"
+executionOrder:
+  continueOnFailure: true

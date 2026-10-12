@@ -1,0 +1,29 @@
+# ATP Test Case ID: PS_26
+# Excel: Print_State_26
+# Blocker replaces visible Resume Queue popup
+# Expected: A newly detected blocker closes Resume Queue, shows only the error popup, then restores Resume Queue after recovery.
+appId: com.caglobal.hp.sprocket
+name: "PS_26 - Blocker replaces visible Resume Queue popup"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+  - manual-error-injection
+  - known-failure
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/pause_queue.yaml
+- pressKey: BACK
+- runFlow: subflows/submit_new_print_while_paused.yaml
+- assertVisible: "Print Sent!"
+# Manually trigger a blocker while the Resume Queue popup is visible.
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+- assertNotVisible: "Print Sent!"
+# Resolve the blocker; the Resume Queue choice must return.
+- extendedWaitUntil:
+    visible: "Print Sent!"
+    timeout: 180000

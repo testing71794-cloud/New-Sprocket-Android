@@ -1,0 +1,26 @@
+# ATP Test Case ID: COL_14a
+# Excel: Collage_14 (a) | Module: Collage maker- Minimum Photo Selection for Large Collage
+# Verify that a large collage can be created with a minimum of 2 selected photos.
+appId: com.caglobal.hp.sprocket
+name: "COL_14a - Verify large collage minimum 2 photos"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/select_two_photos_fast.yaml
+- repeat:
+    times: 3
+    while:
+      visible:
+        text: "Next"
+        enabled: false
+    commands:
+      - runFlow: subflows/retry_gallery_if_still_selecting.yaml
+- tapOn:
+    text: "Next"
+    enabled: true
+- extendedWaitUntil:
+    visible: "Drag & Drop to Reorder"
+    timeout: 10000

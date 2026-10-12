@@ -1,5 +1,5 @@
 # Toggle play/pause on main video frame preview.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     point: "50%,45%"

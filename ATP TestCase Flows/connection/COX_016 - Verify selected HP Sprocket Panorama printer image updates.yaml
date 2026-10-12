@@ -2,7 +2,7 @@
 # Excel: PCF-016 | Module: Pre Connection Flow
 # Verify selected 'HP Sprocket Panorama' printer image updates
 # Expected: The 'Select Your Device' screen should display the HP Sprocket Panorama printer image, the printer name 'HP Sprocket Panorama', the text 'Only available in the HP Sprocket Panorama App', and the 'GET IT ON Google Play' button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_016 - Verify selected HP Sprocket Panorama printer image updates"
 tags:
   - connection

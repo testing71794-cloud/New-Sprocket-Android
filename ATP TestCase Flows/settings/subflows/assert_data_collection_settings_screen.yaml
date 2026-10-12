@@ -1,5 +1,5 @@
 # Data Collection Settings — opened from Legal & Privacy.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Data Collection Settings.*"

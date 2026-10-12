@@ -1,0 +1,16 @@
+# ATP Test Case ID: PQ_11
+# Excel: Print_Queue11
+# Verify offline status and disabled Resume Queue after printer disconnection.
+appId: com.caglobal.hp.sprocket
+name: "PQ_11 - Offline queue controls after disconnection"
+tags: [print-queue, atp-excel, negative, physical-printer, manual-power-off, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+# Manual hardware action: power off/disconnect the connected printer now.
+- extendedWaitUntil:
+    visible: "Offline"
+    timeout: 120000
+- assertVisible: ".*(?i)Resume Queue.*"
+- assertVisible: ".*(?i)In Queue.*"
+- assertVisible: "Offline"
+- takeScreenshot: PQ_11_offline_queue_controls

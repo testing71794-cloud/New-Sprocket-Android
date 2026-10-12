@@ -1,5 +1,5 @@
 # Shared camera allow for permission chains (PM_20 / COL_02) — optional when dialog visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

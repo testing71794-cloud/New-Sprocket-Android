@@ -2,7 +2,7 @@
 # Allow limited access → pick photos in the OS picker → those photos show in Gallery.
 # See: https://docs.maestro.dev/reference/commands-available/launchapp
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_003b - Allow limited access selected photos"
 tags:
   - quick-print

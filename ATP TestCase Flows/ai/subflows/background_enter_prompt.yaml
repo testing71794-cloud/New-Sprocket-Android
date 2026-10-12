@@ -1,0 +1,7 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    point: "50%,45%"
+- inputText: "${BACKGROUND_PROMPT}"
+- hideKeyboard
+- assertVisible: "${BACKGROUND_PROMPT}"

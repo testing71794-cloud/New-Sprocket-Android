@@ -1,5 +1,5 @@
 # Fill and submit email login form — assumes Log In with Email screen is open.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: ../../login/subflows/enter_email_credentials.yaml
 - hideKeyboard

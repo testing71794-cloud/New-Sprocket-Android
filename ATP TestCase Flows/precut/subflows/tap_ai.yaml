@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Tap AI on selected slot. On Vivo, action icons are on the right (~93% x).
 # Edit opens Custom SDK at ~93%,32% — do NOT use that point for AI.

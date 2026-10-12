@@ -1,6 +1,6 @@
 # ATP Test Case ID: SL_01
 # Sign Up Later — skip signup and reach Home (Create)
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SL_01 - Sign Up Later skip signup"
 tags:
   - signup-later

@@ -12,7 +12,7 @@ param(
 $ErrorActionPreference = "Continue"
 $adb = "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe"
 $maestro = "C:\Users\HP\maestro\maestro\bin\maestro.bat"
-$pkg = "com.hp.impulse.sprocket"
+$pkg = "com.caglobal.hp.sprocket"
 $precutDir = Join-Path $PSScriptRoot "..\ATP TestCase Flows\precut"
 $logDir = Join-Path $PSScriptRoot "..\logs\precut-suite"
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null

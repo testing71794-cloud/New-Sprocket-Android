@@ -1,0 +1,13 @@
+# Generate three landscape images and wait for the supplied result controls.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: text_to_image_configure_three.yaml
+- tapOn: "Generate Image\\(s\\)"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- assertVisible: "This may take a few seconds"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000

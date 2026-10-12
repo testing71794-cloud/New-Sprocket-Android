@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Video 20 / LO_04 — onboarding → Sign up → Log In options → email login form.
 - runFlow: open_login_screen.yaml

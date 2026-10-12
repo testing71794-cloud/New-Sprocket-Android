@@ -1,5 +1,5 @@
 # Account Settings → Delete Account → confirmation pop-up (scroll if needed).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: reach_account_settings_screen.yaml
 - swipe:

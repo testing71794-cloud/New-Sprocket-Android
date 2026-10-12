@@ -1,0 +1,34 @@
+# ATP Test Case ID: PS_25
+# Excel: Print_State_25
+# Blocker precedes Resume Queue popup
+# Expected: The Blocker/Error popup has priority; only after recovery does the Resume Queue popup appear.
+appId: com.caglobal.hp.sprocket
+name: "PS_25 - Blocker precedes Resume Queue popup"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+  - manual-error-injection
+  - known-failure
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/pause_queue.yaml
+- pressKey: BACK
+- runFlow: subflows/return_to_gallery_from_state.yaml
+- tapOn:
+    point: "50%,45%"
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$).*"
+    timeout: 20000
+# Manually activate a print-blocking condition before tapping Print.
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+- assertNotVisible: "Print Sent!"
+# Resolve the blocker physically; Resume Queue popup must then appear.
+- extendedWaitUntil:
+    visible: "Print Sent!"
+    timeout: 180000

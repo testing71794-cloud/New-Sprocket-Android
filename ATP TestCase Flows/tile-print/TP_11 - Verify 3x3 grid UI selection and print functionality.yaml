@@ -1,0 +1,15 @@
+# Source: Tiles modules 11 | Tiles > 3x3 | Positive
+appId: com.caglobal.hp.sprocket
+name: "TP_11 - Verify 3x3 grid UI, selection and print functionality"
+tags:
+  - tile-print
+  - atp-excel
+  - positive
+  - physical-printer
+---
+- runFlow: subflows/open_tile_print_preview.yaml
+- runFlow: subflows/assert_default_2x2.yaml
+- runFlow: subflows/select_3x3_tiles.yaml
+- runFlow: subflows/assert_tile_print_preview_ui.yaml
+- runFlow: subflows/deselect_three_3x3_tiles.yaml
+- runFlow: ../quick-print/subflows/tap_print_and_assert_complete.yaml

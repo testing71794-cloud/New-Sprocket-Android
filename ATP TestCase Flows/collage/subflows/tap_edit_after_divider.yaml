@@ -1,0 +1,24 @@
+appId: com.caglobal.hp.sprocket
+---
+# Divider drag 50% → 65% grows the left tile; Edit pencil is ~8px inset at that tile's top-right.
+# COL_13 opens edit at 45%,20% on the default split. After resize, aim further right at the same Y.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+- tapOn:
+    point: "58%,20%"
+    retryTapIfNoChange: true
+- runFlow:
+    when:
+      notVisible: "Done"
+    commands:
+      - tapOn:
+          point: "62%,20%"
+- runFlow:
+    when:
+      notVisible: "Done"
+    commands:
+      - tapOn:
+          point: "45%,20%"
+- extendedWaitUntil:
+    visible: "Done"
+    timeout: 8000

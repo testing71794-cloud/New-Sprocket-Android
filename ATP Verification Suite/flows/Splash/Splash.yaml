@@ -1,7 +1,7 @@
 # ATP Stage Flow: Splash
 # Executes all Splash-stage ATP verifications via Python runner (continue-on-failure).
 # Maestro portion: cold launch only; assertions are recorded by the verification suite.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - Splash"
 tags:
   - atp-verification

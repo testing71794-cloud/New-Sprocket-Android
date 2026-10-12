@@ -1,0 +1,25 @@
+# ATP Test Case ID: PH_04
+# Excel: Print_History04
+# Verify Reprint Functionality and Print History Reordering
+# Manual setup: create at least three history items and keep the printer online.
+appId: com.caglobal.hp.sprocket
+name: "PH_04 - Reprint and history reordering"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - visual-manual
+---
+- runFlow: subflows/open_recent_prints.yaml
+- tapOn:
+    text: "^Reprint$"
+    index: 1
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+    timeout: 120000
+# Complete the physical reprint, return to Print Queue, then reopen history.
+- runFlow: subflows/open_recent_prints.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_04_reprinted_item_at_top

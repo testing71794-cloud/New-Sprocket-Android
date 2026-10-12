@@ -2,7 +2,7 @@
 # Excel: PS-023 | Module: Printers detail pages
 # Printers detail pages
 # Expected: 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_255 - Printers detail pages"
 tags:
   - connection

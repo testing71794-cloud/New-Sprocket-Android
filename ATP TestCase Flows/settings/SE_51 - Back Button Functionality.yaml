@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 56 | Module: Navigation
 # Back Button Functionality
 # Expected: User successfully returns to Legal & Privacy main screen from all sub-pages.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_51 - Back Button Functionality"
 tags:
   - settings

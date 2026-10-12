@@ -1,0 +1,24 @@
+# Clean launch through onboarding and guest sign-in to Create.
+# Create hub tiles/tabs expose multiline content-desc, not text. The Compose
+# semantics are inconsistent across Android versions, so select the Create tab
+# by its stable bottom-navigation position.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: true
+    permissions:
+      storage: allow
+      medialibrary: allow
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../quick-print/subflows/complete_onboarding_to_signup.yaml
+- runFlow: ../../quick-print/subflows/complete_guest_welcome.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow: ../../quick-print/subflows/guest_to_create_home.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- tapOn:
+    point: "50%,94%"
+- waitForAnimationToEnd:
+    timeout: 2000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml

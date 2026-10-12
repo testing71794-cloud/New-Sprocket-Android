@@ -1,0 +1,12 @@
+# ATP Test Case ID: COL_01
+# Excel: Collage_01 | Module: Collage Maker- Launch & Navigation
+# Verify the Collage navigation flow from launch to selection.
+appId: com.caglobal.hp.sprocket
+name: "COL_01 - Verify collage navigation from launch to selection"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- assertVisible: "Select 2 to 4 photos"

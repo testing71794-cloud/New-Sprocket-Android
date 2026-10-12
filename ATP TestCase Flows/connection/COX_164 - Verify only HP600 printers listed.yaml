@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC002 | Module: Discovery
 # Verify only HP600 printers listed
 # Expected: Only HP600 printers displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_164 - Verify only HP600 printers listed"
 tags:
   - connection

@@ -2,7 +2,7 @@
 # Excel: Firmware Update 34 | Module: Firmware Negative
 # Verify app closed during installation
 # Expected: Update state is preserved safely.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_34 - Verify app closed during installation"
 tags:
   - firmware

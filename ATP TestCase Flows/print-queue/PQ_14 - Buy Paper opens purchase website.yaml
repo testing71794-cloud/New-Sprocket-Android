@@ -1,0 +1,19 @@
+# ATP Test Case ID: PQ_14
+# Excel: Print_Queue14
+# Verify Buy Paper opens the Sprocket paper purchase website.
+appId: com.caglobal.hp.sprocket
+name: "PQ_14 - Buy Paper opens purchase website"
+tags: [print-queue, atp-excel, positive, physical-printer, manual-error, external-web, visual-check]
+---
+- runFlow: subflows/open_print_queue_single.yaml
+# Manual hardware action: trigger Out Of Paper.
+- extendedWaitUntil:
+    visible: "Out Of Paper"
+    timeout: 120000
+- assertVisible: "Buy Paper"
+- assertVisible: "Try Again"
+- tapOn: "Buy Paper"
+- waitForAnimationToEnd:
+    timeout: 5000
+# Browser content and compatible-paper destination require visual verification.
+- takeScreenshot: PQ_14_sprocket_purchase_page

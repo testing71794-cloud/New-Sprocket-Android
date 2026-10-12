@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Deny stacked runtime dialogs after Sign Up Later (notification often blocks Create hub).
 # Button copy varies by Android version: "Don't allow" / "Don't Allow" / "Deny".

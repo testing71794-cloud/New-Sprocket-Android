@@ -4,16 +4,14 @@
 # See: https://docs.maestro.dev/reference/commands-available/runscript
 # See: https://docs.maestro.dev/maestro-flows/javascript/make-http-requests
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_006c - Select photos and videos"
 tags:
   - quick-print
   - atp-excel
   - positive
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/reach_gallery_allow_all.yaml
+- runFlow: subflows/ensure_quick_print_gallery.yaml
 - runFlow: subflows/enter_select_mode.yaml
 - runScript:
     file: subflows/select_two.js

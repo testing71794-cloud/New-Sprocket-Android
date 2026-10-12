@@ -1,0 +1,16 @@
+# A printer-error popup covers Print State and Print Queue. Dismiss it so the
+# underlying screen can be asserted. Printing remains paused until the physical
+# printer condition is resolved.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)(Paper Feed Error|Out Of Paper|Printer Disconnected|Top Cover Open).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^(OK|Ok)$"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500

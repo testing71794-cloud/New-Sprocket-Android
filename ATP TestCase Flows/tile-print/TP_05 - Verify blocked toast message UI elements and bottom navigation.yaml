@@ -1,0 +1,12 @@
+# Source: Tiles modules 05 | Select Mode Blocked Toast Message (Tile Print) | Positive
+appId: com.caglobal.hp.sprocket
+name: "TP_05 - Verify blocked toast message, UI elements and bottom navigation"
+tags:
+  - tile-print
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/assert_gallery_ui.yaml
+- runFlow: subflows/trigger_and_close_multiselect_toast.yaml
+- runFlow: subflows/assert_bottom_navigation.yaml

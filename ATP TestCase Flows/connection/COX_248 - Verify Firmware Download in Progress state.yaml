@@ -2,7 +2,7 @@
 # Excel: PS-016 | Module: Firmware Update
 # Verify Firmware Download in Progress state
 # Expected: Firmware download progress and status message are displayed correctly during firmware download.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_248 - Verify Firmware Download in Progress state"
 tags:
   - connection

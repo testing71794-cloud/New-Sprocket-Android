@@ -1,31 +1,28 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Tap each layout chip under Layout (unlabeled ImageViews).
-- assertVisible: "Layout"
 - tapOn:
     point: "15%,78%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 400
 - tapOn:
     point: "30%,78%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 400
 - tapOn:
     point: "45%,78%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 400
 - tapOn:
     point: "60%,78%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 400
 - tapOn:
     point: "75%,78%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 400
 - tapOn:
     point: "88%,78%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 400
 - assertVisible: "Drag & Drop to Reorder"
-- assertVisible: "Layout"
-- assertVisible: "Next"

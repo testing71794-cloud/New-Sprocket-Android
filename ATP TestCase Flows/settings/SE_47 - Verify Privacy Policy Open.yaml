@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 52 | Module: Privacy
 # Verify Privacy Policy Open
 # Expected: Privacy Policy opens correctly in in-app browser.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_47 - Verify Privacy Policy Open"
 tags:
   - settings

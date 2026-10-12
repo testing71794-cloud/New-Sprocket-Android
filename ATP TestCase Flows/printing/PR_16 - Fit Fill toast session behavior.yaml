@@ -1,0 +1,36 @@
+# ATP Test Case ID: PR_16
+# Excel: Print Preview_16
+# Fit Fill toast session behavior
+# Expected: The Fit/Fill instruction disappears after five seconds, does not repeat in-session, and resets next session.
+appId: com.caglobal.hp.sprocket
+name: "PR_16 - Fit Fill toast session behavior"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - gesture
+---
+- launchApp:
+    clearState: true
+- runFlow: ../quick-print/subflows/reach_gallery_allow_all.yaml
+- tapOn:
+    point: "18%,25%"
+- extendedWaitUntil:
+    visible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+    timeout: 5000
+- extendedWaitUntil:
+    notVisible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+    timeout: 15000
+- assertNotVisible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+- tapOn:
+    point: "50%,43%"
+- assertNotVisible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+- tapOn:
+    point: "7%,10%"
+- assertVisible: ".*(?i)(Recent|^Select$|^All$).*"
+- tapOn:
+    point: "18%,25%"
+- extendedWaitUntil:
+    visible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+    timeout: 5000

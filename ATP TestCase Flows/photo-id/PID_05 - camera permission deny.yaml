@@ -1,0 +1,23 @@
+# ATP Test Case ID: PID_05
+# Excel: Photo ID_05 | Module: Photo ID- camera permission deny
+# Verify behavior when camera permission is denied.
+# Expected: Photo ID Camera does not open; Back, Photo ID title, grant message, Open Settings.
+appId: com.caglobal.hp.sprocket
+name: "PID_05 - camera permission deny"
+tags:
+  - photo-id
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/deny_camera.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Open Settings|grant camera permission|Photo ID).*"
+    timeout: 15000
+- assertVisible: "(?i)Photo ID.*"
+- assertVisible:
+    text: ".*(?i)(Back|Navigate up).*"
+    optional: true
+- assertVisible: ".*(?i)(Go to device settings to grant camera permission|grant camera permission).*"
+- assertVisible: ".*(?i)Open Settings.*"

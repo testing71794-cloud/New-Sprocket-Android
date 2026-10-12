@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC003 | Module: Discovery
 # Verify + icon
 # Expected: + icon shown.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_165 - Verify icon"
 tags:
   - connection

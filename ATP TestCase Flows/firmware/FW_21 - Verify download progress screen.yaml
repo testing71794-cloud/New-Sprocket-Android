@@ -2,7 +2,7 @@
 # Excel: Firmware Update 21 | Module: Firmware Download
 # Verify download progress screen
 # Expected: "Firmware download in progress" with loader is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_21 - Verify download progress screen"
 tags:
   - firmware

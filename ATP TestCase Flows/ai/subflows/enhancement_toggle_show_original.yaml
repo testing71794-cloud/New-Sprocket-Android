@@ -1,0 +1,8 @@
+appId: com.caglobal.hp.sprocket
+---
+# Dependency: visual comparison requires human or image-diff review.
+- assertVisible: "Show Original"
+- tapOn: "Show Original"
+- assertVisible: "Show Original"
+- tapOn: "Show Original"
+- assertVisible: "Show Original"

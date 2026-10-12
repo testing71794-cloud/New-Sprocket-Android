@@ -1,0 +1,16 @@
+# Generate Image(s) is a full-screen accessibility wrapper; the visible CTA sits
+# in the bottom bar below the scroll content (y > 2120 on 1080x2400).
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: image_to_image_configure_three.yaml
+- tapOn:
+    point: "50%,94%"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- assertVisible: "This may take a few seconds"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000
+- assertVisible: "Next"

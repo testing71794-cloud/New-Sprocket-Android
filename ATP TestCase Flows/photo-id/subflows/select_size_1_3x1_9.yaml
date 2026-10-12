@@ -1,0 +1,9 @@
+﻿appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: ".*(?i)1.3x1.9.*"
+    commands:
+      - tapOn: ".*(?i)1.3x1.9.*"
+- waitForAnimationToEnd:
+    timeout: 1500

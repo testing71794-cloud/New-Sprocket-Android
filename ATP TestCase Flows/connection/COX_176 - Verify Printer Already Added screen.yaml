@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC014 | Module: Already Added
 # Verify Printer Already Added screen
 # Expected: Printer Already Added' screen should be displayed and duplicate addition should not occur.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_176 - Verify Printer Already Added screen"
 tags:
   - connection

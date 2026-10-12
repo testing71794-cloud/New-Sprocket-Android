@@ -1,0 +1,18 @@
+appId: com.caglobal.hp.sprocket
+---
+# 2x2 is often the default chip; dismiss timer sheet if chips are covered, then tap if present.
+- runFlow:
+    when:
+      notVisible: ".*(?i)2.?x.?2.*"
+    commands:
+      - tapOn:
+          point: "20%,40%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)2.?x.?2.*"
+    commands:
+      - tapOn: ".*(?i)2.?x.?2.*"
+- waitForAnimationToEnd:
+    timeout: 1500

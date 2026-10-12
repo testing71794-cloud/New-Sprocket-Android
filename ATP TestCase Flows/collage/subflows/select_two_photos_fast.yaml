@@ -1,24 +1,43 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-# Select 2 photos from collage grid (thumbnail row). Retry lower row if Next stays blocked.
-- tapOn:
-    point: "18%,56%"
+# Select 2 photos from the collage grid. Skip the top video/date row, then retry lower tiles.
+# See: https://docs.maestro.dev/reference/commands-available/swipe
+- swipe:
+    start: "50%,80%"
+    end: "50%,52%"
+    duration: 400
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 500
 - tapOn:
-    point: "50%,56%"
+    point: "18%,58%"
 - waitForAnimationToEnd:
-    timeout: 800
+    timeout: 600
+- tapOn:
+    point: "50%,58%"
+- waitForAnimationToEnd:
+    timeout: 600
 - runFlow:
     when:
-      visible: "Select 2 to 4 photos"
+      visible: ".*Select 2 to [48] photos.*"
       notVisible: ".*(?i)Drag & Drop.*"
     commands:
+      - swipe:
+          start: "50%,82%"
+          end: "50%,48%"
+          duration: 400
+      - waitForAnimationToEnd:
+          timeout: 500
+      - tapOn:
+          point: "82%,58%"
+          optional: true
       - tapOn:
           point: "18%,72%"
           optional: true
       - tapOn:
           point: "50%,72%"
+          optional: true
+      - tapOn:
+          point: "82%,72%"
           optional: true
       - waitForAnimationToEnd:
           timeout: 800

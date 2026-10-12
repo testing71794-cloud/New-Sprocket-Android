@@ -1,0 +1,49 @@
+# Excel: AI Tools 94
+# Module: AI Tools >Upscale Photo – Photo Generation, Denoising, Size Increase, No Internet and API Failure
+# Description: Verify that the selected photo is denoised and increased in image size after generation, including No Internet and API failure scenarios.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Upscale Photo.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Verify that the Generating Loader is displayed.
+# 5. Wait for the generation process to complete.
+# 6. Verify that the Upscale Photo result screen is displayed.
+# 7. Verify that the generated image has reduced visible noise compared to the original image.
+# 8. Verify that the generated image has an increased image size or resolution compared to the original image.
+# 9. Tap the Show Original toggle.
+# 10. Verify that the original photo is displayed.
+# 11. Tap the Show Original toggle again.
+# 12. Verify that the upscaled and denoised photo is displayed.
+# 13. Repeat the flow with the device internet connection disabled.
+# 14. Tap Generate.
+# 15. Verify that the No Internet popup is displayed with an OK button.
+# 16. Tap OK.
+# 17. Enable the internet connection.
+# 18. Repeat the generation flow and simulate an API generation failure.
+# 19. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”
+# 20. Tap Try Again.
+# 21. Verify that the Generating Loader is displayed and generation is attempted again.
+# Type: Positive
+# Expected:
+# Generate starts the Upscale Photo generation process and displays the Generating Loader.
+# The generated image is denoised and has an increased image size/resolution compared to the original.
+# Show Original displays the original image for comparison.
+# Toggling Show Original again displays the upscaled and denoised image.
+# When there is no internet connection, the No Internet popup with an OK button is displayed.
+# When the API generation fails, the Generation Failed screen is displayed with the specified error message.
+# Tapping Try Again starts the generation process again.
+# Dependency portion: requires upscale api-fault test environment.
+appId: com.caglobal.hp.sprocket
+name: "AI_94_upscale_api_fault - Upscale Photo API failure retry"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - upscale
+  - api-fault
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Upscale Photo" 
+- runFlow: subflows/enhancement_assert_api_failure_retry.yaml

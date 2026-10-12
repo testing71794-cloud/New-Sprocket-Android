@@ -1,0 +1,22 @@
+# ATP Test Case ID: PID_02a
+# Excel: PhotoID_02 (a) | Module: Photo ID – Mode Information Popup Back Button Functionality
+# Verify that the Back button navigates the user from the Photo ID screen to the Home screen.
+# Expected: Photo ID screen closes and Home screen is displayed.
+appId: com.caglobal.hp.sprocket
+name: "PID_02a - Mode Information Popup Back Button"
+tags:
+  - photo-id
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_home.yaml
+- runFlow: subflows/open_photo_id.yaml
+- runFlow: subflows/allow_camera_while_using.yaml
+- runFlow: subflows/wait_mode_popup.yaml
+- runFlow: subflows/dismiss_mode_popup_ok.yaml
+- runFlow: subflows/wait_capture_screen.yaml
+- runFlow: subflows/tap_in_app_back.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Quick Print|Photo ID|Create).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Collage Maker|Quick Print|Photo ID).*"

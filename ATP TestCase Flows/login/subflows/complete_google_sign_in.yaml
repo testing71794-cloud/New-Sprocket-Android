@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Google OAuth — account picker, email, optional CAPTCHA, password (ATP test account).
 - extendedWaitUntil:

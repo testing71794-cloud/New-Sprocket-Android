@@ -1,0 +1,41 @@
+# ATP Test Case ID: AI_34
+# Excel: AI Tools 34
+# Module: AI Tools > Image-to-Image > Print Preview – Verify Don't Save Option
+# Description:
+# Verify that tapping Don't Save does not save the generated image to the device gallery and navigates the user to the previous screen.
+# Steps:
+# Install and launch the application.
+# Complete onboarding and navigate to the Home screen.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Select any image from the gallery.
+# Select an Image Style.
+# Tap Generate Images.
+# Wait for the generated results screen to load.
+# Tap Next.
+# Wait for the Print Preview screen to load.
+# Tap the Back button.
+# Wait for the Save as a New Photo popup to appear.
+# Tap Don't Save.
+# Navigate to the device gallery.
+# Search for the generated image.
+# Expected:
+# Generated image is not saved to the device gallery.
+# User is navigated to the previous screen.
+# No duplicate or new image is found in the gallery.
+# No error message is displayed.
+appId: com.caglobal.hp.sprocket
+name: "AI_34 - Verify that tapping Don't Save does not save the generated image to the device gallery and navigates the user to the previous screen."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_save_popup.yaml
+- tapOn: ".*(?i)(Don.?t Save|Do Not Save|Exit [Ww]ithout [Ss]aving).*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Image-to-Image|Generate New).*"
+    timeout: 30000
+- assertNotVisible: ".*(?i)(Error|Failed).*"
+- takeScreenshot: AI_34_after_do_not_save

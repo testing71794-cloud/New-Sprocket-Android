@@ -1,7 +1,7 @@
 # Open the Facebook Photos album. content-desc is "Photos\n4 photos", not "Photos".
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-- tapOn: "^Photos.*"
+- tapOn: ".*(?i)(Photos|Mobile uploads|album).*"
 - waitForAnimationToEnd:
     timeout: 800

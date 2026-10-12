@@ -1,23 +1,35 @@
-# ATP Test Case ID: TP_15
-# Excel: Tiles modules 15 | Module: Create > Copies
-# Verify Copies screen and printing
-# Expected: Copies screen opens successfully. Full image preview is displayed correctly. Default copy count is 1. Copy count increases/decreases correctly. Print starts with the selected number of copies. All top (Back, Printer Name, Share) and bottom 
-appId: com.hp.impulse.sprocket
+# Source: Tiles modules 15 | Create > Copies | Positive
+appId: com.caglobal.hp.sprocket
 name: "TP_15 - Verify Copies screen and printing"
 tags:
   - tile-print
   - atp-excel
+  - positive
+  - physical-printer
 ---
-- runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: "Copies"
-    optional: true
-- assertVisible:
-    text: "Create"
-    optional: true
-- assertVisible:
-    text: "Printer"
-    optional: true
-- assertVisible:
-    text: "More"
-    optional: true
+- runFlow: subflows/open_tile_print_preview.yaml
+- runFlow: subflows/assert_default_2x2.yaml
+- runFlow: subflows/increase_copy_count_to_two.yaml
+- runFlow:
+    when:
+      visible:
+        id: ".*remove_copies.*"
+    commands:
+      - tapOn:
+          id: ".*remove_copies.*"
+- runFlow:
+    when:
+      notVisible:
+        id: ".*remove_copies.*"
+    commands:
+      - tapOn:
+          traits: square
+          width: 80
+          height: 80
+          tolerance: 20
+          leftOf: "^(?:[1-9]|10)$"
+          below: "Copies"
+- assertVisible: "0?1"
+- runFlow: subflows/increase_copy_count_to_two.yaml
+- runFlow: subflows/assert_tile_print_preview_ui.yaml
+- runFlow: ../quick-print/subflows/tap_print_and_assert_complete.yaml

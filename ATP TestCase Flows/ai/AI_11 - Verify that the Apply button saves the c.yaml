@@ -1,0 +1,58 @@
+# ATP Test Case ID: AI_11
+# Excel: AI Tools 11
+# Module: AI Text to image- Apply and Cancel Buttons
+# Description:
+# Verify that the Apply button saves the changes and navigates to Print Preview, while the Cancel button discards the changes and returns to the Text-to-Image screen.
+# Steps:
+# 1. Install and launch the application.
+# 2. Complete the Splash Screen and onboarding flow.
+# 3. Tap Get Started.
+# 4. Tap Sign Up Later.
+# 5. Wait until the Home screen is displayed.
+# 6. If the notification permission popup appears, tap Allow.
+# 7. Tap the Create tab from the bottom navigation bar.
+# 8. Tap Text-to-Image.
+# 9. Tap the prompt text box.
+# 10. Enter a valid prompt.
+# 11. Select an orientation.
+# 12. Select an image quantity.
+# 13. Tap the Generate Image(s) button.
+# 14. Wait for the generated image results screen to appear.
+# 15. Make any available changes/settings on the Generate Image screen.
+# 16. Verify the Cancel button is displayed at the top-left and the Apply button is available at the top-right.
+# 17. Tap Apply.
+# 18. Observe the resulting screen.
+# 19. Return to the Generate Image screen and make another change.
+# 20. Tap Cancel.
+# 21. Observe the resulting screen.
+# Expected:
+# The Cancel button is displayed at the top-left of the top bar.
+# The Apply button is available at the top-right of the top bar.
+# Tapping Apply saves all changes made by the user and navigates to Print Preview.
+# Tapping Cancel returns the user to Text-to-Image screen -  so the user can change their settings again.
+# Changes made before tapping Cancel are not applied.
+appId: com.caglobal.hp.sprocket
+name: "AI_11 - Verify that the Apply button saves the changes and navigates to Print Preview, while the Cancel button discards the changes and returns to the Text-to-Image screen."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/text_to_image_generate_results.yaml
+- assertVisible: "Cancel"
+- assertVisible: "Apply"
+- tapOn: "Apply"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: ../printing/subflows/assert_print_preview_ui.yaml
+- runFlow: subflows/text_to_image_generate_results.yaml
+- tapOn:
+    point: "50%,72%"
+- tapOn: "Cancel"
+- extendedWaitUntil:
+    visible: "Text-to-Image"
+    timeout: 15000
+- assertVisible: "Orientation"
+- assertVisible: "Image Quantity"

@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_012 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify that printer discovery starts automatically after Bluetooth is enabled for HP Sprocket 3x4
 # Expected: 1. 'Searching for Printers…' screen should be displayed. 2. Search progress indicator should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_049 - Verify that printer discovery starts automatically after Blu"
 tags:
   - connection

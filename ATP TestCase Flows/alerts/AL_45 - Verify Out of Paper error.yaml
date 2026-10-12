@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios  24 | Module: Paper
 # Verify "Out of Paper" error
 # Expected: "Out of Paper" popup is displayed. The popup displays the bold title "Out of Paper", followed by the message "Please load paper and try printing again." A TIP is displayed: "Load the colored card with each new pack of paper for best print q
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_45 - Verify Out of Paper error"
 tags:
   - alerts

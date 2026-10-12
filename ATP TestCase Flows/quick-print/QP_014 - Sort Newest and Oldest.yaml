@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_14 | Gallery - Sort Menu
 # Newest / Oldest on Facebook folder; tap outside to dismiss.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_014 - Sort Newest and Oldest"
 tags:
   - quick-print

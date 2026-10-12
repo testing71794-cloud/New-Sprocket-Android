@@ -1,0 +1,7 @@
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible: "(?i)Save as new photo.*"
+- tapOn:
+    point: "88%,34%"
+- assertNotVisible: "(?i)Save as new photo.*"
+- assertVisible: ".*(?i)(Copies|Tiles|Add Printer|Print).*"

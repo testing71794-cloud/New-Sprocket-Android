@@ -1,0 +1,29 @@
+# Sign up with Email form.
+# A filled field hides "Full Name*", so reopen the form before the same asserts.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/presskey
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: "SIGN UP"
+      notVisible: "(?i)^Full Name\\*?$"
+    commands:
+      - hideKeyboard
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      notVisible: "SIGN UP"
+    commands:
+      - runFlow: ensure_signup_screen.yaml
+      - tapOn: "Sign up with Email"
+      - waitForAnimationToEnd:
+          timeout: 2000
+      - extendedWaitUntil:
+          visible: "SIGN UP"
+          timeout: 10000
+- extendedWaitUntil:
+    visible: "SIGN UP"
+    timeout: 10000

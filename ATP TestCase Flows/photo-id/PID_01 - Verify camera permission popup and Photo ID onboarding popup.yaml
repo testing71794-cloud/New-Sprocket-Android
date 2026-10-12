@@ -2,7 +2,7 @@
 # Excel: Photo ID 01 | Module: Onboarding
 # Verify camera permission popup and Photo ID onboarding popup
 # Expected: Camera permission popup and Photo ID onboarding popup are displayed successfully. User navigates to Photo ID camera screen after tapping OK.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_01 - Verify camera permission popup and Photo ID onboarding popup"
 tags:
   - photo-id

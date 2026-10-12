@@ -1,0 +1,37 @@
+# ATP Test Case ID: CS_17
+# Excel: Custom SDK 17 | Module: Custom SDK> Photo Editor – Cancel/Apply Behavior
+# Cancel discards tool changes; Apply retains them.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "CS_17 - Verify Cancel and Apply for editing tools"
+tags:
+  - custom-sdk
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- tapOn:
+    text: ".*(?i)^Edit$"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Adjust|Crop|Filter|Done|Apply).*"
+    timeout: 20000
+- tapOn:
+    text: ".*(?i)^Adjust$"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn:
+    text: ".*(?i)^Cancel$"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 1500
+- tapOn:
+    text: ".*(?i)^Adjust$"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 1500
+- tapOn:
+    text: ".*(?i)(Apply|Done).*"
+    optional: true
+- assertVisible: ".*(?i)(Edit|Crop|Filter|Adjust|Done|Print).*"

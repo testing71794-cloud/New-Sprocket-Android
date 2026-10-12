@@ -1,6 +1,6 @@
 # Shared setup for PreCut ATP positive cases (PC_01–PC_09).
 # Cold launch → Create hub → Pre-Cut selection screen (info popup dismissed).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: reach_create_hub_for_precut.yaml
 - runFlow: open_precut_from_create_hub.yaml

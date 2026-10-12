@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   04 | Module: Print Error
 # Verify "Print Error" popup during printing
 # Expected: "Print Error" popup is displayed on the Print Preview screen. The popup displays the bold title "Print Error", followed by the message "Restart your Sprocket and try printing again." The popup includes an "OK" button at the bottom and a Clo
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_04 - Verify Print Error popup during printing"
 tags:
   - alerts

@@ -2,7 +2,7 @@
 # Excel: PS-011 | Module: Printer Settings
 # Printer Settings
 # Expected: User can successfully navigate to the Technical Information screen and back to the Printer Settings screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_243 - Printer Settings"
 tags:
   - connection

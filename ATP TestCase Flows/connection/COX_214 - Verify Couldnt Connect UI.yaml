@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC052 | Module: Wi-Fi Connection Failure
 # Verify Couldn't Connect UI
 # Expected: 1. Failure title and description are displayed. 2. Printer image is displayed. 3. Try Again and Cancel buttons are visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_214 - Verify Couldnt Connect UI"
 tags:
   - connection

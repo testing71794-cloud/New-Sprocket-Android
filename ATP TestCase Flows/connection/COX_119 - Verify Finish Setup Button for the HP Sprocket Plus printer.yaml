@@ -2,7 +2,7 @@
 # Excel: PCF_Sprocket Plus_009 | Module: Pre Connection Flow for Sprocket Plus
 # Verify 'Finish Setup' Button for the HP Sprocket Plus printer.
 # Expected: User should be redirected to the printer discovery/connection flow.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_119 - Verify Finish Setup Button for the HP Sprocket Plus printer"
 tags:
   - connection

@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # HP Sprocket Log In screen — all options after I already have an account.
 - assertVisible: "Log In"

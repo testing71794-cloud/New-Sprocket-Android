@@ -2,7 +2,7 @@
 # Excel: Firmware Update 12 | Module: Firmware Validation
 # Verify update restriction when battery is below 25%
 # Expected: Firmware update is blocked and warning message is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_12 - Verify update restriction when battery is below 25"
 tags:
   - firmware

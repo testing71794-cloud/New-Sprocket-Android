@@ -3,7 +3,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/evalscript
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/asserttrue
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - evalScript: ${output.qp006cCountOk = '0'}
 - runFlow:

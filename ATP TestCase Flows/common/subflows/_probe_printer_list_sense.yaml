@@ -1,0 +1,43 @@
+# Probe: open Printer tab and select HP Sprocket Sense 5D:6C if listed.
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: false
+    permissions:
+      all: allow
+- runFlow: dismiss_rate_app_if_visible.yaml
+- takeScreenshot: probe_before_printer
+- tapOn:
+    text: "Printer\nTab 3 of 3"
+    optional: true
+- tapOn:
+    point: "84%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- takeScreenshot: probe_printer_tab
+- extendedWaitUntil:
+    visible: ".*(?i)(HP Sprocket Sense|5D:6C|5D-6C|Your Printers|Tap to Connect|Add Printer|No printers).*"
+    timeout: 15000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)(HP Sprocket Sense|5D[:\\-]6C).*"
+    commands:
+      - tapOn: ".*(?i)(HP Sprocket Sense.*5D[:\\-]6C|5D[:\\-]6C|HP Sprocket Sense).*"
+      - waitForAnimationToEnd:
+          timeout: 4000
+      - takeScreenshot: probe_sense_selected
+- runFlow:
+    when:
+      notVisible: ".*(?i)(HP Sprocket Sense|5D[:\\-]6C).*"
+    commands:
+      - takeScreenshot: probe_sense_not_listed
+- tapOn:
+    text: "Create\nTab 2 of 3"
+    optional: true
+- tapOn:
+    point: "50%,90%"
+    optional: true
+- assertVisible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth|HP Sprocket Sense|5D:6C).*"

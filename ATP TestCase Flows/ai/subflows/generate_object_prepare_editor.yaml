@@ -1,0 +1,4 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: generate_object_open.yaml
+- runFlow: generate_object_select_photo.yaml

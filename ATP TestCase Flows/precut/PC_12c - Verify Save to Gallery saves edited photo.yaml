@@ -2,7 +2,7 @@
 # Excel: Precut_12 (c) | Module: Pre-Cut Stickers – Save Changes Popup
 # Verify that tapping “Save to Gallery” saves the edited photo as a new photo in the device gallery.
 # Expected: Edited photo saved; original unchanged; user can leave Pre-Cut.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_12c - Verify Save to Gallery saves edited photo"
 tags:
   - precut

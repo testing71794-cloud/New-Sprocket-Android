@@ -1,0 +1,12 @@
+# Supplied JSON row: AI Tools 57 | Replace Background
+# Verify Unsaved Changes after generation
+appId: com.caglobal.hp.sprocket
+name: "AI_57 - Replace Background Unsaved Popup - Verify Unsaved Changes after generation"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- tapOn: "Cancel"
+- runFlow: subflows/background_assert_unsaved_popup.yaml

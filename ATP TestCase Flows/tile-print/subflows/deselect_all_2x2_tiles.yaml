@@ -1,0 +1,14 @@
+appId: com.caglobal.hp.sprocket
+---
+# Centers of the four selectable quadrants in the Tile Print preview.
+- tapOn:
+    point: "38%,34%"
+- tapOn:
+    point: "62%,34%"
+- tapOn:
+    point: "38%,50%"
+- tapOn:
+    point: "62%,50%"
+- waitForAnimationToEnd:
+    timeout: 1500
+- takeScreenshot: tile_print_2x2_none_selected

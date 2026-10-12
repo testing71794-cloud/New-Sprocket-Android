@@ -1,0 +1,6 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    file: background_open_tool_gallery.yaml
+    env:
+      TOOL: "Remove Background"

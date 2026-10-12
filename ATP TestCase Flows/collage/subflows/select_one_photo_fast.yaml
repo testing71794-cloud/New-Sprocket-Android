@@ -1,4 +1,10 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
+- swipe:
+    start: "50%,80%"
+    end: "50%,52%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 500
 - tapOn:
-    point: "18%,56%"
+    point: "18%,58%"

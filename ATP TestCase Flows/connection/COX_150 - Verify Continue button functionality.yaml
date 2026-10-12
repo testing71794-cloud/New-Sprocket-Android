@@ -2,7 +2,7 @@
 # Excel: General_PCF-002 | Module: Pre Connection Flow
 # Verify Continue button functionality
 # Expected: User should navigate to the setup flow corresponding to the selected printer, for example if we select 'Sprocket 3x4' then it should redirect to "Charge + Power On' screen along with 'Next' button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_150 - Verify Continue button functionality"
 tags:
   - connection

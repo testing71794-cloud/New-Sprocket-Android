@@ -1,0 +1,15 @@
+# Source: Tiles modules 18 | HP200, Sprocket 2-in-1, Original Sprocket,
+# HP Sprocket Sense, Sprocket Plus and Sprocket Select | Positive
+# Device-lab prerequisite: one listed compatible printer is connected.
+appId: com.caglobal.hp.sprocket
+name: "TP_18 - Verify Tile Print compatibility for supported printers"
+tags:
+  - tile-print
+  - tiles-supported-printer
+  - atp-excel
+  - positive
+  - physical-printer
+---
+- runFlow: subflows/reach_module_screen.yaml
+- assertNotVisible: ".*(?i)Sorry.*Tiles feature is not compatible with this printer.*"
+- runFlow: subflows/assert_gallery_ui.yaml

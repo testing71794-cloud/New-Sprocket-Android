@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC056 | Module: Wi-Fi Connection Failure
 # Verify printer powered off
 # Expected: Connection fails and 'Couldn't Connect' screen is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_218 - Verify printer powered off"
 tags:
   - connection

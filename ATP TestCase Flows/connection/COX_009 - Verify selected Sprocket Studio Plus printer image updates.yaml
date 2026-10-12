@@ -2,7 +2,7 @@
 # Excel: PCF-009 | Module: Pre Connection Flow
 # Verify selected 'Sprocket Studio Plus' printer image updates
 # Expected: Sprocket Studio Plus printer image should display with the printer name 'HP Sprocket Studio Plus' at 'Select Your Device' screen along with 'Continue with this Printer' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_009 - Verify selected Sprocket Studio Plus printer image updates"
 tags:
   - connection

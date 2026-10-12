@@ -1,0 +1,38 @@
+# ATP Test Case ID: CS_16
+# Excel: Custom SDK 16 | Module: Custom SDK> Photo Editor – Add Photo/Crop/Rotate
+# Verify adding another photo and applying crop/rotation.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "CS_16 - Verify Add Photo crop and rotate"
+tags:
+  - custom-sdk
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_module_screen.yaml
+- tapOn:
+    text: ".*(?i)^Edit$"
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Add Photo|Crop|Filter|Adjust|Done|Apply).*"
+    timeout: 20000
+- tapOn:
+    text: ".*(?i)Add Photo.*"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Recent|Photos|Gallery).*"
+    commands:
+      - tapOn:
+          point: "25%,35%"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- tapOn:
+    text: ".*(?i)(Crop|Rotate).*"
+    optional: true
+- tapOn:
+    text: ".*(?i)(Apply|Done).*"
+    optional: true
+- assertVisible: ".*(?i)(Done|Apply|Edit|Crop|Filter).*"

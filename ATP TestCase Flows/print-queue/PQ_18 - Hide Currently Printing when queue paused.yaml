@@ -1,0 +1,14 @@
+# ATP Test Case ID: PQ_18
+# Excel: Print_Queue18
+# Verify no Currently Printing section is shown when only paused jobs remain.
+appId: com.caglobal.hp.sprocket
+name: "PQ_18 - Hide Currently Printing when queue paused"
+tags: [print-queue, atp-excel, positive, physical-printer, manual-timing, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+# Manual timing: pause after the active print finishes and before the next starts.
+- tapOn: ".*(?i)Pause Queue.*"
+- assertVisible: ".*(?i)Resume Queue.*"
+- assertNotVisible: ".*(?i)Currently Printing.*"
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_18_paused_without_current_print

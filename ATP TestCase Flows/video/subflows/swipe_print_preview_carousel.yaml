@@ -1,5 +1,5 @@
 # Swipe carousel when mixed photo + video selected (CR_05C counter: Photo & Video x of x).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - swipe:
     start: "85%,50%"

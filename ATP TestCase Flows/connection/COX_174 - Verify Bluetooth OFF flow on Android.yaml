@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC012 | Module: Bluetooth
 # Verify Bluetooth OFF flow on Android
 # Expected: Bluetooth OFF dialog with Android actions should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_174 - Verify Bluetooth OFF flow on Android"
 tags:
   - connection

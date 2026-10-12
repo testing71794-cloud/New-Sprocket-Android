@@ -1,5 +1,5 @@
 # CR_05E — play control hidden in Tiles mode; scrub bar still usable.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     text: "Tiles"

@@ -2,7 +2,7 @@
 # Excel: Photobooth 06 | Module: Photobooth – flash functionality for Rear Camera
 # Verify the flash functionality while capturing photos using the rear camera.
 # Expected: Flash enabled; capture succeeds without crash.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_06 - Verify rear camera flash during capture"
 tags:
   - photobooth

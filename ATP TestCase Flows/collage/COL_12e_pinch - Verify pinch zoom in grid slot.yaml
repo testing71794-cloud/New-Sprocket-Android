@@ -1,0 +1,21 @@
+# ATP Test Case ID: COL_12e_pinch
+# Excel: Collage_12 (e) | Module: Collage maker- Pinch to Zoom In/Out
+# Verify that the user can zoom the photo in and out within a grid slot using the pinch gesture.
+appId: com.caglobal.hp.sprocket
+name: "COL_12e_pinch - Verify pinch zoom in grid slot"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- swipe:
+    start: "28%,38%"
+    end: "48%,55%"
+    duration: 400
+- swipe:
+    start: "48%,55%"
+    end: "28%,38%"
+    duration: 400
+- assertVisible: "Drag & Drop to Reorder"

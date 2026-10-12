@@ -1,0 +1,24 @@
+# ATP Test Case ID: PS_23
+# Excel: Print_State_23
+# Save Pre-Cut or Collage result to Gallery
+# Expected: Printing a Pre-Cut Sticker or collage saves the final result to native Gallery and shows "Image saved to gallery."
+appId: com.caglobal.hp.sprocket
+name: "PS_23 - Save Pre-Cut or Collage result to Gallery"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - precut-or-collage
+  - visual-check
+---
+# Use the stable Collage path; repeat manually for Pre-Cut Stickers.
+- runFlow: ../collage/subflows/reach_collage_maker.yaml
+- runFlow: ../collage/subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: ../collage/subflows/layouts_then_print_preview.yaml
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: "Image saved to gallery."
+    timeout: 120000
+- takeScreenshot: PS_23_image_saved_to_gallery_toast

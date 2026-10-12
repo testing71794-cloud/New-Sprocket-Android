@@ -1,6 +1,6 @@
 # ATP Stage Flow: PreCut
 # Uses ATP TestCase Flows precut entry (not Collage).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - PreCut"
 tags:
   - atp-verification

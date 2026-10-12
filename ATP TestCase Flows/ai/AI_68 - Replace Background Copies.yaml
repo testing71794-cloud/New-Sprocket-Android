@@ -1,0 +1,33 @@
+# Supplied JSON row: AI Tools 68 | Replace Background
+# Verify Copies maximum is 10
+appId: com.caglobal.hp.sprocket
+name: "AI_68 - Replace Background Copies - Verify Copies maximum is 10"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- tapOn: "Copies"
+- repeat:
+    times: 15
+    commands:
+      - tapOn:
+          traits: square
+          width: 80
+          height: 80
+          tolerance: 2
+          rightOf: "^(?:[1-9]|10)$"
+          below: "Copies"
+          above: ".*(?i)^(Print|Add Printer)$"
+          waitToSettleTimeoutMs: 300
+- assertVisible: "10"
+- tapOn:
+    traits: square
+    width: 80
+    height: 80
+    tolerance: 2
+    rightOf: "^10$"
+    below: "Copies"
+    above: ".*(?i)^(Print|Add Printer)$"
+- assertVisible: "10"

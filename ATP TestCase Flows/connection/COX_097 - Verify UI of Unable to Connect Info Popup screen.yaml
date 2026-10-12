@@ -2,7 +2,7 @@
 # Excel: PCF_Sprocket_007 | Module: Pre Connection Flow for HP Sprocket
 # Verify UI of 'Unable to Connect ?' Info Popup screen
 # Expected: Unable to connect? popup should be displayed with the following content on the screen: Three users can connect to the printer. Check who is printing and connect when someone finishes.  Still have questions? See the HP Sprocket  User Guide. 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_097 - Verify UI of Unable to Connect Info Popup screen"
 tags:
   - connection

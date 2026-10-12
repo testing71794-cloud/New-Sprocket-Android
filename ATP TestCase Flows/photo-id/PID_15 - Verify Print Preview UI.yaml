@@ -2,7 +2,7 @@
 # Excel: Photo ID 15 | Module: Print Preview 2×2
 # Verify Print Preview UI
 # Expected: 2×2 Print Preview screen is displayed correctly with all controls.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_15 - Verify Print Preview UI"
 tags:
   - photo-id

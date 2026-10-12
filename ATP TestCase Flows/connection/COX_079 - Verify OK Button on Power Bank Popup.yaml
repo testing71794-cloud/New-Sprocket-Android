@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_004 | Module: Pre Connection Flow for Sprocket Studio
 # Verify OK Button on Power Bank Popup
 # Expected: Popup should close. User should return to the Plug In + Power On screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_079 - Verify OK Button on Power Bank Popup"
 tags:
   - connection

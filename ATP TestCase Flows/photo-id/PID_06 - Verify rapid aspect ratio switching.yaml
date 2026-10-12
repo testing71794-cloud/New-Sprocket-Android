@@ -2,7 +2,7 @@
 # Excel: Photo ID 06 | Module: Aspect Ratio
 # Verify rapid aspect ratio switching
 # Expected: UI remains stable and only one ratio remains selected at a time.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_06 - Verify rapid aspect ratio switching"
 tags:
   - photo-id

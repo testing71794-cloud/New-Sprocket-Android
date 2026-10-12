@@ -1,0 +1,12 @@
+appId: com.caglobal.hp.sprocket
+---
+- extendedWaitUntil:
+    visible: ".*(?i)Generation Failed.*"
+    timeout: 90000
+- assertVisible: ".*(?i)Generation Failed.*"
+- assertVisible: "Something went wrong. Please try again."
+- assertVisible: "Try Again"
+- tapOn: "Try Again"
+- extendedWaitUntil:
+    visible: ".*(?i)(Generating|Please wait|Loading).*"
+    timeout: 15000

@@ -1,13 +1,19 @@
 # ATP Test Case ID: ON_03
-# Video carousel mid-slide
-appId: com.hp.impulse.sprocket
+# Excel: Sp_05 | Onboarding – Inkless & Seamless Screen
+# New UI (Sense): title/body exposed via content-desc.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
 name: "ON_03 - Inkless Seamless carousel slide"
+tags:
+  - onboarding
+  - atp-excel
 ---
 - launchApp:
     clearState: true
 - runFlow: ../common/subflows/advance_sprocket_carousel.yaml
-- assertVisible: "Inkless & Seamless"
-- assertVisible: "Print your photos with ease using the HP Sprocket ZINK (zero-ink) photo paper."
-- assertVisible: "*The HP Sprocket Studio and HP Sprocket Studio Plus models are not compatible with ZINK photo paper."
-- assertVisible: "Swipe to continue."
-
+- assertVisible: ".*(?i)Inkless & Seamless.*"
+- assertVisible: ".*(?i)Print your photos with ease using the HP Sprocket ZINK.*"
+- assertVisible:
+    text: ".*(?i)Studio.*not compatible with ZINK.*"
+    optional: true
+- assertVisible: ".*(?i)Swipe to continue\\.?.*"

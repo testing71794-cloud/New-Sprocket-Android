@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC049 | Module: Connection
 # Verify printer can be selected
 # Expected: Printer details/manage screen should open.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_211 - Verify printer can be selected"
 tags:
   - connection

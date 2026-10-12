@@ -1,0 +1,20 @@
+# ATP Test Case ID: PR_06a
+# Excel: Print Preview_06
+# Lab: Studio Plus / HP600 pre-connected — no Add Printer / Wi-Fi search.
+# See: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PR_06a - HP Sprocket Studio Plus 2 x 3 preview canvas"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - hardware
+  - wifi
+  - paper-size-2x3
+  - printer-preconnect
+---
+- runFlow: subflows/launch_to_create_keep_state.yaml
+- runFlow: subflows/open_preview_one_photo_from_create.yaml
+- assertVisible: ".*(?i)^Print$"
+- takeScreenshot: PR_06a_studio_plus_2x3_canvas

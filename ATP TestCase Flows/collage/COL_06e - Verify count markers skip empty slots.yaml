@@ -1,0 +1,33 @@
+# ATP Test Case ID: COL_06e
+# Excel: Collage_06 (e) | Module: Collage maker- photo selection
+# Verify that each count marker appears at its designated position on a photo according to the collage slot selected.
+# Unique expected: fill slot 1, skip 2, fill 4 then 3; empty skipped slot "2" stays numbered.
+appId: com.caglobal.hp.sprocket
+name: "COL_06e - Verify count markers skip empty slots"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_one_photo_fast.yaml
+- tapOn: "^4$"
+- waitForAnimationToEnd:
+    timeout: 400
+- tapOn:
+    point: "50%,58%"
+- waitForAnimationToEnd:
+    timeout: 400
+- assertVisible: "^2$"
+- assertVisible: "Select 2 to 4 photos"
+- tapOn: "^3$"
+- waitForAnimationToEnd:
+    timeout: 400
+- tapOn:
+    point: "82%,58%"
+- waitForAnimationToEnd:
+    timeout: 400
+- assertVisible: "^2$"
+- assertVisible:
+    text: "Next"
+    enabled: true

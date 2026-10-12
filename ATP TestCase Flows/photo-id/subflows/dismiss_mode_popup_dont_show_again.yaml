@@ -1,0 +1,10 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel: Tap Don't Show Again on Photo ID Mode popup when present.
+- runFlow:
+    when:
+      visible: "(?i)Photo ID Mode.*"
+    commands:
+      - tapOn: "(?i)Don.t Show Again"
+      - waitForAnimationToEnd:
+          timeout: 2000

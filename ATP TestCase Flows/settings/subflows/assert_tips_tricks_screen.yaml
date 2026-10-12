@@ -1,5 +1,5 @@
 # Tips & Tricks (screen 5) — Print Quality Tips and Tricks.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Print Quality Tips and Tricks.*"

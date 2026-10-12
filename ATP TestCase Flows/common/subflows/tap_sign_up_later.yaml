@@ -1,10 +1,47 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-# Current Sprocket build: "I'll do it later". Older builds / options screen: "Sign Up Later".
+# Guest entry. "I'll do it later" is tappable. "Sign Up Later" and
+# "Continue without Logging In" are often not clickable and sit near the
+# system gesture bar — retry the text tap, then tap by coordinate.
+# See: https://docs.maestro.dev/reference/commands-available/tapon
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 - runFlow:
     when:
-      visible: ".*(?i)(I.ll do it later|Sign Up Later).*"
+      visible: ".*(?i)I.ll do it later.*"
     commands:
-      - tapOn: ".*(?i)(I.ll do it later|Sign Up Later).*"
+      - tapOn:
+          text: ".*(?i)I.ll do it later.*"
+          retryTapIfNoChange: true
+- runFlow:
+    when:
+      visible: ".*(?i)^Sign Up Later$"
+    commands:
+      - tapOn:
+          text: ".*(?i)I already have (an )?account.*"
+          retryTapIfNoChange: true
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)^Sign Up Later$"
+    commands:
+      - tapOn:
+          point: "50%,94%"
+      - waitForAnimationToEnd:
+          timeout: 2000
+- runFlow:
+    when:
+      visible: ".*(?i)Continue without Logging In.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)Continue without Logging In.*"
+          retryTapIfNoChange: true
+      - runFlow:
+          when:
+            visible: ".*(?i)Continue without Logging In.*"
+          commands:
+            - tapOn:
+                point: "50%,95%"
 - waitForAnimationToEnd:
     timeout: 2000

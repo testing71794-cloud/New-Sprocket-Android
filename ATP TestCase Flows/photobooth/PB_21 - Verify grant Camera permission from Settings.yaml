@@ -2,7 +2,7 @@
 # Excel: Photobooth 21 | Module: Photobooth- granting Camera permission
 # Verify behavior after granting Camera permission from device settings.
 # Expected: Denied screen gone; Photobooth Capture screen and live preview available.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_21 - Verify grant Camera permission from Settings"
 tags:
   - photobooth

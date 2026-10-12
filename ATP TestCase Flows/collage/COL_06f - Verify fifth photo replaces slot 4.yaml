@@ -1,0 +1,20 @@
+# ATP Test Case ID: COL_06f
+# Excel: Collage_06 (f) | Module: Collage maker- photo selection
+# Verify that after selecting 4 photos, the selection indicator remains on the 4th photo and selecting a new photo replaces the 4th photo.
+appId: com.caglobal.hp.sprocket
+name: "COL_06f - Verify fifth photo replaces slot 4"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/select_four_photos_fast.yaml
+- tapOn:
+    point: "82%,72%"
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "1"
+- assertVisible: "2"
+- assertVisible: "3"
+- assertVisible: "4"

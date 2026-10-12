@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_003 (a) | Gallery Permission
 # Allow all → Gallery with images.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_003a - Allow all opens Gallery"
 tags:
   - quick-print

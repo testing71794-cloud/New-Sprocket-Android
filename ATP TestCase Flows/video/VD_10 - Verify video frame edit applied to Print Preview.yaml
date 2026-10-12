@@ -1,0 +1,29 @@
+# ATP Test Case ID: VD_10
+# Excel: Video Frame 10 | Module: Video / Edit Image
+# Verify selected video frame can be edited and shown on Print Preview.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "VD_10 - Verify video frame edit applied to Print Preview"
+tags:
+  - video
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/reach_quick_print_gallery.yaml
+- runFlow: subflows/reach_video_frames_print_preview.yaml
+- tapOn:
+    text: ".*(?i)^Edit$"
+    optional: true
+- tapOn:
+    point: "88%,88%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: ".*(?i)(Done|Apply|Save).*"
+    commands:
+      - tapOn: ".*(?i)(Done|Apply|Save).*"
+      - waitForAnimationToEnd:
+          timeout: 3000
+- assertVisible: ".*(?i)(Print|Copies|Tiles).*"

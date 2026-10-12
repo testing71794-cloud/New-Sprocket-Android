@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Create home without Photos permission (for Collage_02 permission popup).
 - runFlow: ../../common/subflows/tap_sign_up_later.yaml

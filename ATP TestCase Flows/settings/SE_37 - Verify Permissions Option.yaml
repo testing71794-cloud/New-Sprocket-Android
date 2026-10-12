@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 42 | Module: Permissions
 # Verify Permissions Option
 # Expected: User is redirected to Android App info for Sprocket with system permission controls.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_37 - Verify Permissions Option"
 tags:
   - settings

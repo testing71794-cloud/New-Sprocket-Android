@@ -1,0 +1,62 @@
+# Excel: AI Tools 100
+# Module: AI Tools >Generate Object – Print Preview Save, Discard and Print Result
+# Description: Verify Print Preview, Save to Gallery, Do Not Save, popup dismissal, and print output.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Generate Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Paint an area where the object should be generated.
+# 4. Enter a valid object generation prompt.
+# 5. Tap Generate.
+# 6. Wait for the generated results.
+# 7. Select any generated result and tap Apply.
+# 8. Verify that the Print Preview screen is displayed with the generated image.
+# 9. Tap the Back arrow.
+# 10. Verify that the Save as new photo? popup is displayed with Save to Gallery and Do Not Save options.
+# 11. Tap the Cross icon.
+# 12. Verify that the popup closes and the user remains on the Print Preview screen.
+# 13. Tap the Back arrow again.
+# 14. Tap Save to Gallery.
+# 15. Verify that the generated image is saved to the gallery and the user returns to the previous screen.
+# 16. Repeat the Generate Object flow until the Save as new photo? popup is displayed.
+# 17. Tap Do Not Save.
+# 18. Verify that the generated image is not saved to the gallery and the user returns to the previous screen.
+# 19. Generate another object and tap Apply.
+# 20. Ensure the printer is connected.
+# 21. Send the print command.
+# 22. Verify that the printed output matches the generated image displayed in Print Preview.
+# Type: Positive
+# Expected:
+# Apply redirects to Print Preview with the generated image.
+# Back displays Save as new photo? with Save to Gallery and Do Not Save options.
+# Cross closes the popup and keeps the user on Print Preview.
+# Save to Gallery saves the generated image and returns to the previous screen.
+# Do Not Save does not save the image and returns to the previous screen.
+# The printed output matches the generated image displayed in Print Preview.
+appId: com.caglobal.hp.sprocket
+name: "AI_100_generate_object - Generate Object Print Preview save and discard"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - generate-object
+---
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- runFlow: subflows/generate_object_paint_and_prompt.yaml
+- runFlow: subflows/generate_object_generate_result.yaml
+- runFlow: subflows/enhancement_apply_print_preview.yaml
+- runFlow: subflows/enhancement_assert_save_popup.yaml
+- runFlow: subflows/enhancement_close_save_popup.yaml
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- runFlow: subflows/generate_object_paint_and_prompt.yaml
+- runFlow: subflows/generate_object_generate_result.yaml
+- runFlow: subflows/enhancement_apply_print_preview.yaml
+- runFlow: subflows/enhancement_assert_save_popup.yaml
+- tapOn: "(?i)Save to Gallery.*"
+- assertNotVisible: "(?i)Save as new photo.*"
+- runFlow: subflows/generate_object_prepare_editor.yaml
+- runFlow: subflows/generate_object_paint_and_prompt.yaml
+- runFlow: subflows/generate_object_generate_result.yaml
+- runFlow: subflows/enhancement_apply_print_preview.yaml
+- runFlow: subflows/enhancement_assert_save_popup.yaml
+- tapOn: "Do Not Save"
+- assertNotVisible: "(?i)Save as new photo.*"

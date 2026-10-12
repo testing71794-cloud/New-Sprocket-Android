@@ -1,0 +1,19 @@
+# ATP Test Case ID: PH_02
+# Excel: Print_History02
+# Verify Print History Is Displayed from Most Recent to Oldest
+# Manual setup: print timestamped fixtures at different times. Maestro cannot
+# compare the visual chronology of arbitrary native thumbnails.
+appId: com.caglobal.hp.sprocket
+name: "PH_02 - Most recent to oldest order"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - visual-manual
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_02_recent_to_oldest_order

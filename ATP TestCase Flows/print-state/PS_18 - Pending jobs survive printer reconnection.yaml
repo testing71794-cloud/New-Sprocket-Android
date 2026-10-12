@@ -1,0 +1,28 @@
+# ATP Test Case ID: PS_18
+# Excel: Print_State_18
+# Pending jobs survive printer reconnection
+# Expected: All pending jobs survive disconnection and same-printer reconnection without loss, duplication, or removal.
+appId: com.caglobal.hp.sprocket
+name: "PS_18 - Pending jobs survive printer reconnection"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-disconnect
+  - manual-reconnect
+  - queue
+  - negative
+---
+- runFlow: subflows/open_multi_print_state.yaml
+# Manually disconnect the printer while jobs remain pending.
+- extendedWaitUntil:
+    visible: "Printer Disconnected"
+    timeout: 180000
+# Reconnect the same printer, then open Print Queue.
+- extendedWaitUntil:
+    notVisible: "Printer Disconnected"
+    timeout: 180000
+- runFlow: subflows/open_print_queue.yaml
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PS_18_pending_jobs_after_reconnect

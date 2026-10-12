@@ -1,14 +1,12 @@
 # ATP Test Case ID: VD_04
 # Excel: Video frame 04 | Module: Video Frames & Selection Flow
 # Verify full E2E: multi-select, Print Preview, AI restriction, playback, edit entry.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "VD_04 - Verify full E2E flow Multi-select photosvideos previewing AI"
 tags:
   - video
   - atp-excel
 ---
-- launchApp:
-    clearState: true
 - runFlow: subflows/reach_quick_print_gallery.yaml
 - runFlow: subflows/select_mixed_photo_and_video.yaml
 - runFlow: subflows/open_print_preview.yaml

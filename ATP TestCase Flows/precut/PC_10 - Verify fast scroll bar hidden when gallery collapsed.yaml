@@ -2,7 +2,7 @@
 # Excel: Precut_10 | Module: Pre-Cut Stickers – Fast Scroll Bar
 # Verify that the fast scroll bar is hidden when the gallery sheet is collapsed.
 # Expected: Collapsed sheet; gallery content hidden; selections intact.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_10 - Verify fast scroll bar hidden when gallery collapsed"
 tags:
   - precut

@@ -1,0 +1,23 @@
+# Supplied JSON row: AI Tools 45 | Replace Background
+# Verify Newest and Oldest gallery sorting
+appId: com.caglobal.hp.sprocket
+name: "AI_45 - Replace Background Sorting - Verify Newest and Oldest gallery sorting"
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/background_open_replace_gallery.yaml
+- tapOn:
+    point: "92%,8%"
+- takeScreenshot: AI_45_newest_oldest_menu
+- tapOn:
+    point: "70%,10%"
+- assertVisible: "Please select an image to start.?"
+- takeScreenshot: AI_45_newest_order
+- tapOn:
+    point: "92%,8%"
+- tapOn:
+    point: "70%,16%"
+- assertVisible: "Please select an image to start.?"
+- takeScreenshot: AI_45_oldest_order

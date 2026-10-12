@@ -1,0 +1,24 @@
+# ATP Test Case ID: PS_04
+# Excel: Print_State_04
+# Tile segment preview sequence
+# Expected: Tile segments advance in defined order and no "Printing Tile 1 of 4" style progress text is shown.
+appId: com.caglobal.hp.sprocket
+name: "PS_04 - Tile segment preview sequence"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - tile-print
+  - timing-manual
+  - visual-check
+---
+- runFlow: ../tile-print/subflows/open_tile_print_preview.yaml
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+    timeout: 120000
+- assertNotVisible: ".*(?i)Printing Tile [0-9]+ of [0-9]+.*"
+# Physical timing checkpoint: verify tile segments advance in the configured tile order.
+- takeScreenshot: PS_04_tile_segment_print_state

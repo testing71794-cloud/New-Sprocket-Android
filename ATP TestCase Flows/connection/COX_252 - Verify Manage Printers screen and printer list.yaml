@@ -2,7 +2,7 @@
 # Excel: PS-020 | Module: Manage Printers
 # Verify Manage Printers screen and printer list
 # Expected: nter
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_252 - Verify Manage Printers screen and printer list"
 tags:
   - connection

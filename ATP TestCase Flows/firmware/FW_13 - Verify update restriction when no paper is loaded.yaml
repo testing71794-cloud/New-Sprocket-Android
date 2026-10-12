@@ -2,7 +2,7 @@
 # Excel: Firmware Update 13 | Module: Firmware Validation
 # Verify update restriction when no paper is loaded
 # Expected: Appropriate warning message is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_13 - Verify update restriction when no paper is loaded"
 tags:
   - firmware

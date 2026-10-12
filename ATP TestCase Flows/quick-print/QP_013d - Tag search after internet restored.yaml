@@ -2,7 +2,7 @@
 # After No Internet, restore network → Enter a #tag screen.
 # See: https://docs.maestro.dev/reference/commands-available/setairplanemode
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_013d - Tag search after internet restored"
 tags:
   - quick-print

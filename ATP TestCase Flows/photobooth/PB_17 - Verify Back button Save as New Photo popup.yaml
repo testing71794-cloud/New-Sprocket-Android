@@ -2,14 +2,14 @@
 # Excel: Photobooth 17 | Module: Photobooth – Result Screen
 # Verify the functionality of the Back button on the Photobooth Result screen.
 # Expected: Save as New Photo? popup with Save to Gallery, Do Not Save, Close.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_17 - Verify Back button Save as New Photo popup"
 tags:
   - photobooth
   - atp-excel
   - positive
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/ensure_photobooth_with_printer.yaml
 - assertVisible: "(?i)Photobooth.*"
 - runFlow: subflows/tap_capture.yaml
 - runFlow: subflows/wait_print_preview.yaml

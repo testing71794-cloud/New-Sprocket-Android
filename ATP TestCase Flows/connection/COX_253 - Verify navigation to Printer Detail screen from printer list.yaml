@@ -2,7 +2,7 @@
 # Excel: PS-021 | Module: Printers detail pages
 # Verify navigation to Printer Detail screen from printer list
 # Expected: 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_253 - Verify navigation to Printer Detail screen from printer list"
 tags:
   - connection

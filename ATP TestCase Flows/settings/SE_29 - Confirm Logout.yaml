@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 30 | Module: Logout
 # Confirm Logout
 # Expected: User is logged out and redirected to HM_01B_Hamburger Menu Logged Out.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_29 - Confirm Logout"
 tags:
   - settings

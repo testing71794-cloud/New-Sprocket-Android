@@ -1,0 +1,13 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- swipe:
+    direction: UP
+- swipe:
+    direction: UP
+- assertVisible: "Generate Object"
+- tapOn: "Generate Object"
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|Gallery|Photos).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Recent|Gallery|Photos).*"

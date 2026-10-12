@@ -2,7 +2,7 @@
 # Excel: PS-014 | Module: Firmware Update
 # Verify Not Right Now button functionality
 # Expected: Popup is dismissed and user remains on Printer Settings screen with Update Available banner visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_246 - Verify Not Right Now button functionality"
 tags:
   - connection

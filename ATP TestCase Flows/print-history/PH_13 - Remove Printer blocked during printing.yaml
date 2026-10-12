@@ -1,0 +1,32 @@
+# ATP Test Case ID: PH_13
+# Excel: Print_History13 | Module: Verify Prints in progress
+# Remove Printer during printing shows "Prints in progress" popup.
+# Expected body: Please wait until your current prints are finished to remove this printer.
+# Docs: https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+name: "PH_13 - Remove Printer blocked during printing"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+---
+# Manual precondition: a print job is actively printing on the connected printer.
+- launchApp:
+    clearState: false
+- runFlow: ../settings/subflows/open_hamburger_menu.yaml
+- tapOn: ".*(?i)(Manage Printer|Printer Settings|My Printers).*"
+- waitForAnimationToEnd:
+    timeout: 3000
+- scrollUntilVisible:
+    element: ".*(?i)Remove Printer.*"
+    direction: DOWN
+    timeout: 15000
+- tapOn: ".*(?i)Remove Printer.*"
+- extendedWaitUntil:
+    visible: ".*(?i)(Prints in progress|Please wait until your current prints).*"
+    timeout: 20000
+- assertVisible: ".*(?i)(Please wait until your current prints are finished|Prints in progress).*"
+- assertVisible: ".*(?i)^OK$"
+- tapOn: ".*(?i)^OK$"

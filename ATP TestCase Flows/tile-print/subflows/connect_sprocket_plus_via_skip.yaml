@@ -1,0 +1,10 @@
+# Printer tab → Skip to Connection → HP Sprocket Plus (82:57) → Tile Print.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: connect_sprocket_plus_skip_core.yaml
+- scrollUntilVisible:
+    element: ".*(?i)Tile Print.*"
+    direction: DOWN
+    timeout: 20000
+    centerElement: true

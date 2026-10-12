@@ -2,7 +2,7 @@
 # Excel: Firmware Update 20 | Module: Firmware Update
 # Verify Update Now starts firmware download
 # Expected: Firmware download starts successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_20 - Verify Update Now starts firmware download"
 tags:
   - firmware

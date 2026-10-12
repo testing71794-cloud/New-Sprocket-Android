@@ -1,0 +1,34 @@
+# Excel: AI Tools 88
+# Module: AI Tools > Enhance Photo> Apply and Cancel
+# Description: Verify handling saved and unsaved changes through Cancel.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Enhance Photo.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Wait for the enhanced photo to be displayed.
+# 5. Tap Cancel.
+# 6. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.
+# 7. Tap Stay.
+# 8. Verify that the popup closes and the user remains on the Enhance Photo result screen.
+# 9. Tap Cancel again.
+# 10. Tap Exit without Saving.
+# 11. Verify that the user is redirected to the AI Tools selection screen.
+# Type: Positive
+# Expected:
+# Cancel displays the Unsaved Changes popup.
+# Stay closes the popup and keeps the user on the same screen.
+# Exit without Saving redirects the user to the AI Tools selection screen
+appId: com.caglobal.hp.sprocket
+name: "AI_88_enhance - Enhance Photo cancel"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - enhance
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Enhance Photo" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_cancel_unsaved.yaml

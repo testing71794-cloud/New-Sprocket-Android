@@ -35,7 +35,7 @@ def main() -> int:
     )
     proc.kill()
     text = OUT.read_text(encoding="utf-8", errors="ignore") if OUT.exists() else ""
-    print(f"size={len(text)} sprocket={'com.hp.impulse.sprocket' in text}")
+    print(f"size={len(text)} sprocket={'com.caglobal.hp.sprocket' in text}")
     duration_rx = re.compile(r'text="([^"]*:\d{2}[^"]*)"|content-desc="([^"]*:\d{2}[^"]*)"')
     for m in duration_rx.finditer(text):
         print("DURATION", m.group(1) or m.group(2))

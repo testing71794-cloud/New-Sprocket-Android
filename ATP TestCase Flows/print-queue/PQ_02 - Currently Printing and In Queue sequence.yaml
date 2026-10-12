@@ -1,0 +1,20 @@
+# ATP Test Case ID: PQ_02
+# Excel: Print_Queue02
+# Verify active/pending sections, count, and photo selection order.
+appId: com.caglobal.hp.sprocket
+name: "PQ_02 - Currently Printing and In Queue sequence"
+tags: [print-queue, atp-excel, positive, physical-printer, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)Currently Printing.*"
+    timeout: 120000
+- assertVisible: ".*(?i)In Queue.*"
+- assertVisible: ".*(?i)Pause Queue.*"
+- takeScreenshot: PQ_02_initial_selection_order
+# Physical output and thumbnail identity/order require comparison with selection order.
+- extendedWaitUntil:
+    visible: ".*(?i)Currently Printing.*"
+    timeout: 420000
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_02_after_next_print_starts

@@ -1,0 +1,11 @@
+# Open one Quick Print photo, ensure a physical printer is connected, and submit it.
+# See: https://docs.maestro.dev/reference/commands-available/runflow
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../printing/subflows/open_preview_one_photo.yaml
+- runFlow: ../../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete|Done|Paper Feed Error|Out Of Paper).*"
+    timeout: 120000
+- runFlow: ../../print-queue/subflows/dismiss_printer_error_popup.yaml

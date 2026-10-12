@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Four photos → reorder editor ready.
 - runFlow: select_four_photos_fast.yaml

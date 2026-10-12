@@ -1,0 +1,9 @@
+appId: com.caglobal.hp.sprocket
+---
+- tapOn:
+    point: "34%,31%"
+- tapOn:
+    point: "50%,31%"
+- tapOn:
+    point: "66%,31%"
+- takeScreenshot: tile_print_3x3_six_selected

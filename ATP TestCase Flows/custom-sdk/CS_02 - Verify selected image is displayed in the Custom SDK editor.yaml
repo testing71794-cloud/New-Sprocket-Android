@@ -2,7 +2,7 @@
 # Excel: Custom SDK  02 | Module: Gallery - Image Display
 # Verify selected image is displayed in the Custom SDK editor.
 # Expected: Selected image is displayed correctly without distortion.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_02 - Verify selected image is displayed in the Custom SDK editor"
 tags:
   - custom-sdk

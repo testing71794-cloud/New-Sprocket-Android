@@ -1,28 +1,20 @@
-# Print Preview → if disconnected: Add Printer → Skip to Connection →
-# HP Sprocket 200 (DC:A8) → Print → Printing → Print Complete.
-# When connected, green CTA is labeled Print.
-# See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+# After printer connection is ready (CTA = Print), tap Print and wait for Print Complete.
+# See: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+# See: https://docs.maestro.dev/api-reference/commands/tapon
+appId: com.caglobal.hp.sprocket
 ---
-# Disconnected: green CTA is "Add Printer" (opens connection / Skip to Connection).
-- runFlow:
-    when:
-      visible: ".*(?i)^Add Printer$"
-    commands:
-      - tapOn: ".*(?i)^Add Printer$"
-      - waitForAnimationToEnd:
-          timeout: 3000
-      - runFlow: connect_sprocket_200_via_skip_to_connection.yaml
-# Connected (or after connect): tap Print
-- runFlow:
-    when:
-      visible: ".*(?i)^Print$"
-      notVisible: ".*(?i)(Printing|Print Complete).*"
-    commands:
-      - tapOn: ".*(?i)^Print$"
-      - waitForAnimationToEnd:
-          timeout: 3000
+# Resolve Reconnect / Add Printer → Sense 5D:6C until Print CTA is ready
+- runFlow: resolve_print_preview_printer_cta.yaml
+# Connection established successfully → try to print
+- extendedWaitUntil:
+    visible: ".*(?i)^Print$"
+    timeout: 60000
+- assertVisible: ".*(?i)^Print$"
+- tapOn: ".*(?i)^Print$"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - runFlow:
     when:
       visible: "Allow"
@@ -30,36 +22,13 @@ appId: com.hp.impulse.sprocket
       - tapOn: "Allow"
       - waitForAnimationToEnd:
           timeout: 2000
-# Print may open connection UI again
-- runFlow:
-    when:
-      visible: ".*(?i)(Skip to Connection|Add a new Printer|Searching for Printers|Select Your Device).*"
-    commands:
-      - runFlow: connect_sprocket_200_via_skip_to_connection.yaml
-      - tapOn:
-          text: ".*(?i)^Print$"
-          optional: true
-      - waitForAnimationToEnd:
-          timeout: 2000
+# If still on Print Preview with Print, tap again
 - runFlow:
     when:
       visible: ".*(?i)^Print$"
-      notVisible: ".*(?i)(Printing|Print Complete).*"
+      notVisible: ".*(?i)(Printing|Print Complete|Sending).*"
     commands:
       - tapOn: ".*(?i)^Print$"
-      - waitForAnimationToEnd:
-          timeout: 2000
-- runFlow:
-    when:
-      visible: ".*(?i)(1 Copy|Copies).*"
-      notVisible: ".*(?i)(Printing|Print Complete|Add Printer).*"
-    commands:
-      - tapOn:
-          text: ".*(?i)1 Copy.*"
-          optional: true
-      - tapOn:
-          text: ".*(?i)^Print$"
-          optional: true
       - waitForAnimationToEnd:
           timeout: 2000
 - runFlow:

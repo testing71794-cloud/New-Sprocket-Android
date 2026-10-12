@@ -1,7 +1,7 @@
 # Select Sprocket 3x4 on "Select Your Device".
 # Chip strip layout shifts with center device: tap left (23%), center (48%), or right (79%) slot, then hero swipe if needed.
 # When selected, center title shows "HP Sprocket 3x4" and 3x4 chip sits at ~48%,74% (see COX_010 / Maestro debug hierarchies).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Select Your Device.*"
@@ -38,11 +38,6 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn:
           text: "3x4"
-          retryTapIfNoChange: true
-      - waitForAnimationToEnd:
-          timeout: 2500
-      - tapOn:
-          point: "48%,74%"
           retryTapIfNoChange: true
       - waitForAnimationToEnd:
           timeout: 2500
@@ -108,6 +103,21 @@ appId: com.hp.impulse.sprocket
                       retryTapIfNoChange: true
                   - waitForAnimationToEnd:
                       timeout: 2500
+# On this Motorola hierarchy the model chips are non-clickable carousel items.
+# Move the partially visible 3x4 chip from the far left into the center.
+- repeat:
+    times: 3
+    commands:
+      - runFlow:
+          when:
+            notVisible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
+          commands:
+            - swipe:
+                start: "25%,74%"
+                end: "75%,74%"
+                duration: 600
+            - waitForAnimationToEnd:
+                timeout: 1800
 - extendedWaitUntil:
     visible: ".*(?i)(Sprocket 3x4|HP Sprocket 3x4).*"
     timeout: 15000

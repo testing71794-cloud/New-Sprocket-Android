@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Return to the Create hub without relaunching. Used between nested checkpoints.
 # Single ordered pass from the deepest screen outward. A polling loop here issues

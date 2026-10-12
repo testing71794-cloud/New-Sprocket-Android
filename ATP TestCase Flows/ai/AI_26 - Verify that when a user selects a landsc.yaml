@@ -1,0 +1,65 @@
+# ATP Test Case ID: AI_26
+# Excel: AI Tools 26
+# Module: AI- Image-to-Image – Verify Landscape Image Orientation on Image-to-Image Screen and Print Preview
+# Description:
+# Verify that when a user selects a landscape image from the gallery, the image is displayed with the expected orientation in the Base Image section and is rotated 90 degrees clockwise when imported into Print Preview.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any landscape photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Verify the selected landscape image is displayed under the Base Image section.
+# Tap Generate Images or proceed to the next available step that imports the image into Print Preview.
+# Tap on 'Generate image' button
+# Tap on Next button
+# Navigate to the Print Preview screen.
+# Verify the orientation of the imported image.
+# Expected:
+# The selected landscape image is successfully displayed in the Base Image section.
+# The image imports successfully into Print Preview.
+# The imported landscape image is rotated 90 degrees clockwise in Print Preview as per the requirement.
+# No distortion, cropping, or image quality issues are observed after rotation.
+appId: com.caglobal.hp.sprocket
+name: "AI_26 - Verify that when a user selects a landscape image from the gallery, the image is displayed with the expected orientation in the Base Image section and is rotated 90 degrees clockwise when imported into Print Preview."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_picker.yaml
+- tapOn:
+    point: "18%,25%"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: "Use This Image"
+    commands:
+      - tapOn: "Use This Image"
+- extendedWaitUntil:
+    visible: "Base Image"
+    timeout: 60000
+- takeScreenshot: AI_26_landscape_base_image
+- tapOn: "Modern Art"
+- tapOn:
+    point: "50%,94%"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: ../printing/subflows/assert_print_preview_ui.yaml
+- takeScreenshot: AI_26_rotated_landscape_preview

@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios   19 | Module: Voltage
 # Verify "Low Voltage" popup
 # Expected: "Low Voltage" popup is displayed . The popup displays the bold title "Low Voltage", followed by the message "Low Electric Quantity. Try printing again after resolving the issue." The popup includes an "OK" button at the bottom and a Close (
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_40 - Verify Low Voltage popup"
 tags:
   - alerts

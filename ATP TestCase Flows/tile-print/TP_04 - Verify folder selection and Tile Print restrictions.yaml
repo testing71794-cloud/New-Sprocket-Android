@@ -1,0 +1,40 @@
+# Source: Tiles modules 04 | Gallery (Tile Print) | Negative
+appId: com.caglobal.hp.sprocket
+name: "TP_04 - Verify folder selection and Tile Print restrictions"
+tags:
+  - tile-print
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/assert_gallery_ui.yaml
+- tapOn: "Recent"
+- assertVisible: ".*(?i)Select Gallery.*"
+- tapOn:
+    text: ".*(?i)(Camera|Pictures|Screenshots|Downloads?|DCIM|Images|WhatsApp|Instagram).*"
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)Select Gallery.*"
+    commands:
+      - tapOn:
+          point: "50%,40%"
+- assertNotVisible: ".*(?i)Select Gallery.*"
+- tapOn:
+    point: "7%,10%"
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Tile Print|Quick Print|Collage Maker).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+- scrollUntilVisible:
+    element: ".*(?i)Tile Print.*"
+    direction: DOWN
+    timeout: 20000
+    centerElement: true
+- runFlow: subflows/tap_tile_print_open_gallery.yaml
+- assertVisible: "Recent"
+- runFlow: subflows/trigger_and_close_multiselect_toast.yaml
+- runFlow: subflows/assert_gallery_ui.yaml

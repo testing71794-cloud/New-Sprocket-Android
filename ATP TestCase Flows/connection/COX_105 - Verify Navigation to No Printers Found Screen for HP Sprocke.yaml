@@ -2,7 +2,7 @@
 # Excel: PCF_Sprocket_015 | Module: Pre Connection Flow for HP Sprocket
 # Verify Navigation to 'No Printers Found' Screen for HP Sprocket printer
 # Expected: The 'No Printers Found' screen should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_105 - Verify Navigation to No Printers Found Screen for HP Sprocke"
 tags:
   - connection

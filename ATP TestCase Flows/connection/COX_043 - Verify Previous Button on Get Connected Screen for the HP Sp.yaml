@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_006 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify 'Previous' Button on 'Get Connected' Screen for the HP Sprocket 3x4 printer.
 # Expected: 1. User should be redirected to the 'Load Paper' screen. 2. Step 2 should be highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_043 - Verify Previous Button on Get Connected Screen for the HP Sp"
 tags:
   - connection

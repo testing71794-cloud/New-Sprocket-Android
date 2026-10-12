@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 001 | Module: iOS_08_Memory Error
 # Verify Memory Error popup during printing
 # Expected: Title: Memory Error.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_22 - Verify Memory Error popup during printing"
 tags:
   - alerts

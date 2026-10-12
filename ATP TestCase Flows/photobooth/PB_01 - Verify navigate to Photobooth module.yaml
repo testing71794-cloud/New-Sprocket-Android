@@ -2,7 +2,7 @@
 # Excel: Photobooth 01 | Module: Photobooth
 # Verify that the user can navigate to the Photobooth module.
 # Expected: Should redirect to the Photobooth module.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_01 - Verify navigate to Photobooth module"
 tags:
   - photobooth

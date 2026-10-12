@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  12 | Module: Navigation
 # Verify Legal & Privacy Access
 # Expected: User navigates to Legal & Privacy screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_12 - Verify Legal Privacy Access"
 tags:
   - settings

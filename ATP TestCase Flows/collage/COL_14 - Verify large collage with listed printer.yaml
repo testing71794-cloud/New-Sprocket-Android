@@ -1,0 +1,14 @@
+# ATP Test Case ID: COL_14
+# Excel: Collage_14 | Module: Collage maker- Large Collage Availability for Compatible Printers
+# Verify that users with a supported printer added and selected can select up to 8 photos for a large collage.
+appId: com.caglobal.hp.sprocket
+name: "COL_14 - Verify large collage with listed printer"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- runFlow: subflows/select_eight_photos_fast.yaml
+- runFlow: subflows/swipe_slot_carousel.yaml
+- assertVisible: "8"

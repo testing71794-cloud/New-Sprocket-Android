@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Dialog when Pre-Cut is used with a non-2x3 printer.
 # Use title "Incompatible Printer" — the Got It info popup also mentions "exclusively with the Sprocket".

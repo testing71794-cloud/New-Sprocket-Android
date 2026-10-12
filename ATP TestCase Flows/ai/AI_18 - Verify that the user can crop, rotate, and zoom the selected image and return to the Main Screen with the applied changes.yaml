@@ -1,0 +1,57 @@
+# ATP Test Case ID: AI_18
+# Excel: AI Tools 18
+# Module: AI- Image-to-Image – Verify Crop Photo Functionality
+# Description:
+# Verify that the user can crop, rotate, and zoom the selected image and return to the Main Screen with the applied changes.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Tap Crop Photo.
+# Rotate the image.
+# Zoom the image.
+# Adjust the crop area.
+# Tap Confirm Crop.
+# Expected:
+# Crop screen is displayed.
+# User can rotate, zoom, and crop the image.
+# User is returned to the Image-to-Image Main Screen after tapping Confirm Crop.
+# Updated image thumbnail reflects the applied changes.
+appId: com.caglobal.hp.sprocket
+name: "AI_18 - Verify that the user can crop, rotate, and zoom the selected image and return to the Main Screen with the applied changes."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- tapOn: "Crop Photo"
+- extendedWaitUntil:
+    visible: ".*(?i)(Crop|Confirm Crop).*"
+    timeout: 15000
+- assertVisible: ".*(?i)(Crop|Confirm Crop).*"
+- tapOn: ".*(?i)Rotate.*"
+- doubleTapOn:
+    point: "50%,45%"
+- swipe:
+    start: "50%,50%"
+    end: "58%,45%"
+    duration: 700
+- takeScreenshot: AI_18_crop_screen_after_gestures
+- tapOn: "Confirm Crop"
+- extendedWaitUntil:
+    visible: "Base Image"
+    timeout: 15000
+- assertVisible: "Crop Photo"
+- takeScreenshot: AI_18_cropped_base_image

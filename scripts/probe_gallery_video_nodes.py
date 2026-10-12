@@ -12,7 +12,7 @@ sys.path.insert(0, str(REPO / "ATP Verification Suite" / "lib"))
 from hierarchy import Hierarchy  # noqa: E402
 
 SERIAL = sys.argv[1] if len(sys.argv) > 1 else "ZA222RFQ75"
-APP = "com.hp.impulse.sprocket"
+APP = "com.caglobal.hp.sprocket"
 ADB = (
     Path.home() / "AppData/Local/Android/Sdk/platform-tools/adb.exe"
 ).as_posix()

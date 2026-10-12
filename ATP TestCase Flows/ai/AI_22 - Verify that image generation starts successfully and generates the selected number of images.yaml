@@ -1,0 +1,48 @@
+# ATP Test Case ID: AI_22
+# Excel: AI Tools 22
+# Module: AI- Image-to-Image – Verify Image Generation Using Selected Quantity
+# Description:
+# Verify that image generation starts successfully and generates the selected number of images.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with "sprocket" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select an Image Style.
+# Select quantity 4.
+# Tap Generate Images.
+# Expected:
+# Image generation process starts successfully.
+# Four images are generated and displayed.
+appId: com.caglobal.hp.sprocket
+name: "AI_22 - Verify that image generation starts successfully and generates the selected number of images."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_main.yaml
+- tapOn: "Modern Art"
+- tapOn:
+    text: "^4$"
+- tapOn:
+    point: "50%,94%"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000
+- assertVisible: "Next"
+- takeScreenshot: AI_22_four_generated_images

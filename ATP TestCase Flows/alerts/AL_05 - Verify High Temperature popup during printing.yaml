@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   05 | Module: High Temperature
 # Verify "High Temperature" popup during printing
 # Expected: "High Temperature" popup is displayed on the Print Preview screen. The popup displays the bold title "High Temperature", followed by the message "Printer overheated! Please wait a few minutes for the printer to cool down." Below the message
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_05 - Verify High Temperature popup during printing"
 tags:
   - alerts

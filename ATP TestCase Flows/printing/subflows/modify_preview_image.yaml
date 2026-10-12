@@ -1,0 +1,8 @@
+# Double-tap Fit/Fill deterministically marks the preview image as changed.
+# See: https://docs.maestro.dev/reference/commands-available/doubletapon
+appId: com.caglobal.hp.sprocket
+---
+- doubleTapOn:
+    point: "50%,43%"
+- waitForAnimationToEnd:
+    timeout: 1000

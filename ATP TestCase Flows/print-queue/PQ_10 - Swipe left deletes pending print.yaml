@@ -1,0 +1,19 @@
+# ATP Test Case ID: PQ_10
+# Excel: Print_Queue10
+# Verify right-to-left swipe reveals Delete and removes only that pending print.
+appId: com.caglobal.hp.sprocket
+name: "PQ_10 - Swipe left deletes pending print"
+tags: [print-queue, atp-excel, positive, physical-printer, gesture, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- swipe:
+    start: "88%,70%"
+    end: "35%,70%"
+    duration: 700
+- assertVisible: "Delete"
+- tapOn: "Delete"
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_10_queue_after_swipe_delete
+- pressKey: BACK
+- assertVisible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+- takeScreenshot: PQ_10_print_state_after_delete

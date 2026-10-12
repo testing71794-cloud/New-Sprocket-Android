@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 15 | Module: Initialization
 # Verify Log In & Navigate to Account Settings
 # Expected: User is redirected to HM_02A - Account Settings screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_15 - Verify Log In Navigate to Account Settings"
 tags:
   - settings

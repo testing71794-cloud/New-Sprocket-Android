@@ -2,7 +2,7 @@
 # Excel: PS-010 | Module: Printer Settings
 # Printer Settings
 # Expected: Serial Number field is displayed with a valid serial number value.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_242 - Printer Settings"
 tags:
   - connection

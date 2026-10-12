@@ -1,0 +1,27 @@
+# ATP Test Case ID: COL_12n
+# Excel: Collage_12 (n) | Module: Collage maker- border adjustment
+# Verify that the Edit button on the left tile moves with the tile when the border is adjusted.
+appId: com.caglobal.hp.sprocket
+name: "COL_12n - Verify Edit button follows tile"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- tapOn:
+    point: "15%,78%"
+- waitForAnimationToEnd:
+    timeout: 400
+- swipe:
+    start: "50%,40%"
+    end: "65%,40%"
+    duration: 800
+- waitForAnimationToEnd:
+    timeout: 600
+- runFlow: subflows/tap_edit_after_divider.yaml
+- tapOn: "Done"
+- waitForAnimationToEnd:
+    timeout: 800
+- assertVisible: "Drag & Drop to Reorder"

@@ -1,0 +1,16 @@
+# Supplied JSON row: AI Tools 71 | Replace Background
+# Verify generated photo prints
+appId: com.caglobal.hp.sprocket
+name: "AI_71 - Replace Background Printing - Verify generated photo prints"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - printer-manual
+  - visual-manual
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- assertVisible: ".*(?i)^Print$"
+- runFlow: ../quick-print/subflows/tap_print_and_assert_complete.yaml
+- assertVisible: ".*(?i)(Print Complete|Done).*"

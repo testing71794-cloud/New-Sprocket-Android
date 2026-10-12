@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Excel: Drag gallery sheet upward from the drag handle (top of half-page sheet).
 - swipe:

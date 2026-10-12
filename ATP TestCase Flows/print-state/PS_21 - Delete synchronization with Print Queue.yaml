@@ -1,0 +1,23 @@
+# ATP Test Case ID: PS_21
+# Excel: Print_State_21
+# Delete synchronization with Print Queue
+# Expected: Deleted pending photos disappear immediately from Print State; remaining items and counts match queue order.
+appId: com.caglobal.hp.sprocket
+name: "PS_21 - Delete synchronization with Print Queue"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - queue
+  - multi-photo
+  - visual-check
+---
+- runFlow: subflows/open_multi_print_state.yaml
+- runFlow: subflows/open_print_queue.yaml
+# Select a pending row overflow menu (below Currently Printing), then delete it.
+- tapOn:
+    point: "92%,58%"
+- tapOn: "Delete"
+- pressKey: BACK
+- takeScreenshot: PS_21_print_state_after_queue_delete

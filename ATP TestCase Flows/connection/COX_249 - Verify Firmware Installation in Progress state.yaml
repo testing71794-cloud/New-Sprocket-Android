@@ -2,7 +2,7 @@
 # Excel: PS-017 | Module: Firmware Update
 # Verify Firmware Installation in Progress state
 # Expected: Firmware Installation in Progress message and instructions are displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_249 - Verify Firmware Installation in Progress state"
 tags:
   - connection

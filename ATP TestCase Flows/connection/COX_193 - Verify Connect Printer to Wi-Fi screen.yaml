@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC031 | Module: Wi-Fi
 # Verify Connect Printer to Wi-Fi screen
 # Expected: Screen displays SSID, Change, password field and Next.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_193 - Verify Connect Printer to Wi-Fi screen"
 tags:
   - connection

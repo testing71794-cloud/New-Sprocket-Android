@@ -1,0 +1,17 @@
+# Source: Tiles modules 06 | Select Mode Blocked Toast Message (Tile Print) | Negative
+# The A suffix keeps this source ID distinct from the second "Tiles modules 06".
+appId: com.caglobal.hp.sprocket
+name: "TP_06A - Verify multi-select restriction and error handling"
+tags:
+  - tile-print
+  - atp-excel
+  - negative
+---
+- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/assert_gallery_ui.yaml
+- longPressOn:
+    point: "19%,24%"
+- assertVisible: "Multi-select is not available in Tile Print."
+- assertVisible: "Recent"
+- runFlow: subflows/assert_bottom_navigation.yaml
+- takeScreenshot: tile_print_multiselect_stays_blocked

@@ -1,0 +1,17 @@
+# ATP Test Case ID: COL_12e_fitfill
+# Excel: Collage_12 (e) | Module: Collage maker- Double Tap to Toggle Fit/Fill
+# Verify that double-tapping a photo in a grid slot toggles between Fit and Fill modes.
+appId: com.caglobal.hp.sprocket
+name: "COL_12e_fitfill - Verify double tap Fit Fill"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- doubleTapOn:
+    point: "30%,40%"
+- doubleTapOn:
+    point: "30%,40%"
+- assertVisible: "Drag & Drop to Reorder"

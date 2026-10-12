@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Reset Camera to OS prompt state (retry / re-ask scenarios).
 - setPermissions:

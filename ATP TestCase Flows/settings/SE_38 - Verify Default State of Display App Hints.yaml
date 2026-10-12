@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 43 | Module: Display
 # Verify Default State of Display App Hints
 # Expected: Display App Hints toggle is enabled (ON/green) by default.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_38 - Verify Default State of Display App Hints"
 tags:
   - settings

@@ -1,0 +1,8 @@
+appId: com.caglobal.hp.sprocket
+---
+- extendedWaitUntil:
+    visible: "Unsaved Changes"
+    timeout: 10000
+- assertVisible: "Unsaved Changes"
+- assertVisible: "Stay"
+- assertVisible: ".*(?i)Exit [Ww]ithout [Ss]aving"

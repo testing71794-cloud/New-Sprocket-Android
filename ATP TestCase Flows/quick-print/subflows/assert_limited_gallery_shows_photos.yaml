@@ -4,7 +4,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/assertnotvisible
 # See: https://docs.maestro.dev/reference/commands-available/longpresson
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)(Recent|Folder name|Create).*"

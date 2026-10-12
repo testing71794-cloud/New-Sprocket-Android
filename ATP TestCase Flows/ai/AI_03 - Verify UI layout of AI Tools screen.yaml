@@ -1,14 +1,41 @@
 # ATP Test Case ID: AI_03
 # Excel: AI Tools 03 | Module: AI Tools
 # Verify UI layout of AI Tools screen
-# Expected: Displays: Back button, title, Text-to-Image tool, Image-to-Image tool, and Background Tools (Remove/Replace).
-appId: com.hp.impulse.sprocket
+# Expected: Complete AI Tools layout, sections, cards, and persistent bottom navigation.
+appId: com.caglobal.hp.sprocket
 name: "AI_03 - Verify UI layout of AI Tools screen"
 tags:
   - ai
-  - atp-excel
+  - atp-supplied
 ---
 - runFlow: subflows/reach_module_screen.yaml
-- assertVisible:
-    text: ".*(?i)(Create|Collage Maker|Quick Print|Printer|Settings|Recent|Welcome|Sign up).*"
-    optional: true
+- assertVisible: "Create with AI Tools"
+- assertVisible: ".*Text-to-Image.*AI generated images from text prompts.*"
+- assertVisible: ".*Image-to-Image.*Change photos into different styles with AI.*"
+- assertVisible: "Background Tools"
+- assertVisible: "Remove Background"
+- assertVisible: "Replace Background"
+- assertVisible: "More.*Tab 1 of 3"
+- assertVisible: "Create.*Tab 2 of 3"
+- assertVisible: "Printer.*Tab 3 of 3"
+- takeScreenshot: "AI_03_top_layout"
+- swipe:
+    start: "50%,80%"
+    end: "50%,30%"
+    duration: 500
+- assertVisible: "Object Tools"
+- assertVisible: "Remove Object"
+- assertVisible: "Replace Object"
+- assertVisible: "Grab Object"
+- assertVisible: "Photo Enhancements"
+- assertVisible: "Restore Photo"
+- assertVisible: "Enhance Photo"
+- assertVisible: "Fix Lighting"
+- assertVisible: "Upscale Photo"
+- assertVisible: "Generate"
+- assertVisible: "Extend Image"
+- assertVisible: "Generate Object"
+- assertVisible: "More.*Tab 1 of 3"
+- assertVisible: "Create.*Tab 2 of 3"
+- assertVisible: "Printer.*Tab 3 of 3"
+- takeScreenshot: "AI_03_lower_layout"

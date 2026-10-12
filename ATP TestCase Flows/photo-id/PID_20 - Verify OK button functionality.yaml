@@ -2,7 +2,7 @@
 # Excel: Photo ID 20 | Module: Photo ID Pop-up
 # Verify OK button functionality
 # Expected: Popup closes and Photo ID camera screen becomes active.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_20 - Verify OK button functionality"
 tags:
   - photo-id

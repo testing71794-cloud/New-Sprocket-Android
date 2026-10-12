@@ -1,0 +1,19 @@
+# ATP Test Case ID: COL_12h
+# Excel: Collage_12 (h) | Module: Collage maker- Reset Photo Properties When Layout Is Changed
+# Verify that changing the collage layout resets Fit/Fill, zoom, and rotation.
+appId: com.caglobal.hp.sprocket
+name: "COL_12h - Verify reset properties on layout change"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- doubleTapOn:
+    point: "30%,40%"
+- swipe:
+    start: "28%,38%"
+    end: "45%,52%"
+    duration: 400
+- runFlow: subflows/tap_second_layout.yaml

@@ -1,5 +1,5 @@
 # ATP Stage Flow: QuickPrint
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "Stage - QuickPrint"
 tags:
   - atp-verification

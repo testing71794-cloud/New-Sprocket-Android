@@ -1,5 +1,5 @@
 # Visit Support Website (screen 2) — sprocketprinters.com homepage.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)(sprocketprinters|Instant Prints|Endless Fun|BUY NOW|LEARN MORE|photobooth).*"

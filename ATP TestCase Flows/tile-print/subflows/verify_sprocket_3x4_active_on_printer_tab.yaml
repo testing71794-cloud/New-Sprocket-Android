@@ -1,8 +1,8 @@
 # Confirm Sprocket 3x4 is listed and connected (not Tap to Connect / No Printers Added).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
-    point: "83%,96%"
+    point: "83%,90%"
 - waitForAnimationToEnd:
     timeout: 4000
 - runFlow:

@@ -50,7 +50,7 @@ TOAST_NEEDLES = (
 )
 PORT = int(os.environ.get("QP005_OCR_PORT", "8765"))
 LOG = REPO / "logs" / "qp_helper.log"
-SPROCKET_PKG = "com.hp.impulse.sprocket"
+SPROCKET_PKG = "com.caglobal.hp.sprocket"
 _TOAST_JOB: dict = {"thread": None, "payload": None}
 _TOAST_LOCK = threading.Lock()
 _QP_LATTICE_I: dict[str, int] = {}
@@ -297,7 +297,7 @@ def revoke_photos(serial: str) -> dict:
         "android.permission.WRITE_EXTERNAL_STORAGE",
     ]
     for perm in perms:
-        adb(serial, "shell", "pm", "revoke", "com.hp.impulse.sprocket", perm, timeout=15)
+        adb(serial, "shell", "pm", "revoke", "com.caglobal.hp.sprocket", perm, timeout=15)
     log(f"revoked photos on {serial}")
     return {"ok": True}
 

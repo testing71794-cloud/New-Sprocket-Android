@@ -2,7 +2,7 @@
 # Excel: Photobooth 15 | Module: Flash Logic
 # Verify default flash status
 # Expected: Camera flash setting is disabled (OFF) by default and the Flash OFF icon is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_15 - Verify default flash status"
 tags:
   - photobooth

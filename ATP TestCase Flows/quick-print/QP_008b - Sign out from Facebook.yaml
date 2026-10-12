@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_08 (b) | Facebook Sign Out
 # Sign Out → back on Select Gallery.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_008b - Sign out from Facebook"
 tags:
   - quick-print

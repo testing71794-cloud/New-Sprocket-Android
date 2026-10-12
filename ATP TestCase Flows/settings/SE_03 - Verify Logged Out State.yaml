@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  03 | Module: Logic
 # Verify Logged Out State
 # Expected: Account Settings option is hidden when user is logged out.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_03 - Verify Logged Out State"
 tags:
   - settings

@@ -1,0 +1,30 @@
+# ATP Test Case ID: PR_15
+# Excel: Print Preview_15
+# Print Preview image gestures and Fit Fill
+# Expected: The preview remains stable after reposition and double-tap Fit/Fill gestures.
+appId: com.caglobal.hp.sprocket
+name: "PR_15 - Print Preview image gestures and Fit Fill"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+  - gesture
+  - multitouch-manual
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- assertVisible: ".*(?i)Double tap image to toggle between Fit/Fill.*"
+- runFlow: subflows/modify_preview_image.yaml
+# Maestro has no native multi-touch pinch or two-finger rotation command.
+- swipe:
+    start: "45%,43%"
+    end: "65%,43%"
+    duration: 700
+- swipe:
+    start: "65%,43%"
+    end: "45%,43%"
+    duration: 700
+- doubleTapOn:
+    point: "50%,43%"
+- runFlow: subflows/assert_print_preview_ui.yaml
+- takeScreenshot: PR_15_after_supported_gestures

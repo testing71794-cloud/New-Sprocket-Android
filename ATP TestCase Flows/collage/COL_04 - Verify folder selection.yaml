@@ -1,0 +1,50 @@
+# ATP Test Case ID: COL_04
+# Excel: Collage_04 | Module: Collage Maker- Folder Selection
+# Verify that selecting a different folder displays photos from the selected folder.
+# Unique expected: picker closes, selection screen remains, gallery refreshes.
+# Folder chip text varies by device album (Camera, Pictures, Movies, WhatsApp, …).
+appId: com.caglobal.hp.sprocket
+name: "COL_04 - Verify folder selection"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/open_recent_folder_picker.yaml
+- swipe:
+    start: "50%,70%"
+    end: "50%,40%"
+    duration: 400
+- waitForAnimationToEnd:
+    timeout: 800
+# Prefer a named local album. Many Pixel devices have no exact "Downloads" row.
+- runFlow:
+    when:
+      visible: ".*(?i)Select Gallery.*"
+    commands:
+      - tapOn:
+          text: ".*(?i)(Camera|Pictures|Movies|Screenshots|Downloads?|DCIM|Images|WhatsApp|Instagram).*"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)Select Gallery.*"
+    commands:
+      - tapOn:
+          point: "50%,40%"
+      - waitForAnimationToEnd:
+          timeout: 800
+- runFlow:
+    when:
+      visible: ".*(?i)Select Gallery.*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 800
+- extendedWaitUntil:
+    visible: "Select 2 to 4 photos"
+    timeout: 12000
+- assertNotVisible: ".*(?i)Select Gallery.*"
+- assertVisible: "Next"

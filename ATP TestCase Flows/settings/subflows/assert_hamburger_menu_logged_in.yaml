@@ -1,5 +1,5 @@
 # Logged-in Hamburger menu — user name, Account Settings, Support items.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - assertVisible:
     text: ".*(?i)Nitesh.*"

@@ -2,7 +2,7 @@
 # Excel: PCF_Sprocket Plus_005 | Module: Pre Connection Flow for Sprocket Plus
 # Verify 'Get Connected' Screen UI for the HP Sprocket Plus printer.
 # Expected: 1. The Get Connected screen should be displayed. 2. Printer/mobile connection illustration should be displayed. 3. The title "Get Connected" should be displayed. 4. The following description should be displayed: Make sure your Bluetooth® is
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_115 - Verify Get Connected Screen UI for the HP Sprocket Plus prin"
 tags:
   - connection

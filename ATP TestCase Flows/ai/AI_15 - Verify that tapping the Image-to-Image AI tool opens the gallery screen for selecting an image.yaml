@@ -1,0 +1,31 @@
+# ATP Test Case ID: AI_15
+# Excel: AI Tools 15
+# Module: AI- Image-to-Image – Open Gallery
+# Description:
+# Verify that tapping the Image-to-Image AI tool opens the gallery screen for selecting an image.
+# Steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Navigate to the AI tools.
+# 10. Tap Image-to-Image.
+# Expected:
+# The Gallery screen opens after tapping Image-to-Image.
+# The gallery displays available images grouped by date.
+# The top bar displays a Back button, Folder Name dropdown, and Sort option.
+# A message at the bottom prompts the user to “Please select an image to generate with.”
+# The user can select an image from the gallery to continue with the Image-to-Image tool.
+appId: com.caglobal.hp.sprocket
+name: "AI_15 - Verify that tapping the Image-to-Image AI tool opens the gallery screen for selecting an image."
+tags:
+  - ai
+  - atp-supplied
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_open_picker.yaml
+- takeScreenshot: AI_15_gallery_top_bar_and_date_groups

@@ -1,0 +1,65 @@
+# ATP Test Case ID: AI_83_replace_object
+# Supplied Excel ID:
+# AI Tools 83
+# Supplied module:
+# AI Tools >Replace Object – Object Replacement
+# Supplied description:
+# Verify that the object or multiple selected areas are replaced according to the replacement description provided by the user.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Replace Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Tap or paint over a specific object in the image, such as a bulb (for example in image has bulb)
+# 4. Verify that the selected area is highlighted with the 50% opacity #B654F5 selection overlay.
+# 5. Tap the description text box.
+# 6. For example- Enter “Replace bulb with phone” in the description field.
+# 7. Tap Generate.
+# 8. Wait for the Generating Loader to complete.
+# 9. Verify that the generated result is displayed.
+# 10. Verify that the selected bulb area has been replaced with a phone according to the entered description.
+# 11. Repeat the flow by selecting multiple portions of an image that need to be replaced.
+# 12. Enter a description specifying the desired replacement for the selected portions.
+# 13. Tap Generate.
+# 14. Verify that the generated result replaces the selected portions according to the entered description while keeping the unselected areas of the original image unchanged.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# The selected object/area is used as the target area for replacement.
+# The generated result replaces the selected object according to the description provided by the user.
+# For multiple selected portions, the replacement is applied to the selected areas.
+# Areas that were not selected for replacement remain unchanged as part of the original image.
+# The generated result is displayed successfully after processing.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_83_replace_object - Verify that the object or multiple selected areas are replaced according to the replacement description provided by the user."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_replace.yaml
+- takeScreenshot: AI_83_replace_object_single_selection
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace bulb with phone"
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- takeScreenshot: AI_83_replace_object_single_result
+- pressKey: back
+- runFlow: subflows/object_open_replace.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_replace.yaml
+- swipe:
+    start: "30%,55%"
+    end: "40%,60%"
+    duration: 500
+- runFlow:
+    file: subflows/object_enter_description.yaml
+    env:
+      OBJECT_PROMPT: "Replace selected portions with phones"
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- takeScreenshot: AI_83_replace_object_multiple_result

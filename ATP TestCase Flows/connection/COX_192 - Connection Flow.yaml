@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC030 | Module: Connection Flow
 # Connection Flow
 # Expected: 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_192 - Connection Flow"
 tags:
   - connection

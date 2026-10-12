@@ -1,6 +1,6 @@
 # ATP Test Case ID: PM_06
 # PERM_020/022: Allow Camera + Photos; deny Notification + Nearby — core features still work.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PM_06 - Mixed permissions allow deny"
 ---
 - launchApp:

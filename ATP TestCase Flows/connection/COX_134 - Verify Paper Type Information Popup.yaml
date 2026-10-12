@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_004 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify Paper Type Information Popup
 # Expected: 1. The Paper Type popup should be displayed. 2. Supported paper information "Make sure to use HP Sprocket Studio Plus 4 x 6" Photo Paper and Cartridges for your HP Sprocket Studio Plus.  The cartridge and paper (sold together) are specifica
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_134 - Verify Paper Type Information Popup"
 tags:
   - connection

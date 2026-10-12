@@ -2,7 +2,7 @@
 # Excel: Firmware Update 006 | Module: Firmware Installation
 # Verify installation warning message
 # Expected: Warning message "Do not turn off or reset the printer while the status LED flashes" is displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_06 - Verify installation warning message"
 tags:
   - firmware

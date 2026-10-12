@@ -1,0 +1,55 @@
+# Excel: AI Tools 91
+# Module: AI Tools > Fix Lighting> Fix Lighting – Photo Generation
+# Description: Verify that the selected photo is processed to fix lighting and validate generation behavior for no internet and API failure scenarios.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Fix Lighting.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Verify that the Generating Loader is displayed.
+# 5. Wait for the generation process to complete.
+# 6. Verify that the Fix Lighting result screen is displayed.
+# 7. Verify that the lighting of the photo is corrected compared to the original photo.
+# 8. Tap the Show Original toggle.
+# 9. Verify that the original photo is displayed.
+# 10. Tap the Show Original toggle again.
+# 11. Verify that the lighting-corrected photo is displayed.
+# 12. Repeat the flow with the device internet connection disabled.
+# 13. Tap Generate.
+# 14. Verify that the No Internet popup is displayed with an OK button.
+# 15. Tap OK.
+# 16. Enable the internet connection.
+# 17. Repeat the generation flow and simulate an API generation failure.
+# 18. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”
+# 19. Tap Try Again.
+# 20. Verify that the Generating Loader is displayed and generation is attempted again.
+# Type: Positive
+# Expected:
+# Generate starts the Fix Lighting generation process and displays the Generating Loader.
+# The generated result has corrected lighting compared with the original image.
+# Show Original displays the original image for comparison.
+# Toggling Show Original again displays the lighting-corrected image.
+# When there is no internet connection, the No Internet popup with an OK button is displayed.
+# When the API generation fails, the Generation Failed screen is displayed with the specified error message.
+# Tapping Try Again starts the generation process again.
+appId: com.caglobal.hp.sprocket
+name: "AI_91_lighting - Fix Lighting generation and offline handling"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - lighting
+  - visual
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Fix Lighting" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_toggle_show_original.yaml
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Fix Lighting"
+- runFlow: subflows/enhancement_disable_internet.yaml
+- runFlow: subflows/enhancement_assert_no_internet.yaml
+- runFlow: subflows/enhancement_enable_internet.yaml

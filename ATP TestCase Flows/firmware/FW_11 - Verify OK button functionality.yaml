@@ -2,7 +2,7 @@
 # Excel: Firmware Update 11 | Module: Printer Switching
 # Verify OK button functionality
 # Expected: Popup closes and user remains on current printer screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_11 - Verify OK button functionality"
 tags:
   - firmware

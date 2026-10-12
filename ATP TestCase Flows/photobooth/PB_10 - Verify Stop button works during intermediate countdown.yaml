@@ -2,7 +2,7 @@
 # Excel: Photobooth 10 | Module: Interaction
 # Verify Stop button works during intermediate countdown
 # Expected: Capture session stops immediately and all photos captured during the current session are discarded.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_10 - Verify Stop button works during intermediate countdown"
 tags:
   - photobooth

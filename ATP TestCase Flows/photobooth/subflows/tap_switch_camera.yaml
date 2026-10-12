@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Switch Camera is an unlabeled ImageView at bottom-right.
 - runFlow:

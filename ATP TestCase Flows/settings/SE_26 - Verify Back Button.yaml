@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu 27 | Module: Navigation
 # Verify Back Button
 # Expected: User is redirected back to Account Settings screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_26 - Verify Back Button"
 tags:
   - settings

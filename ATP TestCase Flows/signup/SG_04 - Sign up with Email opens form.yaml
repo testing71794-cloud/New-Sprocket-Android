@@ -1,11 +1,9 @@
 # ATP Test Case ID: SG_04
 # HP Sprocket — tap Sign up with Email opens registration form
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SG_04 - Sign up with Email opens form"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_signup_email_form.yaml
+- runFlow: subflows/ensure_signup_email_form.yaml
 - assertVisible:
     text: "Full Name*"
     optional: true

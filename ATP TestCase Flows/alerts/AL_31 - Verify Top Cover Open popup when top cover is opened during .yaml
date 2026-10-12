@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 10 | Module: iOS_26_Top Cover Open
 # Verify Top Cover Open popup when top cover is opened during printing
 # Expected: Title: Top Cover Open.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_31 - Verify Top Cover Open popup when top cover is opened during "
 tags:
   - alerts

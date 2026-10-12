@@ -2,7 +2,7 @@
 # Excel: General_PCF-006 | Module: Pre Connection Flow
 # Verify 'Try Again' button functionality at 'No Printers Found' screen
 # Expected: Upon tapping the 'Try Again' button, the 'Searching for Printers' screen should be displayed along with a loading spinner.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_154 - Verify Try Again button functionality at No Printers Found s"
 tags:
   - connection

@@ -2,7 +2,7 @@
 # Excel: Photo ID 14 | Module: Timer Countdown
 # Verify Stop button
 # Expected: Countdown stops and Photo ID screen is restored with all controls visible.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_14 - Verify Stop button"
 tags:
   - photo-id

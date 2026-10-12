@@ -2,7 +2,7 @@
 # Excel: PCF-012 | Module: Pre Connection Flow
 # Verify selected 'HP Sprocket 2-in-1' printer image updates
 # Expected: HP Sprocket 2-in-1 printer image should display with the printer name 'HP Sprocket 2-in-1' at 'Select Your Device' screen along with 'Continue with this Printer' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_012 - Verify selected HP Sprocket 2-in-1 printer image updates"
 tags:
   - connection

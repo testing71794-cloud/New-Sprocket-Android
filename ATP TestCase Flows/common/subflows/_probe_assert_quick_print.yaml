@@ -1,0 +1,42 @@
+# Probe whether Maestro text selectors see content-desc hub labels.
+# See: https://docs.maestro.dev/api-reference/selectors
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: false
+    permissions:
+      all: allow
+- runFlow: dismiss_rate_app_if_visible.yaml
+- takeScreenshot: probe_hub
+- extendedWaitUntil:
+    visible: ".*(?i)Quick Print.*"
+    timeout: 15000
+    optional: true
+- extendedWaitUntil:
+    visible: ".*(?i)(Collage Maker|Pre-Cut|Photobooth|Tile Print).*"
+    timeout: 5000
+    optional: true
+- runFlow:
+    when:
+      visible: ".*(?i)Quick Print.*"
+    commands:
+      - tapOn: ".*(?i)Quick Print.*"
+      - takeScreenshot: probe_tapped_quick_print
+- runFlow:
+    when:
+      notVisible: ".*(?i)Quick Print.*"
+      visible: ".*(?i)(Collage Maker|Pre-Cut|Photobooth).*"
+    commands:
+      - tapOn:
+          point: "25%,40%"
+      - takeScreenshot: probe_point_tap_quick_print
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Quick Print|Collage Maker|Recent).*"
+    commands:
+      - tapOn:
+          point: "50%,90%"
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - takeScreenshot: probe_create_tab_point
+- assertVisible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth|Recent|Cancel).*"

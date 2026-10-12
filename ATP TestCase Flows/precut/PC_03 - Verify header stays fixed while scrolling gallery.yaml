@@ -2,7 +2,7 @@
 # Excel: Precut_03 | Module: Pre-Cut Stickers- Scroll gallery
 # Verify that the header remains fixed while scrolling through photos.
 # Expected: Back, Select 2 photos, and Next stay visible while gallery scrolls.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_03 - Verify header stays fixed while scrolling gallery"
 tags:
   - precut

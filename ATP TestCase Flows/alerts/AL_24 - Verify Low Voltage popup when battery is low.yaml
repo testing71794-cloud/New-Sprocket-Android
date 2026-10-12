@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Ios 003 | Module: iOS_14_Low Voltage
 # Verify Low Voltage popup when battery is low
 # Expected: Title: Low Voltage.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_24 - Verify Low Voltage popup when battery is low"
 tags:
   - alerts

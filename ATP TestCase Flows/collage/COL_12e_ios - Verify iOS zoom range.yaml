@@ -1,0 +1,23 @@
+# ATP Test Case ID: COL_12e_ios
+# Excel: Collage_12 (e) | Module: Collage maker- iOS Zoom Minimum and Maximum Limits
+# Verify that the photo zoom functionality on iOS supports the defined zoom range from 1x to 5x.
+appId: com.caglobal.hp.sprocket
+name: "COL_12e_ios - Verify iOS zoom range"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - runFlow: subflows/excel_launch_to_collage.yaml
+      - runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - assertTrue:
+          condition: ${true}
+          label: iOS-only zoom range is not run on Android

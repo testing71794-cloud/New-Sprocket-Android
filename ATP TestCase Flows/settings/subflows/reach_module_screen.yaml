@@ -1,4 +1,4 @@
 # Shared setup: reach Hamburger menu (screen 2) for Settings / Hamburger ATP module.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: reach_hamburger_menu.yaml

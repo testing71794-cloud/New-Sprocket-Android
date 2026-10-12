@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_010 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify Next Button on Power On Screen
 # Expected: The Check Behind the Printer screen should be displayed. Step 5 of the setup progress indicator should be highlighted.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_140 - Verify Next Button on Power On Screen"
 tags:
   - connection

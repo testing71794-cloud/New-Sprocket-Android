@@ -1,5 +1,5 @@
 # Order Photo Paper (screen 1) — sprocketprinters.com shop/collections page.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)(HP Sprocket Photo Printers|Paper and cartridges|sprocketprinters|Sort by).*"

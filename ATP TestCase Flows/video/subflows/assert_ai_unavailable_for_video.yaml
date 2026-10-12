@@ -1,5 +1,5 @@
 # CR_05C — AI disabled on video; tooltip ~5s (May 14 2026 Figma).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: tap_ai_tool_button.yaml
 - waitForAnimationToEnd:

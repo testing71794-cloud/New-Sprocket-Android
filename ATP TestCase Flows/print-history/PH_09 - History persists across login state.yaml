@@ -1,0 +1,19 @@
+# ATP Test Case ID: PH_09
+# Excel: Print_History09
+# Verify Print History Is Retained Regardless of Login State
+# Manual setup: create history while signed out, verify after login, then log
+# out and run this flow again for the same printer model.
+appId: com.caglobal.hp.sprocket
+name: "PH_09 - History persists across login state"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - account-switch
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- assertVisible: "^Reprint$"
+- takeScreenshot: PH_09_history_independent_of_login

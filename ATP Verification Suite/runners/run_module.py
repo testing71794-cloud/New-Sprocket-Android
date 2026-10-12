@@ -24,7 +24,7 @@ from lib.recorder import Recorder  # noqa: E402
 from lib.report import write_reports  # noqa: E402
 from lib import verify as V  # noqa: E402
 
-APP_ID = "com.hp.impulse.sprocket"
+APP_ID = "com.caglobal.hp.sprocket"
 FLOWS = SUITE / "flows"
 
 

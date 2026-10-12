@@ -2,7 +2,7 @@
 # Excel: Firmware Update 37 | Module: Firmware Popup Negative
 # Verify multiple Update Now taps
 # Expected: Only one update starts.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_37 - Verify multiple Update Now taps"
 tags:
   - firmware

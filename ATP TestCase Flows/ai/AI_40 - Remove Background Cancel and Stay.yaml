@@ -1,0 +1,18 @@
+# Supplied JSON row: AI Tools 40 | Remove Background
+# Verify Cancel and Stay
+appId: com.caglobal.hp.sprocket
+name: "AI_40 - Remove Background Cancel and Stay - Verify Cancel and Stay"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_reach_remove_result.yaml
+- tapOn: "Cancel"
+- runFlow: subflows/background_assert_unsaved_popup.yaml
+- tapOn: "Stay"
+- assertNotVisible: "Unsaved Changes"
+- assertVisible: "Show Original"
+- assertVisible:
+    text: ".*(?i)^Apply$"
+    enabled: true

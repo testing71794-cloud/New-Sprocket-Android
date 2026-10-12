@@ -1,0 +1,54 @@
+# ATP Test Case ID: AI_13
+# Excel: AI Tools 13
+# Module: AI Text-to-Image – Reuse Generated Image in AI Tools
+# Description:
+# Verify that an image generated through Text-to-Image and sent to Print Preview is automatically reused when the user opens the AI tools from Print Preview.
+# Steps:
+# 1. Install and launch the application.
+# 2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.
+# 3. Wait for the Splash Screen to complete.
+# 4. Swipe through the onboarding screens.
+# 5. Tap Get Started.
+# 6. Tap Sign Up Later.
+# 7. Wait until the Home screen is displayed.
+# 8. If the notification permission popup appears, tap Allow.
+# 9. Tap Text-to-Image.
+# 10. Enter a valid text prompt.
+# 11. Tap Generate.
+# 12. Wait for the image to be generated.
+# 13. Tap Next.
+# 14. Wait until the Print Preview screen is displayed.
+# 15. Tap the AI button.
+# 16. Select any available AI tool except Text to image.
+# Expected:
+# The image generated in the Text-to-Image screen is retained when navigating to Print Preview.
+# The same generated image is automatically loaded in the selected AI tool.
+# The user is not required to select or import the image again.
+appId: com.caglobal.hp.sprocket
+name: "AI_13 - Verify that an image generated through Text-to-Image and sent to Print Preview is automatically reused when the user opens the AI tools from Print Preview."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/text_to_image_generate_results.yaml
+- tapOn: "Apply"
+- extendedWaitUntil:
+    visible: "Copies"
+    timeout: 30000
+- runFlow: ../printing/subflows/tap_preview_ai.yaml
+- extendedWaitUntil:
+    visible: "Create with AI Tools"
+    timeout: 20000
+- scrollUntilVisible:
+    element: "Remove Background"
+    direction: DOWN
+    timeout: 30000
+    centerElement: true
+- tapOn: "Remove Background"
+- extendedWaitUntil:
+    visible: "Remove Background"
+    timeout: 20000
+- assertNotVisible: "Please select an image to generate with."
+- takeScreenshot: AI_13_reused_generated_image

@@ -1,24 +1,52 @@
-appId: com.hp.impulse.sprocket
----
 # Enter Select Mode via Select (3.0.2871+) or long-press on first thumbnail.
-# See: https://docs.maestro.dev/reference/commands-available/tapon
-# See: https://docs.maestro.dev/reference/commands-available/longpresson
+# See: https://docs.maestro.dev/api-reference/commands/tapon
+# See: https://docs.maestro.dev/api-reference/commands/longpresson
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Recent|^All$|^Select$|Cancel).*"
+    timeout: 20000
 - runFlow:
     when:
       visible: ".*(?i)^Select$"
+      notVisible: "Cancel"
     commands:
       - tapOn: ".*(?i)^Select$"
       - waitForAnimationToEnd:
-          timeout: 800
-- runFlow:
-    when:
-      notVisible: "Cancel"
+          timeout: 1200
+# Try several thumbnail long-press points (grid varies by device)
+- repeat:
+    times: 4
     commands:
-      - longPressOn:
-          point: "18%,24%"
-      - waitForAnimationToEnd:
-          timeout: 800
+      - runFlow:
+          when:
+            notVisible: "Cancel"
+          commands:
+            - longPressOn:
+                point: "18%,28%"
+            - waitForAnimationToEnd:
+                timeout: 1000
+      - runFlow:
+          when:
+            notVisible: "Cancel"
+          commands:
+            - longPressOn:
+                point: "35%,28%"
+            - waitForAnimationToEnd:
+                timeout: 1000
+      - runFlow:
+          when:
+            notVisible: "Cancel"
+          commands:
+            - longPressOn:
+                point: "18%,40%"
+            - waitForAnimationToEnd:
+                timeout: 1000
+- extendedWaitUntil:
+    visible: "Cancel"
+    timeout: 10000
 - assertVisible: "Cancel"
 - assertVisible: "Print Preview"
 - assertVisible: ".*Selected.*"

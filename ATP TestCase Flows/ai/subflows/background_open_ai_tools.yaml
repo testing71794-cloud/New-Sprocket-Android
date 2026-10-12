@@ -1,0 +1,8 @@
+# Reach Create with AI Tools using the working Compose launch path.
+# Create tab and Sprocket AI banner have no reliable ^Create$ / Sprocket AI text.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- assertVisible: "Remove Background"
+- assertVisible: "Replace Background"

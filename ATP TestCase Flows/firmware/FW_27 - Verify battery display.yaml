@@ -2,7 +2,7 @@
 # Excel: Firmware Update 27 | Module: Firmware UI
 # Verify battery display
 # Expected: Battery percentage is displayed correctly.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_27 - Verify battery display"
 tags:
   - firmware

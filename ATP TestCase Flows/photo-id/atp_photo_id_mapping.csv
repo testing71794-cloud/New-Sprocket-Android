@@ -1,24 +1,33 @@
-TestCaseID,ExcelID,Module,ExcelModule,Description,FlowFile,App
-PID_01,Photo ID 01,photo-id,Onboarding,Verify camera permission popup and Photo ID onboarding popup,photo-id/PID_01 - Verify camera permission popup and Photo ID onboarding popup.yaml,com.hp.impulse.sprocket
-PID_02,Photo ID 02,photo-id,Permission,Verify camera permission denial,photo-id/PID_02 - Verify camera permission denial.yaml,com.hp.impulse.sprocket
-PID_03,Photo ID  03,photo-id,UI Verification,Verify Photo ID default UI layout,photo-id/PID_03 - Verify Photo ID default UI layout.yaml,com.hp.impulse.sprocket
-PID_04,Photo ID  04,photo-id,UI Verification,Verify Photo ID UI after camera permission denied,photo-id/PID_04 - Verify Photo ID UI after camera permission denied.yaml,com.hp.impulse.sprocket
-PID_05,Photo ID 05,photo-id,Aspect Ratio,Verify aspect ratio switching,photo-id/PID_05 - Verify aspect ratio switching.yaml,com.hp.impulse.sprocket
-PID_06,Photo ID 06,photo-id,Aspect Ratio,Verify rapid aspect ratio switching,photo-id/PID_06 - Verify rapid aspect ratio switching.yaml,com.hp.impulse.sprocket
-PID_07,Photo ID  07,photo-id,Timer,Verify Timer submenu and selection,photo-id/PID_07 - Verify Timer submenu and selection.yaml,com.hp.impulse.sprocket
-PID_08,Photo ID 08,photo-id,Timer,Verify Timer Off state,photo-id/PID_08 - Verify Timer Off state.yaml,com.hp.impulse.sprocket
-PID_09,Photo ID 09,photo-id,Camera Controls,Verify Flash and Flip Camera,photo-id/PID_09 - Verify Flash and Flip Camera.yaml,com.hp.impulse.sprocket
-PID_10,Photo ID  10,photo-id,Capture,Verify photo capture and Print Preview,photo-id/PID_10 - Verify photo capture and Print Preview.yaml,com.hp.impulse.sprocket
-PID_11,Photo ID 11,photo-id,Timer Submenu,Verify Timer submenu UI,photo-id/PID_11 - Verify Timer submenu UI.yaml,com.hp.impulse.sprocket
-PID_12,Photo ID 12,photo-id,Timer On,Verify Timer ON state,photo-id/PID_12 - Verify Timer ON state.yaml,com.hp.impulse.sprocket
-PID_13,Photo ID 13,photo-id,Timer Countdown,Verify countdown UI,photo-id/PID_13 - Verify countdown UI.yaml,com.hp.impulse.sprocket
-PID_14,Photo ID 14,photo-id,Timer Countdown,Verify Stop button,photo-id/PID_14 - Verify Stop button.yaml,com.hp.impulse.sprocket
-PID_15,Photo ID 15,photo-id,Print Preview 2×2,Verify Print Preview UI,photo-id/PID_15 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket
-PID_16,Photo ID 16,photo-id,Print Preview 1×1,Verify Print Preview UI,photo-id/PID_16 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket
-PID_17,Photo ID 17,photo-id,Print Preview 1.4×1.8,Verify Print Preview UI,photo-id/PID_17 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket
-PID_18,Photo ID 18,photo-id,Print Preview 1.3×1.9,Verify Print Preview UI,photo-id/PID_18 - Verify Print Preview UI.yaml,com.hp.impulse.sprocket
-PID_19,Photo ID 19,photo-id,Photo ID Pop-up,Verify Photo ID onboarding popup UI,photo-id/PID_19 - Verify Photo ID onboarding popup UI.yaml,com.hp.impulse.sprocket
-PID_20,Photo ID 20,photo-id,Photo ID Pop-up,Verify OK button functionality,photo-id/PID_20 - Verify OK button functionality.yaml,com.hp.impulse.sprocket
-PID_21,Photo ID 21,photo-id,Photo ID Pop-up,Verify Don't Show Again,photo-id/PID_21 - Verify Dont Show Again.yaml,com.hp.impulse.sprocket
-PID_22,Photo ID 22,photo-id,Edit Button,Verify Edit button disabled,photo-id/PID_22 - Verify Edit button disabled.yaml,com.hp.impulse.sprocket
-PID_23,Photo ID 23,photo-id,Photo ID Print Preview,Verify disabled Edit button and Print Preview UI,photo-id/PID_23 - Verify disabled Edit button and Print Preview UI.yaml,com.hp.impulse.sprocket
+﻿"TestCaseID","ExcelID","ExcelModule","Description","FlowFile"
+"PID_01","PhotoID_01","Photo ID – Navigation Flow","Navigate Home to Photo ID camera","photo-id/PID_01 - Navigation Flow.yaml"
+"PID_02","PhotoID_02","Photo ID – Mode Information Popup UI","Mode popup UI elements","photo-id/PID_02 - Mode Information Popup UI.yaml"
+"PID_02a","PhotoID_02 (a)","Photo ID – Mode Information Popup Back Button","Back returns to Home","photo-id/PID_02a - Mode Information Popup Back Button.yaml"
+"PID_02b","PhotoID_02 (b)","Photo ID – Mode Information Popup Display Again","Popup shows again after OK","photo-id/PID_02b - Mode Information Popup Display Again.yaml"
+"PID_02c","PhotoID_02 (c)","Photo ID – Don't Show Again Functionality","Don't Show Again hides popup","photo-id/PID_02c - Dont Show Again Functionality.yaml"
+"PID_03","Photo ID_03","Photo ID – Flash functionality for Front Camera","Flash On/Off front camera","photo-id/PID_03 - Flash functionality for Front Camera.yaml"
+"PID_03a","Photo ID_03 (a)","Photo ID – Flash functionality for Front Camera","Screen flash during front capture","photo-id/PID_03a - Flash screen acts as flash Front Camera.yaml"
+"PID_03b","Photo ID_03 (b)","Photo ID – flash functionality for Rear Camera","Hardware flash rear capture","photo-id/PID_03b - Flash functionality for Rear Camera.yaml"
+"PID_04","Photo ID_04","Photo ID – Camera Switch","Front camera default","photo-id/PID_04 - Front camera opens by default.yaml"
+"PID_04a","Photo ID_04 (a)","Photo ID – Camera Switch","Switch front to rear","photo-id/PID_04a - Switch front camera to rear camera.yaml"
+"PID_05","Photo ID_05","Photo ID- camera permission deny","Camera permission denied screen","photo-id/PID_05 - camera permission deny.yaml"
+"PID_05a","Photo ID_05 (a)","Photo ID- camera permission deny","Open Settings from denied screen","photo-id/PID_05a - Open Settings Button Functionality.yaml"
+"PID_05b","Photo ID_05 (b)","Photo ID- granting Camera permission","Grant camera from Settings","photo-id/PID_05b - granting Camera permission.yaml"
+"PID_05c","Photo ID_05 (Timer)","Photo ID- Timer selection","Timer submenu UI Timer Off default","photo-id/PID_05c - Timer selection.yaml"
+"PID_05d","Photo ID_05 (a) (3s Timer)","Photo ID- 3s Timer selection","3s countdown and capture","photo-id/PID_05d - 3s Timer selection.yaml"
+"PID_05e","Photo ID_05 (b) (5s Timer)","Photo ID- 5s Timer selection","5s countdown and capture","photo-id/PID_05e - 5s Timer selection.yaml"
+"PID_05f","Photo ID_05 (c) (10s Timer)","Photo ID- 10s Timer selection","10s countdown and capture","photo-id/PID_05f - 10s Timer selection.yaml"
+"PID_06","Photo ID_06","Photo ID – Print Preview (2×2) for 3 seconds","2x2 Print Preview after 3s","photo-id/PID_06 - Print Preview 2x2 for 3 seconds.yaml"
+"PID_06b","Photo ID_06 (b)","Photo ID – Print Preview (2×2) for 5 seconds","2x2 Print Preview after 5s","photo-id/PID_06b - Print Preview 2x2 for 5 seconds.yaml"
+"PID_06c","Photo ID_06 (c)","Photo ID – Print Preview (2×2) for 10 seconds","2x2 Print Preview after 10s","photo-id/PID_06c - Print Preview 2x2 for 10 seconds.yaml"
+"PID_07","Photo ID_07","Photo ID – Print Preview (1×1) for 3 seconds","1x1 Print Preview after 3s","photo-id/PID_07 - Print Preview 1x1 for 3 seconds.yaml"
+"PID_07b","Photo ID_07 (b)","Photo ID – 1x1","1x1 Print Preview after 5s","photo-id/PID_07b - Print Preview 1x1 for 5 seconds.yaml"
+"PID_07c","Photo ID_07 (c)","Photo ID – 1x1","1x1 Print Preview after 10s","photo-id/PID_07c - Print Preview 1x1 for 10 seconds.yaml"
+"PID_08a","Photo ID_08 (a)","Photo ID – 1.4×1.8","1.4x1.8 Print Preview after 3s","photo-id/PID_08a - Print Preview 1.4x1.8 for 3 seconds.yaml"
+"PID_08b","Photo ID_08 (b)","Photo ID – 1.4×1.8","1.4x1.8 Print Preview after 5s","photo-id/PID_08b - Print Preview 1.4x1.8 for 5 seconds.yaml"
+"PID_08c","Photo ID_08 (c)","Photo ID – 1.4×1.8","1.4x1.8 Print Preview after 10s","photo-id/PID_08c - Print Preview 1.4x1.8 for 10 seconds.yaml"
+"PID_09a","Photo ID_09 (a)","Photo ID – 1.3×1.9","1.3x1.9 Print Preview after 3s","photo-id/PID_09a - Print Preview 1.3x1.9 for 3 seconds.yaml"
+"PID_09b","Photo ID_9 (b)","Photo ID – 1.3×1.9","1.3x1.9 Print Preview after 5s","photo-id/PID_09b - Print Preview 1.3x1.9 for 5 seconds.yaml"
+"PID_09c","Photo ID_9 (c)","Photo ID – 1.3×1.9","1.3x1.9 Print Preview after 10s","photo-id/PID_09c - Print Preview 1.3x1.9 for 10 seconds.yaml"
+"PID_10","Photo ID_10","Photo ID – Edit toast message at Print Preview","Edit disabled toast","photo-id/PID_10 - Edit toast message at Print Preview.yaml"
+"PID_11","Photo ID_11","Photo ID – Print","Print when printer connected","photo-id/PID_11 - Print.yaml"
+"PID_12","Photo ID_12","Photo_ID- Timer Countdown","Stop button during countdown","photo-id/PID_12 - Timer Countdown Stop button.yaml"

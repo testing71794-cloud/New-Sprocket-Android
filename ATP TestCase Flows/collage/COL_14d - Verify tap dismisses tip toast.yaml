@@ -1,0 +1,14 @@
+# ATP Test Case ID: COL_14d
+# Excel: Collage_14 (d) | Module: Collage maker- Dismiss Tip Toast by Tapping the Screen
+# Verify that the 8-photo selection tip toast disappears when the user taps anywhere on the screen.
+appId: com.caglobal.hp.sprocket
+name: "COL_14d - Verify tap dismisses tip toast"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_large_collage.yaml
+- tapOn:
+    point: "50%,60%"
+- assertVisible: "Select 2 to 8 photos"

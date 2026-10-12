@@ -1,0 +1,14 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: background_reach_replace_options.yaml
+- tapOn:
+    point: "47%,80%"
+- retry:
+    maxRetries: 3
+    commands:
+      - tapOn:
+          point: "960,165"
+      - assertVisible: "Copies"
+- assertVisible: "Copies"
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"

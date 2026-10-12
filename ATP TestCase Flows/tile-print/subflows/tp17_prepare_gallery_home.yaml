@@ -1,5 +1,5 @@
 # TP_17 fast setup: skip full printer onboarding when Sprocket 3x4 is already connected.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:
@@ -8,7 +8,7 @@ appId: com.hp.impulse.sprocket
       - runFlow: select_sprocket_3x4_on_carousel.yaml
       - runFlow: ensure_sprocket_3x4_after_select.yaml
 - tapOn:
-    point: "83%,96%"
+    point: "83%,90%"
 - waitForAnimationToEnd:
     timeout: 2000
 - runFlow:
@@ -17,7 +17,7 @@ appId: com.hp.impulse.sprocket
       notVisible: ".*(?i)(No Printers Added|Tap to Connect|Select Your Device).*"
     commands:
       - tapOn:
-          point: "50%,96%"
+          point: "50%,90%"
       - waitForAnimationToEnd:
           timeout: 1500
 - runFlow:
@@ -26,7 +26,7 @@ appId: com.hp.impulse.sprocket
     commands:
       - runFlow: ensure_sprocket_3x4_connected.yaml
       - tapOn:
-          point: "50%,96%"
+          point: "50%,90%"
       - waitForAnimationToEnd:
           timeout: 1500
 - runFlow:

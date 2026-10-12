@@ -1,0 +1,22 @@
+# Opens Recent Prints from the Print Queue.
+# Precondition: onboarding is complete and the required printer/test history state
+# has been prepared for the calling case.
+# See: https://docs.maestro.dev/reference/commands-available/runflow
+appId: com.caglobal.hp.sprocket
+---
+- launchApp:
+    clearState: false
+- runFlow: ../../print-queue/subflows/dismiss_printer_error_popup.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Currently Printing|In Queue|No Prints in Progress).*"
+    file: ../../print-queue/subflows/open_print_queue_single.yaml
+- runFlow: ../../print-queue/subflows/dismiss_printer_error_popup.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Currently Printing|In Queue|No Prints in Progress).*"
+    timeout: 30000
+- tapOn:
+    point: "91%,9%"
+- extendedWaitUntil:
+    visible: "^Recent Prints$"
+    timeout: 15000

@@ -1,0 +1,30 @@
+# ATP Test Case ID: COL_16
+# Excel: Collage_16 | Module: Collage maker – Print Preview / Print Output
+# Verify that tapping Back after making changes displays the Save as new photo? popup.
+# Save is shown when leaving Print Preview (same module as COL_15), not when leaving reorder.
+appId: com.caglobal.hp.sprocket
+name: "COL_16 - Verify Save as new photo popup"
+tags:
+  - collage
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/excel_launch_to_collage.yaml
+- runFlow: subflows/create_collage_two_photos_sprocket.yaml
+- runFlow: subflows/tap_second_layout.yaml
+- doubleTapOn:
+    point: "30%,40%"
+- waitForAnimationToEnd:
+    timeout: 400
+- runFlow: subflows/advance_to_print_preview.yaml
+- runFlow: subflows/tap_collage_back.yaml
+- runFlow:
+    when:
+      notVisible: "(?i)Save as new photo.*"
+    commands:
+      - runFlow: subflows/tap_collage_back.yaml
+- extendedWaitUntil:
+    visible: "(?i)Save as new photo.*"
+    timeout: 10000
+- assertVisible: "(?i)Save to Gallery.*"
+- assertVisible: ".*(?i)(Don.?t Save|Do Not Save).*"

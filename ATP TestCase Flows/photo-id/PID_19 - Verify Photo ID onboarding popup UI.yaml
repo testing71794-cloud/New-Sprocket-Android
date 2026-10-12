@@ -2,7 +2,7 @@
 # Excel: Photo ID 19 | Module: Photo ID Pop-up
 # Verify Photo ID onboarding popup UI
 # Expected: Popup UI is displayed correctly and background controls are disabled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PID_19 - Verify Photo ID onboarding popup UI"
 tags:
   - photo-id

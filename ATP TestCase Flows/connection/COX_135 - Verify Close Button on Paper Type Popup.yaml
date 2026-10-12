@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_005 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify Close Button on Paper Type Popup
 # Expected: The popup should close. The Load Paper screen should remain displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_135 - Verify Close Button on Paper Type Popup"
 tags:
   - connection

@@ -1,5 +1,5 @@
 # Submit email login — taps the bottom Log In button (not the full-screen wrapper).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - hideKeyboard
 - waitForAnimationToEnd:

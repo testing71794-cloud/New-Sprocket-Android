@@ -2,7 +2,7 @@
 # Excel: PCF_Studio_015 | Module: Pre Connection Flow for Sprocket Studio
 # Verify Finish Setup Button
 # Expected: Setup flow should complete successfully. User should proceed to the Bluetooth/printer discovery flow.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_090 - Verify Finish Setup Button"
 tags:
   - connection

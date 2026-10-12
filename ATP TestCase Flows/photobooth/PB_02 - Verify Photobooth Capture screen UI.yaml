@@ -2,7 +2,7 @@
 # Excel: Photobooth 02 | Module: Photobooth
 # Verify the UI of the Photobooth Capture screen.
 # Expected: Title Photobooth, Back, preview, 4-dot progress, Flash OFF, Capture, Switch Camera.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_02 - Verify Photobooth Capture screen UI"
 tags:
   - photobooth

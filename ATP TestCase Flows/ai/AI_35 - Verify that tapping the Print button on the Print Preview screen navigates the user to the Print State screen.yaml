@@ -1,0 +1,39 @@
+# ATP Test Case ID: AI_35
+# Excel: AI Tools 35
+# Module: AI Tools > Image-to-Image > Print Preview – Verify Print Button Navigation to Print State
+# Description:
+# Verify that tapping the Print button on the Print Preview screen navigates the user to the Print State screen.
+# Steps:
+# Install and launch the application.
+# Complete onboarding and navigate to the Home screen.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Select any image from the gallery.
+# Select an Image Style.
+# Tap Generate Images.
+# Wait for the generated results screen to load.
+# Select a generated image.
+# Tap Next.
+# Wait for the Print Preview screen to load.
+# Tap Print.
+# Expected:
+# The Print action is initiated successfully.
+# User is navigated to the Print State screen.
+# The selected image is passed correctly to the Print State screen.
+# The Print State screen loads without errors.
+appId: com.caglobal.hp.sprocket
+name: "AI_35 - Verify that tapping the Print button on the Print Preview screen navigates the user to the Print State screen."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+  - printer-manual
+---
+- runFlow: subflows/image_to_image_open_print_preview.yaml
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: "Print"
+- extendedWaitUntil:
+    visible: ".*(?i)(Printing|Sending|Outstanding).*"
+    timeout: 120000
+- takeScreenshot: AI_35_print_state

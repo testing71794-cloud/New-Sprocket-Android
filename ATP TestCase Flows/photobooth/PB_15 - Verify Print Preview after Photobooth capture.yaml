@@ -2,14 +2,14 @@
 # Excel: Photobooth 15 | Module: Photobooth – Result Screen
 # Verify navigation to Print Preview after completing the Photobooth capture sequence.
 # Expected: Print Preview with 4-photo collage, Print, Copies default 1.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PB_15 - Verify Print Preview after Photobooth capture"
 tags:
   - photobooth
   - atp-excel
   - positive
 ---
-- runFlow: subflows/reach_module_screen.yaml
+- runFlow: subflows/ensure_photobooth_with_printer.yaml
 - assertVisible: "(?i)Photobooth.*"
 - runFlow: subflows/tap_capture.yaml
 - runFlow: subflows/wait_print_preview.yaml

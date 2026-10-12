@@ -1,7 +1,7 @@
 # ATP Test Case ID: LO_03
 # HP Sprocket — Continue with Facebook → Facebook OAuth (Kodak SE_06 credentials)
 # No language selection — saved session OR enter cplusadev@gmail.com / CAglobal@127
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "LO_03 - Log in with Facebook"
 ---
 - runFlow: subflows/ensure_login_options.yaml

@@ -1,0 +1,34 @@
+# Excel: AI Tools 84
+# Module: AI Tools >Restore Photo – Photo Restoration
+# Description: Verify that the selected photo can be restored and the restored result can be compared with the original photo.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Restore Photo.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Wait for the photo generation to complete.
+# 5. Verify that the restored photo is displayed.
+# 6. Tap the Show Original toggle.
+# 7. Verify that the original photo is displayed.
+# 8. Tap the Show Original toggle again.
+# 9. Verify that the restored photo is displayed.
+# Type: Positive
+# Expected:
+# Generate starts the photo restoration process.
+# After generation completes, the restored photo is displayed.
+# Show Original switches the displayed image to the original photo for comparison.
+# Toggling Show Original again displays the restored photo.
+appId: com.caglobal.hp.sprocket
+name: "AI_84_restore - Restore Photo restoration and comparison"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - restore
+  - visual
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Restore Photo" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_toggle_show_original.yaml

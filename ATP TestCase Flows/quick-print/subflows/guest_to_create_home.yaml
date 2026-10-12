@@ -3,7 +3,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/tapon
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:
@@ -43,6 +43,7 @@ appId: com.hp.impulse.sprocket
     commands:
       - tapOn: "Skip"
 - runFlow: dismiss_runtime_fast.yaml
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - runFlow: ../../gallery/subflows/dismiss_gallery_coachmark_if_visible.yaml
 - runFlow:
     when:
@@ -61,9 +62,11 @@ appId: com.hp.impulse.sprocket
       visible: ".*(?i)explore sprocket.*"
     commands:
       - tapOn: ".*(?i)explore sprocket.*"
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - extendedWaitUntil:
-    visible: "(?i)(Quick Print|Recent|^Select$|^All$|Enable the full sprocket|Gallery|Create|Collage Maker|Pre-?cut|Photobooth|Printer|More).*"
+    visible: "(?i)(Quick Print|Recent|^Select$|^All$|Enable the full sprocket|Gallery|Create|Collage Maker|Pre-?cut|Photobooth|Printer|More|No Thanks).*"
     timeout: 20000
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
 - runFlow:
     when:
       visible: "(?i)Quick Print.*"

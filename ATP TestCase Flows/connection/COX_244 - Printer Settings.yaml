@@ -2,7 +2,7 @@
 # Excel: PS-012 | Module: Printer Settings
 # Printer Settings
 # Expected: Printer is removed successfully after confirmation and user is redirected appropriately.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_244 - Printer Settings"
 tags:
   - connection

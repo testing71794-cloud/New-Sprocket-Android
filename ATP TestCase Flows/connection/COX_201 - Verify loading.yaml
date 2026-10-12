@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC039 | Module: Wi-Fi
 # Verify loading
 # Expected: Loading screen displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_201 - Verify loading"
 tags:
   - connection

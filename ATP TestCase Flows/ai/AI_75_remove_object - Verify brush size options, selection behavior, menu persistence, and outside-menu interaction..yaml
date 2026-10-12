@@ -1,0 +1,43 @@
+# ATP Test Case ID: AI_75_remove_object
+# Supplied Excel ID:
+# AI Tools 75
+# Supplied module:
+# AI Tools >Remove Object – Brush Controls
+# Supplied description:
+# Verify brush size options, selection behavior, menu persistence, and outside-menu interaction.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Remove Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Tap the Brush Size button.
+# 4. Verify that the brush size submenu is displayed.
+# 5. Verify that 8px, 16px, and 24px brush size options are displayed.
+# 6. Select the 8px brush size.
+# 7. Verify that the selected brush size is applied.
+# 8. Verify that the brush size submenu remains open.
+# 9. Select the 16px brush size.
+# 10. Verify that the 16px brush size is applied and the submenu remains open.
+# 11. Select the 24px brush size.
+# 12. Verify that the 24px brush size is applied and the submenu remains open.
+# 13. Tap anywhere outside the brush size submenu.
+# 14. Verify that the submenu closes.
+# 15. Verify that tapping outside the submenu does not activate another button or draw/select anything on the image.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Brush Size submenu displays 8px, 16px, and 24px radius options.
+# Selecting any brush size applies the selected size while keeping the submenu open.
+# Tapping outside the menu closes it without triggering any other action or modifying the canvas.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_75_remove_object - Verify brush size options, selection behavior, menu persistence, and outside-menu interaction."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - visual-validation
+---
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- takeScreenshot: AI_75_generate_disabled_before_selection
+- runFlow: subflows/object_brush_controls.yaml
+- takeScreenshot: AI_75_brush_menu_closed_without_selection

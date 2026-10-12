@@ -1,5 +1,5 @@
 # Printer Help screen 4 — What Paper Size? compatibility info.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_55 - Verify Printer Help What Paper Size"
 tags:
   - settings

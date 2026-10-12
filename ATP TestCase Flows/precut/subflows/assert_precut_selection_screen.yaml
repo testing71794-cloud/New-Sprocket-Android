@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Assert Pre-Cut selection screen after entry (Next may be disabled until 2 photos).
 - extendedWaitUntil:

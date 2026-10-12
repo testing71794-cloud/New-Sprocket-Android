@@ -2,7 +2,7 @@
 # Excel: PCF_HP200_002 | Module: Pre Connection Flow for HP 200
 # Verify the Load Paper screen UI for the HP Sprocket 200 printer.
 # Expected: The Load Paper screen should be displayed with: 1. The printer loading illustration. 2. The title "Load Paper". 3. The text: "Lift the lid to remove. Load the blue card barcode-down and the photo paper with the HP logo facing down." 4. The 
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_020 - Verify the Load Paper screen UI for the HP Sprocket 200 prin"
 tags:
   - connection

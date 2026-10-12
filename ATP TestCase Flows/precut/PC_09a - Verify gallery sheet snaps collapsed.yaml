@@ -2,7 +2,7 @@
 # Excel: Precut_09 (a) | Module: Pre-Cut Stickers – Gallery Sheet Collapse
 # Verify that the gallery sheet snaps to the collapsed position when dragged more than halfway downward.
 # Expected: Collapsed sheet; gallery/fast scroll hidden; selections intact.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_09a - Verify gallery sheet snaps collapsed"
 tags:
   - precut

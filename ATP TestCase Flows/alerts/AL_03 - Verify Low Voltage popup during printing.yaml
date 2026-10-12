@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android   03 | Module: Low Voltage
 # Verify "Low Voltage" popup during printing
 # Expected: A "Low Voltage" popup is displayed on the Print Preview screen. The popup displays the bold title "Low Voltage", followed by the message "Low Electric Quantity. Try printing again after resolving the issue." The popup includes an "OK" butto
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_03 - Verify Low Voltage popup during printing"
 tags:
   - alerts

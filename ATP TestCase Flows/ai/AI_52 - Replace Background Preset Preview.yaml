@@ -1,0 +1,14 @@
+# Supplied JSON row: AI Tools 52 | Replace Background
+# Verify preset background full-screen preview
+appId: com.caglobal.hp.sprocket
+name: "AI_52 - Replace Background Preset Preview - Verify preset background full-screen preview"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/background_reach_replace_options.yaml
+- tapOn:
+    point: "47%,80%"
+- takeScreenshot: AI_52_preset_full_screen_preview

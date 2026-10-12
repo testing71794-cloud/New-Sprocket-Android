@@ -1,0 +1,13 @@
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible: "Please select an image to start.?"
+- tapOn:
+    point: "18%,38%"
+- extendedWaitUntil:
+    visible:
+      text: ".*(?i)^Generate$"
+      enabled: true
+    timeout: 15000
+- assertVisible:
+    text: ".*(?i)^Generate$"
+    enabled: true

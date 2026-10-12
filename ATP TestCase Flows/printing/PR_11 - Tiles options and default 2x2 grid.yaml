@@ -1,0 +1,27 @@
+# ATP Test Case ID: PR_11
+# Excel: Print Preview_11
+# Tiles options and default 2x2 grid
+# Expected: Tiles mode shows 1x1, 2x2, and 3x3 with 2x2 selected by default.
+appId: com.caglobal.hp.sprocket
+name: "PR_11 - Tiles options and default 2x2 grid"
+tags:
+  - printing
+  - print-preview
+  - atp-excel
+  - positive
+---
+- runFlow: subflows/open_preview_one_photo.yaml
+- tapOn: "Tiles"
+# Native PreviewActivity exposes ids for all three choices. Compose renders
+# the same controls as unlabeled image nodes, so screenshot validation is used.
+- runFlow:
+    when:
+      visible:
+        id: ".*tiles_none.*"
+    commands:
+      - assertVisible:
+          id: ".*tiles_four.*"
+      - assertVisible:
+          id: ".*tiles_nine.*"
+- assertVisible: "Tiles"
+- takeScreenshot: PR_11_tiles_default_2x2

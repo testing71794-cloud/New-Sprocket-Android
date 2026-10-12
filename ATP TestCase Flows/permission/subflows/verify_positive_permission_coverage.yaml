@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Positive coverage: Create hub, gallery (Photos), Photobooth (Camera) after all permissions allowed.
 - extendedWaitUntil:

@@ -1,5 +1,5 @@
 # Create hub (gallery home) after cold launch onboarding — starting point for Hamburger module.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - launchApp:
     clearState: true

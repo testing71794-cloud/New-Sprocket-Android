@@ -1,7 +1,7 @@
 # ATP: QUICK PRINT_08 | Facebook Overflow Menu
 # Three-dot menu shows Unlink.
 # See: https://docs.maestro.dev/
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_008 - Unlink option in overflow menu"
 tags:
   - quick-print

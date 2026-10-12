@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Cold launch to Create hub only (no Pre-Cut open) — for permission / popup cases.
 - launchApp:

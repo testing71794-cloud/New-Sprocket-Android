@@ -1,0 +1,15 @@
+# ATP Test Case ID: PQ_08
+# Excel: Print_Queue08
+# Verify pending-print drag-and-drop order is reflected by Print State.
+appId: com.caglobal.hp.sprocket
+name: "PQ_08 - Drag and drop reorder syncs Print State"
+tags: [print-queue, atp-excel, positive, physical-printer, drag-and-drop-manual, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- takeScreenshot: PQ_08_before_drag
+# Manual gesture: long-press a pending row, drag within In Queue, and drop.
+- assertVisible: ".*(?i)In Queue.*"
+- takeScreenshot: PQ_08_after_manual_drag
+- pressKey: BACK
+- assertVisible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+- takeScreenshot: PQ_08_print_state_reordered

@@ -1,5 +1,5 @@
 # Android system App info for Sprocket — opened from App Settings → Permissions.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)App info.*"

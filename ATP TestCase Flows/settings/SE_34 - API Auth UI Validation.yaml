@@ -3,7 +3,7 @@
 # API Auth UI Validation
 # Expected: Username and Password fields are hidden. API banner with icon and "Signed in via [Method]" text is displayed correctly.
 # Email-auth account: user name shown; no standalone Username/Password login fields on Account Settings.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_34 - API Auth UI Validation"
 tags:
   - settings

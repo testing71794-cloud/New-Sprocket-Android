@@ -1,0 +1,49 @@
+# Return from Collage picker/editor/preview to Create without clearing app data.
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/presskey
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(Crop|Filters|Adjust|Retouch|Frames).*"
+      notVisible: ".*Select 2 to [48] photos.*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(Copies|Print Preview).*"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: "(?i)Save as new photo.*"
+    commands:
+      - tapOn: ".*(?i)(Don.?t Save|Do Not Save).*"
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: "Drag & Drop to Reorder"
+    commands:
+      - pressKey: back
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*Select 2 to [48] photos.*"
+    commands:
+      - runFlow: tap_collage_back.yaml
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml

@@ -1,0 +1,49 @@
+# ATP Test Case ID: AI_27
+# Excel: AI Tools 27
+# Module: AI- Image-to-Image – Verify Generate New Functionality and Generated Image Count
+# Description:
+# Verify that tapping the Generate New button displays the loader with the correct text and generates the different image with same number of images as originally selected in Image-to-Image settings.
+# Steps:
+# Install and launch the application.
+# Verify the Splash Screen displays the HP logo (hp sprocket) with ""sprocket"" text.
+# Wait for the Splash Screen to complete.
+# Swipe through the onboarding screens.
+# Tap Get Started.
+# Tap Sign Up Later.
+# Wait until the Home screen is displayed.
+# If the notification permission popup appears, tap Allow.
+# Navigate to AI Tools.
+# Tap Image-to-Image.
+# Wait for the Gallery Listing screen to load.
+# Select any photo from the gallery.
+# Wait for the Image-to-Image Main Screen to load with a selected image.
+# Verify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.
+# Select any image style
+# Select any image quantity
+# Wait to enable the 'Generate Images(s)'button and tap on it.
+# Wait to finish the generating photo process.
+# Verify the Newly generated image screen with thumbnails.
+# Wait to 'Generate New' button to become enable, tap on it
+# Expected:
+# A loader is displayed after tapping Generate New.
+# Loader text displays exactly "Generating... This may take a few seconds".
+# A new set of generated images is displayed after generation completes.
+# The number of newly generated images equals the originally selected Image Quantity (3 images).
+appId: com.caglobal.hp.sprocket
+name: "AI_27 - Verify that tapping the Generate New button displays the loader with the correct text and generates the different image with same number of images as originally selected in Image-to-Image settings."
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - visual-manual
+---
+- runFlow: subflows/image_to_image_generate_results.yaml
+- tapOn: "Generate New"
+- extendedWaitUntil:
+    visible: "Generating..."
+    timeout: 15000
+- assertVisible: "This may take a few seconds"
+- extendedWaitUntil:
+    visible: "Generate New"
+    timeout: 120000
+- takeScreenshot: AI_27_regenerated_three_images

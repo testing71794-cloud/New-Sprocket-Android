@@ -2,7 +2,7 @@
 # Excel: Blockers Error Pop up Android    06 | Module: Paper
 # Verify "Paper Jam" error popup
 # Expected: "Paper Jam Error" popup is displayed on the Print Preview screen. The popup displays the bold title "Paper Jam Error", followed by the message "Paper jam. Clear the paper jam and restart the printer by pressing and holding the power button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_06 - Verify Paper Jam error popup"
 tags:
   - alerts

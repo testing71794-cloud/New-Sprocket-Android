@@ -1,0 +1,20 @@
+# Shared physical-printer precondition: create a one-photo job and open Print Queue.
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: ../../printing/subflows/open_preview_one_photo.yaml
+- runFlow: ../../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- tapOn: ".*(?i)^Print$"
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete|Paper Feed Error|Out Of Paper).*"
+    timeout: 120000
+- runFlow: dismiss_printer_error_popup.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Currently Printing|In Queue|No Prints in Progress).*"
+    commands:
+      - tapOn:
+          point: "91%,9%"
+- runFlow: dismiss_printer_error_popup.yaml
+- extendedWaitUntil:
+    visible: ".*(?i)(Currently Printing|In Queue|No Prints in Progress).*"
+    timeout: 30000

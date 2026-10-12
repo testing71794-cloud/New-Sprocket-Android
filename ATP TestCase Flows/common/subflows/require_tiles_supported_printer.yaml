@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 # Tiles / Tile Print positive tests require a tiles-compatible printer.
 # Not supported on Sprocket 3x4, HP Sprocket Studio, or HP Sprocket Studio Plus.

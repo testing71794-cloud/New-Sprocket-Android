@@ -1,4 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow: open_signup_screen.yaml
 - tapOn: "Sign up with Email"

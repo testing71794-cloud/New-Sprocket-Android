@@ -2,7 +2,7 @@
 # Excel: General_PCF-012 | Module: 
 # Verify behavior when Bluetooth is turned OFF on Success screen
 # Expected: User should remain on the Success screen. Printer status should continue to display 'Connected'. No popup should appear.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_160 - Verify behavior when Bluetooth is turned OFF on Success scre"
 tags:
   - connection

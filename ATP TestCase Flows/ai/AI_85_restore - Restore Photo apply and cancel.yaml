@@ -1,0 +1,42 @@
+# Excel: AI Tools 85
+# Module: AI Tools >Restore Photo – Apply and Cancel
+# Description: Verify applying restored changes and handling unsaved changes through Cancel.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Restore Photo.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Wait for the restored photo to be displayed.
+# 5. Navigate back to the Restore Photo result screen.
+# 6. Tap Cancel.
+# 7. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.
+# 8. Tap Stay.
+# 9. Verify that the popup closes and the user remains on the Restore Photo result screen.
+# 10. Tap Cancel again.
+# 11. Tap Exit without Saving.
+# 12. Verify that the user is redirected to the AI Tools selection screen with Restore Photo selected.
+# Type: Positive
+# Expected:
+# Cancel displays the Unsaved Changes popup.
+# Stay closes the popup and keeps the user on the same screen.
+# Exit without Saving redirects to the AI Tools selection screen with Restore Photo selected.
+appId: com.caglobal.hp.sprocket
+name: "AI_85_restore - Restore Photo apply and cancel"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - restore
+---
+- runFlow:
+    file: subflows/enhancement_open_tool.yaml
+    env:
+      TOOL_NAME: "Restore Photo"
+- tapOn:
+    point: "50%,42%"
+- extendedWaitUntil:
+    visible:
+      text: "Generate"
+      enabled: true
+    timeout: 15000
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_cancel_unsaved.yaml

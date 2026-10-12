@@ -1,0 +1,10 @@
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- runFlow: assert_gallery_ui.yaml
+- tapOn:
+    point: "19%,24%"
+- extendedWaitUntil:
+    visible: ".*(?i)(Copies|Tiles|^Print$|Add Printer|No Printers Added).*"
+    timeout: 20000
+- runFlow: assert_tile_print_preview_ui.yaml

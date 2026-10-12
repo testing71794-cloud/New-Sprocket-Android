@@ -1,0 +1,19 @@
+# ATP Test Case ID: PH_08
+# Excel: Print_History08
+# Verify Print History Is Maintained Separately for Different Printer Models
+# Manual setup: create distinct history for model A and model B. Run once with
+# model B connected, then reconnect model A and run again.
+appId: com.caglobal.hp.sprocket
+name: "PH_08 - Separate history for different printer models"
+tags:
+  - print-history
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-setup
+  - printer-model
+  - visual-manual
+---
+- runFlow: subflows/open_recent_prints.yaml
+- runFlow: subflows/assert_recent_prints_screen.yaml
+- takeScreenshot: PH_08_connected_model_history_only

@@ -4,7 +4,7 @@ param(
 )
 
 $adb = "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe"
-$pkg = "com.hp.impulse.sprocket"
+$pkg = "com.caglobal.hp.sprocket"
 
 & $adb -s $Device shell pm revoke $pkg android.permission.CAMERA 2>$null | Out-Null
 Start-Sleep -Seconds 2

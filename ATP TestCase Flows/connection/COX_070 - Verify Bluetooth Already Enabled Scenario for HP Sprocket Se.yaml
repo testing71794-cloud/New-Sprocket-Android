@@ -2,7 +2,7 @@
 # Excel: PCF_HPSelect_014 | Module: Pre Connection Flow for Sprocket Select
 # Verify Bluetooth Already Enabled Scenario for HP Sprocket Select printer
 # Expected: 1. 'Searching for Printers…' screen should be displayed. 2. Search progress indicator should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_070 - Verify Bluetooth Already Enabled Scenario for HP Sprocket Se"
 tags:
   - connection

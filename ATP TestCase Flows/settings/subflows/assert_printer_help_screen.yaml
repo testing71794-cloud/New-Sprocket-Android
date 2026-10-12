@@ -1,5 +1,5 @@
 # Printer Help landing (screen 1) — Hamburger → Printer Help.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - extendedWaitUntil:
     visible: ".*(?i)Printer Help.*"

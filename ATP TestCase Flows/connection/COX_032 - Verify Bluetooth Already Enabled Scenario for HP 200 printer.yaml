@@ -2,7 +2,7 @@
 # Excel: PCF_HP200_014 | Module: Pre Connection Flow for HP 200
 # Verify Bluetooth Already Enabled Scenario for HP 200 printer
 # Expected: 1. 'Searching for Printers…' screen should be displayed. 2. Search progress indicator should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_032 - Verify Bluetooth Already Enabled Scenario for HP 200 printer"
 tags:
   - connection

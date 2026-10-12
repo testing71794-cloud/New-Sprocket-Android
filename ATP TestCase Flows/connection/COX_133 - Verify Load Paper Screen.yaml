@@ -2,7 +2,7 @@
 # Excel: PCF_Studio Plus_003 | Module: Pre Connection Flow for Sprocket Studio Plus
 # Verify Load Paper Screen
 # Expected: 1. The Load Paper screen should be displayed. 2. Printer loading illustration should be displayed. 3. The paper-loading instructions should be displayed. 4. The following description should be displayed: "Remove paper tray from the top of t
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_133 - Verify Load Paper Screen"
 tags:
   - connection

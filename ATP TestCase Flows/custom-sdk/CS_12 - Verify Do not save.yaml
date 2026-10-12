@@ -2,7 +2,7 @@
 # Excel: Custom SDK   12 | Module: Save Photo
 # Verify "Do not save"
 # Expected: Image is not saved to Gallery and the popup closes successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_12 - Verify Do not save"
 tags:
   - custom-sdk

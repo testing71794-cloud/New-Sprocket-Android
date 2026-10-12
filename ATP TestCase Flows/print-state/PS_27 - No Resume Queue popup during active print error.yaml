@@ -1,0 +1,29 @@
+# ATP Test Case ID: PS_27
+# Excel: Print_State_27
+# No Resume Queue popup during active print error
+# Expected: Active-print stopper handling never shows Resume Queue; after recovery printing follows normal queue recovery behavior.
+appId: com.caglobal.hp.sprocket
+name: "PS_27 - No Resume Queue popup during active print error"
+tags:
+  - print-state
+  - atp-excel
+  - positive
+  - physical-printer
+  - manual-error-injection
+  - queue
+  - known-failure
+---
+- runFlow: subflows/open_single_print_state.yaml
+- extendedWaitUntil:
+    visible: "Printing"
+    timeout: 120000
+# Manually trigger a stopper error during the active physical print.
+- extendedWaitUntil:
+    visible: ".*(?i)(Out Of Paper|Paper Jam|Top Cover Open|Printer Error).*"
+    timeout: 180000
+- assertNotVisible: "Print Sent!"
+- assertNotVisible: "Your print queue is currently paused. Would you like to resume printing?"
+# Resolve the stopper and verify normal queue recovery, not a Resume Queue prompt.
+- extendedWaitUntil:
+    visible: ".*(?i)(Sending to Print|In Queue|Printing|Print Complete).*"
+    timeout: 180000

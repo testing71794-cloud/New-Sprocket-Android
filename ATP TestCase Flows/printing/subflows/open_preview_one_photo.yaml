@@ -1,0 +1,8 @@
+# Keep-state launch → Quick Print → one photo → Print Preview.
+# Does NOT clearState (preserves Sense pairing; much faster across suite).
+# See: https://docs.maestro.dev/api-reference/commands/launchapp
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: launch_to_create_keep_state.yaml
+- runFlow: open_preview_one_photo_from_create.yaml

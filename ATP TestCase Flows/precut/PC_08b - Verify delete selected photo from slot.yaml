@@ -2,7 +2,7 @@
 # Excel: Precut_08 (b) | Module: Pre-Cut Stickers – Delete Photo
 # Verify that the user can delete a selected photo from the Pre-Cut photo slot.
 # Expected: Slot emptied; Next disabled if required slots are no longer filled.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "PC_08b - Verify delete selected photo from slot"
 tags:
   - precut

@@ -2,7 +2,7 @@
 # Excel: Firmware Update 38 | Module: Firmware Popup
 # Verify popup reopens correctly
 # Expected: Popup opens correctly every time.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "FW_38 - Verify popup reopens correctly"
 tags:
   - firmware

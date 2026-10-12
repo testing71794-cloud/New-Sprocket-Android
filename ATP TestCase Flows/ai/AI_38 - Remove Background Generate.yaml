@@ -1,0 +1,15 @@
+# Supplied JSON row: AI Tools 38 | Remove Background
+# Verify background removal generation starts
+appId: com.caglobal.hp.sprocket
+name: "AI_38 - Remove Background Generate - Verify background removal generation starts"
+tags:
+  - ai
+  - atp-supplied
+  - network
+---
+- runFlow: subflows/background_open_remove_gallery.yaml
+- runFlow: subflows/background_select_photo.yaml
+- tapOn:
+    text: ".*(?i)^Generate$"
+    enabled: true
+- runFlow: subflows/background_assert_loader.yaml

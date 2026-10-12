@@ -19,7 +19,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 CATALOG = REPO / "ATP Verification Suite" / "catalog" / "atp_cases.json"
 ATP = REPO / "ATP TestCase Flows"
-APP_ID = "com.hp.impulse.sprocket"
+APP_ID = "com.caglobal.hp.sprocket"
 
 # Excel stage → on-disk module folder + ID prefix
 # Hand-tuned folders use *X prefixes so generated flows never overwrite SP_01 / CO_01 / COL_01 / QP_01 / ON_01.

@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC020 | Module: Wi-Fi Validation at 'This Printer uses wi-fi' pop up
 # Verify that the app remains on the Wi-Fi instruction screen when the phone is not connected to a Wi-Fi network.
 # Expected: Should redirect to 'This printer uses wi-fi' screen along with 'Next' button
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_182 - Verify that the app remains on the Wi-Fi instruction screen "
 tags:
   - connection

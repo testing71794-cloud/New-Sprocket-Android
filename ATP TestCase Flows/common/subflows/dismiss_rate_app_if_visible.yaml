@@ -1,17 +1,20 @@
-appId: com.hp.impulse.sprocket
+# Rate App popup — tap No Thanks when shown (single pass; keep fast).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+appId: com.caglobal.hp.sprocket
 ---
-# Rate App prompt — dismiss with No Thanks (button is more reliable than title text).
 - runFlow:
     when:
       visible: ".*(?i)No Thanks.*"
     commands:
       - tapOn: ".*(?i)No Thanks.*"
       - waitForAnimationToEnd:
-          timeout: 2000
+          timeout: 1500
 - runFlow:
     when:
-      visible: "Rate App"
+      visible: ".*(?i)(Rate App|Rate this app|Enjoying|Love (this|the) app).*"
     commands:
-      - tapOn: ".*(?i)No Thanks.*"
+      - tapOn:
+          text: ".*(?i)(No Thanks|Not now|Maybe later).*"
+          optional: true
       - waitForAnimationToEnd:
-          timeout: 2000
+          timeout: 1500

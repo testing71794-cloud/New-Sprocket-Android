@@ -1,0 +1,16 @@
+# ATP Test Case ID: PQ_04
+# Excel: Print_Queue04
+# Verify Pause Queue and Resume Queue controls and state changes.
+appId: com.caglobal.hp.sprocket
+name: "PQ_04 - Pause and Resume Queue states"
+tags: [print-queue, atp-excel, positive, physical-printer, visual-check]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+- assertVisible: ".*(?i)Pause Queue.*"
+- tapOn: ".*(?i)Pause Queue.*"
+- assertVisible: ".*(?i)Resume Queue.*"
+- assertNotVisible: ".*(?i)Pause Queue.*"
+- takeScreenshot: PQ_04_paused_control
+- tapOn: ".*(?i)Resume Queue.*"
+- assertVisible: ".*(?i)Pause Queue.*"
+- assertNotVisible: ".*(?i)Resume Queue.*"

@@ -2,7 +2,7 @@
 # Excel: PCF_HP200_004 | Module: Pre Connection Flow for HP 200
 # Verify 'Load Paper' Info Popup for the HP Sprocket 200 printer.
 # Expected: Instruction popup should be displayed along with following content: Blue card illustration should be displayed. Instruction text should be displayed. Close (X) button should be displayed.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_022 - Verify Load Paper Info Popup for the HP Sprocket 200 printer"
 tags:
   - connection

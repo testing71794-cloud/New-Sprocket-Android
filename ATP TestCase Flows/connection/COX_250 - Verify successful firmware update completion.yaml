@@ -2,7 +2,7 @@
 # Excel: PS-018 | Module: Firmware Update
 # Verify successful firmware update completion
 # Expected: Firmware update completes successfully and Firmware Version reflects the updated version.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_250 - Verify successful firmware update completion"
 tags:
   - connection

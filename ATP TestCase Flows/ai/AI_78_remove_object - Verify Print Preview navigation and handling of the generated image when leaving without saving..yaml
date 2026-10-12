@@ -1,0 +1,68 @@
+# ATP Test Case ID: AI_78_remove_object
+# Supplied Excel ID:
+# AI Tools 78
+# Supplied module:
+# AI Tools >Remove Object – Print Preview
+# Supplied description:
+# Verify Print Preview navigation and handling of the generated image when leaving without saving.
+# Supplied steps:
+# 1. Launch the application and navigate to AI Tools > Remove Object.
+# 2. Select any photo and tap Use This Image.
+# 3. Select an object and tap Generate.
+# 4. Wait for the generated result.
+# 5. Tap Apply.
+# 6. Verify that the Print Preview screen is displayed with the generated image.
+# 7. Tap the Back arrow.
+# 8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Do Not Save options.
+# 9. Tap the Cross icon on the popup.
+# 10. Verify that the popup closes and the user remains on the Print Preview screen.
+# 11. Tap the Back arrow again.
+# 12. Tap Save to Gallery.
+# 13. Verify that the generated image is saved to the gallery and the user returns to the previous screen.
+# 14. Repeat the flow until the Save as new photo? popup is displayed.
+# 15. Tap Do Not Save.
+# 16. Verify that the generated image is not saved to the gallery and the user returns to the previous screen.
+# Supplied type:
+# Positive
+# Supplied expected result:
+# Apply redirects to Print Preview with the generated image.
+# Back displays the Save as new photo? popup with Save to Gallery and Do Not Save.
+# Cross closes the popup without leaving Print Preview.
+# Save to Gallery saves the image and returns to the previous screen.
+# Do Not Save discards the generated image and returns to the previous screen.
+# Dependency tags identify only assertions Maestro cannot prove without external evidence.
+appId: com.caglobal.hp.sprocket
+name: "AI_78_remove_object - Verify Print Preview navigation and handling of the generated image when leaving without saving."
+tags:
+  - ai
+  - atp-excel
+  - object-tools
+  - gallery-filesystem-validation
+---
+- runFlow: subflows/object_open_remove.yaml
+- runFlow: subflows/object_select_photo.yaml
+- runFlow: subflows/object_paint_selection.yaml
+- runFlow: subflows/object_generate.yaml
+- runFlow: subflows/object_wait_result.yaml
+- runFlow: subflows/object_apply_preview.yaml
+- runFlow: subflows/object_save_popup.yaml
+- runFlow:
+    when:
+      visible: "Stay"
+    commands:
+      - tapOn: "Stay"
+- runFlow:
+    when:
+      visible: "Save to Gallery"
+    commands:
+      - tapOn:
+          point: "88%,34%"
+- assertNotVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+- runFlow: subflows/object_save_popup.yaml
+- tapOn: ".*(?i)Save to Gallery.*"
+- runFlow: subflows/object_prepare_remove_result.yaml
+- runFlow: subflows/object_save_popup.yaml
+- tapOn: ".*(?i)(Do Not Save|Don.?t Save|Exit [Ww]ithout [Ss]aving).*"
+- extendedWaitUntil:
+    notVisible: ".*(?i)(Save as (a )?new photo|Unsaved Changes).*"
+    timeout: 10000

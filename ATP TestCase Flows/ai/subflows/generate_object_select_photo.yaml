@@ -1,0 +1,14 @@
+appId: com.caglobal.hp.sprocket
+---
+- assertVisible: ".*(?i)(Recent|Gallery|Photos|Pictures|Camera|Downloads).*"
+- tapOn:
+    point: "18%,42%"
+- extendedWaitUntil:
+    visible: "Use This Image"
+    timeout: 15000
+- assertVisible: "Use This Image"
+- tapOn: "Use This Image"
+- extendedWaitUntil:
+    visible: "Generate Object"
+    timeout: 15000
+- assertVisible: "Generate Object"

@@ -1,0 +1,164 @@
+# Printer tab → Skip to Connection → Sprocket 2×3 (DC:A8, 84:0C, Sprocket 200, 2-in-1).
+# Same Skip to Connection path as Tile Print. Do not select HP Sprocket Plus (82:57).
+# https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# https://docs.maestro.dev/reference/commands-available/extendedwaituntil
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      notVisible: ".*(?i)(Create|Printer|Tile Print|Pre-?Cut|Collage Maker|Quick Print|Photobooth).*"
+    commands:
+      - launchApp:
+          clearState: false
+      - waitForAnimationToEnd:
+          timeout: 3000
+- tapOn:
+    text: ".*(?i)Printer.*"
+    optional: true
+- tapOn:
+    point: "83%,90%"
+    optional: true
+- waitForAnimationToEnd:
+    timeout: 1500
+- runFlow: ../../common/subflows/dismiss_rate_app_if_visible.yaml
+- runFlow:
+    when:
+      notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Sprocket 200|2-in-1).*"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*(?i)Add a new Printer.*"
+            notVisible: ".*(?i)Skip (to )?Connection.*"
+          commands:
+            - tapOn: ".*(?i)Add a new Printer.*"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - extendedWaitUntil:
+          visible: ".*(?i)Skip (to )?Connection.*"
+          timeout: 20000
+      - tapOn: ".*(?i)Skip (to )?Connection.*"
+      - waitForAnimationToEnd:
+          timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)Enable Bluetooth.*"
+          commands:
+            - tapOn: ".*(?i)Enable Bluetooth.*"
+            - waitForAnimationToEnd:
+                timeout: 800
+      - runFlow: ../../permission/subflows/allow_location_precise_permission.yaml
+      - runFlow: ../../permission/subflows/allow_nearby_devices_permission.yaml
+      - runFlow:
+          when:
+            visible: "Allow"
+          commands:
+            - tapOn: "Allow"
+            - waitForAnimationToEnd:
+                timeout: 3000
+      - repeat:
+          times: 3
+          commands:
+            - runFlow:
+                when:
+                  visible: ".*(?i)No Printers Found.*"
+                commands:
+                  - tapOn: ".*(?i)Try Again.*"
+                  - waitForAnimationToEnd:
+                      timeout: 8000
+      - scrollUntilVisible:
+          element: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Sprocket 200|2-in-1).*"
+          direction: DOWN
+          timeout: 120000
+          visibilityPercentage: 40
+          centerElement: true
+      - runFlow:
+          when:
+            visible: ".*(?i)(DC:A8|DC-A8).*"
+          commands:
+            - tapOn: ".*(?i)(DC:A8|DC-A8).*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - runFlow:
+          when:
+            visible: ".*(?i)(84:0C|84-0C).*"
+            notVisible: ".*(?i)(DC:A8|DC-A8|Finish Connection|Finish Setup|Pair).*"
+          commands:
+            - tapOn: ".*(?i)(84:0C|84-0C).*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - runFlow:
+          when:
+            visible: ".*(?i)Sprocket 200.*"
+            notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Finish Connection|Finish Setup|Pair).*"
+          commands:
+            - tapOn: ".*(?i)Sprocket 200.*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - runFlow:
+          when:
+            visible: ".*(?i)2-in-1.*"
+            notVisible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Sprocket 200|Finish Connection|Finish Setup|Pair).*"
+          commands:
+            - tapOn: ".*(?i)2-in-1.*"
+            - waitForAnimationToEnd:
+                timeout: 8000
+      - runFlow: ../../connection/subflows/pairing_optional.yaml
+      - runFlow:
+          when:
+            visible: "Pair"
+          commands:
+            - tapOn: "Pair"
+            - waitForAnimationToEnd:
+                timeout: 5000
+      - runFlow:
+          when:
+            visible: ".*(?i)(Low Battery|Very Low Battery).*"
+          commands:
+            - tapOn: ".*(?i)^OK$"
+            - waitForAnimationToEnd:
+                timeout: 2000
+      - repeat:
+          times: 6
+          commands:
+            - runFlow:
+                when:
+                  visible: ".*(?i)(Finish Connection|Finish Setup).*"
+                commands:
+                  - tapOn: ".*(?i)(Finish Connection|Finish Setup).*"
+                  - waitForAnimationToEnd:
+                      timeout: 5000
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Done$"
+                commands:
+                  - tapOn: ".*(?i)^Done$"
+                  - waitForAnimationToEnd:
+                      timeout: 3000
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Next$"
+                commands:
+                  - tapOn: ".*(?i)^Next$"
+                  - waitForAnimationToEnd:
+                      timeout: 2000
+      - tapOn:
+          text: ".*(?i)^Create$"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500
+- runFlow:
+    when:
+      visible: ".*(?i)(DC:A8|DC-A8|84:0C|84-0C|Sprocket 200|2-in-1).*"
+      notVisible: ".*(?i)(Skip (to )?Connection|No Printers Found|Searching).*"
+    commands:
+      - tapOn:
+          text: ".*(?i)^Create$"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500

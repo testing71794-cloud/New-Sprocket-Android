@@ -2,7 +2,7 @@
 # Excel: Custom SDK  03 | Module: Gallery - Apply Edit
 # Verify user can edit the selected image.
 # Expected: Image modifications are saved successfully and reflected on the Preview screen.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "CS_03 - Verify user can edit the selected image"
 tags:
   - custom-sdk

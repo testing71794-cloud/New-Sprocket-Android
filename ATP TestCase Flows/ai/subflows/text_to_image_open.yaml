@@ -1,0 +1,12 @@
+# Open the supplied Text-to-Image workflow from Create with AI Tools.
+# Aligned with https://docs.maestro.dev/
+appId: com.caglobal.hp.sprocket
+---
+- runFlow: reach_module_screen.yaml
+- tapOn: ".*Text-to-Image.*"
+- extendedWaitUntil:
+    visible: "Tap here to enter a prompt..."
+    timeout: 15000
+- assertVisible: "Orientation"
+- assertVisible: "Image Quantity"
+- assertVisible: "Generate Image\\(s\\)"

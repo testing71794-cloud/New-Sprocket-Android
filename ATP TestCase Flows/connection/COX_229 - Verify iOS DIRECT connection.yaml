@@ -2,7 +2,7 @@
 # Excel: HP600_CONN_TC067 | Module: Wi-Fi Direct
 # Verify iOS DIRECT connection
 # Expected: App resumes connection process.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_229 - Verify iOS DIRECT connection"
 tags:
   - connection

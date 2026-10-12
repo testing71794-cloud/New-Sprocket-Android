@@ -2,7 +2,7 @@
 # Excel: Stoppers Error Pop up Ios 27 | Module: Battery
 # Verify "Battery Error" popup
 # Expected: "Battery Error" popup is displayed . The popup displays the bold title "Battery Error", followed by the message "Restart your printer and try printing again." The popup includes an "OK" button at the bottom and a Close (X) icon in the top-r
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "AL_48 - Verify Battery Error popup"
 tags:
   - alerts

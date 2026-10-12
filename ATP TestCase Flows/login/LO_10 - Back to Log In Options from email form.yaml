@@ -1,6 +1,6 @@
 # ATP Test Case ID: LO_10
 # Figma ON_03C — Back to Log In Options returns to ON_03B (Android login options).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "LO_10 - Back to Log In Options from email form"
 ---
 - runFlow: subflows/ensure_email_login_form.yaml

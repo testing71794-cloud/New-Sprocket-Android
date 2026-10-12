@@ -2,7 +2,7 @@
 # Excel: PCF_HP3*4_016 | Module: Pre Connection Flow for Sprocket 3x4
 # Verify all UI elements displayed on the 'No Printers Found' screen for HP Sprocket 3x4 printer
 # Expected: The 'No Printers Found' screen should display:  Close (X) button. Warning icon. "No Printers Found" title. "We were unable to find a Sprocket." message. "Try Again" button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_053 - Verify all UI elements displayed on the No Printers Found sc"
 tags:
   - connection

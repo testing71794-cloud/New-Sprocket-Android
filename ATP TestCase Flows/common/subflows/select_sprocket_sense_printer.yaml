@@ -1,0 +1,88 @@
+# Open Printer tab. When list shows HP Sprocket Sense (5D:6C), select it.
+# Skip when SKIP_SENSE=1 (passed via maestro test -e SKIP_SENSE=1).
+# See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
+# See: https://docs.maestro.dev/api-reference/commands/extendedwaituntil
+# See: https://docs.maestro.dev/api-reference/commands/runflow
+appId: com.caglobal.hp.sprocket
+---
+- runFlow:
+    when:
+      true: ${SKIP_SENSE != '1'}
+    commands:
+      - runFlow: dismiss_rate_app_if_visible.yaml
+      - runFlow: ../../printing/subflows/dismiss_optional_firmware_update.yaml
+      - tapOn:
+          text: "Printer\nTab 3 of 3"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^Printer$"
+          optional: true
+      - tapOn:
+          point: "84%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - runFlow: grant_all_permissions_via_ui.yaml
+      - runFlow: dismiss_rate_app_if_visible.yaml
+      - extendedWaitUntil:
+          visible: ".*(?i)(HP Sprocket Sense|5D:6C|5D-6C|Your Printers|Tap to Connect|Add Printer).*"
+          timeout: 10000
+          optional: true
+      - runFlow:
+          when:
+            visible: ".*(?i)(HP Sprocket Sense|5D[:\\-]6C).*"
+          commands:
+            - tapOn:
+                text: ".*(?i)(HP Sprocket Sense.*5D[:\\-]6C|5D[:\\-]6C.*Sense).*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)5D[:\\-]6C.*"
+                optional: true
+            - tapOn:
+                text: ".*(?i)HP Sprocket Sense.*"
+                optional: true
+            - waitForAnimationToEnd:
+                timeout: 2500
+            - runFlow: ../../printing/subflows/dismiss_optional_firmware_update.yaml
+            - runFlow:
+                when:
+                  visible: ".*(?i)^Pair$"
+                commands:
+                  - tapOn: ".*(?i)^Pair$"
+                  - waitForAnimationToEnd:
+                      timeout: 6000
+            - runFlow:
+                when:
+                  visible: ".*(?i)Finish Connection.*"
+                commands:
+                  - tapOn: ".*(?i)Finish Connection.*"
+                  - waitForAnimationToEnd:
+                      timeout: 3000
+            - extendedWaitUntil:
+                visible: ".*(?i)(Connected|Ready|Battery|Printer Settings|HP Sprocket Sense|5D[:\\-]6C).*"
+                timeout: 20000
+                optional: true
+            - runFlow:
+                when:
+                  visible: ".*(?i)(Printer Settings|Mac Address).*"
+                  notVisible: ".*(?i)(Quick Print|Collage Maker).*"
+                commands:
+                  - pressKey: back
+                  - waitForAnimationToEnd:
+                      timeout: 1000
+      - tapOn:
+          text: "Create\nTab 2 of 3"
+          optional: true
+      - tapOn:
+          text: ".*(?i)^Create$"
+          optional: true
+      - tapOn:
+          point: "50%,90%"
+          optional: true
+      - waitForAnimationToEnd:
+          timeout: 1500
+      - runFlow: dismiss_rate_app_if_visible.yaml
+      - extendedWaitUntil:
+          visible: ".*(?i)(Quick Print|Collage Maker|Pre-Cut|Photobooth).*"
+          timeout: 12000
+          optional: true

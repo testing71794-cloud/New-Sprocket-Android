@@ -1,0 +1,32 @@
+appId: com.caglobal.hp.sprocket
+---
+- extendedWaitUntil:
+    notVisible: ".*(?i)(Generating|Please wait|Loading).*"
+    timeout: 90000
+- runFlow:
+    when:
+      visible: "Try Again"
+    commands:
+      - tapOn: "Try Again"
+      - extendedWaitUntil:
+          notVisible: ".*(?i)(Generating|Please wait|Loading).*"
+          timeout: 90000
+- runFlow:
+    when:
+      visible: "Try Again"
+    commands:
+      - tapOn: "Try Again"
+      - extendedWaitUntil:
+          notVisible: ".*(?i)(Generating|Please wait|Loading).*"
+          timeout: 90000
+- runFlow:
+    when:
+      visible: "Try Again"
+    commands:
+      - tapOn: "Try Again"
+      - extendedWaitUntil:
+          notVisible: ".*(?i)(Generating|Please wait|Loading).*"
+          timeout: 90000
+- extendedWaitUntil:
+    visible: ".*(?i)(Apply|Generate New).*"
+    timeout: 90000

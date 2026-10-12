@@ -3,7 +3,7 @@
 # Cancel Account Deletion
 # Expected: Popup closes successfully and account is not deleted.
 # Note: Skips when Delete Account option is unavailable on device.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_31 - Cancel Account Deletion"
 tags:
   - settings

@@ -2,7 +2,7 @@
 # Excel: SU_02 | Module: ON_02C_Sign Up with Email
 # Verify Sign Up with Email screen UI, validations and navigation
 # Expected: User is redirected to ON_02C_Sign Up with Email. All UI elements are displayed correctly. Sign Up button remains disabled until all mandatory fields are entered. After entering valid data, the button becomes enabled and user can proceed. In
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "OSS_05 - Verify Sign Up with Email screen UI validations and navigati"
 tags:
   - onboarding-splash

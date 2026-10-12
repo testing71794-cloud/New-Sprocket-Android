@@ -1,0 +1,898 @@
+[
+  {
+    "excel_id": "AI Tools 02",
+    "module": "AI- Navigation",
+    "description": "Verify navigation to AI tools",
+    "steps": "1. Launch app and complete onboarding.\n2. Go to Create tab.\n3. Tap Sprocket AI banner.",
+    "type": "Positive",
+    "expected": "Redirects to \"Create with AI Tools\" screen."
+  },
+  {
+    "excel_id": "AI Tools 03",
+    "module": "AI- UI verification",
+    "description": "Verify UI layout of AI Tools screen",
+    "steps": "1. Launch app and complete onboarding.\n2. Navigate to Create tab.\n3. Tap Sprocket AI banner.\n4. Observe AI Tools screen layout.",
+    "type": "Positive",
+    "expected": "The Create with AI Tools screen should be displayed with the following UI elements:\n\nA top header with a Back button and the title “Create with AI Tools”.\nA Text-to-Image card with an image preview, title, and description: “AI generated images from text prompts.”\nAn Image-to-Image card with an image transformation preview, title, and description: “Change photos into different styles with AI.”\nBackground Tools section with:\nRemove Background\nReplace Background\nObject Tools section with:\nRemove Object\nReplace Object\nGrab Object\nPhoto Enhancements section with:\nRestore Photo\nEnhance Photo\nFix Lighting\nUpscale Photo\nGenerate section with:\nExtend Image\nGenerate Object\nA bottom navigation bar with More, Create (selected), and Printer tabs.\nAll tool thumbnails, labels, section headings, cards, icons, and navigation elements should be properly aligned and clearly visible without overlapping or clipping."
+  },
+  {
+    "excel_id": "AI Tools 04",
+    "module": "AI Tools",
+    "description": "Verify Tool accessibility",
+    "steps": "1. Launch app and complete onboarding.\n2. Open Create tab.\n3. Enter Sprocket AI Tools screen.\n4. Observe available AI tools.",
+    "type": "Positive",
+    "expected": "Text-to-Image tool, Image-to-Image tool, and Background Tools (Remove/Replace), Object Tools (Remove Object, Replcae Object), Photo Enchancements (Restore Photo, Enhance Photo, Fix Lighting, Upscale Photo), Generate (Generate Object) are clearly visible and accessible."
+  },
+  {
+    "excel_id": "AI Tools 05",
+    "module": "AI- botoom Navigation bar",
+    "description": "Verify Bottom Tab persistence",
+    "steps": "1. Launch app.\n2. Complete onboarding.\n3. Enter Sprocket AI Tools screen.\n4. Observe bottom navigation bar.",
+    "type": "Positive",
+    "expected": "The bottom navigation bar displays More, Create, and Printer tabs. The Create tab is selected by default and appears highlighted, while the More and Printer tabs remain greyed out to clearly indicate that they are not selected."
+  },
+  {
+    "excel_id": "AI Tools 05 (a)",
+    "module": "AI- botoom Navigation bar",
+    "description": "Verify rapid tab switching",
+    "steps": "1. Launch app.\n2. Complete onboarding.\n3. Rapidly switch between More, Create, and Printer tabs repeatedly.\n4. Observe app behavior.",
+    "type": "Positive",
+    "expected": "App switches smoothly without lag, crash, or UI freeze."
+  },
+  {
+    "excel_id": "AI Tools 06 (a)",
+    "module": "AI Text to image- Navigate to Text-to-Image Screen",
+    "description": "Verify that the Text-to-Image screen opens when the user selects the Text-to-Image option.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image",
+    "type": "Positive",
+    "expected": "The Text-to-Image screen opens successfully and displays the prompt field, Orientation settings, Image Quantity settings, and Generate Image(s) button."
+  },
+  {
+    "excel_id": "AI Tools 06 (b)",
+    "module": "AI Text to image- Verify Text-to-Image Screen UI",
+    "description": "Verify the UI elements and default settings displayed on the Text-to-Image screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.",
+    "type": "Positive",
+    "expected": "1. The Text-to-Image screen displays a prompt input field with the placeholder “Tap here to enter a prompt...”.\n2. A prompt/randomize icon is displayed within the prompt area.\n3. The Orientation section displays Portrait and Landscape options.\n4. Portrait is selected by default.\n5. The Image Quantity section displays options 1, 2, 3, and 4.\n6. 3 is selected by default.\n7. The Generate Image(s) button is displayed at the bottom of the screen and remains disabled until the required prompt/settings are provided.\n8. A back button is displayed in the top-left corner, and the screen title “Text-to-Image” is displayed in the top bar."
+  },
+  {
+    "excel_id": "AI Tools 06 (c)",
+    "module": "AI Text to image- Verify Prompt Text Box Focus and Keyboard",
+    "description": "Verify that tapping the prompt text box focuses the field and opens the native keyboard.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the prompt text box displaying “Tap here to enter a prompt...”.",
+    "type": "Positive",
+    "expected": "The prompt text box receives focus, and the native device keyboard opens, allowing the user to enter a prompt."
+  },
+  {
+    "excel_id": "AI Tools 06 (d)",
+    "module": "AI Text to image- Verify Generate Prompt Populates a Random Prompt",
+    "description": "Verify that tapping the Generate Prompt button populates the prompt text box with a random prompt.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the Generate Prompt button at the bottom-right of the prompt text box.",
+    "type": "Positive",
+    "expected": "A random prompt is generated and populated in the prompt text box."
+  },
+  {
+    "excel_id": "AI Tools 06 (e)",
+    "module": "AI Text to image- Verify Generate Prompt Replaces Existing Prompt",
+    "description": "Verify that tapping Generate Prompt clears the existing prompt and replaces it with a new random prompt.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the prompt text box.\n12. Enter a prompt in the text box.\n13. Tap the Generate Prompt button.",
+    "type": "Positive",
+    "expected": "The existing prompt text is cleared and replaced with a new random prompt."
+  },
+  {
+    "excel_id": "AI Tools 06 (f)",
+    "module": "AI Text to image- Verify Generate Prompt Works Without Focusing the Prompt Text Box",
+    "description": "Verify that the Generate Prompt button can be interacted with without focusing the prompt text box.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Without tapping the prompt text box, tap the Generate Prompt button.",
+    "type": "Positive",
+    "expected": "A random prompt is populated in the prompt text box. The prompt text box does not receive focus, and the native keyboard does not open."
+  },
+  {
+    "excel_id": "AI Tools 07",
+    "module": "AI Text to image- Verify Generate Image(s) Button Activation and Navigation to Loader",
+    "description": "Verify that the Generate Image(s) button becomes activated after entering a prompt and selecting the required orientation and image quantity, and tapping it navigates to the loader state.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the prompt text box.\n12. Enter a valid prompt.\n13. Select an orientation.\n14. Select an image quantity.\n15. Tap the Generate Image(s) button.",
+    "type": "Positive",
+    "expected": "The Generate Image(s) button becomes activated after a prompt is entered and the required orientation and image quantity are selected.\nTapping Generate Image(s) navigates the user to the loader state while the images are being generated."
+  },
+  {
+    "excel_id": "AI Tools 08",
+    "module": "AI Text to image- Verify Text-to-Image Loader State",
+    "description": "Verify that the loader animation is displayed while AI-generated images are being processed.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the prompt text box.\n12. Enter a valid prompt.\n13. Select an orientation.\n14. Select an image quantity.\n15. Tap the Generate Image(s) button.\n16. Wait for the Text-to-Image loader state to appear.",
+    "type": "Positive",
+    "expected": "The Text-to-Image loader state is displayed while the AI-generated images are being processed.\nThe text “Generating...” is displayed.\nThe message “This may take a few seconds” is displayed below the generating text.\nThe loader remains visible until the image-generation process is completed."
+  },
+  {
+    "excel_id": "AI Tools 09",
+    "module": "AI Text to image- Verify Generated Image Results Screen",
+    "description": "Verify that the generated image results screen is displayed after image generation and that the generated image options can be selected.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the prompt text box.\n12. Enter a valid prompt.\n13. Select an orientation.\n14. Select an image quantity.\n15. Tap the Generate Image(s) button.\n16. Wait for the image generation process to complete.",
+    "type": "Positive",
+    "expected": "The generated image results screen is displayed after image generation is completed.\nAt the top-left, a “Cancel” button should be displayed, and at the top-right, an “Apply” button should be displayed.\nThe number of generated image options matches the selected Image Quantity.\nOption 1 is selected by default and displayed in the main preview area.\nThe remaining generated images are displayed as small thumbnails below the main preview.\nEach thumbnail matches the selected image orientation/aspect ratio.\nTapping any generated image thumbnail switches the main preview to the corresponding generated image.\nThe selected thumbnail is visually highlighted to indicate the currently displayed image.\nThe Generate New button is displayed at the bottom of the screen."
+  },
+  {
+    "excel_id": "AI Tools 10",
+    "module": "AI Text to image- Verify Generate New Functionality",
+    "description": "Verify that tapping Generate New displays the Text-to-Image loader and generates a new set of image options based on the originally selected image quantity and orientation.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap the Create tab from the bottom navigation bar.\n10. Tap Text-to-Image.\n11. Tap the prompt text box.\n12. Enter a valid prompt.\n13. Select an orientation.\n14. Select an image quantity.\n15. Tap the Generate Image(s) button.\n16. Wait for the generated image results screen to appear.\n17. Tap the Generate New button.\n18. Wait for the Text-to-Image loader to appear.\n19. Wait for the image generation process to complete.",
+    "type": "Positive",
+    "expected": "Tapping Generate New displays the Text-to-Image Generating Loader.\nThe loader animation and “Generating...” message are displayed while new images are being generated.\nAfter generation is complete, the generated image results screen is displayed again.\nA new set of generated image options is displayed.\nThe number of newly generated image options matches the Image Quantity, orientation originally selected by the user on the Text-to-Image screen.\nOption 1 is selected by default and displayed in the main preview.\nThe remaining generated images are displayed as thumbnails below the main preview."
+  },
+  {
+    "excel_id": "AI Tools 11",
+    "module": "AI Text to image- Apply and Cancel Buttons",
+    "description": "Verify that the Apply button saves the changes and navigates to Print Preview, while the Cancel button discards the changes and returns to the Text-to-Image screen.",
+    "steps": "1. Install and launch the application.\n2. Complete the Splash Screen and onboarding flow.\n3. Tap Get Started.\n4. Tap Sign Up Later.\n5. Wait until the Home screen is displayed.\n6. If the notification permission popup appears, tap Allow.\n7. Tap the Create tab from the bottom navigation bar.\n8. Tap Text-to-Image.\n9. Tap the prompt text box.\n10. Enter a valid prompt.\n11. Select an orientation.\n12. Select an image quantity.\n13. Tap the Generate Image(s) button.\n14. Wait for the generated image results screen to appear.\n15. Make any available changes/settings on the Generate Image screen.\n16. Verify the Cancel button is displayed at the top-left and the Apply button is available at the top-right.\n17. Tap Apply.\n18. Observe the resulting screen.\n19. Return to the Generate Image screen and make another change.\n20. Tap Cancel.\n21. Observe the resulting screen.",
+    "type": "Positive",
+    "expected": "The Cancel button is displayed at the top-left of the top bar.\nThe Apply button is available at the top-right of the top bar.\nTapping Apply saves all changes made by the user and navigates to Print Preview.\nTapping Cancel returns the user to Text-to-Image screen -  so the user can change their settings again.\nChanges made before tapping Cancel are not applied."
+  },
+  {
+    "excel_id": "AI Tools 12",
+    "module": "AI Text to image- Generate Image – Landscape Image Rotation and Thumbnail Grid",
+    "description": "Verify that landscape images are rotated 90° clockwise when imported into Print Preview, and that preview thumbnails are displayed in a 2×2 grid.",
+    "steps": "1. Install and launch the application.\n2. Complete the Splash Screen and onboarding flow.\n3. Tap Get Started.\n4. Tap Sign Up Later.\n5. Wait until the Home screen is displayed.\n6. If the notification permission popup appears, tap Allow.\n7. Tap the Create tab from the bottom navigation bar.\n8. Tap Text-to-Image.\n9. Tap the prompt text box.\n10. Enter a valid prompt.\n11. Select an landscape orientation.\n12. Select an image quantity.\n13. Tap the Generate Image(s) button.\n14. Wait for the generated image results screen to appear.\n15. Observe the main image preview and preview thumbnails.\n16. Continue to Print Preview and observe the imported image orientation.",
+    "type": "Positive",
+    "expected": "1. Landscape images are rotated 90° clockwise when imported into Print Preview .\n2. The preview thumbnails are displayed in a 2×2 grid.\n3. The selected thumbnail is visually highlighted.\n4. The generated image preview is displayed correctly without using the obsolete screen/layout behavior."
+  },
+  {
+    "excel_id": "AI Tools 13",
+    "module": "AI Text-to-Image – Reuse Generated Image in AI Tools",
+    "description": "Verify that an image generated through Text-to-Image and sent to Print Preview is automatically reused when the user opens the AI tools from Print Preview.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Tap Text-to-Image.\n10. Enter a valid text prompt.\n11. Tap Generate.\n12. Wait for the image to be generated.\n13. Tap Next.\n14. Wait until the Print Preview screen is displayed.\n15. Tap the AI button.\n16. Select any available AI tool except Text to image.",
+    "type": "Positive",
+    "expected": "The image generated in the Text-to-Image screen is retained when navigating to Print Preview.\nThe same generated image is automatically loaded in the selected AI tool.\nThe user is not required to select or import the image again."
+  },
+  {
+    "excel_id": "AI Tools 14",
+    "module": "AI Text-to-Image – Print Output Matches Print Preview",
+    "description": "Verify that the printed output is generated successfully and matches the image, layout, and selected settings displayed in the Print Preview screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. Make sure the printer is connected to the app.\n9. If the notification permission popup appears, tap Allow.\n10. Tap Text-to-Image.\n11. Enter a valid text prompt.\n12. Tap Generate.\n13. Wait for the image to be generated.\n14. Tap Next.\n15. Wait until the Print Preview screen is displayed.\n16. Verify the image, orientation, size, copies, and other applicable print settings in Print Preview.\n17. Tap Print.\n18. Wait for the print job to complete.\n19. Collect the printed output from the connected printer.\n20. Compare the printed output with the Print Preview screen.",
+    "type": "Positive",
+    "expected": "Expected Result:\n\nThe print command is accepted and the print job is sent to the connected printer.\nThe image is printed successfully.\nThe printed output matches the Print Preview in terms of image content, orientation, layout, selected size, and other applicable print settings.\nNo unexpected cropping, rotation, distortion, or missing content is present on the printed output."
+  },
+  {
+    "excel_id": "AI Tools 15",
+    "module": "AI- Image-to-Image – Open Gallery",
+    "description": "Verify that tapping the Image-to-Image AI tool opens the gallery screen for selecting an image.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Image-to-Image.",
+    "type": "Positive",
+    "expected": "The Gallery screen opens after tapping Image-to-Image.\nThe gallery displays available images grouped by date.\nThe top bar displays a Back button, Folder Name dropdown, and Sort option.\nA message at the bottom prompts the user to “Please select an image to generate with.”\nThe user can select an image from the gallery to continue with the Image-to-Image tool."
+  },
+  {
+    "excel_id": "AI Tools 16",
+    "module": "AI- Image-to-Image – Verify Image-to-Image Main Screen UI Elements and Default Values",
+    "description": "Verify that the Image-to-Image Main Screen displays all required UI elements with the correct default values after a photo is selected from the gallery.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.",
+    "type": "Positive",
+    "expected": "Selected image thumbnail is displayed in the Base Image section.\nThumbnail is displayed within a 108x108 px square area.\nChange Photo button is displayed.\nCrop Photo button is displayed.\nImage Style section is displayed with no style selected by default.\nImage Quantity section is displayed with quantity 3 selected by default.\nGenerate Images button is displayed."
+  },
+  {
+    "excel_id": "AI Tools 17",
+    "module": "AI- Image-to-Image – Verify that the user can replace the selected image using the Change Photo option.",
+    "description": "",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nTap Change Photo.\nWait for the Gallery Listing screen to load.\nSelect a different image.",
+    "type": "Positive",
+    "expected": "User is redirected to the Gallery Listing screen.\nNewly selected image replaces the previous image.\nUpdated thumbnail is displayed in the Base Image section."
+  },
+  {
+    "excel_id": "AI Tools 18",
+    "module": "AI- Image-to-Image – Verify Crop Photo Functionality",
+    "description": "Verify that the user can crop, rotate, and zoom the selected image and return to the Main Screen with the applied changes.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nTap Crop Photo.\nRotate the image.\nZoom the image.\nAdjust the crop area.\nTap Confirm Crop.",
+    "type": "Positive",
+    "expected": "Crop screen is displayed.\nUser can rotate, zoom, and crop the image.\nUser is returned to the Image-to-Image Main Screen after tapping Confirm Crop.\nUpdated image thumbnail reflects the applied changes."
+  },
+  {
+    "excel_id": "AI Tools 19",
+    "module": "AI- Image-to-Image – Verify Image Style Selection",
+    "description": "Verify that only one Image Style can be selected at a time.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect an Image Style.\nSelect another Image Style.",
+    "type": "Positive",
+    "expected": "First selected style is highlighted.\nSecond selected style becomes highlighted when selected.\nPreviously selected style is deselected.\nOnly one style remains selected at a time."
+  },
+  {
+    "excel_id": "AI Tools 20",
+    "module": "AI- Image-to-Image – Verify Image Quantity Selection",
+    "description": "Verify that the user can change the Image Quantity and only one quantity can be selected at a time.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect quantity 1.\nSelect quantity 2.\nSelect quantity 4.",
+    "type": "Positive",
+    "expected": "Selected quantity is highlighted.\nPreviously selected quantity is deselected.\nOnly one quantity option is selected at a time."
+  },
+  {
+    "excel_id": "AI Tools 21",
+    "module": "AI- Image-to-Image – Verify State Retention After Crop",
+    "description": "Verify that selected Image Style and Image Quantity are retained after returning from the Crop screen.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect an Image Style.\nSelect quantity 4.\nTap Crop Photo.\nModify the image.\nTap Confirm Crop.",
+    "type": "Positive",
+    "expected": "User returns to the Image-to-Image Main Screen.\nCropped image is displayed.\nPreviously selected Image Style remains selected.\nPreviously selected Image Quantity remains selected."
+  },
+  {
+    "excel_id": "AI Tools 22",
+    "module": "AI- Image-to-Image – Verify Image Generation Using Selected Quantity",
+    "description": "Verify that image generation starts successfully and generates the selected number of images.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect an Image Style.\nSelect quantity 4.\nTap Generate Images.",
+    "type": "Positive",
+    "expected": "Image generation process starts successfully.\nFour images are generated and displayed."
+  },
+  {
+    "excel_id": "AI Tools 23",
+    "module": "AI- Image-to-Image – Verify Back Navigation",
+    "description": "Verify that tapping the Back button returns the user to the previous screen.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nTap the Back button.",
+    "type": "Positive",
+    "expected": "User is navigated to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 24",
+    "module": "AI- Image-to-Image – Verify Change Photo Cancellation",
+    "description": "Verify that the previously selected image remains unchanged when the user exits the gallery without selecting a new image.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nTap Change Photo.\nClose the Gallery Listing screen without selecting a new image by tap on back button.",
+    "type": "Positive",
+    "expected": "User returns to the Image-to-Image Main Screen.\nPreviously selected image remains displayed in the Base Image section."
+  },
+  {
+    "excel_id": "AI Tools 25",
+    "module": "AI- Image-to-Image – Verify Generate New Button is Enabled Upon Image Style Selection",
+    "description": "Verify that the Generate New (or Generate Images) button remains disabled until an Image Style is selected and becomes enabled after the user selects an Image Style.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load.\nObserve the state of the Generate New/Generate Images button without selecting an Image Style.\nSelect any Image Style by tapping its thumbnail or text.\nObserve the state of the Generate New/Generate Images button.",
+    "type": "Positive",
+    "expected": "The Generate New/Generate Images button is disabled before an Image Style is selected.\nThe button becomes enabled immediately after an Image Style is selected.\nThe selected Image Style is visually highlighted.\nThe user can proceed with image generation after the button becomes enabled."
+  },
+  {
+    "excel_id": "AI Tools 26",
+    "module": "AI- Image-to-Image – Verify Landscape Image Orientation on Image-to-Image Screen and Print Preview",
+    "description": "Verify that when a user selects a landscape image from the gallery, the image is displayed with the expected orientation in the Base Image section and is rotated 90 degrees clockwise when imported into Print Preview.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any landscape photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nVerify the selected landscape image is displayed under the Base Image section.\nTap Generate Images or proceed to the next available step that imports the image into Print Preview.\nTap on 'Generate image' button\nTap on Next button\nNavigate to the Print Preview screen.\nVerify the orientation of the imported image.",
+    "type": "Positive",
+    "expected": "The selected landscape image is successfully displayed in the Base Image section.\nThe image imports successfully into Print Preview.\nThe imported landscape image is rotated 90 degrees clockwise in Print Preview as per the requirement.\nNo distortion, cropping, or image quality issues are observed after rotation."
+  },
+  {
+    "excel_id": "AI Tools 27",
+    "module": "AI- Image-to-Image – Verify Generate New Functionality and Generated Image Count",
+    "description": "Verify that tapping the Generate New button displays the loader with the correct text and generates the different image with same number of images as originally selected in Image-to-Image settings.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"\"sprocket\"\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect any image style\nSelect any image quantity\nWait to enable the 'Generate Images(s)'button and tap on it.\nWait to finish the generating photo process.\nVerify the Newly generated image screen with thumbnails.\nWait to 'Generate New' button to become enable, tap on it",
+    "type": "Positive",
+    "expected": "A loader is displayed after tapping Generate New.\nLoader text displays exactly \"Generating... This may take a few seconds\".\nA new set of generated images is displayed after generation completes.\nThe number of newly generated images equals the originally selected Image Quantity (3 images)."
+  },
+  {
+    "excel_id": "AI Tools 28",
+    "module": "AI- Image-to-Image – Verify Thumbnail Selection Updates Main Preview Image",
+    "description": "Verify that tapping a generated image thumbnail updates the main preview image.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"\"sprocket\"\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect any image style\nSelect any image quantity\nWait to enable the 'Generate Images(s)'button and tap on it.\nWait to finish the generating photo process.\nVerify the Newly generated image screen with thumbnails.\nObserve the currently selected main preview image.\nTap the second generated image thumbnail.\nObserve the main preview image.\nTap the third generated image thumbnail.\nObserve the main preview image.",
+    "type": "Positive",
+    "expected": "The tapped thumbnail becomes selected.\nThe main preview image updates to match the selected thumbnail.\nThe displayed image changes immediately without errors.\nThe selected thumbnail is visually highlighted according to design."
+  },
+  {
+    "excel_id": "AI Tools 29",
+    "module": "AI- Image-to-Image – Verify Next Button Navigation to Print Preview",
+    "description": "Verify that tapping the Next button navigates the user to the Print Preview screen.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"\"sprocket\"\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect any image style\nSelect any image quantity\nWait to enable the 'Generate Images(s)'button and tap on it.\nWait to finish the generating photo process.\nVerify the Newly generated image screen with thumbnails.\nSelect any generated image thumbnail.\nTap Next.",
+    "type": "Positive",
+    "expected": "User is navigated to Print Preview - Image-to-Image screen.\nThe selected generated image is imported into Print Preview.\nPrint Preview screen loads successfully without errors."
+  },
+  {
+    "excel_id": "AI Tools 30",
+    "module": "AI Tools > Image-to-Image > Print Preview – Verify Selected Thumbnail is Passed to Print Preview",
+    "description": "Verify that the image selected from the thumbnail list is the image displayed in Print Preview.",
+    "steps": "Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"\"\"\"sprocket\"\"\"\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect any image style\nSelect any image quantity\nWait to enable the 'Generate Images(s)'button and tap on it.\nWait to finish the generating photo process.\nVerify the Newly generated image screen with thumbnails.\nObserve the currently selected main preview image.\nTap the second generated image thumbnail.\nObserve the main preview image.\nTap Next button",
+    "type": "Positive",
+    "expected": "The selected thumbnail becomes the active preview image.\nThe same selected image is displayed in the Print Preview screen.\nNo other generated image is imported instead of the selected image."
+  },
+  {
+    "excel_id": "AI Tools 31",
+    "module": "AI Tools > Image-to-Image > Print Preview – Verify Selected Thumbnail is Passed to Print Preview",
+    "description": "Verify that Generate New maintains the originally configured image quantity.",
+    "steps": "\"Install and launch the application.\nVerify the Splash Screen displays the HP logo (hp sprocket) with \"\"\"\"sprocket\"\"\"\" text.\nWait for the Splash Screen to complete.\nSwipe through the onboarding screens.\nTap Get Started.\nTap Sign Up Later.\nWait until the Home screen is displayed.\nIf the notification permission popup appears, tap Allow.\nNavigate to AI Tools.\nTap Image-to-Image.\nWait for the Gallery Listing screen to load.\nSelect any photo from the gallery.\nWait for the Image-to-Image Main Screen to load with a selected image.\nVerify the Base Image section, Image Style section, Image Quantity section, and Generate Images button.\nSelect any image style\nSelect any image quantity\nWait to enable the 'Generate Images(s)'button and tap on it.\nWait to finish the generating photo process.\nWait to enable 'Generate New' button, tap Generate New.\nWait for generation to complete.",
+    "type": "Positive",
+    "expected": "A new set of generated images is returned.\nExactly same count of  images as per the previously selected quantity are displayed after generation completes.\nGenerated image count matches the quantity configured in Image-to-Image settings."
+  },
+  {
+    "excel_id": "AI Tools 32",
+    "module": "AI Tools > Image-to-Image > Print Preview – Verify Back Navigation Displays Save Confirmation Popup",
+    "description": "Verify that tapping the Back button on the Print Preview screen displays the Save as a New Photo confirmation popup with the correct options.",
+    "steps": "Install and launch the application.\nComplete onboarding and navigate to the Home screen.\nNavigate to AI Tools.\nTap Image-to-Image.\nSelect any image from the gallery.\nSelect an Image Style.\nTap Generate Images.\nWait for the generated results screen to load.\nTap Next.\nWait for the Print Preview screen to load.\nTap the Back button.",
+    "type": "Positive",
+    "expected": "A confirmation popup is displayed.\nPopup title displays \"Save as a New Photo\".\nSave to Gallery button is displayed.\nDon't Save button is displayed.\nUser remains on the popup until an option is selected."
+  },
+  {
+    "excel_id": "AI Tools 33",
+    "module": "AI Tools > Image-to-Image > Print Preview– Verify Save to Gallery Option",
+    "description": "Verify that tapping Save to Gallery saves the generated image to the device gallery and navigates the user to the previous screen.",
+    "steps": "Install and launch the application.\nComplete onboarding and navigate to the Home screen.\nNavigate to AI Tools.\nTap Image-to-Image.\nSelect any image from the gallery.\nSelect an Image Style.\nTap Generate Images.\nWait for the generated results screen to load.\nTap Next.\nWait for the Print Preview screen to load.\nTap the Back button.\nWait for the Save as a New Photo popup to appear.\nTap Save to Gallery.\nNavigate to the device gallery.\nLocate the saved image.",
+    "type": "Positive",
+    "expected": "Generated image is saved successfully to the device gallery.\nSaved image is accessible from the gallery.\nUser is navigated to the previous screen after the save operation completes.\nNo error message is displayed."
+  },
+  {
+    "excel_id": "AI Tools 34",
+    "module": "AI Tools > Image-to-Image > Print Preview – Verify Don't Save Option",
+    "description": "Verify that tapping Don't Save does not save the generated image to the device gallery and navigates the user to the previous screen.",
+    "steps": "Install and launch the application.\nComplete onboarding and navigate to the Home screen.\nNavigate to AI Tools.\nTap Image-to-Image.\nSelect any image from the gallery.\nSelect an Image Style.\nTap Generate Images.\nWait for the generated results screen to load.\nTap Next.\nWait for the Print Preview screen to load.\nTap the Back button.\nWait for the Save as a New Photo popup to appear.\nTap Don't Save.\nNavigate to the device gallery.\nSearch for the generated image.",
+    "type": "Positive",
+    "expected": "Generated image is not saved to the device gallery.\nUser is navigated to the previous screen.\nNo duplicate or new image is found in the gallery.\nNo error message is displayed."
+  },
+  {
+    "excel_id": "AI Tools 35",
+    "module": "AI Tools > Image-to-Image > Print Preview – Verify Print Button Navigation to Print State",
+    "description": "Verify that tapping the Print button on the Print Preview screen navigates the user to the Print State screen.",
+    "steps": "Install and launch the application.\nComplete onboarding and navigate to the Home screen.\nNavigate to AI Tools.\nTap Image-to-Image.\nSelect any image from the gallery.\nSelect an Image Style.\nTap Generate Images.\nWait for the generated results screen to load.\nSelect a generated image.\nTap Next.\nWait for the Print Preview screen to load.\nTap Print.",
+    "type": "Positive",
+    "expected": "The Print action is initiated successfully.\nUser is navigated to the Print State screen.\nThe selected image is passed correctly to the Print State screen.\nThe Print State screen loads without errors."
+  },
+  {
+    "excel_id": "AI Tools 36",
+    "module": "AI Tools > Remove Background – Gallery Listing",
+    "description": "Verify that tapping Remove Background opens the Gallery Listing screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.",
+    "type": "Positive",
+    "expected": "The Gallery Listing screen opens after tapping Remove Background."
+  },
+  {
+    "excel_id": "AI Tools 37",
+    "module": "AI Tools > Remove Background – Select Photo and Generate Button",
+    "description": "Verify that selecting a photo from the Gallery Listing displays the Generate button.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.",
+    "type": "Positive",
+    "expected": "The selected photo is displayed.\nA Generate button is displayed after selecting the photo."
+  },
+  {
+    "excel_id": "AI Tools 38",
+    "module": "AI Tools > Remove Background – Generate Image",
+    "description": "Verify that tapping Generate starts the background removal generation process.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.\n12. Tap Generate.",
+    "type": "Positive",
+    "expected": "The background removal generation process starts after tapping Generate."
+  },
+  {
+    "excel_id": "AI Tools 39",
+    "module": "AI Tools > Remove Background – Show Original Toggle",
+    "description": "Verify that the generated image screen displays the Show Original toggle and correctly switches between the original and generated images.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.\n12. Tap Generate.\n13. Wait until the generation process is completed.\n14. Tap the Show Original toggle.\n15. Tap the Show Original toggle again.",
+    "type": "Positive",
+    "expected": "After generation completes, the generated image screen is displayed with a Show Original toggle.\nWhen the toggle is enabled, the original image is displayed.\nWhen the toggle is disabled, the generated image is displayed."
+  },
+  {
+    "excel_id": "AI Tools 40",
+    "module": "AI Tools > Remove Background – Cancel and Stay",
+    "description": "Verify that tapping Cancel displays the Unsaved Changes popup and Stay keeps the user on the current screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.\n12. Tap Generate.\n13. Wait until the generation process is completed.\n14. Tap Cancel.\n15. Tap Stay.",
+    "type": "Positive",
+    "expected": "An Unsaved Changes popup is displayed with Stay and Exit Without Saving buttons.\nTapping Stay closes the popup.\nThe user remains on the current Remove Background screen."
+  },
+  {
+    "excel_id": "AI Tools 41",
+    "module": "AI Tools > Remove Background – Exit Without Saving",
+    "description": "Verify that selecting Exit Without Saving returns the user to the Create with AI Tools screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.\n12. Tap Generate.\n13. Wait until the generation process is completed.\n14. Tap Cancel.\n15. Tap Exit Without Saving.",
+    "type": "Positive",
+    "expected": "The Unsaved Changes popup is dismissed.\nThe user is redirected to the Create with AI Tools screen.\nThe user returns to the screen where the Remove Background option was selected."
+  },
+  {
+    "excel_id": "AI Tools 42",
+    "module": "AI Tools > Remove Background – Apply and Open Edit Screen",
+    "description": "Verify that tapping Apply redirects the user to the Edit screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.\n12. Tap Generate.\n13. Wait until the generation process is completed.\n14. Tap Apply.",
+    "type": "Positive",
+    "expected": "The user is redirected to the Edit screen after tapping Apply."
+  },
+  {
+    "excel_id": "AI Tools 43",
+    "module": "AI Tools > Remove Background – Edit and Print Preview",
+    "description": "Verify that the user can apply an edit and proceed to Print Preview.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to the AI tools.\n10. Tap Remove Background.\n11. Select any photo from the Gallery Listing.\n12. Tap Generate.\n13. Wait until the generation process is completed.\n14. Tap Apply.\n15. Tap any available edit feature.\n16. Apply the selected edit.\n17. Tap Done.",
+    "type": "Positive",
+    "expected": "The selected edit is applied to the image.\nTapping Done redirects the user to the Print Preview screen."
+  },
+  {
+    "excel_id": "AI Tools 43",
+    "module": "AI Tools > Replace Background – Navigation",
+    "description": "Verify that the user can navigate to the Replace Background feature.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. 4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\".",
+    "type": "Positive",
+    "expected": "The Replace Background Gallery Listing screen is displayed."
+  },
+  {
+    "excel_id": "AI Tools 44",
+    "module": "AI Tools > Replace Background – Gallery Listing",
+    "description": "Verify that the Gallery Listing screen is displayed after opening Replace Background.",
+    "steps": "1. Install and launch the application.\n 2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Wait for the Gallery Listing screen to load.",
+    "type": "Positive",
+    "expected": "The Gallery Listing screen is displayed.\nAt the top right corner back button is displayed.\nAt the top right corner sort icon is displayed\nAt the bottom of the screen 'Please select an image to start'  text should display."
+  },
+  {
+    "excel_id": "AI Tools 45",
+    "module": "AI Tools > Replace Background – Gallery Listing & Sorting",
+    "description": "Verify that the Gallery Listing screen displays the Sort option and that selecting Newest or Oldest sorts the gallery photos accordingly.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Navigate to \"AI Tools\".\n10. Tap \"Replace Background\".\n11. If the Gallery permission popup appears, tap \"Allow All\".\n12. Verify the Gallery Listing screen is displayed.\n13. Tap the Sort icon.\n14. Verify the \"Newest\" and \"Oldest\" sorting options are displayed.\n15. Tap \"Newest\".\n16. Note the order of the displayed gallery photos.\n17. Tap the Sort icon again.\n18. Tap \"Oldest\".\n19. Note the order of the displayed gallery photos.",
+    "type": "Positive",
+    "expected": "The Gallery Listing screen is displayed.\nThe Back button is displayed at the top right corner.\nThe Sort icon is displayed at the top right corner.\n\"Please select an image to start\" text is displayed at the bottom of the screen.\nOn tapping the Sort icon, Newest and Oldest options are displayed.\nOn selecting Newest, gallery photos are sorted from the most recently added photo to the oldest photo.\nOn selecting Oldest, gallery photos are sorted from the oldest photo to the most recently added photo."
+  },
+  {
+    "excel_id": "AI Tools 46",
+    "module": "AI Tools > Replace Background – Photo Selection",
+    "description": "Verify that selecting a photo displays the background replacement screen.",
+    "steps": "1. Install and launch the application.\n 2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen.",
+    "type": "Positive",
+    "expected": "The selected photo is displayed with the Generate button."
+  },
+  {
+    "excel_id": "AI Tools 47",
+    "module": "AI Tools > Replace Background – Navigate Back from Photo Selection",
+    "description": "Verify that the Back button returns the user to the previous screen.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the Back button.",
+    "type": "Positive",
+    "expected": "The user is redirected to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 48",
+    "module": "AI Tools > Replace Background – Background Generation",
+    "description": "Verify that tapping Generate starts the background generation process.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button.",
+    "type": "Positive",
+    "expected": "The Generating Loader is displayed."
+  },
+  {
+    "excel_id": "AI Tools 49",
+    "module": "AI Tools > Replace Background – Verify Generated Background Result and options",
+    "description": "Verify the generated background result screen and background replacement options",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Swipe through the available background options.",
+    "type": "Positive",
+    "expected": "The generated result screen is displayed along with 'Cancel' button at the top left of the screen.\n The top preview section remains sticky and does not scroll.\nBottom section should be scrollable.\nBackground replacement options are displayed. A scrollbar is displayed when additional background options are available."
+  },
+  {
+    "excel_id": "AI Tools 50",
+    "module": "AI Tools >Replace Background – Background Options Scrolling",
+    "description": "Verify that the background options section is scrollable.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Swipe upward on the lower background options section.",
+    "type": "Positive",
+    "expected": "The lower portion scrolls upward, the Generate Background section moves upward, and additional options such as Gradient become visible. The top preview remains sticky."
+  },
+  {
+    "excel_id": "AI Tools 51",
+    "module": "AI Tools >Replace Background – Color Picker",
+    "description": "Verify that tapping Color Picker opens the color picker screen and applying a selected color updates the background of the selected image.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Navigate to \"AI Tools\".\n10. Tap \"Replace Background\".\n11. If the Gallery permission popup appears, tap \"Allow All\".\n12. Tap any photo from the Gallery Listing screen.\n13. Wait for the Replace Background screen to load.\n14. Tap \"Color Picker\".\n15. Select any color from the color picker.\n16. Tap \"Apply\".\n17. Wait for the Replace Background screen to load.",
+    "type": "Positive",
+    "expected": "The Color Picker screen opens after tapping the Color Picker option.\nThe color picker controls are displayed, including the color selection area and Apply button.\nAfter selecting a color and tapping Apply, the user is redirected to the Replace Background screen.\nThe selected color is applied as the background to the selected image."
+  },
+  {
+    "excel_id": "AI Tools 52",
+    "module": "AI Tools >Replace Background – Preset Background Selection",
+    "description": "Verify that selecting a background option opens the full-screen preview.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap any available background option.",
+    "type": "Positive",
+    "expected": "The selected background option opens immediately in the full-screen preview."
+  },
+  {
+    "excel_id": "AI Tools 53",
+    "module": "AI Tools >Replace Background – Custom Background Prompt",
+    "description": "Verify that tapping the prompt text box expands it and opens the native keyboard.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box.",
+    "type": "Positive",
+    "expected": "The prompt text box expands and the native keyboard is displayed."
+  },
+  {
+    "excel_id": "AI Tools 54",
+    "module": "AI Tools >Replace Background – Custom Background Prompt- Verify Generate Button Disabled for Empty Prompt",
+    "description": "Verify that Generate remains disabled when the prompt is empty.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box. \n16. Do not enter any text.",
+    "type": "Positive",
+    "expected": "The Generate button remains disabled until at least one character is entered."
+  },
+  {
+    "excel_id": "AI Tools 55",
+    "module": "AI Tools >Replace Background – Custom Background Generation",
+    "description": "Verify that a custom prompt can be used to generate a background.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box. \n16. Enter a valid background description. \n17. Tap the \"Generate\" button.",
+    "type": "Positive",
+    "expected": "The Generating Loader is displayed."
+  },
+  {
+    "excel_id": "AI Tools 56",
+    "module": "AI Tools >Replace Background – Custom Background Result",
+    "description": "Verify that the generated custom background is displayed after generation.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box. \n16. Enter a valid background description. \n17. Tap the \"Generate\" button. \n18. Wait until generation is completed.",
+    "type": "Positive",
+    "expected": "The generated custom background result screen is displayed."
+  },
+  {
+    "excel_id": "AI Tools 57",
+    "module": "AI Tools >Replace Background – Unsaved Changes- Cancel After Image Generation",
+    "description": "Verify that tapping Cancel after generating an image displays the Unsaved Changes popup with Stay and Exit without saving options.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Navigate to \"AI Tools\".\n10. Tap \"Replace Background\".\n11. If the Gallery permission popup appears, tap \"Allow All\".\n12. Tap any photo from the Gallery Listing screen.\n13. Tap the \"Generate\" button.\n14. Wait until the image generation is completed.\n15. Tap the \"Cancel\" button.",
+    "type": "Positive",
+    "expected": "The Unsaved Changes popup is displayed.\nThe popup contains Stay and Exit without saving options."
+  },
+  {
+    "excel_id": "AI Tools 58",
+    "module": "AI Tools >Replace Background – Stay on Replace Background Screen",
+    "description": "Verify that tapping Stay closes the Unsaved Changes popup and keeps the user on the current screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Navigate to \"AI Tools\".\n10. Tap \"Replace Background\".\n11. If the Gallery permission popup appears, tap \"Allow All\".\n12. Tap any photo from the Gallery Listing screen.\n13. Tap the \"Generate\" button.\n14. Wait until the image generation is completed.\n15. Tap the \"Cancel\" button.\n16. Tap \"Stay\".",
+    "type": "Positive",
+    "expected": "The Unsaved Changes popup closes.\nThe user remains on the current Replace Background screen.\nThe generated image remains available on the screen."
+  },
+  {
+    "excel_id": "AI Tools 59",
+    "module": "AI Tools >Replace Background – Exit Without Saving",
+    "description": "Verify that tapping Exit without saving closes the popup and redirects the user to the AI Tools screen.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Navigate to \"AI Tools\".\n10. Tap \"Replace Background\".\n11. If the Gallery permission popup appears, tap \"Allow All\".\n12. Tap any photo from the Gallery Listing screen.\n13. Tap the \"Generate\" button.\n14. Wait until the image generation is completed.\n15. Tap the \"Cancel\" button.\n16. Tap \"Exit without saving\".",
+    "type": "Positive",
+    "expected": "The Unsaved Changes popup closes.\nThe user is redirected to the AI Tools screen.\nThe generated changes are not saved."
+  },
+  {
+    "excel_id": "AI Tools 60",
+    "module": "AI Tools >Replace Background – Generate New",
+    "description": "Verify that Generate New generates a different background.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box. \n16. Enter a valid background description. \n17. Tap the \"Generate\" button. \n18. Wait until generation is completed. \n19. Tap \"Generate New\". \n20. Wait until the Generating Loader completes.",
+    "type": "Positive",
+    "expected": "The Generating Loader is displayed and a different generated background is displayed after generation completes."
+  },
+  {
+    "excel_id": "AI Tools 61",
+    "module": "AI Tools >Replace Background – Back from Custom Background Result",
+    "description": "Verify that Back returns to the background options while retaining the entered prompt.",
+    "steps": "1. Install and launch the application.\n 2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box. \n16. Enter a valid background description.\n 17. Tap the \"Generate\" button. \n18. Wait until generation is completed. \n19. Tap the Back button.",
+    "type": "Positive",
+    "expected": "The user returns to the background options screen and the previously used prompt remains entered."
+  },
+  {
+    "excel_id": "AI Tools 62",
+    "module": "AI Tools >Replace Background – Apply Result",
+    "description": "Verify that applying the generated background redirects the user to Print Preview.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap the prompt text box. \n16. Enter a valid background description. \n17. Tap the \"Generate\" button. \n18. Wait until generation is completed. \n19. Tap \"Apply\".",
+    "type": "Positive",
+    "expected": "The user is redirected to Print Preview with the generated image."
+  },
+  {
+    "excel_id": "AI Tools 63",
+    "module": "AI Tools >Replace Background – Print Preview Save",
+    "description": "Verify the Save as New Photo popup from Print Preview.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Back arrow.",
+    "type": "Positive",
+    "expected": "The Save as New Photo? popup is displayed with Save to Gallery and Do Not Save options."
+  },
+  {
+    "excel_id": "AI Tools 64",
+    "module": "AI Tools >Replace Background – Save Popup",
+    "description": "Verify that the Save as New Photo popup can be closed.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Back arrow. \n19. Tap the Close/Cross icon.",
+    "type": "Positive",
+    "expected": "The popup closes and the user remains on the same Print Preview screen."
+  },
+  {
+    "excel_id": "AI Tools 65",
+    "module": "AI Tools >Replace Background – Save to Gallery",
+    "description": "Verify that the generated photo is saved to the device gallery.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Back arrow. \n19. Tap \"Save to Gallery\".",
+    "type": "Positive",
+    "expected": "The generated photo is saved to the gallery and the user returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 66",
+    "module": "AI Tools >Replace Background – Do Not Save",
+    "description": "Verify that selecting Do Not Save does not save the generated photo.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Back arrow. \n19. Tap \"Do Not Save\".",
+    "type": "Positive",
+    "expected": "The generated image is not saved to the gallery and the user returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 67",
+    "module": "AI Tools >Replace Background – Share",
+    "description": "Verify that the generated photo can be shared from Print Preview. Verify that the generated photo can be shared from Print Preview.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Share icon.",
+    "type": "Positive",
+    "expected": "The system share sheet is displayed with available installed applications for sharing the photo."
+  },
+  {
+    "excel_id": "AI Tools 68",
+    "module": "AI Tools >Replace Background –  Copies",
+    "description": "Verify that a maximum of 10 copies can be selected.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Plus button for Copies until the value reaches 10. \n19. Tap the Plus button once more.",
+    "type": "Positive",
+    "expected": "The Copies value reaches a maximum of 10 and cannot be increased beyond 10."
+  },
+  {
+    "excel_id": "AI Tools 69",
+    "module": "AI Tools >Replace Background – Edit",
+    "description": "Verify that the Edit button redirects the user to the editing tool and Verify that editing changes are retained after applying edits.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Tap any photo from the Gallery Listing screen. \n13. Tap the \"Generate\" button. \n14. Wait until background generation is completed. \n15. Tap an available background option. \n16. Tap \"Apply\". \n17. Wait until Print Preview is displayed. \n18. Tap the Edit button\n19. Apply any available editing change. \n20. Tap \"Apply\". \n21. Wait until Print Preview is displayed.",
+    "type": "Positive",
+    "expected": "The Edit Tool screen is displayed.\nThe user returns to Print Preview and the applied editing changes are reflected in the preview."
+  },
+  {
+    "excel_id": "AI Tools 70",
+    "module": "AI Tools >Replace Background – Printer Connection",
+    "description": "Verify that Print is displayed and usable when the printer is pre-connected (no Add Printer / search flow).",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Ensure a compatible printer is already connected to the app (lab pre-connect).\n10. Navigate to \"AI Tools\".\n11. Tap \"Replace Background\".\n12. If the Gallery permission popup appears, tap \"Allow All\".\n13. Tap any photo from the Gallery Listing screen.\n14. Tap the \"Generate\" button.\n15. Wait until background generation is completed.\n16. Tap an available background option.\n17. Tap \"Apply\".\n18. Wait until Print Preview is displayed.\n19. Verify the green CTA shows \"Print\" (not \"Add Printer\").\n20. Do not start printer search or Add Printer flow.",
+    "type": "Positive",
+    "expected": "With a pre-connected printer, Print Preview shows the Print button instead of Add Printer. No printer search / Add Printer flow is required."
+  },
+  {
+    "excel_id": "AI Tools 71",
+    "module": "AI Tools >Replace Background – Printing",
+    "description": "Verify that the generated photo is printed correctly with a connected printer.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Ensure a compatible printer is connected. \n13. Tap any photo from the Gallery Listing screen. \n14. Tap the \"Generate\" button. \n15. Wait until background generation is completed. \n16. Tap an available background option. \n17. Tap \"Apply\". \n18. Wait until Print Preview is displayed. \n19. Tap \"Print\". \n20. Wait for the printing process to complete.",
+    "type": "Positive",
+    "expected": "The printing process starts and the printed output matches the photo displayed in Print Preview."
+  },
+  {
+    "excel_id": "AI Tools 72",
+    "module": "AI Tools >Replace Background – Printer State",
+    "description": "Verify that Print is displayed on Print Preview when the printer is pre-connected (Add Printer is not shown).",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap \"Get Started\".\n6. Tap \"Sign Up Later\".\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap \"Allow\".\n9. Ensure a compatible printer is already connected to the app (lab pre-connect).\n10. Navigate to \"AI Tools\".\n11. Tap \"Replace Background\".\n12. If the Gallery permission popup appears, tap \"Allow All\".\n13. Tap any photo from the Gallery Listing screen.\n14. Tap the \"Generate\" button.\n15. Wait until background generation is completed.\n16. Tap an available background option.\n17. Tap \"Apply\".\n18. Wait until Print Preview is displayed.\n19. Verify Print is displayed and Add Printer is not displayed.",
+    "type": "Positive",
+    "expected": "The Print button is displayed when the printer is pre-connected. Add Printer is not shown."
+  },
+  {
+    "excel_id": "AI Tools 73",
+    "module": "AI Tools >Replace Background – Printer State",
+    "description": "Verify that Print is displayed when a printer is connected.",
+    "steps": "1. Install and launch the application. \n2. Verify the Splash Screen displays the HP logo (hp sprocket) with \"sprocket\" text. \n3. Wait for the Splash Screen to complete. \n4. Swipe through the onboarding screens. \n5. Tap \"Get Started\". \n6. Tap \"Sign Up Later\". \n7. Wait until the Home screen is displayed. \n8. If the notification permission popup appears, tap \"Allow\". \n9. Navigate to \"AI Tools\". \n10. Tap \"Replace Background\". \n11. If the Gallery permission popup appears, tap \"Allow All\". \n12. Ensure a compatible printer is connected. \n13. Tap any photo from the Gallery Listing screen. \n14. Tap the \"Generate\" button. \n15. Wait until background generation is completed. \n16. Tap an available background option. \n17. Tap \"Apply\". \n18. Wait until Print Preview is displayed.",
+    "type": "Positive",
+    "expected": "The Print button is displayed instead of Add Printer when a printer is connected."
+  },
+  {
+    "excel_id": "AI Tools 73",
+    "module": "AI Tools >Remove Object – Gallery Listing> Verify Remove Object Gallery Listing, Folder Selection, Sorting and Image",
+    "description": "Verify that the Remove Object gallery allows navigation, folder selection, sorting, scrolling, image selection, and navigation back.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Remove Object.\n11. Verify the Gallery Listing screen is displayed.\n12. Tap the Back button.\n13. Verify the previous AI Tools screen is displayed.\n14. Tap Remove Object again.\n15. Tap the Folder dropdown.\n16. Select any available folder.\n17. Verify that the photo list is updated according to the selected folder.\n18. Tap the Sort option.\n19. Select Newest.\n20. Verify that the gallery photos are sorted from newest to oldest.\n21. Tap the Sort option again.\n22. Select Oldest.\n23. Verify that the gallery photos are sorted from oldest to newest.\n24. Scroll through the gallery photos.\n25. Select any available photo.",
+    "type": "Positive",
+    "expected": "Gallery Listing screen is displayed with Back, Folder and Sort controls.\nSelecting a folder updates the displayed photos.\nNewest and Oldest sorting options are available and sort photos accordingly.\nGallery photos can be scrolled.\nSelecting a photo opens the image selection/preview screen with the Use This Image option.\nTapping Back from the Gallery Listing screen returns to the previous AI Tools screen."
+  },
+  {
+    "excel_id": "AI Tools 74",
+    "module": "AI Tools >Remove Object – Object Selection",
+    "description": "Verify that the user can select objects by tapping/painting, selections are cumulative, the selection overlay is displayed correctly, and Generate becomes enabled.",
+    "steps": "1. Launch the application and navigate to AI Tools > Remove Object.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Use This Image.\n4. Verify the Remove Object editing screen is displayed.\n5. Tap on an object in the image.\n6. Verify that the object is automatically selected.\n7. Verify that the selected area is displayed with a 50% opacity #B654F5 overlay.\n8. Perform an additional brush stroke on another part of the image.\n9. Verify that the new selection is added to the existing selection.\n10. Tap on another object or perform another brush stroke.\n11. Verify that all previous selections remain selected.\n12. Verify that the Generate button becomes enabled after an image area is selected.",
+    "type": "Positive",
+    "expected": "User can tap an object to automatically paint/select it.\nSelected areas are represented using the specified semi-transparent overlay.\nEach additional tap or brush stroke is cumulative and does not clear previous selections.\nGenerate remains disabled until at least part of the image is selected and becomes enabled after selection."
+  },
+  {
+    "excel_id": "AI Tools 75",
+    "module": "AI Tools >Remove Object – Brush Controls",
+    "description": "Verify brush size options, selection behavior, menu persistence, and outside-menu interaction.",
+    "steps": "1. Launch the application and navigate to AI Tools > Remove Object.\n2. Select any photo and tap Use This Image.\n3. Tap the Brush Size button.\n4. Verify that the brush size submenu is displayed.\n5. Verify that 8px, 16px, and 24px brush size options are displayed.\n6. Select the 8px brush size.\n7. Verify that the selected brush size is applied.\n8. Verify that the brush size submenu remains open.\n9. Select the 16px brush size.\n10. Verify that the 16px brush size is applied and the submenu remains open.\n11. Select the 24px brush size.\n12. Verify that the 24px brush size is applied and the submenu remains open.\n13. Tap anywhere outside the brush size submenu.\n14. Verify that the submenu closes.\n15. Verify that tapping outside the submenu does not activate another button or draw/select anything on the image.",
+    "type": "Positive",
+    "expected": "Brush Size submenu displays 8px, 16px, and 24px radius options.\nSelecting any brush size applies the selected size while keeping the submenu open.\nTapping outside the menu closes it without triggering any other action or modifying the canvas."
+  },
+  {
+    "excel_id": "AI Tools 76",
+    "module": "AI Tools >Remove Object – Image Generation",
+    "description": "Verify image generation, loading state, no-internet handling, API generation failure and retry.",
+    "steps": "1. Launch the application and navigate to AI Tools > Remove Object.\n2. Select any photo and tap Use This Image.\n3. Tap or paint over an object to select the area for removal.\n4. Tap Generate.\n5. Verify that the Generating Loader is displayed while the image is being generated.\n6. Repeat the flow with the device internet connection disabled before tapping Generate.\n7. Tap Generate.\n8. Verify that the No Internet popup is displayed.\n9. Tap OK on the No Internet popup.\n10. Enable the internet connection.\n11. Select an object again and tap Generate.\n12. Simulate an API generation failure.\n13. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”\n14. Tap Try Again.\n15. Verify that image generation is started again and the Generating Loader is displayed.",
+    "type": "Positive",
+    "expected": "Generate starts image generation and displays the Generating Loader.\nWithout internet, the No Internet popup with an OK button is displayed.\nOn API generation failure, the Generation Failed screen displays the specified error message.\nTapping Try Again retries image generation."
+  },
+  {
+    "excel_id": "AI Tools 77",
+    "module": "AI Tools >Remove Object – Generated Result",
+    "description": "Verify that the generated result allows additional object removal, Apply saves the changes, and Cancel handles unsaved changes correctly.",
+    "steps": "1. Launch the application and navigate to AI Tools > Remove Object.\n2. Select any photo and tap Use This Image.\n3. Select an object by tapping or painting over it.\n4. Tap Generate.\n5. Wait until the generated result is displayed.\n6. Verify that the user remains on the Remove Object editing screen with the generated result.\n7. Select or paint another object for additional touch-up.\n8. Tap Generate.\n9. Wait until the updated generated result is displayed.\n10. Tap Apply.\n11. Verify that the Print Preview screen is displayed with the generated image and changes saved.\n12. Navigate back to Remove Object and make a new object selection.\n13. Tap Cancel.\n14. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n15. Tap Stay.\n16. Verify that the popup closes and the user remains on the Remove Object screen.\n17. Tap Cancel again.\n18. Tap Exit without Saving.\n19. Verify that the user is redirected to the AI Tools selection screen.",
+    "type": "Positive",
+    "expected": "Generated result is displayed and the user can perform additional object-removal touch-ups.\nApply becomes available after generation and redirects to Print Preview with changes saved.\nCancel displays the Unsaved Changes popup.\nStay closes the popup and keeps the user on the current screen.\nExit without Saving redirects the user to the AI Tools selection screen."
+  },
+  {
+    "excel_id": "AI Tools 78",
+    "module": "AI Tools >Remove Object – Print Preview",
+    "description": "Verify Print Preview navigation and handling of the generated image when leaving without saving.",
+    "steps": "1. Launch the application and navigate to AI Tools > Remove Object.\n2. Select any photo and tap Use This Image.\n3. Select an object and tap Generate.\n4. Wait for the generated result.\n5. Tap Apply.\n6. Verify that the Print Preview screen is displayed with the generated image.\n7. Tap the Back arrow.\n8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Do Not Save options.\n9. Tap the Cross icon on the popup.\n10. Verify that the popup closes and the user remains on the Print Preview screen.\n11. Tap the Back arrow again.\n12. Tap Save to Gallery.\n13. Verify that the generated image is saved to the gallery and the user returns to the previous screen.\n14. Repeat the flow until the Save as new photo? popup is displayed.\n15. Tap Do Not Save.\n16. Verify that the generated image is not saved to the gallery and the user returns to the previous screen.",
+    "type": "Positive",
+    "expected": "Apply redirects to Print Preview with the generated image.\nBack displays the Save as new photo? popup with Save to Gallery and Do Not Save.\nCross closes the popup without leaving Print Preview.\nSave to Gallery saves the image and returns to the previous screen.\nDo Not Save discards the generated image and returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 78",
+    "module": "AI Tools >Replace Object – Gallery Selection",
+    "description": "Verify navigation to Replace Object, folder selection, sorting, scrolling, photo selection, and Use This Image flow.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Replace Object.\n11. Verify the Gallery Listing screen is displayed.\n12. Tap the Folder option and select any available folder.\n13. Tap the Sort option and select Newest.\n14. Verify the gallery photos are sorted from newest to oldest.\n15. Tap the Sort option and select Oldest.\n16. Verify the gallery photos are sorted from oldest to newest.\n17. Scroll through the gallery.\n18. Select any available photo.\n19. Verify the selected photo screen displays the Use This Image option.\n20. Tap Use This Image.",
+    "type": "Positive",
+    "expected": "Replace Object opens the Gallery Listing screen.\nSelecting a folder updates the displayed photos.\nNewest and Oldest sorting options are available and sort the photos accordingly.\nGallery photos can be scrolled.\nSelecting a photo displays the Use This Image option.\nTapping Use This Image opens the Replace Object editing screen."
+  },
+  {
+    "excel_id": "AI Tools 79",
+    "module": "AI Tools >Replace Object – Object Selection",
+    "description": "Verify object selection, cumulative painting, brush size controls, description input, and Generate button enablement.",
+    "steps": "1. Launch the application and navigate to AI Tools > Replace Object.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Use This Image.\n4. Verify the Replace Object editing screen is displayed.\n5. Tap on an object in the image.\n6. Verify that the object is automatically selected and the selected area is displayed with a 50% opacity #B654F5 overlay.\n7. Paint over another area of the image.\n8. Verify that the new selection is added to the existing selection.\n9. Tap the Brush Size button.\n10. Verify that 8px, 16px, and 24px brush size options are displayed.\n11. Select any brush size.\n12. Verify that the selected brush size is applied and the brush size menu remains open.\n13. Tap outside the brush size menu.\n14. Verify that the brush size menu closes without performing any action on the image.\n15. Tap the description text box.\n16. Enter valid replacement object description text.\n17. Verify that the native keyboard is displayed and the image preview adjusts to keep the text box visible.",
+    "type": "Positive",
+    "expected": "Objects can be selected by tapping or painting.\nMultiple selections are cumulative.\nSelected areas display the specified purple overlay.\nBrush sizes 8px, 16px, and 24px are available.\nSelecting a brush size applies the size while keeping the menu open.\nTapping outside the menu closes it without triggering another action.\nTapping the description box opens the native keyboard and the preview adjusts accordingly."
+  },
+  {
+    "excel_id": "AI Tools 80",
+    "module": "AI Tools >Replace Object – Image Generation",
+    "description": "Verify Generate button validation and generation behavior for valid input, no internet, and API failure.",
+    "steps": "1. Launch the application and navigate to AI Tools > Replace Object.\n2. Select any photo and tap Use This Image.\n3. Verify that the Generate button is disabled.\n4. Select or paint an object in the image.\n5. Verify that the Generate button remains disabled until replacement description text is entered.\n6. Tap the description text box.\n7. Enter valid replacement object description text.\n8. Verify that the Generate button becomes enabled.\n9. Tap Generate.\n10. Verify that the Generating Loader is displayed.\n11. Repeat the flow with the device internet connection disabled.\n12. Tap Generate.\n13. Verify that the No Internet popup is displayed with an OK button.\n14. Enable the internet connection.\n15. Repeat the generation flow and simulate an API generation failure.\n16. Verify that the Generation Failed screen displays “Something went wrong. Please try again.”\n17. Tap Try Again.\n18. Verify that image generation starts again and the Generating Loader is displayed.",
+    "type": "Positive",
+    "expected": "Generate remains disabled until both an object is selected/painted and replacement description text is entered.\nValid input enables Generate.\nGenerate starts the Generating Loader.\nWithout internet, the No Internet popup with OK is displayed.\nAPI failure displays the Generation Failed screen with the specified message.\nTry Again retries image generation."
+  },
+  {
+    "excel_id": "AI Tools 81",
+    "module": "AI Tools >Replace Object – Generated Results",
+    "description": "Verify generated result options, switching results, generating new results, applying changes, and handling unsaved changes.",
+    "steps": "1. Launch the application and navigate to AI Tools > Replace Object.\n2. Select any photo and tap Use This Image.\n3. Select or paint an object.\n4. Enter valid replacement object description text.\n5. Tap Generate.\n6. Wait for image generation to complete.\n7. Verify that 2 image results are displayed with Option 1 selected by default.\n8. Tap the second result thumbnail.\n9. Verify that the selected thumbnail becomes the main preview.\n10. Tap Generate New.\n11. Verify that the Generating Loader is displayed.\n12. Verify that 2 new image options are displayed after generation.\n13. Tap Cancel.\n14. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n15. Tap Stay.\n16. Verify that the popup closes and the user remains on the result screen.\n17. Tap Cancel again.\n18. Tap Exit without Saving.\n19. Verify that the user is redirected to the AI Tools selection screen.\n20.Select replace object option and select any photo and tap Use This Image.\n21.Select or paint an object.\n22. Enter valid replacement object description text.\n23. Tap Generate.\n24. Wait for image generation to complete.\n25. Verify that 2 image results are displayed with Option 1 selected by default.\n26. Tap Apply\n27. Verify that user is redirect to the Print Preview screen",
+    "type": "Positive",
+    "expected": "Two generated image options are displayed.\nOption 1 is selected by default.\nTapping a thumbnail changes the main preview.\nGenerate New produces two new options after displaying the loader.\nApply redirects to Print Preview with changes saved.\nCancel displays the Unsaved Changes popup.\nStay keeps the user on the current screen.\nExit without Saving redirects to the AI Tools selection screen."
+  },
+  {
+    "excel_id": "AI Tools 82",
+    "module": "AI Tools >Replace Object – Print Preview",
+    "description": "Verify generated image in Print Preview, Save to Gallery, Do Not Save, popup dismissal, and print output.",
+    "steps": "1. Launch the application and navigate to AI Tools > Replace Object.\n2. Select any photo and tap Use This Image.\n3. Select or paint an object.\n4. Enter valid replacement object description text.\n5. Tap Generate.\n6. Wait for the generated result.\n7. Tap Apply.\n8. Verify that the Print Preview screen displays the generated image.\n9. Tap the Back arrow.\n10. Verify that the Save as new photo? popup is displayed with Save to Gallery and Do Not Save options.\n11. Tap the Cross icon.\n12. Verify that the popup closes and the user remains on the Print Preview screen.\n13. Tap the Back arrow again.\n14. Tap Save to Gallery.\n15. Verify that the generated image is saved to the gallery and the user returns to the previous screen.\n16. Repeat the flow until the Save as new photo? popup is displayed.\n17. Tap Do Not Save.\n18. Verify that the generated image is not saved to the gallery and the user returns to the previous screen.\n19. Generate another Replace Object result and tap Apply.\n20. Send the print command from Print Preview.\n21. Verify that the printed photo matches the image displayed in Print Preview.",
+    "type": "Positive",
+    "expected": "Print Preview displays the generated Replace Object image.\nBack displays the Save as new photo? popup.\nCross closes the popup and keeps the user on Print Preview.\nSave to Gallery saves the generated image and returns to the previous screen.\nDo Not Save does not save the image and returns to the previous screen.\nThe printed output matches the image shown in Print Preview."
+  },
+  {
+    "excel_id": "AI Tools 83",
+    "module": "AI Tools >Replace Object – Object Replacement",
+    "description": "Verify that the object or multiple selected areas are replaced according to the replacement description provided by the user.",
+    "steps": "1. Launch the application and navigate to AI Tools > Replace Object.\n2. Select any photo and tap Use This Image.\n3. Tap or paint over a specific object in the image, such as a bulb (for example in image has bulb)\n4. Verify that the selected area is highlighted with the 50% opacity #B654F5 selection overlay.\n5. Tap the description text box.\n6. For example- Enter “Replace bulb with phone” in the description field.\n7. Tap Generate.\n8. Wait for the Generating Loader to complete.\n9. Verify that the generated result is displayed.\n10. Verify that the selected bulb area has been replaced with a phone according to the entered description.\n11. Repeat the flow by selecting multiple portions of an image that need to be replaced.\n12. Enter a description specifying the desired replacement for the selected portions.\n13. Tap Generate.\n14. Verify that the generated result replaces the selected portions according to the entered description while keeping the unselected areas of the original image unchanged.",
+    "type": "Positive",
+    "expected": "The selected object/area is used as the target area for replacement.\nThe generated result replaces the selected object according to the description provided by the user.\nFor multiple selected portions, the replacement is applied to the selected areas.\nAreas that were not selected for replacement remain unchanged as part of the original image.\nThe generated result is displayed successfully after processing."
+  },
+  {
+    "excel_id": "AI Tools 83",
+    "module": "AI Tools >Restore Photo – Gallery Selection",
+    "description": "Verify navigation to Restore Photo, photo selection, and back navigation.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Photo Enhancements.\n11. Tap Restore Photo.\n12. Verify the Gallery Listing screen is displayed.\n13. Select any available photo.\n14. Verify the selected photo screen is displayed with the Generate button.\n15. Tap the Back button.\n16. Verify that the previous screen is displayed.",
+    "type": "Positive",
+    "expected": "Restore Photo opens the Gallery Listing screen.\nUser can select a photo.\nSelected photo screen displays the Generate button.\nBack navigation returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 84",
+    "module": "AI Tools >Restore Photo – Photo Restoration",
+    "description": "Verify that the selected photo can be restored and the restored result can be compared with the original photo.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Restore Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the photo generation to complete.\n5. Verify that the restored photo is displayed.\n6. Tap the Show Original toggle.\n7. Verify that the original photo is displayed.\n8. Tap the Show Original toggle again.\n9. Verify that the restored photo is displayed.",
+    "type": "Positive",
+    "expected": "Generate starts the photo restoration process.\nAfter generation completes, the restored photo is displayed.\nShow Original switches the displayed image to the original photo for comparison.\nToggling Show Original again displays the restored photo."
+  },
+  {
+    "excel_id": "AI Tools 85",
+    "module": "AI Tools >Restore Photo – Apply and Cancel",
+    "description": "Verify applying restored changes and handling unsaved changes through Cancel.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Restore Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the restored photo to be displayed.\n5. Navigate back to the Restore Photo result screen.\n6. Tap Cancel.\n7. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n8. Tap Stay.\n9. Verify that the popup closes and the user remains on the Restore Photo result screen.\n10. Tap Cancel again.\n11. Tap Exit without Saving.\n12. Verify that the user is redirected to the AI Tools selection screen with Restore Photo selected.",
+    "type": "Positive",
+    "expected": "Cancel displays the Unsaved Changes popup.\nStay closes the popup and keeps the user on the same screen.\nExit without Saving redirects to the AI Tools selection screen with Restore Photo selected."
+  },
+  {
+    "excel_id": "AI Tools 86",
+    "module": "AI Tools >Restore Photo – Print Preview",
+    "description": "Verify Save to Gallery, Don't Save, popup dismissal, and print output after applying the restored photo.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Restore Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the restored photo to be displayed.\n5. Tap Apply.\n6. Verify that the Print Preview screen is displayed with the restored photo.\n7. Tap the Back button.\n8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Don't Save options.\n9. Tap the Cross icon on the popup.\n10. Verify that the popup closes and the user remains on the Print Preview screen.\n11. Tap the Back button again.\n12. Tap Save to Gallery.\n13. Verify that the restored photo is saved to the gallery and the user returns to the previous screen.\n14. Repeat the Restore Photo flow until the Save as new photo? popup is displayed.\n15. Tap Don't Save.\n16. Verify that the restored photo is not saved to the gallery and the user returns to the previous screen.\n17. Generate another restored photo and tap Apply.\n18. Verify that the restored photo is displayed in Print Preview.\n19. Send the print command while the printer is connected.\n20. Verify that the printed output matches the photo displayed in Print Preview.",
+    "type": "Positive",
+    "expected": "Apply redirects to Print Preview with the restored photo.\nBack displays the Save as new photo? popup with Save to Gallery and Don't Save options.\nCross closes the popup and keeps the user on Print Preview.\nSave to Gallery saves the restored photo and returns to the previous screen.\nDon't Save does not save the restored photo and returns to the previous screen.\nPrinted output matches the image displayed in Print Preview."
+  },
+  {
+    "excel_id": "AI Tools 86",
+    "module": "AI Tools > Enhance Photo Gallery and Photo Selection",
+    "description": "Verify navigation to Enhance Photo, photo selection, Generate button, and back navigation.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Enhance Photo.\n11. Verify the Gallery Listing screen is displayed.\n12. Select any available photo.\n13. Verify the selected photo screen is displayed with the Generate button.\n14. Tap the Back button.\n15. Verify that the previous screen is displayed.",
+    "type": "Positive",
+    "expected": "Enhance Photo opens the Gallery Listing screen.\nUser can select a photo.\nSelected photo screen displays the Generate button.\nBack navigation returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 87",
+    "module": "AI Tools > Enhance Photo> Enhancement and Show Original Comparison",
+    "description": "Verify that the selected photo is enhanced automatically and can be compared with the original photo.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Enhance Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the enhancement process to complete.\n5. Verify that the Enhance Photo result screen is displayed.\n6. Verify that the photo is automatically enhanced compared to the original.\n7. Tap the Show Original toggle.\n8. Verify that the original photo is displayed.\n9. Tap the Show Original toggle again.\n10. Verify that the enhanced photo is displayed.",
+    "type": "Positive",
+    "expected": "Generate starts the photo enhancement process.\nAfter generation completes, the Enhance Photo result screen is displayed.\nThe photo is automatically enhanced compared with the original.\nShow Original displays the original photo for comparison.\nToggling Show Original again displays the enhanced photo."
+  },
+  {
+    "excel_id": "AI Tools 88",
+    "module": "AI Tools > Enhance Photo> Apply and Cancel",
+    "description": "Verify handling saved and unsaved changes through Cancel.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Enhance Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the enhanced photo to be displayed.\n5. Tap Cancel.\n6. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n7. Tap Stay.\n8. Verify that the popup closes and the user remains on the Enhance Photo result screen.\n9. Tap Cancel again.\n10. Tap Exit without Saving.\n11. Verify that the user is redirected to the AI Tools selection screen.",
+    "type": "Positive",
+    "expected": "Cancel displays the Unsaved Changes popup.\nStay closes the popup and keeps the user on the same screen.\nExit without Saving redirects the user to the AI Tools selection screen"
+  },
+  {
+    "excel_id": "AI Tools 89",
+    "module": "AI Tools > Enhance Photo> Print Preview",
+    "description": "Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the enhanced photo.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Enhance Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the enhanced photo to be displayed.\n5. Tap Apply.\n6. Verify that the Print Preview screen is displayed with the enhanced photo.\n7. Tap the Back button.\n8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Don't Save options.\n9. Tap the Cross icon on the popup.\n10. Verify that the popup closes and the user remains on the Print Preview screen.\n11. Tap the Back button again.\n12. Tap Save to Gallery.\n13. Verify that the enhanced photo is saved to the gallery and the user returns to the previous screen.\n14. Repeat the Enhance Photo flow until the Save as new photo? popup is displayed.\n15. Tap Don't Save.\n16. Verify that the enhanced photo is not saved to the gallery and the user returns to the previous screen.\n17. Generate another enhanced photo and tap Apply.\n18. Send the print command while the printer is connected.\n19. Verify that the printed output matches the photo displayed in Print Preview.",
+    "type": "Positive",
+    "expected": "Apply redirects to Print Preview with the enhanced photo.\nBack displays the Save as new photo? popup with Save to Gallery and Don't Save options.\nCross closes the popup and keeps the user on Print Preview.\nSave to Gallery saves the enhanced photo and returns to the previous screen.\nDon't Save does not save the enhanced photo and returns to the previous screen.\nPrinted output matches the image displayed in Print Preview."
+  },
+  {
+    "excel_id": "AI Tools 90",
+    "module": "AI Tools > Fix Lighting> Gallery and Photo Selection",
+    "description": "Verify navigation to Fix Lighting, photo selection, Generate button, and back navigation.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Photo Enhancements.\n11. Tap Fix Lighting.\n12. Verify the Gallery Listing screen is displayed.\n13. Select any available photo.\n14. Verify the selected photo screen is displayed with the Generate button.\n15. Tap the Back button.\n16. Verify that the previous screen is displayed.",
+    "type": "Positive",
+    "expected": "Fix Lighting opens the Gallery Listing screen.\nUser can select a photo.\nSelected photo screen displays the Generate button.\nBack navigation returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 91",
+    "module": "AI Tools > Fix Lighting> Fix Lighting – Photo Generation",
+    "description": "Verify that the selected photo is processed to fix lighting and validate generation behavior for no internet and API failure scenarios.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Fix Lighting.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Verify that the Generating Loader is displayed.\n5. Wait for the generation process to complete.\n6. Verify that the Fix Lighting result screen is displayed.\n7. Verify that the lighting of the photo is corrected compared to the original photo.\n8. Tap the Show Original toggle.\n9. Verify that the original photo is displayed.\n10. Tap the Show Original toggle again.\n11. Verify that the lighting-corrected photo is displayed.\n12. Repeat the flow with the device internet connection disabled.\n13. Tap Generate.\n14. Verify that the No Internet popup is displayed with an OK button.\n15. Tap OK.\n16. Enable the internet connection.\n17. Repeat the generation flow and simulate an API generation failure.\n18. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”\n19. Tap Try Again.\n20. Verify that the Generating Loader is displayed and generation is attempted again.",
+    "type": "Positive",
+    "expected": "Generate starts the Fix Lighting generation process and displays the Generating Loader.\nThe generated result has corrected lighting compared with the original image.\nShow Original displays the original image for comparison.\nToggling Show Original again displays the lighting-corrected image.\nWhen there is no internet connection, the No Internet popup with an OK button is displayed.\nWhen the API generation fails, the Generation Failed screen is displayed with the specified error message.\nTapping Try Again starts the generation process again."
+  },
+  {
+    "excel_id": "AI Tools 92",
+    "module": "AI Tools > Fix Lighting – Cancel flow",
+    "description": "Verify handling saved and unsaved changes through Cancel.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Fix Lighting.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the lighting-corrected photo to be displayed.\n5. Tap Cancel.\n6. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n6. Tap Stay.\n7. Verify that the popup closes and the user remains on the Fix Lighting result screen.\n8. Tap Cancel again.\n9. Tap Exit without Saving.\n10. Verify that the user is redirected to the AI Tools selection screen.",
+    "type": "Positive",
+    "expected": "Apply redirects the user to Print Preview with the lighting-corrected photo.\nCancel displays the Unsaved Changes popup.\nStay closes the popup and keeps the user on the Fix Lighting result screen.\nExit without Saving redirects the user to the AI Tools selection screen."
+  },
+  {
+    "excel_id": "AI Tools 93",
+    "module": "AI Tools >Fix Lighting – Print Preview",
+    "description": "Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the lighting correction.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Fix Lighting.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the lighting-corrected photo to be displayed.\n5. Tap Apply.\n6. Verify that the Print Preview screen is displayed with the lighting-corrected photo.\n7. Tap the Back button.\n8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Don't Save options.\n9. Tap the Cross icon on the popup.\n10. Verify that the popup closes and the user remains on the Print Preview screen.\n11. Tap the Back button again.\n12. Tap Save to Gallery.\n13. Verify that the lighting-corrected photo is saved to the gallery and the user returns to the previous screen.\n14. Repeat the Fix Lighting flow until the Save as new photo? popup is displayed.\n15. Tap Don't Save.\n16. Verify that the lighting-corrected photo is not saved to the gallery and the user returns to the previous screen.\n17. Generate another lighting-corrected photo and tap Apply.\n18. Send the print command while the printer is connected.\n19. Verify that the printed output matches the photo displayed in Print Preview.",
+    "type": "Positive",
+    "expected": "Apply redirects to Print Preview with the lighting-corrected photo.\nBack displays the Save as new photo? popup with Save to Gallery and Don't Save options.\nCross closes the popup and keeps the user on Print Preview.\nSave to Gallery saves the lighting-corrected photo and returns to the previous screen.\nDon't Save does not save the lighting-corrected photo and returns to the previous screen.\nPrinted output matches the lighting-corrected image displayed in Print Preview."
+  },
+  {
+    "excel_id": "AI Tools 93",
+    "module": "AI Tools >Upscale Photo – Photo Gallery and Photo Selection",
+    "description": "Verify navigation to Upscale Photo, photo selection, Generate button, and back navigation.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Photo Enhancements.\n11. Tap Upscale Photo.\n12. Verify the Gallery Listing screen is displayed.\n13. Select any available photo.\n14. Verify the selected photo screen is displayed with the Generate button.\n15. Tap the Back button.\n16. Verify that the previous screen is displayed.",
+    "type": "Positive",
+    "expected": "Upscale Photo opens the Gallery Listing screen.\nUser can select a photo.\nSelected photo screen displays the Generate button.\nBack navigation returns to the previous screen."
+  },
+  {
+    "excel_id": "AI Tools 94",
+    "module": "AI Tools >Upscale Photo – Photo Generation, Denoising, Size Increase, No Internet and API Failure",
+    "description": "Verify that the selected photo is denoised and increased in image size after generation, including No Internet and API failure scenarios.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Upscale Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Verify that the Generating Loader is displayed.\n5. Wait for the generation process to complete.\n6. Verify that the Upscale Photo result screen is displayed.\n7. Verify that the generated image has reduced visible noise compared to the original image.\n8. Verify that the generated image has an increased image size or resolution compared to the original image.\n9. Tap the Show Original toggle.\n10. Verify that the original photo is displayed.\n11. Tap the Show Original toggle again.\n12. Verify that the upscaled and denoised photo is displayed.\n13. Repeat the flow with the device internet connection disabled.\n14. Tap Generate.\n15. Verify that the No Internet popup is displayed with an OK button.\n16. Tap OK.\n17. Enable the internet connection.\n18. Repeat the generation flow and simulate an API generation failure.\n19. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”\n20. Tap Try Again.\n21. Verify that the Generating Loader is displayed and generation is attempted again.",
+    "type": "Positive",
+    "expected": "Generate starts the Upscale Photo generation process and displays the Generating Loader.\nThe generated image is denoised and has an increased image size/resolution compared to the original.\nShow Original displays the original image for comparison.\nToggling Show Original again displays the upscaled and denoised image.\nWhen there is no internet connection, the No Internet popup with an OK button is displayed.\nWhen the API generation fails, the Generation Failed screen is displayed with the specified error message.\nTapping Try Again starts the generation process again."
+  },
+  {
+    "excel_id": "AI Tools 95",
+    "module": "AI Tools >Upscale Photo> Saved Unsaved Changes Handling",
+    "description": "Verify applying the upscaled photo and handling unsaved changes through Cancel.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Upscale Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the upscaled and denoised photo to be displayed.\n5. Tap Apply.\n6. Verify that the Print Preview screen is displayed with the upscaled and denoised photo.\n7. Return to the Upscale Photo result screen.\n8. Tap Cancel.\n9. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n10. Tap Stay.\n11. Verify that the popup closes and the user remains on the Upscale Photo result screen.\n12. Tap Cancel again.\n13. Tap Exit without Saving.\n14. Verify that the user is redirected to the AI Tools selection screen.",
+    "type": "Positive",
+    "expected": "Apply redirects the user to Print Preview with the upscaled and denoised photo.\nCancel displays the Unsaved Changes popup.\nStay closes the popup and keeps the user on the Upscale Photo result screen.\nExit without Saving redirects the user to the AI Tools selection screen."
+  },
+  {
+    "excel_id": "AI Tools 96",
+    "module": "AI Tools >Upscale Photo – Print Preview",
+    "description": "Verify Save to Gallery, Don't Save, popup dismissal, and printed output after applying the upscaled photo.",
+    "steps": "1. Launch the application and navigate to AI Tools > Photo Enhancements > Upscale Photo.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Generate.\n4. Wait for the upscaled and denoised photo to be displayed.\n5. Tap Apply.\n6. Verify that the Print Preview screen is displayed with the upscaled and denoised photo.\n7. Tap the Back button.\n8. Verify that the Save as new photo? popup is displayed with Save to Gallery and Don't Save options.\n9. Tap the Cross icon on the popup.\n10. Verify that the popup closes and the user remains on the Print Preview screen.\n11. Tap the Back button again.\n12. Tap Save to Gallery.\n13. Verify that the upscaled photo is saved to the gallery and the user returns to the previous screen.\n14. Repeat the Upscale Photo flow until the Save as new photo? popup is displayed.\n15. Tap Don't Save.\n16. Verify that the upscaled photo is not saved to the gallery and the user returns to the previous screen.\n17. Generate another upscaled photo and tap Apply.\n18. Send the print command while the printer is connected.\n19. Verify that the printed output matches the photo displayed in Print Preview.",
+    "type": "Positive",
+    "expected": "Apply redirects to Print Preview with the upscaled and denoised photo.\nBack displays the Save as new photo? popup with Save to Gallery and Don't Save options.\nCross closes the popup and keeps the user on Print Preview.\nSave to Gallery saves the upscaled photo and returns to the previous screen.\nDon't Save does not save the upscaled photo and returns to the previous screen.\nPrinted output matches the upscaled image displayed in Print Preview."
+  },
+  {
+    "excel_id": "AI Tools 96",
+    "module": "AI Tools >Generate Object – Gallery Selection",
+    "description": "Verify navigation to Generate Object, folder selection, sorting, scrolling, photo selection, and Use This Image flow.",
+    "steps": "1. Install and launch the application.\n2. Verify the Splash Screen displays the HP logo (hp sprocket) with “sprocket” text.\n3. Wait for the Splash Screen to complete.\n4. Swipe through the onboarding screens.\n5. Tap Get Started.\n6. Tap Sign Up Later.\n7. Wait until the Home screen is displayed.\n8. If the notification permission popup appears, tap Allow.\n9. Navigate to AI Tools.\n10. Tap Generate Object.\n11. Verify the Gallery Listing screen is displayed.\n12. Tap the Folder option and select any available folder.\n13. Verify that the photo list is updated according to the selected folder.\n14. Tap the Sort option and select Newest.\n15. Verify that the photos are sorted from newest to oldest.\n16. Tap the Sort option and select Oldest.\n17. Verify that the photos are sorted from oldest to newest.\n18. Scroll the gallery using the image scroller.\n19. Select any available photo.\n20. Verify that the selected photo screen displays the Use This Image option.\n21. Tap Use This Image.",
+    "type": "Positive",
+    "expected": "Generate Object opens the Gallery Listing screen.\nSelecting a folder updates the photo list.\nNewest and Oldest options sort the photos accordingly.\nGallery images can be scrolled using the scroller.\nSelecting a photo displays Use This Image.\nTapping Use This Image opens the Generate Object editing screen."
+  },
+  {
+    "excel_id": "AI Tools 97",
+    "module": "AI Tools >Generate Object – Selection, Prompt Input and Generate Object Functionality",
+    "description": "Verify that the user can select an area, enter a prompt, and generate an object in the selected area.",
+    "steps": "1. Launch the application and navigate to AI Tools > Generate Object.\n2. Select any photo from the Gallery Listing screen.\n3. Tap Use This Image.\n4. Verify that the Generate Object editing screen is displayed.\n5. Verify that the Generate button is disabled.\n6. Tap or paint a specific area of the image where the object should be generated.\n7. Verify that the selected area is displayed with a 50% opacity #B654F5 overlay.\n8. Verify that the Generate button remains disabled until a prompt is entered.\n9. Tap the description text box.\n10. Enter a valid object generation prompt, such as “Add a flower vase”.\n11. Verify that the native keyboard is displayed and the image preview adjusts to keep the text box visible.\n12. Verify that the Generate button becomes enabled after both the area and prompt are provided.\n13. Tap Generate.\n14. Verify that the Generating Loader is displayed.\n15. Wait for the generation to complete.\n16. Verify that the generated object is displayed within the selected area according to the entered prompt.\n17. Verify that the unselected areas of the original image remain unchanged.",
+    "type": "Positive",
+    "expected": "Generate remains disabled until both an area is painted/selected and a prompt is entered.\nThe selected area is displayed using the specified 50% opacity #B654F5 overlay.\nPrompt input opens the native keyboard and adjusts the image preview.\nGenerate starts the generation process and displays the Generating Loader.\nThe generated object is created within the selected area according to the entered prompt.\nUnselected areas remain unchanged."
+  },
+  {
+    "excel_id": "AI Tools 98",
+    "module": "AI Tools >Generate Object – Selection and Generation Handling",
+    "description": "Verify cumulative area selection, brush size behavior, No Internet handling, API failure and retry.",
+    "steps": "1. Launch the application and navigate to AI Tools > Generate Object.\n2. Select any photo and tap Use This Image.\n3. Tap or paint one area of the image.\n4. Paint an additional area of the image.\n5. Verify that the second selection is added to the existing selection.\n6. Tap the Brush Size button.\n7. Verify that 8px, 16px, and 24px brush size options are displayed.\n8. Select any brush size.\n9. Verify that the selected brush size is applied and the brush size menu remains open.\n10. Tap outside the brush size menu.\n11. Verify that the menu closes without activating another control or drawing on the image.\n12. Enter a valid prompt in the description text box.\n13. Tap Generate.\n14. Verify that the Generating Loader is displayed.\n15. Repeat the generation flow with the device internet connection disabled.\n16. Tap Generate.\n17. Verify that the No Internet popup is displayed with an OK button.\n18. Tap OK.\n19. Enable the internet connection.\n20. Repeat the generation flow and simulate an API generation failure.\n21. Verify that the Generation Failed screen is displayed with the message “Something went wrong. Please try again.”\n22. Tap Try Again.\n23. Verify that generation starts again and the Generating Loader is displayed.",
+    "type": "Positive",
+    "expected": "Multiple taps/brush strokes are cumulative.\nBrush sizes 8px, 16px, and 24px are available.\nSelecting a brush size applies it while keeping the menu open.\nTapping outside the menu closes it without performing another action.\nGenerate displays the Generating Loader.\nNo Internet displays the No Internet popup with OK.\nAPI failure displays the Generation Failed screen with the specified message.\nTry Again starts generation again."
+  },
+  {
+    "excel_id": "AI Tools 99",
+    "module": "AI Tools >Generate Object – Generated Results",
+    "description": "Verify generated result options, result switching, Generate New and Cancel behavior.",
+    "steps": "1. Launch the application and navigate to AI Tools > Generate Object.\n2. Select any photo and tap Use This Image.\n3. Paint an area where the object should be generated.\n4. Enter a valid object generation prompt.\n5. Tap Generate.\n6. Wait for the generation to complete.\n7. Verify that 2 generated image results are displayed.\n8. Verify that Option 1 is selected by default.\n9. Tap the second result thumbnail.\n10. Verify that the selected result is displayed as the main preview.\n11. Tap Generate New.\n12. Verify that the Generating Loader is displayed.\n13. Wait for generation to complete.\n14. Verify that 2 new generated image options are displayed.\n15. Tap Cancel.\n16. Verify that the Unsaved Changes popup is displayed with Stay and Exit without Saving options.\n17. Tap Stay.\n18. Verify that the popup closes and the user remains on the result screen.\n19. Tap Cancel again.\n20. Tap Exit without Saving.\n21. Verify that the user is redirected to the AI Tools selection screen.",
+    "type": "Positive",
+    "expected": "Two generated image results are displayed.\nOption 1 is selected by default.\nTapping a thumbnail switches the main preview to that result.\nGenerate New displays the Generating Loader and produces two new options.\nCancel displays the Unsaved Changes popup.\nStay keeps the user on the result screen.\nExit without Saving redirects to the AI Tools selection screen."
+  },
+  {
+    "excel_id": "AI Tools 100",
+    "module": "AI Tools >Generate Object – Print Preview Save, Discard and Print Result",
+    "description": "Verify Print Preview, Save to Gallery, Do Not Save, popup dismissal, and print output.",
+    "steps": "1. Launch the application and navigate to AI Tools > Generate Object.\n2. Select any photo and tap Use This Image.\n3. Paint an area where the object should be generated.\n4. Enter a valid object generation prompt.\n5. Tap Generate.\n6. Wait for the generated results.\n7. Select any generated result and tap Apply.\n8. Verify that the Print Preview screen is displayed with the generated image.\n9. Tap the Back arrow.\n10. Verify that the Save as new photo? popup is displayed with Save to Gallery and Do Not Save options.\n11. Tap the Cross icon.\n12. Verify that the popup closes and the user remains on the Print Preview screen.\n13. Tap the Back arrow again.\n14. Tap Save to Gallery.\n15. Verify that the generated image is saved to the gallery and the user returns to the previous screen.\n16. Repeat the Generate Object flow until the Save as new photo? popup is displayed.\n17. Tap Do Not Save.\n18. Verify that the generated image is not saved to the gallery and the user returns to the previous screen.\n19. Generate another object and tap Apply.\n20. Ensure the printer is connected.\n21. Send the print command.\n22. Verify that the printed output matches the generated image displayed in Print Preview.",
+    "type": "Positive",
+    "expected": "Apply redirects to Print Preview with the generated image.\nBack displays Save as new photo? with Save to Gallery and Do Not Save options.\nCross closes the popup and keeps the user on Print Preview.\nSave to Gallery saves the generated image and returns to the previous screen.\nDo Not Save does not save the image and returns to the previous screen.\nThe printed output matches the generated image displayed in Print Preview."
+  }
+]

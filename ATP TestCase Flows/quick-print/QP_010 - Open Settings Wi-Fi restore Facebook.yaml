@@ -4,7 +4,7 @@
 # See: https://docs.maestro.dev/reference/commands-available/extendedwaituntil
 # See: https://docs.maestro.dev/reference/commands-available/back
 # See: https://docs.maestro.dev/reference/commands-available/launchapp
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "QP_010 - Open Settings Wi-Fi restore Facebook"
 tags:
   - quick-print

@@ -1,6 +1,6 @@
 # One tap on the Tag FAB (lime chip above More/Create/Printer). Center is ~89%,82%.
 # See: https://docs.maestro.dev/reference/commands-available/tapon
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     point: "89%,82%"

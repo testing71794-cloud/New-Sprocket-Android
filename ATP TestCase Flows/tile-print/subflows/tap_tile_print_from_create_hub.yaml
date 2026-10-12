@@ -1,5 +1,5 @@
 # Gallery home (Create hub): tap Tile Print — toast is verified by extendedWaitUntil only (auto-dismisses fast).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - tapOn:
     text: ".*(?i)Tile Print.*"

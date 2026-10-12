@@ -1,5 +1,5 @@
 # Close Hamburger menu and return to Create hub.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

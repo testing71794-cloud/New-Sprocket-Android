@@ -1,7 +1,7 @@
 # Shared Excel-generated setup for TilePrint ATP module
 # Tile Print requires a tiles-compatible printer (not Sprocket 3x4 / Studio / Studio Plus).
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-- runFlow: reach_create_hub.yaml
+- runFlow: ensure_tile_print_gallery.yaml
 - runFlow: ../../common/subflows/require_tiles_supported_printer.yaml
 - runFlow: open_tile_print_gallery.yaml

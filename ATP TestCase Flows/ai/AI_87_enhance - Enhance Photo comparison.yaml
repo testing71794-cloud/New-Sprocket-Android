@@ -1,0 +1,36 @@
+# Excel: AI Tools 87
+# Module: AI Tools > Enhance Photo> Enhancement and Show Original Comparison
+# Description: Verify that the selected photo is enhanced automatically and can be compared with the original photo.
+# Steps:
+# 1. Launch the application and navigate to AI Tools > Photo Enhancements > Enhance Photo.
+# 2. Select any photo from the Gallery Listing screen.
+# 3. Tap Generate.
+# 4. Wait for the enhancement process to complete.
+# 5. Verify that the Enhance Photo result screen is displayed.
+# 6. Verify that the photo is automatically enhanced compared to the original.
+# 7. Tap the Show Original toggle.
+# 8. Verify that the original photo is displayed.
+# 9. Tap the Show Original toggle again.
+# 10. Verify that the enhanced photo is displayed.
+# Type: Positive
+# Expected:
+# Generate starts the photo enhancement process.
+# After generation completes, the Enhance Photo result screen is displayed.
+# The photo is automatically enhanced compared with the original.
+# Show Original displays the original photo for comparison.
+# Toggling Show Original again displays the enhanced photo.
+appId: com.caglobal.hp.sprocket
+name: "AI_87_enhance - Enhance Photo comparison"
+tags:
+  - ai
+  - atp-excel
+  - provided-ai
+  - enhance
+  - visual
+---
+- runFlow:
+    file: subflows/enhancement_prepare_reference.yaml
+    env:
+      TOOL_NAME: "Enhance Photo" 
+- runFlow: subflows/enhancement_generate_result.yaml
+- runFlow: subflows/enhancement_toggle_show_original.yaml

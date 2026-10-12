@@ -2,7 +2,7 @@
 # Excel: Hamburger Menu  07 | Module: Navigation
 # Verify App Settings Access
 # Expected: User navigates to App Settings screen successfully.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SE_07 - Verify App Settings Access"
 tags:
   - settings

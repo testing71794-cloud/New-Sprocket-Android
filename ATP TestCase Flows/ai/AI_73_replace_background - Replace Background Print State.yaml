@@ -1,0 +1,14 @@
+# Supplied JSON row: AI Tools 73 | Replace Background
+# Verify Print when printer connected
+appId: com.caglobal.hp.sprocket
+name: "AI_73_replace_background - Replace Background Print State"
+tags:
+  - ai
+  - atp-supplied
+  - network
+  - printer-manual
+---
+- runFlow: subflows/background_apply_preset_to_preview.yaml
+- runFlow: ../quick-print/subflows/ensure_printer_on_print_preview.yaml
+- assertVisible: ".*(?i)^Print$"
+- assertNotVisible: ".*(?i)^Add Printer$"

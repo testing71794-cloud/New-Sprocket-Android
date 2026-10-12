@@ -1,7 +1,7 @@
 # Log In with Email form. Skips option navigation when that form is already open.
 # A filled field hides the "Email" label, so reopen the form before the same asserts.
 # https://docs.maestro.dev/maestro-flows/flow-control-and-logic/conditions
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
 - runFlow:
     when:

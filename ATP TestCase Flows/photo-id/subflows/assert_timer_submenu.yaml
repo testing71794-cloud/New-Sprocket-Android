@@ -1,0 +1,13 @@
+appId: com.caglobal.hp.sprocket
+---
+# Excel: Timer submenu — Vivo is icon-only; size chips may be covered by the sheet.
+- assertVisible: ".*(?i)Photo ID.*"
+- assertVisible:
+    text: ".*(?i)2x2.*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(Timer Off|^Off$).*"
+    optional: true
+- assertVisible:
+    text: ".*(?i)(3s|5s|10s).*"
+    optional: true

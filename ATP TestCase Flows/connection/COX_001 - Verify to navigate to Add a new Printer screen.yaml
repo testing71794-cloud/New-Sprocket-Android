@@ -2,7 +2,7 @@
 # Excel: PCF-001 | Module: Pre Connection Flow
 # Verify to navigate to 'Add a new Printer' screen
 # Expected: A screen should be displayed with the text 'No Printers Added' along with an 'Add New Printer' button.
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "COX_001 - Verify to navigate to Add a new Printer screen"
 tags:
   - connection

@@ -1,0 +1,20 @@
+# ATP Test Case ID: PQ_15
+# Excel: Print_Queue15
+# Verify the active queue error banner reopens the matching popup.
+appId: com.caglobal.hp.sprocket
+name: "PQ_15 - Reopen active error popup from banner"
+tags: [print-queue, atp-excel, negative, physical-printer, manual-error]
+---
+- runFlow: subflows/open_print_queue_multiple.yaml
+# Manual hardware action: trigger Out Of Paper and keep it unresolved.
+- extendedWaitUntil:
+    visible: "Out Of Paper"
+    timeout: 120000
+- tapOn:
+    point: "92%,19%"
+- assertVisible: "Out Of Paper"
+- assertVisible: ".*(?i)Resume Queue.*"
+- tapOn: "Out Of Paper"
+- assertVisible: "Out Of Paper"
+- assertVisible: "Buy Paper"
+- assertVisible: "Try Again"

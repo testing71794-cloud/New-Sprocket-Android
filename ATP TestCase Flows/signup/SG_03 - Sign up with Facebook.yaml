@@ -1,12 +1,10 @@
 # ATP Test Case ID: SG_03
 # HP Sprocket — tap Sign up with Facebook, then complete OAuth (shared login subflow).
 # See: https://docs.maestro.dev/maestro-flows/flow-control-and-logic/nested-flows
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 name: "SG_03 - Sign up with Facebook"
 ---
-- launchApp:
-    clearState: true
-- runFlow: subflows/open_signup_screen.yaml
+- runFlow: subflows/ensure_signup_screen.yaml
 - tapOn: "Sign up with Facebook"
 - waitForAnimationToEnd:
     timeout: 5000

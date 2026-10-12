@@ -1,10 +1,4 @@
-appId: com.hp.impulse.sprocket
+appId: com.caglobal.hp.sprocket
 ---
-# Excel Photobooth positive path: launch through Sign Up Later to Home, open Photobooth, allow camera.
-- runFlow: excel_launch_to_home.yaml
-- runFlow: open_photobooth.yaml
-- runFlow: allow_camera_while_using.yaml
-- extendedWaitUntil:
-    visible: "(?i)Photobooth.*"
-    timeout: 15000
-- assertVisible: "(?i)Photobooth.*"
+# Stay on Photobooth when the capture screen is already open.
+- runFlow: ensure_photobooth_capture.yaml
